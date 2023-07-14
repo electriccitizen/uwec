@@ -6,7 +6,7 @@ dependencies:
     - block_content.type.newsletter
     - field.storage.block_content.field_form_embed
 _core:
-  default_config_hash: FanzoMFJMjEbmtyGEMKI7z_cnOF9b_XyosTni3isvj0
+  default_config_hash: 9IAeCOgxcnmyZE6uqAMUpgnY-rKQ7KnPBHilaABe_Io
 id: block_content.newsletter.field_form_embed
 field_name: field_form_embed
 entity_type: block_content

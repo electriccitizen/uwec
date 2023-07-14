@@ -1,4 +1,4 @@
-uuid: f3799c27-1407-4a42-a6eb-6ce5967d4986
+uuid: f9c217e1-ae81-4f29-a63d-c3771a6c360b
 langcode: en
 status: true
 dependencies:
@@ -6,7 +6,7 @@ dependencies:
     - block_content
     - user
 _core:
-  default_config_hash: DnW9_EAqal_SSKa88PPr6Rr33pv0YdNCBpxa45h8vhY
+  default_config_hash: jNwnuQuT59hXBX-gKlA9WnzvsKtbOJl2-ih840nO5d0
 id: block_content
 label: 'Custom block library'
 module: views

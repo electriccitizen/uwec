@@ -1,4 +1,4 @@
-uuid: e3ad2f4f-6da5-4ad3-bfb8-7835422751fe
+uuid: 6f0a41cf-f275-4344-b526-d86361ef0b26
 langcode: en
 status: true
 dependencies:
@@ -12,7 +12,7 @@ dependencies:
     - system
     - toolbar
 _core:
-  default_config_hash: 1QO-cXBoen5t04KRWnIBkUgugdosUX4EknB7_pB_Cxc
+  default_config_hash: cbcQ4b94KgbEk3f0c9e2I4S11wRwc-Xk4z9fAaAbjYc
 id: authenticated
 label: 'Authenticated user'
 weight: 1

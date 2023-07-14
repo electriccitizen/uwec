@@ -8,7 +8,7 @@ dependencies:
   module:
     - address
 _core:
-  default_config_hash: lB2ZC-eFNC_GC4e4eu169KpQ5ZpLTwCfqHlbE-VZlw4
+  default_config_hash: tFBnfVORPhMhfISn_FVt_qb6uFZDYtcRRlizXPAswY0
 id: paragraph.map.field_address
 field_name: field_address
 entity_type: paragraph

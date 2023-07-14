@@ -6,7 +6,7 @@ dependencies:
     - field.storage.media.field_caption
     - media.type.image
 _core:
-  default_config_hash: QLP_z1PVVKJyXExf3mgZS0wT3RL4WX3OknycMel0kO0
+  default_config_hash: msKLfQSMxf7f1XCKKS4CFtP6YJnLAcBR-GGKtDzmvJo
 id: media.image.field_caption
 field_name: field_caption
 entity_type: media

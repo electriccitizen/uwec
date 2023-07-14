@@ -9,7 +9,7 @@ dependencies:
   module:
     - media_library
 _core:
-  default_config_hash: 5sxexrrM611Zjs5Nqa77znqWBcvbGLiPkVwlhr07O-Q
+  default_config_hash: x6tVpmCqy7pSqvmdAuPjgvMbv-ade905FjjslKsayDU
 id: paragraph.video.default
 targetEntityType: paragraph
 bundle: video

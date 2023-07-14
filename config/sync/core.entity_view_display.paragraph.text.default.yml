@@ -14,7 +14,7 @@ third_party_settings:
     enabled: false
     allow_custom: false
 _core:
-  default_config_hash: zmFa94Oll-YsZo-0UuI-xhEBh1IK-cucNDnW0Q_B1go
+  default_config_hash: FSGhRY6SD2MgA3pfaku_bywKpzJMv4Lt3cpFZ5gsCJ4
 id: paragraph.text.default
 targetEntityType: paragraph
 bundle: text

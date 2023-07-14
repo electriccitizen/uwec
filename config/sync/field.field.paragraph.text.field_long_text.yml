@@ -13,7 +13,7 @@ third_party_settings:
     allowed_formats:
       - basic_html
 _core:
-  default_config_hash: 1QqugLLpTVV5tHZMUCib8CeUOk97wnbh2AL0rVBR2YY
+  default_config_hash: xzii2cKyW1q7WrIxL9ehyh64h4KNnGE7PlnvyDtWqnY
 id: paragraph.text.field_long_text
 field_name: field_long_text
 entity_type: paragraph

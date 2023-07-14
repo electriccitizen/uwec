@@ -5,7 +5,7 @@ dependencies:
   module:
     - media
 _core:
-  default_config_hash: SFM-7iRfyIvHgYBzdW1RVQTGGd7kJKezplamWgvGqVI
+  default_config_hash: oYYAvmCkU5bkz3wrXD4dFxCK2TEOY6kyYldmf3BRi78
 id: media.medium_embed
 label: 'Medium Embed'
 targetEntityType: media

@@ -6,8 +6,8 @@ dependencies:
     - field.storage.node.field_list_widget
     - node.type.news
     - taxonomy.vocabulary.list_widget
-  content:
-    - 'taxonomy_term:list_widget:04f0d664-1365-4bb4-868b-af182e693f12'
+_core:
+  default_config_hash: t9CyyyBF_QFlzGiz6dSV_6pHsVf_DXDwcTdVj576x58
 id: node.news.field_list_widget
 field_name: field_list_widget
 entity_type: node

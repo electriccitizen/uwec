@@ -5,7 +5,7 @@ dependencies:
   module:
     - focal_point
 _core:
-  default_config_hash: JeJmueeaKA429uMxFnbKlniSQwQCj2pWfUHOm2h2wJo
+  default_config_hash: G37-nODwKUifoz5G0pMDQMEf0Vm9uQJdARQWqOe5pow
 name: banner_middesk
 label: 'Banner MidDesk'
 effects:

@@ -6,8 +6,8 @@ dependencies:
     - field.storage.node.field_list_widget
     - node.type.bios
     - taxonomy.vocabulary.list_widget
-  content:
-    - 'taxonomy_term:list_widget:ad7996ed-197a-4f64-a858-04b4f4b73261'
+_core:
+  default_config_hash: PvmIBxWPR6A67dpy5lMdi5pyx_HFjEfC7bJOzVdKoBE
 id: node.bios.field_list_widget
 field_name: field_list_widget
 entity_type: node

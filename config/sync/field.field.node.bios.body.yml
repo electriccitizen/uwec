@@ -13,7 +13,7 @@ third_party_settings:
     allowed_formats:
       - basic_html
 _core:
-  default_config_hash: ldbS166HAOcyxQxVK-JURxvfw5YOpoxlhz9WCrHEI9M
+  default_config_hash: eqfANpBRbL_5ekFt6myjX-vEAeiQnTMfphre_laD-0g
 id: node.bios.body
 field_name: body
 entity_type: node

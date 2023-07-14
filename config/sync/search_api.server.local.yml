@@ -5,7 +5,7 @@ dependencies:
   module:
     - search_api_db
 _core:
-  default_config_hash: RGsVef3VSU1CeuY3yvBTsaNvqhQ9kjmlN8JVHqI1O7s
+  default_config_hash: mBL4JJ5ROVxAGr7q8qCLwKp4t4IK_6GxaO9HzSFPFGM
 id: local
 name: Local
 description: ''

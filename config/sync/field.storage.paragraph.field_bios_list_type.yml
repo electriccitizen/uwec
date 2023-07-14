@@ -5,6 +5,8 @@ dependencies:
   module:
     - options
     - paragraphs
+_core:
+  default_config_hash: 5PORcI1VCZ2znGYSyCtGyRrL-_iU_6B7DtuYfZ3HAz4
 id: paragraph.field_bios_list_type
 field_name: field_bios_list_type
 entity_type: paragraph

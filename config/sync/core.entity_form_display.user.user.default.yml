@@ -29,7 +29,7 @@ third_party_settings:
         description: ''
         required_fields: true
 _core:
-  default_config_hash: vDisusue_BnFtr1z-xhaC6_R5S5mdcGCJ4PK3TRbaYw
+  default_config_hash: xCX4xp9cOAtKduKXGmA9GvmgiLBHQMqIqcKzbNNbbgg
 id: user.user.default
 targetEntityType: user
 bundle: user

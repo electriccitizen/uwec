@@ -6,7 +6,7 @@ dependencies:
     - geolocation
     - node
 _core:
-  default_config_hash: iETPgYeba3S_i6P37tnVjkT8-Wb2-BDt0PZZ-yENFDw
+  default_config_hash: TyWRsYFIdqAxMFch3OpK-miAlxpNH7sPzWjoXv3KjsA
 id: node.field_event_location
 field_name: field_event_location
 entity_type: node

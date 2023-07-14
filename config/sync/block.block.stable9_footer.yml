@@ -9,7 +9,7 @@ dependencies:
   theme:
     - stable9
 _core:
-  default_config_hash: 2VA69XayHZewRlk5D2y0nLUtkrvITcyLRTCOsCDiJUA
+  default_config_hash: zvOG_XPiqIK5yKaNTccuq49x-aTAFz6-99EAYk5W7LY
 id: stable9_footer
 theme: stable9
 region: sidebar_first
@@ -23,11 +23,11 @@ settings:
   provider: menu_block
   follow: false
   follow_parent: child
-  label_link: false
-  label_type: block
   level: 1
   depth: 1
   expand_all_items: false
   parent: 'footer:'
   suggestion: footer
+  label_type: block
+  label_link: false
 visibility: {  }

@@ -13,6 +13,8 @@ third_party_settings:
   layout_builder:
     enabled: false
     allow_custom: false
+_core:
+  default_config_hash: 2nmNgSk84Cn8ghgLwPpc7QxMmfc6TVg-B5sZIBfB9F8
 id: paragraph.layout_section.preview
 targetEntityType: paragraph
 bundle: layout_section

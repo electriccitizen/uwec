@@ -1,4 +1,4 @@
-uuid: 9196566c-cf55-4367-bdc8-be7e3a1c8019
+uuid: d6c7baf9-fbfa-4ed2-a6b9-5d495017e2e9
 langcode: en
 status: true
 dependencies:
@@ -6,7 +6,7 @@ dependencies:
     module:
       - webform
 _core:
-  default_config_hash: Idpyz3caxDE0jOFCRfgCo1cKgSlCG1-a__luzqzOZ4Q
+  default_config_hash: 8eJIRVS_Cj_TZ40t9dTZqWU02DSkYaU9bzjLaDeTIDc
 id: time_zones
 label: 'Time zones'
 category: 'Date and time'

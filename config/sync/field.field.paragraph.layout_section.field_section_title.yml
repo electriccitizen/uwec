@@ -5,6 +5,8 @@ dependencies:
   config:
     - field.storage.paragraph.field_section_title
     - paragraphs.paragraphs_type.layout_section
+_core:
+  default_config_hash: G4ghqv6ax5Of29HTR-8WKV8p8lDORwfr3L1klcRnx-c
 id: paragraph.layout_section.field_section_title
 field_name: field_section_title
 entity_type: paragraph

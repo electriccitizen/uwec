@@ -3,7 +3,7 @@ langcode: en
 status: 1
 dependencies: {  }
 _core:
-  default_config_hash: vUlxZV0rl_v5rIzV6vlMn4QRwYT8rjc0GvSoo3FUZyc
+  default_config_hash: bnrtrLO0SKlfUi7LX-p2M5NAmdyoBUvzxa6u6UnUf5c
 id: laptop
 label: Laptop
 weight: -10

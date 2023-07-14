@@ -1,11 +1,12 @@
-uuid: 251064ae-8171-43bc-b9f8-80da27eb0297
+uuid: aa2d8344-4b3c-41ad-88f8-08998296bba0
 langcode: en
 status: true
 dependencies:
   module:
+    - smart_date
     - user
 _core:
-  default_config_hash: cZDKz_L6bkPk2ifWBDIAE7qplLkx1FHUubnFvi_K5Bk
+  default_config_hash: HNmIFqr-wSFM084zlEJyNxHMg_g5vfPhU5Z4fMf2e_M
 id: who_s_new
 label: "Who's new"
 module: user

@@ -6,7 +6,7 @@ dependencies:
     - block_content.type.newsletter
     - field.storage.block_content.field_modal_trigger
 _core:
-  default_config_hash: a5_dbmOZWfD4-o7CFNnibN0Tdlu-oRJlH0Flh40Utyw
+  default_config_hash: XcRXIUINXkpp0nJykq4leeBMshwuiSG-t0xCPW6oiro
 id: block_content.newsletter.field_modal_trigger
 field_name: field_modal_trigger
 entity_type: block_content

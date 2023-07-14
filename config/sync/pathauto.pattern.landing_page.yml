@@ -5,7 +5,7 @@ dependencies:
   module:
     - node
 _core:
-  default_config_hash: e4qJV1gwjaPVw4YsZJpLLBHu-k9VvIq0yH3oamB2a5s
+  default_config_hash: w6RIq6zcUwGpB5h4eRBIK3DpiNNR6TamrqEHw1FTlmw
 id: landing_page
 label: 'Landing Page'
 type: 'canonical_entities:node'

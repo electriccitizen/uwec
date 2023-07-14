@@ -5,6 +5,8 @@ dependencies:
   module:
     - paragraphs
     - taxonomy
+_core:
+  default_config_hash: dDc8AIzuVho6WvhlTsIC__V6Koncmi6Mq2G3edTZfcI
 id: paragraph.field_content_type
 field_name: field_content_type
 entity_type: paragraph

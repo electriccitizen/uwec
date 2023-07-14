@@ -4,6 +4,8 @@ status: true
 dependencies:
   module:
     - focal_point
+_core:
+  default_config_hash: ONnmufgoyEiyLIMFlrX5HMZFgomqOKuKXJCw5NDKgGw
 name: banner_desk_non_webp
 label: 'Banner Desk Non-WebP'
 effects:

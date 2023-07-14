@@ -1,4 +1,4 @@
-uuid: 3189a54c-c4ff-4a9b-9484-db0dfd966dcd
+uuid: ea361ef3-b927-44fc-85d2-ca50eb1b833e
 langcode: en
 status: true
 dependencies:
@@ -7,7 +7,7 @@ dependencies:
   module:
     - user
 _core:
-  default_config_hash: Drz2h-hJhQcaCZM1L--vY_tGjFVl0GnybI1LVSXjQLU
+  default_config_hash: I9hOXyXyTF_YlMJUoZeEBgz-jh9JGMzpU940TJOiQrQ
 id: user_remove_role_action.editor
 label: 'Remove the Editor role from the selected users'
 type: user

@@ -1,11 +1,12 @@
-uuid: f5c8588a-6be6-47e3-8202-ad9fb7db8cd9
+uuid: f708fb3e-8d61-4616-a27b-a42cf2d14978
 langcode: en
 status: true
 dependencies:
   module:
+    - smart_date
     - user
 _core:
-  default_config_hash: PrTbZ9KWGAlX7tCX05491yP4ryGKHu_QlEmEFUaWWpw
+  default_config_hash: CVWvXy3G77WxwAWIkBM_C1ZG_qOhe471BV5B7Ie4pzY
 id: who_s_online
 label: "Who's online block"
 module: user

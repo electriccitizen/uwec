@@ -1,4 +1,4 @@
-uuid: 66a6304e-d874-47e1-9842-a010550fe9eb
+uuid: b3627ef5-77d3-4600-947d-2504280e1fb6
 langcode: en
 status: open
 dependencies:
@@ -6,17 +6,17 @@ dependencies:
     module:
       - webform
 _core:
-  default_config_hash: mAlV42ksjzCVzK5_6KfVipBlG_p0ezn1gcIdAi2g-7k
-weight: 0
+  default_config_hash: rNDF9yFOhrafUGwQsAlxUamz4MfiTQzaHXg9UGN-Xm0
 open: null
 close: null
+weight: 0
 uid: null
 template: false
 archive: false
 id: contact
 title: Contact
 description: 'Basic email contact webform.'
-category: ''
+categories: {  }
 elements: |
   name:
     '#type': textfield
@@ -229,9 +229,9 @@ access:
 handlers:
   email_confirmation:
     id: email
-    handler_id: email_confirmation
     label: 'Email confirmation'
     notes: ''
+    handler_id: email_confirmation
     status: true
     conditions: {  }
     weight: 1
@@ -266,9 +266,9 @@ handlers:
       debug: false
   email_notification:
     id: email
-    handler_id: email_notification
     label: 'Email notification'
     notes: ''
+    handler_id: email_notification
     status: true
     conditions: {  }
     weight: 1

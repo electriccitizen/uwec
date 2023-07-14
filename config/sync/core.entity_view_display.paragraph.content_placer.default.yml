@@ -16,6 +16,8 @@ dependencies:
   module:
     - link
     - options
+_core:
+  default_config_hash: IcGq8X7y_GMrMkGufxzObxg8hQm4hEDDZQVswC91gqk
 id: paragraph.content_placer.default
 targetEntityType: paragraph
 bundle: content_placer

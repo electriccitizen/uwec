@@ -2,6 +2,8 @@ uuid: 0cc1ca20-7a02-4515-8e93-3ea42e96dca0
 langcode: en
 status: true
 dependencies: {  }
+_core:
+  default_config_hash: wrl3zkl7pov2WXcD9encOsBVW_9lrXjWSYtUEUMLAJI
 name: small_non_crop_non_webp
 label: 'Small Non-crop Non-WebP'
 effects:

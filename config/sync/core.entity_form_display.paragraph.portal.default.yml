@@ -13,7 +13,7 @@ dependencies:
     - media_library
     - text
 _core:
-  default_config_hash: '-y1GlASxPh2SdCRxQyGfiuL7b97Kd9RkULom--gH8vE'
+  default_config_hash: '-pqtb4PaALWlBivGFt42rsTOIcoqdy6DL83apvAqElc'
 id: paragraph.portal.default
 targetEntityType: paragraph
 bundle: portal

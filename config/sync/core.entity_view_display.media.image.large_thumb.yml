@@ -18,7 +18,7 @@ third_party_settings:
     enabled: false
     allow_custom: false
 _core:
-  default_config_hash: EdLJQuPixkpRki306F1_axHOG3kUryrto5Jo1dbD3BI
+  default_config_hash: CTgF7jvcDdoavTDRgFL9MV37zSr5ZnechlmzRiiQksY
 id: media.image.large_thumb
 targetEntityType: media
 bundle: image

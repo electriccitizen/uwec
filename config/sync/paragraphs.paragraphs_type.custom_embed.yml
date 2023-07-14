@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies: {  }
 _core:
-  default_config_hash: 4QW4roTTiNBfOU9Ccaq2Tzpo5kktrpMt5QcK2IpoRsk
+  default_config_hash: 1rDPF9OJno90-eo0MKXIDJzGePWweaR-OUd-1uvpWpo
 id: custom_embed
 label: 'Custom Embed'
 icon_uuid: null

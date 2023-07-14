@@ -39,7 +39,7 @@ third_party_settings:
         description: ''
         required_fields: true
 _core:
-  default_config_hash: Wqu6ERzhsTmdoJ_9IgNEBlqYI47Gc6CGlyDaGDIS3Cs
+  default_config_hash: bprSGdV1E5aOv5kitfOfCwMfogg4T79To1JoGjd3LPs
 id: node.bios.default
 targetEntityType: node
 bundle: bios

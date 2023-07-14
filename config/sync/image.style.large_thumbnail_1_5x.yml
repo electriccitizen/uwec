@@ -6,7 +6,7 @@ dependencies:
     - focal_point
     - image_style_quality
 _core:
-  default_config_hash: pdccs6hjccygSvdeyz-IrE9bXPvZ9LoDkKQv8-Q28b4
+  default_config_hash: oLbhEQ2OS9516KobfY2sjATHCz0RJLHQCpXubQ7R5KE
 name: large_thumbnail_1_5x
 label: 'Large Thumbnail 1.5x'
 effects:

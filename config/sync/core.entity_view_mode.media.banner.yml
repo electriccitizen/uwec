@@ -5,7 +5,7 @@ dependencies:
   module:
     - media
 _core:
-  default_config_hash: wy8JLz98ZYg8t3YdiATEIcxmm3nKWQGg3UzrXaUqNgM
+  default_config_hash: l43cQPl0HuuQkKIMZY1GgZOj9pP9ljZVNu8YpSogw2A
 id: media.banner
 label: Banner
 targetEntityType: media

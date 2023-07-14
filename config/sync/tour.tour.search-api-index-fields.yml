@@ -1,11 +1,11 @@
-uuid: b94c935a-419e-4d1c-a542-974d8c862711
+uuid: 751b2f0d-e050-435e-ba05-597c9b339d45
 langcode: en
 status: true
 dependencies:
   module:
     - search_api
 _core:
-  default_config_hash: WCEfKPoIJH2LRHN6wciEK5NN_CA3fua-85I4xDbCa7E
+  default_config_hash: M3niIs398rcFoTlPccLsg5byFQCqxC-kcDMQKt_SFnQ
 id: search-api-index-fields
 label: 'Fields indexed in this index'
 module: search_api

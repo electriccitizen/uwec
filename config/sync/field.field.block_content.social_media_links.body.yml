@@ -13,7 +13,7 @@ third_party_settings:
     allowed_formats:
       - limited_html
 _core:
-  default_config_hash: 7OVwIAuYha_9fCLaK5Urn9JT4_rw23MDmnhCVz58ap4
+  default_config_hash: xDuf3jyVrwr9EqpZHIJWmkVvs2efCJizLHpprWU-ANo
 id: block_content.social_media_links.body
 field_name: body
 entity_type: block_content

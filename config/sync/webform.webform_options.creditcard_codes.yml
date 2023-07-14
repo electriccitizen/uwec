@@ -6,7 +6,7 @@ dependencies:
     module:
       - webform
 _core:
-  default_config_hash: 6Gw_XYT2f2ZDyW7fszEpoF5KssR_BE8Cg5sEHxBQTw4
+  default_config_hash: 7G00KYqG60SCuwnUgSz2dmPbJlWtKej8YDQCXtEJE-o
 id: creditcard_codes
 label: 'Credit card codes'
 category: Payment

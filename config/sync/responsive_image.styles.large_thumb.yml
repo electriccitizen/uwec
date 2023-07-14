@@ -8,6 +8,8 @@ dependencies:
     - image.style.large_thumbnail_non_webp
   theme:
     - citizen_dart
+_core:
+  default_config_hash: KcRGvYgxe4sJtZ1M8NFRlQzcEwQdm_I7WzKn8BiEpk8
 id: large_thumb
 label: 'Large Thumb'
 image_style_mappings:

@@ -6,6 +6,8 @@ dependencies:
     - filter.format.webform_default
   module:
     - ckeditor5
+_core:
+  default_config_hash: RAhy6MV891sQjEKrRU5VJyOzs0VJFT5_KUPt_CebjoU
 format: webform_default
 editor: ckeditor5
 settings:

@@ -5,7 +5,7 @@ dependencies:
   module:
     - focal_point
 _core:
-  default_config_hash: 1fH_nGUajpzm0qXoAbfFPBTmhK2nA4SH_ksE5GCF87s
+  default_config_hash: ogW7r0FHHB0LQXxtcUhVQjU2yg8Sk5OJsKusTsGtAwY
 name: banner_big_desk
 label: 'Banner Big Desk'
 effects:

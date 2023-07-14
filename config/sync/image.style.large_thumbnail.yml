@@ -5,7 +5,7 @@ dependencies:
   module:
     - focal_point
 _core:
-  default_config_hash: TDF6hjUpXLENAk3U4EQQHM9DGTS009y098yApd9uRIA
+  default_config_hash: snP3PgNVDdddE4HeMl5cVxb3rJ8yQSgDi-jB1vlcQQo
 name: large_thumbnail
 label: 'Large Thumbnail'
 effects:

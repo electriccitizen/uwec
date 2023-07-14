@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies: {  }
 _core:
-  default_config_hash: Pv9m3SAvql_XouivGqZLPyVHG0qYUZvklwEgYowL9kg
+  default_config_hash: HL24DQ7-VB8eLxuEkHd_tuJaBJms91uH-XmL5GefcyI
 id: secondary
 label: Secondary
 description: 'Links for ancillary pages'

@@ -5,6 +5,8 @@ dependencies:
   module:
     - options
     - paragraphs
+_core:
+  default_config_hash: QVnaYbbsE1DeQK8_KcvnWmZNiKnY-jt9JgyR8_Kt1AA
 id: paragraph.field_news_list_type
 field_name: field_news_list_type
 entity_type: paragraph

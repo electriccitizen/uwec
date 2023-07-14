@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies: {  }
 _core:
-  default_config_hash: owZhYXcm1oZmMrfUYH_cWb87aogYtxRbT3iF_U_Pg4M
+  default_config_hash: P9QHoptMyEZFoQsNV2TnSp_7d_jmaKJe8GyIDh1ry7U
 id: video
 label: Video
 icon_uuid: null

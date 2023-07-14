@@ -6,6 +6,8 @@ dependencies:
     - field.field.paragraph.layout_section.field_section_title
     - field.field.paragraph.layout_section.field_style
     - paragraphs.paragraphs_type.layout_section
+_core:
+  default_config_hash: Ks-Rk520n3QHHe5w3n4ic8qUuTBP70Nr5n5crI1cLz0
 id: paragraph.layout_section.default
 targetEntityType: paragraph
 bundle: layout_section
@@ -25,6 +27,11 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  layout_paragraphs_fields:
+    weight: -200
+    settings: {  }
+    third_party_settings: {  }
+    region: content
 hidden:
   created: true
   status: true

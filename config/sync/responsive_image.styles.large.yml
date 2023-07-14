@@ -13,6 +13,8 @@ dependencies:
     - image.style.small_non_crop_2x
   theme:
     - citizen_dart
+_core:
+  default_config_hash: w9OHx6WbpuOqFWRmG302R1BxUT3rQk8fp_dFnfl1Ff8
 id: large
 label: Large
 image_style_mappings:

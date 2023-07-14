@@ -6,6 +6,8 @@ dependencies:
     - field.field.paragraph.layout_section.field_section_title
     - field.field.paragraph.layout_section.field_style
     - paragraphs.paragraphs_type.layout_section
+_core:
+  default_config_hash: 1I3k9sVnXVr89d6h6_4kS0ZqOHh7xLQHXoyxPryUDA4
 id: paragraph.layout_section.default
 targetEntityType: paragraph
 bundle: layout_section

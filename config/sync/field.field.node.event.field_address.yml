@@ -8,7 +8,7 @@ dependencies:
   module:
     - address
 _core:
-  default_config_hash: EiYpcHSt0U5FOp10uRQ5ebHSsUEGPNK-mTV1m2l4dgI
+  default_config_hash: uiF8qcfNnJ1hZ8RKqnXlmvdTctkwHIim8ccZEHpmPG0
 id: node.event.field_address
 field_name: field_address
 entity_type: node

@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies: {  }
 _core:
-  default_config_hash: PoEmMiKMBzj6SAAacRw8Unx10U2NHwwg7bJmWJAom1I
+  default_config_hash: rUa5loSWy8M_Lgd9H9WrxUCNYtbHLT6DMPTq5GX9le8
 id: map
 label: Map
 icon_uuid: null

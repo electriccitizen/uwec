@@ -15,7 +15,7 @@ third_party_settings:
     enabled: false
     allow_custom: false
 _core:
-  default_config_hash: _K6Ek4uow-qvubzRYCOgP4YwFS1wzFWZN_fVpBdYmqQ
+  default_config_hash: nYzWl5w1uUHtcEhYPaESc01u3mzQ1pJtZ0cqhYVHv0E
 id: paragraph.accordions.preview
 targetEntityType: paragraph
 bundle: accordions

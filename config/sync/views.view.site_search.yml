@@ -9,7 +9,7 @@ dependencies:
     - search_api
     - text
 _core:
-  default_config_hash: ND6HV5UrSahpiDK_bxNu7tzOfwvDHi2ChgR92Uud5wM
+  default_config_hash: YrgqL32EQH-d-YXEFsBVmr2ZqUoFkMJMcVpXwH28UV4
 id: site_search
 label: 'Site Search'
 module: views

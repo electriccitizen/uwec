@@ -4,6 +4,8 @@ status: true
 dependencies:
   module:
     - node
+_core:
+  default_config_hash: '-Dm6Nnes2YAxiMSfhosXpwLxiaKUEyHd7K7UXiRw1Dc'
 id: node.field_bio_order
 field_name: field_bio_order
 entity_type: node

@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies: {  }
 _core:
-  default_config_hash: 2i9HXBr0v22sFZCYZ2e1zR3tcdVBj1x0GopEDKTa6q0
+  default_config_hash: m8miT_yytdxsGGP0bitWLct0wHby4FJg356LK_SP_-s
 name: paragraph_preview
 label: 'Paragraph Preview'
 effects:

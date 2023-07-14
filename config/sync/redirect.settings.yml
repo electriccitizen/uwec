@@ -1,5 +1,5 @@
 _core:
-  default_config_hash: iFWEgWCsvEgueqGtD9fMIp0eVQIUsyp2nn-YVdEpXsk
+  default_config_hash: d7-tWo-RGeUSOlB6yEeNih2gls8T2Hq8IdnsUk-l-kQ
 auto_redirect: true
 default_status_code: 301
 passthrough_querystring: true

@@ -18,7 +18,7 @@ third_party_settings:
     enabled: false
     allow_custom: false
 _core:
-  default_config_hash: ama1jz9dogCjtzUjN2T03oAcjbP5A9BTzK6_7Y4wKDE
+  default_config_hash: En6MkJJU5ywJNm3RP12f0tIF_qYIr4PrxjKN2Vq44EQ
 id: paragraph.portal.preview
 targetEntityType: paragraph
 bundle: portal

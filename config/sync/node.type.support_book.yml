@@ -10,7 +10,7 @@ third_party_settings:
       - support-book
     parent: 'support-book:'
 _core:
-  default_config_hash: 4Bpuks5nL4L5UlH4s9EhlboFao5wYCCBqkgs1j_Ddbo
+  default_config_hash: ab0z3oKWBwzQYAyDp7mjDhkM33xJsUJeSoilZjo4tbM
 name: 'Support Book'
 type: support_book
 description: 'Add support pages.'

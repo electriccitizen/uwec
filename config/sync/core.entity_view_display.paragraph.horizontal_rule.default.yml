@@ -5,6 +5,8 @@ dependencies:
   config:
     - field.field.paragraph.horizontal_rule.field_width
     - paragraphs.paragraphs_type.horizontal_rule
+_core:
+  default_config_hash: _qittpngg-f0_8i-OqHwLcJesZDfxPFvDbiCuk_eY24
 id: paragraph.horizontal_rule.default
 targetEntityType: paragraph
 bundle: horizontal_rule

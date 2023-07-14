@@ -9,6 +9,8 @@ dependencies:
     - image.style.360x360_non_webp
   theme:
     - citizen_dart
+_core:
+  default_config_hash: xJN43brEzivlnhUquRSiaHhZJ7gvBPlUN4nS513fiUM
 id: square
 label: Square
 image_style_mappings:

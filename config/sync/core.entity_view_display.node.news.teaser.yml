@@ -20,7 +20,7 @@ third_party_settings:
     allow_custom: false
     sections: {  }
 _core:
-  default_config_hash: MQnfd5EPzbn3cTWrp-sUDcFvsSRDAZ-S9BZG3ZZ6ta0
+  default_config_hash: AOiaMLiIUIsl-zNQz_4WSZCHe448q1Adu9XafxFhi84
 id: node.news.teaser
 targetEntityType: node
 bundle: news

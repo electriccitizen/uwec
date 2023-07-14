@@ -13,7 +13,7 @@ third_party_settings:
     allowed_formats:
       - basic_html
 _core:
-  default_config_hash: 5mJfYO5lstJb7HYT4p-DlMFFLFthjiQ7O-XevrOQ_nk
+  default_config_hash: cMg9yYI44GVy58DAC0oUqfNg829bvAjfVHM50m6Q6io
 id: node.page.body
 field_name: body
 entity_type: node

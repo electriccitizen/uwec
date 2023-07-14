@@ -13,7 +13,7 @@ third_party_settings:
     allowed_formats:
       - limited_html
 _core:
-  default_config_hash: 6Fu4CiPAc1aDfNyNRx8a_w5DOEo3db4Sjpxyf3EIRrs
+  default_config_hash: xb3pluWpcYJhAAOKKE2cqOd60uMaGVmy2yiKBnz3qYI
 id: block_content.newsletter.field_modal_intro
 field_name: field_modal_intro
 entity_type: block_content

@@ -5,7 +5,7 @@ dependencies:
   module:
     - node
 _core:
-  default_config_hash: Uu1b8mIPHJgKjbZ5SC3xbrUtpmjFv_-8aQPCL-32sqU
+  default_config_hash: 4lpD0G1zgfhmyEH9VOlVBCJE7ZqZUT83ITZv-d6xlGc
 id: news
 label: News
 type: 'canonical_entities:node'

@@ -4,6 +4,8 @@ status: true
 dependencies:
   module:
     - focal_point
+_core:
+  default_config_hash: Qx6_292likiKE2MqausqSmUvbLwqGUCgeVtc2i1GlM8
 name: 360x360_non_webp
 label: '360x360 Non-WebP'
 effects:

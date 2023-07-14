@@ -2,12 +2,10 @@ uuid: 03d9c13e-26af-4f12-a59e-8beca13cca30
 langcode: en
 status: true
 dependencies:
-  content:
-    - 'block_content:newsletter:c8367705-851a-4bd1-a2d2-44d6c822b1d8'
-  module:
-    - block_content
   theme:
     - stable9
+_core:
+  default_config_hash: jNJN5RCcuBr7ozU7kklCVtsrfJEZ_4aybBtzNVBc49w
 id: stable9_stayintouch
 theme: stable9
 region: sidebar_first

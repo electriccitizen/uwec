@@ -5,7 +5,7 @@ dependencies:
   module:
     - media
 _core:
-  default_config_hash: LL6Fp7aBrE5Jmyvw8QKJaAvTTi98-K-ObG8NCqFnBYA
+  default_config_hash: JVFHAwmhnFp1TBr6qEd-ixAVaIOBLQ9pBVPMPbJThGQ
 id: media.views_card
 label: 'Views Card'
 targetEntityType: media

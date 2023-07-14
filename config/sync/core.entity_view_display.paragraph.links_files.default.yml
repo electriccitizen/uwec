@@ -16,7 +16,7 @@ third_party_settings:
     allow_custom: false
     sections: {  }
 _core:
-  default_config_hash: _x7MwhSiy9McqMBeBdb5scAV5L2USCCCPBdpGghIs0o
+  default_config_hash: NovTTJoOK0IHo2654R3eua-szWsy5inbeZJDCGiQvhE
 id: paragraph.links_files.default
 targetEntityType: paragraph
 bundle: links_files

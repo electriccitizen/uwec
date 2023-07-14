@@ -2,12 +2,10 @@ uuid: 98913d32-5145-460a-9eca-ff0304e5a528
 langcode: en
 status: true
 dependencies:
-  content:
-    - 'block_content:social_media_links:9c4fce3f-caea-493f-a187-40935606dbc8'
-  module:
-    - block_content
   theme:
     - stable9
+_core:
+  default_config_hash: DzifbvxqWsAVHvHNX735U3fgRdUjItIDxakhXU0IGf4
 id: stable9_connectwithus
 theme: stable9
 region: footer

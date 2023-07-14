@@ -1,5 +1,5 @@
 _core:
-  default_config_hash: jI-1NtBaULVERSkZGo_wS6vx9NR7ITv_suD8Jl44ams
+  default_config_hash: gF-2RDqJjU9JF3bQBFeYgoshjpcXBb8pGSMRkkaRFpY
 status: 1
 pattern: '[node:field_first_name] [node:field_last_name]'
 escape: false

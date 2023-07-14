@@ -496,6 +496,8 @@ third_party_settings:
       whitelisted_blocks:
         System:
           - system_breadcrumb_block
+_core:
+  default_config_hash: vHO26Rrq2AN_K8O8r9pIPSetSESxpP3QP-nkYHZ3R4o
 id: node.event.default
 targetEntityType: node
 bundle: event

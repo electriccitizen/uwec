@@ -9,7 +9,7 @@ dependencies:
     - node
     - search_api
 _core:
-  default_config_hash: t2DsQd4U0dH3PyvGMWVR6HHEBwqdBqnnnMyMMGpL9EE
+  default_config_hash: _hDXFi-nCWyXsnL0Vlhj8klx8lV12vtWU-XUriKpaDc
 id: nodes
 name: Content
 description: 'Search settings for nodes, paragraphs, terms.'
@@ -143,4 +143,5 @@ tracker_settings:
 options:
   cron_limit: 50
   index_directly: true
+  track_changes_in_references: true
 server: local

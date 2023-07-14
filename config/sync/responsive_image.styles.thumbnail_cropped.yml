@@ -9,6 +9,8 @@ dependencies:
     - image.style.thumbnail_cropped_non_webp
   theme:
     - citizen_dart
+_core:
+  default_config_hash: e3UPZXtBFr2UvP7IG03j0h4PcLyHjg3QcCs-SIhOlPA
 id: thumbnail_cropped
 label: 'Thumbnail Cropped'
 image_style_mappings:

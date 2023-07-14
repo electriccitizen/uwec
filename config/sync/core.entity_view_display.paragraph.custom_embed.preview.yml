@@ -14,7 +14,7 @@ third_party_settings:
     enabled: false
     allow_custom: false
 _core:
-  default_config_hash: CJrkxEyXI7Y5bPQogfSZfdtBivLaW9wnD96PCXaYm8A
+  default_config_hash: L2KRhCjzwiyOd_XteHN4gEdP67u3a1K8NHNgGLLhTu0
 id: paragraph.custom_embed.preview
 targetEntityType: paragraph
 bundle: custom_embed

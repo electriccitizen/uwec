@@ -6,7 +6,7 @@ dependencies:
     - focal_point
     - image_style_quality
 _core:
-  default_config_hash: THUUINW5gdNQ5wWtqoGAzrxJz4nN0PkTUZhGj3wHq0A
+  default_config_hash: fQ00sTq0HOyP_2LkVz0j_sa3bByx-ouLxsau3dAiV6A
 name: thumbnail_cropped_1_5x
 label: 'Thumbnail Cropped 1.5x'
 effects:

@@ -8,7 +8,7 @@ dependencies:
   module:
     - webform
 _core:
-  default_config_hash: qhcDCgJMBDCudC98XG5anV2QSTYHwj5dv4CQPEtR5kg
+  default_config_hash: RnBJI-u6PIfgz96fPM4JVj_HlcfPZxMXLzWSsqaZ694
 id: paragraph.form_placer.field_form
 field_name: field_form
 entity_type: paragraph

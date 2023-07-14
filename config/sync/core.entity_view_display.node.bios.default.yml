@@ -194,7 +194,7 @@ third_party_settings:
         System:
           - system_breadcrumb_block
 _core:
-  default_config_hash: 5B6kXAAmFMzavs5iFwC15pBNWviSgJjF6pIjT8MSlKI
+  default_config_hash: _zonxlWThnUJNvKrFi-_dksrFtl_EcFyU0kfxOFdvaE
 id: node.bios.default
 targetEntityType: node
 bundle: bios

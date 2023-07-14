@@ -4,6 +4,8 @@ status: true
 dependencies:
   module:
     - focal_point
+_core:
+  default_config_hash: DKJ_CE8iQe03r0w_eQ2TYPB1gpwsNiH3DOMled1qZds
 name: thumbnail_cropped_non_webp
 label: 'Thumbnail Cropped Non-WebP'
 effects:

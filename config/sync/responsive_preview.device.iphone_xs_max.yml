@@ -1,9 +1,9 @@
-uuid: b30500c3-6927-4db3-aca9-891157c830f0
+uuid: 75221346-cd0d-466e-bf93-6fc07ff55e0f
 langcode: en
 status: 1
 dependencies: {  }
 _core:
-  default_config_hash: DnYMQ_TNMnOmTPTQKuUkZgtUlCXtmgv8AAgZz_L86l0
+  default_config_hash: URh9toKq6rW74ACYc_gYT-whTYVqlTgOPwNjx3tYyzw
 id: iphone_xs_max
 label: 'iPhone XS Max'
 weight: -9

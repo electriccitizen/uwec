@@ -4,6 +4,8 @@ status: true
 dependencies:
   module:
     - focal_point
+_core:
+  default_config_hash: Oq2GZbBwVu0lTyT1zRDigyUOJ56vrLjZK0Fd9v69nGU
 name: large_thumbnail_non_webp
 label: 'Large Thumbnail Non-WebP'
 effects:

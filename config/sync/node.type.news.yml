@@ -9,7 +9,7 @@ third_party_settings:
     available_menus: {  }
     parent: ''
 _core:
-  default_config_hash: jsNhHUHRrqf4rxD0FQcQ1CFfc-1NcGFR1RV7N6FpaKo
+  default_config_hash: QfrXmpu53msy4OhG2fCRcAArasTZFhleZoL1XUKtMQg
 name: News
 type: news
 description: 'Add time sensitive news content.'

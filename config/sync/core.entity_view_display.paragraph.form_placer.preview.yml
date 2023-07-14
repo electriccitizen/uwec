@@ -15,7 +15,7 @@ third_party_settings:
     enabled: false
     allow_custom: false
 _core:
-  default_config_hash: 9bYmgTVSNxgnCAB94yjIItnUgjOnUMCSu_bGVfkEcUA
+  default_config_hash: ckcNdRNyi_KMVTDbLyZwTXXAS7hVOntDqFqq_vSImMM
 id: paragraph.form_placer.preview
 targetEntityType: paragraph
 bundle: form_placer

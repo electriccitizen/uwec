@@ -1,11 +1,11 @@
-uuid: 1ab7d35a-c60a-49df-b29d-08000583f970
+uuid: 6593b861-9cdd-462b-9d15-749471bcf5f9
 langcode: en
 status: true
 dependencies:
   module:
     - webform
 _core:
-  default_config_hash: 8vcCnSatZLN4Hhgd4lH8g_WKiWfNYtcUTdj88Fpf9TM
+  default_config_hash: vyBeoPaO2jQ3kdemMS9kMSPh9zpl_vOytCVihhyKsik
 id: webform_submission_make_sticky_action
 label: 'Star/Flag submission'
 type: webform_submission

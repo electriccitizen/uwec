@@ -12,7 +12,7 @@ third_party_settings:
       - secondary
     parent: 'footer:'
 _core:
-  default_config_hash: N5hiZ0hjQuWJ6-q3E9mEiuVCbwSlH2hWpUMHM51iAms
+  default_config_hash: gzc1fJrWzNgcsZx9v3Kg-Yb5qs3oU52GBb5_8vBC0o4
 name: 'Landing Page'
 type: landing_page
 description: 'Use for the home page and highly designed upper-level pages.'

@@ -1,5 +1,5 @@
 _core:
-  default_config_hash: SbkU5cJFkqhuCNXj5mBPfmt1QxcnJ3IEYwBRd7QhmMo
+  default_config_hash: ltYecFPW8jYMnRFNQ7sQNovmMvfwCdcGMVDjYszRUQI
 interface:
   default: php_mail
   webform: webform_php_mail

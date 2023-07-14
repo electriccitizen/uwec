@@ -2,6 +2,8 @@ uuid: 5c46efc4-d811-47ab-ab37-4fcbd63ea96b
 langcode: en
 status: true
 dependencies: {  }
+_core:
+  default_config_hash: QCne9SzZMNRibqeRc9RGyTBXFptvlxfwDExwT2rvFjk
 id: content_placer
 label: 'Content Placer'
 icon_uuid: null

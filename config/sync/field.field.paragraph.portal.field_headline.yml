@@ -6,7 +6,7 @@ dependencies:
     - field.storage.paragraph.field_headline
     - paragraphs.paragraphs_type.portal
 _core:
-  default_config_hash: _dejBvxbTYvkAt3WJzikCaWfUWoMYCW2MOLeftT7Q7s
+  default_config_hash: mua5_XoH_lotEOHeSzCT-m5Z3VUjHiYEYbGgO19CVUY
 id: paragraph.portal.field_headline
 field_name: field_headline
 entity_type: paragraph

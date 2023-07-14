@@ -6,7 +6,7 @@ dependencies:
     - address
     - paragraphs
 _core:
-  default_config_hash: S6t7MChQOH-9xpwtwebVyyZu5ATm1fXmiFtFfriRjc8
+  default_config_hash: 3-4PXXlEbfrO2oFpzvWtVAXk0SkUr7NSAZQ4O7nTgAQ
 id: paragraph.field_address
 field_name: field_address
 entity_type: paragraph

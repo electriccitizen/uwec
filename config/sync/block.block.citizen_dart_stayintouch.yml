@@ -2,12 +2,10 @@ uuid: 60df4f85-f8c2-4dd9-8b2c-c50f6238abf4
 langcode: en
 status: true
 dependencies:
-  content:
-    - 'block_content:newsletter:c8367705-851a-4bd1-a2d2-44d6c822b1d8'
-  module:
-    - block_content
   theme:
     - citizen_dart
+_core:
+  default_config_hash: Rc6a6lgqtZcLhUMyms_gcnc8kNVKgwQ77pa2yMD6Ut0
 id: citizen_dart_stayintouch
 theme: citizen_dart
 region: prefooter

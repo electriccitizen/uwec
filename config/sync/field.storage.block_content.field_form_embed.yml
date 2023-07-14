@@ -5,7 +5,7 @@ dependencies:
   module:
     - block_content
 _core:
-  default_config_hash: lf3TK5fQM38y5jQUqQdQccvSQmnDKzDJ59M-e4lXFmc
+  default_config_hash: Xc230-o_PY02GKWxion0yTIbr4qH_Vb36TyhLGLaNKo
 id: block_content.field_form_embed
 field_name: field_form_embed
 entity_type: block_content

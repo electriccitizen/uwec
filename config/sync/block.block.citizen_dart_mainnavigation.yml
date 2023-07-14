@@ -9,7 +9,7 @@ dependencies:
   theme:
     - citizen_dart
 _core:
-  default_config_hash: c9L8E5CrakDbgagLgsLDk7zFHiHbVJyvxaE3xiulsMA
+  default_config_hash: FKZkphjmOE9Nz3SOsw0ScZugEgkbyIUw4XZpbUaSGm8
 id: citizen_dart_mainnavigation
 theme: citizen_dart
 region: header

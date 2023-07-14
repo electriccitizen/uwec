@@ -13,7 +13,7 @@ third_party_settings:
     allowed_formats:
       - limited_html
 _core:
-  default_config_hash: 8tXJwP-O94ybww-5zIdww2jx23cDxz6AvniRXjBmSc0
+  default_config_hash: VLH51ie4U16uS3a0bOY7j4AMJMFnm9erkTpWHHNVagU
 id: block_content.newsletter.body
 field_name: body
 entity_type: block_content

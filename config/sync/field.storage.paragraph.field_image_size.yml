@@ -6,7 +6,7 @@ dependencies:
     - options
     - paragraphs
 _core:
-  default_config_hash: RoJHOvQm_XLduOjn4KmHAnPvb1RHUGlP2GJP9i_msu0
+  default_config_hash: 14Bc7hwql-Ce3lXVQIJOzrY5Nf3n19WLXKZqEU3JQps
 id: paragraph.field_image_size
 field_name: field_image_size
 entity_type: paragraph

@@ -6,7 +6,7 @@ dependencies:
     - media
     - user
 _core:
-  default_config_hash: GZGvl_TlL0dg-w3fpM2C5AJLSewfKdME30KnutaM7bM
+  default_config_hash: 0EcVihbCktCqIBKf7LzFweuRw0OTClApR7iLiiIU9s8
 id: user.field_user_image
 field_name: field_user_image
 entity_type: user

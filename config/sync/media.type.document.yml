@@ -8,7 +8,7 @@ third_party_settings:
   crop:
     image_field: field_media_file
 _core:
-  default_config_hash: ACiM5MBCpu1cSlMOBHCg3d5RSAE1G9k9trb3lF3r_Ko
+  default_config_hash: Mta5xJOQYYmd1n6etvi0zOU9kjVMCO-jMtneSrbe0y0
 id: document
 label: Document
 description: 'Add documents as media entities.'

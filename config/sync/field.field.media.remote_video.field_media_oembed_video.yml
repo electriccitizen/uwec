@@ -6,7 +6,7 @@ dependencies:
     - field.storage.media.field_media_oembed_video
     - media.type.remote_video
 _core:
-  default_config_hash: o4dk9Ah3vPb4zgojLhh_32N72EVKos_hk4ABY7E36TI
+  default_config_hash: iLGGv4zfvBuLnIq-4xlQ7qQWYhtpKilNGY3NBrmiC68
 id: media.remote_video.field_media_oembed_video
 field_name: field_media_oembed_video
 entity_type: media

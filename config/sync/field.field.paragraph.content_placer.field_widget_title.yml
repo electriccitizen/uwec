@@ -5,6 +5,8 @@ dependencies:
   config:
     - field.storage.paragraph.field_widget_title
     - paragraphs.paragraphs_type.content_placer
+_core:
+  default_config_hash: 88dnrhlfIytY0BXF5fRO8X5Cw91z57lKC-Jw0NskttY
 id: paragraph.content_placer.field_widget_title
 field_name: field_widget_title
 entity_type: paragraph

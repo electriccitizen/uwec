@@ -7,7 +7,7 @@ dependencies:
   theme:
     - citizen_dart
 _core:
-  default_config_hash: 9NbN6s35sLKnO8KhDJKCKxTKAnNnRo69nxpk-LzaMXM
+  default_config_hash: bqxTgJoU5Avu42QT81yjdsGDwgksd4D_HIo9CM0iJH0
 id: citizen_dart_branding
 theme: citizen_dart
 region: header

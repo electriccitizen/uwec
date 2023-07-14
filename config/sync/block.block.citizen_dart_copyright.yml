@@ -2,12 +2,10 @@ uuid: 71790bd7-ef76-4421-8430-54d8676049af
 langcode: en
 status: true
 dependencies:
-  content:
-    - 'block_content:basic:28a9b8e5-8032-4eb8-801d-5353b5d05c0a'
-  module:
-    - block_content
   theme:
     - citizen_dart
+_core:
+  default_config_hash: wp8fR1-ckNY0Y9Qe9mU-KU17K_LHV0VdTitzE6tcnDM
 id: citizen_dart_copyright
 theme: citizen_dart
 region: footer

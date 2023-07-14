@@ -6,7 +6,7 @@ dependencies:
     - entity_reference_revisions
     - paragraphs
 _core:
-  default_config_hash: DHHxa2FukIVL86n4EqtDSzf0cD9McYd00XECjgIhO1U
+  default_config_hash: T7O-Dz9PUKMoiKpBxPkAohNbHZYJfNERkrZKLZFw4_E
 id: paragraph.field_accordion_items
 field_name: field_accordion_items
 entity_type: paragraph

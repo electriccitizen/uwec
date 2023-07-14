@@ -2,10 +2,13 @@ uuid: b43fdef2-b33d-46eb-b8df-15e4546bb63d
 langcode: en
 status: false
 dependencies: {  }
+_core:
+  default_config_hash: bp8TIm-GsVqntFsW2e3sMuwktdaLpxTPrFQkyPPKVec
 id: test
 label: Test
 description: 'Config split for Test.'
 weight: 0
+stackable: false
 storage: folder
 folder: ../config/test
 module: {  }

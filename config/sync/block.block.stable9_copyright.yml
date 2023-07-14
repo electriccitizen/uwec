@@ -2,12 +2,10 @@ uuid: 73754c38-701b-4f1d-8d57-535219ac526f
 langcode: en
 status: true
 dependencies:
-  content:
-    - 'block_content:basic:28a9b8e5-8032-4eb8-801d-5353b5d05c0a'
-  module:
-    - block_content
   theme:
     - stable9
+_core:
+  default_config_hash: SP3z54_RgcB6TkKDv8Y8fkA19A6n5hQz1mD-B8bN5KE
 id: stable9_copyright
 theme: stable9
 region: footer

@@ -2,10 +2,13 @@ uuid: b43fdef2-b38d-46eb-b8df-15e4556bb63d
 langcode: en
 status: false
 dependencies: {  }
+_core:
+  default_config_hash: pKwI4FzAbT-TgwZWrGTXUavOd1We1HoMardo24UGAIw
 id: live
 label: Live
 description: 'Config split for Live.'
 weight: 0
+stackable: false
 storage: folder
 folder: ../config/live
 module: {  }

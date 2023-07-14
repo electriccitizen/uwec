@@ -7,6 +7,8 @@ dependencies:
     - paragraphs.paragraphs_type.horizontal_rule
   module:
     - options
+_core:
+  default_config_hash: bg1xH51Tne6lhYN7MOjQIVBN447OGwlfooh76IN6KeY
 id: paragraph.horizontal_rule.field_width
 field_name: field_width
 entity_type: paragraph

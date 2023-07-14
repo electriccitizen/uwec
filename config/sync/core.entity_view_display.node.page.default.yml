@@ -188,6 +188,8 @@ third_party_settings:
           - 'system_menu_block:main'
         System:
           - system_breadcrumb_block
+_core:
+  default_config_hash: 7wKGv4EOoDBkl3EuUhFUj7CjK7rMk1IcYobz34TJh4c
 id: node.page.default
 targetEntityType: node
 bundle: page

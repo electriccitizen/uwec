@@ -8,8 +8,6 @@ dependencies:
     - field.storage.node.field_image
     - node.type.event
     - taxonomy.vocabulary.event_categories
-  content:
-    - 'taxonomy_term:event_categories:da078701-2987-4f71-8f71-71c652340826'
   module:
     - node
     - paragraphs
@@ -18,7 +16,7 @@ dependencies:
     - text
     - user
 _core:
-  default_config_hash: sxgJFnsmIy-A1nmCzoUJvEAXwsG5kZjY7AevwpdN8g8
+  default_config_hash: qKfu1Co4rqxSQ9dS0zFKYexYMUmk7DbvH7ueiUGbt5I
 id: events
 label: Events
 module: views

@@ -1,11 +1,11 @@
-uuid: 15923aae-8338-44dc-9dd7-86c273a6eb5f
+uuid: 9fcb5197-ba5c-4664-9591-cff1445c63c0
 langcode: en
 status: true
 dependencies:
   module:
     - search_api
 _core:
-  default_config_hash: 88BigbthLpJtsPIl3Py-WO-9wnOM0HDQzxF96mBQmWg
+  default_config_hash: L_HycZE3khdu9-Evb7v1PK_nZo9GT9_CVUM4M7S4sug
 id: search_api_task.token
 label: Token
 targetEntityType: search_api_task

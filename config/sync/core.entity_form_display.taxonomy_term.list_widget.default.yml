@@ -4,6 +4,8 @@ status: true
 dependencies:
   config:
     - taxonomy.vocabulary.list_widget
+_core:
+  default_config_hash: VlyFC-0QzVRbK2Jf9bnjbAhXGauEHabZPnAI71dGPB0
 id: taxonomy_term.list_widget.default
 targetEntityType: taxonomy_term
 bundle: list_widget

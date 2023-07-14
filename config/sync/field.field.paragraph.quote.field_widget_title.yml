@@ -6,7 +6,7 @@ dependencies:
     - field.storage.paragraph.field_widget_title
     - paragraphs.paragraphs_type.quote
 _core:
-  default_config_hash: tpSESuTxoLUVYqSXnCy1r7Rgzpo5mXGzIFxfsLGvoFI
+  default_config_hash: _TIul063A8yEzD43-Yi3LP-N3lF_-DlwhxaFSoa2wfY
 id: paragraph.quote.field_widget_title
 field_name: field_widget_title
 entity_type: paragraph

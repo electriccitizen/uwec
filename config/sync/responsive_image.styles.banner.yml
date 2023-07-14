@@ -14,6 +14,8 @@ dependencies:
     - image.style.banner_tablet_2x
   theme:
     - citizen_dart
+_core:
+  default_config_hash: KyQe_l0tlauOOmgJ3PLBwH4-QwSREOFIzqFs9QgQOHw
 id: banner
 label: Banner
 image_style_mappings:

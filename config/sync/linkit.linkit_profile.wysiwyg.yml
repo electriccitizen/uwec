@@ -9,7 +9,7 @@ dependencies:
     - image
     - node
 _core:
-  default_config_hash: OGbleuOgYZQiCASrbT-9bJDKb7L4TH281LhY0p5CeBM
+  default_config_hash: 32k_-pi2HTTYOivHmbwY7e5VRupTufNkVBabQu9k3nY
 label: WYSIWYG
 id: wysiwyg
 description: ''

@@ -19,7 +19,7 @@ third_party_settings:
     allow_custom: false
     sections: {  }
 _core:
-  default_config_hash: QY84XCJelpMQMf9_s_YDi4EogUf7Nfk4AG3w7x1M2wI
+  default_config_hash: S_v88zwGKcRFyZ5JD8sBlgSAkPWbe6DRBrTC_wVVtBY
 id: node.page.teaser
 targetEntityType: node
 bundle: page

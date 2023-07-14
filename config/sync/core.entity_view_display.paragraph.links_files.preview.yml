@@ -16,7 +16,7 @@ third_party_settings:
     enabled: false
     allow_custom: false
 _core:
-  default_config_hash: Fa4qQO9zPrU3XmJBziYcLNjHA0RNhpuxEDn1_dx-r9E
+  default_config_hash: R70s3Usx5XfL4j_QTOmwsQ1BNQVPKuwvOdAPs9QchoE
 id: paragraph.links_files.preview
 targetEntityType: paragraph
 bundle: links_files

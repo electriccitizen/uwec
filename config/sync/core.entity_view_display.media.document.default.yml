@@ -14,7 +14,7 @@ third_party_settings:
     allow_custom: false
     sections: {  }
 _core:
-  default_config_hash: w1Sjlr6Tz-MQw-F8SABBdAMDSA5ckEEPt0oszS83Afg
+  default_config_hash: t0Y5nhadk2gilUUpKwkbfYx7NswQCKcDgWZ2311IoBA
 id: media.document.default
 targetEntityType: media
 bundle: document

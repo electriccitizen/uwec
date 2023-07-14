@@ -6,7 +6,7 @@ dependencies:
     - field.storage.paragraph.field_widget_title
     - paragraphs.paragraphs_type.links_files
 _core:
-  default_config_hash: 1WG5oaiCeGEqwFJM9UnGCtdeUVgUPXaGnuxeaRkGS7Y
+  default_config_hash: yvTG01c17kO_TXUiWOfRcQfOjsztmltCdIp1oR7gChI
 id: paragraph.links_files.field_widget_title
 field_name: field_widget_title
 entity_type: paragraph

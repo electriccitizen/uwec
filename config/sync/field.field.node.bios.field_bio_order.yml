@@ -5,6 +5,8 @@ dependencies:
   config:
     - field.storage.node.field_bio_order
     - node.type.bios
+_core:
+  default_config_hash: NRq-QZKV9Y6ViXPNxxdJCyEvsSWW1Vyl6Nhrx-zbAWE
 id: node.bios.field_bio_order
 field_name: field_bio_order
 entity_type: node

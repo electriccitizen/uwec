@@ -15,7 +15,7 @@ dependencies:
     - path
     - text
 _core:
-  default_config_hash: AiIN5NmdeLPo4TB4twM4DqmFPIh2MoiDLb-mjYmVdHE
+  default_config_hash: X7h50xzAlETewRuhMQpYO9CEDJGw7X49yt1IztXny64
 id: node.page.default
 targetEntityType: node
 bundle: page

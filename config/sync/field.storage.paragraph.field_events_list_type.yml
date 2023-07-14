@@ -5,6 +5,8 @@ dependencies:
   module:
     - options
     - paragraphs
+_core:
+  default_config_hash: u13s1QWKGwvMqBGBspYPD4vRoLs_lp2pHHwlQX7s7ZQ
 id: paragraph.field_events_list_type
 field_name: field_events_list_type
 entity_type: paragraph

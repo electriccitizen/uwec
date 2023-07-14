@@ -7,8 +7,6 @@ dependencies:
     - field.storage.node.field_image
     - node.type.news
     - taxonomy.vocabulary.news_categories
-  content:
-    - 'taxonomy_term:news_categories:46c56633-3740-4c9e-9948-b4c3ddc1fc2c'
   module:
     - node
     - paragraphs
@@ -16,7 +14,7 @@ dependencies:
     - text
     - user
 _core:
-  default_config_hash: zYw7f_aVXlqk_rfXdBz3YhiBdozM5r2f0U73-3fDuUw
+  default_config_hash: W1GJXPa413G1CGmeSx1K_NyP_cvEqAytiQN1Laghr_g
 id: news
 label: News
 module: views

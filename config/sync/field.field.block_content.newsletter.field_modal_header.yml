@@ -6,7 +6,7 @@ dependencies:
     - block_content.type.newsletter
     - field.storage.block_content.field_modal_header
 _core:
-  default_config_hash: Ts4wXE3QtqIDmcYPiPnypM69kh4-gIwwn4lSGARdjY0
+  default_config_hash: dUZubnxnEfwfS9O86AQ6_iQQdmJMLuF2W3OPJuSYJrw
 id: block_content.newsletter.field_modal_header
 field_name: field_modal_header
 entity_type: block_content

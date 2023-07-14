@@ -1,9 +1,9 @@
-uuid: e969e341-a584-42e5-b196-88c16f76235e
+uuid: 79c606d1-dcc1-4662-9c0d-fc696109fb79
 langcode: en
 status: true
 dependencies: {  }
 _core:
-  default_config_hash: QVVv3AovtlutuVzONN7BPRBiaP7Fe-GFFT4B0byC8CM
+  default_config_hash: 2_dY0B6IjfN5VZycvYW--iEp_3DOl5E9_qxV21YcUJY
 id: account
 label: 'User account menu'
 description: 'Links related to the active user account'

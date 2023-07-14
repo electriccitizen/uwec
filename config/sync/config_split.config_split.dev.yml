@@ -3,7 +3,7 @@ langcode: en
 status: false
 dependencies: {  }
 _core:
-  default_config_hash: FksCVtAXTa0H9ubW5BjqvuHM96qKzq7MWZx7koiFoJQ
+  default_config_hash: '-ejCIGszOp2VyGSQPmPd5gqHIe7dAMdyPe_6UWUbN7U'
 id: dev
 label: Dev
 description: 'Config split for Dev and Multi-Dev.'

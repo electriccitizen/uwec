@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies: {  }
 _core:
-  default_config_hash: b-7Oph_GJa05EZ2_TEKJnc9aYen5mNjQCQC4Ds2I4Ug
+  default_config_hash: OmLzZ2IjiVYTRfqfQwA13QlfFZEN_tofvrykdyYFafc
 id: number_date_short
 label: 'Number Date Short'
 date_format: n/j/y

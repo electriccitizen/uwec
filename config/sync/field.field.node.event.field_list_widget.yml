@@ -6,8 +6,8 @@ dependencies:
     - field.storage.node.field_list_widget
     - node.type.event
     - taxonomy.vocabulary.list_widget
-  content:
-    - 'taxonomy_term:list_widget:a9d72a56-184d-4a78-9508-c1b68dc8757c'
+_core:
+  default_config_hash: qECtnKUtMGuALnWQiAX5qqdGtO8namjLvhFUj2rOW9E
 id: node.event.field_list_widget
 field_name: field_list_widget
 entity_type: node

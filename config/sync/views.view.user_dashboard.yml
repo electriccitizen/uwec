@@ -6,7 +6,7 @@ dependencies:
     - node
     - user
 _core:
-  default_config_hash: xaeffqoIRDfoyGa-ZGsg8-Pl36pC3joIwgzcuWxvibw
+  default_config_hash: fzlVue-1zFwFjxl5werMdyCouHdWSAR9y9ZU3zoqKTM
 id: user_dashboard
 label: 'User Dashboard'
 module: views

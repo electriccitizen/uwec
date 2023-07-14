@@ -9,7 +9,7 @@ third_party_settings:
     available_menus: {  }
     parent: ''
 _core:
-  default_config_hash: GrCjKq5q78nezfyfRtZ-hgkXD-RG9Wbw8r0mmrm8IDQ
+  default_config_hash: 0T5I92f7Nf8gH4_DBqAH0xh_Ax9VUoSWVlexWcpwR0Y
 name: Event
 type: event
 description: 'Create an upcoming event.'

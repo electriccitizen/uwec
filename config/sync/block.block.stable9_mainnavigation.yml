@@ -9,7 +9,7 @@ dependencies:
   theme:
     - stable9
 _core:
-  default_config_hash: c9L8E5CrakDbgagLgsLDk7zFHiHbVJyvxaE3xiulsMA
+  default_config_hash: HjLX2oYSDSpui7o2l79n4h6zsaTZVohlgxmnahjgT7Y
 id: stable9_mainnavigation
 theme: stable9
 region: header

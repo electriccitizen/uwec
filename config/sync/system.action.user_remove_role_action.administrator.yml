@@ -1,4 +1,4 @@
-uuid: 672c688f-85eb-4e5e-b474-2def7d8f1117
+uuid: 793ea30a-6d68-4e11-abfe-f5ce563d5c6c
 langcode: en
 status: true
 dependencies:
@@ -7,7 +7,7 @@ dependencies:
   module:
     - user
 _core:
-  default_config_hash: jqYGCFhE491WaVwHSAWsq3IFDb57jjF2sCW85kCARaU
+  default_config_hash: 8Ye8ywKZmjenQdjni5MKmQpYfQhWi7LQYT0Z5GdJLHs
 id: user_remove_role_action.administrator
 label: 'Remove the Administrator role from the selected users'
 type: user

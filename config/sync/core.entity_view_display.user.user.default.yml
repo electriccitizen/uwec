@@ -137,7 +137,7 @@ third_party_settings:
         third_party_settings: {  }
     is_enabled: true
 _core:
-  default_config_hash: NDtgPdpr9EfNY6km7KdOaxtzoL2y4690tGK21Z90VS0
+  default_config_hash: u7ZB7qM9HNt6EYGOv78lJc1W1Qb145x4CPmU7UzaVoo
 id: user.user.default
 targetEntityType: user
 bundle: user

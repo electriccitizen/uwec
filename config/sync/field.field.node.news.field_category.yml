@@ -7,7 +7,7 @@ dependencies:
     - node.type.news
     - taxonomy.vocabulary.news_categories
 _core:
-  default_config_hash: WMRJrFp_0_SYShGR_B36g8cKQv2MXOiv24-_8pFt4xo
+  default_config_hash: FF5e7SdU8ekrsb2gQlmHK-JdlplWMugXyCHy0zd_-lU
 id: node.news.field_category
 field_name: field_category
 entity_type: node

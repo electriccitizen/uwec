@@ -1,4 +1,4 @@
-uuid: 2c7db240-25c3-4511-85ac-d8b3a53eb7b9
+uuid: 51f0c49a-35ef-41fb-a28a-dfe1e74072f0
 langcode: en
 status: true
 dependencies:
@@ -6,7 +6,7 @@ dependencies:
     module:
       - webform
 _core:
-  default_config_hash: cEtzb9cEI2RRN9Tz9-Nr7NlUYFHvb4xHelZ9mg7kMvg
+  default_config_hash: w7Dtt179upZkiSzzqLqL9jZzxdqae6y3k_eky5U2qQE
 id: province_names
 label: 'Province names'
 category: Geographic

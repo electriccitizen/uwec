@@ -2,6 +2,8 @@ uuid: 63f465f6-ce91-473e-aade-cac110881f03
 langcode: en
 status: true
 dependencies: {  }
+_core:
+  default_config_hash: YKURBrIxBNPQHmODVQZz6YaBVdoO__cC3qMT0vhbmwE
 name: 'Event Categories'
 vid: event_categories
 description: 'Categories for events.'

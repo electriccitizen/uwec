@@ -26,13 +26,12 @@ dependencies:
     - path
     - redirect
     - responsive_preview
-    - role_delegation
     - shortcut
     - system
     - taxonomy
     - webform
 _core:
-  default_config_hash: JotecaDH6FqenwPpGTB370LYSGcRJAdLfXPZkjhsM64
+  default_config_hash: 3m-nUaghYSeygzbwOLkLnlNZKdjVcUYHxICe7O_Kf9A
 id: site_manager
 label: 'Site Manager'
 weight: 5

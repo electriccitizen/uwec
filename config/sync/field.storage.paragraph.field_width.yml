@@ -5,6 +5,8 @@ dependencies:
   module:
     - options
     - paragraphs
+_core:
+  default_config_hash: ng9h0ZZ9d5JNVo-j90TaYPQUbqVf-eFxZQLjS5dFRNY
 id: paragraph.field_width
 field_name: field_width
 entity_type: paragraph

@@ -6,7 +6,7 @@ dependencies:
     - focal_point
     - image_style_quality
 _core:
-  default_config_hash: zU-ILZXh8TBi8f_f6sCUd5R2xRn-jnX2g9kpX8D5CTQ
+  default_config_hash: iz0CG4Nk3TFna-rCenZnewiHvLAQssEbCw8xhbFHOiU
 name: banner_mobile_2x
 label: 'Banner Mobile 2x'
 effects:

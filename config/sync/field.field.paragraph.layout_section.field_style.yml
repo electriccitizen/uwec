@@ -6,6 +6,8 @@ dependencies:
     - field.storage.paragraph.field_style
     - paragraphs.paragraphs_type.layout_section
     - taxonomy.vocabulary.section_styles
+_core:
+  default_config_hash: BswJA06mo38R8pdhezUrQ73mIOeAv_XrdFZXwhQDarI
 id: paragraph.layout_section.field_style
 field_name: field_style
 entity_type: paragraph

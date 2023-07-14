@@ -1,4 +1,4 @@
-uuid: 519d3350-f1f4-46b5-8bd1-4baec4c36c9d
+uuid: 8ba3eebe-fd12-4cd8-b0f7-23b221439420
 langcode: en
 status: true
 dependencies:
@@ -6,7 +6,7 @@ dependencies:
     module:
       - webform
 _core:
-  default_config_hash: I5MLHLzMAqK8nj7AlBclJi943HSLVCrS8_LjoEvmWgE
+  default_config_hash: yJwjEieV05B3YCxlZLsZ-mu8nhgKoJxEAqF0CAylyGM
 id: province_codes
 label: 'Province codes'
 category: Geographic

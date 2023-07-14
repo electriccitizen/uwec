@@ -6,7 +6,7 @@ dependencies:
     - focal_point
     - image_style_quality
 _core:
-  default_config_hash: CQ2O3kfk7_JND71FPhZmy2CWUrIO1tiYBv2I4PobIgA
+  default_config_hash: xHfAUCqFJ5raibRnw_vNr4jqUg9LmtDs1Tnmo3KkJP8
 name: banner_tablet_2x
 label: 'Banner Tablet 2x'
 effects:

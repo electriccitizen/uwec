@@ -13,7 +13,7 @@ third_party_settings:
     allowed_formats:
       - basic_html
 _core:
-  default_config_hash: ZGMTGY4TCQU5slmZudTzde9lmINIL24cGp2B4RGDGjk
+  default_config_hash: cp9CqFbrshETxZkpVUy7jCtA9udDzj7_mkwZrh_jAWU
 id: block_content.basic.body
 field_name: body
 entity_type: block_content

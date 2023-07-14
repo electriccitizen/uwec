@@ -1,11 +1,11 @@
-uuid: fec96fdc-1e05-428a-98d8-333b387c6c2f
+uuid: fd8399b6-2a5a-4582-9873-a8d434bae95e
 langcode: en
 status: true
 dependencies:
   module:
     - tour
 _core:
-  default_config_hash: 8yKf_VWv5iPxivV53jCJe_ab_APtLhOG8Q9Gs1mWb48
+  default_config_hash: 2yEcKwYGFtvcsbTeAxNieNVd4YIDhm1eJzKGxZrTMPA
 id: tour.token
 label: Token
 targetEntityType: tour

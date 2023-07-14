@@ -4,6 +4,8 @@ status: true
 dependencies:
   module:
     - focal_point
+_core:
+  default_config_hash: JXaOzyFo-ryUzhAATXUMP-b9ggPoXBSx0j0i2xhLcWo
 name: views_card_non_webp
 label: 'Views Card Non-WebP'
 effects:

@@ -5,7 +5,7 @@ dependencies:
   module:
     - taxonomy
 _core:
-  default_config_hash: oYIdx8VEoOkehk5gdxljV7C8K-QhOhFT341LUe531yM
+  default_config_hash: yeZFdjtVDaQiOMOXOxft_8NI1gU57Q9bT5Z691Ibssk
 id: taxonomy_term.gathercontent_option_ids
 field_name: gathercontent_option_ids
 entity_type: taxonomy_term

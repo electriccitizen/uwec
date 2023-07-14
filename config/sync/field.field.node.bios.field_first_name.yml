@@ -6,7 +6,7 @@ dependencies:
     - field.storage.node.field_first_name
     - node.type.bios
 _core:
-  default_config_hash: 0BgubdVGlU1WBiaCQQlmuNrNrDtDK6VDY8pLTPZq5k0
+  default_config_hash: NGcw8qzFN6rHizGmwxo3Urp9bZoWdkEke8BEMmQ1l2U
 id: node.bios.field_first_name
 field_name: field_first_name
 entity_type: node

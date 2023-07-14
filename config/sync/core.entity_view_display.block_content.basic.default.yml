@@ -14,7 +14,7 @@ third_party_settings:
     allow_custom: false
     sections: {  }
 _core:
-  default_config_hash: Gf6cnFXMWaLfDTqVaGPSjla87vrPxCbOuMA3w3sByV8
+  default_config_hash: njjkpGKeRdRkra87s3B65KFeZ0dCjfdf3F73qTgFbZI
 id: block_content.basic.default
 targetEntityType: block_content
 bundle: basic

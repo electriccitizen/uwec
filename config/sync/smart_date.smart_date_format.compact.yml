@@ -1,9 +1,9 @@
-uuid: e12a8c78-7b64-4a2b-87ad-50d13ee2741d
+uuid: 9efdf26f-831c-4d27-a436-cae6900cf6bf
 langcode: en
 status: true
 dependencies: {  }
 _core:
-  default_config_hash: pPTNvFgLGJlSGpBVnkxPViiBwLcFm1zmJgAk5_IksK8
+  default_config_hash: zuwTWZVSiyjps0uwSu_YbFuPASJQCLDyWl73atZsf_0
 id: compact
 label: Compact
 date_format: 'M j Y'

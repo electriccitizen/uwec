@@ -7,7 +7,7 @@ dependencies:
   theme:
     - citizen_dart
 _core:
-  default_config_hash: EUZo_g0tDFjOXrdXs8mYZaXx-iMDoxLctBPwnm1gky8
+  default_config_hash: xMERQgMHwy051TlzN3EDxHOmu97SHW9VgaePNStZc0w
 id: citizen_dart_messages
 theme: citizen_dart
 region: content

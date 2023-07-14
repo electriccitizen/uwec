@@ -9,7 +9,7 @@ third_party_settings:
     available_menus: {  }
     parent: ''
 _core:
-  default_config_hash: Upw3Fr3FdxLI0VGTXqHX7P-dYoBmEAhf3QLMawIwsFA
+  default_config_hash: qcJ05uZvFPYCNZXNspvCj9IMivzWhAncUfjbIUJ5mFw
 name: Bios
 type: bios
 description: 'Add bio information for a person.'

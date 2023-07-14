@@ -5,7 +5,7 @@ dependencies:
   theme:
     - stable9
 _core:
-  default_config_hash: jQHtGFoiMSMKUSxx-inTvcCSIz43A5mNdXP_WEiMqDo
+  default_config_hash: voZrhEFmunMzgutQVy3I3hJO7jWPuhO_lMVIq6N0Zn0
 id: stable9_local_tasks
 theme: stable9
 region: content

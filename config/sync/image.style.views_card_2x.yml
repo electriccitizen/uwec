@@ -6,7 +6,7 @@ dependencies:
     - focal_point
     - image_style_quality
 _core:
-  default_config_hash: vcjj8VmLYaeGSzj3gisKKtVaU37dhTPDVeGgEkjtMqo
+  default_config_hash: L7ix5Q5lupsY12Ypra9IUrpYA4_cK8jTs22gSbCGjys
 name: views_card_2x
 label: 'Views Card 2x'
 effects:

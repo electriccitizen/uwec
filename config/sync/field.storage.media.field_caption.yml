@@ -5,7 +5,7 @@ dependencies:
   module:
     - media
 _core:
-  default_config_hash: pUhs9Zzqg5uXuHdDsd8CWcX9w-0w7WS9vsQPd3DB-2k
+  default_config_hash: FF5TBYjJPKulb0gdez0xhEMTQ1O_VksnSN2-Pfcn81E
 id: media.field_caption
 field_name: field_caption
 entity_type: media

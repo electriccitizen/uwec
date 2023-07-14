@@ -1,9 +1,9 @@
-uuid: b3523a76-5673-4cbf-ae41-4e66fe56f805
+uuid: ee4e1ddc-1ac6-4b75-bbf1-2198edc83691
 langcode: en
 status: true
 dependencies: {  }
 _core:
-  default_config_hash: '-9KGILTTP6aS-frSmMWE9yLpITSRdgDUSjSuT2XP0No'
+  default_config_hash: Ql3GQFR3kDmbvSUWFSM7sS7lc48gjnAYxfgYrhEyw-I
 id: time_only
 label: 'Time Only'
 date_format: ''

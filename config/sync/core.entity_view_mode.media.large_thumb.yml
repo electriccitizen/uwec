@@ -5,7 +5,7 @@ dependencies:
   module:
     - media
 _core:
-  default_config_hash: 55biYHxD6sxtdf-FTxGALWA8Runa2u_973LK_iyCfao
+  default_config_hash: 2bsvUkEeiwztfMl5PtPG3stJCKJG4u38xILmPIa5ESU
 id: media.large_thumb
 label: 'Large Thumb'
 targetEntityType: media

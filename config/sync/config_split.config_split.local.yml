@@ -3,7 +3,7 @@ langcode: en
 status: false
 dependencies: {  }
 _core:
-  default_config_hash: GV0D-ZZVSD_CvtccKB4Cfyd2XzxQFynEuqOnGTRZlR0
+  default_config_hash: 7lwnKXUz-lpVMelNWEcpZP4Giw3DlP13Gig0XoUEKFo
 id: local
 label: Local
 description: 'Config split for Local.'

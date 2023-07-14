@@ -6,7 +6,7 @@ dependencies:
     - block_content
     - link
 _core:
-  default_config_hash: 4wCDJAEudcIGcaP0cU50n4i-hxwF1JS6KfYoDTTf5Vg
+  default_config_hash: H-grJ738dHQmRTfpHxH4lGjTkYP6eNepVgYa-kc-rkE
 id: block_content.field_platforms
 field_name: field_platforms
 entity_type: block_content

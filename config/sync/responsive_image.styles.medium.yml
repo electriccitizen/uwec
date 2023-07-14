@@ -12,6 +12,8 @@ dependencies:
     - image.style.small_non_crop_2x
   theme:
     - citizen_dart
+_core:
+  default_config_hash: kiDX4Roqq1Nz-pJm7t0YuVdj6oYktwzB13llcHbTkJ4
 id: medium
 label: Medium
 image_style_mappings:

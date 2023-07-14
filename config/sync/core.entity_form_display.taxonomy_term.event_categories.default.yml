@@ -4,6 +4,8 @@ status: true
 dependencies:
   config:
     - taxonomy.vocabulary.event_categories
+_core:
+  default_config_hash: YNuKIABwKJsUZZSzeNOIoQf9jNRK_OHCWtF-DMe026c
 id: taxonomy_term.event_categories.default
 targetEntityType: taxonomy_term
 bundle: event_categories

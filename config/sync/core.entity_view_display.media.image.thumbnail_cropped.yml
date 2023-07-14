@@ -18,7 +18,7 @@ third_party_settings:
     enabled: false
     allow_custom: false
 _core:
-  default_config_hash: FPmXvMwPqgC2tIm6jDxP-LG8Z9IZsGwi4EsQX88xSj8
+  default_config_hash: 4vaI6eaYl0JEPXh8hW-Lol24GyvE3yuxGd_yi_TCfww
 id: media.image.thumbnail_cropped
 targetEntityType: media
 bundle: image

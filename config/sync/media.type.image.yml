@@ -8,7 +8,7 @@ third_party_settings:
   crop:
     image_field: _none
 _core:
-  default_config_hash: XQyhH0XN_xjvs78HWa2nr6ifIiJ0ilelcDFqkPXs5YY
+  default_config_hash: 1vQPq5bQ2CRzTbAduJjasUijxmagknVR8yvLtZvUU9A
 id: image
 label: Image
 description: 'Add images as media entities.'

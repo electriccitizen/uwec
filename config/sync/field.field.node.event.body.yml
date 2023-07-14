@@ -13,7 +13,7 @@ third_party_settings:
     allowed_formats:
       - basic_html
 _core:
-  default_config_hash: sz89bs1-HVHF--3p5u6tuK-vOdT9e7EfMco3aEBlcO4
+  default_config_hash: 1i4kN7PUkIPA733TOINbWFEE74LQIYW7lk-cCVSZJ40
 id: node.event.body
 field_name: body
 entity_type: node

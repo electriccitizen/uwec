@@ -13,7 +13,7 @@ third_party_settings:
     allowed_formats:
       - basic_html
 _core:
-  default_config_hash: rQGm1P3cT6LawGZhYnEHM21D0xMWwFujwQ-1jgCQmCg
+  default_config_hash: sYW-8PPvSfnY_IK8u_3J03oAVm7a3-sKQbVCAL3mfls
 id: paragraph.accordion_item.field_long_text
 field_name: field_long_text
 entity_type: paragraph

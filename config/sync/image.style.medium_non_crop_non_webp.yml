@@ -2,6 +2,8 @@ uuid: b3d7fb6d-7368-4e04-a242-544248bec40c
 langcode: en
 status: true
 dependencies: {  }
+_core:
+  default_config_hash: TDCF_5SscmZRqnPKpX206thekf7on_0Y87WXKFRIGc4
 name: medium_non_crop_non_webp
 label: 'Medium Non-crop Non-WebP'
 effects:

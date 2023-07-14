@@ -12,7 +12,7 @@ third_party_settings:
       - secondary
     parent: 'main:'
 _core:
-  default_config_hash: lynFVHnuciYlMYjBCvO754nalb8sbm3rSMebNyP8sUs
+  default_config_hash: ZcLucVbqqKKHIaPK3GallHeIweUXvXS3ROB_Da1VrHs
 name: 'Basic page'
 type: page
 description: 'Use basic pages for text heavy lower-level pages that can be reached through the sidebar menu.'

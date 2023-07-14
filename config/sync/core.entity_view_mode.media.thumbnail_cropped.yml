@@ -5,7 +5,7 @@ dependencies:
   module:
     - media
 _core:
-  default_config_hash: PY0tmx7KQnc-eQlZ1vG_uVao-yipu9o2ecOP-3fvJxg
+  default_config_hash: fQOxlA6e2oZVuNPYohpgdLd8pplbqV57rjV7X0uuE1U
 id: media.thumbnail_cropped
 label: 'Thumbnail Cropped'
 targetEntityType: media

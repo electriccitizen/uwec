@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies: {  }
 _core:
-  default_config_hash: rauDlX6-FV4f4--NP_ijRRKtZo_h7AKqMiqz3YyvDrY
+  default_config_hash: KDCk3af8n58Hykp4lSVFffHpaVwu2IS1qQVh_Yp8s2o
 name: 'Section Styles'
 vid: section_styles
 description: 'Sets styles for paragraph sections.'

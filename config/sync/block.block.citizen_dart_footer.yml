@@ -9,7 +9,7 @@ dependencies:
   theme:
     - citizen_dart
 _core:
-  default_config_hash: 2VA69XayHZewRlk5D2y0nLUtkrvITcyLRTCOsCDiJUA
+  default_config_hash: MP1FZ87On3WuHukyeo7h-HyiKQom_0_yODWJ4hH4XPw
 id: citizen_dart_footer
 theme: citizen_dart
 region: prefooter
@@ -23,11 +23,11 @@ settings:
   provider: menu_block
   follow: false
   follow_parent: child
-  label_link: false
-  label_type: block
   level: 1
   depth: 1
   expand_all_items: false
   parent: 'footer:'
   suggestion: footer
+  label_type: block
+  label_link: false
 visibility: {  }

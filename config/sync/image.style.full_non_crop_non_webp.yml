@@ -2,6 +2,8 @@ uuid: 97e8e674-b352-40ed-b6ef-359cc72abc78
 langcode: en
 status: true
 dependencies: {  }
+_core:
+  default_config_hash: p68MxW02dYLL2GpQ9TbyKSfuWSqwX5tw_bZqegoZVZw
 name: full_non_crop_non_webp
 label: 'Full Non-Crop Non-WebP'
 effects:

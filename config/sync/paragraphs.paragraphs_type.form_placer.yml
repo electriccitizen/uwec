@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies: {  }
 _core:
-  default_config_hash: 2_voy_mtD8OVvf67oajzTq-5Fvjc7mz0UdeCPnkEcbQ
+  default_config_hash: EfUBE9XWWp68X9kbpLsJCtoF3kZLwNbl_oqBSm4O3y8
 id: form_placer
 label: 'Form Placer'
 icon_uuid: null

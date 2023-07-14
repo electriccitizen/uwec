@@ -1,4 +1,4 @@
-uuid: e3e61ae1-456d-4e11-9246-8acb01bc75b8
+uuid: 815cc628-05f6-4019-b9fa-39b00a5066f6
 langcode: en
 status: true
 dependencies:
@@ -6,7 +6,7 @@ dependencies:
     module:
       - webform
 _core:
-  default_config_hash: nAPnqx7j5vdj-cG7PRIqbDhautgekftorxZdxgV-5QQ
+  default_config_hash: n0w63zNh0mOZbptgOF5bmJGsman2ug5Liqsz4d3Pu6Q
 id: education
 label: Education
 category: Demographic

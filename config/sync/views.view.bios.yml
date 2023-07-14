@@ -8,10 +8,9 @@ dependencies:
     - node.type.bios
   module:
     - node
-    - taxonomy
     - user
 _core:
-  default_config_hash: 3ycpVvTNgbzBcmj1Md6ICUCn9BIpeWapPAlO7M7WDhI
+  default_config_hash: IGJxAc0UwEnl7UnxQseHIj-dFuzwMJDYNBJBGIwubjU
 id: bios
 label: Bios
 module: views

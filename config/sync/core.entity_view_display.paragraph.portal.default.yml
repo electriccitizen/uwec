@@ -12,7 +12,7 @@ dependencies:
     - link
     - text
 _core:
-  default_config_hash: OH3JQkKVHfugLxMlRg_sh7PE0PBR3EwECtGnOTN0tVg
+  default_config_hash: 8S48NHoX2ZRgOeu059l3can3aEmqAc0wU-DEOpHWeuA
 id: paragraph.portal.default
 targetEntityType: paragraph
 bundle: portal

@@ -14,7 +14,7 @@ third_party_settings:
     enabled: false
     allow_custom: false
 _core:
-  default_config_hash: xM-z9wzd3nrOF8slApYrx-2MTlQXJs2ljpLeoMxg650
+  default_config_hash: z0eiRDOId5t5w2Vt30jmM5CJScvCx7UGavL3MZ-MDbs
 id: paragraph.block_placer.preview
 targetEntityType: paragraph
 bundle: block_placer

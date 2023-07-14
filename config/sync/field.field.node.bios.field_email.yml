@@ -6,7 +6,7 @@ dependencies:
     - field.storage.node.field_email
     - node.type.bios
 _core:
-  default_config_hash: uVXmodTUny3EQOgZgGNEc3gak5xegwIsdhPWaEZs45g
+  default_config_hash: jpDi0_GR40xTA702ENOGoaflHKyKML5aSnv7ngQXu5s
 id: node.bios.field_email
 field_name: field_email
 entity_type: node

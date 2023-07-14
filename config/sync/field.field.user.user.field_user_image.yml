@@ -8,7 +8,7 @@ dependencies:
   module:
     - user
 _core:
-  default_config_hash: ccxpAzlxa46hZoFyf3hyqFvl4NnDXYncLfR-VygqSEE
+  default_config_hash: DQXWK9xIKFEpV-Uev7Y-dNrzNKjZhr4SvIdaX8RkOFU
 id: user.user.field_user_image
 field_name: field_user_image
 entity_type: user

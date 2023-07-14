@@ -1,4 +1,4 @@
-uuid: c72af413-5729-4a2d-8fd6-0f417fb0ef9f
+uuid: 75899efc-3254-4602-8765-07ff7b18cc53
 langcode: en
 status: true
 dependencies:
@@ -6,7 +6,7 @@ dependencies:
     module:
       - webform
 _core:
-  default_config_hash: ohaEyq9ivq14J88VOlB-Q8wXb9nAHojeRWw6IKvfaqY
+  default_config_hash: flelii7_PQ6IVlkfh_Hsz_nCW9SRVEWvOqSkf-ku4mM
 id: translations
 label: Translations
 category: Language

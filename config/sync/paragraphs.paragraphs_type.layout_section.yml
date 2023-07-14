@@ -4,6 +4,8 @@ status: true
 dependencies:
   module:
     - layout_paragraphs
+_core:
+  default_config_hash: S78rQRwenD3m0EFgLExVvRD9TcfKThGnHy-mHZhReNY
 id: layout_section
 label: 'Layout Section'
 icon_uuid: null

@@ -7,7 +7,7 @@ dependencies:
     - media.type.document
     - paragraphs.paragraphs_type.links_files
 _core:
-  default_config_hash: nw5HFzSAvTSAWNzL7Eg6itn5WxISOs1sUSIkhhC5_QQ
+  default_config_hash: TCbaNKeX_Qk8TvuUuMu9y6tJfZtpouODhcR26s-KROg
 id: paragraph.links_files.field_file_multi
 field_name: field_file_multi
 entity_type: paragraph

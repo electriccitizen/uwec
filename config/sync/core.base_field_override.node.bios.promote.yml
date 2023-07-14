@@ -5,7 +5,7 @@ dependencies:
   config:
     - node.type.bios
 _core:
-  default_config_hash: TibVhvndR_t0C68c1SxHX7qf76biV8GYfI18nL5srhM
+  default_config_hash: g5dC0iDaozjlGmndamXGLw5jbztWgpT52emehlwyX_4
 id: node.bios.promote
 field_name: promote
 entity_type: node

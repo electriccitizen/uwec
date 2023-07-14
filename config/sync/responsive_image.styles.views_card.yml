@@ -9,6 +9,8 @@ dependencies:
     - image.style.views_card_non_webp
   theme:
     - citizen_dart
+_core:
+  default_config_hash: ZBJO_MGnS7Gf9UVVTz3rzfmupYZ5EMcwaRpC-YM153Y
 id: views_card
 label: 'Views Card'
 image_style_mappings:

@@ -5,7 +5,7 @@ dependencies:
   module:
     - focal_point
 _core:
-  default_config_hash: '-iyA0LFvgeN503EfrTyZLhWMY0Qg6MIUxkHC6r3W00s'
+  default_config_hash: MQRsuBcv6kHFNNRLTeYGRt9qh5o2A6PSeSjQZBJqxns
 name: banner_desk
 label: 'Banner Desk'
 effects:

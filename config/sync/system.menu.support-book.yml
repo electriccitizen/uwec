@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies: {  }
 _core:
-  default_config_hash: NwzvC3PX2rUgqsa53s2pNVK1jJanUU8aS8xmXeaAj2k
+  default_config_hash: AELYg2j4cbmq7F0IndBBnCrbVrqJ7n2NRmVjNDD6m38
 id: support-book
 label: 'Support Book'
 description: 'Support book sidebar menu'

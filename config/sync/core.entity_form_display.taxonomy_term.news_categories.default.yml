@@ -4,6 +4,8 @@ status: true
 dependencies:
   config:
     - taxonomy.vocabulary.news_categories
+_core:
+  default_config_hash: bkrId3x5aNzwSPRr4pVHyd9wTglUBgvxDZJyH7tRCus
 id: taxonomy_term.news_categories.default
 targetEntityType: taxonomy_term
 bundle: news_categories

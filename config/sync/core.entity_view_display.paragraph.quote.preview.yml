@@ -16,7 +16,7 @@ third_party_settings:
     enabled: false
     allow_custom: false
 _core:
-  default_config_hash: MQVggETsIJKUt0mOI0GSiBcS6vImKITVoo8VSI2S6Og
+  default_config_hash: NOCrnlyyjXtm72dPCnPG_HinL0awVtM98CzBJ5rhPOw
 id: paragraph.quote.preview
 targetEntityType: paragraph
 bundle: quote

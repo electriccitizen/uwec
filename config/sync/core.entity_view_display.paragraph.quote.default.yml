@@ -9,7 +9,7 @@ dependencies:
     - field.field.paragraph.quote.field_widget_title
     - paragraphs.paragraphs_type.quote
 _core:
-  default_config_hash: S7mR-GJTTHYLb1VaV09LHuOo7xH93VGlgiFNsD04KxI
+  default_config_hash: lOQhppDqxK1Fz39EYmz-xq-epaYj4PSJ6JlF-oVmJZw
 id: paragraph.quote.default
 targetEntityType: paragraph
 bundle: quote

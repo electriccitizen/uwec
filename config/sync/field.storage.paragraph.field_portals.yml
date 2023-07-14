@@ -6,7 +6,7 @@ dependencies:
     - entity_reference_revisions
     - paragraphs
 _core:
-  default_config_hash: JACwmKuj89_RJuuX-ZR-2oolT8E0s5x4sH0uKgs9-_4
+  default_config_hash: vr7fTcqfJ7izz-FMrpaEHi3a0F6lDtYkQMtHgWJOT68
 id: paragraph.field_portals
 field_name: field_portals
 entity_type: paragraph

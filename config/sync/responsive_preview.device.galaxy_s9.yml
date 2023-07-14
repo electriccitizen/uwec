@@ -1,9 +1,9 @@
-uuid: e7f2250c-cc2f-4931-8d6b-9b7dcd4309b2
+uuid: b25bb3d0-f357-4a78-ad65-0e5a46764fc4
 langcode: en
 status: 1
 dependencies: {  }
 _core:
-  default_config_hash: 2vJPJkJKx0G7ZdPGdbF0uSeNzodshw4e_Fr_We1qUxs
+  default_config_hash: ruSc2nNoblqci96yGcLY0Et8oFugJ-R22bbBE5sJtMs
 id: galaxy_s9
 label: 'Galaxy S9'
 weight: -9

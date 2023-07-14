@@ -6,7 +6,7 @@ dependencies:
     - node
     - smart_date
 _core:
-  default_config_hash: RVvXmV8qltLDE-XYEgtev0MVJTeBf7HdGIOt1V0Ujxs
+  default_config_hash: Q8XiSTkDIpCLF33xAVxJlBLspzN70h-OUgB7iMQQeuQ
 id: node.field_dates
 field_name: field_dates
 entity_type: node

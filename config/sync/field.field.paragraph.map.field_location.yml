@@ -8,7 +8,7 @@ dependencies:
   module:
     - geolocation
 _core:
-  default_config_hash: gcQHQCvQQNmzWW-XP93pqugd1bNvQK-17MFsGfZMn8I
+  default_config_hash: mulXAt1TOy__tVkmJiy5DOYP9Y2PLNx2WnwW5oXOHqU
 id: paragraph.map.field_location
 field_name: field_location
 entity_type: paragraph

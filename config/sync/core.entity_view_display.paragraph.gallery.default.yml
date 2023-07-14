@@ -13,7 +13,7 @@ third_party_settings:
   layout_builder:
     sections: {  }
 _core:
-  default_config_hash: kvfrcdWLRSMnQn2s3dm8zyBavqFoa5rzQEYZhHYgHF8
+  default_config_hash: ILYKJ-7v27OWqnIyyjw0MUhpFjSnMlEAvCPbo0cYDxs
 id: paragraph.gallery.default
 targetEntityType: paragraph
 bundle: gallery

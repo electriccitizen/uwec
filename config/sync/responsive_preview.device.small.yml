@@ -1,9 +1,9 @@
-uuid: 7252cec2-30cf-4413-b8b8-f42e4073520b
+uuid: 1164329d-ec41-4633-9d19-654b9e416dc1
 langcode: en
 status: 0
 dependencies: {  }
 _core:
-  default_config_hash: tSZikcfHqfeCIYOMXR3EceiNTxC3MI7DnE2XZLyi8nw
+  default_config_hash: '-UcoccASRT0o1z5ogskx2jnNjSflzKkOTjCiDT17az0'
 id: small
 label: 'Smart phone'
 weight: 0

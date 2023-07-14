@@ -5,7 +5,7 @@ dependencies:
   config:
     - node.type.event
 _core:
-  default_config_hash: yoLT1S4wZfYlk905VfXVyenJj6U-hkfTd50006thyWc
+  default_config_hash: VLr_aF468LpS7QpYlzPSRUjpTELWObaLGksxGuA43ac
 id: node.event.promote
 field_name: promote
 entity_type: node

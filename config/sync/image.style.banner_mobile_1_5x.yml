@@ -6,7 +6,7 @@ dependencies:
     - focal_point
     - image_style_quality
 _core:
-  default_config_hash: wBfyX29Wgu7jsETgyJwSpHN24OJx663260basPLSTjQ
+  default_config_hash: yiRW-DupaxqSedT40fsiXy49uPt9r_ajx24vk8cbLa0
 name: banner_mobile_1_5x
 label: 'Banner Mobile 1.5x'
 effects:

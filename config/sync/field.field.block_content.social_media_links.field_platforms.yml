@@ -8,7 +8,7 @@ dependencies:
   module:
     - link
 _core:
-  default_config_hash: MzSQNt9-6v5ChtAnBdPOy0vfcgZ4Z0fc599JF2KedB8
+  default_config_hash: WLIPEiOF1R0yzO2SSE0MmWdXXnsUNNVBgFIM022Wziw
 id: block_content.social_media_links.field_platforms
 field_name: field_platforms
 entity_type: block_content

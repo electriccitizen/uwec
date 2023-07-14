@@ -26,7 +26,7 @@ dependencies:
     - toolbar
     - webform
 _core:
-  default_config_hash: Ll59o8IA_l1l0OGl1kaVGXZB6aWUYs9gxEck7J5Q4us
+  default_config_hash: EXd6odxtI3ATSRa8lIDzgMFLGlfXgkm31FsS0ncrzl8
 id: editor
 label: Editor
 weight: 4

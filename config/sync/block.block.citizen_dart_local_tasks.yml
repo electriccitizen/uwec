@@ -5,7 +5,7 @@ dependencies:
   theme:
     - citizen_dart
 _core:
-  default_config_hash: jQHtGFoiMSMKUSxx-inTvcCSIz43A5mNdXP_WEiMqDo
+  default_config_hash: dCKW0PgwppZ7We36dG_lLK0XR5Oo7xZHKoBQHIIuBcw
 id: citizen_dart_local_tasks
 theme: citizen_dart
 region: content

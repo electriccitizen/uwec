@@ -7,7 +7,7 @@ dependencies:
   theme:
     - stable9
 _core:
-  default_config_hash: gev70gb-Z6mJzOmMuRSImQ4Z2X7P1sxiO0BoNGwGziw
+  default_config_hash: NvOe4XekR7TbtbymzU5IhH9tmwNoJpVHvjYifkIA5kk
 id: stable9_help
 theme: stable9
 region: content

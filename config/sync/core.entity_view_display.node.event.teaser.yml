@@ -23,7 +23,7 @@ third_party_settings:
     allow_custom: false
     sections: {  }
 _core:
-  default_config_hash: 2jvdZWyCmOcYQfH-0UbmFxOYvUsl3gK4w5vwhwLpLZY
+  default_config_hash: l-3kOXnClP2n7hVj1d9XuV-vakEwZyY1jmn8cSq3BJ0
 id: node.event.teaser
 targetEntityType: node
 bundle: event

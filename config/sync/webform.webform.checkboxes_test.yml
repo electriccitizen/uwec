@@ -2,16 +2,18 @@ uuid: e11909a6-d9d6-474f-85e2-c428b0b4a805
 langcode: en
 status: open
 dependencies: {  }
-weight: 0
+_core:
+  default_config_hash: FW-Fd3TCFp5D5FqRE7GgeZuydWN5BbyXPEZMUwYmDKg
 open: null
 close: null
+weight: 0
 uid: 8
 template: false
 archive: false
 id: checkboxes_test
 title: 'Checkboxes test'
 description: ''
-category: ''
+categories: {  }
 elements: |-
   checkboxes:
     '#type': checkboxes

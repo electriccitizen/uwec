@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies: {  }
 _core:
-  default_config_hash: WnipQL-dgYhd59eeGkNQ7EkKMPXJCuXCtcvY1Vma0bo
+  default_config_hash: M23zQosVcC0qAjTxoXipcTTFcLGA-vXLxH754du9d_I
 id: horizontal_rule
 label: 'Horizontal Rule'
 icon_uuid: null
