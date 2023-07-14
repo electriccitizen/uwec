@@ -1,0 +1,40 @@
+/* ==================
+    BIOS VIEWS
+==================== */
+
+@use '../../../00-base/base' as *;
+
+/* ALL BIOS
+------------- */
+.bios.all-bios{
+	.view{
+		padding-bottom: $elementSpace;
+	}
+	.view-content{
+		margin-bottom: -$spaceLg;
+		@include bleed(padding,40px);
+	}
+	.views-row{
+		text-align: center;
+		&:not(:last-child){
+			margin-bottom: $spaceMd;
+		}
+		@include smallTab{
+			width: 50%;
+		}
+		@include tab{
+			width: 33.33%;
+		}
+		@include desk{
+			width: 25%;
+		}
+	}
+	.views-field-field-image{
+		margin-bottom: $spaceXs;
+	}
+	.views-field-title{
+		@include heading4;
+		margin-bottom: $spaceXxs;
+	}
+}//end bios
+

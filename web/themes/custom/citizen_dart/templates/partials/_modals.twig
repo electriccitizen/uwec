@@ -1,0 +1,38 @@
+
+<div class="modal">
+	<div class="modal-lead" data-attribute-id="{{ modalId }}">
+		{% if intro %}
+			{{- intro -}}
+		{% endif %}
+
+		{% if modalTrigger %}
+			<button id="modal-trigger-{{ modalIdentifier }}" class="ec-modal-trigger" aria-controls="modal-outer-{{ modalIdentifier }}">{{- modalTrigger -}}</button>
+		{% endif %}
+	</div>
+	<dialog class="modal-wrapper" id="modal-outer-{{ modalIdentifier }}" aria-modal="true">
+		<div class="modal-inner" id="modal-inner-{{ modalIdentifier }}" tabindex="-1">
+			<button class="modal-close" id="modal-close-{{ modalIdentifier }}">✕<span class="visually-hidden">close</span></button>
+			{% if modalHeader %}
+				<div class="modal-header">
+					<h2>{{- modalHeader -}}</h2>
+				</div>
+			{% endif %}
+			<div class="modal-content">
+				{% if modalIntro %}
+					<div class="modal-intro text-long">
+						{{- modalIntro -}}
+					</div>
+				{% endif %}
+				{% if embedForm %}
+					<div class="form-embed">
+						{% autoescape false %}
+							{{- embedForm -}}
+						{% endautoescape %}
+					</div>
+				{% else %}
+					{{- modalContent -}}
+				{% endif %}
+			</div>
+		</div>
+	</dialog>
+</div>

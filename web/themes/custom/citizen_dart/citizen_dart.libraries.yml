@@ -1,0 +1,100 @@
+global:
+  version: 1.0
+  header: false
+  css:
+    theme:
+      dist/style.css: {}
+  js:
+    components/05-assembly/global/site.js: {}
+  dependencies:
+    - core/drupal
+    - core/drupalSettings
+    - core/jquery
+    - core/once
+accordion:
+  version: 1.0
+  js:
+    components/03-composites/paragraphs/accordions/accordions.js: {}
+debounce:
+  version: 1.0
+  js:
+    components-addons/debounce/debounce.js: {}
+drawers:
+  version: 1.0
+  js:
+    components/02-chunks/drawers/drawers.js: {}
+featherlight:
+  version: 1.7.13
+  css:
+    theme:
+      components-addons/featherlight/featherlight.css: {}
+      components-addons/featherlight/featherlight.gallery.css: {}
+  js:
+    components-addons/featherlight/featherlight.min.js: { minified: true }
+    components-addons/featherlight/featherlight.gallery.min.js: { minified: true }
+fonts:
+  css:
+    theme:
+      https://fonts.googleapis.com/css?family=Open+Sans:ital,wght@0,400;;0,700;1,400: { type: external, preprocess: false }
+forms:
+  version: 1.0
+  js:
+    components/01-parts/forms/forms.js: {}
+galleries:
+  version: 1.0
+  js:
+    components/03-composites/paragraphs/gallery/gallery.js: {}
+layout:
+  version: 1.0
+  js:
+    components/03-composites/layout/layouts/layouts.js: {}
+modal:
+  version: 1.0
+  js:
+    components/02-chunks/modals/modals.js: {}
+pager:
+  version: 1.0
+  js:
+    components/02-chunks/pagers/pager.js: {}
+search-block:
+  version: 1.0
+  js:
+    components/03-composites/blocks/search/search-block.js: {}
+search-page:
+  version: 1.0
+  js:
+    components/04-units/pages/search.js: {}
+section-menu:
+  version: 1.0
+  js:
+    components/02-chunks/navigation/section-menu/section-menu.js: {}
+  dependencies:
+    - citizen_dart/debounce
+select:
+  version: 4.0.3
+  css:
+    theme:
+      components-addons/select2/select2.min.css: { minified: true }
+  js:
+    components-addons/select2/select2.min.js: { minified: true }
+    components/01-parts/forms/forms.js: {}
+slick:
+  version: 1.8.1
+  css:
+    theme:
+      components-addons/slick/slick.css: {}
+      components-addons/slick/slick-theme.css: {}
+  js:
+    components-addons/slick/slick.min.js: { minified: true }
+table:
+  version: 1.0
+  css:
+    theme:
+      components-addons/basictable/basictable.css: {}
+  js:
+    components/01-parts/tables/tables.js: {}
+    components-addons/basictable/jquery.basictable.min.js: { minified: true }
+views:
+  version: 1.0
+  js:
+    components/03-composites/views/views.js: {}

@@ -1,0 +1,47 @@
+/* ================
+   VIEWS EXPOSED FILTERS
+======================= */
+@use '../../00-base/base' as *;
+@use '../../01-parts/buttons/button-mixins' as *;
+@use '../../01-parts/forms/elements/form-mixins' as *;
+
+.views-exposed-form{
+	@include safeFlex(row,wrap,start,center);
+	@include bleed(padding,20px);
+	.form-item{
+		width: 100%;
+		label{
+			@include formLabel;
+			margin-bottom: $spaceXxs;
+		}
+		@include smallTab{
+			width: 50%;
+			max-width: 320px;
+		}
+		.select2-container--default{
+			max-width: 100%;
+			.select2-selection__choice{
+				margin-top: .5rem;
+			}
+		}
+	}
+	.form-actions{
+		@include auto;
+		@include safeFlex(row,wrap,start,start);
+		@include smallTab{
+			margin: .5rem 0 0 -10px;
+		}
+		input.form-submit.button{
+			@include submitButton;
+			margin: 0 10px;
+			&[data-drupal-selector='edit-reset']{
+				@include warningButton;
+				margin: 0 10px;
+			}
+		}
+	}
+	& + .view-content{
+		margin-top: 5rem;
+	}
+}//end views exposed form
+

@@ -1,0 +1,24 @@
+/* ===============
+   LINKS N FILES WIDGET
+================== */
+
+@use '../../../00-base/base' as *;
+
+.paragraph--type--links-files{
+	@include textConstrain;
+	//set margins for links and files lists
+	.links-files{
+		margin-top: 2.5rem;
+		&.multi-col{
+			@include smallTab{
+				.node-section > .layout.one-column &,.widget-section > .layout--onecol &{
+					@include cssColumns(2,4rem,nobreak);
+				}
+			}
+		}
+		& > div{
+			margin-bottom: 1rem;
+		}
+	}
+}//end links-files widget
+

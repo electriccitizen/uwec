@@ -1,0 +1,32 @@
+/* ===============
+   MAP WIDGET
+================= */
+
+@use '../../../00-base/base' as *;
+
+@mixin lightBack($lightText,$lightLink) {
+	h2,h3,h4,h5,h6,p,div,.field-caption {
+		color: $lightText;
+	}
+	:before,:after{
+		color: $lightText;
+	}
+	a{
+		color: $lightLink;
+		&:hover,&:focus{
+			opacity: .6;
+			@include transAll(.3s);
+		}
+	}
+}//end lightBack
+
+.paragraph--type--map{
+	@include textConstrain;
+	.field:not(:last-child){
+		margin-bottom: $spaceXxs;
+	}
+	.organization{
+		font-weight: $heavy;
+	}
+}//end map widget
+

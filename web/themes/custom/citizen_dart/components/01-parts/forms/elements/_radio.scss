@@ -1,0 +1,48 @@
+/* ============
+	 RADIO
+============== */
+
+@use '../../../00-base/base' as *;
+@use 'form-mixins' as *;
+
+form:not(.layout-builder-add-block):not(.layout-builder-update-block){
+	.form-radios,.js-webform-radios{
+		margin-bottom: -$spaceXxs;
+		@include safeFlex(row,wrap,null,null);
+	}
+	.radios--wrapper{
+		padding: 0;
+		legend{
+			@include formLabel;
+		}
+		.fielset-wrapper{
+			margin: 0;
+		}
+	}
+	.js-form-type-radio{
+		width: auto;
+		margin-right: 2rem;
+		margin-bottom: $spaceXxs;
+		label,input{
+			display: inline-block;
+		}
+		label{
+			font-weight: $regular;
+			margin-bottom: 0;
+		}
+		input[type="radio"]{
+			margin-right: .6rem;
+			position: relative;
+			top: 3px;
+		}
+		&.custom-options{
+			@include customOptions;
+			input {
+				@include setDimensions(22px,22px);
+			}
+			label:before{
+				border-radius: 50%;
+			}
+		}
+	}//end form type radio
+}//end form

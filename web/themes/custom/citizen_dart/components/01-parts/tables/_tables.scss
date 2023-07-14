@@ -1,0 +1,18 @@
+/* ===============
+	 TABLES
+============== */
+@use '../../00-base/base' as *;
+@use 'table-mixins' as *;
+
+/* TABLE STYLING
+-------------------- */
+.text-with-summary,.text-long,.view-content,.webform-submission-form{
+	table{
+		@include table;
+		margin-bottom: $spaceMd;
+	}//end table
+}//end tables
+
+
+
+

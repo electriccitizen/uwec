@@ -1,0 +1,18 @@
+/* ===============
+   LANDING PAGE NODE
+==================== */
+
+@use '../../../00-base/base' as *;
+
+.node-landing-page{
+	.block-field-image{
+		@include edgeToEdge;
+	}
+	.block-field.block-body{
+		max-width: $textMax;
+		@include auto;
+	}
+}//end landing-page
+
+
+

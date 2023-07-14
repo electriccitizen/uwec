@@ -1,0 +1,59 @@
+/* ==================
+	BLOCKS INDEX
+=================== */
+
+/* ADD SUB BLOCKS
+------------------- */
+@forward 'branding/branding';
+@forward 'newsletter/newsletter';
+@forward 'search/search';
+@forward 'social-links/social-links';
+@forward 'social-share/social-share';
+
+@use '../../00-base/base' as *;
+
+/* MISC BLOCKS
+-------------- */
+.block-footer-menu{
+	
+	ul:not(.contextual-links){
+		@include listReset;
+		li{
+			position: relative;
+			a{
+				display: block;
+				color: $prefooterLink;
+				.footer-v1 &{
+					text-decoration: underline;
+				}
+				&:hover,&:focus{
+					color: $prefooterLinkHover;
+					@include transAll(.3s);
+					.footer-v1 &{
+						text-decoration: none;
+					}
+				}
+			}
+		}//end li
+	}//end ul
+}//end footer-menu
+
+//COPYRIGHT
+.block-4{
+	.copyright{
+		text-align: center;
+		font-size: 2rem;
+		@include tab{
+			text-align: left;
+		}
+		& > span:first-child{
+			padding-right: .25em;
+			& + *{
+				display: inline;
+			}
+		}
+		p{
+			margin: 0;
+		}
+	}
+}//end footer-copyright

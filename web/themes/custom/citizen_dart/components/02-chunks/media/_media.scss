@@ -1,0 +1,87 @@
+/* ================
+	 MEDIA
+============== */
+@use '../../00-base/base' as *;
+@use 'media-mixins' as *;
+
+img{
+	@include imageBase;
+}
+
+.field-caption{
+	@include caption;
+}
+
+.field-media-image + .field-caption{
+	margin-top: $spaceXs;
+}
+
+
+/* EMBEDDED VIDEO
+------------------ */
+.field-media-oembed-video{
+	@include responsiveVideo;
+}
+
+/* EMBEDDED MEDIA
+------------------- */
+.text-with-summary article,.text-long article{
+	// set float props and max-widths for floated items
+	&.align-left{
+		float: none;
+		@include smallTab{
+			&:not(.document){
+				max-width: 50% !important;
+				float: left;
+				margin: 0 $spaceMd $spaceMd 0;
+			}
+			&.document{
+				text-align: left;
+				width: 100%;
+			}
+		}
+	}
+	&.align-right{
+		float: none;
+		@include smallTab{
+			&:not(.document){
+				max-width: 50%;
+				float: right;
+				margin: 0 0 $spaceMd $spaceMd;
+			}
+			&.document{
+				text-align: right;
+				width: 100%;
+			}
+		}
+	}
+	&.align-center{
+		&.document{
+			text-align: center;
+		}
+	}
+	// control sizes for images and video
+	&.small-embed{
+		@include smallEmbed;
+	}
+	&.medium-embed{
+		@include mediumEmbed;
+	}
+	&.large-embed{
+		@include largeEmbed;
+	}
+	&.full{
+		@include fullEmbed;
+	}
+	&.default{
+		@include defaultEmbed;
+	}
+}//end article
+
+span.file{
+	a{
+		@include docIcon;
+	}
+}
+
+

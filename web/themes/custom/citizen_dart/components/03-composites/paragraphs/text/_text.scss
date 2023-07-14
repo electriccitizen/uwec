@@ -1,0 +1,10 @@
+/* ==============
+   TEXT WIDGET
+================= */
+
+@use '../../../00-base/base' as *;
+
+.paragraph--type--text{
+	@include textConstrain;
+}//end links-files widget
+

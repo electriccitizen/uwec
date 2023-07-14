@@ -1,0 +1,43 @@
+/* ==================
+    global views settings
+==================== */
+
+@use '../../00-base/base' as *;
+
+@mixin viewsImage{
+	margin-bottom: $spaceSm;
+}
+@mixin viewsTitle{
+	@include heading4;
+	margin-bottom: $spaceXxs;
+}
+@mixin viewsMeta{
+	@include metaText;
+	margin-bottom: $spaceSm;
+}
+
+@mixin viewsRowStandard{
+	&:not(:last-child){
+		margin-bottom: $spaceLg;
+	}
+	.views-field-field-image{
+		@include viewsImage;
+	}
+	.views-field-title{
+		@include viewsTitle;
+	}
+	.metatext{
+		@include viewsMeta;
+	}
+	@include smallTab{
+		@include safeFlex(row,wrap,start,start);
+		.views-field-field-image{
+			@include safeFlexSize(0,0,340px);
+			padding-right: 40px;
+			margin-bottom: 0;
+		}
+		.views-field-nothing{
+			width: calc(100% - 380px);
+		}
+	}
+}//end standard row

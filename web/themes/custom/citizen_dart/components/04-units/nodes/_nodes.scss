@@ -1,0 +1,82 @@
+/* ===============
+   NODES 
+=================== */
+
+/* NODES INDEX
+------------------- */
+@forward 'basic-page/basic-page';
+@forward 'bio/bio';
+@forward 'event/event';
+@forward 'landing-page/landing-page';
+@forward 'news/news';
+@forward 'support-book/support-book';
+
+@use '../../00-base/base' as *;
+@use 'node-mixins' as *;
+
+@mixin warning{
+	min-height: 400px;
+	@include safeFlex(column,nowrap,center,center);
+	& > div{
+		max-width: $textMax + 40px;
+		border: 1px solid $borderRule;
+		padding: 40px 30px;
+	}
+	#block-citizen-dart-content{
+		padding-top: 0 !important;
+	}
+}
+
+
+/* REVISIONS
+-------------------- */
+.revisions-actions{
+	max-width: $contentStop;
+	@include auto;
+	margin-top: $spaceMd;
+	border-bottom: 1px solid $borderRule;
+	.action-wrapper{
+		@include safeFlex(row,wrap,start,start);
+		@include bleed(margin,10px);
+	}
+}//end revisions actions
+
+.node-revision{
+	.breadcrumb{
+		li{
+			&:nth-last-child(2){
+				&:after{
+					content: none;
+				}
+			}
+			&:last-child{
+				display: none;
+			}
+		}
+	}
+}//end node-revisions
+
+/* RESTRICTED NODE TYPES
+---------------------- */
+.path-node{
+	//restricted access message
+	&:not(.logged-in){
+		.restricted-node{
+			@include warning;
+		}
+	}//end restricted access
+}//end path node
+
+//regular 403 & 404 messages
+body .layout-content{
+	& > .error-content{
+		@include warning;
+	}
+}
+
+/* GLOBAL SECTIONS
+-------------------- */
+.node-section{
+	position: relative;
+}
+

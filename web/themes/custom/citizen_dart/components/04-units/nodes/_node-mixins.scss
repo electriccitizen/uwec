@@ -1,0 +1,17 @@
+/* ===============
+   NODES 
+=================== */
+
+@use '../../00-base/base' as *;
+
+@mixin sectionLimit{
+	max-width: $contentStop;
+	@include auto;
+}//end section limit
+
+@mixin textContent{
+	max-width: $textMax;
+	@include auto;
+}
+
+

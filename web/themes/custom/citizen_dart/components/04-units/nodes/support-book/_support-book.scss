@@ -1,0 +1,11 @@
+/* ==============
+   SUPPORT BOOK NODE
+===================== */
+
+@use '../../../00-base/base' as *;
+
+.node-support-book{
+	.block-field.block-body{
+		max-width: 100%;
+	}
+}//end support book

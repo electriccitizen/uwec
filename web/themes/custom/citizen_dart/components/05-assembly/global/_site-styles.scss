@@ -1,0 +1,69 @@
+/* ==================
+ GLOBAL SITE STYLES
+====================*/
+
+@use '../../00-base/base' as *;
+
+body {
+	width: 100%;
+	&.gin--vertical-toolbar{
+		width: calc(100% - 66px);
+	}
+}//end body
+
+.overflow-guard{
+	overflow-x: hidden;
+	background: $siteBack;
+	.unpublished &{
+		background: $unpub;
+	}
+	div{
+		box-sizing: border-box;
+
+		*{
+			box-sizing: inherit;
+		}
+	}
+	.main-page-content{
+		padding: 0;
+	}
+}//end overflow guard
+
+.container-inline div{
+	display: inline;
+}
+
+#block-citizen-dart-help{
+	padding: $elementSpace 0;
+	max-width: $contentStop;
+	@include auto;
+	h2{
+		margin-bottom: $spaceSm;
+		font-size: 3rem;
+	}
+	p{
+		font-size: 2rem;
+		margin-bottom: $spaceXs;
+		small{
+			font-size: 1.75rem;
+			font-style: italic;
+		}
+	}
+}
+
+/* SKIP NAV
+------------- */
+.overflow-guard > a.focusable{
+	&:focus{
+		position: fixed !important;
+		top: 0;
+		left: 0;
+		z-index: 9999;
+		display: block;
+		width: 100%;
+		background: $siteBack;
+		padding: .5rem 3rem;
+	}
+}
+
+

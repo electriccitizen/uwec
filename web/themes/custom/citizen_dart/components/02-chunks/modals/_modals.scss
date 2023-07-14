@@ -1,0 +1,120 @@
+/* ================
+	MODALS
+================== */
+@use '../../00-base/base' as *;
+@use '../../01-parts/buttons/button-mixins' as *;
+
+.ec-modal-trigger{
+	@include button;
+}
+.modal-wrapper {
+	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	z-index: 999;
+	background: rgba(0, 0, 0, .8);
+	width: 100%;
+	height: 100%;
+	border: 0;
+	.modal-inner {
+		display: none;
+		position: absolute;
+		padding: 2.5rem;
+		top: 50%;
+		left: 50%;
+		width: auto;
+		max-width: 90vw;
+		height: auto;
+		max-height: 95vh;
+		@include translate(-50%, -50%);
+		background: #fff;
+		border: 0;
+		overflow-y: scroll;
+		@include tab{
+			min-width: 500px;
+		}
+		& >.contextual .trigger {
+			right: -12px;
+		}
+		.modal-close {
+			background: 0 0;
+			font-size: 16px;
+			color: #000;
+			height: 24px;
+			width: 24px;
+			top: 0;
+			right: 0;
+			position: absolute;
+			border: 0;
+			font-family: $bodyFont;
+			padding: 0;
+			z-index: 9999;
+			&:focus,
+			&:hover {
+				color: #bf0e0e;
+			}
+		}
+	} //end modal-inner
+	.modal-header {
+		position: relative;
+		h2 {
+			@include heading4;
+			margin: 0 0 1rem;
+		}
+		//end block title
+		.modal-close {
+			border: 1px solid transparent;
+			display: block;
+			position: absolute;
+			border-radius: 50%;
+			top: 15px;
+			right: 20px;
+			height: 22px;
+			width: 22px;
+			&:after {
+				@include materialIconOutline(\e5cd);
+			}
+			&:hover,
+			&:focus {
+				opacity: .8;
+				border-color: $white;
+				outline: none;
+			}
+		}
+	} //end modal-header
+	.modal-content {
+		overflow-y: scroll;
+		overflow-x: hidden;
+		color: $modalContent;
+
+		.modal-intro {
+			margin-bottom: $spaceMd;
+
+			&>*:last-child {
+				margin-bottom: 0;
+			}
+		}
+
+		input:focus {
+			cursor: pointer;
+		}
+	} //end modal-content
+	&.active-modal {
+		display: block;
+
+		.modal-inner {
+			display: block;
+		}
+	}
+	&.close-modal {
+		display: none;
+
+		modal-inner {
+			display: none;
+		}
+	}
+}
+//end modal-wrapper

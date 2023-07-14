@@ -1,0 +1,12 @@
+/* =============
+   FORM PLACER WIDGET
+================ */
+
+@use '../../../00-base/base' as *;
+
+.paragraph--type--form-placer{
+	.webform-submission-form{
+		padding-top: 0;
+	}
+}//end paragraph form
+

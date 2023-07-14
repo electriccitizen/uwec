@@ -1,0 +1,27 @@
+/* =============
+   EVENT NODE
+================ */
+
+@use '../../../00-base/base' as *;
+
+.node-event{
+	max-width: $contentStop;
+	@include auto;
+	.block-field.block-title{
+		max-width: 100%;
+		h1{
+			text-align: left;
+		}
+	}
+	.block-field-dates{
+		@include metaText;
+	}
+	.block-field-event-location{
+		//hide long/lat title
+		.geolocation-google-map{
+			.location-title{
+				display: none;
+			}
+		}
+	}//end event location
+}//end event

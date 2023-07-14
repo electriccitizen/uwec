@@ -1,0 +1,38 @@
+/* =================
+   IMAGE WIDGET
+==================== */
+
+@use '../../../00-base/base' as *;
+@use '../../../02-chunks/media/media-mixins' as *;
+
+.paragraph--type--image{
+
+	.image-wrapper{
+		@include auto;
+		&.small{
+			max-width: 280px;
+		}
+		&.medium{
+			max-width: 480px;
+		}
+		&.large{
+			max-width: 640px;
+		}
+		&.default{
+			img{
+				width: auto;
+				@include auto;
+			}
+		}
+	}
+	
+	a{
+		color: $baseText;
+		text-decoration: none;
+		img{
+			@include imageHover;
+		}
+	}
+	
+}//end image widget
+

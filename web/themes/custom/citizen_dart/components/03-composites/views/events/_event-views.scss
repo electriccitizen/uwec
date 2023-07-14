@@ -1,0 +1,29 @@
+/* ==================
+		EVENTS VIEWS
+==================== */
+
+@use '../../../00-base/base' as *;
+@use '../views-mixins' as *;
+
+/* ALL UPCOMING EVENTS */
+.events.all-upcoming-events{
+	.view{
+		padding-bottom: $elementSpace;
+	}
+	.views-row{
+		@include viewsRowStandard;
+	}
+}//end all upcoming events
+
+/* EVENTS LIST */
+.events.events-list{
+	.views-row{
+		@include viewsRowStandard;
+		.views-field-title{
+			@include safeFlexSize(0,0,100%);
+		}
+		.metatext{
+			margin-bottom: 0;
+		}
+	}
+}//end events list

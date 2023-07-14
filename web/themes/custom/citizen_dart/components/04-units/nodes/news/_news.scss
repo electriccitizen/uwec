@@ -1,0 +1,19 @@
+/* =============
+   NEWS NODE
+================ */
+
+@use '../../../00-base/base' as *;
+
+.node-news{
+	max-width: $contentStop;
+	@include auto;
+	.block-field.block-title{
+		max-width: 100%;
+		h1{
+			text-align: left;
+		}
+	}
+	.block-created{
+		@include metaText;
+	}
+}//end news

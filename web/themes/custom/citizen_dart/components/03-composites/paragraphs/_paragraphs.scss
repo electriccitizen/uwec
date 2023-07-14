@@ -1,0 +1,60 @@
+/* ===================
+	PARAGRAPHS
+===================== */
+
+/* WIDGETS INDEX
+------------------- */
+@forward 'accordions/accordions';
+@forward 'block-placer/block-placer';
+@forward 'content-placer/content-placer';
+@forward 'form-placer/form-placer';
+@forward 'gallery/gallery';
+@forward 'horizontal-rule/horizontal-rule';
+@forward 'image/image';
+@forward 'links-files/links-files';
+@forward 'layout-section/layout-section';
+@forward 'map/map';
+@forward 'portals/portals';
+@forward 'quote/quote';
+@forward 'text/text';
+@forward 'video/video';
+
+@use '../../00-base/base' as *;
+@use 'sass:math';
+
+//widgets parent field
+.block-field-paragraphs{
+	@include edgeToEdge;
+}//end field paragraphs
+
+/* WIDGETS
+--------------------- */
+.widget{
+	width: 100%;
+	padding: 0 $siteMarginMobile;
+	padding: 0 $siteMarginMobile;
+	position: relative;
+	//regular widgets not in layout sections
+	&:not(.layout-section){
+		margin-bottom: $elementSpace;
+	}
+	//layout-sections
+	&.layout-section{
+		&.background{
+			padding-top: $elementSpace;
+			&.light-grey{
+				background: $offWhite;
+			}
+			&.light-blue{
+				background: $iceBlue;
+			}
+			& + .backless{
+				margin-top: $elementSpace;
+			}
+			&:last-child{
+				margin-bottom: -$siteBottomSpace;
+			}
+		}//end background
+	}//end layout section
+}//end widget
+

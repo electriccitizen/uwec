@@ -1,0 +1,22 @@
+/* ===============
+  CONTENT PLACER WIDGET
+================= */
+
+@use '../../../00-base/base' as *;
+@use '../../../01-parts/buttons/button-mixins' as *;
+
+.paragraph--type--content-placer{
+	&.custom-views-list{
+		@include textConstrain;
+	}
+	.field-widget-title{
+		text-align: left;
+	}
+	.field-link{
+		margin-top: $spaceLg;
+		a{
+			@include button;
+			margin-bottom: 0;
+		}
+	}
+}//end social media

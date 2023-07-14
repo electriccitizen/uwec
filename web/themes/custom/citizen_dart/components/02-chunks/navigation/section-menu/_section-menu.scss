@@ -1,0 +1,135 @@
+/* =================
+	 SECTION MENU
+===================== */
+@use '../../../00-base/base' as *;
+
+#block-section-menu{
+	@include onlyMobile{
+		margin-bottom: $spaceLg;
+	}
+	h2.block-title{
+		position: relative;
+		display: block;
+		padding: 1.5rem $siteMarginMobile;
+		background: $menuBlockTitleBack;
+		color: $menuBlockTitle;
+		max-width: none;
+		margin-bottom: 0;
+		@include onlyMobile{
+			padding: 2rem 2.5rem;
+			@include edgeToEdge;
+		}
+		a.section-menu-toggle{
+			color: $menuBlockTitle;
+			display: inline-block;
+			vertical-align: middle;
+			text-align: center;
+			width: 60px;
+			span{
+				display: none;
+			}
+			&:before{
+				@include materialIcon(\e5d2);
+				display: inline-block;
+				top: 0;
+				right: 0;
+				color: $hamburger;
+				line-height: 28px;
+			}
+			&:hover,&:focus{
+				color: $menuBlockTitleHover;
+			}
+			@include desk{
+				pointer-events: none;
+				display: none;
+			}
+		}
+	}
+}//end section menu block
+
+
+//top level
+#section-menu-wrapper{
+	display: none;
+	background: $menuBack;
+	padding-top: $spaceSm;
+	padding-bottom: $spaceMd;
+	border-bottom: 2px solid $menuBlockTitleBack;
+	@include onlyMobile{
+		padding-left: $siteMarginMobile;
+		padding-right: $siteMarginMobile;
+		@include edgeToEdge;
+	}
+	@include desk{
+		display: block !important;
+	}
+	& > ul:not(.contextual-links){
+		@include listReset;
+		//max-width: 300px;
+		@include auto;
+
+		//child menus
+		ul:not(.contextual-links){
+			margin: .5rem 0;
+			display: none;
+			padding-left: 2.5rem;
+			&.expanded{
+				display: block;
+			}
+		}
+		//global menu items
+		li{
+			padding: .5rem 3.5rem;
+			list-style: none;
+			position: relative;
+			//active link
+			a{
+				text-decoration: none;
+				display: block;
+				color: $menuTop;
+				&:hover,&:focus{
+					color: $menuTopHover;
+				}
+				&.is-active{
+					color: $menuTopActive;
+					pointer-events: none;
+				}
+			}//end a
+			//parents
+			&.parent{
+				& > .expander{
+					position: absolute;
+					top: .5rem;
+					left: 0;
+					font-size: 3rem;
+					line-height: 1;
+					width: 3.75rem;
+					text-align: center;
+					&:before{
+						content: "+";
+					}
+				}
+				&.expanded{
+					& > .expander{
+						&:before{
+							content: "–";
+						}
+					}
+				}//end when expanded
+			}//end parent
+			li{
+				padding: .5rem 0;
+				a{
+					color: $menuChild;
+					&:hover,&:focus{
+						color: $menuChildHover;
+					}
+					&.is-active{
+						color: $menuChildActive;
+					}
+				}//end a
+			}//end child items
+		}//end global li
+	}//end first level ul
+}//end section menu wrapper
+

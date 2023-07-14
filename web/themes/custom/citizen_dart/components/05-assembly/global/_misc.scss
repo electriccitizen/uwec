@@ -1,0 +1,33 @@
+/* ==================
+ GLOBAL SITE STYLES
+====================*/
+
+@use '../../00-base/base' as *;
+
+/* MAP PINS
+-------------- */
+//google api map pins
+.gm-style .gm-style-iw{
+	font-size: 2rem;
+	strong{
+		font-weight: $heavy;
+	}
+	em{
+		font-style: italic;
+	}
+	h2{
+		font-size: 2rem;
+	}
+	h3{
+		font-size: 1.75rem;
+	}
+	p:last-child{
+		margin-bottom: 0;
+	}
+}
+.geolocation-formatter-map-wrapper{
+	button{
+		min-width: 0;
+	}
+}
+

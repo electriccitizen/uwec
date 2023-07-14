@@ -1,0 +1,26 @@
+/* ==================
+    global views settings
+==================== */
+
+/* VIEWS INDEX
+------------------- */
+@forward 'bios/bio-views';
+@forward 'events/event-views';
+@forward 'news/news-views';
+
+@use '../../00-base/base' as *;
+
+.view-content{
+	@include safeFlex(row,wrap,start,start);
+	& > *{
+		width: 100%;
+	}
+}//end view content
+
+.view-empty{
+	margin-bottom: $spaceLg;
+	max-width: $textMax;
+	@include auto;
+	text-align: center;
+}
+

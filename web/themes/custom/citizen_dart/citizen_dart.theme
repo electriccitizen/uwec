@@ -1,0 +1,186 @@
+<?php
+
+/**
+ * @file
+ */
+
+use Drupal\Core\Template\Attribute;
+use Drupal\taxonomy\Entity\Term;
+use Drupal\image\Entity\ImageStyle;
+use Drupal\Core\Form\FormStateInterface;
+
+/**
+ * Implements hook_preprocess_html().
+ */
+function citizen_dart_preprocess_html(&$variables) {
+  $node = \Drupal::routeMatch()->getParameter('node');
+  $node_revision = \Drupal::routeMatch()->getParameter('node_revision');
+  if(isset($node_revision)){
+    $vid = $node_revision->getRevisionId();
+  }
+  if ($node) {
+    if ((!$node instanceof NodeInterface) && (isset($vid))) {
+      $node = \Drupal::entityTypeManager()->getStorage('node')->loadRevision($vid);
+    }
+  	//set published or unpublished
+    if($node->status[0]->value == '1'){
+      $variables['attributes']['class'][] = 'published';
+    } else {
+      $variables['attributes']['class'][] = 'unpublished';
+    }
+    //check for main image
+    if (!empty($node->field_image[0])){
+      $variables['attributes']['class'][] = 'has-main-image';
+    }
+  }
+}
+
+/**
+ * Implements hook_preprocess webform to add form titles as twig variables.
+ */
+function citizen_dart_preprocess_webform(&$variables){
+  $webform_id = $variables["element"]["#webform_id"];
+  $webform = \Drupal\webform\Entity\Webform::load($webform_id);
+  if ($webform->get('webform_placer')) {
+    $variables['webform_placer'] = TRUE;
+  }
+  if ($webform->get('show_placer_title')) {
+    $variables['show_placer_title'] = TRUE;
+  }
+  $variables['title'] = $webform->label();
+}
+
+function citizen_dart_preprocess_paragraph__form_placer(&$variables) {
+  $paragraph = isset($variables['paragraph']) ? $variables['paragraph'] : '';
+  if (isset($paragraph->field_form_title->value)) {
+    $form_title = $paragraph->field_form_title->value;
+    $webform = $variables['elements']['field_form'][0]['#webform'];
+    $webform->set('webform_placer', TRUE);
+    $webform->set('show_placer_title', $form_title);
+  }
+}
+
+/**
+ * Implements hook_form_alter.
+ */
+function citizen_dart_form_alter(&$form, FormStateInterface $form_state) {
+  if($form['#id'] == 'site-search-form'){
+    $form['actions']['submit']['#suffix'] = '<span class="material-icons">search</span>';
+  }
+}
+
+// provide width and height dimensions for use in the responsive image template to prevent layout shifts
+function citizen_dart_preprocess_responsive_image(&$variables) {
+  // get responsive image style in order to map hard-coded dimension values
+  $style_id = $variables['responsive_image_style_id'];
+
+  switch ($style_id) {
+    case 'banner':
+      $img_width = 1000;
+      $img_height = 400;
+      // get the url for each image style being preloaded
+      $deskURL = ImageStyle::load('banner_desk')->buildUrl($variables['uri']);
+      $midDeskURL = ImageStyle::load('banner_middesk')->buildUrl($variables['uri']);
+      $bigDeskURL = ImageStyle::load('banner_big_desk')->buildUrl($variables['uri']);
+      // construct links for each image style being preloaded
+      $deskLinkTag = ['#tag' => 'link','#attributes' => ['rel' => 'preload','as' => 'image','href' => $deskURL,'media' => '(min-width:896px) and (max-width:1143.9px)',],];
+      $midDeskLinkTag = ['#tag' => 'link','#attributes' => ['rel' => 'preload','as' => 'image','href' => $midDeskURL,'media' => '(min-width:1144px) and (max-width:1319.9px)',],];
+      $bigDeskLinkTag = ['#tag' => 'link','#attributes' => ['rel' => 'preload','as' => 'image','href' => $bigDeskURL,'media' => '(min-width:1320px)',],];
+      // attach links for each image style being preloaded
+      $variables['#attached']['html_head'][] = [$deskLinkTag, 'preloadBannerImageDesk'];
+      $variables['#attached']['html_head'][] = [$midDeskLinkTag, 'preloadBannerImageMidDesk'];
+      $variables['#attached']['html_head'][] = [$bigDeskLinkTag, 'preloadBannerImageBigDesk'];
+      break;
+    case 'full':
+      $img_width = 1200;
+      $img_height = 800;
+      break;
+    case 'large':
+      $img_width = 800;
+      $img_height = 533;
+      break;
+    case 'large_thumb':
+      $img_width = 240;
+      $img_height = 200;
+      break;
+    case 'medium':
+      $img_width = 480;
+      $img_height = 320;
+      break;
+    case 'small':
+      $img_width = 280;
+      $img_height = 187;
+     break;
+    case 'square':
+      $img_width = 360;
+      $img_height = 360;
+      break;
+    case 'thumbnail_cropped':
+      $img_width = 96;
+      $img_height = 96;
+      break;
+    case 'views_card':
+      $img_width = 400;
+      $img_height = 300;
+      break;
+    default:
+      $img_width = 'default';
+      $img_height = 'default';
+      break;
+  }
+
+  // set responsive fallback image attributes for width, height, fetchpriority
+  if (!($img_width == 'default' || $img_height == 'default' )) {
+    $variables['img_element']['#attributes']['width'] = $img_width;
+    $variables['img_element']['#attributes']['height'] = $img_height;
+    if ($style_id == 'banner'){
+      $variables['img_element']['#attributes']['fetchpriority'] = 'high';
+    }
+  }
+}
+
+
+/**
+ * Implements hook_theme_suggestions_page_alter().
+ */
+function citizen_dart_theme_suggestions_page_alter(array &$suggestions, array $variables, $hook) {
+  // Try to get the node, so we can check if we're on the node page.
+  $node = Drupal::request()->attributes->get('node');
+  $node_revision = \Drupal::routeMatch()->getParameter('node_revision');
+  if($node_revision){
+    $vid = $node_revision->getRevisionId();
+  }
+  if ($node) {
+    if ((!$node instanceof NodeInterface) && (isset($vid))) {
+      $node = \Drupal::entityTypeManager()->getStorage('node')->loadRevision($vid);
+    }
+    $suggestions[] = 'page__' . $node->getTYpe();
+  }
+  if (\Drupal::routeMatch()->getRouteName() == 'entity.taxonomy_term.canonical' && $tid = \Drupal::routeMatch()->getRawParameter('taxonomy_term')) {
+    $term = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->load($tid);
+    $suggestions[] = 'page__taxonomy__' . $term->bundle();
+  }
+}
+
+/**
+ * Implements hook_theme_suggestions_block_alter().
+ */
+function citizen_dart_theme_suggestions_block_alter(array &$suggestions, array $variables) {
+  // Block suggestions for custom block bundles.
+  if (isset($variables['elements']['content']['#block_content'])) {
+    $block_name = str_replace(' ','_',strtolower($variables['elements']['content']['#block_content']->label()));
+    array_splice($suggestions, 1, 0, 'block__' . $variables['elements']['content']['#block_content']->bundle());
+    array_splice($suggestions, 2, 0, 'block__' . $block_name);
+    array_splice($suggestions, 3, 0, 'block__' . $variables['elements']['content']['#block_content']->id());
+  }
+}
+
+/**
+ * Implements hook_theme_suggestions_paragraph_alter().
+ */
+function citizen_dart_theme_suggestions_paragraph_alter(array &$suggestions, array $variables) {
+  $paragraph = $variables['elements']['#paragraph'];
+  $id = $paragraph->id();
+  // array_push($suggestions, 'paragraph__' . $paragraph->getType() . '__' . $id);
+  array_push($suggestions, 'paragraph__' . $paragraph->getType() . '__' . $id);
+}
