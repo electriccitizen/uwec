@@ -1,15 +1,14 @@
-EC-Upstream Local Development
+UWEC Local Development
 =============================
-Reviewed by Wilbur, 2022-10-21
+Reviewed by David, 2023-07-18
 
 # Project Details
-- **NAME:** ec-upstream 
-- **URL:** http://dev-ec-upstream.pantheonsite.io/
-- **LOCAL URL:** http://ec-upstream.docksal.site
+- **NAME:** uwec 
+- **URL:** http://dev-uwec.pantheonsite.io/
+- **LOCAL URL:** http://uwec.docksal.site
 - **BRANCH:** main
-- **HOSTING:** [Pantheon Dashboard](https://dashboard.pantheon.io/sites/b043b678-2567-403a-aafc-947c7d9a76de#dev/code)
-)
-- **CIRCLE CI:** [Logs](https://app.circleci.com/pipelines/github/electriccitizen/ec-upstream)
+- **HOSTING:** [Pantheon Dashboard](https://dashboard.pantheon.io/sites/dfeadf45-ac5d-48f4-a701-c121589cff0e#dev/code)
+- **CIRCLE CI:** [Logs](https://app.circleci.com/pipelines/github/electriccitizen/uwec)
 
 ## Requirements and platform docs
 
@@ -22,9 +21,9 @@ Follow these steps to install a local development environment.
 
 `cd ~/Projects`
 
-`git clone git@github.com:electriccitizen/ec-upstream.git ec-upstream`
+`git clone git@github.com:electriccitizen/uwec.git`
 
-`cd ec-upstream`
+`cd uwec`
 
 `composer install`
 
@@ -34,7 +33,7 @@ Follow these steps to install a local development environment.
 
 ## Download and import the database
 
-`fin drush @ec-upstream.dev sql-dump > database.sql`
+`fin drush @uwec.dev sql-dump > database.sql`
 
 `fin db import database.sql`
 
@@ -53,7 +52,7 @@ Open the generated login URL and you should be set to go.
 # Refreshing your local environment
 Whenever you start a new task, you'll want to refresh your local environment to pull in the latest changes from other developers.
 
-`cd ~/Projects/ec-upstream`
+`cd ~/Projects/uwec`
 
 `git checkout main`
 
@@ -64,7 +63,7 @@ Whenever you start a new task, you'll want to refresh your local environment to 
 `composer install`
 
 DB Pull - Optional
-`fin drush @ec-upstream.dev sql-dump > database.sql`
+`fin drush @uwec.dev sql-dump > database.sql`
 `fin db import database.sql`
 End DB Pull
 
@@ -77,11 +76,11 @@ End DB Pull
 Open the generated login URL and you should be set to go.
 
 # Theming
-The active theme for this project is **citizen_patterns**:
-`~/Projects/ec-upstream/web/themes/citizen_patterns`
+The active theme for this project is **citizen_dart**:
+`~/Projects/uwec/web/themes/citizen_dart`
 
 See the THEME-INSTALL.md file inside of the theme root for install instructions.
-[THEME-INSTALL.md](/web/themes/citizen_patterns/THEME-INSTALL.md)
+[THEME-INSTALL.md](/web/themes/citizen_dart/THEME-INSTALL.md)
 
 # Drush aliases
 
@@ -89,13 +88,13 @@ To interact with Pantheon via drush, you can use the Drush aliases that are auto
 
 **DEV, TEST**
 
-* There is no LIVE environment for the EC-Upstream site.
+* There is no LIVE environment for the UWEC site.
 
 These aliases are always available via:
 
 ```
-@ec-upstream.dev
-@ec-upstream.test
+@uwec.dev
+@uwec.test
 ```
 Note that not all projects will have all environments enabled.
 
@@ -104,7 +103,7 @@ Note that not all projects will have all environments enabled.
 Whenever you create a Github pull request, a new Pantheon multidev is created in the format `PR-NNN`  (e.g. PR-123) You can interact with this environment via:
 
 ```
-@ec-upstream.pr-123
+@uwec.pr-123
 ```
 
 # Project Legend
@@ -114,7 +113,7 @@ Whenever you create a Github pull request, a new Pantheon multidev is created in
 - CLI - docksal/cli:stable-php7.4
 - SOLR - docksal/solr:1.0-solr3
 
-See `~/Projects/ec-upstream/.docksal/docksal.yml`
+See `~/Projects/uwec/.docksal/docksal.yml`
 
 ## settings.docksal.php
 - database connection
@@ -128,7 +127,7 @@ See `~/Projects/ec-upstream/.docksal/docksal.yml`
 - trusted_host_pattern
 - file paths
 
-See `/Projects/ec-upstream/web/sites/default/settings.docksal.php`
+See `/Projects/uwec/web/sites/default/settings.docksal.php`
 
 # Enabling Xdebug
 
