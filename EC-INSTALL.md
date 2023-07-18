@@ -121,11 +121,11 @@ See `~/Projects/uwec/.docksal/docksal.yml`
 - base_url
 - development services
 - error level
-- CSS/JS aggregation
 - rebuild_access
 - permissions_hardening
 - trusted_host_pattern
 - file paths
+- migration discovery
 
 See `/Projects/uwec/web/sites/default/settings.docksal.php`
 
