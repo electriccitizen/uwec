@@ -15,6 +15,7 @@ dependencies:
   module:
     - addanother
     - citizen_custom
+    - file
     - filter
     - media
     - menu_admin_per_menu
@@ -66,6 +67,7 @@ permissions:
   - 'delete news revisions'
   - 'delete own bios content'
   - 'delete own event content'
+  - 'delete own files'
   - 'delete own landing_page content'
   - 'delete own news content'
   - 'delete own page content'

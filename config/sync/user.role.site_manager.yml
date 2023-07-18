@@ -18,6 +18,7 @@ dependencies:
     - block_content_permissions
     - citizen_custom
     - contextual
+    - file
     - filter
     - layout_builder
     - media
@@ -92,6 +93,7 @@ permissions:
   - 'delete news revisions'
   - 'delete own bios content'
   - 'delete own event content'
+  - 'delete own files'
   - 'delete own landing_page content'
   - 'delete own news content'
   - 'delete own page content'

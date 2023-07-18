@@ -21,7 +21,7 @@ display:
     display_plugin: default
     position: 0
     display_options:
-      title: 'Custom block library'
+      title: 'Custom blocks'
       fields:
         info:
           id: info
@@ -209,6 +209,15 @@ display:
             date_format: short
             custom_date_format: ''
             timezone: ''
+            tooltip:
+              date_format: ''
+              custom_date_format: ''
+            time_diff:
+              enabled: false
+              future_format: '@interval hence'
+              past_format: '@interval ago'
+              granularity: 2
+              refresh: 60
         operations:
           id: operations
           table: block_content
@@ -291,7 +300,7 @@ display:
       access:
         type: perm
         options:
-          perm: 'administer blocks'
+          perm: 'access block content overview'
       cache:
         type: tag
         options: {  }
@@ -522,7 +531,7 @@ display:
     position: 1
     display_options:
       display_extenders: {  }
-      path: admin/structure/block/block-content
+      path: admin/content/block-content
       menu:
         type: tab
         title: 'Custom block library'
