@@ -1,16 +1,12 @@
 adding:
-  cache:
-    page:
-      max_age: 86400
   css:
-    preprocess: true
+    gzip: false
   js:
-    preprocess: true
+    gzip: false
+  stale_file_threshold: 0
 removing:
-  cache:
-    page:
-      max_age: 0
   css:
-    preprocess: false
+    gzip: true
   js:
-    preprocess: false
+    gzip: true
+  stale_file_threshold: 2592000
