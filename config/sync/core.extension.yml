@@ -72,6 +72,7 @@ module:
   path: 0
   path_alias: 0
   pathologic: 0
+  phpass: 0
   quicklink: 0
   redirect: 0
   responsive_image: 0
@@ -110,4 +111,5 @@ theme:
   stable9: 0
   claro: 0
   citizen_dart: 0
+  gin: 0
 profile: citizen

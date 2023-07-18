@@ -6,6 +6,7 @@ dependencies:
     - filter.format.basic_html
     - filter.format.limited_html
   module:
+    - file
     - filter
     - media
     - shortcut
@@ -21,6 +22,7 @@ permissions:
   - 'access content'
   - 'access shortcuts'
   - 'access toolbar'
+  - 'delete own files'
   - 'use text format basic_html'
   - 'use text format limited_html'
   - 'view media'

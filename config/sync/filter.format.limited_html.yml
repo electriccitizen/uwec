@@ -97,3 +97,9 @@ filters:
       local_settings:
         protocol_style: full
         local_paths: ''
+  filter_image_lazy_load:
+    id: filter_image_lazy_load
+    provider: filter
+    status: true
+    weight: -45
+    settings: {  }

@@ -36,11 +36,6 @@ image_style_mappings:
     multiplier: 1x
   -
     image_mapping_type: image_style
-    image_mapping: banner_tablet_2x
-    breakpoint_id: citizen_dart.tab
-    multiplier: 1.5x
-  -
-    image_mapping_type: image_style
     image_mapping: banner_tablet
     breakpoint_id: citizen_dart.tab
     multiplier: 1x
@@ -48,17 +43,22 @@ image_style_mappings:
     image_mapping_type: image_style
     image_mapping: banner_tablet_2x
     breakpoint_id: citizen_dart.tab
-    multiplier: 2x
+    multiplier: 1.5x
   -
     image_mapping_type: image_style
-    image_mapping: banner_mobile_1_5x
-    breakpoint_id: citizen_dart.mobile
-    multiplier: 1.5x
+    image_mapping: banner_tablet_2x
+    breakpoint_id: citizen_dart.tab
+    multiplier: 2x
   -
     image_mapping_type: image_style
     image_mapping: banner_mobile
     breakpoint_id: citizen_dart.mobile
     multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: banner_mobile_1_5x
+    breakpoint_id: citizen_dart.mobile
+    multiplier: 1.5x
   -
     image_mapping_type: image_style
     image_mapping: banner_mobile_2x
