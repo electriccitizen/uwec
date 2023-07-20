@@ -147,10 +147,6 @@ function citizen_custom_form_node_form_alter(&$form, FormStateInterface $form_st
     $form['promote']['widget']['value']['#title'] = 'Add to Featured News';
     $form['promote']['widget']['value']['#description'] = 'Should have a news image.';
   }
-  if ($node->getType() == 'event') {
-    $form['promote']['widget']['value']['#title'] = 'Add to Featured Events';
-    $form['promote']['widget']['value']['#description'] = 'Should have a news image.';
-  }
 }
 
 /**
@@ -197,7 +193,7 @@ function citizen_custom_field_widget_single_element_form_alter(&$element, FormSt
     }
   }
   // Add custom link help text for emails.
-  if ($field_definition->getType() == 'link') { 
+  if ($field_definition->getType() == 'link') {
     if ($element['uri']['#description'] && ($field_definition->getUniqueIdentifier() == "menu_link_content-link")) {
       $linkHelp = $element['uri']['#description'];
       $element['uri']['#description']['#items'][] = t('To create an email link, enter "<strong>mailto:</strong>example@email.com".');
@@ -211,38 +207,6 @@ function citizen_custom_field_widget_single_element_form_alter(&$element, FormSt
 function citizen_custom_views_pre_view($view, $display_id, &$args) {
 	// Alters views to accept fields from related paragraphs to be used for filters.
   if(isset($view->element['#name'])) {
-    if (($view->element['#name'] == 'events') && ($view->current_display === 'events_list')) {
-      $filters = $view->display_handler->getOption('filters');
-      $paragraph_id = $view->args[0];
-      if ($paragraph_id){
-        $paragraph = Paragraph::load($paragraph_id);
-        //unset or alter categories filter
-        if($paragraph->field_events_category[0]){
-          //make an array out of the category set in the paragraph
-          $categories = [];
-          foreach ($paragraph->field_events_category as $delta => $category) {
-            $categories[] = $category->target_id;
-          }
-          // replace the category_tid filter with the paragraph category
-          $filters['field_category_target_id']['value'] = $categories;
-        } else {
-          //if the category field is not used, then unset the category filter
-          if ($filters['field_category_target_id']) {
-            unset($filters['field_category_target_id']);
-          }
-        }//end category filter
-        $view->display_handler->setOption('filters', $filters);
-        if(isset($paragraph->field_limit_list[0])){
-          $per_page = $paragraph->field_limit_list[0]->value;
-          $pager = $view->display_handler->getOption('pager');
-          $pager['type'] = 'some';
-          $view->setItemsPerPage($per_page);
-        } else {
-          $pager['type'] = 'none';
-        }
-        $view->display_handler->setOption('pager', $pager);
-      }
-    }
     if (($view->element['#name'] === 'news') && ($view->current_display === 'news_list')) {
       $filters = $view->display_handler->getOption('filters');
       $paragraph_id = $view->args[0];
@@ -277,4 +241,3 @@ function citizen_custom_views_pre_view($view, $display_id, &$args) {
     }
   }
 }
-
