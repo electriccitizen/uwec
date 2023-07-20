@@ -5,8 +5,6 @@ dependencies:
   config:
     - field.field.paragraph.content_placer.field_bios_list_type
     - field.field.paragraph.content_placer.field_content_type
-    - field.field.paragraph.content_placer.field_events_category
-    - field.field.paragraph.content_placer.field_events_list_type
     - field.field.paragraph.content_placer.field_limit_list
     - field.field.paragraph.content_placer.field_link
     - field.field.paragraph.content_placer.field_news_category
@@ -37,21 +35,6 @@ content:
       link: true
     third_party_settings: {  }
     weight: 1
-    region: content
-  field_events_category:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 8
-    region: content
-  field_events_list_type:
-    type: list_key
-    label: hidden
-    settings: {  }
-    third_party_settings: {  }
-    weight: 6
     region: content
   field_limit_list:
     type: number_integer
