@@ -9,7 +9,6 @@ dependencies:
     - paragraphs.paragraphs_type.custom_embed
     - paragraphs.paragraphs_type.form_placer
     - paragraphs.paragraphs_type.gallery
-    - paragraphs.paragraphs_type.horizontal_rule
     - paragraphs.paragraphs_type.image
     - paragraphs.paragraphs_type.layout_section
     - paragraphs.paragraphs_type.links_files
@@ -40,7 +39,6 @@ settings:
       custom_embed: custom_embed
       form_placer: form_placer
       gallery: gallery
-      horizontal_rule: horizontal_rule
       image: image
       layout_section: layout_section
       links_files: links_files
