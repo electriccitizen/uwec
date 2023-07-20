@@ -9,7 +9,6 @@ dependencies:
     - media.type.image
     - media.type.remote_video
     - node.type.bios
-    - node.type.event
     - node.type.landing_page
     - node.type.news
     - node.type.page
@@ -64,7 +63,6 @@ permissions:
   - 'create basic block content'
   - 'create bios content'
   - 'create document media'
-  - 'create event content'
   - 'create image media'
   - 'create landing_page content'
   - 'create media'
@@ -79,7 +77,6 @@ permissions:
   - 'delete all revisions'
   - 'delete any basic block content'
   - 'delete any bios content'
-  - 'delete any event content'
   - 'delete any landing_page content'
   - 'delete any news content'
   - 'delete any newsletter block content'
@@ -88,11 +85,9 @@ permissions:
   - 'delete any webform'
   - 'delete any webform submission'
   - 'delete bios revisions'
-  - 'delete event revisions'
   - 'delete landing_page revisions'
   - 'delete news revisions'
   - 'delete own bios content'
-  - 'delete own event content'
   - 'delete own files'
   - 'delete own landing_page content'
   - 'delete own news content'
@@ -102,7 +97,6 @@ permissions:
   - 'delete page revisions'
   - 'edit any bios content'
   - 'edit any document media'
-  - 'edit any event content'
   - 'edit any image media'
   - 'edit any landing_page content'
   - 'edit any news content'
@@ -113,7 +107,6 @@ permissions:
   - 'edit layout paragraphs plugin config'
   - 'edit own bios content'
   - 'edit own document media'
-  - 'edit own event content'
   - 'edit own image media'
   - 'edit own landing_page content'
   - 'edit own news content'
@@ -123,7 +116,6 @@ permissions:
   - 'edit own webform submission'
   - 'revert all revisions'
   - 'revert bios revisions'
-  - 'revert event revisions'
   - 'revert landing_page revisions'
   - 'revert news revisions'
   - 'revert page revisions'
@@ -139,7 +131,6 @@ permissions:
   - 'view all revisions'
   - 'view any webform submission'
   - 'view bios revisions'
-  - 'view event revisions'
   - 'view landing_page revisions'
   - 'view news revisions'
   - 'view own unpublished content'
