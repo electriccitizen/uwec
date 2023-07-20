@@ -8,6 +8,7 @@ dependencies:
   module:
     - filter
     - media
+    - paragraphs_type_permissions
     - system
 _core:
   default_config_hash: LxuEPceKq1EwGciNKC4la_hAJ7kfox6WnIz9louPQng
@@ -20,3 +21,15 @@ permissions:
   - 'use text format limited_html'
   - 'use text format restricted_html'
   - 'view media'
+  - 'view paragraph content accordion_item'
+  - 'view paragraph content accordions'
+  - 'view paragraph content content_placer'
+  - 'view paragraph content custom_embed'
+  - 'view paragraph content form_placer'
+  - 'view paragraph content gallery'
+  - 'view paragraph content image'
+  - 'view paragraph content layout_section'
+  - 'view paragraph content layout_section_single'
+  - 'view paragraph content links_files'
+  - 'view paragraph content text'
+  - 'view paragraph content video'
