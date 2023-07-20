@@ -12,7 +12,6 @@ dependencies:
     - paragraphs.paragraphs_type.image
     - paragraphs.paragraphs_type.layout_section
     - paragraphs.paragraphs_type.links_files
-    - paragraphs.paragraphs_type.map
     - paragraphs.paragraphs_type.portals
     - paragraphs.paragraphs_type.quote
     - paragraphs.paragraphs_type.text
@@ -42,7 +41,6 @@ settings:
       image: image
       layout_section: layout_section
       links_files: links_files
-      map: map
       portals: portals
       quote: quote
       text: text
