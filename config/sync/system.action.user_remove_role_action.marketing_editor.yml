@@ -1,0 +1,14 @@
+uuid: 2a81c690-092e-4eeb-8523-ec719f4c4493
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.marketing_editor
+  module:
+    - user
+id: user_remove_role_action.marketing_editor
+label: 'Remove the Marketing Editor role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: marketing_editor

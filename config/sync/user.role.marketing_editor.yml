@@ -1,0 +1,9 @@
+uuid: 74582d91-1ba7-43aa-8fff-9a344bbc2c90
+langcode: en
+status: true
+dependencies: {  }
+id: marketing_editor
+label: 'Marketing Editor'
+weight: 8
+is_admin: null
+permissions: {  }

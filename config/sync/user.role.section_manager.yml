@@ -1,0 +1,9 @@
+uuid: 3b678c59-77f8-471e-a524-d2bea8f7882a
+langcode: en
+status: true
+dependencies: {  }
+id: section_manager
+label: 'Section Manager'
+weight: 7
+is_admin: null
+permissions: {  }

@@ -1,0 +1,14 @@
+uuid: 3f14aa0e-bcd8-41a5-8f9d-4f6719515088
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.section_manager
+  module:
+    - user
+id: user_add_role_action.section_manager
+label: 'Add the Section Manager role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: section_manager
