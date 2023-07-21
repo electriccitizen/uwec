@@ -74,6 +74,7 @@
     "drupal/stable": "^2.0",
     "drupal/stage_file_proxy": "^2.0",
     "drupal/superfish": "1.x-dev@dev",
+    "drupal/svg_image": "^3.0",
     "drupal/token": "^1.7",
     "drupal/twig_tweak": "^3.1",
     "drupal/views_bulk_operations": "^4.0",
