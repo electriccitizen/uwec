@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "36ac7f118c75c9f251cc7efcfd33e4e3",
+    "content-hash": "d0fd5fe8bb27e534ae723d3c839bd225",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -3932,73 +3932,6 @@
             }
         },
         {
-            "name": "drupal/geolocation",
-            "version": "3.12.0",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupalcode.org/project/geolocation.git",
-                "reference": "8.x-3.12"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/geolocation-8.x-3.12.zip",
-                "reference": "8.x-3.12",
-                "shasum": "eb31fe9080e2e0dcf442fc9b0a859f326219db5a"
-            },
-            "require": {
-                "drupal/core": "^9.3 || ^10",
-                "drupal/jquery_ui": "*",
-                "drupal/jquery_ui_autocomplete": "^2.0",
-                "php": "^7.3 || ^8.0"
-            },
-            "require-dev": {
-                "drupal/address": "*",
-                "drupal/geofield": "*",
-                "drupal/geolocation_demo": "*",
-                "drupal/geolocation_geometry": "*",
-                "drupal/geolocation_geometry_data": "*",
-                "drupal/geolocation_google_maps": "*",
-                "drupal/geolocation_google_maps_demo": "*",
-                "drupal/geolocation_google_static_maps": "*",
-                "drupal/geolocation_leaflet": "*",
-                "drupal/geolocation_leaflet_demo": "*",
-                "drupal/search_api": "*",
-                "drupal/search_api_location": "*",
-                "drupal/search_api_location_views": "*"
-            },
-            "type": "drupal-module",
-            "extra": {
-                "drupal": {
-                    "version": "8.x-3.12",
-                    "datestamp": "1673282362",
-                    "security-coverage": {
-                        "status": "covered",
-                        "message": "Covered by Drupal's security advisory policy"
-                    }
-                }
-            },
-            "notification-url": "https://packages.drupal.org/8/downloads",
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "derjochenmeyer",
-                    "homepage": "https://www.drupal.org/u/derjochenmeyer"
-                },
-                {
-                    "name": "cadamski",
-                    "homepage": "https://www.drupal.org/u/cadamski"
-                }
-            ],
-            "description": "Provides a simple geolocation Drupal field type to store and display location data (lat, lng).",
-            "homepage": "https://www.drupal.org/project/geolocation",
-            "support": {
-                "source": "https://git.drupal.org/project/geolocation.git",
-                "issues": "https://www.drupal.org/project/issues/geolocation"
-            }
-        },
-        {
             "name": "drupal/gin",
             "version": "3.0.0-rc5",
             "source": {
@@ -4321,72 +4254,6 @@
             }
         },
         {
-            "name": "drupal/jquery_ui_autocomplete",
-            "version": "2.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupalcode.org/project/jquery_ui_autocomplete.git",
-                "reference": "2.0.0"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/jquery_ui_autocomplete-2.0.0.zip",
-                "reference": "2.0.0",
-                "shasum": "927d312a74002f99e1c971d3d268be1b0a532fc7"
-            },
-            "require": {
-                "drupal/core": "^9.2 || ^10",
-                "drupal/jquery_ui": "^1.6",
-                "drupal/jquery_ui_menu": "^2"
-            },
-            "type": "drupal-module",
-            "extra": {
-                "drupal": {
-                    "version": "2.0.0",
-                    "datestamp": "1670871461",
-                    "security-coverage": {
-                        "status": "covered",
-                        "message": "Covered by Drupal's security advisory policy"
-                    }
-                }
-            },
-            "notification-url": "https://packages.drupal.org/8/downloads",
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "bnjmnm",
-                    "homepage": "https://www.drupal.org/user/2369194"
-                },
-                {
-                    "name": "lauriii",
-                    "homepage": "https://www.drupal.org/user/1078742"
-                },
-                {
-                    "name": "nod_",
-                    "homepage": "https://www.drupal.org/user/598310"
-                },
-                {
-                    "name": "phenaproxima",
-                    "homepage": "https://www.drupal.org/user/205645"
-                },
-                {
-                    "name": "Wim Leers",
-                    "homepage": "https://www.drupal.org/user/99777"
-                },
-                {
-                    "name": "zrpnr",
-                    "homepage": "https://www.drupal.org/user/1448368"
-                }
-            ],
-            "description": "Provides jQuery UI Autocomplete library.",
-            "homepage": "https://www.drupal.org/project/jquery_ui_autocomplete",
-            "support": {
-                "source": "https://git.drupalcode.org/project/jquery_ui_autocomplete"
-            }
-        },
-        {
             "name": "drupal/jquery_ui_draggable",
             "version": "2.0.0",
             "source": {
@@ -4437,71 +4304,6 @@
             "homepage": "https://www.drupal.org/project/jquery_ui_draggable",
             "support": {
                 "source": "https://git.drupalcode.org/project/jquery_ui_draggable"
-            }
-        },
-        {
-            "name": "drupal/jquery_ui_menu",
-            "version": "2.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupalcode.org/project/jquery_ui_menu.git",
-                "reference": "2.0.0"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/jquery_ui_menu-2.0.0.zip",
-                "reference": "2.0.0",
-                "shasum": "5e1b56bf457669c7779a81784f49da63e3956854"
-            },
-            "require": {
-                "drupal/core": "^9.2 || ^10",
-                "drupal/jquery_ui": "^1.6"
-            },
-            "type": "drupal-module",
-            "extra": {
-                "drupal": {
-                    "version": "2.0.0",
-                    "datestamp": "1670871546",
-                    "security-coverage": {
-                        "status": "covered",
-                        "message": "Covered by Drupal's security advisory policy"
-                    }
-                }
-            },
-            "notification-url": "https://packages.drupal.org/8/downloads",
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "bnjmnm",
-                    "homepage": "https://www.drupal.org/user/2369194"
-                },
-                {
-                    "name": "lauriii",
-                    "homepage": "https://www.drupal.org/user/1078742"
-                },
-                {
-                    "name": "nod_",
-                    "homepage": "https://www.drupal.org/user/598310"
-                },
-                {
-                    "name": "phenaproxima",
-                    "homepage": "https://www.drupal.org/user/205645"
-                },
-                {
-                    "name": "Wim Leers",
-                    "homepage": "https://www.drupal.org/user/99777"
-                },
-                {
-                    "name": "zrpnr",
-                    "homepage": "https://www.drupal.org/user/1448368"
-                }
-            ],
-            "description": "Provides jQuery UI Menu library.",
-            "homepage": "https://www.drupal.org/project/jquery_ui_menu",
-            "support": {
-                "source": "https://git.drupalcode.org/project/jquery_ui_menu"
             }
         },
         {
@@ -7691,7 +7493,7 @@
         },
         {
             "name": "pantheon-upstreams/upstream-configuration",
-            "version": "dev-main",
+            "version": "dev-uwec-24",
             "dist": {
                 "type": "path",
                 "url": "upstream-configuration",
