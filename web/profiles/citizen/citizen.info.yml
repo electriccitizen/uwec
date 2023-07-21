@@ -40,9 +40,6 @@ dependencies:
   - file
   - filter
   - focal_point
-  - geolocation
-  - geolocation_address
-  - geolocation_google_maps
   - help
   - history
   - image
