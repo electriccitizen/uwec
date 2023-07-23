@@ -7,14 +7,14 @@ dependencies:
 _core:
   default_config_hash: FiDiBol1NSS5HhhHu97oZmIpoMk9ZWPrJwk-JKvyQ48
 id: basic_pages
-label: 'Basic Pages'
+label: 'General Pages'
 type: 'canonical_entities:node'
 pattern: '[node:menu-link:parents:join:/]/[node:title]'
 selection_criteria:
-  76b1c99e-b64c-4bf7-90b3-194a0b38a2df:
+  6155f804-28e0-4ee2-8800-21d5cda4b677:
     id: 'entity_bundle:node'
     negate: false
-    uuid: 76b1c99e-b64c-4bf7-90b3-194a0b38a2df
+    uuid: 6155f804-28e0-4ee2-8800-21d5cda4b677
     context_mapping:
       node: node
     bundles:
