@@ -5,7 +5,7 @@ dependencies: {  }
 _core:
   default_config_hash: hsVBjSUSD_jGmqf4iRmwz7TjEk0ZpJZUIILqylLK_Tg
 id: links_files
-label: 'Links & Files'
+label: 'Additional Links'
 icon_uuid: null
 icon_default: null
 description: 'Creates a list of links and/or file document media references.'
