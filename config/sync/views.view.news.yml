@@ -16,9 +16,9 @@ dependencies:
 _core:
   default_config_hash: W1GJXPa413G1CGmeSx1K_NyP_cvEqAytiQN1Laghr_g
 id: news
-label: News
+label: Story
 module: views
-description: 'Lists of news articles.'
+description: 'Lists of story articles.'
 tag: ''
 base_table: node_field_data
 base_field: nid
@@ -476,7 +476,7 @@ display:
         - 'config:field.storage.node.body'
   all_news:
     id: all_news
-    display_title: 'All News'
+    display_title: 'All Stories'
     display_plugin: embed
     position: 1
     display_options:

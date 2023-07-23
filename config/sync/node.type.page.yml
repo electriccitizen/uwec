@@ -15,7 +15,7 @@ _core:
   default_config_hash: ZcLucVbqqKKHIaPK3GallHeIweUXvXS3ROB_Da1VrHs
 name: 'General Page'
 type: page
-description: 'Use basic pages for text heavy lower-level pages that can be reached through the sidebar menu.'
+description: 'Use general pages for text heavy lower-level pages that can be reached through the sidebar menu.'
 help: ''
 new_revision: true
 preview_mode: 1

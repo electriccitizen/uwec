@@ -12,7 +12,7 @@ _core:
   default_config_hash: qcJ05uZvFPYCNZXNspvCj9IMivzWhAncUfjbIUJ5mFw
 name: Profile
 type: bios
-description: 'Add bio information for a person.'
+description: 'Add profile information for a person.'
 help: ''
 new_revision: true
 preview_mode: 0
