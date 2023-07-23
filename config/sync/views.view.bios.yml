@@ -12,7 +12,7 @@ dependencies:
 _core:
   default_config_hash: IGJxAc0UwEnl7UnxQseHIj-dFuzwMJDYNBJBGIwubjU
 id: bios
-label: Bios
+label: Profiles
 module: views
 description: 'Lists of bios.'
 tag: ''
@@ -449,7 +449,7 @@ display:
         - 'config:field.storage.node.field_position'
   all_bios:
     id: all_bios
-    display_title: 'All Bios'
+    display_title: 'All Profiles'
     display_plugin: embed
     position: 1
     display_options:
