@@ -5,6 +5,10 @@ dependencies:
   config:
     - field.field.node.bios.body
     - field.field.node.bios.field_bio_order
+    - field.field.node.bios.field_domain_access
+    - field.field.node.bios.field_domain_all_affiliates
+    - field.field.node.bios.field_domain_source
+    - field.field.node.bios.field_editorial_sections
     - field.field.node.bios.field_email
     - field.field.node.bios.field_first_name
     - field.field.node.bios.field_image
@@ -38,6 +42,25 @@ third_party_settings:
         open: false
         description: ''
         required_fields: true
+    group_access:
+      children:
+        - field_editorial_sections
+        - field_domain_access
+        - field_domain_source
+        - field_domain_all_affiliates
+      label: Access
+      region: content
+      parent_name: ''
+      weight: 9
+      format_type: details_sidebar
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        open: false
+        description: ''
+        required_fields: true
+        weight: 0
 _core:
   default_config_hash: bprSGdV1E5aOv5kitfOfCwMfogg4T79To1JoGjd3LPs
 id: node.bios.default
@@ -64,6 +87,31 @@ content:
     region: content
     settings:
       placeholder: ''
+    third_party_settings: {  }
+  field_domain_access:
+    type: options_buttons
+    weight: 47
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_domain_all_affiliates:
+    type: boolean_checkbox
+    weight: 49
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_domain_source:
+    type: options_select
+    weight: 48
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_editorial_sections:
+    type: options_buttons
+    weight: 46
+    region: content
+    settings: {  }
     third_party_settings: {  }
   field_email:
     type: email_default

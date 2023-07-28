@@ -35,7 +35,7 @@ parameters:
     # the cookie domain should start with a dot.
     #
     # @default none
-    # cookie_domain: '.example.com'
+    cookie_domain: '.docksal.site'
     #
     # Set the session ID string length. The length can be between 22 to 256. The
     # PHP recommended value is 48. See
@@ -115,7 +115,7 @@ parameters:
     # render array, hence varying every render array by these cache contexts.
     #
     # @default ['languages:language_interface', 'theme', 'user.permissions']
-    required_cache_contexts: ['languages:language_interface', 'theme', 'user.permissions']
+    required_cache_contexts: ['languages:language_interface', 'theme', 'user.permissions', 'url.site']
     # Renderer automatic placeholdering conditions:
     #
     # Drupal allows portions of the page to be automatically deferred when

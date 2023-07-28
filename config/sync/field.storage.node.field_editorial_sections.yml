@@ -1,0 +1,20 @@
+uuid: 0e8f01ef-e06b-439d-afa2-0bb39a385a44
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - taxonomy
+id: node.field_editorial_sections
+field_name: field_editorial_sections
+entity_type: node
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

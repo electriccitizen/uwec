@@ -1,0 +1,15 @@
+_core:
+  default_config_hash: mqVsLCNF_WfM-XDhZ0nuTWd7bjvrqR5a6K_-vd0bwjU
+exclude_routes:
+  devel_load: devel_load
+  devel_load_with_references: devel_load_with_references
+  devel_render: devel_render
+  devel_definition: devel_definition
+  canonical: '0'
+  delete_form: '0'
+  delete_multiple_form: '0'
+  edit_form: '0'
+  version_history: '0'
+  revision: '0'
+  create: '0'
+  token_devel: '0'

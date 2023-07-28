@@ -1,0 +1,14 @@
+uuid: d64c8d12-d5c4-4b9d-9820-b7eee65ac194
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.example_uwec_docksal_site
+  module:
+    - domain_access
+id: domain_access_add_action.example_uwec_docksal_site
+label: 'Add selected content to the UWEC Example Subsite domain'
+type: node
+plugin: domain_access_add_action
+configuration:
+  domain_id: example_uwec_docksal_site

@@ -1,0 +1,14 @@
+uuid: 3686b8af-0faa-4854-8e89-745f549e8fcf
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.editorial_sections
+id: default
+plural_label: Defaults
+label: Default
+scheme: taxonomy
+scheme_settings:
+  vocabularies:
+    - editorial_sections
+  fields: {  }

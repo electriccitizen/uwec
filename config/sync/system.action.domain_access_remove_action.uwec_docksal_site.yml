@@ -1,0 +1,14 @@
+uuid: cc3a4cf8-0586-49c2-af3e-868df57c4d3d
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.uwec_docksal_site
+  module:
+    - domain_access
+id: domain_access_remove_action.uwec_docksal_site
+label: 'Remove selected content from the UWEC domain'
+type: node
+plugin: domain_access_remove_action
+configuration:
+  domain_id: uwec_docksal_site

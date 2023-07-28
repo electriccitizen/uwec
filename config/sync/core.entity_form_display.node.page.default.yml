@@ -4,16 +4,42 @@ status: true
 dependencies:
   config:
     - field.field.node.page.body
+    - field.field.node.page.field_domain_access
+    - field.field.node.page.field_domain_all_affiliates
+    - field.field.node.page.field_domain_source
+    - field.field.node.page.field_editorial_sections
     - field.field.node.page.field_image
     - field.field.node.page.field_metatags
     - field.field.node.page.field_paragraphs
     - node.type.page
   module:
+    - field_group
     - layout_paragraphs
     - media_library
     - metatag
     - path
     - text
+third_party_settings:
+  field_group:
+    group_access:
+      children:
+        - field_editorial_sections
+        - field_domain_access
+        - field_domain_source
+        - field_domain_all_affiliates
+      label: Access
+      region: content
+      parent_name: ''
+      weight: 7
+      format_type: details_sidebar
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        open: false
+        description: ''
+        required_fields: true
+        weight: 0
 _core:
   default_config_hash: X7h50xzAlETewRuhMQpYO9CEDJGw7X49yt1IztXny64
 id: node.page.default
@@ -30,6 +56,31 @@ content:
       summary_rows: 3
       placeholder: ''
       show_summary: false
+    third_party_settings: {  }
+  field_domain_access:
+    type: options_buttons
+    weight: 47
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_domain_all_affiliates:
+    type: boolean_checkbox
+    weight: 49
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_domain_source:
+    type: options_select
+    weight: 48
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_editorial_sections:
+    type: options_buttons
+    weight: 46
+    region: content
+    settings: {  }
     third_party_settings: {  }
   field_image:
     type: media_library_widget

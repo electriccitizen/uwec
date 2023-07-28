@@ -5,6 +5,10 @@ dependencies:
   config:
     - field.field.node.bios.body
     - field.field.node.bios.field_bio_order
+    - field.field.node.bios.field_domain_access
+    - field.field.node.bios.field_domain_all_affiliates
+    - field.field.node.bios.field_domain_source
+    - field.field.node.bios.field_editorial_sections
     - field.field.node.bios.field_email
     - field.field.node.bios.field_first_name
     - field.field.node.bios.field_image
@@ -216,6 +220,14 @@ content:
     third_party_settings: {  }
     weight: 108
     region: content
+  field_editorial_sections:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 102
+    region: content
   field_email:
     type: basic_string
     label: above
@@ -268,6 +280,9 @@ content:
     weight: 100
     region: content
 hidden:
+  field_domain_access: true
+  field_domain_all_affiliates: true
+  field_domain_source: true
   field_list_widget: true
   field_metatags: true
   search_api_excerpt: true

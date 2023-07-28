@@ -4,6 +4,10 @@ status: true
 dependencies:
   config:
     - field.field.node.page.body
+    - field.field.node.page.field_domain_access
+    - field.field.node.page.field_domain_all_affiliates
+    - field.field.node.page.field_domain_source
+    - field.field.node.page.field_editorial_sections
     - field.field.node.page.field_image
     - field.field.node.page.field_metatags
     - field.field.node.page.field_paragraphs
@@ -195,6 +199,14 @@ targetEntityType: node
 bundle: page
 mode: default
 content:
+  field_editorial_sections:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 102
+    region: content
   links:
     settings: {  }
     third_party_settings: {  }
@@ -202,6 +214,9 @@ content:
     region: content
 hidden:
   body: true
+  field_domain_access: true
+  field_domain_all_affiliates: true
+  field_domain_source: true
   field_image: true
   field_metatags: true
   field_paragraphs: true

@@ -4,6 +4,9 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.user.compact
+    - field.field.user.user.field_domain_access
+    - field.field.user.user.field_domain_admin
+    - field.field.user.user.field_domain_all_affiliates
     - field.field.user.user.field_first_name
     - field.field.user.user.field_last_name
     - field.field.user.user.field_user_image
@@ -30,6 +33,9 @@ mode: compact
 content: {  }
 hidden:
   field_authored_placeholder: true
+  field_domain_access: true
+  field_domain_admin: true
+  field_domain_all_affiliates: true
   field_first_name: true
   field_last_name: true
   field_user_image: true

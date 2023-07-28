@@ -1,0 +1,8 @@
+uuid: 2afe8e34-fa85-4f7e-8e87-06f62fc16a79
+langcode: en
+status: true
+dependencies: {  }
+name: 'Editorial sections'
+vid: editorial_sections
+description: 'Assign sections to control editorial content access'
+weight: 0

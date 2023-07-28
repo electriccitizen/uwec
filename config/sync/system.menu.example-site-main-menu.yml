@@ -1,0 +1,14 @@
+uuid: cd7e164e-4803-4700-8dc2-ad19c1a2afc3
+langcode: en
+status: true
+dependencies:
+  module:
+    - workbench_menu_access
+third_party_settings:
+  workbench_menu_access:
+    access_scheme:
+      9: '9'
+id: example-site-main-menu
+label: 'Example site Main Menu'
+description: ''
+locked: false

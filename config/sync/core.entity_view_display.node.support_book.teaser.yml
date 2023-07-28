@@ -5,6 +5,10 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.support_book.body
+    - field.field.node.support_book.field_domain_access
+    - field.field.node.support_book.field_domain_all_affiliates
+    - field.field.node.support_book.field_domain_source
+    - field.field.node.support_book.field_editorial_sections
     - field.field.node.support_book.field_paragraphs
     - node.type.support_book
   module:
@@ -80,5 +84,9 @@ content:
     region: content
 hidden:
   addtoany: true
+  field_domain_access: true
+  field_domain_all_affiliates: true
+  field_domain_source: true
+  field_editorial_sections: true
   field_paragraphs: true
   search_api_excerpt: true

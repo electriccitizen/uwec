@@ -13,6 +13,7 @@ module:
   block_content_permissions: 0
   breakpoint: 0
   citizen_custom: 0
+  citizen_domain: 0
   ckeditor5: 0
   config: 0
   config_filter: 0
@@ -24,6 +25,12 @@ module:
   ctools_block: 0
   datetime: 0
   default_content: 0
+  domain: 0
+  domain_access: 0
+  domain_alias: 0
+  domain_config: 0
+  domain_config_ui: 0
+  domain_source: 0
   dynamic_page_cache: 0
   editor: 0
   embed: 0
@@ -74,6 +81,7 @@ module:
   phpass: 0
   quicklink: 0
   redirect: 0
+  redirect_domain: 0
   responsive_image: 0
   responsive_preview: 0
   role_delegation: 0
@@ -100,6 +108,8 @@ module:
   views_ui: 0
   webform: 0
   webform_ui: 0
+  workbench_access: 0
+  workbench_menu_access: 0
   extlink: 1
   menu_admin_per_menu: 1
   pathauto: 1

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "712acd5f1c8e51494d3dc04b5b070c5f",
+    "content-hash": "d4849f519694eef635c84a2ecdebcb72",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -3305,6 +3305,141 @@
             }
         },
         {
+            "name": "drupal/domain",
+            "version": "2.0.0-beta1",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/domain.git",
+                "reference": "2.0.0-beta1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/domain-2.0.0-beta1.zip",
+                "reference": "2.0.0-beta1",
+                "shasum": "0edbc9d6c79cb0a61c08c656e9258c2450710664"
+            },
+            "require": {
+                "drupal/core": "^9 || ^10"
+            },
+            "require-dev": {
+                "drupal/domain_access": "*",
+                "drupal/domain_config": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "2.0.0-beta1",
+                    "datestamp": "1686067462",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Beta releases are not covered by Drupal security advisories."
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "agentrickard",
+                    "homepage": "https://www.drupal.org/user/20975"
+                },
+                {
+                    "name": "nonsie",
+                    "homepage": "https://www.drupal.org/user/29899"
+                }
+            ],
+            "description": "Creates domain records within a Drupal installation.",
+            "homepage": "https://www.drupal.org/project/domain",
+            "support": {
+                "source": "https://git.drupalcode.org/project/domain"
+            }
+        },
+        {
+            "name": "drupal/domain_path",
+            "version": "1.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/domain_path.git",
+                "reference": "8.x-1.3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/domain_path-8.x-1.3.zip",
+                "reference": "8.x-1.3",
+                "shasum": "a1d0474094da900c214ff91a470a6652baf6c004"
+            },
+            "require": {
+                "drupal/core": "^8.8 || ^9 || ^10",
+                "drupal/domain": "^1.0-beta || ^2"
+            },
+            "require-dev": {
+                "drupal/pathauto": "1.x-dev"
+            },
+            "suggest": {
+                "drupal/pathauto": "Automatic path aliases with Domain Path Pathauto submodule."
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "8.x-1.3",
+                    "datestamp": "1687642331",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Project has not opted into security advisory coverage!"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "agentrickard",
+                    "homepage": "https://www.drupal.org/user/20975"
+                },
+                {
+                    "name": "anydigital",
+                    "homepage": "https://www.drupal.org/user/787240"
+                },
+                {
+                    "name": "grndlvl",
+                    "homepage": "https://www.drupal.org/user/103553"
+                },
+                {
+                    "name": "i-trokhanenko",
+                    "homepage": "https://www.drupal.org/user/3546872"
+                },
+                {
+                    "name": "quadrexdev",
+                    "homepage": "https://www.drupal.org/user/3683807"
+                },
+                {
+                    "name": "rcodina",
+                    "homepage": "https://www.drupal.org/user/2635031"
+                },
+                {
+                    "name": "shenzhuxi",
+                    "homepage": "https://www.drupal.org/user/193802"
+                },
+                {
+                    "name": "skrasulevskiy",
+                    "homepage": "https://www.drupal.org/user/2440780"
+                },
+                {
+                    "name": "StryKaizer",
+                    "homepage": "https://www.drupal.org/user/462700"
+                }
+            ],
+            "description": "Path aliases for content using domain.",
+            "homepage": "https://www.drupal.org/project/domain_path",
+            "support": {
+                "source": "https://git.drupalcode.org/project/domain_path"
+            }
+        },
+        {
             "name": "drupal/drupal-driver",
             "version": "v2.2.2",
             "source": {
@@ -6243,6 +6378,111 @@
             }
         },
         {
+            "name": "drupal/workbench_access",
+            "version": "2.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/workbench_access.git",
+                "reference": "2.0.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/workbench_access-2.0.1.zip",
+                "reference": "2.0.1",
+                "shasum": "112dc52da87c23c61aee9bcb7329f35d59e6fa11"
+            },
+            "require": {
+                "drupal/core": "^9 || ^10"
+            },
+            "require-dev": {
+                "drupal/inline_entity_form": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "2.0.1",
+                    "datestamp": "1676497401",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                },
+                "drush": {
+                    "services": {
+                        "drush.services.yml": "^9 || ^10"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "agentrickard",
+                    "homepage": "https://www.drupal.org/user/20975"
+                },
+                {
+                    "name": "becw",
+                    "homepage": "https://www.drupal.org/user/81067"
+                },
+                {
+                    "name": "larowlan",
+                    "homepage": "https://www.drupal.org/user/395439"
+                }
+            ],
+            "description": "Hierarchical access control for content.",
+            "homepage": "https://www.drupal.org/project/workbench_access",
+            "support": {
+                "source": "https://git.drupalcode.org/project/workbench_access"
+            }
+        },
+        {
+            "name": "drupal/workbench_menu_access",
+            "version": "2.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/workbench_menu_access.git",
+                "reference": "2.0.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/workbench_menu_access-2.0.0.zip",
+                "reference": "2.0.0",
+                "shasum": "459ebe13752cd4214129dc79e0b84c5302e3b55c"
+            },
+            "require": {
+                "drupal/core": "^9.1 || ^10",
+                "drupal/workbench_access": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "2.0.0",
+                    "datestamp": "1673474308",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "agentrickard",
+                    "homepage": "https://www.drupal.org/user/20975"
+                }
+            ],
+            "description": "Adds Workbench Access controls to menus.",
+            "homepage": "https://www.drupal.org/project/workbench_menu_access",
+            "support": {
+                "source": "https://git.drupalcode.org/project/workbench_menu_access"
+            }
+        },
+        {
             "name": "drupal/xmlsitemap",
             "version": "1.4.0",
             "source": {
@@ -7782,7 +8022,7 @@
         },
         {
             "name": "pantheon-upstreams/upstream-configuration",
-            "version": "dev-uwec-25",
+            "version": "dev-domain-access",
             "dist": {
                 "type": "path",
                 "url": "upstream-configuration",
@@ -14594,6 +14834,7 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "drupal/auto_entitylabel": 10,
+        "drupal/domain": 10,
         "drupal/drupal-extension": 5,
         "drupal/entity_usage": 10,
         "drupal/gin": 10,
@@ -14606,5 +14847,5 @@
     "prefer-lowest": false,
     "platform": [],
     "platform-dev": [],
-    "plugin-api-version": "2.3.0"
+    "plugin-api-version": "2.2.0"
 }

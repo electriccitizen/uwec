@@ -1,7 +1,13 @@
 uuid: 9a20aac0-c62b-49c5-8080-38e72e54c302
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  module:
+    - workbench_menu_access
+third_party_settings:
+  workbench_menu_access:
+    access_scheme:
+      6: '6'
 _core:
   default_config_hash: L1bVSVVE-PzisKfa_jGL9AaiNKmUjHth7POrraFCRMU
 id: main

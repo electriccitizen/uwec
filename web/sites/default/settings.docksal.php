@@ -12,7 +12,8 @@ $settings['hash_salt'] = 'I wish i were a boy in France.';
 
 // Site Specific URL
 $base_url = "http://uwec.docksal.site";
-$settings['trusted_host_patterns'] = array('^uwec\.docksal\.site', '^uwec\.docksal');
+$settings['trusted_host_patterns'] = array('^uwec\.docksal\.site', '^example\.uwec\.docksal\.site');
+
 
 $settings['container_yamls'][] = DRUPAL_ROOT . '/sites/development.services.yml';
 
