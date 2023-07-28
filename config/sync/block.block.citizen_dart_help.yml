@@ -11,7 +11,7 @@ _core:
 id: citizen_dart_help
 theme: citizen_dart
 region: content
-weight: -5
+weight: -3
 provider: null
 plugin: help_block
 settings:

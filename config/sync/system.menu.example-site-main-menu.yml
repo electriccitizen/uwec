@@ -10,5 +10,5 @@ third_party_settings:
       9: '9'
 id: example-site-main-menu
 label: 'Example site Main Menu'
-description: ''
+description: 'Main menu for Example Site'
 locked: false

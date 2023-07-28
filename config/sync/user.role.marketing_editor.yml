@@ -1,9 +1,30 @@
 uuid: 74582d91-1ba7-43aa-8fff-9a344bbc2c90
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  module:
+    - domain
+    - domain_access
+    - workbench_access
 id: marketing_editor
 label: 'Marketing Editor'
 weight: 8
 is_admin: null
-permissions: {  }
+permissions:
+  - 'create bios content on assigned domains'
+  - 'create landing_page content on assigned domains'
+  - 'create news content on assigned domains'
+  - 'create page content on assigned domains'
+  - 'delete bios content on assigned domains'
+  - 'delete landing_page content on assigned domains'
+  - 'delete news content on assigned domains'
+  - 'delete page content on assigned domains'
+  - 'publish to any assigned domain'
+  - 'update bios content on assigned domains'
+  - 'update landing_page content on assigned domains'
+  - 'update news content on assigned domains'
+  - 'update page content on assigned domains'
+  - 'use domain nav block'
+  - 'use workbench access'
+  - 'view unpublished domain content'
+  - 'view workbench access information'

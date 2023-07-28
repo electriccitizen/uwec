@@ -14,6 +14,8 @@ dependencies:
   module:
     - addanother
     - citizen_custom
+    - domain
+    - domain_access
     - file
     - filter
     - media
@@ -25,6 +27,7 @@ dependencies:
     - system
     - toolbar
     - webform
+    - workbench_access
 _core:
   default_config_hash: EXd6odxtI3ATSRa8lIDzgMFLGlfXgkm31FsS0ncrzl8
 id: editor
@@ -42,14 +45,19 @@ permissions:
   - 'administer footer menu items'
   - 'administer main menu items'
   - 'administer secondary menu items'
+  - 'bypass workbench access'
   - 'change own username'
   - 'create bios content'
+  - 'create bios content on assigned domains'
   - 'create document media'
   - 'create image media'
   - 'create landing_page content'
+  - 'create landing_page content on assigned domains'
   - 'create media'
   - 'create news content'
+  - 'create news content on assigned domains'
   - 'create page content'
+  - 'create page content on assigned domains'
   - 'create remote_video media'
   - 'create url aliases'
   - 'create webform'
@@ -86,6 +94,7 @@ permissions:
   - 'edit own page content'
   - 'edit own remote_video media'
   - 'edit own webform submission'
+  - 'publish to any assigned domain'
   - 'revert all revisions'
   - 'revert bios revisions'
   - 'revert landing_page revisions'
@@ -93,9 +102,15 @@ permissions:
   - 'revert page revisions'
   - 'switch shortcut sets'
   - 'update any media'
+  - 'update bios content on assigned domains'
+  - 'update landing_page content on assigned domains'
   - 'update media'
+  - 'update news content on assigned domains'
+  - 'update page content on assigned domains'
   - 'use add another'
+  - 'use domain nav block'
   - 'use text format limited_html'
+  - 'use workbench access'
   - 'view all revisions'
   - 'view any webform submission'
   - 'view bios revisions'
@@ -105,3 +120,5 @@ permissions:
   - 'view own webform submission'
   - 'view page revisions'
   - 'view the administration theme'
+  - 'view unpublished domain content'
+  - 'view workbench access information'

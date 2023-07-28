@@ -17,6 +17,8 @@ dependencies:
     - block_content_permissions
     - citizen_custom
     - contextual
+    - domain
+    - domain_access
     - file
     - filter
     - layout_builder
@@ -30,6 +32,7 @@ dependencies:
     - system
     - taxonomy
     - webform
+    - workbench_access
 _core:
   default_config_hash: 3m-nUaghYSeygzbwOLkLnlNZKdjVcUYHxICe7O_Kf9A
 id: site_manager
@@ -62,13 +65,17 @@ permissions:
   - 'configure editable landing_page node layout overrides'
   - 'create basic block content'
   - 'create bios content'
+  - 'create bios content on assigned domains'
   - 'create document media'
   - 'create image media'
   - 'create landing_page content'
+  - 'create landing_page content on assigned domains'
   - 'create media'
   - 'create news content'
+  - 'create news content on assigned domains'
   - 'create newsletter block content'
   - 'create page content'
+  - 'create page content on assigned domains'
   - 'create remote_video media'
   - 'create social_media_links block content'
   - 'create url aliases'
@@ -84,8 +91,11 @@ permissions:
   - 'delete any social_media_links block content'
   - 'delete any webform'
   - 'delete any webform submission'
+  - 'delete bios content on assigned domains'
   - 'delete bios revisions'
+  - 'delete landing_page content on assigned domains'
   - 'delete landing_page revisions'
+  - 'delete news content on assigned domains'
   - 'delete news revisions'
   - 'delete own bios content'
   - 'delete own files'
@@ -94,6 +104,7 @@ permissions:
   - 'delete own page content'
   - 'delete own webform'
   - 'delete own webform submission'
+  - 'delete page content on assigned domains'
   - 'delete page revisions'
   - 'edit any bios content'
   - 'edit any document media'
@@ -114,6 +125,7 @@ permissions:
   - 'edit own remote_video media'
   - 'edit own webform'
   - 'edit own webform submission'
+  - 'publish to any assigned domain'
   - 'revert all revisions'
   - 'revert bios revisions'
   - 'revert landing_page revisions'
@@ -124,9 +136,15 @@ permissions:
   - 'update any media'
   - 'update any newsletter block content'
   - 'update any social_media_links block content'
+  - 'update bios content on assigned domains'
+  - 'update landing_page content on assigned domains'
   - 'update media'
+  - 'update news content on assigned domains'
+  - 'update page content on assigned domains'
   - 'use add another'
+  - 'use domain nav block'
   - 'use text format limited_html'
+  - 'use workbench access'
   - 'view all media revisions'
   - 'view all revisions'
   - 'view any webform submission'
@@ -137,3 +155,5 @@ permissions:
   - 'view own webform submission'
   - 'view page revisions'
   - 'view the administration theme'
+  - 'view unpublished domain content'
+  - 'view workbench access information'

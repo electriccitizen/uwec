@@ -3,20 +3,54 @@ langcode: en
 status: true
 dependencies:
   module:
+    - domain
+    - domain_access
     - paragraphs_type_permissions
+    - workbench_access
 id: site_admin
 label: 'Site Admin'
 weight: 6
 is_admin: null
 permissions:
+  - 'administer workbench access'
+  - 'assign domain editors'
+  - 'assign editors to any domain'
+  - 'assign selected workbench access'
+  - 'assign workbench access'
+  - 'batch update workbench access'
+  - 'create bios content on assigned domains'
+  - 'create domain content'
+  - 'create landing_page content on assigned domains'
+  - 'create news content on assigned domains'
+  - 'create page content on assigned domains'
   - 'create paragraph content accordion_item'
   - 'create paragraph content accordions'
   - 'create paragraph content custom_embed'
   - 'create paragraph content layout_section'
   - 'create paragraph content layout_section_single'
+  - 'create support_book content on assigned domains'
+  - 'delete bios content on assigned domains'
+  - 'delete domain content'
+  - 'delete landing_page content on assigned domains'
+  - 'delete news content on assigned domains'
+  - 'delete page content on assigned domains'
   - 'delete paragraph content custom_embed'
   - 'delete paragraph content layout_section'
   - 'delete paragraph content layout_section_single'
+  - 'delete support_book content on assigned domains'
+  - 'edit domain content'
+  - 'publish to any assigned domain'
+  - 'publish to any domain'
+  - 'update bios content on assigned domains'
+  - 'update landing_page content on assigned domains'
+  - 'update news content on assigned domains'
+  - 'update page content on assigned domains'
   - 'update paragraph content custom_embed'
   - 'update paragraph content layout_section'
   - 'update paragraph content layout_section_single'
+  - 'update support_book content on assigned domains'
+  - 'use domain nav block'
+  - 'use domain switcher block'
+  - 'use workbench access'
+  - 'view unpublished domain content'
+  - 'view workbench access information'

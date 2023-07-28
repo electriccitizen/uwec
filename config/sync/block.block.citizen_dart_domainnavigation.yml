@@ -1,0 +1,36 @@
+uuid: 34b10368-8b5a-49e7-8deb-324d02fcee5a
+langcode: en
+status: true
+dependencies:
+  module:
+    - domain
+    - user
+  theme:
+    - citizen_dart
+id: citizen_dart_domainnavigation
+theme: citizen_dart
+region: content
+weight: -6
+provider: null
+plugin: domain_nav_block
+settings:
+  id: domain_nav_block
+  label: 'Domain navigation'
+  label_display: visible
+  provider: domain
+  link_options: home
+  link_theme: select
+  link_label: name
+visibility:
+  user_role:
+    id: user_role
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'
+    roles:
+      administrator: administrator
+      editor: editor
+      site_manager: site_manager
+      site_admin: site_admin
+      section_manager: section_manager
+      marketing_editor: marketing_editor
