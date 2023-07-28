@@ -1,0 +1,8 @@
+uuid: 6d58d054-7e37-407b-a5c4-9e625bb602a5
+langcode: en
+status: true
+dependencies: {  }
+id: footer-for
+label: 'Footer For'
+description: "'For' links in footer."
+locked: false

@@ -1,0 +1,25 @@
+uuid: 7430e472-2e0b-4dcb-b8ae-65b0a579391e
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:2eb6c1af-4ead-4416-9fdf-69f15df10cd2'
+  module:
+    - block_content
+  theme:
+    - citizen_dart
+id: citizen_dart_address
+theme: citizen_dart
+region: footer
+weight: -6
+provider: null
+plugin: 'block_content:2eb6c1af-4ead-4416-9fdf-69f15df10cd2'
+settings:
+  id: 'block_content:2eb6c1af-4ead-4416-9fdf-69f15df10cd2'
+  label: Address
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

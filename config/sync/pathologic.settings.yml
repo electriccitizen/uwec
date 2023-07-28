@@ -6,4 +6,4 @@ scheme_whitelist:
   - files
   - internal
 protocol_style: full
-local_paths: "http://newupstream.docksal/\r\nhttp://dev-newupstream.pantheonsite.io/"
+local_paths: "http://uwec.docksal.site/\r\nhttps://dev-uwec.pantheonsite.io/\r\nhttps://test-uwec.pantheonsite.io/\r\nhttps://live-uwec.pantheonsite.io/\r\nhttps://www.uwec.edu/"
