@@ -146,6 +146,14 @@
 /* OFF CANVAS */
 
 #drupal-off-canvas-wrapper{
+	height: 100% !important;
+	top: 0 !important;
+	.button{
+		font-size: 14px;
+		padding-top: 1rem;
+		padding-bottom: 1rem;
+		margin-bottom: $spaceSm;
+	}
 	.ui-dialog-titlebar{
 		.ui-dialog-title{
 			font-size: 15px;
@@ -166,9 +174,10 @@
 	}
 	#drupal-off-canvas{
 		font-size: 16px;
-		button,.ui-button{
+		button,.ui-button,.button{
 			&:before,&:after{
 				content: none;
+				font-size: 14px;
 			}
 		}
 		summary,input:where(:not([type="checkbox"],[type="radio"],[type="file"])),textarea{

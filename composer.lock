@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "712acd5f1c8e51494d3dc04b5b070c5f",
+    "content-hash": "5eb47c8a05dc40131e50778568a8c331",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -3933,17 +3933,11 @@
         },
         {
             "name": "drupal/gin",
-            "version": "3.0.0-rc5",
+            "version": "dev-3.x",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/gin.git",
-                "reference": "8.x-3.0-rc5"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/gin-8.x-3.0-rc5.zip",
-                "reference": "8.x-3.0-rc5",
-                "shasum": "81010b540822f0cfc114fd0548e4e27e56b6dc1c"
+                "reference": "5f87decad210bd1a36bd9b0165e9f6fd0cd777e1"
             },
             "require": {
                 "drupal/core": "^9 || ^10",
@@ -3951,12 +3945,15 @@
             },
             "type": "drupal-theme",
             "extra": {
+                "branch-alias": {
+                    "dev-3.x": "3.x-dev"
+                },
                 "drupal": {
-                    "version": "8.x-3.0-rc5",
-                    "datestamp": "1689504430",
+                    "version": "8.x-3.0-rc5+2-dev",
+                    "datestamp": "1689860091",
                     "security-coverage": {
                         "status": "not-covered",
-                        "message": "RC releases are not covered by Drupal security advisories."
+                        "message": "Dev releases are not covered by Drupal security advisories."
                     }
                 }
             },
@@ -7782,7 +7779,7 @@
         },
         {
             "name": "pantheon-upstreams/upstream-configuration",
-            "version": "dev-uwec-25",
+            "version": "dev-main",
             "dist": {
                 "type": "path",
                 "url": "upstream-configuration",
@@ -14596,7 +14593,7 @@
         "drupal/auto_entitylabel": 10,
         "drupal/drupal-extension": 5,
         "drupal/entity_usage": 10,
-        "drupal/gin": 10,
+        "drupal/gin": 20,
         "drupal/lazy": 20,
         "drupal/linkit": 10,
         "drupal/masquerade": 5,

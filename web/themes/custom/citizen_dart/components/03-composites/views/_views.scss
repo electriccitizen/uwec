@@ -4,8 +4,8 @@
 
 /* VIEWS INDEX
 ------------------- */
-@forward 'bios/bio-views';
-@forward 'news/news-views';
+@forward 'profiles/profiles-views';
+@forward 'stories/stories-views';
 
 @use '../../00-base/base' as *;
 
