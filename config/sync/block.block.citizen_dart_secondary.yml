@@ -1,0 +1,31 @@
+uuid: 3953f666-ce80-48a1-b73c-f8e6364ba456
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.secondary
+  module:
+    - menu_block
+  theme:
+    - citizen_dart
+id: citizen_dart_secondary
+theme: citizen_dart
+region: header
+weight: -5
+provider: null
+plugin: 'menu_block:secondary'
+settings:
+  id: 'menu_block:secondary'
+  label: Secondary
+  label_display: '0'
+  provider: menu_block
+  follow: false
+  follow_parent: child
+  label_link: false
+  label_type: block
+  level: 1
+  depth: 1
+  expand_all_items: false
+  parent: 'secondary:'
+  suggestion: secondary
+visibility: {  }
