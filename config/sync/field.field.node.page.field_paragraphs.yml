@@ -7,6 +7,7 @@ dependencies:
     - node.type.page
     - paragraphs.paragraphs_type.accordions
     - paragraphs.paragraphs_type.custom_embed
+    - paragraphs.paragraphs_type.form_placer
     - paragraphs.paragraphs_type.gallery
     - paragraphs.paragraphs_type.image
     - paragraphs.paragraphs_type.layout_section_single
@@ -33,6 +34,7 @@ settings:
     target_bundles:
       accordions: accordions
       custom_embed: custom_embed
+      form_placer: form_placer
       gallery: gallery
       image: image
       links_files: links_files

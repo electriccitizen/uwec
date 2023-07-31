@@ -1,4 +1,4 @@
-uuid: 285452cc-3d88-4dbc-98f2-bb0ec8cde9f8
+uuid: 6dd11696-3db5-4227-81bd-65498388f72c
 langcode: en
 status: true
 dependencies:
@@ -6,7 +6,7 @@ dependencies:
     module:
       - webform
 _core:
-  default_config_hash: ziWv9xVss1UBnP_R38EqduZOprwOAifpxjXhyOPzmys
+  default_config_hash: EGSBZ4Hn8Bxt4wwSuQncvKMwq0Cky9CT4Ur9avdAS1o
 id: state_province_codes
 label: 'State/Province codes'
 category: Geographic
@@ -25,7 +25,7 @@ options: |
   CT: Connecticut
   DE: Delaware
   DC: 'District of Columbia'
-  FM: 'Federated States of Micronesia'
+  FM: 'Federate States of Micronesia'
   FL: Florida
   GA: Georgia
   GU: Guam
@@ -74,16 +74,3 @@ options: |
   WV: 'West Virginia'
   WI: Wisconsin
   WY: Wyoming
-  AB: Alberta
-  BC: 'British Columbia'
-  MB: Manitoba
-  NB: 'New Brunswick'
-  NL: 'Newfoundland and Labrador'
-  NS: 'Nova Scotia'
-  NT: 'Northwest Territories'
-  NU: Nunavut
-  'ON': Ontario
-  PE: 'Prince Edward Island'
-  QC: Quebec
-  SK: Saskatchewan
-  YT: Yukon

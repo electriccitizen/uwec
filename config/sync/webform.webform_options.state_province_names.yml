@@ -1,4 +1,4 @@
-uuid: 5cfa8297-df61-42ad-8680-ae7f739b878b
+uuid: cfc5cc72-0bfd-41ae-b367-917225a8c0fb
 langcode: en
 status: true
 dependencies:
@@ -6,7 +6,7 @@ dependencies:
     module:
       - webform
 _core:
-  default_config_hash: d4mxS_CxdzHZK4WaGQf1H3m-Uubm5HPbu9U4ydzscuo
+  default_config_hash: sfuOehMv9lJQ5AyMj_T7yprOWBeKzST-LyMJsPJ9j_Y
 id: state_province_names
 label: 'State/Province names'
 category: Geographic
@@ -17,7 +17,7 @@ options: |
   'American Samoa': 'American Samoa'
   Arizona: Arizona
   Arkansas: Arkansas
-  'Armed Forces (Canada, Europe, Africa, or Middle East)': 'Armed Forces (Canada, Europe, Africa, or Middle East)'
+  'Armed Forces (Canada, Europe, Africa, or Middle East': 'Armed Forces (Canada, Europe, Africa, or Middle East'
   'Armed Forces Americas': 'Armed Forces Americas'
   'Armed Forces Pacific': 'Armed Forces Pacific'
   California: California
@@ -25,7 +25,7 @@ options: |
   Connecticut: Connecticut
   Delaware: Delaware
   'District of Columbia': 'District of Columbia'
-  'Federated States of Micronesia': 'Federated States of Micronesia'
+  'Federate States of Micronesia': 'Federate States of Micronesia'
   Florida: Florida
   Georgia: Georgia
   Guam: Guam
@@ -74,16 +74,3 @@ options: |
   'West Virginia': 'West Virginia'
   Wisconsin: Wisconsin
   Wyoming: Wyoming
-  Alberta: Alberta
-  'British Columbia': 'British Columbia'
-  Manitoba: Manitoba
-  'New Brunswick': 'New Brunswick'
-  'Newfoundland and Labrador': 'Newfoundland and Labrador'
-  'Nova Scotia': 'Nova Scotia'
-  'Northwest Territories': 'Northwest Territories'
-  Nunavut: Nunavut
-  Ontario: Ontario
-  'Prince Edward Island': 'Prince Edward Island'
-  Quebec: Quebec
-  Saskatchewan: Saskatchewan
-  Yukon: Yukon

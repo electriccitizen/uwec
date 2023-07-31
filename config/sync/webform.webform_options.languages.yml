@@ -1,4 +1,4 @@
-uuid: 3d46f2f0-17ac-439b-a613-24506e91a6c9
+uuid: 3b61d345-1249-4e54-ae29-9dce1727cab8
 langcode: en
 status: true
 dependencies:
@@ -6,7 +6,7 @@ dependencies:
     module:
       - webform
 _core:
-  default_config_hash: mYH14Vi65Ixj10c_GFa7CipxU3D0Bt9wgo8zE8zjOfE
+  default_config_hash: ICHpUx3FHNk-TTEA4BXKU1IAQHg9HgiLVYRGk6Dqj7k
 id: languages
 label: Languages
 category: Language
