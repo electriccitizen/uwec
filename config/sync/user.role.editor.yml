@@ -26,7 +26,6 @@ dependencies:
     - shortcut
     - system
     - toolbar
-    - webform
     - workbench_access
 _core:
   default_config_hash: EXd6odxtI3ATSRa8lIDzgMFLGlfXgkm31FsS0ncrzl8
@@ -41,7 +40,6 @@ permissions:
   - 'access responsive preview'
   - 'access toolbar'
   - 'access user profiles'
-  - 'access webform overview'
   - 'administer footer menu items'
   - 'administer main menu items'
   - 'administer secondary menu items'
@@ -60,7 +58,6 @@ permissions:
   - 'create page content on assigned domains'
   - 'create remote_video media'
   - 'create url aliases'
-  - 'create webform'
   - 'delete all revisions'
   - 'delete any bios content'
   - 'delete any landing_page content'
@@ -74,8 +71,6 @@ permissions:
   - 'delete own landing_page content'
   - 'delete own news content'
   - 'delete own page content'
-  - 'delete own webform'
-  - 'delete own webform submission'
   - 'delete page revisions'
   - 'edit any bios content'
   - 'edit any document media'
@@ -84,7 +79,6 @@ permissions:
   - 'edit any news content'
   - 'edit any page content'
   - 'edit any remote_video media'
-  - 'edit any webform'
   - 'edit layout paragraphs plugin config'
   - 'edit own bios content'
   - 'edit own document media'
@@ -93,7 +87,6 @@ permissions:
   - 'edit own news content'
   - 'edit own page content'
   - 'edit own remote_video media'
-  - 'edit own webform submission'
   - 'publish to any assigned domain'
   - 'revert all revisions'
   - 'revert bios revisions'
@@ -112,12 +105,10 @@ permissions:
   - 'use text format limited_html'
   - 'use workbench access'
   - 'view all revisions'
-  - 'view any webform submission'
   - 'view bios revisions'
   - 'view landing_page revisions'
   - 'view news revisions'
   - 'view own unpublished content'
-  - 'view own webform submission'
   - 'view page revisions'
   - 'view the administration theme'
   - 'view unpublished domain content'
