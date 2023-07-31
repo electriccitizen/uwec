@@ -6,6 +6,6 @@ id: example_uwec_docksal_site
 domain_id: 2527471
 hostname: example.uwec.docksal.site
 name: 'UWEC Example Subsite'
-scheme: http
+scheme: variable
 weight: 2
 is_default: false
