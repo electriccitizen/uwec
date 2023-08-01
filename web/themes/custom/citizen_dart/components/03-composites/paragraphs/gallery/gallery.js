@@ -5,7 +5,7 @@
 	Drupal.behaviors.gallery = {
 		attach: function (context, settings) {
 			//Featherlight
-			$(once('lightboxes', '.gallery-type.lightbox', context)).each(function(){
+			$(once('lightboxes', '.gallery-style.tiles', context)).each(function(){
 				$(document).ready(function(){
 					$('.featherlight-gal', this).featherlightGallery({
 						previousIcon: '<',
@@ -16,7 +16,7 @@
 				});
 			});
 			//Slider
-			$(once('slider', '.gallery-type.slider', context)).each(function(){
+			$(once('slider', '.gallery-style.slider', context)).each(function(){
 				$(document).ready(function(){
 					$('.field-image-multi', this).slick({
 						adaptiveHeight: true,

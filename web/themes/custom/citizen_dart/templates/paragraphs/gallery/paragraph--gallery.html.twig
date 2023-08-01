@@ -41,10 +41,10 @@
 
 {% block widgetContent %}
   {{ attach_library('citizen_dart/galleries') }}
-  {% set galleryType = content.field_gallery_type.0['#markup']|clean_class %}
-  <div class="gallery-type {{ galleryType }}" >
+  {% set galleryStyle = content.field_gallery_style.0['#markup']|clean_class %}
+  <div class="gallery-style {{ galleryStyle }}" >
 	  <div class="gallery-wrapper">
-	    {% if 'lightbox' in galleryType %}
+	    {% if 'tiles' in galleryStyle %}
 	    	{% block lightboxContent %}
 		      {{ attach_library('citizen_dart/featherlight') }}
 		      {%- for key, item in content.field_image_multi -%}
@@ -58,7 +58,7 @@
 		        {%- endif -%}
 		      {%- endfor -%}
 		    {% endblock %}
-	    {% else %}
+	    {% elseif 'slider' in galleryStyle %}
 	      {% block sliderContent %}
 	        {{ attach_library('citizen_dart/slick') }}
   	 			{{- content.field_image_multi -}}
@@ -67,5 +67,3 @@
 	  </div>
 	</div>
 {% endblock %}
-  
-

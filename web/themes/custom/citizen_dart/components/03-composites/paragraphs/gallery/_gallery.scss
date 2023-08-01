@@ -7,12 +7,12 @@
 
 .paragraph--type--gallery{
 	max-width: 100%;
-	.lightbox{
+	.tiles{
 		.gallery-wrapper{
 			@include safeFlex(row,wrap,center,start);
 			@include bleed(padding,32px);
 			margin-bottom: -$spaceMd;
-			//hide the content before lightbox
+			//hide the content before tiles
 			.featherlight-hidden {
 				display: none;
 			}
@@ -28,9 +28,9 @@
 					@include imageHover;
 				}
 
-			}//end image lightbox
+			}//end image tiles
 		}//end gallery-wrapper
-	}//end lightbox
+	}//end tiles
 	.slider {
 		@include textConstrain;
 		//slider container overrides layout padding on mobile
@@ -47,7 +47,3 @@
 		}
 	}//end slider
 }//end gallery paragraph
-
-
-
-
