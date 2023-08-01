@@ -63,6 +63,11 @@
 	        {{ attach_library('citizen_dart/slick') }}
   	 			{{- content.field_image_multi -}}
 	      {% endblock %}
+      {% elseif 'masonry' in galleryStyle %}
+        {% block masonryContent %}
+          {{- content.field_image_multi -}}
+          <p>Masonry</p>
+        {% endblock %}
 	    {% endif %}
 	  </div>
 	</div>
