@@ -18,7 +18,7 @@
 			//Slider
 			$(once('slider', '.gallery-style.slider', context)).each(function(){
 				$(document).ready(function(){
-					$('.field-image-multi', this).slick({
+					$('.field-gallery-items', this).slick({
 						adaptiveHeight: true,
 						autoplay: true,
 						autoplaySpeed: 5000
