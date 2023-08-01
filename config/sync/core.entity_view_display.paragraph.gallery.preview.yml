@@ -4,9 +4,8 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.paragraph.preview
-    - field.field.paragraph.gallery.field_gallery_type
+    - field.field.paragraph.gallery.field_gallery_style
     - field.field.paragraph.gallery.field_image_multi
-    - field.field.paragraph.gallery.field_widget_title
     - image.style.paragraph_preview
     - paragraphs.paragraphs_type.gallery
   module:
@@ -23,16 +22,6 @@ targetEntityType: paragraph
 bundle: gallery
 mode: preview
 content:
-  field_gallery_type:
-    type: boolean
-    label: inline
-    settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
-    third_party_settings: {  }
-    weight: 0
-    region: content
   field_image_multi:
     type: media_thumbnail
     label: hidden
@@ -43,5 +32,5 @@ content:
     weight: 1
     region: content
 hidden:
-  field_widget_title: true
+  field_gallery_style: true
   search_api_excerpt: true

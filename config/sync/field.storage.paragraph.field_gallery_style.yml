@@ -1,0 +1,30 @@
+uuid: 5e106ccb-a857-4be9-ba99-1c471749809e
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - paragraphs
+id: paragraph.field_gallery_style
+field_name: field_gallery_style
+entity_type: paragraph
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: slider
+      label: Slider
+    -
+      value: tiles
+      label: Tiles
+    -
+      value: masonry
+      label: Masonry
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,33 @@
+uuid: 2cdeb484-874c-426a-9d5d-eec91613547a
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.preview
+    - field.field.paragraph.gallery_item.field_caption
+    - field.field.paragraph.gallery_item.field_caption_headline
+    - field.field.paragraph.gallery_item.field_image
+    - image.style.paragraph_preview
+    - paragraphs.paragraphs_type.gallery_item
+  module:
+    - media
+id: paragraph.gallery_item.preview
+targetEntityType: paragraph
+bundle: gallery_item
+mode: preview
+content:
+  field_image:
+    type: media_thumbnail
+    label: inline
+    settings:
+      image_link: ''
+      image_style: paragraph_preview
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  field_caption: true
+  field_caption_headline: true
+  search_api_excerpt: true

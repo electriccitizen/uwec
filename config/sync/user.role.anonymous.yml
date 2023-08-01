@@ -26,6 +26,7 @@ permissions:
   - 'view paragraph content content_placer'
   - 'view paragraph content custom_embed'
   - 'view paragraph content gallery'
+  - 'view paragraph content gallery_item'
   - 'view paragraph content image'
   - 'view paragraph content layout_section'
   - 'view paragraph content layout_section_single'

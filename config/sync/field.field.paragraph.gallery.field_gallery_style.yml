@@ -1,0 +1,21 @@
+uuid: 838c1f2d-3da3-4851-8922-dd15680cd95c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_gallery_style
+    - paragraphs.paragraphs_type.gallery
+  module:
+    - options
+id: paragraph.gallery.field_gallery_style
+field_name: field_gallery_style
+entity_type: paragraph
+bundle: gallery
+label: 'Gallery Style'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string
