@@ -60,5 +60,11 @@
 		{% block image %}
 			{{ image }}
 		{% endblock %}
+		{% if content.field_caption_headline.0 %}
+			<h2>{{ content.field_caption_headline.0 }}</h2>
+		{% endif %}
+		{% if content.field_caption.0 %}
+			<div>{{ content.field_caption.0 }}</div>
+		{% endif %}
 	</div>
 {% endblock %}
