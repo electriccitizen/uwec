@@ -18,7 +18,7 @@ mode: preview
 content:
   field_image:
     type: media_thumbnail
-    label: inline
+    label: hidden
     settings:
       image_link: ''
       image_style: paragraph_preview

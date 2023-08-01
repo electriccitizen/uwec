@@ -4,13 +4,12 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.paragraph.preview
+    - field.field.paragraph.gallery.field_gallery_items
     - field.field.paragraph.gallery.field_gallery_style
-    - field.field.paragraph.gallery.field_image_multi
-    - image.style.paragraph_preview
     - paragraphs.paragraphs_type.gallery
   module:
+    - entity_reference_revisions
     - layout_builder
-    - media
 third_party_settings:
   layout_builder:
     enabled: false
@@ -22,14 +21,14 @@ targetEntityType: paragraph
 bundle: gallery
 mode: preview
 content:
-  field_image_multi:
-    type: media_thumbnail
+  field_gallery_items:
+    type: entity_reference_revisions_entity_view
     label: hidden
     settings:
-      image_link: ''
-      image_style: paragraph_preview
+      view_mode: preview
+      link: ''
     third_party_settings: {  }
-    weight: 1
+    weight: 0
     region: content
 hidden:
   field_gallery_style: true

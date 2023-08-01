@@ -1,0 +1,64 @@
+uuid: bf127fab-7f0d-4388-828a-c3959abd1ecc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_gallery_items
+    - paragraphs.paragraphs_type.gallery
+    - paragraphs.paragraphs_type.gallery_item
+  module:
+    - entity_reference_revisions
+id: paragraph.gallery.field_gallery_items
+field_name: field_gallery_items
+entity_type: paragraph
+bundle: gallery
+label: 'Gallery Items'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      gallery_item: gallery_item
+    negate: 0
+    target_bundles_drag_drop:
+      accordion_item:
+        weight: 14
+        enabled: false
+      accordions:
+        weight: 13
+        enabled: false
+      content_placer:
+        weight: 15
+        enabled: false
+      custom_embed:
+        weight: 16
+        enabled: false
+      gallery:
+        weight: 17
+        enabled: false
+      gallery_item:
+        weight: 18
+        enabled: true
+      image:
+        weight: 19
+        enabled: false
+      layout_section:
+        weight: 20
+        enabled: false
+      layout_section_single:
+        weight: 21
+        enabled: false
+      links_files:
+        weight: 22
+        enabled: false
+      text:
+        weight: 23
+        enabled: false
+      video:
+        weight: 24
+        enabled: false
+field_type: entity_reference_revisions
