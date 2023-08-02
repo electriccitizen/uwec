@@ -31,5 +31,6 @@ permissions:
   - 'view paragraph content layout_section'
   - 'view paragraph content layout_section_single'
   - 'view paragraph content links_files'
+  - 'view paragraph content social_media_links'
   - 'view paragraph content text'
   - 'view paragraph content video'

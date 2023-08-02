@@ -2,13 +2,13 @@
   ADMIN CSS
 =========================*/
 
-/* hide default drupal preview button 
+/* hide default drupal preview button
 ---------------------------- */
 #edit-gin-actions input[data-drupal-selector="edit-preview"]{
 	display: none;
 }
 
-/* style disabled buttons in gin 
+/* style disabled buttons in gin
 --------------------------------- */
 button[disabled],button.disabled{
 	color: #676767 !important;
@@ -17,19 +17,19 @@ button[disabled]:hover,button.disabled:hover{
 	background-color: transparent !important;
 }
 
-/* ADJUST MEDIA LIBRARY 
+/* ADJUST MEDIA LIBRARY
 ----------------------- */
 #media-library-wrapper{
 	padding-top: 20px;
 }
 
-/* hide additional buttons added by infinite scroll in media library 
+/* hide additional buttons added by infinite scroll in media library
 ----------------------------------------- */
 .media-library-widget-modal .ui-dialog-buttonset.form-actions button.media-library-select.ui-widget:not(:first-child){
 	display: none !important;
 }
-[data-drupal-views-infinite-scroll-pager="automatic"] { 
-	bottom: 0; 
+[data-drupal-views-infinite-scroll-pager="automatic"] {
+	bottom: 0;
 }
 
 /* ADJUST UI DIALOG CLOSE X */
@@ -100,6 +100,9 @@ button[disabled]:hover,button.disabled:hover{
 .lpb-component-list .lpb-component-list__group > .lpb-component-list__group--content > .type-accordions > a:before{
   background-image: url('../icons/paragraphs/accordions.svg');
 }
+.lpb-component-list .lpb-component-list__group > .lpb-component-list__group--content > .type-social_media_links > a:before{
+  background-image: url('../icons/paragraphs/social-media-links.svg');
+}
 .lpb-component-list .lpb-component-list__group > .lpb-component-list__group--content > .type-block_placer > a:before{
   background-image: url('../icons/paragraphs/block-placer.svg');
 }
@@ -160,4 +163,3 @@ button[disabled]:hover,button.disabled:hover{
 .field--name-field-geolocation fieldset.geolocation-widget-input,.field--name-field-address #edit-field-address-0-address-country-code{
 	display: none;
 }
-

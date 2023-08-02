@@ -1,0 +1,10 @@
+uuid: 33964f77-cf6b-4ce1-823d-70359abafef8
+langcode: en
+status: true
+dependencies: {  }
+id: social_media_links
+label: 'Social Media Links'
+icon_uuid: null
+icon_default: null
+description: 'Add links to social media platforms.'
+behavior_plugins: {  }

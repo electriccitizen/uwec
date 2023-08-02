@@ -11,6 +11,7 @@ dependencies:
     - paragraphs.paragraphs_type.image
     - paragraphs.paragraphs_type.layout_section_single
     - paragraphs.paragraphs_type.links_files
+    - paragraphs.paragraphs_type.social_media_links
     - paragraphs.paragraphs_type.text
     - paragraphs.paragraphs_type.video
   module:
@@ -38,6 +39,7 @@ settings:
       links_files: links_files
       text: text
       video: video
+      social_media_links: social_media_links
       layout_section_single: layout_section_single
     negate: 0
     target_bundles_drag_drop:
@@ -47,24 +49,18 @@ settings:
       accordions:
         weight: -39
         enabled: true
-      block_placer:
-        weight: -36
-        enabled: false
       content_placer:
         weight: 21
         enabled: false
       custom_embed:
         weight: -37
         enabled: true
-      form_placer:
-        weight: -33
-        enabled: true
       gallery:
         weight: -31
         enabled: true
-      horizontal_rule:
-        weight: -30
-        enabled: true
+      gallery_item:
+        weight: 20
+        enabled: false
       image:
         weight: -29
         enabled: true
@@ -77,17 +73,8 @@ settings:
       links_files:
         weight: -27
         enabled: true
-      map:
-        weight: -26
-        enabled: true
-      portal:
-        weight: 33
-        enabled: false
-      portals:
-        weight: 34
-        enabled: false
-      quote:
-        weight: -24
+      social_media_links:
+        weight: 14
         enabled: true
       text:
         weight: -23
