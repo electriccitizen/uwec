@@ -1,0 +1,8 @@
+uuid: 0e97de33-7378-4460-994b-da8d0e88c8df
+langcode: en
+status: true
+dependencies: {  }
+name: 'Placement Tags'
+vid: placement_tags
+description: 'Add tags for referencing and grouping content.'
+weight: 0
