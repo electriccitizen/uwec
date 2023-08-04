@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - taxonomy.vocabulary.placement_tags
     - workflows.workflow.marketing
     - workflows.workflow.non_moderated
   module:
@@ -10,6 +11,7 @@ dependencies:
     - domain
     - domain_access
     - paragraphs_type_permissions
+    - taxonomy
     - workbench_access
 id: site_admin
 label: 'Site Admin'
@@ -22,6 +24,7 @@ permissions:
   - 'assign selected workbench access'
   - 'assign workbench access'
   - 'batch update workbench access'
+  - 'create academic_program content on assigned domains'
   - 'create bios content on assigned domains'
   - 'create domain content'
   - 'create landing_page content on assigned domains'
@@ -33,6 +36,8 @@ permissions:
   - 'create paragraph content layout_section'
   - 'create paragraph content layout_section_single'
   - 'create support_book content on assigned domains'
+  - 'create terms in placement_tags'
+  - 'delete academic_program content on assigned domains'
   - 'delete bios content on assigned domains'
   - 'delete domain content'
   - 'delete landing_page content on assigned domains'
@@ -42,9 +47,12 @@ permissions:
   - 'delete paragraph content layout_section'
   - 'delete paragraph content layout_section_single'
   - 'delete support_book content on assigned domains'
+  - 'delete terms in placement_tags'
   - 'edit domain content'
+  - 'edit terms in placement_tags'
   - 'publish to any assigned domain'
   - 'publish to any domain'
+  - 'update academic_program content on assigned domains'
   - 'update bios content on assigned domains'
   - 'update landing_page content on assigned domains'
   - 'update news content on assigned domains'

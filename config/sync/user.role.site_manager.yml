@@ -8,6 +8,7 @@ dependencies:
     - media.type.document
     - media.type.image
     - media.type.remote_video
+    - node.type.academic_program
     - node.type.bios
     - node.type.landing_page
     - node.type.news
@@ -61,6 +62,8 @@ permissions:
   - 'cancel account'
   - 'change own username'
   - 'configure editable landing_page node layout overrides'
+  - 'create academic_program content'
+  - 'create academic_program content on assigned domains'
   - 'create basic block content'
   - 'create bios content'
   - 'create bios content on assigned domains'
@@ -78,7 +81,10 @@ permissions:
   - 'create social_media_links block content'
   - 'create url aliases'
   - 'customize shortcut links'
+  - 'delete academic_program content on assigned domains'
+  - 'delete academic_program revisions'
   - 'delete all revisions'
+  - 'delete any academic_program content'
   - 'delete any basic block content'
   - 'delete any bios content'
   - 'delete any landing_page content'
@@ -92,6 +98,7 @@ permissions:
   - 'delete landing_page revisions'
   - 'delete news content on assigned domains'
   - 'delete news revisions'
+  - 'delete own academic_program content'
   - 'delete own bios content'
   - 'delete own files'
   - 'delete own landing_page content'
@@ -99,6 +106,7 @@ permissions:
   - 'delete own page content'
   - 'delete page content on assigned domains'
   - 'delete page revisions'
+  - 'edit any academic_program content'
   - 'edit any bios content'
   - 'edit any document media'
   - 'edit any image media'
@@ -107,6 +115,7 @@ permissions:
   - 'edit any page content'
   - 'edit any remote_video media'
   - 'edit layout paragraphs plugin config'
+  - 'edit own academic_program content'
   - 'edit own bios content'
   - 'edit own document media'
   - 'edit own image media'
@@ -115,12 +124,14 @@ permissions:
   - 'edit own page content'
   - 'edit own remote_video media'
   - 'publish to any assigned domain'
+  - 'revert academic_program revisions'
   - 'revert all revisions'
   - 'revert bios revisions'
   - 'revert landing_page revisions'
   - 'revert news revisions'
   - 'revert page revisions'
   - 'switch shortcut sets'
+  - 'update academic_program content on assigned domains'
   - 'update any basic block content'
   - 'update any media'
   - 'update any newsletter block content'
@@ -137,6 +148,7 @@ permissions:
   - 'use non_moderated transition publish'
   - 'use text format limited_html'
   - 'use workbench access'
+  - 'view academic_program revisions'
   - 'view all media revisions'
   - 'view all revisions'
   - 'view bios revisions'
