@@ -4,7 +4,6 @@ status: true
 dependencies:
   config:
     - field.field.node.page.body
-    - field.field.node.page.field_asdfasdf
     - field.field.node.page.field_domain_access
     - field.field.node.page.field_domain_all_affiliates
     - field.field.node.page.field_domain_source
@@ -92,22 +91,6 @@ third_party_settings:
               context_mapping:
                 entity: layout_builder.entity
             weight: 4
-            additional: {  }
-          510d3a71-c180-46a4-8418-6a2f2147cae4:
-            uuid: 510d3a71-c180-46a4-8418-6a2f2147cae4
-            region: content
-            configuration:
-              id: 'field_block:node:page:field_asdfasdf'
-              label_display: '0'
-              context_mapping:
-                entity: layout_builder.entity
-              formatter:
-                type: string
-                label: above
-                settings:
-                  link_to_entity: false
-                third_party_settings: {  }
-            weight: 5
             additional: {  }
         third_party_settings: {  }
       -
@@ -230,14 +213,6 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: -20
-    region: content
-  field_asdfasdf:
-    type: string
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    weight: 103
     region: content
   field_editorial_sections:
     type: entity_reference_label
