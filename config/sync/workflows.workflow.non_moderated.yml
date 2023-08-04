@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - node.type.academic_program
     - node.type.bios
     - node.type.landing_page
     - node.type.news
@@ -57,6 +58,7 @@ type_settings:
       weight: 1
   entity_types:
     node:
+      - academic_program
       - bios
       - landing_page
       - news
