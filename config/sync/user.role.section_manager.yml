@@ -14,15 +14,18 @@ label: 'Section Manager'
 weight: 7
 is_admin: null
 permissions:
+  - 'create academic_program content on assigned domains'
   - 'create bios content on assigned domains'
   - 'create landing_page content on assigned domains'
   - 'create news content on assigned domains'
   - 'create page content on assigned domains'
+  - 'delete academic_program content on assigned domains'
   - 'delete bios content on assigned domains'
   - 'delete landing_page content on assigned domains'
   - 'delete news content on assigned domains'
   - 'delete page content on assigned domains'
   - 'publish to any assigned domain'
+  - 'update academic_program content on assigned domains'
   - 'update bios content on assigned domains'
   - 'update landing_page content on assigned domains'
   - 'update news content on assigned domains'
