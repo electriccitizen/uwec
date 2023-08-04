@@ -2,7 +2,11 @@ uuid: 186cff65-1af1-4f6e-8b7a-ff705b03f334
 langcode: en
 status: true
 dependencies:
+  config:
+    - workflows.workflow.marketing
+    - workflows.workflow.non_moderated
   module:
+    - content_moderation
     - domain
     - domain_access
     - paragraphs_type_permissions
@@ -51,6 +55,15 @@ permissions:
   - 'update support_book content on assigned domains'
   - 'use domain nav block'
   - 'use domain switcher block'
+  - 'use marketing transition archive'
+  - 'use marketing transition create_new_draft'
+  - 'use marketing transition publish'
+  - 'use marketing transition review'
+  - 'use non_moderated transition archive'
+  - 'use non_moderated transition create_new_draft'
+  - 'use non_moderated transition publish'
   - 'use workbench access'
+  - 'view any unpublished content'
+  - 'view latest version'
   - 'view unpublished domain content'
   - 'view workbench access information'

@@ -11,9 +11,11 @@ dependencies:
     - node.type.landing_page
     - node.type.news
     - node.type.page
+    - workflows.workflow.non_moderated
   module:
     - addanother
     - citizen_custom
+    - content_moderation
     - domain
     - domain_access
     - file
@@ -102,6 +104,9 @@ permissions:
   - 'update page content on assigned domains'
   - 'use add another'
   - 'use domain nav block'
+  - 'use non_moderated transition archive'
+  - 'use non_moderated transition create_new_draft'
+  - 'use non_moderated transition publish'
   - 'use text format limited_html'
   - 'use workbench access'
   - 'view all revisions'

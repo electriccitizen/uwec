@@ -2,7 +2,10 @@ uuid: 3b678c59-77f8-471e-a524-d2bea8f7882a
 langcode: en
 status: true
 dependencies:
+  config:
+    - workflows.workflow.non_moderated
   module:
+    - content_moderation
     - domain
     - domain_access
     - workbench_access
@@ -25,6 +28,9 @@ permissions:
   - 'update news content on assigned domains'
   - 'update page content on assigned domains'
   - 'use domain nav block'
+  - 'use non_moderated transition archive'
+  - 'use non_moderated transition create_new_draft'
+  - 'use non_moderated transition publish'
   - 'use workbench access'
   - 'view unpublished domain content'
   - 'view workbench access information'
