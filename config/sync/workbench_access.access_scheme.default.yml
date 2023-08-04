@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.academic_program.field_editorial_sections
     - taxonomy.vocabulary.editorial_sections
 id: default
 plural_label: Defaults
@@ -11,4 +12,8 @@ scheme: taxonomy
 scheme_settings:
   vocabularies:
     - editorial_sections
-  fields: {  }
+  fields:
+    -
+      entity_type: node
+      bundle: academic_program
+      field: field_editorial_sections
