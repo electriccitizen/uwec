@@ -5,6 +5,7 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.page.body
+    - field.field.node.page.field_asdfasdf
     - field.field.node.page.field_domain_access
     - field.field.node.page.field_domain_all_affiliates
     - field.field.node.page.field_domain_source
@@ -42,12 +43,18 @@ content:
     third_party_settings: {  }
     weight: 100
     region: content
+  content_moderation_control:
+    settings: {  }
+    third_party_settings: {  }
+    weight: -20
+    region: content
   links:
     settings: {  }
     third_party_settings: {  }
     weight: 101
     region: content
 hidden:
+  field_asdfasdf: true
   field_domain_access: true
   field_domain_all_affiliates: true
   field_domain_source: true

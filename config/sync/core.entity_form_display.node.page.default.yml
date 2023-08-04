@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.page.body
+    - field.field.node.page.field_asdfasdf
     - field.field.node.page.field_domain_access
     - field.field.node.page.field_domain_all_affiliates
     - field.field.node.page.field_domain_source
@@ -12,7 +13,9 @@ dependencies:
     - field.field.node.page.field_metatags
     - field.field.node.page.field_paragraphs
     - node.type.page
+    - workflows.workflow.non_moderated
   module:
+    - content_moderation
     - field_group
     - layout_paragraphs
     - media_library
@@ -56,6 +59,14 @@ content:
       summary_rows: 3
       placeholder: ''
       show_summary: false
+    third_party_settings: {  }
+  field_asdfasdf:
+    type: string_textfield
+    weight: 101
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
   field_domain_access:
     type: options_buttons
@@ -106,6 +117,12 @@ content:
       nesting_depth: 0
       require_layouts: 1
       empty_message: ''
+    third_party_settings: {  }
+  moderation_state:
+    type: moderation_state_default
+    weight: 100
+    region: content
+    settings: {  }
     third_party_settings: {  }
   path:
     type: path
