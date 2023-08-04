@@ -1,0 +1,17 @@
+uuid: 0ac79ba0-44ca-428b-a4fa-9d4c1e9c46c9
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: 'Academic Program'
+type: academic_program
+description: 'Add program pages for majors and minors.'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: false

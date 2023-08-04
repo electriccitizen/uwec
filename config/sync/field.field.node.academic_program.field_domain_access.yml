@@ -1,0 +1,25 @@
+uuid: 9f7bf416-7475-437f-8c8b-7fbb099f96a5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_domain_access
+    - node.type.academic_program
+id: node.academic_program.field_domain_access
+field_name: field_domain_access
+entity_type: node
+bundle: academic_program
+label: 'Domain Access'
+description: 'Select the affiliate domain(s) for this content'
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: 'Drupal\domain_access\DomainAccessManager::getDefaultValue'
+settings:
+  handler: 'default:domain'
+  handler_settings:
+    target_bundles: null
+    sort:
+      field: weight
+      direction: ASC
+field_type: entity_reference

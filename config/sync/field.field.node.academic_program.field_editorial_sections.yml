@@ -1,0 +1,29 @@
+uuid: f51e6b05-c225-437b-9847-5d4c104c459b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_editorial_sections
+    - node.type.academic_program
+    - taxonomy.vocabulary.editorial_sections
+id: node.academic_program.field_editorial_sections
+field_name: field_editorial_sections
+entity_type: node
+bundle: academic_program
+label: 'Editorial sections'
+description: 'Assign content to editorial sections in order to control access'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      editorial_sections: editorial_sections
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference
