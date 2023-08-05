@@ -51,12 +51,6 @@
 		        {%- if key|first != '#' and item['#paragraph'].field_image.0.target_id > 0 -%}
 		          <div class="featherlight-gal image-gal" href="#item{{ item['#paragraph'].field_image.0.target_id }}" rel="gallery-{{ paragraph.id.value }}">
                 {{ drupal_entity('media', item['#paragraph'].field_image.0.target_id, 'large_thumb') }}
-                {% if item['#paragraph'].field_caption_headline.0.value %}
-                  <div class="field field-caption-headline string">{{ item['#paragraph'].field_caption_headline.0.value }}</div>
-                {% endif %}
-                {% if item['#paragraph'].field_caption.0.value %}
-                  <div class="field field-caption string-long">{{ item['#paragraph'].field_caption.0.value }}</div>
-                {% endif %}
 		            <div class="featherlight-hidden" id="item{{ item['#paragraph'].field_image.0.target_id }}">
 		              {{ drupal_entity('media', item['#paragraph'].field_image.0.target_id, 'large') }}
                   {% if item['#paragraph'].field_caption_headline.0.value %}
