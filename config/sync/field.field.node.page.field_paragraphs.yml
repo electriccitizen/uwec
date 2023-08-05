@@ -33,53 +33,53 @@ settings:
   handler_settings:
     target_bundles:
       accordions: accordions
+      links_files: links_files
       custom_embed: custom_embed
       gallery: gallery
       image: image
-      links_files: links_files
+      social_media_links: social_media_links
       text: text
       video: video
-      social_media_links: social_media_links
       layout_section_single: layout_section_single
     negate: 0
     target_bundles_drag_drop:
       accordion_item:
-        weight: -38
+        weight: -26
         enabled: false
       accordions:
-        weight: -39
-        enabled: true
-      content_placer:
-        weight: 21
-        enabled: false
-      custom_embed:
-        weight: -37
-        enabled: true
-      gallery:
-        weight: -31
-        enabled: true
-      gallery_item:
-        weight: 20
-        enabled: false
-      image:
-        weight: -29
-        enabled: true
-      layout_section:
-        weight: 29
-        enabled: false
-      layout_section_single:
-        weight: 29
-        enabled: true
-      links_files:
         weight: -27
         enabled: true
-      social_media_links:
-        weight: 14
+      content_placer:
+        weight: -17
+        enabled: false
+      custom_embed:
+        weight: -24
         enabled: true
-      text:
+      gallery:
         weight: -23
         enabled: true
-      video:
+      gallery_item:
+        weight: -18
+        enabled: false
+      image:
         weight: -22
+        enabled: true
+      layout_section:
+        weight: -16
+        enabled: false
+      layout_section_single:
+        weight: -15
+        enabled: true
+      links_files:
+        weight: -25
+        enabled: true
+      social_media_links:
+        weight: -21
+        enabled: true
+      text:
+        weight: -20
+        enabled: true
+      video:
+        weight: -19
         enabled: true
 field_type: entity_reference_revisions
