@@ -15,6 +15,7 @@ button:
   gather_content_node: false
   bios: false
   academic_program: false
+  announcement: false
 message:
   page: false
   event: false
@@ -26,6 +27,7 @@ message:
   gather_content_node: true
   bios: false
   academic_program: false
+  announcement: false
 tab:
   page: true
   event: true
@@ -37,6 +39,7 @@ tab:
   gather_content_node: false
   bios: true
   academic_program: true
+  announcement: true
 tab_edit:
   page: false
   event: false
@@ -48,3 +51,4 @@ tab_edit:
   gather_content_node: false
   bios: false
   academic_program: false
+  announcement: false
