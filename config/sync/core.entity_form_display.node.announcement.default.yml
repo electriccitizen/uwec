@@ -1,26 +1,23 @@
-uuid: 7dbb89e6-71b0-4330-868c-fd8814b1139c
+uuid: ac00d381-9a9c-40c4-bb42-3be56497d2cd
 langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.landing_page.body
-    - field.field.node.landing_page.field_domain_access
-    - field.field.node.landing_page.field_domain_all_affiliates
-    - field.field.node.landing_page.field_domain_source
-    - field.field.node.landing_page.field_editorial_sections
-    - field.field.node.landing_page.field_image
-    - field.field.node.landing_page.field_metatags
-    - field.field.node.landing_page.field_paragraphs
-    - field.field.node.landing_page.layout_builder__layout
-    - node.type.landing_page
+    - field.field.node.announcement.body
+    - field.field.node.announcement.field_domain_access
+    - field.field.node.announcement.field_domain_all_affiliates
+    - field.field.node.announcement.field_domain_source
+    - field.field.node.announcement.field_editorial_sections
+    - field.field.node.announcement.field_section_url
+    - field.field.node.announcement.field_sitewide
+    - field.field.node.announcement.field_urgency
+    - node.type.announcement
     - workflows.workflow.non_moderated
   module:
     - content_moderation
     - field_group
-    - layout_paragraphs
-    - media_library
-    - metatag
-    - path
+    - scheduler
+    - scheduler_content_moderation_integration
     - text
 third_party_settings:
   field_group:
@@ -43,16 +40,14 @@ third_party_settings:
         description: ''
         required_fields: true
         weight: 0
-_core:
-  default_config_hash: ghh4qf5GPUJnfe-maPwy1YjQmPJ3y4KUslvG2ghJmz8
-id: node.landing_page.default
+id: node.announcement.default
 targetEntityType: node
-bundle: landing_page
+bundle: announcement
 mode: default
 content:
   body:
     type: text_textarea_with_summary
-    weight: 2
+    weight: 1
     region: content
     settings:
       rows: 9
@@ -62,63 +57,70 @@ content:
     third_party_settings: {  }
   field_domain_access:
     type: options_buttons
-    weight: 47
+    weight: 7
     region: content
     settings: {  }
     third_party_settings: {  }
   field_domain_all_affiliates:
     type: boolean_checkbox
-    weight: 49
+    weight: 9
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   field_domain_source:
     type: options_select
-    weight: 48
+    weight: 8
     region: content
     settings: {  }
     third_party_settings: {  }
   field_editorial_sections:
     type: options_buttons
-    weight: 46
+    weight: 6
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_image:
-    type: media_library_widget
-    weight: 0
-    region: content
-    settings:
-      media_types: {  }
-    third_party_settings: {  }
-  field_metatags:
-    type: metatag_firehose
+  field_section_url:
+    type: string_textfield
     weight: 4
     region: content
     settings:
-      sidebar: true
-      use_details: true
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
-  field_paragraphs:
-    type: layout_paragraphs
+  field_sitewide:
+    type: boolean_checkbox
     weight: 3
     region: content
     settings:
-      preview_view_mode: preview
-      nesting_depth: 0
-      require_layouts: 1
-      empty_message: ''
+      display_label: true
     third_party_settings: {  }
-  moderation_state:
-    type: moderation_state_default
-    weight: 100
+  field_urgency:
+    type: options_select
+    weight: 2
     region: content
     settings: {  }
     third_party_settings: {  }
-  path:
-    type: path
+  moderation_state:
+    type: moderation_state_default
     weight: 6
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  publish_on:
+    type: datetime_timestamp_no_default
+    weight: 9
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  publish_state:
+    type: scheduler_moderation
+    weight: 53
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  scheduler_settings:
+    weight: 8
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -131,20 +133,28 @@ content:
     third_party_settings: {  }
   title:
     type: string_textfield
-    weight: 1
+    weight: 0
     region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+  unpublish_on:
+    type: datetime_timestamp_no_default
+    weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  unpublish_state:
+    type: scheduler_moderation
+    weight: 55
+    region: content
+    settings: {  }
+    third_party_settings: {  }
 hidden:
   created: true
-  layout_builder__layout: true
+  path: true
   promote: true
-  publish_on: true
-  publish_state: true
   sticky: true
   uid: true
-  unpublish_on: true
-  unpublish_state: true
   url_redirects: true
