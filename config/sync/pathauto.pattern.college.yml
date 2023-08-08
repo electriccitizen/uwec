@@ -1,0 +1,22 @@
+uuid: 1f93477e-c4c2-4144-85aa-e32bec748ca1
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: college
+label: College
+type: 'canonical_entities:node'
+pattern: '[node:menu-link:parents:join:/]/[node:title]'
+selection_criteria:
+  9f3c5070-0bea-497d-9128-85dd25199ce5:
+    id: 'entity_bundle:node'
+    negate: false
+    uuid: 9f3c5070-0bea-497d-9128-85dd25199ce5
+    context_mapping:
+      node: node
+    bundles:
+      college: college
+selection_logic: and
+weight: -5
+relationships: {  }
