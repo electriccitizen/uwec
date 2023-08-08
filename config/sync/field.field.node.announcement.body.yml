@@ -1,0 +1,31 @@
+uuid: 292002d7-7160-47a2-9d1d-cddbd5035219
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - filter.format.limited_html
+    - node.type.announcement
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    allowed_formats:
+      - limited_html
+id: node.announcement.body
+field_name: body
+entity_type: node
+bundle: announcement
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: false
+  required_summary: false
+  allowed_formats:
+    - limited_html
+field_type: text_with_summary

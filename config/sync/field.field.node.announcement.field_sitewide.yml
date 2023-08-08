@@ -1,0 +1,21 @@
+uuid: 49e54b30-4159-4605-82c3-b04fff8f8fc0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_sitewide
+    - node.type.announcement
+id: node.announcement.field_sitewide
+field_name: field_sitewide
+entity_type: node
+bundle: announcement
+label: Sitewide
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

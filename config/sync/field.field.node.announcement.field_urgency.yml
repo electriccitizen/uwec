@@ -1,0 +1,21 @@
+uuid: 427261ec-021b-4806-bf89-c55153a6c2eb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_urgency
+    - node.type.announcement
+  module:
+    - options
+id: node.announcement.field_urgency
+field_name: field_urgency
+entity_type: node
+bundle: announcement
+label: Urgency
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string
