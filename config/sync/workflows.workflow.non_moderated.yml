@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - node.type.academic_program
+    - node.type.announcement
     - node.type.bios
     - node.type.landing_page
     - node.type.news
@@ -59,6 +60,7 @@ type_settings:
   entity_types:
     node:
       - academic_program
+      - announcement
       - bios
       - landing_page
       - news

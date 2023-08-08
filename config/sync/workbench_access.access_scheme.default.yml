@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.academic_program.field_editorial_sections
+    - field.field.node.announcement.field_editorial_sections
     - taxonomy.vocabulary.editorial_sections
 id: default
 plural_label: Defaults
@@ -16,4 +17,8 @@ scheme_settings:
     -
       entity_type: node
       bundle: academic_program
+      field: field_editorial_sections
+    -
+      entity_type: node
+      bundle: announcement
       field: field_editorial_sections
