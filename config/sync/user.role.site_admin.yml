@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - node.type.announcement
     - taxonomy.vocabulary.placement_tags
     - workflows.workflow.marketing
     - workflows.workflow.non_moderated
@@ -10,6 +11,7 @@ dependencies:
     - content_moderation
     - domain
     - domain_access
+    - node
     - paragraphs_type_permissions
     - taxonomy
     - workbench_access
@@ -25,6 +27,7 @@ permissions:
   - 'assign workbench access'
   - 'batch update workbench access'
   - 'create academic_program content on assigned domains'
+  - 'create announcement content'
   - 'create bios content on assigned domains'
   - 'create domain content'
   - 'create landing_page content on assigned domains'
@@ -38,6 +41,7 @@ permissions:
   - 'create support_book content on assigned domains'
   - 'create terms in placement_tags'
   - 'delete academic_program content on assigned domains'
+  - 'delete any announcement content'
   - 'delete bios content on assigned domains'
   - 'delete domain content'
   - 'delete landing_page content on assigned domains'
@@ -48,6 +52,7 @@ permissions:
   - 'delete paragraph content layout_section_single'
   - 'delete support_book content on assigned domains'
   - 'delete terms in placement_tags'
+  - 'edit any announcement content'
   - 'edit domain content'
   - 'edit terms in placement_tags'
   - 'publish to any assigned domain'
