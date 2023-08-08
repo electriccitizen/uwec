@@ -6,12 +6,16 @@ dependencies:
     - field.storage.node.body
     - node.type.academic_program
   module:
+    - allowed_formats
     - text
+third_party_settings:
+  allowed_formats:
+    allowed_formats: {  }
 id: node.academic_program.body
 field_name: body
 entity_type: node
 bundle: academic_program
-label: Body
+label: 'Intro Text'
 description: ''
 required: false
 translatable: true

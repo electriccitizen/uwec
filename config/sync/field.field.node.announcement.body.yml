@@ -17,7 +17,7 @@ id: node.announcement.body
 field_name: body
 entity_type: node
 bundle: announcement
-label: Body
+label: Text
 description: ''
 required: false
 translatable: true
