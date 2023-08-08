@@ -1,0 +1,22 @@
+uuid: ede69ec4-1a3c-444b-9035-68342a6a7a02
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.college
+id: node.college.promote
+field_name: promote
+entity_type: node
+bundle: college
+label: 'Promoted to front page'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

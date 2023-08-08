@@ -1,0 +1,26 @@
+uuid: 052475ff-7bff-4725-a0d3-deed960f37bd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_domain_source
+    - node.type.college
+id: node.college.field_domain_source
+field_name: field_domain_source
+entity_type: node
+bundle: college
+label: 'Domain Source'
+description: 'Select the canonical domain for this content.'
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:domain'
+  handler_settings:
+    target_bundles: null
+    sort:
+      field: weight
+      direction: ASC
+    auto_create: false
+field_type: entity_reference

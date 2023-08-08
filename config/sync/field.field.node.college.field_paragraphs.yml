@@ -1,0 +1,83 @@
+uuid: 170879a2-7896-46e8-81e9-db473f5fbfd7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_paragraphs
+    - node.type.college
+    - paragraphs.paragraphs_type.accordions
+    - paragraphs.paragraphs_type.content_placer
+    - paragraphs.paragraphs_type.custom_embed
+    - paragraphs.paragraphs_type.gallery
+    - paragraphs.paragraphs_type.image
+    - paragraphs.paragraphs_type.links_files
+    - paragraphs.paragraphs_type.social_media_links
+    - paragraphs.paragraphs_type.text
+    - paragraphs.paragraphs_type.video
+  module:
+    - entity_reference_revisions
+id: node.college.field_paragraphs
+field_name: field_paragraphs
+entity_type: node
+bundle: college
+label: Sections
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      accordions: accordions
+      links_files: links_files
+      content_placer: content_placer
+      custom_embed: custom_embed
+      gallery: gallery
+      image: image
+      social_media_links: social_media_links
+      text: text
+      video: video
+    negate: 0
+    target_bundles_drag_drop:
+      accordion_item:
+        weight: -27
+        enabled: false
+      accordions:
+        weight: -26
+        enabled: true
+      content_placer:
+        weight: -24
+        enabled: true
+      custom_embed:
+        weight: -23
+        enabled: true
+      gallery:
+        weight: -22
+        enabled: true
+      gallery_item:
+        weight: -16
+        enabled: false
+      image:
+        weight: -21
+        enabled: true
+      layout_section:
+        weight: -20
+        enabled: false
+      layout_section_single:
+        weight: -15
+        enabled: false
+      links_files:
+        weight: -25
+        enabled: true
+      social_media_links:
+        weight: -19
+        enabled: true
+      text:
+        weight: -18
+        enabled: true
+      video:
+        weight: -17
+        enabled: true
+field_type: entity_reference_revisions

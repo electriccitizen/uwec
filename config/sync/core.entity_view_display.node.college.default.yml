@@ -1,0 +1,154 @@
+uuid: cd83af70-881a-4e5e-8079-0c71636d7748
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.college.body
+    - field.field.node.college.field_domain_access
+    - field.field.node.college.field_domain_all_affiliates
+    - field.field.node.college.field_domain_source
+    - field.field.node.college.field_editorial_sections
+    - field.field.node.college.field_image
+    - field.field.node.college.field_metatags
+    - field.field.node.college.field_paragraphs
+    - field.field.node.college.field_placement_tags
+    - node.type.college
+  module:
+    - layout_builder
+    - layout_builder_restrictions
+    - layout_discovery
+    - layout_paragraphs
+    - metatag
+    - text
+    - user
+third_party_settings:
+  layout_builder:
+    enabled: true
+    allow_custom: false
+    sections:
+      -
+        layout_id: layout_onecol
+        layout_settings:
+          label: Title
+          context_mapping: {  }
+        components:
+          f4cdab2b-f882-42a9-aa04-dca1e7ab173e:
+            uuid: f4cdab2b-f882-42a9-aa04-dca1e7ab173e
+            region: content
+            configuration:
+              id: 'field_block:node:college:title'
+              label: Title
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: string
+                label: hidden
+                settings:
+                  link_to_entity: false
+                third_party_settings: {  }
+            weight: 2
+            additional: {  }
+        third_party_settings: {  }
+      -
+        layout_id: layout_onecol
+        layout_settings:
+          label: 'Intro Text'
+          context_mapping: {  }
+        components:
+          b4a2bb82-273b-4bd0-930b-560f800e5934:
+            uuid: b4a2bb82-273b-4bd0-930b-560f800e5934
+            region: content
+            configuration:
+              id: 'field_block:node:college:body'
+              label: 'Intro Text'
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: text_default
+                label: hidden
+                settings: {  }
+                third_party_settings: {  }
+            weight: 0
+            additional: {  }
+        third_party_settings: {  }
+  layout_builder_restrictions:
+    allowed_block_categories: {  }
+    entity_view_mode_restriction:
+      allowed_layouts: {  }
+      denylisted_blocks: {  }
+      allowlisted_blocks: {  }
+      restricted_categories: {  }
+id: node.college.default
+targetEntityType: node
+bundle: college
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  content_moderation_control:
+    settings: {  }
+    third_party_settings: {  }
+    weight: -20
+    region: content
+  field_editorial_sections:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 105
+    region: content
+  field_image:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: square
+      link: false
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  field_metatags:
+    type: metatag_empty_formatter
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 106
+    region: content
+  field_paragraphs:
+    type: layout_paragraphs
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 104
+    region: content
+  field_placement_tags:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 103
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_domain_access: true
+  field_domain_all_affiliates: true
+  field_domain_source: true
+  search_api_excerpt: true

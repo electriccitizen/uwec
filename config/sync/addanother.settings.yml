@@ -16,6 +16,7 @@ button:
   bios: false
   academic_program: false
   announcement: false
+  college: false
 message:
   page: false
   event: false
@@ -28,6 +29,7 @@ message:
   bios: false
   academic_program: false
   announcement: false
+  college: false
 tab:
   page: true
   event: true
@@ -40,6 +42,7 @@ tab:
   bios: true
   academic_program: true
   announcement: true
+  college: true
 tab_edit:
   page: false
   event: false
@@ -52,3 +55,4 @@ tab_edit:
   bios: false
   academic_program: false
   announcement: false
+  college: false
