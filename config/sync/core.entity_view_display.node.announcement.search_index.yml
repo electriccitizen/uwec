@@ -1,0 +1,105 @@
+uuid: 343733d5-b004-45b0-b801-1eef8650108e
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.search_index
+    - field.field.node.announcement.body
+    - field.field.node.announcement.field_domain_access
+    - field.field.node.announcement.field_domain_all_affiliates
+    - field.field.node.announcement.field_domain_source
+    - field.field.node.announcement.field_editorial_sections
+    - field.field.node.announcement.field_section_url
+    - field.field.node.announcement.field_sitewide
+    - field.field.node.announcement.field_urgency
+    - node.type.announcement
+  module:
+    - layout_builder
+    - layout_builder_restrictions
+    - options
+    - text
+    - user
+third_party_settings:
+  layout_builder:
+    enabled: false
+    allow_custom: false
+  layout_builder_restrictions:
+    allowed_block_categories: {  }
+    entity_view_mode_restriction:
+      allowed_layouts:
+        - layout_onecol
+      denylisted_blocks: {  }
+      allowlisted_blocks:
+        Menus:
+          - 'menu_block:main'
+          - 'system_menu_block:main'
+      restricted_categories:
+        - '@entity'
+        - 'Chaos Tools'
+        - 'Custom block types'
+        - 'Custom blocks'
+        - Devel
+        - Forms
+        - Help
+        - 'Inline blocks'
+        - 'Lists (Views)'
+id: node.announcement.search_index
+targetEntityType: node
+bundle: announcement
+mode: search_index
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  content_moderation_control:
+    settings: {  }
+    third_party_settings: {  }
+    weight: -20
+    region: content
+  field_editorial_sections:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 105
+    region: content
+  field_section_url:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 104
+    region: content
+  field_sitewide:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 103
+    region: content
+  field_urgency:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_domain_access: true
+  field_domain_all_affiliates: true
+  field_domain_source: true
+  search_api_excerpt: true

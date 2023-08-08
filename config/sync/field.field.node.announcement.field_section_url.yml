@@ -1,0 +1,19 @@
+uuid: 11b4bf83-39c5-4f7b-8a7a-373a1c6a4319
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_section_url
+    - node.type.announcement
+id: node.announcement.field_section_url
+field_name: field_section_url
+entity_type: node
+bundle: announcement
+label: 'By Section URL'
+description: 'Enter the URL section path(s) you want this announcement displayed on. <strong>Example: /admissions/*</strong>  will display the announcement on all pages starting with /admissions'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

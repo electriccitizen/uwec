@@ -1,0 +1,31 @@
+uuid: 2fc17951-2cba-49f3-bd1c-f0d4e7af4d0e
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+    - scheduler
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+  scheduler:
+    expand_fieldset: always
+    fields_display_mode: fieldset
+    publish_enable: true
+    publish_past_date: error
+    publish_past_date_created: false
+    publish_required: false
+    publish_revision: false
+    publish_touch: false
+    show_message_after_update: true
+    unpublish_enable: true
+    unpublish_required: false
+    unpublish_revision: false
+name: Announcement
+type: announcement
+description: 'Add a sitewide or section announcement.'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: false

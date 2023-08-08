@@ -1,0 +1,8 @@
+uuid: e60d6751-861f-4e79-8185-c2ad22ca0d01
+langcode: en
+status: true
+dependencies: {  }
+id: node__announcement
+label: 'Content: Announcement'
+tags:
+  robots: 'noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate'
