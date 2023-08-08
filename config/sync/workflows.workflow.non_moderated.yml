@@ -6,6 +6,7 @@ dependencies:
     - node.type.academic_program
     - node.type.announcement
     - node.type.bios
+    - node.type.college
     - node.type.landing_page
     - node.type.news
     - node.type.page
@@ -62,6 +63,7 @@ type_settings:
       - academic_program
       - announcement
       - bios
+      - college
       - landing_page
       - news
       - page
