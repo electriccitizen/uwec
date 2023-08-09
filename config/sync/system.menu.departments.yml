@@ -1,0 +1,8 @@
+uuid: da5804ce-64e6-4b9d-a559-e39a364d71f3
+langcode: en
+status: true
+dependencies: {  }
+id: departments
+label: Departments
+description: 'Department menus'
+locked: false
