@@ -1,0 +1,8 @@
+uuid: 75ea9871-c026-4fd7-9fc7-a64e53ff0c86
+langcode: en
+status: true
+dependencies: {  }
+id: node__fact
+label: 'Content: Fact Library'
+tags:
+  robots: 'noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate'

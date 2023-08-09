@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - node.type.contact
+    - node.type.fact
     - workflows.workflow.marketing
   module:
     - content_moderation
@@ -19,21 +20,28 @@ permissions:
   - 'create academic_program content on assigned domains'
   - 'create bios content on assigned domains'
   - 'create contact content'
+  - 'create fact content'
   - 'create landing_page content on assigned domains'
   - 'create news content on assigned domains'
   - 'create page content on assigned domains'
   - 'delete academic_program content on assigned domains'
   - 'delete any contact content'
+  - 'delete any fact content'
   - 'delete bios content on assigned domains'
   - 'delete contact revisions'
+  - 'delete fact revisions'
   - 'delete landing_page content on assigned domains'
   - 'delete news content on assigned domains'
   - 'delete own contact content'
+  - 'delete own fact content'
   - 'delete page content on assigned domains'
   - 'edit any contact content'
+  - 'edit any fact content'
   - 'edit own contact content'
+  - 'edit own fact content'
   - 'publish to any assigned domain'
   - 'revert contact revisions'
+  - 'revert fact revisions'
   - 'update academic_program content on assigned domains'
   - 'update bios content on assigned domains'
   - 'update landing_page content on assigned domains'
@@ -44,5 +52,6 @@ permissions:
   - 'use marketing transition review'
   - 'use workbench access'
   - 'view contact revisions'
+  - 'view fact revisions'
   - 'view unpublished domain content'
   - 'view workbench access information'
