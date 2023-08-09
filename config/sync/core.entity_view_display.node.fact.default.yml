@@ -43,16 +43,6 @@ third_party_settings:
                 third_party_settings: {  }
             weight: 0
             additional: {  }
-          bcc2f8ba-4754-411c-af0c-1fa21b85fb34:
-            uuid: bcc2f8ba-4754-411c-af0c-1fa21b85fb34
-            region: content
-            configuration:
-              id: 'extra_field_block:node:fact:content_moderation_control'
-              label_display: '0'
-              context_mapping:
-                entity: layout_builder.entity
-            weight: 1
-            additional: {  }
         third_party_settings: {  }
   layout_builder_restrictions:
     allowed_block_categories: {  }
