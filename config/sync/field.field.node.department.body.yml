@@ -1,0 +1,31 @@
+uuid: 4c15cb80-2b09-4257-b31c-395df808dba7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - filter.format.limited_html
+    - node.type.department
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    allowed_formats:
+      - limited_html
+id: node.department.body
+field_name: body
+entity_type: node
+bundle: department
+label: 'Intro Text'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+  allowed_formats:
+    - limited_html
+field_type: text_with_summary

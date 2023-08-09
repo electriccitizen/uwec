@@ -18,6 +18,7 @@ button:
   announcement: false
   college: false
   contact: false
+  department: false
 message:
   page: false
   event: false
@@ -32,6 +33,7 @@ message:
   announcement: false
   college: false
   contact: false
+  department: false
 tab:
   page: true
   event: true
@@ -46,6 +48,7 @@ tab:
   announcement: true
   college: true
   contact: true
+  department: true
 tab_edit:
   page: false
   event: false
@@ -60,3 +63,4 @@ tab_edit:
   announcement: false
   college: false
   contact: false
+  department: false
