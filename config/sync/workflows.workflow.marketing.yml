@@ -2,6 +2,8 @@ uuid: c0b754c4-c5c1-4021-9435-45c3cbd384d5
 langcode: en
 status: true
 dependencies:
+  config:
+    - node.type.contact
   module:
     - content_moderation
 id: marketing
@@ -64,5 +66,7 @@ type_settings:
         - review
       to: review
       weight: -1
-  entity_types: {  }
+  entity_types:
+    node:
+      - contact
   default_moderation_state: draft

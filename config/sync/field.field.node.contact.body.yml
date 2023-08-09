@@ -1,0 +1,24 @@
+uuid: af60c43a-c0ec-45c9-bfe5-e957c2b242e0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.contact
+  module:
+    - text
+id: node.contact.body
+field_name: body
+entity_type: node
+bundle: contact
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+  allowed_formats: {  }
+field_type: text_with_summary

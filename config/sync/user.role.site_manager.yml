@@ -11,6 +11,7 @@ dependencies:
     - node.type.academic_program
     - node.type.bios
     - node.type.college
+    - node.type.department
     - node.type.landing_page
     - node.type.news
     - node.type.page
@@ -69,6 +70,7 @@ permissions:
   - 'create bios content'
   - 'create bios content on assigned domains'
   - 'create college content'
+  - 'create department content'
   - 'create document media'
   - 'create image media'
   - 'create landing_page content'
@@ -90,6 +92,7 @@ permissions:
   - 'delete any basic block content'
   - 'delete any bios content'
   - 'delete any college content'
+  - 'delete any department content'
   - 'delete any landing_page content'
   - 'delete any news content'
   - 'delete any newsletter block content'
@@ -98,6 +101,7 @@ permissions:
   - 'delete bios content on assigned domains'
   - 'delete bios revisions'
   - 'delete college revisions'
+  - 'delete department revisions'
   - 'delete landing_page content on assigned domains'
   - 'delete landing_page revisions'
   - 'delete news content on assigned domains'
@@ -105,6 +109,7 @@ permissions:
   - 'delete own academic_program content'
   - 'delete own bios content'
   - 'delete own college content'
+  - 'delete own department content'
   - 'delete own files'
   - 'delete own landing_page content'
   - 'delete own news content'
@@ -114,6 +119,7 @@ permissions:
   - 'edit any academic_program content'
   - 'edit any bios content'
   - 'edit any college content'
+  - 'edit any department content'
   - 'edit any document media'
   - 'edit any image media'
   - 'edit any landing_page content'
@@ -124,6 +130,7 @@ permissions:
   - 'edit own academic_program content'
   - 'edit own bios content'
   - 'edit own college content'
+  - 'edit own department content'
   - 'edit own document media'
   - 'edit own image media'
   - 'edit own landing_page content'
@@ -135,6 +142,7 @@ permissions:
   - 'revert all revisions'
   - 'revert bios revisions'
   - 'revert college revisions'
+  - 'revert department revisions'
   - 'revert landing_page revisions'
   - 'revert news revisions'
   - 'revert page revisions'
@@ -161,6 +169,7 @@ permissions:
   - 'view all revisions'
   - 'view bios revisions'
   - 'view college revisions'
+  - 'view department revisions'
   - 'view landing_page revisions'
   - 'view news revisions'
   - 'view own unpublished content'

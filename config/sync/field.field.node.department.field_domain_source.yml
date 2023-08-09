@@ -1,14 +1,14 @@
-uuid: fcf61360-18e0-4574-bdc1-3950c1e57528
+uuid: b11b3585-5db3-45f7-86fc-cfef703b5d76
 langcode: en
 status: true
 dependencies:
   config:
     - field.storage.node.field_domain_source
-    - node.type.academic_program
-id: node.academic_program.field_domain_source
+    - node.type.department
+id: node.department.field_domain_source
 field_name: field_domain_source
 entity_type: node
-bundle: academic_program
+bundle: department
 label: 'Domain Source'
 description: 'Select the canonical domain for this content.'
 required: true

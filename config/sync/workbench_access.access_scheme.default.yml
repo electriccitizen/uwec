@@ -6,6 +6,8 @@ dependencies:
     - field.field.node.academic_program.field_editorial_sections
     - field.field.node.announcement.field_editorial_sections
     - field.field.node.college.field_editorial_sections
+    - field.field.node.contact.field_editorial_sections
+    - field.field.node.department.field_editorial_sections
     - taxonomy.vocabulary.editorial_sections
 id: default
 plural_label: Defaults
@@ -26,4 +28,12 @@ scheme_settings:
     -
       entity_type: node
       bundle: college
+      field: field_editorial_sections
+    -
+      entity_type: node
+      bundle: contact
+      field: field_editorial_sections
+    -
+      entity_type: node
+      bundle: department
       field: field_editorial_sections
