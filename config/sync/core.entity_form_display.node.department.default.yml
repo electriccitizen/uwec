@@ -10,6 +10,7 @@ dependencies:
     - field.field.node.department.field_editorial_sections
     - field.field.node.department.field_metatags
     - node.type.department
+    - workflows.workflow.non_moderated
   module:
     - content_moderation
     - field_group
