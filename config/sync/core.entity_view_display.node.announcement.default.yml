@@ -53,7 +53,7 @@ third_party_settings:
       -
         layout_id: layout_onecol
         layout_settings:
-          label: Body
+          label: Text
           context_mapping: {  }
         components:
           1d0ef9cc-6de1-4a2f-aec6-df4e8a491fd0:
