@@ -10,13 +10,17 @@ dependencies:
     - field.field.node.department.field_editorial_sections
     - field.field.node.department.field_metatags
     - node.type.department
+    - system.menu.departments
   module:
     - layout_builder
     - layout_builder_restrictions
     - layout_discovery
+    - menu_block
     - metatag
     - text
     - user
+  theme:
+    - citizen_dart
 third_party_settings:
   layout_builder:
     enabled: true
@@ -47,30 +51,35 @@ third_party_settings:
                 third_party_settings: {  }
             weight: 2
             additional: {  }
-          79ce9c3e-ba32-41bb-9345-29014ae96d98:
-            uuid: 79ce9c3e-ba32-41bb-9345-29014ae96d98
-            region: content
-            configuration:
-              id: 'field_block:node:department:field_metatags'
-              label_display: '0'
-              context_mapping:
-                entity: layout_builder.entity
-              formatter:
-                type: metatag_empty_formatter
-                label: above
-                settings: {  }
-                third_party_settings: {  }
-            weight: 3
-            additional: {  }
         third_party_settings: {  }
       -
-        layout_id: layout_onecol
+        layout_id: two_column_sidebar_left
         layout_settings:
-          label: 'Intro Text'
+          label: 'Section 2'
           context_mapping: {  }
         components:
-          ffe0a023-b342-4d3b-8eeb-1de49e6e867b:
-            uuid: ffe0a023-b342-4d3b-8eeb-1de49e6e867b
+          1d400a54-0204-4c45-995e-8d0e5eeadc22:
+            uuid: 1d400a54-0204-4c45-995e-8d0e5eeadc22
+            region: first
+            configuration:
+              id: 'menu_block:departments'
+              label: 'In This Section'
+              label_display: visible
+              provider: menu_block
+              context_mapping: {  }
+              follow: true
+              follow_parent: active
+              label_link: true
+              label_type: root
+              level: 2
+              depth: 3
+              expand_all_items: true
+              parent: 'departments:'
+              suggestion: departments_menu
+            weight: 0
+            additional: {  }
+          89d3ca89-0adf-4865-b449-98e49794a541:
+            uuid: 89d3ca89-0adf-4865-b449-98e49794a541
             region: content
             configuration:
               id: 'field_block:node:department:body'
@@ -93,6 +102,7 @@ third_party_settings:
     entity_view_mode_restriction:
       allowed_layouts:
         - layout_onecol
+        - two_column_sidebar_left
       denylisted_blocks: {  }
       allowlisted_blocks: {  }
       restricted_categories: {  }
@@ -107,6 +117,11 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: 101
+    region: content
+  content_moderation_control:
+    settings: {  }
+    third_party_settings: {  }
+    weight: -20
     region: content
   field_editorial_sections:
     type: entity_reference_label
