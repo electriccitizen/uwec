@@ -7,6 +7,7 @@ dependencies:
     - field.field.node.contact.body
     - field.field.node.contact.field_address
     - field.field.node.contact.field_college
+    - field.field.node.contact.field_department
     - field.field.node.contact.field_domain_access
     - field.field.node.contact.field_domain_all_affiliates
     - field.field.node.contact.field_domain_source
@@ -44,6 +45,7 @@ content:
 hidden:
   field_address: true
   field_college: true
+  field_department: true
   field_domain_access: true
   field_domain_all_affiliates: true
   field_domain_source: true

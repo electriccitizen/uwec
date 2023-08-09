@@ -6,6 +6,7 @@ dependencies:
     - field.field.node.contact.body
     - field.field.node.contact.field_address
     - field.field.node.contact.field_college
+    - field.field.node.contact.field_department
     - field.field.node.contact.field_domain_access
     - field.field.node.contact.field_domain_all_affiliates
     - field.field.node.contact.field_domain_source
@@ -49,13 +50,23 @@ mode: default
 content:
   field_address:
     type: address_default
-    weight: 5
+    weight: 6
     region: content
     settings: {  }
     third_party_settings: {  }
   field_college:
     type: entity_reference_autocomplete
     weight: 1
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_department:
+    type: entity_reference_autocomplete
+    weight: 3
     region: content
     settings:
       match_operator: CONTAINS
@@ -98,14 +109,14 @@ content:
     third_party_settings: {  }
   field_fax:
     type: telephone_default
-    weight: 4
+    weight: 5
     region: content
     settings:
       placeholder: ''
     third_party_settings: {  }
   field_phone:
     type: telephone_default
-    weight: 3
+    weight: 4
     region: content
     settings:
       placeholder: 'Ex: 555-555-5555'
@@ -118,7 +129,7 @@ content:
     third_party_settings: {  }
   path:
     type: path
-    weight: 6
+    weight: 7
     region: content
     settings: {  }
     third_party_settings: {  }

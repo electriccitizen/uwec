@@ -6,6 +6,7 @@ dependencies:
     - field.field.node.contact.body
     - field.field.node.contact.field_address
     - field.field.node.contact.field_college
+    - field.field.node.contact.field_department
     - field.field.node.contact.field_domain_access
     - field.field.node.contact.field_domain_all_affiliates
     - field.field.node.contact.field_domain_source
@@ -53,6 +54,22 @@ third_party_settings:
                   link_to_entity: false
                 third_party_settings: {  }
             weight: 0
+            additional: {  }
+          2ad33ce1-da3d-4d9e-bb2b-c3982d942044:
+            uuid: 2ad33ce1-da3d-4d9e-bb2b-c3982d942044
+            region: content
+            configuration:
+              id: 'field_block:node:contact:field_department'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: entity_reference_label
+                label: above
+                settings:
+                  link: true
+                third_party_settings: {  }
+            weight: 1
             additional: {  }
         third_party_settings: {  }
       -
@@ -210,6 +227,14 @@ content:
       link: true
     third_party_settings: {  }
     weight: 102
+    region: content
+  field_department:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 108
     region: content
   field_editorial_sections:
     type: entity_reference_label
