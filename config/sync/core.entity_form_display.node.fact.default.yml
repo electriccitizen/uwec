@@ -1,22 +1,18 @@
-uuid: a270c67d-0738-43e3-926f-889ed2b7c391
+uuid: 7cbe8275-30a1-47fe-bac7-7241e40c5233
 langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.department.body
-    - field.field.node.department.field_domain_access
-    - field.field.node.department.field_domain_all_affiliates
-    - field.field.node.department.field_domain_source
-    - field.field.node.department.field_editorial_sections
-    - field.field.node.department.field_metatags
-    - node.type.department
-    - workflows.workflow.non_moderated
+    - field.field.node.fact.field_domain_access
+    - field.field.node.fact.field_domain_all_affiliates
+    - field.field.node.fact.field_domain_source
+    - field.field.node.fact.field_editorial_sections
+    - field.field.node.fact.field_placement_tags
+    - node.type.fact
   module:
     - content_moderation
     - field_group
-    - metatag
     - path
-    - text
 third_party_settings:
   field_group:
     group_access:
@@ -38,57 +34,49 @@ third_party_settings:
         description: ''
         required_fields: true
         weight: 0
-id: node.department.default
+id: node.fact.default
 targetEntityType: node
-bundle: department
+bundle: fact
 mode: default
 content:
-  body:
-    type: text_textarea_with_summary
-    weight: 1
-    region: content
-    settings:
-      rows: 9
-      summary_rows: 3
-      placeholder: ''
-      show_summary: false
-    third_party_settings: {  }
   field_domain_access:
     type: options_buttons
-    weight: 6
+    weight: 5
     region: content
     settings: {  }
     third_party_settings: {  }
   field_domain_all_affiliates:
     type: boolean_checkbox
-    weight: 8
+    weight: 7
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   field_domain_source:
     type: options_select
-    weight: 7
+    weight: 6
     region: content
     settings: {  }
     third_party_settings: {  }
   field_editorial_sections:
     type: options_buttons
-    weight: 5
+    weight: 4
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_metatags:
-    type: metatag_firehose
-    weight: 2
+  field_placement_tags:
+    type: entity_reference_autocomplete
+    weight: 1
     region: content
     settings:
-      sidebar: true
-      use_details: true
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
   moderation_state:
     type: moderation_state_default
-    weight: 9
+    weight: 5
     region: content
     settings: {  }
     third_party_settings: {  }

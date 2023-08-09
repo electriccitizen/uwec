@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - node.type.contact
+    - node.type.fact
   module:
     - content_moderation
 id: marketing
@@ -69,4 +70,5 @@ type_settings:
   entity_types:
     node:
       - contact
+      - fact
   default_moderation_state: draft

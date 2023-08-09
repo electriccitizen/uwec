@@ -1,0 +1,22 @@
+uuid: df364b9c-2fed-48e4-8b17-6a5f531771d5
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: fact_library
+label: 'Fact Library'
+type: 'canonical_entities:node'
+pattern: 'fact/[node:title]'
+selection_criteria:
+  2689ac65-b460-480e-9926-25e04fdd39c1:
+    id: 'entity_bundle:node'
+    negate: false
+    uuid: 2689ac65-b460-480e-9926-25e04fdd39c1
+    context_mapping:
+      node: node
+    bundles:
+      fact: fact
+selection_logic: and
+weight: -5
+relationships: {  }

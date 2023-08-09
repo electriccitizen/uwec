@@ -1,0 +1,31 @@
+uuid: 47da76c7-9453-4585-933e-3448d772aee8
+langcode: en
+status: false
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.fact.field_domain_access
+    - field.field.node.fact.field_domain_all_affiliates
+    - field.field.node.fact.field_domain_source
+    - field.field.node.fact.field_editorial_sections
+    - field.field.node.fact.field_placement_tags
+    - node.type.fact
+  module:
+    - user
+id: node.fact.teaser
+targetEntityType: node
+bundle: fact
+mode: teaser
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_domain_access: true
+  field_domain_all_affiliates: true
+  field_domain_source: true
+  field_editorial_sections: true
+  field_placement_tags: true
+  search_api_excerpt: true

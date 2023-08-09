@@ -5,6 +5,7 @@ dependencies:
   config:
     - node.type.announcement
     - node.type.contact
+    - node.type.fact
     - taxonomy.vocabulary.placement_tags
     - workflows.workflow.marketing
     - workflows.workflow.non_moderated
@@ -32,6 +33,7 @@ permissions:
   - 'create bios content on assigned domains'
   - 'create contact content'
   - 'create domain content'
+  - 'create fact content'
   - 'create landing_page content on assigned domains'
   - 'create news content on assigned domains'
   - 'create page content on assigned domains'
@@ -45,12 +47,15 @@ permissions:
   - 'delete academic_program content on assigned domains'
   - 'delete any announcement content'
   - 'delete any contact content'
+  - 'delete any fact content'
   - 'delete bios content on assigned domains'
   - 'delete contact revisions'
   - 'delete domain content'
+  - 'delete fact revisions'
   - 'delete landing_page content on assigned domains'
   - 'delete news content on assigned domains'
   - 'delete own contact content'
+  - 'delete own fact content'
   - 'delete page content on assigned domains'
   - 'delete paragraph content custom_embed'
   - 'delete paragraph content layout_section'
@@ -59,12 +64,15 @@ permissions:
   - 'delete terms in placement_tags'
   - 'edit any announcement content'
   - 'edit any contact content'
+  - 'edit any fact content'
   - 'edit domain content'
   - 'edit own contact content'
+  - 'edit own fact content'
   - 'edit terms in placement_tags'
   - 'publish to any assigned domain'
   - 'publish to any domain'
   - 'revert contact revisions'
+  - 'revert fact revisions'
   - 'update academic_program content on assigned domains'
   - 'update bios content on assigned domains'
   - 'update landing_page content on assigned domains'
@@ -86,6 +94,7 @@ permissions:
   - 'use workbench access'
   - 'view any unpublished content'
   - 'view contact revisions'
+  - 'view fact revisions'
   - 'view latest version'
   - 'view unpublished domain content'
   - 'view workbench access information'
