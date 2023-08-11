@@ -119,10 +119,15 @@
 		img {
 			display: block;
 		}
-		.field-caption {
+		.featherlight-caption {
 			position: absolute;
 			bottom: 0;
 			left: 0;
+			.field-caption-headline {
+				text-align: center;
+			}
+		}
+		.field-caption {
 			width: 100%;
 			z-index: 30;
 			background: rgba(35,35,35,0.6);
