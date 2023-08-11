@@ -6,6 +6,7 @@ dependencies:
     - node.type.contact
     - node.type.fact
     - workflows.workflow.marketing
+    - workflows.workflow.non_moderated
   module:
     - content_moderation
     - domain
@@ -48,9 +49,15 @@ permissions:
   - 'update news content on assigned domains'
   - 'update page content on assigned domains'
   - 'use domain nav block'
+  - 'use marketing transition archive'
   - 'use marketing transition create_new_draft'
+  - 'use marketing transition publish'
   - 'use marketing transition review'
+  - 'use non_moderated transition archive'
+  - 'use non_moderated transition create_new_draft'
+  - 'use non_moderated transition publish'
   - 'use workbench access'
+  - 'view any unpublished content'
   - 'view contact revisions'
   - 'view fact revisions'
   - 'view unpublished domain content'
