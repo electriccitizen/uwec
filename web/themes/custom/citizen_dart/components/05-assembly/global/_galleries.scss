@@ -123,16 +123,18 @@
 			position: absolute;
 			bottom: 0;
 			left: 0;
+			background: rgba(35,35,35,0.6);
+			color: $white;
+			padding: 1rem 2rem;
 			.field-caption-headline {
 				text-align: center;
+				margin-bottom: 1rem;
 			}
 		}
 		.field-caption {
 			width: 100%;
 			z-index: 30;
-			background: rgba(35,35,35,0.6);
 			color: $white;
-			padding: 1rem 2rem;
 		}
 		.gallery-text {
 			max-width: $textMax;
