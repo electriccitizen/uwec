@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.announcement.body
+    - field.field.node.announcement.field_dates
     - field.field.node.announcement.field_domain_access
     - field.field.node.announcement.field_domain_all_affiliates
     - field.field.node.announcement.field_domain_source
@@ -16,6 +17,7 @@ dependencies:
   module:
     - content_moderation
     - field_group
+    - smart_date
     - text
 third_party_settings:
   field_group:
@@ -28,7 +30,7 @@ third_party_settings:
       label: Access
       region: content
       parent_name: ''
-      weight: 11
+      weight: 7
       format_type: details_sidebar
       format_settings:
         classes: ''
@@ -52,6 +54,25 @@ content:
       summary_rows: 3
       placeholder: ''
       show_summary: false
+    third_party_settings: {  }
+  field_dates:
+    type: smartdate_inline
+    weight: 2
+    region: content
+    settings:
+      modal: false
+      default_duration: 60
+      default_duration_increments: |-
+        30
+        60|1 hour
+        90
+        120|2 hours
+        custom
+      show_extra: false
+      hide_date: true
+      allday: true
+      remove_seconds: false
+      separator: to
     third_party_settings: {  }
   field_domain_access:
     type: options_buttons
@@ -80,7 +101,7 @@ content:
     third_party_settings: {  }
   field_section_url:
     type: string_textfield
-    weight: 4
+    weight: 5
     region: content
     settings:
       size: 60
@@ -88,20 +109,20 @@ content:
     third_party_settings: {  }
   field_sitewide:
     type: boolean_checkbox
-    weight: 3
+    weight: 4
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   field_urgency:
     type: options_select
-    weight: 2
+    weight: 3
     region: content
     settings: {  }
     third_party_settings: {  }
   moderation_state:
     type: moderation_state_default
-    weight: 12
+    weight: 8
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -124,7 +145,7 @@ content:
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 5
+    weight: 6
     region: content
     settings:
       display_label: true
