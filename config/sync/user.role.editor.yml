@@ -12,7 +12,6 @@ dependencies:
     - node.type.college
     - node.type.department
     - node.type.landing_page
-    - node.type.news
     - node.type.page
     - workflows.workflow.non_moderated
   module:
@@ -62,7 +61,6 @@ permissions:
   - 'create landing_page content'
   - 'create landing_page content on assigned domains'
   - 'create media'
-  - 'create news content'
   - 'create news content on assigned domains'
   - 'create page content'
   - 'create page content on assigned domains'
@@ -75,20 +73,17 @@ permissions:
   - 'delete any college content'
   - 'delete any department content'
   - 'delete any landing_page content'
-  - 'delete any news content'
   - 'delete any page content'
   - 'delete bios revisions'
   - 'delete college revisions'
   - 'delete department revisions'
   - 'delete landing_page revisions'
-  - 'delete news revisions'
   - 'delete own academic_program content'
   - 'delete own bios content'
   - 'delete own college content'
   - 'delete own department content'
   - 'delete own files'
   - 'delete own landing_page content'
-  - 'delete own news content'
   - 'delete own page content'
   - 'delete page revisions'
   - 'edit any academic_program content'
@@ -98,7 +93,6 @@ permissions:
   - 'edit any document media'
   - 'edit any image media'
   - 'edit any landing_page content'
-  - 'edit any news content'
   - 'edit any page content'
   - 'edit any remote_video media'
   - 'edit layout paragraphs plugin config'
@@ -109,7 +103,6 @@ permissions:
   - 'edit own document media'
   - 'edit own image media'
   - 'edit own landing_page content'
-  - 'edit own news content'
   - 'edit own page content'
   - 'edit own remote_video media'
   - 'publish to any assigned domain'
@@ -119,7 +112,6 @@ permissions:
   - 'revert college revisions'
   - 'revert department revisions'
   - 'revert landing_page revisions'
-  - 'revert news revisions'
   - 'revert page revisions'
   - 'switch shortcut sets'
   - 'update academic_program content on assigned domains'
@@ -142,7 +134,6 @@ permissions:
   - 'view college revisions'
   - 'view department revisions'
   - 'view landing_page revisions'
-  - 'view news revisions'
   - 'view own unpublished content'
   - 'view page revisions'
   - 'view the administration theme'

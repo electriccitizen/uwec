@@ -5,6 +5,7 @@ dependencies:
   config:
     - node.type.contact
     - node.type.fact
+    - node.type.news
   module:
     - content_moderation
 id: marketing
@@ -71,4 +72,5 @@ type_settings:
     node:
       - contact
       - fact
+      - news
   default_moderation_state: draft

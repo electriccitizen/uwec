@@ -5,6 +5,7 @@ dependencies:
   config:
     - node.type.contact
     - node.type.fact
+    - node.type.news
     - workflows.workflow.marketing
     - workflows.workflow.non_moderated
   module:
@@ -23,26 +24,33 @@ permissions:
   - 'create contact content'
   - 'create fact content'
   - 'create landing_page content on assigned domains'
+  - 'create news content'
   - 'create news content on assigned domains'
   - 'create page content on assigned domains'
   - 'delete academic_program content on assigned domains'
   - 'delete any contact content'
   - 'delete any fact content'
+  - 'delete any news content'
   - 'delete bios content on assigned domains'
   - 'delete contact revisions'
   - 'delete fact revisions'
   - 'delete landing_page content on assigned domains'
   - 'delete news content on assigned domains'
+  - 'delete news revisions'
   - 'delete own contact content'
   - 'delete own fact content'
+  - 'delete own news content'
   - 'delete page content on assigned domains'
   - 'edit any contact content'
   - 'edit any fact content'
+  - 'edit any news content'
   - 'edit own contact content'
   - 'edit own fact content'
+  - 'edit own news content'
   - 'publish to any assigned domain'
   - 'revert contact revisions'
   - 'revert fact revisions'
+  - 'revert news revisions'
   - 'update academic_program content on assigned domains'
   - 'update bios content on assigned domains'
   - 'update landing_page content on assigned domains'
@@ -60,5 +68,6 @@ permissions:
   - 'view any unpublished content'
   - 'view contact revisions'
   - 'view fact revisions'
+  - 'view news revisions'
   - 'view unpublished domain content'
   - 'view workbench access information'

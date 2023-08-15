@@ -6,6 +6,7 @@ dependencies:
     - filter.format.basic_html
     - filter.format.limited_html
   module:
+    - content_moderation
     - file
     - filter
     - media
@@ -54,6 +55,8 @@ permissions:
   - 'update paragraph content video'
   - 'use text format basic_html'
   - 'use text format limited_html'
+  - 'view any unpublished content'
+  - 'view latest version'
   - 'view media'
   - 'view paragraph content accordion_item'
   - 'view paragraph content accordions'

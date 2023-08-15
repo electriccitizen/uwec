@@ -9,6 +9,7 @@ dependencies:
     - field.field.node.contact.field_editorial_sections
     - field.field.node.department.field_editorial_sections
     - field.field.node.fact.field_editorial_sections
+    - field.field.node.news.field_editorial_sections
     - taxonomy.vocabulary.editorial_sections
 id: default
 plural_label: Defaults
@@ -18,6 +19,10 @@ scheme_settings:
   vocabularies:
     - editorial_sections
   fields:
+    -
+      entity_type: node
+      bundle: news
+      field: field_editorial_sections
     -
       entity_type: node
       bundle: academic_program
