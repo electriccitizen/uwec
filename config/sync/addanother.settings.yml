@@ -20,6 +20,8 @@ button:
   contact: false
   department: false
   fact: false
+  snapshot_library: false
+  snapshot: false
 message:
   page: false
   event: false
@@ -36,6 +38,8 @@ message:
   contact: false
   department: false
   fact: false
+  snapshot_library: false
+  snapshot: false
 tab:
   page: true
   event: true
@@ -52,6 +56,8 @@ tab:
   contact: true
   department: true
   fact: true
+  snapshot_library: true
+  snapshot: true
 tab_edit:
   page: false
   event: false
@@ -68,3 +74,5 @@ tab_edit:
   contact: false
   department: false
   fact: false
+  snapshot_library: false
+  snapshot: false

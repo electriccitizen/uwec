@@ -6,6 +6,7 @@ dependencies:
     - node.type.contact
     - node.type.fact
     - node.type.news
+    - node.type.snapshot
     - workflows.workflow.marketing
     - workflows.workflow.non_moderated
   module:
@@ -27,10 +28,12 @@ permissions:
   - 'create news content'
   - 'create news content on assigned domains'
   - 'create page content on assigned domains'
+  - 'create snapshot content'
   - 'delete academic_program content on assigned domains'
   - 'delete any contact content'
   - 'delete any fact content'
   - 'delete any news content'
+  - 'delete any snapshot content'
   - 'delete bios content on assigned domains'
   - 'delete contact revisions'
   - 'delete fact revisions'
@@ -40,17 +43,22 @@ permissions:
   - 'delete own contact content'
   - 'delete own fact content'
   - 'delete own news content'
+  - 'delete own snapshot content'
   - 'delete page content on assigned domains'
+  - 'delete snapshot revisions'
   - 'edit any contact content'
   - 'edit any fact content'
   - 'edit any news content'
+  - 'edit any snapshot content'
   - 'edit own contact content'
   - 'edit own fact content'
   - 'edit own news content'
+  - 'edit own snapshot content'
   - 'publish to any assigned domain'
   - 'revert contact revisions'
   - 'revert fact revisions'
   - 'revert news revisions'
+  - 'revert snapshot revisions'
   - 'update academic_program content on assigned domains'
   - 'update bios content on assigned domains'
   - 'update landing_page content on assigned domains'
@@ -69,5 +77,6 @@ permissions:
   - 'view contact revisions'
   - 'view fact revisions'
   - 'view news revisions'
+  - 'view snapshot revisions'
   - 'view unpublished domain content'
   - 'view workbench access information'

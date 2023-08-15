@@ -1,0 +1,33 @@
+uuid: e99dc6fb-5c69-47ce-b7de-f57a2e2c64f0
+langcode: en
+status: false
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.snapshot.field_domain_access
+    - field.field.node.snapshot.field_domain_all_affiliates
+    - field.field.node.snapshot.field_domain_source
+    - field.field.node.snapshot.field_editorial_sections
+    - field.field.node.snapshot.field_metatags
+    - field.field.node.snapshot.field_placement_tags
+    - node.type.snapshot
+  module:
+    - user
+id: node.snapshot.teaser
+targetEntityType: node
+bundle: snapshot
+mode: teaser
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_domain_access: true
+  field_domain_all_affiliates: true
+  field_domain_source: true
+  field_editorial_sections: true
+  field_metatags: true
+  field_placement_tags: true
+  search_api_excerpt: true

@@ -6,6 +6,7 @@ dependencies:
     - node.type.contact
     - node.type.fact
     - node.type.news
+    - node.type.snapshot
   module:
     - content_moderation
 id: marketing
@@ -73,4 +74,5 @@ type_settings:
       - contact
       - fact
       - news
+      - snapshot
   default_moderation_state: draft
