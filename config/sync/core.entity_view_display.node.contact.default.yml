@@ -15,12 +15,10 @@ dependencies:
     - field.field.node.contact.field_fax
     - field.field.node.contact.field_phone
     - node.type.contact
-  content:
-    - 'block_content:basic:2eb6c1af-4ead-4416-9fdf-69f15df10cd2'
   module:
     - address
-    - block_content
     - layout_builder
+    - layout_builder_restrictions
     - layout_discovery
     - telephone
     - text
@@ -33,7 +31,7 @@ third_party_settings:
       -
         layout_id: layout_onecol
         layout_settings:
-          label: Title
+          label: 'Section 1'
           context_mapping: {  }
         components:
           e35fdf78-2ee4-46e4-b6e0-6d528c98e8c8:
@@ -55,29 +53,6 @@ third_party_settings:
                 third_party_settings: {  }
             weight: 0
             additional: {  }
-          2ad33ce1-da3d-4d9e-bb2b-c3982d942044:
-            uuid: 2ad33ce1-da3d-4d9e-bb2b-c3982d942044
-            region: content
-            configuration:
-              id: 'field_block:node:contact:field_department'
-              label_display: '0'
-              context_mapping:
-                entity: layout_builder.entity
-              formatter:
-                type: entity_reference_label
-                label: above
-                settings:
-                  link: true
-                third_party_settings: {  }
-            weight: 1
-            additional: {  }
-        third_party_settings: {  }
-      -
-        layout_id: layout_onecol
-        layout_settings:
-          label: College
-          context_mapping: {  }
-        components:
           a4c43c43-0654-41ab-8f40-dd174c862c77:
             uuid: a4c43c43-0654-41ab-8f40-dd174c862c77
             region: content
@@ -95,15 +70,8 @@ third_party_settings:
                 settings:
                   link: true
                 third_party_settings: {  }
-            weight: 0
+            weight: 1
             additional: {  }
-        third_party_settings: {  }
-      -
-        layout_id: layout_onecol
-        layout_settings:
-          label: Email
-          context_mapping: {  }
-        components:
           deb94625-df9f-49b9-be0b-70a21be7cb56:
             uuid: deb94625-df9f-49b9-be0b-70a21be7cb56
             region: content
@@ -120,15 +88,8 @@ third_party_settings:
                 label: hidden
                 settings: {  }
                 third_party_settings: {  }
-            weight: 0
+            weight: 2
             additional: {  }
-        third_party_settings: {  }
-      -
-        layout_id: layout_onecol
-        layout_settings:
-          label: Phone
-          context_mapping: {  }
-        components:
           6f5ab64e-9438-4ee5-8e19-e445a57668e9:
             uuid: 6f5ab64e-9438-4ee5-8e19-e445a57668e9
             region: content
@@ -146,15 +107,8 @@ third_party_settings:
                 settings:
                   title: ''
                 third_party_settings: {  }
-            weight: 0
+            weight: 3
             additional: {  }
-        third_party_settings: {  }
-      -
-        layout_id: layout_onecol
-        layout_settings:
-          label: Fax
-          context_mapping: {  }
-        components:
           69b5e6c5-dad1-4c55-b91c-b7bba48b8233:
             uuid: 69b5e6c5-dad1-4c55-b91c-b7bba48b8233
             region: content
@@ -172,30 +126,34 @@ third_party_settings:
                 settings:
                   title: ''
                 third_party_settings: {  }
-            weight: 0
+            weight: 4
             additional: {  }
-        third_party_settings: {  }
-      -
-        layout_id: layout_onecol
-        layout_settings:
-          label: Location
-          context_mapping: {  }
-        components:
-          c4929ea2-ce81-493d-9f47-b430165dbd77:
-            uuid: c4929ea2-ce81-493d-9f47-b430165dbd77
+          89e7717b-6dfc-4bc2-a412-17f82ffc0cfb:
+            uuid: 89e7717b-6dfc-4bc2-a412-17f82ffc0cfb
             region: content
             configuration:
-              id: 'block_content:2eb6c1af-4ead-4416-9fdf-69f15df10cd2'
-              label: Address
+              id: 'field_block:node:contact:field_address'
+              label: Location
               label_display: '0'
-              provider: block_content
-              status: true
-              info: ''
-              view_mode: full
-              context_mapping: {  }
-            weight: 0
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: address_plain
+                label: hidden
+                settings: {  }
+                third_party_settings: {  }
+            weight: 5
             additional: {  }
         third_party_settings: {  }
+  layout_builder_restrictions:
+    allowed_block_categories: {  }
+    entity_view_mode_restriction:
+      allowed_layouts: {  }
+      denylisted_blocks: {  }
+      allowlisted_blocks: {  }
+      restricted_categories: {  }
 id: node.contact.default
 targetEntityType: node
 bundle: contact

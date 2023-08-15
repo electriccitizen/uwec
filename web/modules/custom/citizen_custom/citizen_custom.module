@@ -135,6 +135,7 @@ function citizen_custom_form_alter(&$form, FormStateInterface $form_state, $form
     $form['revision_information']['#access'] = FALSE;
     $form['revision']['#access'] = FALSE;
   }
+
 }
 
 /**
@@ -147,8 +148,17 @@ function citizen_custom_form_node_form_alter(&$form, FormStateInterface $form_st
     $form['promote']['widget']['value']['#title'] = 'Add to Featured News';
     $form['promote']['widget']['value']['#description'] = 'Should have a news image.';
   }
+  if ($node->getType() == 'contact') {
+    if (in_array($form_id, array('node_contact_edit_form', 'node_contact_form'))) {
+      $form['field_address']['widget'][0]['address']['#after_build'][] = 'citizen_custom_address_organization_label';
+    }
+  }
 }
 
+function citizen_custom_address_organization_label($element, $form_state) {
+  $element['organization']['#title'] = t('Building');
+  return $element;
+}
 /**
  * Implements hook_local_tasks_alter().
  */
