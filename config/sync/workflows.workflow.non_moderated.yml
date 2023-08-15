@@ -9,7 +9,6 @@ dependencies:
     - node.type.college
     - node.type.department
     - node.type.landing_page
-    - node.type.news
     - node.type.page
     - node.type.support_book
   module:
@@ -67,7 +66,6 @@ type_settings:
       - college
       - department
       - landing_page
-      - news
       - page
       - support_book
   default_moderation_state: draft
