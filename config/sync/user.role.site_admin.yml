@@ -9,6 +9,7 @@ dependencies:
     - node.type.news
     - node.type.snapshot
     - node.type.testimonial
+    - taxonomy.vocabulary.eyebrows
     - taxonomy.vocabulary.placement_tags
     - workflows.workflow.marketing
     - workflows.workflow.non_moderated
@@ -48,6 +49,7 @@ permissions:
   - 'create paragraph content layout_section_single'
   - 'create snapshot content'
   - 'create support_book content on assigned domains'
+  - 'create terms in eyebrows'
   - 'create terms in placement_tags'
   - 'create testimonial content'
   - 'delete academic_program content on assigned domains'
@@ -75,6 +77,7 @@ permissions:
   - 'delete paragraph content layout_section_single'
   - 'delete snapshot revisions'
   - 'delete support_book content on assigned domains'
+  - 'delete terms in eyebrows'
   - 'delete terms in placement_tags'
   - 'delete testimonial revisions'
   - 'edit any announcement content'
@@ -89,6 +92,7 @@ permissions:
   - 'edit own news content'
   - 'edit own snapshot content'
   - 'edit own testimonial content'
+  - 'edit terms in eyebrows'
   - 'edit terms in placement_tags'
   - 'publish to any assigned domain'
   - 'publish to any domain'
