@@ -1,0 +1,29 @@
+uuid: 7ca8570e-4ba7-45be-8e91-9295ed18203f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_eyebrow
+    - node.type.video_card
+    - taxonomy.vocabulary.eyebrows
+id: node.video_card.field_eyebrow
+field_name: field_eyebrow
+entity_type: node
+bundle: video_card
+label: Eyebrow
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      eyebrows: eyebrows
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

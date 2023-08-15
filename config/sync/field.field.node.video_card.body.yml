@@ -1,0 +1,30 @@
+uuid: c99f282a-2a32-4d3f-ac95-029716234fe8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - filter.format.limited_html
+    - node.type.video_card
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    allowed_formats: {  }
+id: node.video_card.body
+field_name: body
+entity_type: node
+bundle: video_card
+label: Text
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: false
+  required_summary: false
+  allowed_formats:
+    - limited_html
+field_type: text_with_summary

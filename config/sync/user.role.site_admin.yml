@@ -9,6 +9,7 @@ dependencies:
     - node.type.news
     - node.type.snapshot
     - node.type.testimonial
+    - node.type.video_card
     - taxonomy.vocabulary.eyebrows
     - taxonomy.vocabulary.placement_tags
     - workflows.workflow.marketing
@@ -52,6 +53,7 @@ permissions:
   - 'create terms in eyebrows'
   - 'create terms in placement_tags'
   - 'create testimonial content'
+  - 'create video_card content'
   - 'delete academic_program content on assigned domains'
   - 'delete any announcement content'
   - 'delete any contact content'
@@ -59,6 +61,7 @@ permissions:
   - 'delete any news content'
   - 'delete any snapshot content'
   - 'delete any testimonial content'
+  - 'delete any video_card content'
   - 'delete bios content on assigned domains'
   - 'delete contact revisions'
   - 'delete domain content'
@@ -71,6 +74,7 @@ permissions:
   - 'delete own news content'
   - 'delete own snapshot content'
   - 'delete own testimonial content'
+  - 'delete own video_card content'
   - 'delete page content on assigned domains'
   - 'delete paragraph content custom_embed'
   - 'delete paragraph content layout_section'
@@ -80,18 +84,21 @@ permissions:
   - 'delete terms in eyebrows'
   - 'delete terms in placement_tags'
   - 'delete testimonial revisions'
+  - 'delete video_card revisions'
   - 'edit any announcement content'
   - 'edit any contact content'
   - 'edit any fact content'
   - 'edit any news content'
   - 'edit any snapshot content'
   - 'edit any testimonial content'
+  - 'edit any video_card content'
   - 'edit domain content'
   - 'edit own contact content'
   - 'edit own fact content'
   - 'edit own news content'
   - 'edit own snapshot content'
   - 'edit own testimonial content'
+  - 'edit own video_card content'
   - 'edit terms in eyebrows'
   - 'edit terms in placement_tags'
   - 'publish to any assigned domain'
@@ -101,6 +108,7 @@ permissions:
   - 'revert news revisions'
   - 'revert snapshot revisions'
   - 'revert testimonial revisions'
+  - 'revert video_card revisions'
   - 'update academic_program content on assigned domains'
   - 'update bios content on assigned domains'
   - 'update landing_page content on assigned domains'
@@ -128,4 +136,5 @@ permissions:
   - 'view snapshot revisions'
   - 'view testimonial revisions'
   - 'view unpublished domain content'
+  - 'view video_card revisions'
   - 'view workbench access information'
