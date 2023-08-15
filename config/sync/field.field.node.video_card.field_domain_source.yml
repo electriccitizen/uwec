@@ -1,0 +1,26 @@
+uuid: 3f62265e-3ad3-4d56-9f5e-75a0622a8f71
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_domain_source
+    - node.type.video_card
+id: node.video_card.field_domain_source
+field_name: field_domain_source
+entity_type: node
+bundle: video_card
+label: 'Domain Source'
+description: 'Select the canonical domain for this content.'
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:domain'
+  handler_settings:
+    target_bundles: null
+    sort:
+      field: weight
+      direction: ASC
+    auto_create: false
+field_type: entity_reference

@@ -1,0 +1,47 @@
+uuid: d78bfac1-24b3-4516-867f-605ff4869fff
+langcode: en
+status: false
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.video_card.body
+    - field.field.node.video_card.field_domain_access
+    - field.field.node.video_card.field_domain_all_affiliates
+    - field.field.node.video_card.field_domain_source
+    - field.field.node.video_card.field_editorial_sections
+    - field.field.node.video_card.field_eyebrow
+    - field.field.node.video_card.field_list_widget
+    - field.field.node.video_card.field_placement_tags
+    - field.field.node.video_card.field_video
+    - node.type.video_card
+  module:
+    - text
+    - user
+id: node.video_card.teaser
+targetEntityType: node
+bundle: video_card
+mode: teaser
+content:
+  body:
+    type: text_summary_or_trimmed
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_domain_access: true
+  field_domain_all_affiliates: true
+  field_domain_source: true
+  field_editorial_sections: true
+  field_eyebrow: true
+  field_list_widget: true
+  field_placement_tags: true
+  field_video: true
+  search_api_excerpt: true

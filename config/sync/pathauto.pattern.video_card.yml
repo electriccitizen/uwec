@@ -1,0 +1,22 @@
+uuid: 810643af-08db-467e-a2f8-205f32bef2d7
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: video_card
+label: 'Video Card Library'
+type: 'canonical_entities:node'
+pattern: 'video-cards/[node:title]'
+selection_criteria:
+  748c252e-7fd5-42a1-8ae5-d43522408324:
+    id: 'entity_bundle:node'
+    negate: false
+    uuid: 748c252e-7fd5-42a1-8ae5-d43522408324
+    context_mapping:
+      node: node
+    bundles:
+      video_card: video_card
+selection_logic: and
+weight: -5
+relationships: {  }

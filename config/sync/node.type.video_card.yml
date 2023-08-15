@@ -1,0 +1,17 @@
+uuid: ecb7417c-946e-49c6-ad50-5a252f943fa0
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: 'Video Card Library'
+type: video_card
+description: 'Add curated videos for placement around the site.'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: false

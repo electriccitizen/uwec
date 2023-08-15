@@ -1,0 +1,8 @@
+uuid: fb3bfeef-f222-451f-ad60-8367142ad62d
+langcode: en
+status: true
+dependencies: {  }
+id: node__video_card
+label: 'Content: Video Card Library'
+tags:
+  robots: 'noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate'

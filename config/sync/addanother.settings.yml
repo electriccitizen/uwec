@@ -23,6 +23,7 @@ button:
   snapshot_library: false
   snapshot: false
   testimonial: false
+  video_card: false
 message:
   page: false
   event: false
@@ -42,6 +43,7 @@ message:
   snapshot_library: false
   snapshot: false
   testimonial: false
+  video_card: false
 tab:
   page: true
   event: true
@@ -61,6 +63,7 @@ tab:
   snapshot_library: true
   snapshot: true
   testimonial: true
+  video_card: true
 tab_edit:
   page: false
   event: false
@@ -80,3 +83,4 @@ tab_edit:
   snapshot_library: false
   snapshot: false
   testimonial: false
+  video_card: false

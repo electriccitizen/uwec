@@ -1,0 +1,29 @@
+uuid: 86c824fa-5367-43c6-b51c-be9222248c76
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_placement_tags
+    - node.type.video_card
+    - taxonomy.vocabulary.placement_tags
+id: node.video_card.field_placement_tags
+field_name: field_placement_tags
+entity_type: node
+bundle: video_card
+label: 'Placement tags'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      placement_tags: placement_tags
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

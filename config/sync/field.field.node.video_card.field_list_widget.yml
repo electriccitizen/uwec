@@ -1,0 +1,33 @@
+uuid: fbf8c1ff-276a-4307-b032-10c35d210a0a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_list_widget
+    - node.type.video_card
+    - taxonomy.vocabulary.list_widget
+  content:
+    - 'taxonomy_term:list_widget:41bd639a-3922-489e-9ab9-5c115229ebce'
+id: node.video_card.field_list_widget
+field_name: field_list_widget
+entity_type: node
+bundle: video_card
+label: 'List Widget'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    target_uuid: 41bd639a-3922-489e-9ab9-5c115229ebce
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      list_widget: list_widget
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

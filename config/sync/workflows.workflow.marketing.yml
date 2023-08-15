@@ -8,6 +8,7 @@ dependencies:
     - node.type.news
     - node.type.snapshot
     - node.type.testimonial
+    - node.type.video_card
   module:
     - content_moderation
 id: marketing
@@ -77,4 +78,5 @@ type_settings:
       - news
       - snapshot
       - testimonial
+      - video_card
   default_moderation_state: draft
