@@ -29,7 +29,7 @@ third_party_settings:
       -
         layout_id: layout_onecol
         layout_settings:
-          label: Title
+          label: 'Section 1'
           context_mapping: {  }
         components:
           f4cdab2b-f882-42a9-aa04-dca1e7ab173e:
@@ -51,13 +51,6 @@ third_party_settings:
                 third_party_settings: {  }
             weight: 2
             additional: {  }
-        third_party_settings: {  }
-      -
-        layout_id: layout_onecol
-        layout_settings:
-          label: 'Intro Text'
-          context_mapping: {  }
-        components:
           b4a2bb82-273b-4bd0-930b-560f800e5934:
             uuid: b4a2bb82-273b-4bd0-930b-560f800e5934
             region: content
@@ -74,7 +67,7 @@ third_party_settings:
                 label: hidden
                 settings: {  }
                 third_party_settings: {  }
-            weight: 0
+            weight: 3
             additional: {  }
         third_party_settings: {  }
   layout_builder_restrictions:
@@ -151,4 +144,6 @@ hidden:
   field_domain_access: true
   field_domain_all_affiliates: true
   field_domain_source: true
+  publish_state: true
   search_api_excerpt: true
+  unpublish_state: true

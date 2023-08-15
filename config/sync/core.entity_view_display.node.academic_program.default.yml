@@ -47,70 +47,6 @@ third_party_settings:
                 third_party_settings: {  }
             weight: 3
             additional: {  }
-          785fdbcb-ba11-48e1-a33c-652b3beea56c:
-            uuid: 785fdbcb-ba11-48e1-a33c-652b3beea56c
-            region: content
-            configuration:
-              id: 'extra_field_block:node:academic_program:content_moderation_control'
-              label_display: '0'
-              context_mapping:
-                entity: layout_builder.entity
-            weight: 4
-            additional: {  }
-          e633e442-747b-4878-b4a6-453b01738994:
-            uuid: e633e442-747b-4878-b4a6-453b01738994
-            region: content
-            configuration:
-              id: 'field_block:node:academic_program:field_metatags'
-              label_display: '0'
-              context_mapping:
-                entity: layout_builder.entity
-              formatter:
-                type: metatag_empty_formatter
-                label: above
-                settings: {  }
-                third_party_settings: {  }
-            weight: 5
-            additional: {  }
-          9a4bfecb-abf6-4a53-b2b9-dd7251bd33ae:
-            uuid: 9a4bfecb-abf6-4a53-b2b9-dd7251bd33ae
-            region: content
-            configuration:
-              id: 'field_block:node:academic_program:field_editorial_sections'
-              label_display: '0'
-              context_mapping:
-                entity: layout_builder.entity
-              formatter:
-                type: entity_reference_label
-                label: above
-                settings:
-                  link: true
-                third_party_settings: {  }
-            weight: 6
-            additional: {  }
-          550b3fc9-fe4f-4cf1-95d1-c9fab42187cb:
-            uuid: 550b3fc9-fe4f-4cf1-95d1-c9fab42187cb
-            region: content
-            configuration:
-              id: 'field_block:node:academic_program:field_placement_tags'
-              label_display: '0'
-              context_mapping:
-                entity: layout_builder.entity
-              formatter:
-                type: entity_reference_label
-                label: above
-                settings:
-                  link: true
-                third_party_settings: {  }
-            weight: 7
-            additional: {  }
-        third_party_settings: {  }
-      -
-        layout_id: layout_onecol
-        layout_settings:
-          label: ''
-          context_mapping: {  }
-        components:
           cd87326e-59f7-4d76-8305-b10eab50eca1:
             uuid: cd87326e-59f7-4d76-8305-b10eab50eca1
             region: content
@@ -127,7 +63,7 @@ third_party_settings:
                 label: hidden
                 settings: {  }
                 third_party_settings: {  }
-            weight: 0
+            weight: 4
             additional: {  }
         third_party_settings: {  }
   layout_builder_restrictions:
@@ -187,4 +123,6 @@ hidden:
   field_domain_access: true
   field_domain_all_affiliates: true
   field_domain_source: true
+  publish_state: true
   search_api_excerpt: true
+  unpublish_state: true
