@@ -11,6 +11,7 @@ dependencies:
     - field.field.node.fact.field_editorial_sections
     - field.field.node.news.field_editorial_sections
     - field.field.node.snapshot.field_editorial_sections
+    - field.field.node.testimonial.field_editorial_sections
     - taxonomy.vocabulary.editorial_sections
 id: default
 plural_label: Defaults
@@ -51,4 +52,8 @@ scheme_settings:
     -
       entity_type: node
       bundle: snapshot
+      field: field_editorial_sections
+    -
+      entity_type: node
+      bundle: testimonial
       field: field_editorial_sections

@@ -8,6 +8,7 @@ dependencies:
     - node.type.fact
     - node.type.news
     - node.type.snapshot
+    - node.type.testimonial
     - taxonomy.vocabulary.placement_tags
     - workflows.workflow.marketing
     - workflows.workflow.non_moderated
@@ -48,12 +49,14 @@ permissions:
   - 'create snapshot content'
   - 'create support_book content on assigned domains'
   - 'create terms in placement_tags'
+  - 'create testimonial content'
   - 'delete academic_program content on assigned domains'
   - 'delete any announcement content'
   - 'delete any contact content'
   - 'delete any fact content'
   - 'delete any news content'
   - 'delete any snapshot content'
+  - 'delete any testimonial content'
   - 'delete bios content on assigned domains'
   - 'delete contact revisions'
   - 'delete domain content'
@@ -65,6 +68,7 @@ permissions:
   - 'delete own fact content'
   - 'delete own news content'
   - 'delete own snapshot content'
+  - 'delete own testimonial content'
   - 'delete page content on assigned domains'
   - 'delete paragraph content custom_embed'
   - 'delete paragraph content layout_section'
@@ -72,16 +76,19 @@ permissions:
   - 'delete snapshot revisions'
   - 'delete support_book content on assigned domains'
   - 'delete terms in placement_tags'
+  - 'delete testimonial revisions'
   - 'edit any announcement content'
   - 'edit any contact content'
   - 'edit any fact content'
   - 'edit any news content'
   - 'edit any snapshot content'
+  - 'edit any testimonial content'
   - 'edit domain content'
   - 'edit own contact content'
   - 'edit own fact content'
   - 'edit own news content'
   - 'edit own snapshot content'
+  - 'edit own testimonial content'
   - 'edit terms in placement_tags'
   - 'publish to any assigned domain'
   - 'publish to any domain'
@@ -89,6 +96,7 @@ permissions:
   - 'revert fact revisions'
   - 'revert news revisions'
   - 'revert snapshot revisions'
+  - 'revert testimonial revisions'
   - 'update academic_program content on assigned domains'
   - 'update bios content on assigned domains'
   - 'update landing_page content on assigned domains'
@@ -114,5 +122,6 @@ permissions:
   - 'view latest version'
   - 'view news revisions'
   - 'view snapshot revisions'
+  - 'view testimonial revisions'
   - 'view unpublished domain content'
   - 'view workbench access information'

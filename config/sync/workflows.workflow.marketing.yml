@@ -7,6 +7,7 @@ dependencies:
     - node.type.fact
     - node.type.news
     - node.type.snapshot
+    - node.type.testimonial
   module:
     - content_moderation
 id: marketing
@@ -75,4 +76,5 @@ type_settings:
       - fact
       - news
       - snapshot
+      - testimonial
   default_moderation_state: draft

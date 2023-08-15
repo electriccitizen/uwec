@@ -22,6 +22,7 @@ button:
   fact: false
   snapshot_library: false
   snapshot: false
+  testimonial: false
 message:
   page: false
   event: false
@@ -40,6 +41,7 @@ message:
   fact: false
   snapshot_library: false
   snapshot: false
+  testimonial: false
 tab:
   page: true
   event: true
@@ -58,6 +60,7 @@ tab:
   fact: true
   snapshot_library: true
   snapshot: true
+  testimonial: true
 tab_edit:
   page: false
   event: false
@@ -76,3 +79,4 @@ tab_edit:
   fact: false
   snapshot_library: false
   snapshot: false
+  testimonial: false
