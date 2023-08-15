@@ -1,0 +1,21 @@
+uuid: c3ab1c37-abcd-46b9-9b4c-d63a050a0bff
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_metatags
+    - node.type.snapshot
+  module:
+    - metatag
+id: node.snapshot.field_metatags
+field_name: field_metatags
+entity_type: node
+bundle: snapshot
+label: Metatags
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: metatag

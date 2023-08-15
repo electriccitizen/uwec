@@ -1,0 +1,8 @@
+uuid: d08e863a-6db1-4224-abe8-089e594042da
+langcode: en
+status: true
+dependencies: {  }
+id: node__snapshot
+label: 'Content: Snapshot Library'
+tags:
+  robots: 'noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate'

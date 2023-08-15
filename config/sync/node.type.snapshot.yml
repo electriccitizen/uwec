@@ -1,0 +1,17 @@
+uuid: 3bfbdae5-8546-4e7f-9285-78032d360051
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: 'Snapshot Library'
+type: snapshot
+description: 'Add snapshot content for placement around the site.'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: false

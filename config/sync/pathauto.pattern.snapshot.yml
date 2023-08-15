@@ -1,0 +1,22 @@
+uuid: c1c9030b-8bd7-42e3-9cf5-dff57b3e3ad1
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: snapshot
+label: 'Snapshot Library'
+type: 'canonical_entities:node'
+pattern: 'snapshot/[node:title]'
+selection_criteria:
+  f594ff9c-d61b-4e64-b050-64179392e318:
+    id: 'entity_bundle:node'
+    negate: false
+    uuid: f594ff9c-d61b-4e64-b050-64179392e318
+    context_mapping:
+      node: node
+    bundles:
+      snapshot: snapshot
+selection_logic: and
+weight: -5
+relationships: {  }

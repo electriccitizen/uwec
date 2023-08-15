@@ -1,0 +1,29 @@
+uuid: 6cedce47-3914-4cc0-8cfa-8a72a505aa7c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_placement_tags
+    - node.type.snapshot
+    - taxonomy.vocabulary.placement_tags
+id: node.snapshot.field_placement_tags
+field_name: field_placement_tags
+entity_type: node
+bundle: snapshot
+label: 'Placement tags'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      placement_tags: placement_tags
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference
