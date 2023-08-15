@@ -1,0 +1,17 @@
+uuid: 0c6ebab4-d3bd-4e2b-97a0-3276d60e7464
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: 'Testimonial Library'
+type: testimonial
+description: 'Add testimonials for placement around the site.'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: false

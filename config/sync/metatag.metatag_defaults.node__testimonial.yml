@@ -1,0 +1,8 @@
+uuid: 5ed35a47-23de-46a0-a3d4-1dc308fe7c3a
+langcode: en
+status: true
+dependencies: {  }
+id: node__testimonial
+label: 'Content: Testimonial Library'
+tags:
+  robots: 'noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate'
