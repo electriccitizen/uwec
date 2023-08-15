@@ -1,0 +1,23 @@
+uuid: 246e029a-1eae-4d23-a8ae-f699416482b4
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.eyebrows
+id: taxonomy_term.eyebrows.default
+targetEntityType: taxonomy_term
+bundle: eyebrows
+mode: default
+content:
+  name:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  description: true
+  path: true
+  status: true

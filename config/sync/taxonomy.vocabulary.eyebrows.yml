@@ -1,0 +1,8 @@
+uuid: fd831444-c8e2-4558-96ef-a520c4e6b7e1
+langcode: en
+status: true
+dependencies: {  }
+name: Eyebrows
+vid: eyebrows
+description: 'Eyebrow text for use with wayfinding widgets.'
+weight: 0
