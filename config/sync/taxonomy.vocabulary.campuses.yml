@@ -1,0 +1,8 @@
+uuid: 40f85f01-0dcd-442b-a988-f8a52fbe715a
+langcode: en
+status: true
+dependencies: {  }
+name: Campuses
+vid: campuses
+description: 'Campuses for programs, departments, etc.'
+weight: 0
