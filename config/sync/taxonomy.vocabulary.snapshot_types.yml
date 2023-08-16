@@ -1,0 +1,8 @@
+uuid: bc64c7c1-c61a-43c0-a41e-eeec5d8fc376
+langcode: en
+status: true
+dependencies: {  }
+name: 'Snapshot Types'
+vid: snapshot_types
+description: 'Used differentiate types of snapshots.'
+weight: 0
