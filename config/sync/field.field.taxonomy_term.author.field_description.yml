@@ -1,0 +1,29 @@
+uuid: a245cc53-6643-4f20-aa83-c7b65e62a189
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_description
+    - filter.format.limited_html
+    - taxonomy.vocabulary.author
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    allowed_formats:
+      - limited_html
+id: taxonomy_term.author.field_description
+field_name: field_description
+entity_type: taxonomy_term
+bundle: author
+label: Blurb
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - limited_html
+field_type: text_long

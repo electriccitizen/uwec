@@ -10,6 +10,7 @@ dependencies:
     - node.type.snapshot
     - node.type.testimonial
     - node.type.video_card
+    - taxonomy.vocabulary.author
     - taxonomy.vocabulary.campuses
     - taxonomy.vocabulary.eyebrows
     - taxonomy.vocabulary.placement_tags
@@ -51,6 +52,7 @@ permissions:
   - 'create paragraph content layout_section_single'
   - 'create snapshot content'
   - 'create support_book content on assigned domains'
+  - 'create terms in author'
   - 'create terms in campuses'
   - 'create terms in eyebrows'
   - 'create terms in placement_tags'
@@ -83,6 +85,7 @@ permissions:
   - 'delete paragraph content layout_section_single'
   - 'delete snapshot revisions'
   - 'delete support_book content on assigned domains'
+  - 'delete terms in author'
   - 'delete terms in campuses'
   - 'delete terms in eyebrows'
   - 'delete terms in placement_tags'
@@ -102,6 +105,7 @@ permissions:
   - 'edit own snapshot content'
   - 'edit own testimonial content'
   - 'edit own video_card content'
+  - 'edit terms in author'
   - 'edit terms in campuses'
   - 'edit terms in eyebrows'
   - 'edit terms in placement_tags'
