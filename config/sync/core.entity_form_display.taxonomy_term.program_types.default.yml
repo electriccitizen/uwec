@@ -1,0 +1,23 @@
+uuid: b196b53c-15ec-4dd9-969f-fe4bca2666d4
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.program_types
+id: taxonomy_term.program_types.default
+targetEntityType: taxonomy_term
+bundle: program_types
+mode: default
+content:
+  name:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  description: true
+  path: true
+  status: true
