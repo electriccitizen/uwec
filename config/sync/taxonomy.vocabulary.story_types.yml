@@ -1,0 +1,8 @@
+uuid: 7a6f3b9a-fc89-46c2-9003-9b20f4c0dca4
+langcode: en
+status: true
+dependencies: {  }
+name: 'Story Types'
+vid: story_types
+description: 'Define the intent of story nodes.'
+weight: 0
