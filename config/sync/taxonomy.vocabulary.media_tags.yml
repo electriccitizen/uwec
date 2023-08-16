@@ -1,0 +1,8 @@
+uuid: 37acfffb-850f-4089-956e-2c83b89cdbbd
+langcode: en
+status: true
+dependencies: {  }
+name: 'Media Tags'
+vid: media_tags
+description: 'Used for categorizing images and video for searching in the medai library.'
+weight: 0

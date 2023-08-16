@@ -5,10 +5,15 @@ dependencies:
   config:
     - core.entity_view_mode.media.media_library
     - image.style.medium
+    - taxonomy.vocabulary.media_tags
+  content:
+    - 'taxonomy_term:media_tags:4acd99e2-e8b9-446b-882a-c3482be3a20d'
+    - 'taxonomy_term:media_tags:632264a2-5e2b-44eb-a69c-b28150629618'
   module:
-    - image
     - media
     - media_library
+    - svg_image
+    - taxonomy
     - user
     - views_infinite_scroll
   enforced:
@@ -449,6 +454,67 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
+        field_media_tags_target_id:
+          id: field_media_tags_target_id
+          table: media__field_media_tags
+          field: field_media_tags_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: taxonomy_index_tid
+          operator: or
+          value:
+            23: 23
+            24: 24
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_media_tags_target_id_op
+            label: Tags
+            description: ''
+            use_operator: false
+            operator: field_media_tags_target_id_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: field_media_tags_target_id
+            required: false
+            remember: false
+            multiple: true
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              editor: '0'
+              site_manager: '0'
+              site_admin: '0'
+              section_manager: '0'
+              marketing_editor: '0'
+            reduce: true
+          is_grouped: false
+          group_info:
+            label: Tags
+            description: ''
+            identifier: field_media_tags_target_id
+            optional: true
+            widget: select
+            multiple: true
+            remember: false
+            default_group: All
+            default_group_multiple:
+              All: 0
+            group_items:
+              1:
+                title: Tags
+                operator: or
+                value:
+                  23: '23'
+                  24: '24'
+          reduce_duplicates: false
+          vid: media_tags
+          type: select
+          hierarchy: true
+          limit: true
+          error_message: true
       style:
         type: default
         options:
@@ -477,7 +543,7 @@ display:
       footer: {  }
       display_extenders: {  }
     cache_metadata:
-      max-age: -1
+      max-age: 0
       contexts:
         - 'languages:language_interface'
         - url
@@ -489,7 +555,6 @@ display:
         - 'config:core.entity_view_display.media.document.banner'
         - 'config:core.entity_view_display.media.document.default'
         - 'config:core.entity_view_display.media.document.full'
-        - 'config:core.entity_view_display.media.document.full_embed'
         - 'config:core.entity_view_display.media.document.large'
         - 'config:core.entity_view_display.media.document.large_embed'
         - 'config:core.entity_view_display.media.document.media_library'
@@ -500,11 +565,9 @@ display:
         - 'config:core.entity_view_display.media.image.banner'
         - 'config:core.entity_view_display.media.image.default'
         - 'config:core.entity_view_display.media.image.full'
-        - 'config:core.entity_view_display.media.image.full_embed'
         - 'config:core.entity_view_display.media.image.large'
         - 'config:core.entity_view_display.media.image.large_embed'
         - 'config:core.entity_view_display.media.image.large_thumb'
-        - 'config:core.entity_view_display.media.image.media_browser_thumbnails'
         - 'config:core.entity_view_display.media.image.media_library'
         - 'config:core.entity_view_display.media.image.medium'
         - 'config:core.entity_view_display.media.image.medium_embed'
@@ -788,7 +851,6 @@ display:
         - 'config:core.entity_view_display.media.document.banner'
         - 'config:core.entity_view_display.media.document.default'
         - 'config:core.entity_view_display.media.document.full'
-        - 'config:core.entity_view_display.media.document.full_embed'
         - 'config:core.entity_view_display.media.document.large'
         - 'config:core.entity_view_display.media.document.large_embed'
         - 'config:core.entity_view_display.media.document.media_library'
@@ -799,11 +861,9 @@ display:
         - 'config:core.entity_view_display.media.image.banner'
         - 'config:core.entity_view_display.media.image.default'
         - 'config:core.entity_view_display.media.image.full'
-        - 'config:core.entity_view_display.media.image.full_embed'
         - 'config:core.entity_view_display.media.image.large'
         - 'config:core.entity_view_display.media.image.large_embed'
         - 'config:core.entity_view_display.media.image.large_thumb'
-        - 'config:core.entity_view_display.media.image.media_browser_thumbnails'
         - 'config:core.entity_view_display.media.image.media_library'
         - 'config:core.entity_view_display.media.image.medium'
         - 'config:core.entity_view_display.media.image.medium_embed'
@@ -1163,7 +1223,6 @@ display:
         - 'config:core.entity_view_display.media.document.banner'
         - 'config:core.entity_view_display.media.document.default'
         - 'config:core.entity_view_display.media.document.full'
-        - 'config:core.entity_view_display.media.document.full_embed'
         - 'config:core.entity_view_display.media.document.large'
         - 'config:core.entity_view_display.media.document.large_embed'
         - 'config:core.entity_view_display.media.document.media_library'
@@ -1174,11 +1233,9 @@ display:
         - 'config:core.entity_view_display.media.image.banner'
         - 'config:core.entity_view_display.media.image.default'
         - 'config:core.entity_view_display.media.image.full'
-        - 'config:core.entity_view_display.media.image.full_embed'
         - 'config:core.entity_view_display.media.image.large'
         - 'config:core.entity_view_display.media.image.large_embed'
         - 'config:core.entity_view_display.media.image.large_thumb'
-        - 'config:core.entity_view_display.media.image.media_browser_thumbnails'
         - 'config:core.entity_view_display.media.image.media_library'
         - 'config:core.entity_view_display.media.image.medium'
         - 'config:core.entity_view_display.media.image.medium_embed'
@@ -1515,6 +1572,60 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
+        field_media_tags_target_id:
+          id: field_media_tags_target_id
+          table: media__field_media_tags
+          field: field_media_tags_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: taxonomy_index_tid
+          operator: or
+          value:
+            23: 23
+            24: 24
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_media_tags_target_id_op
+            label: Tags
+            description: ''
+            use_operator: false
+            operator: field_media_tags_target_id_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: field_media_tags_target_id
+            required: false
+            remember: false
+            multiple: true
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              editor: '0'
+              site_manager: '0'
+              site_admin: '0'
+              section_manager: '0'
+              marketing_editor: '0'
+            reduce: true
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: true
+          vid: media_tags
+          type: select
+          hierarchy: true
+          limit: true
+          error_message: true
       filter_groups:
         operator: AND
         groups:
@@ -1565,5 +1676,6 @@ display:
         - url
         - url.query_args
         - 'url.query_args:sort_by'
+        - user
         - user.permissions
       tags: {  }
