@@ -1,0 +1,8 @@
+uuid: 6da7d75c-cacf-43e4-aaee-885359ddbb81
+langcode: en
+status: true
+dependencies: {  }
+name: 'Program Types'
+vid: program_types
+description: 'Types of programs for search.'
+weight: 0

@@ -1,0 +1,22 @@
+uuid: bdaf3744-d83b-4cdd-9c3e-f0d62f2e540d
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.program_types
+  module:
+    - text
+id: taxonomy_term.program_types.default
+targetEntityType: taxonomy_term
+bundle: program_types
+mode: default
+content:
+  description:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  search_api_excerpt: true
