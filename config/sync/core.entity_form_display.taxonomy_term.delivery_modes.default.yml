@@ -1,0 +1,23 @@
+uuid: d56f6000-06aa-4e1d-be20-0c71fa4b428c
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.delivery_modes
+id: taxonomy_term.delivery_modes.default
+targetEntityType: taxonomy_term
+bundle: delivery_modes
+mode: default
+content:
+  name:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  description: true
+  path: true
+  status: true

@@ -1,0 +1,8 @@
+uuid: 95fba9de-a416-4d44-b122-1032415ce288
+langcode: en
+status: true
+dependencies: {  }
+name: 'Modes of Delivery'
+vid: delivery_modes
+description: 'How programs are delivered to students.'
+weight: 0
