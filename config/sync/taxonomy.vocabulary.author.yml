@@ -1,0 +1,8 @@
+uuid: 8de583a3-73c2-44ec-ba31-c37011d473b1
+langcode: en
+status: true
+dependencies: {  }
+name: Author
+vid: author
+description: 'Define story authors.'
+weight: 0

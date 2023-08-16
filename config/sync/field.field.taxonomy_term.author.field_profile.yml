@@ -1,0 +1,29 @@
+uuid: f06d147e-7074-4667-9c16-e37176c392e9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_profile
+    - node.type.bios
+    - taxonomy.vocabulary.author
+id: taxonomy_term.author.field_profile
+field_name: field_profile
+entity_type: taxonomy_term
+bundle: author
+label: Profile
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      bios: bios
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference
