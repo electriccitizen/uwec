@@ -5,10 +5,15 @@ dependencies:
   config:
     - field.storage.media.field_media_file
     - image.style.thumbnail
+    - taxonomy.vocabulary.media_tags
+  content:
+    - 'taxonomy_term:media_tags:4acd99e2-e8b9-446b-882a-c3482be3a20d'
+    - 'taxonomy_term:media_tags:632264a2-5e2b-44eb-a69c-b28150629618'
   module:
     - file
-    - image
     - media
+    - svg_image
+    - taxonomy
     - user
 _core:
   default_config_hash: BCSpiIqKfzNk6Nb9CMFx0l6o965okSvrEAbJiUyIIDc
@@ -570,6 +575,60 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
+        field_media_tags_target_id:
+          id: field_media_tags_target_id
+          table: media__field_media_tags
+          field: field_media_tags_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: taxonomy_index_tid
+          operator: or
+          value:
+            23: 23
+            24: 24
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_media_tags_target_id_op
+            label: Tags
+            description: ''
+            use_operator: false
+            operator: field_media_tags_target_id_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: field_media_tags_target_id
+            required: false
+            remember: false
+            multiple: true
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              editor: '0'
+              site_manager: '0'
+              site_admin: '0'
+              section_manager: '0'
+              marketing_editor: '0'
+            reduce: true
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: true
+          vid: media_tags
+          type: select
+          hierarchy: true
+          limit: true
+          error_message: true
       filter_groups:
         operator: AND
         groups:
@@ -652,7 +711,7 @@ display:
       footer: {  }
       display_extenders: {  }
     cache_metadata:
-      max-age: -1
+      max-age: 0
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
@@ -681,7 +740,7 @@ display:
         parent: ''
         context: '0'
     cache_metadata:
-      max-age: -1
+      max-age: 0
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'

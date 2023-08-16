@@ -1,0 +1,23 @@
+uuid: 684cf2eb-d068-4135-b4bf-a19d516eddcf
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.media_tags
+id: taxonomy_term.media_tags.default
+targetEntityType: taxonomy_term
+bundle: media_tags
+mode: default
+content:
+  name:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  description: true
+  path: true
+  status: true

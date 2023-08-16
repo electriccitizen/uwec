@@ -5,9 +5,10 @@ dependencies:
   config:
     - field.field.media.image.field_caption
     - field.field.media.image.field_media_image
+    - field.field.media.image.field_media_tags
     - media.type.image
   module:
-    - image
+    - svg_image
 _core:
   default_config_hash: F4l6lf5TjGDG3G-vVhEnbel7zfHUU2oNDiNwmlUgABc
 id: media.image.default
@@ -32,6 +33,14 @@ content:
         attribute: lazy
     third_party_settings: {  }
     weight: 0
+    region: content
+  field_media_tags:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 2
     region: content
 hidden:
   created: true
