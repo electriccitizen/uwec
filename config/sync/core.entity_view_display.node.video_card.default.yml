@@ -16,6 +16,7 @@ dependencies:
   module:
     - entity_reference_revisions
     - layout_builder
+    - layout_builder_restrictions
     - layout_discovery
     - text
     - user
@@ -48,8 +49,8 @@ third_party_settings:
                 third_party_settings: {  }
             weight: 3
             additional: {  }
-          44680228-6776-4526-a9f3-acf29447509b:
-            uuid: 44680228-6776-4526-a9f3-acf29447509b
+          67ae84d4-1acf-469e-a4a8-b25bc68ec3a7:
+            uuid: 67ae84d4-1acf-469e-a4a8-b25bc68ec3a7
             region: content
             configuration:
               id: 'field_block:node:video_card:field_video'
@@ -67,8 +68,8 @@ third_party_settings:
                 third_party_settings: {  }
             weight: 4
             additional: {  }
-          30fc95fc-ce16-452b-86d3-64d2b449910a:
-            uuid: 30fc95fc-ce16-452b-86d3-64d2b449910a
+          61452795-0217-42f3-8e76-fc28b07d5b73:
+            uuid: 61452795-0217-42f3-8e76-fc28b07d5b73
             region: content
             configuration:
               id: 'field_block:node:video_card:body'
@@ -85,8 +86,8 @@ third_party_settings:
                 third_party_settings: {  }
             weight: 5
             additional: {  }
-          ec41171e-ce79-469e-a5e5-0fa8861d1ff2:
-            uuid: ec41171e-ce79-469e-a5e5-0fa8861d1ff2
+          590096ad-511e-4307-8594-5578d6144af0:
+            uuid: 590096ad-511e-4307-8594-5578d6144af0
             region: content
             configuration:
               id: 'field_block:node:video_card:field_eyebrow'
@@ -105,6 +106,13 @@ third_party_settings:
             weight: 6
             additional: {  }
         third_party_settings: {  }
+  layout_builder_restrictions:
+    allowed_block_categories: {  }
+    entity_view_mode_restriction:
+      allowed_layouts: {  }
+      denylisted_blocks: {  }
+      allowlisted_blocks: {  }
+      restricted_categories: {  }
 id: node.video_card.default
 targetEntityType: node
 bundle: video_card
