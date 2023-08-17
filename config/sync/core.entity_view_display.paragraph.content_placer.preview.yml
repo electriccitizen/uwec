@@ -8,7 +8,6 @@ dependencies:
     - field.field.paragraph.content_placer.field_content_type
     - field.field.paragraph.content_placer.field_limit_list
     - field.field.paragraph.content_placer.field_link
-    - field.field.paragraph.content_placer.field_news_category
     - field.field.paragraph.content_placer.field_news_list_type
     - field.field.paragraph.content_placer.field_widget_title
     - paragraphs.paragraphs_type.content_placer
@@ -45,6 +44,5 @@ hidden:
   field_bios_list_type: true
   field_limit_list: true
   field_link: true
-  field_news_category: true
   field_news_list_type: true
   search_api_excerpt: true
