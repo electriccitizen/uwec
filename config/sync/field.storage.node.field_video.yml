@@ -1,20 +1,19 @@
-uuid: ae1f9d53-5002-42d4-8094-14db1fcca477
+uuid: 6f2076ed-5568-4320-bb37-494834714838
 langcode: en
 status: true
 dependencies:
   module:
-    - entity_reference_revisions
+    - media
     - node
-    - paragraphs
 id: node.field_video
 field_name: field_video
 entity_type: node
-type: entity_reference_revisions
+type: entity_reference
 settings:
-  target_type: paragraph
-module: entity_reference_revisions
+  target_type: media
+module: core
 locked: false
-cardinality: -1
+cardinality: 1
 translatable: true
 indexes: {  }
 persist_with_no_fields: false
