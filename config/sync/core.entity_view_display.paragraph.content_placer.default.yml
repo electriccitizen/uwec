@@ -7,7 +7,6 @@ dependencies:
     - field.field.paragraph.content_placer.field_content_type
     - field.field.paragraph.content_placer.field_limit_list
     - field.field.paragraph.content_placer.field_link
-    - field.field.paragraph.content_placer.field_news_category
     - field.field.paragraph.content_placer.field_news_list_type
     - field.field.paragraph.content_placer.field_widget_title
     - paragraphs.paragraphs_type.content_placer
@@ -56,13 +55,6 @@ content:
       target: ''
     third_party_settings: {  }
     weight: 3
-    region: content
-  field_news_category:
-    type: entity_reference_entity_id
-    label: hidden
-    settings: {  }
-    third_party_settings: {  }
-    weight: 7
     region: content
   field_news_list_type:
     type: list_key
