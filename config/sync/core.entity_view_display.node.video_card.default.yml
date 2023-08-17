@@ -49,8 +49,8 @@ third_party_settings:
                 third_party_settings: {  }
             weight: 3
             additional: {  }
-          67ae84d4-1acf-469e-a4a8-b25bc68ec3a7:
-            uuid: 67ae84d4-1acf-469e-a4a8-b25bc68ec3a7
+          cf09e281-424e-484c-917f-dbfdcf79924c:
+            uuid: cf09e281-424e-484c-917f-dbfdcf79924c
             region: content
             configuration:
               id: 'field_block:node:video_card:field_video'
@@ -68,8 +68,8 @@ third_party_settings:
                 third_party_settings: {  }
             weight: 4
             additional: {  }
-          61452795-0217-42f3-8e76-fc28b07d5b73:
-            uuid: 61452795-0217-42f3-8e76-fc28b07d5b73
+          c69bb323-be8d-415c-bb24-d01777b28451:
+            uuid: c69bb323-be8d-415c-bb24-d01777b28451
             region: content
             configuration:
               id: 'field_block:node:video_card:body'
@@ -86,8 +86,8 @@ third_party_settings:
                 third_party_settings: {  }
             weight: 5
             additional: {  }
-          590096ad-511e-4307-8594-5578d6144af0:
-            uuid: 590096ad-511e-4307-8594-5578d6144af0
+          c1809725-7c63-48d5-9d90-c7f8212bee1c:
+            uuid: c1809725-7c63-48d5-9d90-c7f8212bee1c
             region: content
             configuration:
               id: 'field_block:node:video_card:field_eyebrow'
