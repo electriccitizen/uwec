@@ -14,6 +14,7 @@ dependencies:
     - field.field.node.video_card.field_video
     - node.type.video_card
   module:
+    - entity_reference_revisions
     - layout_builder
     - layout_discovery
     - text
@@ -47,8 +48,27 @@ third_party_settings:
                 third_party_settings: {  }
             weight: 3
             additional: {  }
-          350be96c-6c90-48da-a2a1-28bb09e8a8f6:
-            uuid: 350be96c-6c90-48da-a2a1-28bb09e8a8f6
+          44680228-6776-4526-a9f3-acf29447509b:
+            uuid: 44680228-6776-4526-a9f3-acf29447509b
+            region: content
+            configuration:
+              id: 'field_block:node:video_card:field_video'
+              label: Video
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: entity_reference_entity_view
+                label: hidden
+                settings:
+                  view_mode: large_embed
+                third_party_settings: {  }
+            weight: 4
+            additional: {  }
+          30fc95fc-ce16-452b-86d3-64d2b449910a:
+            uuid: 30fc95fc-ce16-452b-86d3-64d2b449910a
             region: content
             configuration:
               id: 'field_block:node:video_card:body'
@@ -63,10 +83,10 @@ third_party_settings:
                 label: hidden
                 settings: {  }
                 third_party_settings: {  }
-            weight: 4
+            weight: 5
             additional: {  }
-          2f1219b5-ee57-4034-bf7c-52a648cc38c5:
-            uuid: 2f1219b5-ee57-4034-bf7c-52a648cc38c5
+          ec41171e-ce79-469e-a5e5-0fa8861d1ff2:
+            uuid: ec41171e-ce79-469e-a5e5-0fa8861d1ff2
             region: content
             configuration:
               id: 'field_block:node:video_card:field_eyebrow'
@@ -82,7 +102,7 @@ third_party_settings:
                 settings:
                   link: false
                 third_party_settings: {  }
-            weight: 5
+            weight: 6
             additional: {  }
         third_party_settings: {  }
 id: node.video_card.default
@@ -135,13 +155,13 @@ content:
     weight: 103
     region: content
   field_video:
-    type: entity_reference_entity_view
+    type: entity_reference_revisions_entity_view
     label: above
     settings:
       view_mode: default
-      link: false
+      link: ''
     third_party_settings: {  }
-    weight: 105
+    weight: 102
     region: content
   links:
     settings: {  }
