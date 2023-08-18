@@ -17,7 +17,6 @@ dependencies:
     - workflows.workflow.non_moderated
   module:
     - addanother
-    - block_content_permissions
     - citizen_custom
     - content_moderation
     - contextual
@@ -44,7 +43,6 @@ weight: 5
 is_admin: null
 permissions:
   - 'access administration pages'
-  - 'access block content overview'
   - 'access content overview'
   - 'access contextual links'
   - 'access media overview'
@@ -66,7 +64,6 @@ permissions:
   - 'configure editable landing_page node layout overrides'
   - 'create academic_program content'
   - 'create academic_program content on assigned domains'
-  - 'create basic block content'
   - 'create bios content'
   - 'create bios content on assigned domains'
   - 'create college content'
@@ -77,25 +74,20 @@ permissions:
   - 'create landing_page content on assigned domains'
   - 'create media'
   - 'create news content on assigned domains'
-  - 'create newsletter block content'
   - 'create page content'
   - 'create page content on assigned domains'
   - 'create remote_video media'
-  - 'create social_media_links block content'
   - 'create url aliases'
   - 'customize shortcut links'
   - 'delete academic_program content on assigned domains'
   - 'delete academic_program revisions'
   - 'delete all revisions'
   - 'delete any academic_program content'
-  - 'delete any basic block content'
   - 'delete any bios content'
   - 'delete any college content'
   - 'delete any department content'
   - 'delete any landing_page content'
-  - 'delete any newsletter block content'
   - 'delete any page content'
-  - 'delete any social_media_links block content'
   - 'delete bios content on assigned domains'
   - 'delete bios revisions'
   - 'delete college revisions'
@@ -141,10 +133,7 @@ permissions:
   - 'revert page revisions'
   - 'switch shortcut sets'
   - 'update academic_program content on assigned domains'
-  - 'update any basic block content'
   - 'update any media'
-  - 'update any newsletter block content'
-  - 'update any social_media_links block content'
   - 'update bios content on assigned domains'
   - 'update landing_page content on assigned domains'
   - 'update media'

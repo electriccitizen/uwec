@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - filter.format.bold_html
     - filter.format.limited_html
     - media.type.document
     - media.type.image
@@ -126,6 +127,7 @@ permissions:
   - 'use non_moderated transition archive'
   - 'use non_moderated transition create_new_draft'
   - 'use non_moderated transition publish'
+  - 'use text format bold_html'
   - 'use text format limited_html'
   - 'use workbench access'
   - 'view academic_program revisions'
