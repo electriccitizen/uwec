@@ -13,7 +13,6 @@ dependencies:
   - automated_cron
   - block
   - block_content
-  - block_content_permissions
   - breakpoint
   - citizen_custom
   - ckeditor5
