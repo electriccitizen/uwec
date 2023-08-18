@@ -7,8 +7,8 @@ dependencies:
     - image.style.medium
     - taxonomy.vocabulary.media_tags
   content:
-    - 'taxonomy_term:media_tags:4acd99e2-e8b9-446b-882a-c3482be3a20d'
-    - 'taxonomy_term:media_tags:632264a2-5e2b-44eb-a69c-b28150629618'
+    - 'taxonomy_term:media_tags:0d6e3822-a0fe-4123-a5df-3a343c741c2f'
+    - 'taxonomy_term:media_tags:4d5f287c-7ad8-4d3c-bc55-f28a8d748019'
   module:
     - media
     - media_library
@@ -1176,6 +1176,60 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
+        field_media_tags_target_id:
+          id: field_media_tags_target_id
+          table: media__field_media_tags
+          field: field_media_tags_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: taxonomy_index_tid
+          operator: or
+          value:
+            23: 23
+            24: 24
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_media_tags_target_id_op
+            label: Tags
+            description: ''
+            use_operator: false
+            operator: field_media_tags_target_id_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: field_media_tags_target_id
+            required: false
+            remember: false
+            multiple: true
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              editor: '0'
+              site_manager: '0'
+              site_admin: '0'
+              section_manager: '0'
+              marketing_editor: '0'
+            reduce: true
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: true
+          vid: media_tags
+          type: select
+          hierarchy: true
+          limit: true
+          error_message: true
       filter_groups:
         operator: AND
         groups:
@@ -1218,6 +1272,7 @@ display:
         - url
         - url.query_args
         - 'url.query_args:sort_by'
+        - user
         - user.permissions
       tags:
         - 'config:core.entity_view_display.media.document.banner'
