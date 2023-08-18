@@ -27,7 +27,6 @@
     "drupal/allowed_formats": "^2.0",
     "drupal/antibot": "^2.0",
     "drupal/auto_entitylabel": "^3.0@beta",
-    "drupal/block_content_permissions": "^1.11",
     "drupal/config_filter": "^2.0",
     "drupal/config_ignore": "^2.2",
     "drupal/config_split": "^2.0",
