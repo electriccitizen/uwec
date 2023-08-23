@@ -102,24 +102,6 @@ third_party_settings:
                 third_party_settings: {  }
             weight: 0
             additional: {  }
-          e0a933cb-e520-4d58-9b66-a394f2b6d6aa:
-            uuid: e0a933cb-e520-4d58-9b66-a394f2b6d6aa
-            region: content
-            configuration:
-              id: 'field_block:node:landing_page:field_headline_text_formatted'
-              label: Headline
-              label_display: '0'
-              provider: layout_builder
-              context_mapping:
-                entity: layout_builder.entity
-                view_mode: view_mode
-              formatter:
-                type: text_default
-                label: hidden
-                settings: {  }
-                third_party_settings: {  }
-            weight: 1
-            additional: {  }
         third_party_settings: {  }
       -
         layout_id: layout_onecol
