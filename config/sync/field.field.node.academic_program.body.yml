@@ -4,13 +4,10 @@ status: true
 dependencies:
   config:
     - field.storage.node.body
+    - filter.format.limited_html
     - node.type.academic_program
   module:
-    - allowed_formats
     - text
-third_party_settings:
-  allowed_formats:
-    allowed_formats: {  }
 id: node.academic_program.body
 field_name: body
 entity_type: node
@@ -23,6 +20,7 @@ default_value: {  }
 default_value_callback: ''
 settings:
   display_summary: true
-  required_summary: false
-  allowed_formats: {  }
+  required_summary: true
+  allowed_formats:
+    - limited_html
 field_type: text_with_summary

@@ -7,11 +7,7 @@ dependencies:
     - filter.format.limited_html
     - node.type.video_card
   module:
-    - allowed_formats
     - text
-third_party_settings:
-  allowed_formats:
-    allowed_formats: {  }
 id: node.video_card.body
 field_name: body
 entity_type: node

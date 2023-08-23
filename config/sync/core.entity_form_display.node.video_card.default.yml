@@ -15,7 +15,6 @@ dependencies:
     - node.type.video_card
     - workflows.workflow.marketing
   module:
-    - allowed_formats
     - content_moderation
     - field_group
     - media_library
@@ -56,10 +55,7 @@ content:
       summary_rows: 3
       placeholder: ''
       show_summary: false
-    third_party_settings:
-      allowed_formats:
-        hide_help: '0'
-        hide_guidelines: '0'
+    third_party_settings: {  }
   field_domain_access:
     type: options_buttons
     weight: 10
