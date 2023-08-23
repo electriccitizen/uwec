@@ -36,9 +36,18 @@ content:
       preview_link: true
       offsets: '50,50'
     third_party_settings: {  }
+  field_media_tags:
+    type: entity_reference_autocomplete
+    weight: 2
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
 hidden:
   created: true
-  field_media_tags: true
   name: true
   path: true
   replace_file: true
