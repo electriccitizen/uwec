@@ -9,6 +9,7 @@ dependencies:
     - field.field.node.landing_page.field_domain_all_affiliates
     - field.field.node.landing_page.field_domain_source
     - field.field.node.landing_page.field_editorial_sections
+    - field.field.node.landing_page.field_headline_text_formatted
     - field.field.node.landing_page.field_image
     - field.field.node.landing_page.field_metatags
     - field.field.node.landing_page.field_paragraphs
@@ -55,6 +56,16 @@ third_party_settings:
                 third_party_settings: {  }
             weight: 1
             additional: {  }
+          177c79ec-3622-4a2f-831c-d3022c45f191:
+            uuid: 177c79ec-3622-4a2f-831c-d3022c45f191
+            region: content
+            configuration:
+              id: 'extra_field_block:node:landing_page:content_moderation_control'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+            weight: 2
+            additional: {  }
         third_party_settings: {  }
 _core:
   default_config_hash: W_bLUV4CoMXA90h0FqLNVXPWdFAVxvIGThQYvsHCdlM
@@ -71,6 +82,11 @@ content:
     third_party_settings: {  }
     weight: 1
     region: content
+  content_moderation_control:
+    settings: {  }
+    third_party_settings: {  }
+    weight: -20
+    region: content
   links:
     settings: {  }
     third_party_settings: {  }
@@ -82,6 +98,7 @@ hidden:
   field_domain_all_affiliates: true
   field_domain_source: true
   field_editorial_sections: true
+  field_headline_text_formatted: true
   field_image: true
   field_metatags: true
   field_paragraphs: true
