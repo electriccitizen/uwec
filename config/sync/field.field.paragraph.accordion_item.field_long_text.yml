@@ -4,14 +4,10 @@ status: true
 dependencies:
   config:
     - field.storage.paragraph.field_long_text
+    - filter.format.limited_html
     - paragraphs.paragraphs_type.accordion_item
   module:
-    - allowed_formats
     - text
-third_party_settings:
-  allowed_formats:
-    allowed_formats:
-      - basic_html
 _core:
   default_config_hash: sYW-8PPvSfnY_IK8u_3J03oAVm7a3-sKQbVCAL3mfls
 id: paragraph.accordion_item.field_long_text
@@ -24,5 +20,7 @@ required: true
 translatable: false
 default_value: {  }
 default_value_callback: ''
-settings: {  }
+settings:
+  allowed_formats:
+    - limited_html
 field_type: text_long

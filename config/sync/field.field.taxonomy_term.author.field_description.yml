@@ -7,12 +7,7 @@ dependencies:
     - filter.format.limited_html
     - taxonomy.vocabulary.author
   module:
-    - allowed_formats
     - text
-third_party_settings:
-  allowed_formats:
-    allowed_formats:
-      - limited_html
 id: taxonomy_term.author.field_description
 field_name: field_description
 entity_type: taxonomy_term

@@ -4,14 +4,10 @@ status: true
 dependencies:
   config:
     - field.storage.node.body
+    - filter.format.basic_html
     - node.type.news
   module:
-    - allowed_formats
     - text
-third_party_settings:
-  allowed_formats:
-    allowed_formats:
-      - basic_html
 _core:
   default_config_hash: ZrDjp5y5nQ34Vnt1aXo-UU8v-ix0BWjrJPpJMPkKwWg
 id: node.news.body
@@ -26,5 +22,7 @@ default_value: {  }
 default_value_callback: ''
 settings:
   display_summary: true
-  required_summary: false
+  required_summary: true
+  allowed_formats:
+    - basic_html
 field_type: text_with_summary
