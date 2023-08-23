@@ -7,7 +7,6 @@ dependencies:
   - address
   - addanother
   - admin_toolbar
-  - allowed_formats
   - antibot
   - auto_entitylabel
   - automated_cron
