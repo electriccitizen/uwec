@@ -1,0 +1,16 @@
+uuid: 35850128-5bf5-4ec8-a02c-8798038cae27
+langcode: en
+status: true
+dependencies:
+  config:
+    - filter.format.short_text_formatted_html
+  module:
+    - ckeditor5
+format: short_text_formatted_html
+editor: ckeditor5
+settings:
+  toolbar:
+    items:
+      - bold
+  plugins: {  }
+image_upload: {  }

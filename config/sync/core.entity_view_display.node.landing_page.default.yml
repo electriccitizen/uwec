@@ -8,6 +8,7 @@ dependencies:
     - field.field.node.landing_page.field_domain_all_affiliates
     - field.field.node.landing_page.field_domain_source
     - field.field.node.landing_page.field_editorial_sections
+    - field.field.node.landing_page.field_headline_text_formatted
     - field.field.node.landing_page.field_image
     - field.field.node.landing_page.field_metatags
     - field.field.node.landing_page.field_paragraphs
@@ -68,6 +69,16 @@ third_party_settings:
                 third_party_settings: {  }
             weight: 3
             additional: {  }
+          8319a979-7f85-4d6e-a8de-d97f771626d6:
+            uuid: 8319a979-7f85-4d6e-a8de-d97f771626d6
+            region: content
+            configuration:
+              id: 'extra_field_block:node:landing_page:content_moderation_control'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+            weight: 4
+            additional: {  }
         third_party_settings: {  }
       -
         layout_id: layout_onecol
@@ -90,6 +101,24 @@ third_party_settings:
                 settings: {  }
                 third_party_settings: {  }
             weight: 0
+            additional: {  }
+          e0a933cb-e520-4d58-9b66-a394f2b6d6aa:
+            uuid: e0a933cb-e520-4d58-9b66-a394f2b6d6aa
+            region: content
+            configuration:
+              id: 'field_block:node:landing_page:field_headline_text_formatted'
+              label: Headline
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: text_default
+                label: hidden
+                settings: {  }
+                third_party_settings: {  }
+            weight: 1
             additional: {  }
         third_party_settings: {  }
       -
@@ -122,15 +151,15 @@ third_party_settings:
     entity_view_mode_restriction:
       allowed_layouts:
         - layout_onecol
+      denylisted_blocks: {  }
+      allowlisted_blocks: {  }
       restricted_categories:
         - '@entity'
         - 'Chaos Tools'
         - 'Custom block types'
         - 'Custom blocks'
         - Devel
-        - Flippy
         - Forms
-        - Geolocation
         - Help
         - 'Inline blocks'
         - 'Lists (Views)'
@@ -141,7 +170,6 @@ third_party_settings:
         - Superfish
         - System
         - User
-        - Webform
         - core
       blacklisted_blocks: {  }
       whitelisted_blocks: {  }
@@ -179,6 +207,11 @@ content:
     third_party_settings: {  }
     weight: 101
     region: content
+  content_moderation_control:
+    settings: {  }
+    third_party_settings: {  }
+    weight: -20
+    region: content
   field_editorial_sections:
     type: entity_reference_label
     label: above
@@ -186,6 +219,13 @@ content:
       link: true
     third_party_settings: {  }
     weight: 102
+    region: content
+  field_headline_text_formatted:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 106
     region: content
   field_image:
     type: entity_reference_label

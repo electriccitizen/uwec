@@ -1,0 +1,17 @@
+uuid: a85c8d32-ccd9-418a-96c4-5cb2360e6bae
+langcode: en
+status: true
+dependencies: {  }
+name: 'Short Text Formatted HTML'
+format: short_text_formatted_html
+weight: 0
+filters:
+  filter_html:
+    id: filter_html
+    provider: filter
+    status: true
+    weight: -10
+    settings:
+      allowed_html: '<br> <p> <strong>'
+      filter_html_help: true
+      filter_html_nofollow: false
