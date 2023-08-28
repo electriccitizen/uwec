@@ -1,0 +1,17 @@
+uuid: 00801774-d367-4fa9-8299-e86f211b47ab
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: 'Hours Library'
+type: hours
+description: 'Add hours for department and general pages.'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: false

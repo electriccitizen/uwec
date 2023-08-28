@@ -1,0 +1,19 @@
+uuid: 24174351-79b3-4667-83ff-dea1deaeb651
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_set_title
+    - paragraphs.paragraphs_type.hours_set
+id: paragraph.hours_set.field_set_title
+field_name: field_set_title
+entity_type: paragraph
+bundle: hours_set
+label: 'Set Title'
+description: 'This could be the location, season or other piece of identifying information. It will only be displayed if multiple sets of hours are added to the library item.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

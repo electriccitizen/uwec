@@ -1,0 +1,21 @@
+uuid: a17f66b7-4a3b-4286-b35a-8418a9e32dc5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_hours_set
+    - paragraphs.paragraphs_type.hours_set
+  module:
+    - office_hours
+id: paragraph.hours_set.field_hours_set
+field_name: field_hours_set
+entity_type: paragraph
+bundle: hours_set
+label: 'Hours Set'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: office_hours

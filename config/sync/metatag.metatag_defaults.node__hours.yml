@@ -1,0 +1,8 @@
+uuid: ed00cff6-a522-4010-b633-f3036657b48b
+langcode: en
+status: true
+dependencies: {  }
+id: node__hours
+label: 'Content: Hours Library'
+tags:
+  robots: 'noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate'

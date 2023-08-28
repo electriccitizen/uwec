@@ -1,0 +1,54 @@
+uuid: a8df10cc-4b28-4423-bbaa-6704eac84717
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.hours_set.field_display_range
+    - field.field.paragraph.hours_set.field_hours_set
+    - field.field.paragraph.hours_set.field_set_title
+    - paragraphs.paragraphs_type.hours_set
+  module:
+    - office_hours
+    - smart_date
+id: paragraph.hours_set.default
+targetEntityType: paragraph
+bundle: hours_set
+mode: default
+content:
+  field_display_range:
+    type: smartdate_only
+    weight: 1
+    region: content
+    settings:
+      modal: false
+      default_duration: 60
+      default_duration_increments: |-
+        30
+        60|1 hour
+        90
+        120|2 hours
+        custom
+      show_extra: false
+      hide_date: true
+      allday: true
+      remove_seconds: false
+      separator: to
+    third_party_settings: {  }
+  field_hours_set:
+    type: office_hours_exceptions
+    weight: 2
+    region: content
+    settings:
+      collapsed: 0
+    third_party_settings: {  }
+  field_set_title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true
