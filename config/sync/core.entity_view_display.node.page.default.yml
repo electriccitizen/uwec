@@ -10,6 +10,7 @@ dependencies:
     - field.field.node.page.field_editorial_sections
     - field.field.node.page.field_image
     - field.field.node.page.field_metatags
+    - field.field.node.page.field_page_family
     - field.field.node.page.field_paragraphs
     - node.type.page
     - system.menu.main
@@ -221,6 +222,14 @@ content:
       link: true
     third_party_settings: {  }
     weight: 102
+    region: content
+  field_page_family:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 107
     region: content
   links:
     settings: {  }
