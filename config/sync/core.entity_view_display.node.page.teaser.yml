@@ -11,6 +11,7 @@ dependencies:
     - field.field.node.page.field_editorial_sections
     - field.field.node.page.field_image
     - field.field.node.page.field_metatags
+    - field.field.node.page.field_page_family
     - field.field.node.page.field_paragraphs
     - node.type.page
   module:
@@ -60,5 +61,6 @@ hidden:
   field_image: true
   field_metatags: true
   field_oc_widgets: true
+  field_page_family: true
   field_paragraphs: true
   search_api_excerpt: true

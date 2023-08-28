@@ -1,0 +1,29 @@
+uuid: ee2ac568-3d8e-4de7-8e25-2aa552fac5e2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_page_family
+    - node.type.landing_page
+    - taxonomy.vocabulary.page_families
+id: node.landing_page.field_page_family
+field_name: field_page_family
+entity_type: node
+bundle: landing_page
+label: 'Page Family'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      page_families: page_families
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

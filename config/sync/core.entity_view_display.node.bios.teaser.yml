@@ -16,6 +16,7 @@ dependencies:
     - field.field.node.bios.field_last_name
     - field.field.node.bios.field_list_widget
     - field.field.node.bios.field_metatags
+    - field.field.node.bios.field_page_family
     - field.field.node.bios.field_phone
     - field.field.node.bios.field_position
     - node.type.bios
@@ -37,6 +38,11 @@ content:
     third_party_settings: {  }
     weight: 101
     region: content
+  content_moderation_control:
+    settings: {  }
+    third_party_settings: {  }
+    weight: -20
+    region: content
   links:
     settings: {  }
     third_party_settings: {  }
@@ -54,6 +60,7 @@ hidden:
   field_last_name: true
   field_list_widget: true
   field_metatags: true
+  field_page_family: true
   field_phone: true
   field_position: true
   search_api_excerpt: true
