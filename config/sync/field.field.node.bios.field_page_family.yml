@@ -1,0 +1,29 @@
+uuid: ce92604d-f5f6-40bf-8707-c10207296781
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_page_family
+    - node.type.bios
+    - taxonomy.vocabulary.page_families
+id: node.bios.field_page_family
+field_name: field_page_family
+entity_type: node
+bundle: bios
+label: 'Page Family'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      page_families: page_families
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference
