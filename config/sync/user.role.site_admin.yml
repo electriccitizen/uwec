@@ -14,6 +14,7 @@ dependencies:
     - taxonomy.vocabulary.author
     - taxonomy.vocabulary.campuses
     - taxonomy.vocabulary.eyebrows
+    - taxonomy.vocabulary.page_families
     - taxonomy.vocabulary.placement_tags
     - workflows.workflow.marketing
     - workflows.workflow.non_moderated
@@ -57,6 +58,7 @@ permissions:
   - 'create terms in author'
   - 'create terms in campuses'
   - 'create terms in eyebrows'
+  - 'create terms in page_families'
   - 'create terms in placement_tags'
   - 'create testimonial content'
   - 'create video_card content'
@@ -93,6 +95,7 @@ permissions:
   - 'delete terms in author'
   - 'delete terms in campuses'
   - 'delete terms in eyebrows'
+  - 'delete terms in page_families'
   - 'delete terms in placement_tags'
   - 'delete testimonial revisions'
   - 'delete video_card revisions'
@@ -115,6 +118,7 @@ permissions:
   - 'edit terms in author'
   - 'edit terms in campuses'
   - 'edit terms in eyebrows'
+  - 'edit terms in page_families'
   - 'edit terms in placement_tags'
   - 'publish to any assigned domain'
   - 'publish to any domain'
