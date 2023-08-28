@@ -1,0 +1,8 @@
+uuid: 631ec617-6048-46a4-b756-afa5d306ba67
+langcode: en
+status: true
+dependencies: {  }
+name: 'Page Families'
+vid: page_families
+description: 'Used for grouping pages to place data.'
+weight: 0

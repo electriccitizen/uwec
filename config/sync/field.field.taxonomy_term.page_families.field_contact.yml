@@ -1,0 +1,29 @@
+uuid: 9ba14628-5946-4d10-a0bc-33b618568fe4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_contact
+    - node.type.contact
+    - taxonomy.vocabulary.page_families
+id: taxonomy_term.page_families.field_contact
+field_name: field_contact
+entity_type: taxonomy_term
+bundle: page_families
+label: 'Contact Information'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      contact: contact
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

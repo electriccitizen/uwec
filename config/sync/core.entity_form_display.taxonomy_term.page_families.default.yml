@@ -1,0 +1,27 @@
+uuid: 32b21861-8108-4513-8354-2436b7ed0845
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.page_families.field_contact
+    - field.field.taxonomy_term.page_families.field_hours
+    - taxonomy.vocabulary.page_families
+id: taxonomy_term.page_families.default
+targetEntityType: taxonomy_term
+bundle: page_families
+mode: default
+content:
+  name:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  description: true
+  field_contact: true
+  field_hours: true
+  path: true
+  status: true

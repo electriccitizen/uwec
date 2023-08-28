@@ -1,0 +1,40 @@
+uuid: 653be0a9-e20b-4680-a107-9e6eb8f7eeee
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.page_families.field_contact
+    - field.field.taxonomy_term.page_families.field_hours
+    - taxonomy.vocabulary.page_families
+  module:
+    - text
+id: taxonomy_term.page_families.default
+targetEntityType: taxonomy_term
+bundle: page_families
+mode: default
+content:
+  description:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_contact:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_hours:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 2
+    region: content
+hidden:
+  search_api_excerpt: true
