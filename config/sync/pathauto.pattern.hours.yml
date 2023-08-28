@@ -1,0 +1,22 @@
+uuid: 6250ed74-9b28-469b-a1a5-1311a79e5c66
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: hours
+label: 'Hours Library'
+type: 'canonical_entities:node'
+pattern: 'hours/[node:title]'
+selection_criteria:
+  7ea4093c-a63e-4114-b357-18cb340cf6d7:
+    id: 'entity_bundle:node'
+    negate: false
+    uuid: 7ea4093c-a63e-4114-b357-18cb340cf6d7
+    context_mapping:
+      node: node
+    bundles:
+      hours: hours
+selection_logic: and
+weight: -5
+relationships: {  }

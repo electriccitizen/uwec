@@ -1,0 +1,10 @@
+uuid: 923f893a-e966-4946-9cf6-1fe8bf87c6f1
+langcode: en
+status: true
+dependencies: {  }
+id: hours_set
+label: 'Hours Set'
+icon_uuid: null
+icon_default: null
+description: 'Add a set hours to an hours library.'
+behavior_plugins: {  }

@@ -24,6 +24,7 @@ button:
   snapshot: false
   testimonial: false
   video_card: false
+  hours: false
 message:
   page: false
   event: false
@@ -44,6 +45,7 @@ message:
   snapshot: false
   testimonial: false
   video_card: false
+  hours: false
 tab:
   page: true
   event: true
@@ -64,6 +66,7 @@ tab:
   snapshot: true
   testimonial: true
   video_card: true
+  hours: true
 tab_edit:
   page: false
   event: false
@@ -84,3 +87,4 @@ tab_edit:
   snapshot: false
   testimonial: false
   video_card: false
+  hours: false

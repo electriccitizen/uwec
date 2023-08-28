@@ -1,0 +1,82 @@
+uuid: 5ddc6b6a-0d83-47a2-9d3e-c92d33bdcb6e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.hours_set.field_display_range
+    - field.field.paragraph.hours_set.field_hours_set
+    - field.field.paragraph.hours_set.field_set_title
+    - paragraphs.paragraphs_type.hours_set
+  module:
+    - office_hours
+    - smart_date
+id: paragraph.hours_set.default
+targetEntityType: paragraph
+bundle: hours_set
+mode: default
+content:
+  field_display_range:
+    type: smartdate_default
+    label: hidden
+    settings:
+      timezone_override: ''
+      format_type: medium
+      format: default
+      force_chronological: false
+      add_classes: false
+      time_wrapper: true
+      localize: false
+      parts:
+        - start
+        - end
+      duration:
+        separator: ' | '
+        unit: ''
+        decimals: 2
+        suffix: h
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_hours_set:
+    type: office_hours
+    label: hidden
+    settings:
+      day_format: long
+      time_format: G
+      compress: false
+      grouped: false
+      show_closed: all
+      closed_format: Closed
+      all_day_format: 'All day open'
+      separator:
+        days: '<br />'
+        grouped_days: ' - '
+        day_hours: ': '
+        hours_hours: '-'
+        more_hours: ', '
+      current_status:
+        position: ''
+        open_text: 'Currently open!'
+        closed_text: 'Currently closed'
+      exceptions:
+        title: 'Exception hours'
+        restrict_exceptions_to_num_days: 7
+        date_format: long
+        all_day_format: 'All day open'
+      timezone_field: ''
+      office_hours_first_day: ''
+      schema:
+        enabled: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_set_title:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  search_api_excerpt: true

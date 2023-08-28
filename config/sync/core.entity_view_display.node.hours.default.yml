@@ -1,0 +1,171 @@
+uuid: ba88a833-6708-4486-b5cf-52bbcd30934e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.hours.field_building
+    - field.field.node.hours.field_college
+    - field.field.node.hours.field_department
+    - field.field.node.hours.field_domain_access
+    - field.field.node.hours.field_domain_all_affiliates
+    - field.field.node.hours.field_domain_source
+    - field.field.node.hours.field_editorial_sections
+    - field.field.node.hours.field_hours
+    - node.type.hours
+  module:
+    - entity_reference_revisions
+    - layout_builder
+    - layout_builder_restrictions
+    - layout_discovery
+    - user
+third_party_settings:
+  layout_builder:
+    enabled: true
+    allow_custom: false
+    sections:
+      -
+        layout_id: layout_onecol
+        layout_settings:
+          label: ''
+        components:
+          a63ef754-6660-4e94-bb6a-f43c79bef5c8:
+            uuid: a63ef754-6660-4e94-bb6a-f43c79bef5c8
+            region: content
+            configuration:
+              id: 'field_block:node:hours:field_college'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: entity_reference_label
+                label: above
+                settings:
+                  link: true
+                third_party_settings: {  }
+            weight: 2
+            additional: {  }
+          334b4bd8-31c2-472d-b3e9-f8fd581d77da:
+            uuid: 334b4bd8-31c2-472d-b3e9-f8fd581d77da
+            region: content
+            configuration:
+              id: 'field_block:node:hours:field_department'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: entity_reference_label
+                label: above
+                settings:
+                  link: true
+                third_party_settings: {  }
+            weight: 3
+            additional: {  }
+          28548386-2d84-47bd-a3b0-b0883d972332:
+            uuid: 28548386-2d84-47bd-a3b0-b0883d972332
+            region: content
+            configuration:
+              id: 'field_block:node:hours:field_building'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: string
+                label: above
+                settings:
+                  link_to_entity: false
+                third_party_settings: {  }
+            weight: 4
+            additional: {  }
+          588e1fd8-d71e-429d-9a38-444fb031fb7f:
+            uuid: 588e1fd8-d71e-429d-9a38-444fb031fb7f
+            region: content
+            configuration:
+              id: 'field_block:node:hours:field_hours'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: entity_reference_revisions_entity_view
+                label: above
+                settings:
+                  view_mode: default
+                  link: ''
+                third_party_settings: {  }
+            weight: 5
+            additional: {  }
+          a9f31151-7788-40a9-8470-e4ff9146a093:
+            uuid: a9f31151-7788-40a9-8470-e4ff9146a093
+            region: content
+            configuration:
+              id: 'field_block:node:hours:title'
+              label: Title
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: string
+                label: hidden
+                settings:
+                  link_to_entity: false
+                third_party_settings: {  }
+            weight: 1
+            additional: {  }
+        third_party_settings: {  }
+  layout_builder_restrictions:
+    allowed_block_categories: {  }
+    entity_view_mode_restriction:
+      allowed_layouts: {  }
+      denylisted_blocks: {  }
+      allowlisted_blocks: {  }
+      restricted_categories: {  }
+id: node.hours.default
+targetEntityType: node
+bundle: hours
+mode: default
+content:
+  field_building:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_college:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_department:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_hours:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  field_domain_access: true
+  field_domain_all_affiliates: true
+  field_domain_source: true
+  field_editorial_sections: true
+  search_api_excerpt: true

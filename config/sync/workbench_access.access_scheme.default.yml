@@ -9,6 +9,7 @@ dependencies:
     - field.field.node.contact.field_editorial_sections
     - field.field.node.department.field_editorial_sections
     - field.field.node.fact.field_editorial_sections
+    - field.field.node.hours.field_editorial_sections
     - field.field.node.news.field_editorial_sections
     - field.field.node.snapshot.field_editorial_sections
     - field.field.node.testimonial.field_editorial_sections
@@ -28,19 +29,7 @@ scheme_settings:
       field: field_editorial_sections
     -
       entity_type: node
-      bundle: academic_program
-      field: field_editorial_sections
-    -
-      entity_type: node
-      bundle: announcement
-      field: field_editorial_sections
-    -
-      entity_type: node
-      bundle: college
-      field: field_editorial_sections
-    -
-      entity_type: node
-      bundle: contact
+      bundle: fact
       field: field_editorial_sections
     -
       entity_type: node
@@ -48,11 +37,19 @@ scheme_settings:
       field: field_editorial_sections
     -
       entity_type: node
-      bundle: fact
+      bundle: contact
       field: field_editorial_sections
     -
       entity_type: node
-      bundle: snapshot
+      bundle: college
+      field: field_editorial_sections
+    -
+      entity_type: node
+      bundle: announcement
+      field: field_editorial_sections
+    -
+      entity_type: node
+      bundle: academic_program
       field: field_editorial_sections
     -
       entity_type: node
@@ -60,5 +57,13 @@ scheme_settings:
       field: field_editorial_sections
     -
       entity_type: node
+      bundle: snapshot
+      field: field_editorial_sections
+    -
+      entity_type: node
       bundle: video_card
+      field: field_editorial_sections
+    -
+      entity_type: node
+      bundle: hours
       field: field_editorial_sections

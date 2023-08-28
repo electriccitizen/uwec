@@ -5,6 +5,7 @@ dependencies:
   config:
     - node.type.contact
     - node.type.fact
+    - node.type.hours
     - node.type.news
     - node.type.snapshot
     - node.type.testimonial
@@ -75,6 +76,7 @@ type_settings:
     node:
       - contact
       - fact
+      - hours
       - news
       - snapshot
       - testimonial

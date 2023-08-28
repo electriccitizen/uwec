@@ -1,0 +1,37 @@
+uuid: 5181d90d-5cbb-42ce-be27-c4918cf58659
+langcode: en
+status: false
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.hours.field_building
+    - field.field.node.hours.field_college
+    - field.field.node.hours.field_department
+    - field.field.node.hours.field_domain_access
+    - field.field.node.hours.field_domain_all_affiliates
+    - field.field.node.hours.field_domain_source
+    - field.field.node.hours.field_editorial_sections
+    - field.field.node.hours.field_hours
+    - node.type.hours
+  module:
+    - user
+id: node.hours.teaser
+targetEntityType: node
+bundle: hours
+mode: teaser
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_building: true
+  field_college: true
+  field_department: true
+  field_domain_access: true
+  field_domain_all_affiliates: true
+  field_domain_source: true
+  field_editorial_sections: true
+  field_hours: true
+  search_api_excerpt: true
