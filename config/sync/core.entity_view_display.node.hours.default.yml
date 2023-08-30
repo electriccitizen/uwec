@@ -81,15 +81,17 @@ third_party_settings:
             region: content
             configuration:
               id: 'field_block:node:hours:field_hours'
+              label: Hours
               label_display: '0'
+              provider: layout_builder
               context_mapping:
                 entity: layout_builder.entity
+                view_mode: view_mode
               formatter:
                 type: entity_reference_revisions_entity_view
-                label: above
+                label: hidden
                 settings:
                   view_mode: default
-                  link: ''
                 third_party_settings: {  }
             weight: 5
             additional: {  }
@@ -112,6 +114,16 @@ third_party_settings:
                 third_party_settings: {  }
             weight: 1
             additional: {  }
+          97ca99a6-916d-470e-bcb1-4ea52f26c0f7:
+            uuid: 97ca99a6-916d-470e-bcb1-4ea52f26c0f7
+            region: content
+            configuration:
+              id: 'extra_field_block:node:hours:content_moderation_control'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+            weight: 6
+            additional: {  }
         third_party_settings: {  }
   layout_builder_restrictions:
     allowed_block_categories: {  }
@@ -125,6 +137,11 @@ targetEntityType: node
 bundle: hours
 mode: default
 content:
+  content_moderation_control:
+    settings: {  }
+    third_party_settings: {  }
+    weight: -20
+    region: content
   field_building:
     type: string
     label: above
