@@ -18,7 +18,7 @@ settings:
   limit_start: ''
   required_end: false
   limit_end: ''
-  all_day: false
+  all_day: true
   exceptions: true
   seasons: true
   comment: 1
