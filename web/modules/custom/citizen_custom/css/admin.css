@@ -163,3 +163,6 @@ button[disabled]:hover,button.disabled:hover{
 .field--name-field-geolocation fieldset.geolocation-widget-input,.field--name-field-address #edit-field-address-0-address-country-code{
 	display: none;
 }
+#edit-field-headline-text-formatted-wrapper .ck-editor__main > :is(.ck-editor__editable) {
+	min-height: 3.4rem;
+}
