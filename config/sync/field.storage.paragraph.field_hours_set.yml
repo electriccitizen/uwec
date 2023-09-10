@@ -12,7 +12,7 @@ type: office_hours
 settings:
   time_format: g
   element_type: office_hours_datetime
-  increment: 30
+  increment: 15
   valhrs: true
   required_start: false
   limit_start: ''
@@ -20,9 +20,9 @@ settings:
   limit_end: ''
   all_day: true
   exceptions: true
-  seasons: true
+  seasons: false
   comment: 1
-  cardinality_per_day: 2
+  cardinality_per_day: 3
 module: office_hours
 locked: false
 cardinality: -1

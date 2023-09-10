@@ -184,3 +184,11 @@ function citizen_dart_theme_suggestions_paragraph_alter(array &$suggestions, arr
   // array_push($suggestions, 'paragraph__' . $paragraph->getType() . '__' . $id);
   array_push($suggestions, 'paragraph__' . $paragraph->getType() . '__' . $id);
 }
+
+/**
+ * Preprocess function to provide a unique ID to the hours field template.
+ */
+function citizen_dart_preprocess_field__node__field_hours(&$variables) {
+  // Add a unique ID to the field template.
+  $variables['unique_id'] = uniqid();
+}
