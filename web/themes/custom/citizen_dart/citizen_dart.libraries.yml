@@ -44,6 +44,10 @@ galleries:
   version: 1.0
   js:
     components/03-composites/paragraphs/gallery/gallery.js: {}
+hours:
+  version: 1.0
+  js:
+    components/03-composites/paragraphs/hours-set/hours-set.js: {}
 layout:
   version: 1.0
   js:
