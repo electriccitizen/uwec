@@ -19,7 +19,7 @@
 			$(once('slider', '.gallery-style.slider', context)).each(function(){
 				$(document).ready(function(){
 					$('.field-gallery-items', this).slick({
-						adaptiveHeight: true,
+						adaptiveHeight: false,
 						autoplay: true,
 						autoplaySpeed: 5000
 					});
