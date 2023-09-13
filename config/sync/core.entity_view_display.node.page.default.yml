@@ -26,7 +26,7 @@ dependencies:
 third_party_settings:
   layout_builder:
     enabled: true
-    allow_custom: false
+    allow_custom: true
     sections:
       -
         layout_id: layout_onecol
@@ -185,7 +185,6 @@ third_party_settings:
         - 'Custom blocks'
         - Devel
         - Forms
-        - Geolocation
         - Help
         - 'Inline blocks'
         - 'Lists (Views)'
@@ -194,7 +193,6 @@ third_party_settings:
         - 'Social Share'
         - Superfish
         - User
-        - Webform
         - core
       blacklisted_blocks: {  }
       whitelisted_blocks:
