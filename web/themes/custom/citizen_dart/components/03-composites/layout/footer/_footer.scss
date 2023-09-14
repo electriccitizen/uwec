@@ -7,6 +7,12 @@
 .prefooter-wrapper{
 	background: $prefooterBack;
 	color: $prefooterText;
+	.dialog-off-canvas-main-canvas &{
+		transform-style: unset;
+		*{
+			transform-style: unset;
+		}
+	}
 	.modal-content{
 		color: $baseText;
 	}

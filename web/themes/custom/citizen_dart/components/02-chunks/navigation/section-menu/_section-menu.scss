@@ -3,10 +3,10 @@
 ===================== */
 @use '../../../00-base/base' as *;
 #block-section-menu{
-	margin-top: -200px;
+	margin-top: -312px;
 	width: 300px;
 	transform-origin: 0;
-	transform: translateZ(1px) scale(0.875);
+	transform: translateZ(2px) scale(0.75);
 	@include onlyMobile{
 		margin-bottom: $spaceLg;
 	}

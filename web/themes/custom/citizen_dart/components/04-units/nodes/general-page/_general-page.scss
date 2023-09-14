@@ -8,6 +8,12 @@
 .node-page{
 	.layout--twocol-sideleft{
 		max-width: 100%;
+		.layout__region--content{
+			transform-style: unset;
+			*{
+				transform-style: unset;
+			}
+		}
 	}
 	#node-section-1{
 		position: relative;
@@ -15,6 +21,7 @@
 		padding-left: 340px;
 		@include safeFlex(column,nowrap,center,start);
 		margin-bottom: $elementSpace;
+		transform-style: preserve-3d !important;
 		*{
 			transform-style: unset;
 		}
@@ -27,6 +34,11 @@
 	}
 	.node-section:not(#node-section-1){
 		position: static;
+	}
+	.node-section:not(#node-section-2){
+		*{
+			transform-style: unset;
+		}
 	}
 	.block-field-image{
 		position: absolute;
