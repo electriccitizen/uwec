@@ -22,6 +22,7 @@
 			img{
 				width: auto;
 				@include auto;
+				max-width: 100%;
 			}
 		}
 	}

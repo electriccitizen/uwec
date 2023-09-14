@@ -2,8 +2,18 @@
 	 SECTION MENU
 ===================== */
 @use '../../../00-base/base' as *;
-
 #block-section-menu{
+	//position: absolute;
+	//top: calc(100vh - 113px);
+	//left: 0;
+	margin-top: -162px;
+	margin-left: -3rem;
+	width: 300px;
+	transform-origin: 0;
+	transform: translateZ(1px) scale(0.875);
+	.gin--vertical-toolbar &{
+		//left: 58px;
+	}
 	@include onlyMobile{
 		margin-bottom: $spaceLg;
 	}
@@ -19,32 +29,34 @@
 			padding: 2rem 2.5rem;
 			@include edgeToEdge;
 		}
-		a.section-menu-toggle{
+		a{
 			color: $menuBlockTitle;
-			display: inline-block;
-			vertical-align: middle;
-			text-align: center;
-			width: 60px;
-			span{
-				display: none;
-			}
-			&:before{
-				@include materialIcon(\e5d2);
-				display: inline-block;
-				top: 0;
-				right: 0;
-				color: $hamburger;
-				line-height: 28px;
-			}
 			&:hover,&:focus{
 				color: $menuBlockTitleHover;
 			}
-			@include desk{
-				pointer-events: none;
-				display: none;
-			}
-		}
-	}
+			&.section-menu-toggle{
+				display: inline-block;
+				vertical-align: middle;
+				text-align: center;
+				width: 60px;
+				span{
+					display: none;
+				}
+				&:before{
+					@include materialIcon(\e5d2);
+					display: inline-block;
+					top: 0;
+					right: 0;
+					color: $hamburger;
+					line-height: 28px;
+				}
+				@include desk{
+					pointer-events: none;
+					display: none;
+				}
+			}//end section menu toggle
+		}//end a
+	}//end block title
 }//end section menu block
 
 

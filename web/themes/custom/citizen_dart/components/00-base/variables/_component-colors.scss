@@ -175,18 +175,18 @@ $sfMobileChildActive     : $white;
 
 /* MENU BLOCK (Sidebar)
 --------------------- */
-$menuBlockTitle       : $black;
-$menuBlockTitleHover  : $hoverLink;
-$menuBlockTitleBack   : $lightGrey;
-$menuBack             : $siteBack;
-$menuTop              : $link;
-$menuTopHover         : $hoverLink;
+$menuBlockTitle       : $white;
+$menuBlockTitleHover  : $black;
+$menuBlockTitleBack   : $lightHotPink;
+$menuBack             : $hotPink;
+$menuTop              : $white;
+$menuTopHover         : $black;
 $menuTopActive        : $black;
-$menuTopActiveHover   : $hoverLink;
-$menuChild            : $link;
-$menuChildHover       : $hoverLink;
-$menuChildActive      : $link;
-$menuChildActiveHover : $hoverLink;
+$menuTopActiveHover   : $white;
+$menuChild            : $white;
+$menuChildHover       : $black;
+$menuChildActive      : $black;
+$menuChildActiveHover : $white;
 
 
 /* WIDGET ANCHORS

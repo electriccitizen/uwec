@@ -56,7 +56,7 @@
 
 	{% set maxWidth = image['#media'].field_media_image.0.width %}
 
-	<div class="image-wrapper {{ size }}"{% if size == 'default' %}style="max-width:{{ maxWidth }}px;"{% endif %}>
+	<div class="image-wrapper {{ size }}"{% if size == 'default' %}style="width:{{ maxWidth }}px; max-width: 100%;"{% endif %}>
 		{% block image %}
 			{{ image }}
 		{% endblock %}

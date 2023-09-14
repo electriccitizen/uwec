@@ -52,7 +52,6 @@ h2+ul, h3+ul, h4+ul, h5+ul, h6+ul {
 -------------------------- */
 .block-title{
 	max-width: $textMax;
-	text-align: center;
 	@include auto;
 }
 h2.block-title{
