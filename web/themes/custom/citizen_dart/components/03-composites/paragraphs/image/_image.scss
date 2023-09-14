@@ -6,7 +6,10 @@
 @use '../../../02-chunks/media/media-mixins' as *;
 
 .paragraph--type--image{
-
+	position: relative;
+	&:after{
+		@include narrowStripes($wheat);
+	}
 	.image-wrapper{
 		@include auto;
 		&.small{
