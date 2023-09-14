@@ -7,6 +7,12 @@
 .site-header {
 	background: $headerBack;
 	padding: 20px $siteMarginMobile;
+	.dialog-off-canvas-main-canvas &{
+		transform-style: unset;
+		*{
+			transform-style: unset;
+		}
+	}
 	& > div{
 		max-width: $contentStop;
 		@include auto;
