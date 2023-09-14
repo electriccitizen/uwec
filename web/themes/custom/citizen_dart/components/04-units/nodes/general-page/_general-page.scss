@@ -6,12 +6,19 @@
 
 /* PAGE CONTENT */
 .node-page{
+	-webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  .main-node-content{
+  	-webkit-transform-style: preserve-3d;
+  	transform-style: preserve-3d;
+  }
 	.layout--twocol-sideleft{
 		max-width: 100%;
 	}
 	#node-section-1{
 		position: relative;
 		min-height: calc(100vh - 115px);
+		transform-origin: 0;
 		padding-left: 340px;
 		@include safeFlex(column,nowrap,center,start);
 		margin-bottom: $elementSpace;
@@ -27,10 +34,10 @@
 	}
 	.block-field-image{
 		position: absolute;
-		top: 0;
-		left: 0;
+		top: -115px;
+		left: -340px;
 		width: 100vw;
-		height: 100%;
+		height: calc(100vh - 115px);
 		z-index: -1;
 		@include edgeToEdge;
 		&:before{

@@ -3,17 +3,13 @@
 ===================== */
 @use '../../../00-base/base' as *;
 #block-section-menu{
-	//position: absolute;
-	//top: calc(100vh - 113px);
-	//left: 0;
-	margin-top: -162px;
-	margin-left: -3rem;
+	// position: absolute;
+	// top: calc(100vh - 60px);
+	// left: 0;
+	margin-top: -160px;
 	width: 300px;
 	transform-origin: 0;
 	transform: translateZ(1px) scale(0.875);
-	.gin--vertical-toolbar &{
-		//left: 58px;
-	}
 	@include onlyMobile{
 		margin-bottom: $spaceLg;
 	}
