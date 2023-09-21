@@ -6,6 +6,8 @@ dependencies:
     - field.storage.node.field_list_widget
     - node.type.news
     - taxonomy.vocabulary.list_widget
+  content:
+    - 'taxonomy_term:list_widget:95b2028c-77c6-4a0a-83da-b4579be6f9bf'
 _core:
   default_config_hash: t9CyyyBF_QFlzGiz6dSV_6pHsVf_DXDwcTdVj576x58
 id: node.news.field_list_widget
@@ -18,7 +20,7 @@ required: true
 translatable: false
 default_value:
   -
-    target_uuid: 04f0d664-1365-4bb4-868b-af182e693f12
+    target_uuid: 95b2028c-77c6-4a0a-83da-b4579be6f9bf
 default_value_callback: ''
 settings:
   handler: 'default:taxonomy_term'
