@@ -15,15 +15,28 @@
 	}
 }//end all news
 
-/* NEWS LIST */
-.news.news-list{
-	.views-row{
-		@include viewsRowStandard;
-		.views-field-title{
-			@include safeFlexSize(0,0,100%);
-		}
-		.metatext{
-			margin-bottom: 0;
+/* NEWS RECENT THREE */
+.news.recent-three{
+	.view-content{
+		@include bleed(padding,24px);
+		& > .views-row{
+			width: 100%;
+			@include tab{
+				width: 33.33%;
+			}
 		}
 	}
-}//end news list
+}//end news recent three
+
+/* NEWS RECENT TWO */
+.news.recent-two{
+	.view-content{
+		@include bleed(padding,24px);
+		& > .views-row{
+			@include tab{
+				width: 50%;
+			}
+		}
+	}
+}//end news recent two
+

@@ -23,7 +23,7 @@ mode: large_embed
 content:
   field_media_oembed_video:
     type: oembed
-    label: visually_hidden
+    label: hidden
     settings:
       max_width: 0
       max_height: 0

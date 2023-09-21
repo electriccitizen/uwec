@@ -221,36 +221,41 @@ function citizen_custom_field_widget_single_element_form_alter(&$element, FormSt
 function citizen_custom_views_pre_view($view, $display_id, &$args) {
 	// Alters views to accept fields from related paragraphs to be used for filters.
   if(isset($view->element['#name'])) {
-    if (($view->element['#name'] === 'news') && ($view->current_display === 'news_list')) {
+    if ((($view->element['#name'] === 'news') && ($view->current_display === 'recent_three')) || (($view->element['#name'] === 'news') && ($view->current_display === 'recent_two')) || (($view->element['#name'] === 'video_cards') && ($view->current_display === 'recent_three'))) {
       $filters = $view->display_handler->getOption('filters');
       $paragraph_id = $view->args[0];
       if ($paragraph_id){
         $paragraph = Paragraph::load($paragraph_id);
-        //unset or alter categories filter
-        if($paragraph->field_news_category[0]){
-          //make an array out of the category set in the paragraph
-          $categories = [];
-          foreach ($paragraph->field_news_category as $delta => $category) {
-            $categories[] = $category->target_id;
+        //unset or alter placement tag filter
+        if($paragraph->field_placement_tag[0]){
+          //make an array out of the placement tag set in the paragraph
+          $placements = [];
+          foreach ($paragraph->field_placement_tag as $delta => $placement) {
+            $placements[] = $placement->target_id;
           }
-          // replace the category_tid filter with the paragraph category
-          $filters['field_category_target_id']['value'] = $categories;
+          // replace the placement_tag_tid filter with the paragraph placement tag
+          $filters['field_placement_tags_target_id']['value'] = $placements;
         } else {
-          //if the category field is not used, then unset the category filter
-          if ($filters['field_category_target_id']) {
-            unset($filters['field_category_target_id']);
+          //if the placement tag field is not used, then unset the placement tag filter
+          if ($filters['field_placement_tags_target_id']) {
+            unset($filters['field_placement_tags_target_id']);
           }
-        }//end category filter
+        }//end placement tags filter
+        if($paragraph->field_page_family[0]){
+          //make an array out of the page family set in the paragraph
+          $families = [];
+          foreach ($paragraph->field_page_family as $delta => $family) {
+            $families[] = $family->target_id;
+          }
+          // replace the page_families_tid filter with the paragraph page family
+          $filters['field_page_families_target_id']['value'] = $families;
+        } else {
+          //if the page family field is not used, then unset the page families filter
+          if ($filters['field_page_families_target_id']) {
+            unset($filters['field_page_families_target_id']);
+          }
+        }//end page families filter
         $view->display_handler->setOption('filters', $filters);
-        if(isset($paragraph->field_limit_list[0])){
-          $per_page = $paragraph->field_limit_list[0]->value;
-          $pager = $view->display_handler->getOption('pager');
-          $pager['type'] = 'some';
-          $view->setItemsPerPage($per_page);
-        } else {
-          $pager['type'] = 'none';
-        }
-        $view->display_handler->setOption('pager', $pager);
       }
     }
   }

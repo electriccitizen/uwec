@@ -10,6 +10,7 @@ dependencies:
     - field.field.node.video_card.field_editorial_sections
     - field.field.node.video_card.field_eyebrow
     - field.field.node.video_card.field_list_widget
+    - field.field.node.video_card.field_page_families
     - field.field.node.video_card.field_placement_tags
     - field.field.node.video_card.field_video
     - node.type.video_card
@@ -64,7 +65,7 @@ third_party_settings:
                 type: entity_reference_entity_view
                 label: hidden
                 settings:
-                  view_mode: large_embed
+                  view_mode: default
                 third_party_settings: {  }
             weight: 4
             additional: {  }
@@ -153,6 +154,14 @@ content:
       link: true
     third_party_settings: {  }
     weight: 104
+    region: content
+  field_page_families:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 108
     region: content
   field_placement_tags:
     type: entity_reference_label

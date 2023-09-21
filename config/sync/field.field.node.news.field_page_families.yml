@@ -1,30 +1,28 @@
-uuid: 06a921ba-e991-4fbe-a82f-91ce84464fe7
+uuid: 9635f0b2-3447-4dac-896b-74a28e749e12
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_category
+    - field.storage.node.field_page_families
     - node.type.news
-    - taxonomy.vocabulary.story_types
-_core:
-  default_config_hash: FF5e7SdU8ekrsb2gQlmHK-JdlplWMugXyCHy0zd_-lU
-id: node.news.field_category
-field_name: field_category
+    - taxonomy.vocabulary.page_families
+id: node.news.field_page_families
+field_name: field_page_families
 entity_type: node
 bundle: news
-label: Category
+label: 'Page Families'
 description: ''
 required: false
-translatable: true
+translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
   handler: 'default:taxonomy_term'
   handler_settings:
     target_bundles:
-      story_types: story_types
+      page_families: page_families
     sort:
-      field: _none
+      field: name
       direction: asc
     auto_create: false
     auto_create_bundle: ''

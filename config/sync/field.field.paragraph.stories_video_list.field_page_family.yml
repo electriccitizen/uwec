@@ -1,0 +1,29 @@
+uuid: 68a9d6d4-1dbc-4282-92c4-78bea5ed3754
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_page_family
+    - paragraphs.paragraphs_type.stories_video_list
+    - taxonomy.vocabulary.page_families
+id: paragraph.stories_video_list.field_page_family
+field_name: field_page_family
+entity_type: paragraph
+bundle: stories_video_list
+label: 'By Page Family'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      page_families: page_families
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

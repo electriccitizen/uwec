@@ -1,0 +1,26 @@
+/* ===============
+   STORIES VIDEO LIST WIDGET
+================= */
+
+@use '../../../00-base/base' as *;
+
+
+.paragraph--type--stories-video-list{
+	.views-wrapper{
+		@include safeFlex(row,wrap,start,start);
+		@include bleed(padding,24px);
+		&.views-both{
+			@include tab{
+				& > .views-element-container{
+					&:first-child{
+						width: 33.33%;
+					}
+					&:last-child{
+						width: 66.67%;
+					}
+				}
+			}
+		}//end views both
+	}//end views wrapper
+}//end stories video list widget
+

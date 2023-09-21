@@ -1,0 +1,36 @@
+uuid: b9ca5818-e435-458b-a170-ef82c263e83b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_list_widgets
+    - paragraphs.paragraphs_type.stories_video_list
+    - taxonomy.vocabulary.list_widget
+  content:
+    - 'taxonomy_term:list_widget:41bd639a-3922-489e-9ab9-5c115229ebce'
+    - 'taxonomy_term:list_widget:95b2028c-77c6-4a0a-83da-b4579be6f9bf'
+id: paragraph.stories_video_list.field_list_widgets
+field_name: field_list_widgets
+entity_type: paragraph
+bundle: stories_video_list
+label: 'List widgets'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    target_uuid: 95b2028c-77c6-4a0a-83da-b4579be6f9bf
+  -
+    target_uuid: 41bd639a-3922-489e-9ab9-5c115229ebce
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      list_widget: list_widget
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

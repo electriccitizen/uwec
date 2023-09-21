@@ -29,7 +29,7 @@
 	.metatext{
 		@include viewsMeta;
 	}
-	@include smallTab{
+	@include tab{
 		@include safeFlex(row,wrap,start,start);
 		.views-field-field-image{
 			@include safeFlexSize(0,0,340px);

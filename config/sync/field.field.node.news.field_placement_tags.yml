@@ -1,30 +1,28 @@
-uuid: 06a921ba-e991-4fbe-a82f-91ce84464fe7
+uuid: b30113ca-2611-4d86-8998-7f6cde40ba1d
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_category
+    - field.storage.node.field_placement_tags
     - node.type.news
-    - taxonomy.vocabulary.story_types
-_core:
-  default_config_hash: FF5e7SdU8ekrsb2gQlmHK-JdlplWMugXyCHy0zd_-lU
-id: node.news.field_category
-field_name: field_category
+    - taxonomy.vocabulary.placement_tags
+id: node.news.field_placement_tags
+field_name: field_placement_tags
 entity_type: node
 bundle: news
-label: Category
+label: 'Placement tags'
 description: ''
 required: false
-translatable: true
+translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
   handler: 'default:taxonomy_term'
   handler_settings:
     target_bundles:
-      story_types: story_types
+      placement_tags: placement_tags
     sort:
-      field: _none
+      field: name
       direction: asc
     auto_create: false
     auto_create_bundle: ''

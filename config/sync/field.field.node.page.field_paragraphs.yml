@@ -9,9 +9,11 @@ dependencies:
     - paragraphs.paragraphs_type.custom_embed
     - paragraphs.paragraphs_type.gallery
     - paragraphs.paragraphs_type.image
+    - paragraphs.paragraphs_type.layout_section
     - paragraphs.paragraphs_type.layout_section_single
     - paragraphs.paragraphs_type.links_files
     - paragraphs.paragraphs_type.social_media_links
+    - paragraphs.paragraphs_type.stories_video_list
     - paragraphs.paragraphs_type.text
     - paragraphs.paragraphs_type.video
   module:
@@ -38,48 +40,56 @@ settings:
       gallery: gallery
       image: image
       social_media_links: social_media_links
+      stories_video_list: stories_video_list
       text: text
       video: video
+      layout_section: layout_section
       layout_section_single: layout_section_single
     negate: 0
     target_bundles_drag_drop:
       accordion_item:
-        weight: -26
+        weight: -30
         enabled: false
       accordions:
-        weight: -27
+        weight: -31
         enabled: true
       content_placer:
-        weight: -17
+        weight: -20
         enabled: false
       custom_embed:
-        weight: -24
+        weight: -28
         enabled: true
       gallery:
-        weight: -23
+        weight: -27
         enabled: true
       gallery_item:
-        weight: -18
+        weight: -21
+        enabled: false
+      hours_set:
+        weight: -17
         enabled: false
       image:
-        weight: -22
+        weight: -26
         enabled: true
       layout_section:
-        weight: -16
-        enabled: false
+        weight: -19
+        enabled: true
       layout_section_single:
-        weight: -15
+        weight: -18
         enabled: true
       links_files:
-        weight: -25
+        weight: -29
         enabled: true
       social_media_links:
-        weight: -21
+        weight: -25
+        enabled: true
+      stories_video_list:
+        weight: -24
         enabled: true
       text:
-        weight: -20
+        weight: -23
         enabled: true
       video:
-        weight: -19
+        weight: -22
         enabled: true
 field_type: entity_reference_revisions

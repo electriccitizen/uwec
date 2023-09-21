@@ -11,6 +11,7 @@ dependencies:
     - field.field.node.video_card.field_editorial_sections
     - field.field.node.video_card.field_eyebrow
     - field.field.node.video_card.field_list_widget
+    - field.field.node.video_card.field_page_families
     - field.field.node.video_card.field_placement_tags
     - field.field.node.video_card.field_video
     - node.type.video_card
@@ -47,6 +48,7 @@ hidden:
   field_editorial_sections: true
   field_eyebrow: true
   field_list_widget: true
+  field_page_families: true
   field_placement_tags: true
   field_video: true
   search_api_excerpt: true

@@ -1,0 +1,58 @@
+uuid: d9b41373-abef-4eb3-b466-2fbd3819ad6e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.stories_video_list.field_link
+    - field.field.paragraph.stories_video_list.field_list_widgets
+    - field.field.paragraph.stories_video_list.field_page_family
+    - field.field.paragraph.stories_video_list.field_placement_tag
+    - field.field.paragraph.stories_video_list.field_widget_title
+    - paragraphs.paragraphs_type.stories_video_list
+  module:
+    - link
+id: paragraph.stories_video_list.default
+targetEntityType: paragraph
+bundle: stories_video_list
+mode: default
+content:
+  field_link:
+    type: link_default
+    weight: 3
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  field_page_family:
+    type: entity_reference_autocomplete
+    weight: 2
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_placement_tag:
+    type: entity_reference_autocomplete
+    weight: 1
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_widget_title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  field_list_widgets: true
+  status: true
