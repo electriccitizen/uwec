@@ -46,16 +46,6 @@ third_party_settings:
               context_mapping: {  }
             weight: 0
             additional: {  }
-          ffd49a5a-f5f3-46a1-95e1-dd6d3207c8ee:
-            uuid: ffd49a5a-f5f3-46a1-95e1-dd6d3207c8ee
-            region: content
-            configuration:
-              id: 'extra_field_block:node:bios:content_moderation_control'
-              label_display: '0'
-              context_mapping:
-                entity: layout_builder.entity
-            weight: 1
-            additional: {  }
         third_party_settings: {  }
       -
         layout_id: layout_onecol

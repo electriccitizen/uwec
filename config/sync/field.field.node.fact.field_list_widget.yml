@@ -1,26 +1,24 @@
-uuid: 3ea42cbc-c3a9-43c9-8c3d-e7027559d4c0
+uuid: d2004b04-d089-4611-bc1b-42276bbf7b14
 langcode: en
 status: true
 dependencies:
   config:
     - field.storage.node.field_list_widget
-    - node.type.bios
+    - node.type.fact
     - taxonomy.vocabulary.list_widget
   content:
-    - 'taxonomy_term:list_widget:478ca54b-c128-405b-93f1-fbc864daee6a'
-_core:
-  default_config_hash: PvmIBxWPR6A67dpy5lMdi5pyx_HFjEfC7bJOzVdKoBE
-id: node.bios.field_list_widget
+    - 'taxonomy_term:list_widget:8c1020fb-56e1-44a2-99ec-431d230a65c9'
+id: node.fact.field_list_widget
 field_name: field_list_widget
 entity_type: node
-bundle: bios
+bundle: fact
 label: 'List Widget'
 description: ''
 required: true
-translatable: true
+translatable: false
 default_value:
   -
-    target_uuid: 478ca54b-c128-405b-93f1-fbc864daee6a
+    target_uuid: 8c1020fb-56e1-44a2-99ec-431d230a65c9
 default_value_callback: ''
 settings:
   handler: 'default:taxonomy_term'

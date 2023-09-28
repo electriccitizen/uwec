@@ -6,6 +6,7 @@ dependencies:
     - field.field.node.testimonial.field_domain_access
     - field.field.node.testimonial.field_domain_all_affiliates
     - field.field.node.testimonial.field_domain_source
+    - field.field.node.testimonial.field_list_widget
     - field.field.node.testimonial.field_placement_tags
     - node.type.testimonial
     - workflows.workflow.marketing
@@ -57,6 +58,16 @@ content:
     weight: 9
     region: content
     settings: {  }
+    third_party_settings: {  }
+  field_list_widget:
+    type: entity_reference_autocomplete
+    weight: 26
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
   field_placement_tags:
     type: entity_reference_autocomplete
