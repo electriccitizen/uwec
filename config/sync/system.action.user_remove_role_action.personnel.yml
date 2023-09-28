@@ -1,0 +1,14 @@
+uuid: 0ff39d3f-7ab7-4d08-b618-2e3bfec7890e
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.personnel
+  module:
+    - user
+id: user_remove_role_action.personnel
+label: 'Remove the Personnel role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: personnel

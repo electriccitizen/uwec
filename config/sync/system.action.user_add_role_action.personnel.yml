@@ -1,0 +1,14 @@
+uuid: e5f8e0e3-43c2-4fc2-806c-cf0a726633e9
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.personnel
+  module:
+    - user
+id: user_add_role_action.personnel
+label: 'Add the Personnel role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: personnel

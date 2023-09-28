@@ -5,13 +5,13 @@ dependencies:
   config:
     - filter.format.basic_html
     - filter.format.limited_html
+    - filter.format.short_text_formatted_html
   module:
     - content_moderation
     - file
     - filter
     - media
     - paragraphs_type_permissions
-    - shortcut
     - system
     - toolbar
 _core:
@@ -21,14 +21,15 @@ label: 'Authenticated user'
 weight: 1
 is_admin: false
 permissions:
+  - 'access administration pages'
   - 'access content'
-  - 'access shortcuts'
   - 'access toolbar'
   - 'create paragraph content content_placer'
   - 'create paragraph content gallery'
   - 'create paragraph content gallery_item'
   - 'create paragraph content hours_set'
   - 'create paragraph content image'
+  - 'create paragraph content layout_section'
   - 'create paragraph content links_files'
   - 'create paragraph content social_media_links'
   - 'create paragraph content text'
@@ -41,8 +42,10 @@ permissions:
   - 'delete paragraph content gallery_item'
   - 'delete paragraph content hours_set'
   - 'delete paragraph content image'
+  - 'delete paragraph content layout_section'
   - 'delete paragraph content links_files'
   - 'delete paragraph content social_media_links'
+  - 'delete paragraph content stories_video_list'
   - 'delete paragraph content text'
   - 'delete paragraph content video'
   - 'update paragraph content accordion_item'
@@ -52,13 +55,14 @@ permissions:
   - 'update paragraph content gallery_item'
   - 'update paragraph content hours_set'
   - 'update paragraph content image'
+  - 'update paragraph content layout_section'
   - 'update paragraph content links_files'
   - 'update paragraph content social_media_links'
   - 'update paragraph content text'
   - 'update paragraph content video'
   - 'use text format basic_html'
   - 'use text format limited_html'
-  - 'view any unpublished content'
+  - 'use text format short_text_formatted_html'
   - 'view latest version'
   - 'view media'
   - 'view paragraph content accordion_item'
@@ -76,3 +80,4 @@ permissions:
   - 'view paragraph content stories_video_list'
   - 'view paragraph content text'
   - 'view paragraph content video'
+  - 'view the administration theme'

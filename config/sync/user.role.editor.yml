@@ -8,10 +8,11 @@ dependencies:
     - media.type.document
     - media.type.image
     - media.type.remote_video
-    - node.type.academic_program
     - node.type.bios
     - node.type.college
+    - node.type.contact
     - node.type.department
+    - node.type.hours
     - node.type.landing_page
     - node.type.page
     - workflows.workflow.non_moderated
@@ -21,14 +22,14 @@ dependencies:
     - content_moderation
     - domain
     - domain_access
+    - domain_alias
     - file
     - filter
     - media
-    - menu_admin_per_menu
     - node
-    - path
     - responsive_preview
     - shortcut
+    - smart_date_recur
     - system
     - toolbar
     - workbench_access
@@ -43,53 +44,29 @@ permissions:
   - 'access content overview'
   - 'access media overview'
   - 'access responsive preview'
+  - 'access shortcuts'
   - 'access toolbar'
-  - 'access user profiles'
-  - 'administer departments menu items'
-  - 'administer footer menu items'
-  - 'administer main menu items'
-  - 'administer secondary menu items'
-  - 'bypass workbench access'
-  - 'change own username'
-  - 'create academic_program content'
-  - 'create academic_program content on assigned domains'
-  - 'create bios content'
-  - 'create bios content on assigned domains'
+  - 'cancel smart date recur instances'
   - 'create college content'
+  - 'create college content on assigned domains'
+  - 'create contact content'
+  - 'create contact content on assigned domains'
   - 'create department content'
+  - 'create department content on assigned domains'
   - 'create document media'
+  - 'create hours content'
+  - 'create hours content on assigned domains'
   - 'create image media'
   - 'create landing_page content'
   - 'create landing_page content on assigned domains'
-  - 'create media'
   - 'create news content on assigned domains'
   - 'create page content'
   - 'create page content on assigned domains'
   - 'create remote_video media'
-  - 'create url aliases'
-  - 'delete academic_program revisions'
-  - 'delete all revisions'
-  - 'delete any academic_program content'
-  - 'delete any bios content'
-  - 'delete any college content'
-  - 'delete any department content'
-  - 'delete any landing_page content'
-  - 'delete any page content'
-  - 'delete bios revisions'
-  - 'delete college revisions'
-  - 'delete department revisions'
-  - 'delete landing_page revisions'
-  - 'delete own academic_program content'
-  - 'delete own bios content'
-  - 'delete own college content'
-  - 'delete own department content'
   - 'delete own files'
-  - 'delete own landing_page content'
-  - 'delete own page content'
-  - 'delete page revisions'
-  - 'edit any academic_program content'
   - 'edit any bios content'
   - 'edit any college content'
+  - 'edit any contact content'
   - 'edit any department content'
   - 'edit any document media'
   - 'edit any image media'
@@ -97,29 +74,26 @@ permissions:
   - 'edit any page content'
   - 'edit any remote_video media'
   - 'edit layout paragraphs plugin config'
-  - 'edit own academic_program content'
   - 'edit own bios content'
   - 'edit own college content'
+  - 'edit own contact content'
   - 'edit own department content'
   - 'edit own document media'
   - 'edit own image media'
   - 'edit own landing_page content'
   - 'edit own page content'
   - 'edit own remote_video media'
+  - 'make smart dates recur'
   - 'publish to any assigned domain'
-  - 'revert academic_program revisions'
-  - 'revert all revisions'
+  - 'reschedule smart date recur instances'
   - 'revert bios revisions'
-  - 'revert college revisions'
-  - 'revert department revisions'
   - 'revert landing_page revisions'
-  - 'revert page revisions'
-  - 'switch shortcut sets'
-  - 'update academic_program content on assigned domains'
-  - 'update any media'
   - 'update bios content on assigned domains'
+  - 'update college content on assigned domains'
+  - 'update contact content on assigned domains'
+  - 'update department content on assigned domains'
+  - 'update hours content on assigned domains'
   - 'update landing_page content on assigned domains'
-  - 'update media'
   - 'update news content on assigned domains'
   - 'update page content on assigned domains'
   - 'use add another'
@@ -130,11 +104,15 @@ permissions:
   - 'use text format limited_html'
   - 'use text format short_text_formatted_html'
   - 'use workbench access'
-  - 'view academic_program revisions'
   - 'view all revisions'
+  - 'view any unpublished content'
+  - 'view assigned domains'
   - 'view bios revisions'
   - 'view college revisions'
+  - 'view contact revisions'
   - 'view department revisions'
+  - 'view domain aliases'
+  - 'view hours revisions'
   - 'view landing_page revisions'
   - 'view own unpublished content'
   - 'view page revisions'

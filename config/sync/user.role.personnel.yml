@@ -1,0 +1,42 @@
+uuid: b7ea22b7-91b9-466a-81f5-91d808e1f3ae
+langcode: en
+status: true
+dependencies:
+  config:
+    - media.type.document
+    - media.type.image
+    - node.type.bios
+    - workflows.workflow.non_moderated
+  module:
+    - content_moderation
+    - domain
+    - domain_access
+    - domain_alias
+    - media
+    - node
+    - system
+id: personnel
+label: Personnel
+weight: 9
+is_admin: null
+permissions:
+  - 'access administration pages'
+  - 'access content overview'
+  - 'access media overview'
+  - 'create document media'
+  - 'create image media'
+  - 'edit any bios content'
+  - 'edit own bios content'
+  - 'edit own document media'
+  - 'edit own image media'
+  - 'publish to any assigned domain'
+  - 'revert bios revisions'
+  - 'update bios content on assigned domains'
+  - 'use domain nav block'
+  - 'use non_moderated transition create_new_draft'
+  - 'use non_moderated transition publish'
+  - 'view assigned domains'
+  - 'view bios revisions'
+  - 'view domain aliases'
+  - 'view own unpublished content'
+  - 'view the administration theme'

@@ -3,15 +3,16 @@ langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_view_display.node.landing_page.default
     - filter.format.limited_html
     - media.type.document
     - media.type.image
     - media.type.remote_video
-    - node.type.academic_program
     - node.type.bios
     - node.type.college
+    - node.type.contact
     - node.type.department
+    - node.type.fact
+    - node.type.hours
     - node.type.landing_page
     - node.type.page
     - workflows.workflow.non_moderated
@@ -19,21 +20,17 @@ dependencies:
     - addanother
     - citizen_custom
     - content_moderation
-    - contextual
     - domain
     - domain_access
+    - domain_alias
     - file
     - filter
-    - layout_builder
     - media
-    - menu_admin_per_menu
     - node
-    - path
-    - redirect
     - responsive_preview
     - shortcut
+    - smart_date_recur
     - system
-    - taxonomy
     - workbench_access
 _core:
   default_config_hash: 3m-nUaghYSeygzbwOLkLnlNZKdjVcUYHxICe7O_Kf9A
@@ -44,69 +41,33 @@ is_admin: null
 permissions:
   - 'access administration pages'
   - 'access content overview'
-  - 'access contextual links'
   - 'access media overview'
   - 'access responsive preview'
-  - 'access site reports'
-  - 'access taxonomy overview'
-  - 'access user profiles'
-  - 'administer departments menu items'
-  - 'administer footer menu items'
-  - 'administer main menu items'
-  - 'administer redirects'
-  - 'administer secondary menu items'
-  - 'administer url aliases'
-  - 'administer users'
+  - 'access shortcuts'
   - 'assign editor role'
   - 'assign site_manager role'
-  - 'cancel account'
-  - 'change own username'
-  - 'configure editable landing_page node layout overrides'
-  - 'create academic_program content'
-  - 'create academic_program content on assigned domains'
-  - 'create bios content'
-  - 'create bios content on assigned domains'
+  - 'cancel smart date recur instances'
   - 'create college content'
+  - 'create college content on assigned domains'
+  - 'create contact content'
+  - 'create contact content on assigned domains'
   - 'create department content'
+  - 'create department content on assigned domains'
   - 'create document media'
+  - 'create hours content'
+  - 'create hours content on assigned domains'
   - 'create image media'
   - 'create landing_page content'
   - 'create landing_page content on assigned domains'
-  - 'create media'
   - 'create news content on assigned domains'
   - 'create page content'
   - 'create page content on assigned domains'
   - 'create remote_video media'
-  - 'create url aliases'
-  - 'customize shortcut links'
-  - 'delete academic_program content on assigned domains'
-  - 'delete academic_program revisions'
   - 'delete all revisions'
-  - 'delete any academic_program content'
-  - 'delete any bios content'
-  - 'delete any college content'
-  - 'delete any department content'
-  - 'delete any landing_page content'
-  - 'delete any page content'
-  - 'delete bios content on assigned domains'
-  - 'delete bios revisions'
-  - 'delete college revisions'
-  - 'delete department revisions'
-  - 'delete landing_page content on assigned domains'
-  - 'delete landing_page revisions'
-  - 'delete news content on assigned domains'
-  - 'delete own academic_program content'
-  - 'delete own bios content'
-  - 'delete own college content'
-  - 'delete own department content'
   - 'delete own files'
-  - 'delete own landing_page content'
-  - 'delete own page content'
-  - 'delete page content on assigned domains'
-  - 'delete page revisions'
-  - 'edit any academic_program content'
   - 'edit any bios content'
   - 'edit any college content'
+  - 'edit any contact content'
   - 'edit any department content'
   - 'edit any document media'
   - 'edit any image media'
@@ -114,31 +75,36 @@ permissions:
   - 'edit any page content'
   - 'edit any remote_video media'
   - 'edit layout paragraphs plugin config'
-  - 'edit own academic_program content'
   - 'edit own bios content'
   - 'edit own college content'
+  - 'edit own contact content'
   - 'edit own department content'
   - 'edit own document media'
   - 'edit own image media'
   - 'edit own landing_page content'
   - 'edit own page content'
   - 'edit own remote_video media'
+  - 'make smart dates recur'
   - 'publish to any assigned domain'
-  - 'revert academic_program revisions'
+  - 'reschedule smart date recur instances'
   - 'revert all revisions'
   - 'revert bios revisions'
   - 'revert college revisions'
+  - 'revert contact revisions'
   - 'revert department revisions'
+  - 'revert fact revisions'
+  - 'revert hours revisions'
   - 'revert landing_page revisions'
   - 'revert page revisions'
-  - 'switch shortcut sets'
-  - 'update academic_program content on assigned domains'
-  - 'update any media'
   - 'update bios content on assigned domains'
+  - 'update college content on assigned domains'
+  - 'update contact content on assigned domains'
+  - 'update department content on assigned domains'
+  - 'update hours content on assigned domains'
   - 'update landing_page content on assigned domains'
-  - 'update media'
   - 'update news content on assigned domains'
   - 'update page content on assigned domains'
+  - 'update snapshot content on assigned domains'
   - 'use add another'
   - 'use domain nav block'
   - 'use non_moderated transition archive'
@@ -146,12 +112,15 @@ permissions:
   - 'use non_moderated transition publish'
   - 'use text format limited_html'
   - 'use workbench access'
-  - 'view academic_program revisions'
-  - 'view all media revisions'
   - 'view all revisions'
+  - 'view any unpublished content'
+  - 'view assigned domains'
   - 'view bios revisions'
   - 'view college revisions'
+  - 'view contact revisions'
   - 'view department revisions'
+  - 'view domain aliases'
+  - 'view hours revisions'
   - 'view landing_page revisions'
   - 'view own unpublished content'
   - 'view page revisions'

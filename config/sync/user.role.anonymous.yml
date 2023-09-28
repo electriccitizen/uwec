@@ -3,7 +3,6 @@ langcode: en
 status: true
 dependencies:
   config:
-    - filter.format.limited_html
     - filter.format.restricted_html
   module:
     - filter
@@ -18,7 +17,6 @@ weight: 0
 is_admin: false
 permissions:
   - 'access content'
-  - 'use text format limited_html'
   - 'use text format restricted_html'
   - 'view media'
   - 'view paragraph content accordion_item'
