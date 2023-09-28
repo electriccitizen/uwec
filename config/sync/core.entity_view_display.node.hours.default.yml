@@ -11,6 +11,7 @@ dependencies:
     - field.field.node.hours.field_domain_source
     - field.field.node.hours.field_editorial_sections
     - field.field.node.hours.field_hours
+    - field.field.node.hours.layout_builder__layout
     - node.type.hours
   module:
     - entity_reference_revisions
@@ -21,7 +22,7 @@ dependencies:
 third_party_settings:
   layout_builder:
     enabled: true
-    allow_custom: true
+    allow_custom: false
     sections:
       -
         layout_id: layout_onecol
@@ -185,4 +186,5 @@ hidden:
   field_domain_all_affiliates: true
   field_domain_source: true
   field_editorial_sections: true
+  layout_builder__layout: true
   search_api_excerpt: true

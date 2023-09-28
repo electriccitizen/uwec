@@ -16,7 +16,6 @@ dependencies:
     - field.field.node.bios.field_page_family
     - field.field.node.bios.field_phone
     - field.field.node.bios.field_position
-    - field.field.node.bios.layout_builder__layout
     - node.type.bios
     - workflows.workflow.non_moderated
   module:
@@ -178,7 +177,6 @@ content:
 hidden:
   created: true
   field_list_widget: true
-  layout_builder__layout: true
   path: true
   promote: true
   publish_on: true
