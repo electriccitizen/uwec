@@ -5,11 +5,9 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.bios.body
-    - field.field.node.bios.field_bio_order
     - field.field.node.bios.field_domain_access
     - field.field.node.bios.field_domain_all_affiliates
     - field.field.node.bios.field_domain_source
-    - field.field.node.bios.field_editorial_sections
     - field.field.node.bios.field_email
     - field.field.node.bios.field_first_name
     - field.field.node.bios.field_image
@@ -19,6 +17,7 @@ dependencies:
     - field.field.node.bios.field_page_family
     - field.field.node.bios.field_phone
     - field.field.node.bios.field_position
+    - field.field.node.bios.layout_builder__layout
     - node.type.bios
   module:
     - text
@@ -49,11 +48,9 @@ content:
     weight: 100
     region: content
 hidden:
-  field_bio_order: true
   field_domain_access: true
   field_domain_all_affiliates: true
   field_domain_source: true
-  field_editorial_sections: true
   field_email: true
   field_first_name: true
   field_image: true
@@ -63,4 +60,5 @@ hidden:
   field_page_family: true
   field_phone: true
   field_position: true
+  layout_builder__layout: true
   search_api_excerpt: true

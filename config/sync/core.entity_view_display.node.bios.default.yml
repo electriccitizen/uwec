@@ -4,11 +4,9 @@ status: true
 dependencies:
   config:
     - field.field.node.bios.body
-    - field.field.node.bios.field_bio_order
     - field.field.node.bios.field_domain_access
     - field.field.node.bios.field_domain_all_affiliates
     - field.field.node.bios.field_domain_source
-    - field.field.node.bios.field_editorial_sections
     - field.field.node.bios.field_email
     - field.field.node.bios.field_first_name
     - field.field.node.bios.field_image
@@ -18,6 +16,7 @@ dependencies:
     - field.field.node.bios.field_page_family
     - field.field.node.bios.field_phone
     - field.field.node.bios.field_position
+    - field.field.node.bios.layout_builder__layout
     - node.type.bios
   module:
     - layout_builder
@@ -29,7 +28,7 @@ dependencies:
 third_party_settings:
   layout_builder:
     enabled: true
-    allow_custom: false
+    allow_custom: true
     sections:
       -
         layout_id: layout_onecol
@@ -193,7 +192,6 @@ third_party_settings:
         - 'Custom blocks'
         - Devel
         - Forms
-        - Geolocation
         - Help
         - 'Inline blocks'
         - 'Lists (Views)'
@@ -202,7 +200,6 @@ third_party_settings:
         - 'Site Search'
         - Superfish
         - User
-        - Webform
         - core
       blacklisted_blocks: {  }
       whitelisted_blocks:
@@ -226,23 +223,6 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: -20
-    region: content
-  field_bio_order:
-    type: number_integer
-    label: above
-    settings:
-      thousand_separator: ''
-      prefix_suffix: true
-    third_party_settings: {  }
-    weight: 108
-    region: content
-  field_editorial_sections:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 102
     region: content
   field_email:
     type: basic_string
@@ -309,4 +289,5 @@ hidden:
   field_domain_source: true
   field_list_widget: true
   field_metatags: true
+  layout_builder__layout: true
   search_api_excerpt: true

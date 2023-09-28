@@ -4,16 +4,12 @@ status: true
 dependencies:
   config:
     - field.field.node.academic_program.field_editorial_sections
-    - field.field.node.announcement.field_editorial_sections
     - field.field.node.college.field_editorial_sections
     - field.field.node.contact.field_editorial_sections
     - field.field.node.department.field_editorial_sections
-    - field.field.node.fact.field_editorial_sections
     - field.field.node.hours.field_editorial_sections
     - field.field.node.news.field_editorial_sections
-    - field.field.node.snapshot.field_editorial_sections
-    - field.field.node.testimonial.field_editorial_sections
-    - field.field.node.video_card.field_editorial_sections
+    - field.field.node.page.field_editorial_sections
     - taxonomy.vocabulary.editorial_sections
 id: default
 plural_label: Defaults
@@ -25,11 +21,11 @@ scheme_settings:
   fields:
     -
       entity_type: node
-      bundle: news
+      bundle: page
       field: field_editorial_sections
     -
       entity_type: node
-      bundle: fact
+      bundle: news
       field: field_editorial_sections
     -
       entity_type: node
@@ -45,23 +41,7 @@ scheme_settings:
       field: field_editorial_sections
     -
       entity_type: node
-      bundle: announcement
-      field: field_editorial_sections
-    -
-      entity_type: node
       bundle: academic_program
-      field: field_editorial_sections
-    -
-      entity_type: node
-      bundle: testimonial
-      field: field_editorial_sections
-    -
-      entity_type: node
-      bundle: snapshot
-      field: field_editorial_sections
-    -
-      entity_type: node
-      bundle: video_card
       field: field_editorial_sections
     -
       entity_type: node

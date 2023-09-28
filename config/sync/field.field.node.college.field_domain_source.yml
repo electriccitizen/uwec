@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - domain.record.uwec_docksal_site
     - field.storage.node.field_domain_source
     - node.type.college
 id: node.college.field_domain_source
@@ -13,7 +14,9 @@ label: 'Domain Source'
 description: 'Select the canonical domain for this content.'
 required: true
 translatable: true
-default_value: {  }
+default_value:
+  -
+    target_uuid: 924e7207-b8e2-41c0-aa18-054af04b579f
 default_value_callback: ''
 settings:
   handler: 'default:domain'

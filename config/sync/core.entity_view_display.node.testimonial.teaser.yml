@@ -7,7 +7,6 @@ dependencies:
     - field.field.node.testimonial.field_domain_access
     - field.field.node.testimonial.field_domain_all_affiliates
     - field.field.node.testimonial.field_domain_source
-    - field.field.node.testimonial.field_editorial_sections
     - field.field.node.testimonial.field_placement_tags
     - node.type.testimonial
   module:
@@ -17,6 +16,11 @@ targetEntityType: node
 bundle: testimonial
 mode: teaser
 content:
+  content_moderation_control:
+    settings: {  }
+    third_party_settings: {  }
+    weight: -20
+    region: content
   links:
     settings: {  }
     third_party_settings: {  }
@@ -26,6 +30,5 @@ hidden:
   field_domain_access: true
   field_domain_all_affiliates: true
   field_domain_source: true
-  field_editorial_sections: true
   field_placement_tags: true
   search_api_excerpt: true

@@ -8,10 +8,10 @@ dependencies:
     - field.field.node.announcement.field_domain_access
     - field.field.node.announcement.field_domain_all_affiliates
     - field.field.node.announcement.field_domain_source
-    - field.field.node.announcement.field_editorial_sections
     - field.field.node.announcement.field_section_url
     - field.field.node.announcement.field_sitewide
     - field.field.node.announcement.field_urgency
+    - field.field.node.announcement.layout_builder__layout
     - node.type.announcement
     - workflows.workflow.non_moderated
   module:
@@ -93,12 +93,6 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_editorial_sections:
-    type: options_buttons
-    weight: 6
-    region: content
-    settings: {  }
-    third_party_settings: {  }
   field_section_url:
     type: string_textfield
     weight: 5
@@ -172,6 +166,7 @@ content:
     third_party_settings: {  }
 hidden:
   created: true
+  layout_builder__layout: true
   path: true
   promote: true
   sticky: true

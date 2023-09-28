@@ -8,7 +8,6 @@ dependencies:
     - field.field.node.announcement.field_domain_access
     - field.field.node.announcement.field_domain_all_affiliates
     - field.field.node.announcement.field_domain_source
-    - field.field.node.announcement.field_editorial_sections
     - field.field.node.announcement.field_section_url
     - field.field.node.announcement.field_sitewide
     - field.field.node.announcement.field_urgency
@@ -24,7 +23,7 @@ dependencies:
 third_party_settings:
   layout_builder:
     enabled: true
-    allow_custom: false
+    allow_custom: true
     sections:
       -
         layout_id: layout_onecol
@@ -183,14 +182,6 @@ content:
         suffix: h
     third_party_settings: {  }
     weight: 106
-    region: content
-  field_editorial_sections:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 105
     region: content
   field_section_url:
     type: string

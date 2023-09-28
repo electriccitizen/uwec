@@ -12,6 +12,7 @@ dependencies:
     - field.field.node.college.field_metatags
     - field.field.node.college.field_paragraphs
     - field.field.node.college.field_placement_tags
+    - field.field.node.college.layout_builder__layout
     - node.type.college
     - workflows.workflow.non_moderated
   module:
@@ -147,6 +148,7 @@ content:
     third_party_settings: {  }
 hidden:
   created: true
+  layout_builder__layout: true
   promote: true
   publish_on: true
   publish_state: true

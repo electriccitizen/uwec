@@ -3,7 +3,6 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.news.body
     - field.field.node.news.field_category
     - field.field.node.news.field_domain_access
     - field.field.node.news.field_domain_all_affiliates
@@ -27,7 +26,7 @@ dependencies:
 third_party_settings:
   layout_builder:
     enabled: true
-    allow_custom: false
+    allow_custom: true
     sections:
       -
         layout_id: layout_onecol
@@ -132,24 +131,6 @@ third_party_settings:
               context_mapping: {  }
             weight: 0
             additional: {  }
-          76f2e370-06e7-46d8-a377-786eea17051e:
-            uuid: 76f2e370-06e7-46d8-a377-786eea17051e
-            region: content
-            configuration:
-              id: 'field_block:node:news:body'
-              label: Body
-              label_display: '0'
-              provider: layout_builder
-              context_mapping:
-                entity: layout_builder.entity
-                view_mode: view_mode
-              formatter:
-                type: text_default
-                label: hidden
-                settings: {  }
-                third_party_settings: {  }
-            weight: 0
-            additional: {  }
         third_party_settings: {  }
   layout_builder_restrictions:
     allowed_block_categories: {  }
@@ -168,7 +149,6 @@ third_party_settings:
         - 'Custom blocks'
         - Devel
         - Forms
-        - Geolocation
         - Help
         - 'Inline blocks'
         - 'Lists (Views)'
@@ -177,7 +157,6 @@ third_party_settings:
         - 'Site Search'
         - Superfish
         - User
-        - Webform
         - core
       blacklisted_blocks: {  }
       whitelisted_blocks:
@@ -233,7 +212,6 @@ content:
     weight: 100
     region: content
 hidden:
-  body: true
   field_category: true
   field_domain_access: true
   field_domain_all_affiliates: true

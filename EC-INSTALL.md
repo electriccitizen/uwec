@@ -49,6 +49,16 @@ Follow these steps to install a local development environment.
 
 Open the generated login URL and you should be set to go.
 
+## Setting session cookies in development.services.yml
+You will need to add the following code in your development.services.yml to access the site due to domain configuration (starting on line 5).
+
+parameters:
+  http.response.debug_cacheability_headers: true
+  session.storage.options:
+    cookie_domain: '.uwec.docksal.site'
+
+You may need to clear cache, hard reset your browser, fin project start, shutdown and restart your computer and/or sacrifice a chicken to get it to kick in.
+
 # Refreshing your local environment
 Whenever you start a new task, you'll want to refresh your local environment to pull in the latest changes from other developers.
 

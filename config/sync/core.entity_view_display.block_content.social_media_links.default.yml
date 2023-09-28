@@ -4,11 +4,9 @@ status: true
 dependencies:
   config:
     - block_content.type.social_media_links
-    - field.field.block_content.social_media_links.body
     - field.field.block_content.social_media_links.field_platforms
   module:
     - link
-    - text
 _core:
   default_config_hash: X6RT5h_CJaTBHCO1pvCfBrCXyVNAP90e_JgT9mPwvpQ
 id: block_content.social_media_links.default
@@ -16,13 +14,6 @@ targetEntityType: block_content
 bundle: social_media_links
 mode: default
 content:
-  body:
-    type: text_default
-    label: hidden
-    settings: {  }
-    third_party_settings: {  }
-    weight: 0
-    region: content
   field_platforms:
     type: link
     label: hidden

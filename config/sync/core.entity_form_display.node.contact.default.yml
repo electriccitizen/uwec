@@ -14,6 +14,7 @@ dependencies:
     - field.field.node.contact.field_email
     - field.field.node.contact.field_fax
     - field.field.node.contact.field_phone
+    - field.field.node.contact.layout_builder__layout
     - node.type.contact
     - workflows.workflow.marketing
   module:
@@ -151,6 +152,7 @@ content:
 hidden:
   body: true
   created: true
+  layout_builder__layout: true
   promote: true
   publish_on: true
   publish_state: true

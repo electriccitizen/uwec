@@ -7,8 +7,8 @@ dependencies:
     - field.field.node.fact.field_domain_access
     - field.field.node.fact.field_domain_all_affiliates
     - field.field.node.fact.field_domain_source
-    - field.field.node.fact.field_editorial_sections
     - field.field.node.fact.field_placement_tags
+    - field.field.node.fact.layout_builder__layout
     - node.type.fact
   module:
     - user
@@ -17,6 +17,11 @@ targetEntityType: node
 bundle: fact
 mode: teaser
 content:
+  content_moderation_control:
+    settings: {  }
+    third_party_settings: {  }
+    weight: -20
+    region: content
   links:
     settings: {  }
     third_party_settings: {  }
@@ -26,6 +31,6 @@ hidden:
   field_domain_access: true
   field_domain_all_affiliates: true
   field_domain_source: true
-  field_editorial_sections: true
   field_placement_tags: true
+  layout_builder__layout: true
   search_api_excerpt: true

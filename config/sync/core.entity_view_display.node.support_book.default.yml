@@ -23,7 +23,7 @@ dependencies:
 third_party_settings:
   layout_builder:
     enabled: true
-    allow_custom: false
+    allow_custom: true
     sections:
       -
         layout_id: layout_onecol
@@ -41,6 +41,16 @@ third_party_settings:
               provider: system
               context_mapping: {  }
             weight: 0
+            additional: {  }
+          9031ad62-c768-4bb8-b382-f7e100603ad3:
+            uuid: 9031ad62-c768-4bb8-b382-f7e100603ad3
+            region: content
+            configuration:
+              id: 'extra_field_block:node:support_book:content_moderation_control'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+            weight: 1
             additional: {  }
         third_party_settings: {  }
       -
@@ -146,7 +156,6 @@ third_party_settings:
         - 'Custom blocks'
         - Devel
         - Forms
-        - Geolocation
         - Help
         - 'Inline blocks'
         - 'Lists (Views)'
@@ -155,7 +164,6 @@ third_party_settings:
         - 'Social Share'
         - Superfish
         - User
-        - Webform
         - core
       blacklisted_blocks: {  }
       whitelisted_blocks:
@@ -171,6 +179,11 @@ targetEntityType: node
 bundle: support_book
 mode: default
 content:
+  content_moderation_control:
+    settings: {  }
+    third_party_settings: {  }
+    weight: -20
+    region: content
   field_editorial_sections:
     type: entity_reference_label
     label: above

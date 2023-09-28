@@ -6,9 +6,9 @@ dependencies:
     - field.field.node.testimonial.field_domain_access
     - field.field.node.testimonial.field_domain_all_affiliates
     - field.field.node.testimonial.field_domain_source
-    - field.field.node.testimonial.field_editorial_sections
     - field.field.node.testimonial.field_placement_tags
     - node.type.testimonial
+    - workflows.workflow.marketing
   module:
     - content_moderation
     - field_group
@@ -55,12 +55,6 @@ content:
   field_domain_source:
     type: options_select
     weight: 9
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  field_editorial_sections:
-    type: options_buttons
-    weight: 7
     region: content
     settings: {  }
     third_party_settings: {  }

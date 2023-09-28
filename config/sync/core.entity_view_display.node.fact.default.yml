@@ -6,8 +6,8 @@ dependencies:
     - field.field.node.fact.field_domain_access
     - field.field.node.fact.field_domain_all_affiliates
     - field.field.node.fact.field_domain_source
-    - field.field.node.fact.field_editorial_sections
     - field.field.node.fact.field_placement_tags
+    - field.field.node.fact.layout_builder__layout
     - node.type.fact
   module:
     - layout_builder
@@ -17,15 +17,31 @@ dependencies:
 third_party_settings:
   layout_builder:
     enabled: true
-    allow_custom: false
+    allow_custom: true
     sections:
       -
         layout_id: layout_onecol
         layout_settings:
           label: ''
         components:
-          92f341be-847d-4891-96ae-222388710e73:
-            uuid: 92f341be-847d-4891-96ae-222388710e73
+          ad694534-1f45-4812-badf-665a4e72abb6:
+            uuid: ad694534-1f45-4812-badf-665a4e72abb6
+            region: content
+            configuration:
+              id: 'field_block:node:fact:field_placement_tags'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: entity_reference_label
+                label: above
+                settings:
+                  link: true
+                third_party_settings: {  }
+            weight: 3
+            additional: {  }
+          a5d88bee-d1fd-48b2-b445-916085c81d66:
+            uuid: a5d88bee-d1fd-48b2-b445-916085c81d66
             region: content
             configuration:
               id: 'field_block:node:fact:title'
@@ -41,14 +57,13 @@ third_party_settings:
                 settings:
                   link_to_entity: false
                 third_party_settings: {  }
-            weight: 0
+            weight: 2
             additional: {  }
         third_party_settings: {  }
   layout_builder_restrictions:
     allowed_block_categories: {  }
     entity_view_mode_restriction:
-      allowed_layouts:
-        - layout_onecol
+      allowed_layouts: {  }
       denylisted_blocks: {  }
       allowlisted_blocks: {  }
       restricted_categories: {  }
@@ -61,14 +76,6 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: -20
-    region: content
-  field_editorial_sections:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 101
     region: content
   field_placement_tags:
     type: entity_reference_label
@@ -87,4 +94,5 @@ hidden:
   field_domain_access: true
   field_domain_all_affiliates: true
   field_domain_source: true
+  layout_builder__layout: true
   search_api_excerpt: true

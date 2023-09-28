@@ -9,6 +9,7 @@ dependencies:
     - field.field.node.support_book.field_domain_source
     - field.field.node.support_book.field_editorial_sections
     - field.field.node.support_book.field_paragraphs
+    - field.field.node.support_book.layout_builder__layout
     - node.type.support_book
     - workflows.workflow.non_moderated
   module:
@@ -112,6 +113,7 @@ content:
     third_party_settings: {  }
 hidden:
   created: true
+  layout_builder__layout: true
   path: true
   promote: true
   publish_on: true
