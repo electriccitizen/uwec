@@ -1,0 +1,21 @@
+uuid: f2ddbc17-82a6-42d7-a6a6-ac0ddcf5271c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.layout_builder__layout
+    - node.type.announcement
+  module:
+    - layout_builder
+id: node.announcement.layout_builder__layout
+field_name: layout_builder__layout
+entity_type: node
+bundle: announcement
+label: Layout
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: layout_section

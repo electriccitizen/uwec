@@ -10,7 +10,6 @@ dependencies:
     - field.field.node.academic_program.field_editorial_sections
     - field.field.node.academic_program.field_metatags
     - field.field.node.academic_program.field_placement_tags
-    - field.field.node.academic_program.layout_builder__layout
     - node.type.academic_program
   module:
     - layout_builder
@@ -22,7 +21,7 @@ dependencies:
 third_party_settings:
   layout_builder:
     enabled: true
-    allow_custom: false
+    allow_custom: true
     sections:
       -
         layout_id: layout_onecol
@@ -124,7 +123,6 @@ hidden:
   field_domain_access: true
   field_domain_all_affiliates: true
   field_domain_source: true
-  layout_builder__layout: true
   publish_state: true
   search_api_excerpt: true
   unpublish_state: true

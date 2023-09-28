@@ -6,12 +6,6 @@
 
 body {
 	width: 100%;
-	div{
-		box-sizing: border-box;
-		*{
-			box-sizing: inherit;
-		}
-	}
 }//end body
 
 .overflow-guard{
@@ -22,11 +16,15 @@ body {
 	top: 0;
 	left: 0;
 	background: $siteBack;
-	.gin--vertical-toolbar &{
-  	padding-left: 65px;
-  }
 	.unpublished &{
 		background: $unpub;
+	}
+	div{
+		box-sizing: border-box;
+
+		*{
+			box-sizing: inherit;
+		}
 	}
 	.main-page-content{
 		padding: 0;
@@ -47,6 +45,9 @@ body {
   	-webkit-transform-style: preserve-3d;
   	transform-style: preserve-3d;
   }
+  .gin--vertical-toolbar &{
+  	padding-left: 58px;
+  }
   .layout-container{
   	position: absolute;
 	  top: 0;
@@ -54,6 +55,10 @@ body {
 	  width: 100%;
 	  height: auto;
 	  transform: translateZ(0px);
+	  .gin--vertical-toolbar &{
+	  	left: 66px;
+			width: calc(100% - 58px);
+		}
   }//end layout container
 }//end off canvas main canvas
 
