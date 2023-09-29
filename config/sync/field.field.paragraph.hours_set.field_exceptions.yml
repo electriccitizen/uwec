@@ -1,0 +1,19 @@
+uuid: 34ce35bf-51eb-4846-885d-7d7f0fb7ab7f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_exceptions
+    - paragraphs.paragraphs_type.hours_set
+id: paragraph.hours_set.field_exceptions
+field_name: field_exceptions
+entity_type: paragraph
+bundle: hours_set
+label: 'Exception Dates'
+description: 'Enter special dates where hours vary.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

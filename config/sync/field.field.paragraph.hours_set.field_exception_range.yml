@@ -1,0 +1,28 @@
+uuid: 12c28113-b5fd-4d19-a97f-5be9c3946600
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_exception_range
+    - paragraphs.paragraphs_type.hours_set
+  module:
+    - smart_date
+id: paragraph.hours_set.field_exception_range
+field_name: field_exception_range
+entity_type: paragraph
+bundle: hours_set
+label: 'Exception Display Range'
+description: 'Set the dates for which the exception dates should be displayed. Leave blank to display year round.'
+required: false
+translatable: false
+default_value:
+  -
+    default_duration: 60
+    default_duration_increments: "30\r\n60|1 hour\r\n90\r\n120|2 hours\r\ncustom"
+    default_date_type: ''
+    default_date: ''
+    min: ''
+    max: ''
+default_value_callback: ''
+settings: {  }
+field_type: smartdate

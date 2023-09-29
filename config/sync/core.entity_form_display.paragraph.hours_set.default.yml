@@ -4,6 +4,8 @@ status: true
 dependencies:
   config:
     - field.field.paragraph.hours_set.field_display_range
+    - field.field.paragraph.hours_set.field_exception_range
+    - field.field.paragraph.hours_set.field_exceptions
     - field.field.paragraph.hours_set.field_hours_set
     - field.field.paragraph.hours_set.field_set_title
     - paragraphs.paragraphs_type.hours_set
@@ -17,7 +19,7 @@ mode: default
 content:
   field_display_range:
     type: smartdate_only
-    weight: 1
+    weight: 2
     region: content
     settings:
       modal: false
@@ -34,9 +36,36 @@ content:
       remove_seconds: false
       separator: to
     third_party_settings: {  }
+  field_exception_range:
+    type: smartdate_only
+    weight: 4
+    region: content
+    settings:
+      hide_date: '1'
+      allday: '1'
+      separator: to
+      remove_seconds: 0
+      modal: false
+      default_duration: 60
+      default_duration_increments: |-
+        30
+        60|1 hour
+        90
+        120|2 hours
+        custom
+      show_extra: false
+    third_party_settings: {  }
+  field_exceptions:
+    type: string_textfield
+    weight: 3
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
   field_hours_set:
     type: office_hours_exceptions
-    weight: 2
+    weight: 1
     region: content
     settings:
       collapsed: 0

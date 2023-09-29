@@ -1,0 +1,37 @@
+uuid: ccee365a-93c4-491f-bcbe-f19f6dece024
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.preview
+    - field.field.paragraph.hours_set.field_display_range
+    - field.field.paragraph.hours_set.field_exception_range
+    - field.field.paragraph.hours_set.field_exceptions
+    - field.field.paragraph.hours_set.field_hours_set
+    - field.field.paragraph.hours_set.field_set_title
+    - paragraphs.paragraphs_type.hours_set
+  module:
+    - layout_builder
+third_party_settings:
+  layout_builder:
+    enabled: false
+    allow_custom: false
+id: paragraph.hours_set.preview
+targetEntityType: paragraph
+bundle: hours_set
+mode: preview
+content:
+  field_set_title:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  field_display_range: true
+  field_exception_range: true
+  field_exceptions: true
+  field_hours_set: true
+  search_api_excerpt: true

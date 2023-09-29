@@ -19,7 +19,7 @@ settings:
   required_end: false
   limit_end: ''
   all_day: true
-  exceptions: true
+  exceptions: false
   seasons: false
   comment: 1
   cardinality_per_day: 3

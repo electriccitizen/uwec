@@ -1,0 +1,19 @@
+uuid: 5e37c8ec-b611-4709-a10a-4e4a6cbdc43f
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+    - smart_date
+id: paragraph.field_exception_range
+field_name: field_exception_range
+entity_type: paragraph
+type: smartdate
+settings: {  }
+module: smart_date
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

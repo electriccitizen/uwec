@@ -4,6 +4,8 @@ status: true
 dependencies:
   config:
     - field.field.paragraph.hours_set.field_display_range
+    - field.field.paragraph.hours_set.field_exception_range
+    - field.field.paragraph.hours_set.field_exceptions
     - field.field.paragraph.hours_set.field_hours_set
     - field.field.paragraph.hours_set.field_set_title
     - paragraphs.paragraphs_type.hours_set
@@ -36,6 +38,36 @@ content:
         suffix: h
     third_party_settings: {  }
     weight: 1
+    region: content
+  field_exception_range:
+    type: smartdate_default
+    label: hidden
+    settings:
+      timezone_override: ''
+      format_type: medium
+      format: default
+      force_chronological: false
+      add_classes: false
+      time_wrapper: true
+      localize: false
+      parts:
+        - start
+        - end
+      duration:
+        separator: ' | '
+        unit: ''
+        decimals: 2
+        suffix: h
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_exceptions:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 4
     region: content
   field_hours_set:
     type: office_hours

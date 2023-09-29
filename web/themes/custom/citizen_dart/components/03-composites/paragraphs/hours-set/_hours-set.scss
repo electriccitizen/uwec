@@ -1,0 +1,14 @@
+/* =================
+   HOURS SET WIDGET
+==================== */
+
+@use '../../../00-base/base' as *;
+
+.block-field-hours{
+	.select-panel{
+		&:not(.show-panel){
+			@include visuallyHidden;
+		}
+	}
+}//end hours set
+

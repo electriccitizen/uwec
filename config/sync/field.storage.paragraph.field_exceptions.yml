@@ -1,0 +1,21 @@
+uuid: f9699bce-e6be-430f-b8bf-e23615176576
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+id: paragraph.field_exceptions
+field_name: field_exceptions
+entity_type: paragraph
+type: string
+settings:
+  max_length: 255
+  case_sensitive: false
+  is_ascii: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
