@@ -151,6 +151,28 @@ button[disabled]:hover,button.disabled:hover{
 	margin-bottom: 15px;
 }
 
+form-item--layout-paragraphs-config-column-widths
+
+/* RESTRICT PARAGRAPH OPTIONS TO SITE ADMINS
+-------------------------------- */
+.role-personnel fieldset[data-drupal-selector="edit-layout-paragraphs-layout"],
+.role-personnel .form-item--layout-paragraphs-config-column-widths,
+.role-personnel .lpb-duplicate,
+.role-editor fieldset[data-drupal-selector="edit-layout-paragraphs-layout"],
+.role-editor .form-item--layout-paragraphs-config-column-widths,
+.role-editor .lpb-duplicate,
+.role-marketing_editor fieldset[data-drupal-selector="edit-layout-paragraphs-layout"],
+.role-marketing_editor .form-item--layout-paragraphs-config-column-widths,
+.role-marketing_editor .lpb-duplicate,
+.role-section_manager fieldset[data-drupal-selector="edit-layout-paragraphs-layout"],
+.role-section_manager .form-item--layout-paragraphs-config-column-widths,
+.role-section_manager .lpb-duplicate,
+.role-site_manager fieldset[data-drupal-selector="edit-layout-paragraphs-layout"],
+.role-site_manager .form-item--layout-paragraphs-config-column-widths,
+.role-site_manager .lpb-duplicate{
+	display: none;
+}
+
 /* INDIVIDUAL PARAGRAPH PREVIEW TWEAKS
 ------------------------------- */
 .paragraph--type--form-placer.paragraph--view-mode--preview .field--name-field-form a{
