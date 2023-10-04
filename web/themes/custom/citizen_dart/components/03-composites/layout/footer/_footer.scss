@@ -112,12 +112,13 @@
 					}
 				}
 				a{
-					color: $footerLink;
 					&:hover,&:focus{
-						color: $footerLinkHover;
+						.cls-1{
+							fill: $footerSocialHover;
+						}
 					}
 					.cls-1{
-						fill: $prefooterBack;
+						fill: $footerSocial;
 					}
 				}
 			}
