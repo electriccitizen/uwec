@@ -14,7 +14,7 @@ field_name: field_platforms
 entity_type: block_content
 bundle: social_media_links
 label: Platforms
-description: 'Paste in the links to your platform pages. <strong>WARNING:</strong> Only Facebook, Twitter, LinkedIn, and YouTube are supported. '
+description: 'Paste in the links to your platform pages. <strong>WARNING:</strong> Only Facebook, Twitter, LinkedIn, Snapchat, TikTok and YouTube are supported. '
 required: true
 translatable: false
 default_value: {  }
