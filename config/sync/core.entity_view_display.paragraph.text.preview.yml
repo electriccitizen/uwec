@@ -23,7 +23,7 @@ mode: preview
 content:
   field_long_text:
     type: text_default
-    label: inline
+    label: hidden
     settings: {  }
     third_party_settings: {  }
     weight: 0

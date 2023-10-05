@@ -4,9 +4,25 @@
 
 @use '../../00-base/base' as *;
 
-body {
-	width: 100%;
-}//end body
+[dir="ltr"]{
+	body {
+		width: 100%;
+		box-sizing: border-box;
+		&.responsive-preview-frame.gin--vertical-toolbar{
+			padding-left: 0 !important;
+			.dialog-off-canvas-main-canvas{
+			 	padding-left: 0;
+			 	.layout-container{
+			 		left: 0;
+			 		width: 100%;
+			 	}
+			}
+		}
+		.gin-secondary-toolbar--frontend{
+			padding-left: 58px;
+		}
+	}//end body
+}
 
 .overflow-guard{
 	overflow: hidden;

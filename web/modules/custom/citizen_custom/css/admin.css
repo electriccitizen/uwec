@@ -144,14 +144,25 @@ button[disabled]:hover,button.disabled:hover{
 }
 
 .js-lpb-component.paragraph--view-mode--preview{
-	padding-top: 10px;
-	padding-bottom: 10px;
+	padding: 10px 5px;
+	margin: 2px;
+	min-height: 30px;
+	border: 1px solid #000;
+	border-radius: 5px;
+}
+.js-lpb-component.paragraph--view-mode--preview .para-preview-label{
+	margin-bottom: 5px;
+	text-transform: capitalize;
+	color: #4176d9;
+	font-style: italic;
+	font-size: 16px;
+}
+.js-lpb-component.paragraph--view-mode--preview:not(.paragraph--type--layout-section):not(.paragraph--type--layout-section-single) .para-preview-label{
+	font-size: 14px;
 }
 .js-lpb-component.paragraph--view-mode--preview:last-of-type{
 	margin-bottom: 15px;
 }
-
-form-item--layout-paragraphs-config-column-widths
 
 /* RESTRICT PARAGRAPH OPTIONS TO SITE ADMINS
 -------------------------------- */
