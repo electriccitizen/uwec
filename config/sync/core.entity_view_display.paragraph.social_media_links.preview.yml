@@ -1,26 +1,32 @@
-uuid: 728dcc2f-da58-4afb-b705-c9a782eafcb9
+uuid: 72bb61ef-9c0b-4bbd-8e01-f79a096482d6
 langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_view_mode.paragraph.preview
     - field.field.paragraph.social_media_links.field_platforms
     - paragraphs.paragraphs_type.social_media_links
   module:
+    - layout_builder
     - link
-id: paragraph.social_media_links.default
+third_party_settings:
+  layout_builder:
+    enabled: false
+    allow_custom: false
+id: paragraph.social_media_links.preview
 targetEntityType: paragraph
 bundle: social_media_links
-mode: default
+mode: preview
 content:
   field_platforms:
     type: link
     label: hidden
     settings:
       trim_length: 80
-      url_only: true
-      url_plain: true
-      rel: '0'
-      target: '0'
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
     third_party_settings: {  }
     weight: 0
     region: content

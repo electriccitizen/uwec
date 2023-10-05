@@ -366,6 +366,7 @@ h1.webform-title {
 		font-size: 1.4rem;
 	}
 	#edit-submit.button{
+		@include button;
 		margin: 0;
 	}
 }//end user login form
