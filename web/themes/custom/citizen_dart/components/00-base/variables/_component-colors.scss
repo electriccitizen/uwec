@@ -16,6 +16,21 @@ $adminGreen     : #018901;
 $adminGrey      : #676767;
 $adminTransGrey : rgba(92,96,98,.92);
 
+/* CHANGEABLE SUBSITE COLORS
+----------------------- */
+.themeset-uwec{
+	--col-primary: #{$lightGrey};
+	--col-accent1: #{$lightHotPink};
+	--col-accent2: #{$hotPink};
+	--col-accent3: lemonchiffon;
+}
+.themeset-example{
+	--col-primary: #{$darkIce};
+	--col-accent1: #{$skyBlue};
+	--col-accent2: #011e54;
+	--col-accent3: aqua;
+}
+
 
 /* ===========================
     COMPONENT SPECIFIC COLORS
@@ -56,12 +71,12 @@ $cautionTextHover  : $black;
 --------------------- */
 $siteBack                  : $white;
 $unpub                     : $adminPink;
-$headerBack                : $offWhite;
-$prefooterBack             : $darkGrey;
+$headerBack                : var(--col-primary);
+$prefooterBack             : var(--col-accent2);
 $prefooterText             : $offWhite;
 $prefooterLink             : $adminGold;
 $prefooterLinkHover        : $adminWhiteGold;
-$footerBack                : $black;
+$footerBack                : var(--col-accent1);
 $footerText                : $offWhite;
 $footerLink                : $adminGold;
 $footerLinkHover           : $adminWhiteGold;
