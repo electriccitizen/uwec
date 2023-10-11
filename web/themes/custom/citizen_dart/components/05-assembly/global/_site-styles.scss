@@ -102,7 +102,7 @@
 
 /* SKIP NAV
 ------------- */
-.overflow-guard > a.focusable{
+#skip-nav-wrapper > a.focusable{
 	&:focus{
 		position: fixed !important;
 		top: 0;
@@ -112,6 +112,8 @@
 		width: 100%;
 		background: $siteBack;
 		padding: .5rem 3rem;
+		font-size: 12px;
+		opacity: 1;
 	}
 }
 

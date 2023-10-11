@@ -45,14 +45,30 @@
 #}
 
 <div class="layout-container">
+	<nav id="skip-nav-wrapper" aria-labelledby="skip-nav">
+		<span id="skip-nav" class="visually-hidden">Skip Nav</span>
+		<a href="#main-navigation" class="visually-hidden focusable">
+			{%- trans %}Skip to main navigation{% endtrans -%}
+		</a>
+		<a href="#main-content" class="visually-hidden focusable">
+			{%- trans %}Skip to main content{% endtrans -%}
+		</a>
+	</nav>
+	
+	{% block pageAlert %}
+		{% if page.alert %}
+			<section class="alert-wrapper" role="complementary">
+				<div class="alert-inner">	
+					{% block alertContent %}
+						{{ page.alert }}
+					{% endblock %}
+				</div>
+			</section>
+		{% endif %}
+	{% endblock %}
+
 	{% block pageHeader %}
 		<header role="banner" class="site-header">
-			<a href="#main-navigation" class="visually-hidden focusable">
-				{%- trans %}Skip to main navigation{% endtrans -%}
-			</a>
-			<a href="#main-content" class="visually-hidden focusable">
-				{%- trans %}Skip to main content{% endtrans -%}
-			</a>
 			{% block headerContent %}
 				{{ page.header }}
 			{% endblock %}
@@ -76,7 +92,7 @@
 
 	{% block pagePreFooter %}
 		{% if page.prefooter %}
-			<section class="prefooter-wrapper" role="complementary" aria-labelledby="prefooter-section">
+			<section class="prefooter-wrapper" role="complementary">
 				<div class="prefooter-inner">	
 					{% block prefooterContent %}
 						{{ page.prefooter }}
