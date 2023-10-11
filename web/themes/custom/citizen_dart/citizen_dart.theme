@@ -60,15 +60,6 @@ function citizen_dart_preprocess_paragraph__form_placer(&$variables) {
   }
 }
 
-/**
- * Implements hook_form_alter.
- */
-function citizen_dart_form_alter(&$form, FormStateInterface $form_state) {
-  if($form['#id'] == 'site-search-form'){
-    $form['actions']['submit']['#suffix'] = '<span class="material-icons">search</span>';
-  }
-}
-
 // provide width and height dimensions for use in the responsive image template to prevent layout shifts
 function citizen_dart_preprocess_responsive_image(&$variables) {
   // get responsive image style in order to map hard-coded dimension values
@@ -139,6 +130,22 @@ function citizen_dart_preprocess_responsive_image(&$variables) {
   }
 }
 
+/**
+ * Preprocess function to provide a unique ID to the hours field template.
+ */
+function citizen_dart_preprocess_field__node__field_hours(&$variables) {
+  // Add a unique ID to the field template.
+  $variables['unique_id'] = uniqid();
+}
+
+/**
+ * Implements hook_form_alter.
+ */
+function citizen_dart_form_alter(&$form, FormStateInterface $form_state) {
+  if($form['#id'] == 'site-search-form'){
+    $form['actions']['submit']['#suffix'] = '<span class="material-icons">search</span>';
+  }
+}
 
 /**
  * Implements hook_theme_suggestions_page_alter().
@@ -185,10 +192,3 @@ function citizen_dart_theme_suggestions_paragraph_alter(array &$suggestions, arr
   array_push($suggestions, 'paragraph__' . $paragraph->getType() . '__' . $id);
 }
 
-/**
- * Preprocess function to provide a unique ID to the hours field template.
- */
-function citizen_dart_preprocess_field__node__field_hours(&$variables) {
-  // Add a unique ID to the field template.
-  $variables['unique_id'] = uniqid();
-}

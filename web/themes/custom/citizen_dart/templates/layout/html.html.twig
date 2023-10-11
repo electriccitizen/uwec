@@ -24,11 +24,18 @@
  */
 #}
 
+{% if 'example' in url('<front>')['#markup'] %}
+	{% set siteTheme = 'themeset-example' %}
+{% else %}
+	{% set siteTheme = 'themeset-uwec' %}
+{% endif %}
+
 {%
 	set body_classes = [
 		logged_in ? 'logged-in',
 		not root_path ? 'is-front' : 'path-' ~ root_path|clean_class,
 		node_type ? 'node node-type-' ~ node_type|clean_class,
+		siteTheme
 	]
 %}
 
