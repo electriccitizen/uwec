@@ -5,16 +5,34 @@
 /* WIDGETS INDEX
 ------------------- */
 @forward 'accordions/accordions';
+@forward 'additional-links/additional-links';
 @forward 'block-placer/block-placer';
+@forward 'button/button';
+@forward 'contact-placer/contact-placer';
+@forward 'content-carousel/content-carousel';
 @forward 'content-placer/content-placer';
+@forward 'ctas/ctas';
+@forward 'events-list/events-list';
+@forward 'facts-list/facts-list';
+@forward 'fauxfile/fauxfile';
 @forward 'gallery/gallery';
+@forward 'hallmark/hallmark';
+@forward 'highlight-box/highlight-box';
+@forward 'hours-placer/hours-placer';
 @forward 'hours-set/hours-set';
 @forward 'image/image';
-@forward 'additional-links/additional-links';
 @forward 'layout-section/layout-section';
+@forward 'profiles-list/profiles-list';
+@forward 'program-search/program-search';
+@forward 'select-type/select-type';
+@forward 'snapshot-list/snapshot-list';
+@forward 'steps/steps';
 @forward 'stories-video-list/stories-video-list';
+@forward 'testimonial-placer/testimonial-placer';
 @forward 'text/text';
 @forward 'video/video';
+@forward 'view-placer/view-placer';
+@forward 'wayfinding/wayfinding';
 
 @use '../../00-base/base' as *;
 @use 'sass:math';
