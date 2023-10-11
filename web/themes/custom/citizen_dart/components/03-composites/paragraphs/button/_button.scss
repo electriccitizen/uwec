@@ -1,0 +1,9 @@
+/* ===============
+   BUTTON WIDGET
+================== */
+
+@use '../../../00-base/base' as *;
+
+.paragraph--type--button{
+	@include textConstrain;
+}//end button widget

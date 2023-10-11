@@ -4,11 +4,21 @@
 
 /* NODES INDEX
 ------------------- */
+@forward 'academic-program/academic-program';
+@forward 'announcement/announcement';
+@forward 'college/college';
+@forward 'contact-library/contact-library';
+@forward 'department/department';
+@forward 'fact-library/fact-library';
 @forward 'general-page/general-page';
-@forward 'profile/profile';
+@forward 'hours-library/hours-library';
 @forward 'landing-page/landing-page';
+@forward 'profile/profile';
+@forward 'snapshot-library/snapshot-library';
 @forward 'story/story';
 @forward 'support-book/support-book';
+@forward 'testimonial-library/testimonial-library';
+@forward 'video-card-library/video-card-library';
 
 @use '../../00-base/base' as *;
 @use 'node-mixins' as *;
