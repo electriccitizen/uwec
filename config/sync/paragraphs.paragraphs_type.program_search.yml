@@ -1,0 +1,10 @@
+uuid: 2154002c-62f1-4ab4-9344-e89461ab02fc
+langcode: en
+status: true
+dependencies: {  }
+id: program_search
+label: 'Program Search'
+icon_uuid: null
+icon_default: null
+description: 'Add a program search block to page content.'
+behavior_plugins: {  }

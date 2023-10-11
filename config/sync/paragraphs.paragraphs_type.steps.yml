@@ -1,0 +1,10 @@
+uuid: e01a86df-69ca-47fa-908d-f993c09d3a33
+langcode: en
+status: true
+dependencies: {  }
+id: steps
+label: Steps
+icon_uuid: null
+icon_default: null
+description: 'Add stylized stepped content.'
+behavior_plugins: {  }

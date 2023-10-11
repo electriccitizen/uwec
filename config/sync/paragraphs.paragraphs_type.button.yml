@@ -1,0 +1,10 @@
+uuid: 35a50692-e578-4858-93fc-c991734ad825
+langcode: en
+status: true
+dependencies: {  }
+id: button
+label: Button
+icon_uuid: null
+icon_default: null
+description: 'Add a button to a page.'
+behavior_plugins: {  }

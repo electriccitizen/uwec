@@ -1,0 +1,8 @@
+uuid: aebf6762-f456-4313-91ef-707bc5ddc6a8
+langcode: en
+status: true
+dependencies: {  }
+id: reusable_widgets
+label: 'Reusable Widgets'
+revision: 0
+description: 'Add widgets for reuse around the site.'

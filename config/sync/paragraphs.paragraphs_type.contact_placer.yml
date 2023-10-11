@@ -1,0 +1,10 @@
+uuid: ce63a38d-2603-4283-85c6-8c0db9806e5e
+langcode: en
+status: true
+dependencies: {  }
+id: contact_placer
+label: 'Contact Placer'
+icon_uuid: null
+icon_default: null
+description: 'Add contact information to a page.'
+behavior_plugins: {  }

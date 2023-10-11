@@ -1,0 +1,20 @@
+uuid: 0ce4d706-a709-455a-a87f-5f0dd63cfc78
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.preview
+    - paragraphs.paragraphs_type.wayfinding
+  module:
+    - layout_builder
+third_party_settings:
+  layout_builder:
+    enabled: false
+    allow_custom: false
+id: paragraph.wayfinding.preview
+targetEntityType: paragraph
+bundle: wayfinding
+mode: preview
+content: {  }
+hidden:
+  search_api_excerpt: true

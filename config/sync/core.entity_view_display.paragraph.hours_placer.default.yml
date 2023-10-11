@@ -1,0 +1,13 @@
+uuid: b8ed2806-a7e9-4e92-aaeb-8a18b8610645
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.hours_placer
+id: paragraph.hours_placer.default
+targetEntityType: paragraph
+bundle: hours_placer
+mode: default
+content: {  }
+hidden:
+  search_api_excerpt: true

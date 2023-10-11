@@ -1,0 +1,8 @@
+uuid: 9198cd3c-4b50-469a-bcd3-9807bd3e6151
+langcode: en
+status: true
+dependencies: {  }
+id: formatted_promo
+label: 'Formatted Promo'
+revision: 0
+description: 'Add promo text with a link and formatted header.'

@@ -1,0 +1,10 @@
+uuid: a7b8acf3-182b-4ac5-adbd-e2a36f7998c6
+langcode: en
+status: true
+dependencies: {  }
+id: snapshot_list
+label: 'Snapshot List'
+icon_uuid: null
+icon_default: null
+description: 'Add a list of snapshot items by tag or choose specific ones.'
+behavior_plugins: {  }

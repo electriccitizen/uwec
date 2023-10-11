@@ -1,0 +1,13 @@
+uuid: ae215f3c-e4c7-4481-b0e7-e694e3769e2e
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.hallmark
+id: paragraph.hallmark.default
+targetEntityType: paragraph
+bundle: hallmark
+mode: default
+content: {  }
+hidden:
+  search_api_excerpt: true

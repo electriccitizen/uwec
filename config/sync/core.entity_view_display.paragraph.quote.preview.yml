@@ -1,0 +1,20 @@
+uuid: 80408427-b42f-46fe-a6bb-60bfb53c6fe2
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.preview
+    - paragraphs.paragraphs_type.quote
+  module:
+    - layout_builder
+third_party_settings:
+  layout_builder:
+    enabled: false
+    allow_custom: false
+id: paragraph.quote.preview
+targetEntityType: paragraph
+bundle: quote
+mode: preview
+content: {  }
+hidden:
+  search_api_excerpt: true

@@ -1,0 +1,20 @@
+uuid: f69f09f5-f101-46a0-9d33-5af6104d1402
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.preview
+    - paragraphs.paragraphs_type.cta_item
+  module:
+    - layout_builder
+third_party_settings:
+  layout_builder:
+    enabled: false
+    allow_custom: false
+id: paragraph.cta_item.preview
+targetEntityType: paragraph
+bundle: cta_item
+mode: preview
+content: {  }
+hidden:
+  search_api_excerpt: true

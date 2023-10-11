@@ -1,0 +1,10 @@
+uuid: 001bb878-9f46-4101-af5a-8023f63cf2c2
+langcode: en
+status: true
+dependencies: {  }
+id: content_carousel
+label: 'Content Carousel'
+icon_uuid: null
+icon_default: null
+description: 'Add contact information to a page.'
+behavior_plugins: {  }

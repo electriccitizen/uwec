@@ -1,0 +1,24 @@
+uuid: be6a262b-bfc8-4715-a6e5-a93182739a9e
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.reusable_widgets
+    - field.storage.block_content.body
+  module:
+    - text
+id: block_content.reusable_widgets.body
+field_name: body
+entity_type: block_content
+bundle: reusable_widgets
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: false
+  required_summary: false
+  allowed_formats: {  }
+field_type: text_with_summary

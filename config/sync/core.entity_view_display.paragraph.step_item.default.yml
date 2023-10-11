@@ -1,0 +1,13 @@
+uuid: 74f5537b-1162-4e9d-a1ec-2a079beaa5f3
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.step_item
+id: paragraph.step_item.default
+targetEntityType: paragraph
+bundle: step_item
+mode: default
+content: {  }
+hidden:
+  search_api_excerpt: true

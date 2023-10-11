@@ -1,0 +1,13 @@
+uuid: a9aa92ad-1b19-4af1-beec-9fbaca42ca4f
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.wayfinding
+id: paragraph.wayfinding.default
+targetEntityType: paragraph
+bundle: wayfinding
+mode: default
+content: {  }
+hidden:
+  search_api_excerpt: true

@@ -1,0 +1,10 @@
+uuid: cd3803d6-a442-406c-8830-028d2880a54b
+langcode: en
+status: true
+dependencies: {  }
+id: fauxfile_item
+label: 'Fauxfile Item'
+icon_uuid: null
+icon_default: null
+description: 'Add bio data to the fauxfile list.'
+behavior_plugins: {  }

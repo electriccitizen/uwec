@@ -1,0 +1,10 @@
+uuid: de52b7e8-0af6-4cdc-931c-13b97ecbbd0b
+langcode: en
+status: true
+dependencies: {  }
+id: wayfinding
+label: Wayfinding
+icon_uuid: null
+icon_default: null
+description: 'Add wayfinding navigational content.'
+behavior_plugins: {  }

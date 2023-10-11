@@ -1,0 +1,10 @@
+uuid: b1614ace-fb21-4a81-bbfc-62ab17d1ff6a
+langcode: en
+status: true
+dependencies: {  }
+id: select_item
+label: 'Select Item'
+icon_uuid: null
+icon_default: null
+description: 'Add a stylized list of selectable option links.'
+behavior_plugins: {  }

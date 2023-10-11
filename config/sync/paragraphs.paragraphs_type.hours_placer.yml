@@ -1,0 +1,10 @@
+uuid: 88cea5e1-57fe-4c61-a1a7-d6c83f916136
+langcode: en
+status: true
+dependencies: {  }
+id: hours_placer
+label: 'Hours Placer'
+icon_uuid: null
+icon_default: null
+description: 'Add hours on a page.'
+behavior_plugins: {  }

@@ -1,0 +1,10 @@
+uuid: 30203fc8-1d27-42f8-b20c-0ea412b89274
+langcode: en
+status: true
+dependencies: {  }
+id: profiles_list
+label: 'Profiles List'
+icon_uuid: null
+icon_default: null
+description: 'Add list of bios for a specific department, program or tag or create a list manually.'
+behavior_plugins: {  }

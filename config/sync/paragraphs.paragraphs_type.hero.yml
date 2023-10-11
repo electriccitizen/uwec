@@ -1,0 +1,10 @@
+uuid: e8328e6c-30f0-42a7-aded-2aa86a4aba5b
+langcode: en
+status: true
+dependencies: {  }
+id: hero
+label: Hero
+icon_uuid: null
+icon_default: null
+description: 'Add hero content to a page.'
+behavior_plugins: {  }

@@ -1,0 +1,13 @@
+uuid: 33a542bb-dae3-476e-bd14-caafccb6406c
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.ctas
+id: paragraph.ctas.default
+targetEntityType: paragraph
+bundle: ctas
+mode: default
+content: {  }
+hidden:
+  search_api_excerpt: true

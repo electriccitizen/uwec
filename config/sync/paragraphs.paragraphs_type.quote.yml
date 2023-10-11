@@ -1,0 +1,10 @@
+uuid: f8a7dbc1-ce62-4d6b-83b6-904421f8cc93
+langcode: en
+status: true
+dependencies: {  }
+id: quote
+label: Quote
+icon_uuid: null
+icon_default: null
+description: 'Displays text with stylized quotation marks.'
+behavior_plugins: {  }

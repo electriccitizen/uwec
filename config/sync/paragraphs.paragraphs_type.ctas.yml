@@ -1,0 +1,10 @@
+uuid: 2c79ed35-230b-41d1-a21c-be15598b717b
+langcode: en
+status: true
+dependencies: {  }
+id: ctas
+label: CTAs
+icon_uuid: null
+icon_default: null
+description: 'Add a group of CTAs.'
+behavior_plugins: {  }

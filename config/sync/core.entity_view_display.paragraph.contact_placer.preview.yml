@@ -1,0 +1,20 @@
+uuid: 286eb862-bf6d-4628-ab59-ac35add93794
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.preview
+    - paragraphs.paragraphs_type.contact_placer
+  module:
+    - layout_builder
+third_party_settings:
+  layout_builder:
+    enabled: false
+    allow_custom: false
+id: paragraph.contact_placer.preview
+targetEntityType: paragraph
+bundle: contact_placer
+mode: preview
+content: {  }
+hidden:
+  search_api_excerpt: true

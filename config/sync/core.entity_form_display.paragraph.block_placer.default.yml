@@ -1,0 +1,30 @@
+uuid: 1933f171-1fc7-4444-b1cd-8912ff7a98dc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.block_placer.field_block
+    - field.field.paragraph.block_placer.field_widget_title
+    - paragraphs.paragraphs_type.block_placer
+id: paragraph.block_placer.default
+targetEntityType: paragraph
+bundle: block_placer
+mode: default
+content:
+  field_block:
+    type: options_select
+    weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_widget_title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

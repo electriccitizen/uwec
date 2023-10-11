@@ -1,0 +1,20 @@
+uuid: f40532d8-b0d8-454a-a46a-f823b104ec3e
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.preview
+    - paragraphs.paragraphs_type.facts_list
+  module:
+    - layout_builder
+third_party_settings:
+  layout_builder:
+    enabled: false
+    allow_custom: false
+id: paragraph.facts_list.preview
+targetEntityType: paragraph
+bundle: facts_list
+mode: preview
+content: {  }
+hidden:
+  search_api_excerpt: true

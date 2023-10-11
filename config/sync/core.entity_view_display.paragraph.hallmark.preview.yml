@@ -1,0 +1,20 @@
+uuid: 43defa33-7f25-4454-be89-204be8499038
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.preview
+    - paragraphs.paragraphs_type.hallmark
+  module:
+    - layout_builder
+third_party_settings:
+  layout_builder:
+    enabled: false
+    allow_custom: false
+id: paragraph.hallmark.preview
+targetEntityType: paragraph
+bundle: hallmark
+mode: preview
+content: {  }
+hidden:
+  search_api_excerpt: true

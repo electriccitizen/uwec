@@ -1,0 +1,13 @@
+uuid: 283ab73a-87ee-4e16-8b7f-81cf91b5bdcd
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.button
+id: paragraph.button.default
+targetEntityType: paragraph
+bundle: button
+mode: default
+content: {  }
+hidden:
+  search_api_excerpt: true
