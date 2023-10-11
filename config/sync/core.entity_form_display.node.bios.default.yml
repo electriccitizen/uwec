@@ -9,13 +9,18 @@ dependencies:
     - field.field.node.bios.field_domain_source
     - field.field.node.bios.field_email
     - field.field.node.bios.field_first_name
+    - field.field.node.bios.field_first_override
     - field.field.node.bios.field_image
     - field.field.node.bios.field_last_name
+    - field.field.node.bios.field_last_override
     - field.field.node.bios.field_list_widget
     - field.field.node.bios.field_metatags
     - field.field.node.bios.field_page_family
     - field.field.node.bios.field_phone
     - field.field.node.bios.field_position
+    - field.field.node.bios.field_prefixes
+    - field.field.node.bios.field_suffixes
+    - field.field.node.bios.layout_builder__layout
     - node.type.bios
     - workflows.workflow.non_moderated
   module:
@@ -34,7 +39,7 @@ third_party_settings:
       label: 'Contact Information'
       region: content
       parent_name: ''
-      weight: 6
+      weight: 9
       format_type: details
       format_settings:
         classes: ''
@@ -44,14 +49,13 @@ third_party_settings:
         required_fields: true
     group_access:
       children:
-        - field_editorial_sections
         - field_domain_access
         - field_domain_source
         - field_domain_all_affiliates
       label: Access
       region: content
       parent_name: ''
-      weight: 10
+      weight: 13
       format_type: details_sidebar
       format_settings:
         classes: ''
@@ -70,7 +74,7 @@ mode: default
 content:
   body:
     type: text_textarea_with_summary
-    weight: 5
+    weight: 8
     region: content
     settings:
       rows: 9
@@ -99,7 +103,7 @@ content:
     third_party_settings: {  }
   field_email:
     type: email_default
-    weight: 27
+    weight: 11
     region: content
     settings:
       placeholder: 'Ex: email@website.com'
@@ -107,7 +111,15 @@ content:
     third_party_settings: {  }
   field_first_name:
     type: string_textfield
-    weight: 1
+    weight: 2
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_first_override:
+    type: string_textfield
+    weight: 3
     region: content
     settings:
       size: 60
@@ -122,7 +134,15 @@ content:
     third_party_settings: {  }
   field_last_name:
     type: string_textfield
-    weight: 2
+    weight: 4
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_last_override:
+    type: string_textfield
+    weight: 5
     region: content
     settings:
       size: 60
@@ -130,7 +150,7 @@ content:
     third_party_settings: {  }
   field_metatags:
     type: metatag_firehose
-    weight: 8
+    weight: 11
     region: content
     settings:
       sidebar: true
@@ -138,7 +158,7 @@ content:
     third_party_settings: {  }
   field_page_family:
     type: entity_reference_autocomplete
-    weight: 7
+    weight: 10
     region: content
     settings:
       match_operator: CONTAINS
@@ -148,14 +168,30 @@ content:
     third_party_settings: {  }
   field_phone:
     type: telephone_default
-    weight: 28
+    weight: 13
     region: content
     settings:
       placeholder: 'Ex: 555-555-5555'
     third_party_settings: {  }
   field_position:
     type: string_textfield
-    weight: 4
+    weight: 7
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_prefixes:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_suffixes:
+    type: string_textfield
+    weight: 6
     region: content
     settings:
       size: 60
@@ -163,13 +199,13 @@ content:
     third_party_settings: {  }
   moderation_state:
     type: moderation_state_default
-    weight: 11
+    weight: 14
     region: content
     settings: {  }
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 9
+    weight: 12
     region: content
     settings:
       display_label: true
@@ -177,6 +213,7 @@ content:
 hidden:
   created: true
   field_list_widget: true
+  layout_builder__layout: true
   path: true
   promote: true
   publish_on: true
