@@ -1,0 +1,10 @@
+uuid: 4726236b-3b6d-48e5-9ff5-8dca89cc3821
+langcode: en
+status: true
+dependencies: {  }
+id: events_list
+label: 'Events List'
+icon_uuid: null
+icon_default: null
+description: 'Add a list of LiveWhale events to the site.'
+behavior_plugins: {  }

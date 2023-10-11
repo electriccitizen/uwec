@@ -1,0 +1,10 @@
+uuid: a659c9c8-401c-43df-9011-ed8e15bb62b1
+langcode: en
+status: true
+dependencies: {  }
+id: block_placer
+label: 'Block Placer'
+icon_uuid: null
+icon_default: null
+description: 'Displays blocks from the custom block library.'
+behavior_plugins: {  }

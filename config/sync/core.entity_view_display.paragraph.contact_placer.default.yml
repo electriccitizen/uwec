@@ -1,0 +1,13 @@
+uuid: f39def7f-2f95-4e68-b54b-4b1d6baff1a2
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.contact_placer
+id: paragraph.contact_placer.default
+targetEntityType: paragraph
+bundle: contact_placer
+mode: default
+content: {  }
+hidden:
+  search_api_excerpt: true

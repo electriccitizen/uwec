@@ -100,26 +100,41 @@ button[disabled]:hover,button.disabled:hover{
 .lpb-component-list .lpb-component-list__group > .lpb-component-list__group--content > .type-accordions > a:before{
   background-image: url('../icons/paragraphs/accordions.svg');
 }
-.lpb-component-list .lpb-component-list__group > .lpb-component-list__group--content > .type-social_media_links > a:before{
-  background-image: url('../icons/paragraphs/social-media-links.svg');
-}
 .lpb-component-list .lpb-component-list__group > .lpb-component-list__group--content > .type-block_placer > a:before{
   background-image: url('../icons/paragraphs/block-placer.svg');
 }
-.lpb-component-list .lpb-component-list__group > .lpb-component-list__group--content > .type-content_placer > a:before{
-  background-image: url('../icons/paragraphs/content-placer.svg');
+.lpb-component-list .lpb-component-list__group > .lpb-component-list__group--content > .type-button > a:before{
+  background-image: url('../icons/paragraphs/button.svg');
+}
+.lpb-component-list .lpb-component-list__group > .lpb-component-list__group--content > .type-ctas > a:before{
+  background-image: url('../icons/paragraphs/ctas.svg');
+}
+.lpb-component-list .lpb-component-list__group > .lpb-component-list__group--content > .type-contact_placer > a:before{
+  background-image: url('../icons/paragraphs/contact-placer.svg');
 }
 .lpb-component-list .lpb-component-list__group > .lpb-component-list__group--content > .type-custom_embed > a:before{
   background-image: url('../icons/paragraphs/custom-embed.svg');
 }
-.lpb-component-list .lpb-component-list__group > .lpb-component-list__group--content > .type-form_placer > a:before{
-  background-image: url('../icons/paragraphs/form-placer.svg');
+.lpb-component-list .lpb-component-list__group > .lpb-component-list__group--content > .type-events_list > a:before{
+  background-image: url('../icons/paragraphs/events-list.svg');
+}
+.lpb-component-list .lpb-component-list__group > .lpb-component-list__group--content > .type-facts_list > a:before{
+  background-image: url('../icons/paragraphs/facts-list.svg');
+}
+.lpb-component-list .lpb-component-list__group > .lpb-component-list__group--content > .type-fauxfile > a:before{
+  background-image: url('../icons/paragraphs/fauxfile.svg');
 }
 .lpb-component-list .lpb-component-list__group > .lpb-component-list__group--content > .type-gallery > a:before{
   background-image: url('../icons/paragraphs/gallery.svg');
 }
-.lpb-component-list .lpb-component-list__group > .lpb-component-list__group--content > .type-horizontal_rule > a:before{
-  background-image: url('../icons/paragraphs/horizontal-rule.svg');
+.lpb-component-list .lpb-component-list__group > .lpb-component-list__group--content > .type-hallmark > a:before{
+  background-image: url('../icons/paragraphs/hallmark.svg');
+}
+.lpb-component-list .lpb-component-list__group > .lpb-component-list__group--content > .type-hightlight_box > a:before{
+  background-image: url('../icons/paragraphs/highlight-box.svg');
+}
+.lpb-component-list .lpb-component-list__group > .lpb-component-list__group--content > .type-hours_placer > a:before{
+  background-image: url('../icons/paragraphs/hours-placer.svg');
 }
 .lpb-component-list .lpb-component-list__group > .lpb-component-list__group--content > .type-image > a:before{
   background-image: url('../icons/paragraphs/image.svg');
@@ -127,20 +142,44 @@ button[disabled]:hover,button.disabled:hover{
 .lpb-component-list .lpb-component-list__group > .lpb-component-list__group--content > .type-links_files > a:before{
   background-image: url('../icons/paragraphs/links-files.svg');
 }
-.lpb-component-list .lpb-component-list__group > .lpb-component-list__group--content > .type-map > a:before{
-  background-image: url('../icons/paragraphs/map.svg');
+.lpb-component-list .lpb-component-list__group > .lpb-component-list__group--content > .type-profiles_list > a:before{
+  background-image: url('../icons/paragraphs/profiles-list.svg');
 }
-.lpb-component-list .lpb-component-list__group > .lpb-component-list__group--content > .type-portals > a:before{
-  background-image: url('../icons/paragraphs/portals.svg');
+.lpb-component-list .lpb-component-list__group > .lpb-component-list__group--content > .type-program_search > a:before{
+  background-image: url('../icons/paragraphs/program-search.svg');
 }
 .lpb-component-list .lpb-component-list__group > .lpb-component-list__group--content > .type-quote > a:before{
   background-image: url('../icons/paragraphs/quote.svg');
 }
+.lpb-component-list .lpb-component-list__group > .lpb-component-list__group--content > .type-social_media_links > a:before{
+  background-image: url('../icons/paragraphs/social-media-links.svg');
+}
+.lpb-component-list .lpb-component-list__group > .lpb-component-list__group--content > .type-select_type > a:before{
+  background-image: url('../icons/paragraphs/select-type.svg');
+}
+.lpb-component-list .lpb-component-list__group > .lpb-component-list__group--content > .type-snapshot_list > a:before{
+  background-image: url('../icons/paragraphs/snapshot-list.svg');
+}
+.lpb-component-list .lpb-component-list__group > .lpb-component-list__group--content > .type-steps > a:before{
+  background-image: url('../icons/paragraphs/steps.svg');
+}
+.lpb-component-list .lpb-component-list__group > .lpb-component-list__group--content > .type-stories_video_list > a:before{
+  background-image: url('../icons/paragraphs/stories-video-list.svg');
+}
 .lpb-component-list .lpb-component-list__group > .lpb-component-list__group--content > .type-text > a:before{
   background-image: url('../icons/paragraphs/text.svg');
 }
+.lpb-component-list .lpb-component-list__group > .lpb-component-list__group--content > .type-testimonial_placer > a:before{
+  background-image: url('../icons/paragraphs/testimonial-placer.svg');
+}
 .lpb-component-list .lpb-component-list__group > .lpb-component-list__group--content > .type-video > a:before{
   background-image: url('../icons/paragraphs/video.svg');
+}
+.lpb-component-list .lpb-component-list__group > .lpb-component-list__group--content > .type-view_placer > a:before{
+  background-image: url('../icons/paragraphs/view-placer.svg');
+}
+.lpb-component-list .lpb-component-list__group > .lpb-component-list__group--content > .type-wayfinding > a:before{
+  background-image: url('../icons/paragraphs/wayfinding.svg');
 }
 
 .js-lpb-component.paragraph--view-mode--preview{

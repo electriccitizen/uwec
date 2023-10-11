@@ -1,0 +1,13 @@
+uuid: 01682595-6a2b-4d28-8118-a3473b044141
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.fauxfile
+id: paragraph.fauxfile.default
+targetEntityType: paragraph
+bundle: fauxfile
+mode: default
+content: {  }
+hidden:
+  search_api_excerpt: true

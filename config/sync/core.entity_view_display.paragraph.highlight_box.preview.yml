@@ -1,0 +1,20 @@
+uuid: a955dfe2-01a2-438e-922b-642608b4c53f
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.preview
+    - paragraphs.paragraphs_type.highlight_box
+  module:
+    - layout_builder
+third_party_settings:
+  layout_builder:
+    enabled: false
+    allow_custom: false
+id: paragraph.highlight_box.preview
+targetEntityType: paragraph
+bundle: highlight_box
+mode: preview
+content: {  }
+hidden:
+  search_api_excerpt: true

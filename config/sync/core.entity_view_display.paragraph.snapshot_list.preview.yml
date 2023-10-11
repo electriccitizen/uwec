@@ -1,0 +1,20 @@
+uuid: 78de662b-6e8e-4430-bf07-db95bc88ff60
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.preview
+    - paragraphs.paragraphs_type.snapshot_list
+  module:
+    - layout_builder
+third_party_settings:
+  layout_builder:
+    enabled: false
+    allow_custom: false
+id: paragraph.snapshot_list.preview
+targetEntityType: paragraph
+bundle: snapshot_list
+mode: preview
+content: {  }
+hidden:
+  search_api_excerpt: true

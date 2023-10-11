@@ -1,0 +1,13 @@
+uuid: 5d514f2e-7dfe-4bd7-9392-d3ac6be6cfa1
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.snapshot_list
+id: paragraph.snapshot_list.default
+targetEntityType: paragraph
+bundle: snapshot_list
+mode: default
+content: {  }
+hidden:
+  search_api_excerpt: true

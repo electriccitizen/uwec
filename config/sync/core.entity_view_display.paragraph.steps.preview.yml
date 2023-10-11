@@ -1,0 +1,20 @@
+uuid: 717074dc-00f2-4cd7-8bbf-a2fda6ad3059
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.preview
+    - paragraphs.paragraphs_type.steps
+  module:
+    - layout_builder
+third_party_settings:
+  layout_builder:
+    enabled: false
+    allow_custom: false
+id: paragraph.steps.preview
+targetEntityType: paragraph
+bundle: steps
+mode: preview
+content: {  }
+hidden:
+  search_api_excerpt: true

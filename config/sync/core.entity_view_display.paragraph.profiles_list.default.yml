@@ -1,0 +1,13 @@
+uuid: 28877ae7-74ba-41b7-bde4-93ea1d3eb627
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.profiles_list
+id: paragraph.profiles_list.default
+targetEntityType: paragraph
+bundle: profiles_list
+mode: default
+content: {  }
+hidden:
+  search_api_excerpt: true

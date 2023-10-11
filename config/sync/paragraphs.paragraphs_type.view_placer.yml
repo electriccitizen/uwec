@@ -1,0 +1,10 @@
+uuid: b5bb02b3-c957-4317-8406-2fe51de443cc
+langcode: en
+status: true
+dependencies: {  }
+id: view_placer
+label: 'View Placer'
+icon_uuid: null
+icon_default: null
+description: 'Place main views around the site'
+behavior_plugins: {  }

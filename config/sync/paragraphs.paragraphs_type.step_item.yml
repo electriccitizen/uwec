@@ -1,0 +1,10 @@
+uuid: 701c9160-d3a6-4d01-975d-bf5cccb0f514
+langcode: en
+status: true
+dependencies: {  }
+id: step_item
+label: 'Step Item'
+icon_uuid: null
+icon_default: null
+description: 'Add a step to steps.'
+behavior_plugins: {  }

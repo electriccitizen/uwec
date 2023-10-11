@@ -1,0 +1,10 @@
+uuid: 3e72eb4a-00df-478e-9237-23896a901010
+langcode: en
+status: true
+dependencies: {  }
+id: testimonial_placer
+label: 'Testimonial Placer'
+icon_uuid: null
+icon_default: null
+description: 'Add list of testimonials for tag or create a list manually.'
+behavior_plugins: {  }

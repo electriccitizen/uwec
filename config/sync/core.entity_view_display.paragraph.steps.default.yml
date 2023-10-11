@@ -1,0 +1,13 @@
+uuid: 437de29c-02ce-48fe-84cd-b6535a6509c9
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.steps
+id: paragraph.steps.default
+targetEntityType: paragraph
+bundle: steps
+mode: default
+content: {  }
+hidden:
+  search_api_excerpt: true

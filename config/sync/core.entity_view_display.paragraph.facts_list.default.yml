@@ -1,0 +1,13 @@
+uuid: 5d975b81-71b3-44c2-bcb2-7e955109bdaa
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.facts_list
+id: paragraph.facts_list.default
+targetEntityType: paragraph
+bundle: facts_list
+mode: default
+content: {  }
+hidden:
+  search_api_excerpt: true

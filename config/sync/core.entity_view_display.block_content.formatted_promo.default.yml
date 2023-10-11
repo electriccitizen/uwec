@@ -1,0 +1,23 @@
+uuid: b39ddfe5-8308-4fa7-8ba5-e9c18edf5832
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.formatted_promo
+    - field.field.block_content.formatted_promo.body
+  module:
+    - text
+id: block_content.formatted_promo.default
+targetEntityType: block_content
+bundle: formatted_promo
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  search_api_excerpt: true

@@ -1,0 +1,10 @@
+uuid: 98fe9d42-815c-4e01-af2c-d233362dc108
+langcode: en
+status: true
+dependencies: {  }
+id: highlight_box
+label: 'Highlight Box'
+icon_uuid: null
+icon_default: null
+description: 'Highlight a piece of important content on a page.'
+behavior_plugins: {  }

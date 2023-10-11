@@ -1,0 +1,13 @@
+uuid: 105304fd-a52b-4499-b445-6eb04f5fa31d
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.highlight_box
+id: paragraph.highlight_box.default
+targetEntityType: paragraph
+bundle: highlight_box
+mode: default
+content: {  }
+hidden:
+  search_api_excerpt: true

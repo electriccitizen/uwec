@@ -1,0 +1,10 @@
+uuid: e9040a06-dbc2-4a16-adf9-5f688a59bbbe
+langcode: en
+status: true
+dependencies: {  }
+id: select_type
+label: 'Select Type'
+icon_uuid: null
+icon_default: null
+description: 'Add a select item to the select type widget.'
+behavior_plugins: {  }

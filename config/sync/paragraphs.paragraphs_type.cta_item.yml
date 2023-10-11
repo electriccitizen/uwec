@@ -1,0 +1,10 @@
+uuid: 3ba24973-2b34-4c65-9d6d-ca97b968f479
+langcode: en
+status: true
+dependencies: {  }
+id: cta_item
+label: 'CTA Item'
+icon_uuid: null
+icon_default: null
+description: 'Add a call to action.'
+behavior_plugins: {  }

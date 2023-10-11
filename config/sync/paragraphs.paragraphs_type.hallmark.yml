@@ -1,0 +1,10 @@
+uuid: c2dc1446-3f02-4200-a5fc-91a6154b04ce
+langcode: en
+status: true
+dependencies: {  }
+id: hallmark
+label: Hallmark
+icon_uuid: null
+icon_default: null
+description: 'Add hallmark content to pages.'
+behavior_plugins: {  }

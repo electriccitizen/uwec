@@ -1,0 +1,20 @@
+uuid: f97f1a7f-6180-4e67-96dc-1dc6fd38bb9c
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.preview
+    - paragraphs.paragraphs_type.content_carousel
+  module:
+    - layout_builder
+third_party_settings:
+  layout_builder:
+    enabled: false
+    allow_custom: false
+id: paragraph.content_carousel.preview
+targetEntityType: paragraph
+bundle: content_carousel
+mode: preview
+content: {  }
+hidden:
+  search_api_excerpt: true

@@ -1,0 +1,10 @@
+uuid: a759de94-2f30-4438-be64-fdacb8f2c687
+langcode: en
+status: true
+dependencies: {  }
+id: fauxfile
+label: Fauxfile
+icon_uuid: null
+icon_default: null
+description: 'Add a list of manually entered bio data.'
+behavior_plugins: {  }

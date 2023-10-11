@@ -1,0 +1,13 @@
+uuid: 8212667e-d903-4401-b82d-ca6aa72f4938
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.cta_item
+id: paragraph.cta_item.default
+targetEntityType: paragraph
+bundle: cta_item
+mode: default
+content: {  }
+hidden:
+  search_api_excerpt: true

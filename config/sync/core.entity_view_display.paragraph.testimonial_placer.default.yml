@@ -1,0 +1,13 @@
+uuid: 19f887d8-9b84-4700-85df-07855d28895c
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.testimonial_placer
+id: paragraph.testimonial_placer.default
+targetEntityType: paragraph
+bundle: testimonial_placer
+mode: default
+content: {  }
+hidden:
+  search_api_excerpt: true

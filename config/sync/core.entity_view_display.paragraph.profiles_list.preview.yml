@@ -1,0 +1,20 @@
+uuid: f865cf91-c90c-46bb-8a37-cb8764ba7643
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.preview
+    - paragraphs.paragraphs_type.profiles_list
+  module:
+    - layout_builder
+third_party_settings:
+  layout_builder:
+    enabled: false
+    allow_custom: false
+id: paragraph.profiles_list.preview
+targetEntityType: paragraph
+bundle: profiles_list
+mode: preview
+content: {  }
+hidden:
+  search_api_excerpt: true

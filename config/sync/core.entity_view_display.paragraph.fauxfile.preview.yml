@@ -1,0 +1,20 @@
+uuid: d15ab409-ca9c-4087-9851-fc44415c59a9
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.preview
+    - paragraphs.paragraphs_type.fauxfile
+  module:
+    - layout_builder
+third_party_settings:
+  layout_builder:
+    enabled: false
+    allow_custom: false
+id: paragraph.fauxfile.preview
+targetEntityType: paragraph
+bundle: fauxfile
+mode: preview
+content: {  }
+hidden:
+  search_api_excerpt: true

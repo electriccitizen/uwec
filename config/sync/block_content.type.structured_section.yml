@@ -1,0 +1,8 @@
+uuid: c7d02375-9b71-49ce-8762-6050738e05c3
+langcode: en
+status: true
+dependencies: {  }
+id: structured_section
+label: 'Page Structured Section'
+revision: 0
+description: 'Add a highly structured blue secondary section for use on the home page or campaign pages.'

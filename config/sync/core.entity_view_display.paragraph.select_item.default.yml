@@ -1,0 +1,13 @@
+uuid: 6b541302-1e4f-48b0-a0c4-0ff51d61bf9b
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.select_item
+id: paragraph.select_item.default
+targetEntityType: paragraph
+bundle: select_item
+mode: default
+content: {  }
+hidden:
+  search_api_excerpt: true

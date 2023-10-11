@@ -1,0 +1,20 @@
+uuid: c4eea641-5787-44db-8273-d621e363539b
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.preview
+    - paragraphs.paragraphs_type.events_list
+  module:
+    - layout_builder
+third_party_settings:
+  layout_builder:
+    enabled: false
+    allow_custom: false
+id: paragraph.events_list.preview
+targetEntityType: paragraph
+bundle: events_list
+mode: preview
+content: {  }
+hidden:
+  search_api_excerpt: true
