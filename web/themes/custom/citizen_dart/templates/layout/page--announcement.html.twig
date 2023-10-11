@@ -44,22 +44,7 @@
  */
 #}
 
-{% extends "page.html.twig" %}
-
-{# check if a user is authenticated and replace the support page content if they are not #}
-{% block pageMain %}
-	{%- if logged_in -%}
-		{{ parent() }}
-	{%- else -%}
-		<main role="main">
-
-	      <div class="layout-content">
-	      	<div class="restricted-node"><div>You must be <a href="/user">logged in</a> to view support pages.</div></div>
-	      </div>{# /.layout-content #}
-
-	    </main>
-	{%- endif -%}
-{% endblock %}
+{% extends "page--support-book.html.twig" %}
 
 
 
