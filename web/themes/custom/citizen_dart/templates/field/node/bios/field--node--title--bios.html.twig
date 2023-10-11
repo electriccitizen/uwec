@@ -39,7 +39,7 @@
 			{{ element['#object'].field_last_name.0.value -}}
 		{%- endif -%}
 		{%- if element['#object'].field_suffixes.0 -%}
-			<span class="suffixes">, {{ node.field_suffixes.0.value }}</span>
+			<span class="suffixes">, {{ element['#object'].field_suffixes.0.value }}</span>
 		{% endif %}
 	</h1>
 {% endblock %}
