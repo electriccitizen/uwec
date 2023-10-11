@@ -9,13 +9,17 @@ dependencies:
     - field.field.node.bios.field_domain_source
     - field.field.node.bios.field_email
     - field.field.node.bios.field_first_name
+    - field.field.node.bios.field_first_override
     - field.field.node.bios.field_image
     - field.field.node.bios.field_last_name
+    - field.field.node.bios.field_last_override
     - field.field.node.bios.field_list_widget
     - field.field.node.bios.field_metatags
     - field.field.node.bios.field_page_family
     - field.field.node.bios.field_phone
     - field.field.node.bios.field_position
+    - field.field.node.bios.field_prefixes
+    - field.field.node.bios.field_suffixes
     - field.field.node.bios.layout_builder__layout
     - node.type.bios
   module:
@@ -229,6 +233,14 @@ content:
     third_party_settings: {  }
     weight: 103
     region: content
+  field_first_override:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 108
+    region: content
   field_image:
     type: entity_reference_label
     label: above
@@ -244,6 +256,14 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     weight: 104
+    region: content
+  field_last_override:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 109
     region: content
   field_page_family:
     type: entity_reference_label
@@ -267,6 +287,22 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     weight: 106
+    region: content
+  field_prefixes:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 110
+    region: content
+  field_suffixes:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 111
     region: content
   links:
     settings: {  }

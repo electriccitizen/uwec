@@ -1,0 +1,45 @@
+{#
+/**
+ * @file
+ * Theme override for the node title field.
+ *
+ * This is an override of field.html.twig for the node title field. See that
+ * template for documentation about its details and overrides.
+ *
+ * Available variables:
+ * - attributes: HTML attributes for the containing span element.
+ * - items: List of all the field items. Each item contains:
+ *   - attributes: List of HTML attributes for each item.
+ *   - content: The field item content.
+ * - entity_type: The entity type to which the field belongs.
+ * - field_name: The name of the field.
+ * - field_type: The type of the field.
+ * - label_display: The display settings for the label.
+ *
+ * @see field.html.twig
+ */
+#}
+
+{% extends 'field.html.twig' %}
+
+{% block fieldSingleNo %}	
+
+	<h1 class="page-title">
+		{% if element['#object'].field_prefixes.0 %}
+			<span class="prefixes">{{ element['#object'].field_prefixes.0.value }}</span>
+		{% endif %}
+		{% if element['#object'].field_first_override.0 %}
+			{{ element['#object'].field_first_override.0.value }}
+		{% else %}
+			{{ element['#object'].field_first_name.0.value }}
+		{% endif %}
+		{% if element['#object'].field_last_override.0 %}
+			{{ element['#object'].field_last_override.0.value -}}
+		{%- else -%}
+			{{ element['#object'].field_last_name.0.value -}}
+		{%- endif -%}
+		{%- if element['#object'].field_suffixes.0 -%}
+			<span class="suffixes">, {{ node.field_suffixes.0.value }}</span>
+		{% endif %}
+	</h1>
+{% endblock %}
