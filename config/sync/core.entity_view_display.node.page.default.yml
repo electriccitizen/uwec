@@ -10,6 +10,7 @@ dependencies:
     - field.field.node.page.field_editorial_sections
     - field.field.node.page.field_formatted_title
     - field.field.node.page.field_hero
+    - field.field.node.page.field_hide_nav
     - field.field.node.page.field_metatags
     - field.field.node.page.field_page_family
     - field.field.node.page.field_paragraphs
@@ -210,6 +211,7 @@ hidden:
   field_domain_access: true
   field_domain_all_affiliates: true
   field_domain_source: true
+  field_hide_nav: true
   field_metatags: true
   field_paragraphs: true
   layout_builder__layout: true

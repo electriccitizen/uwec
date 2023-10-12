@@ -1,0 +1,118 @@
+{#
+/**
+ * @file
+ * Theme override for the node title field.
+ *
+ * This is an override of field.html.twig for the node title field. See that
+ * template for documentation about its details and overrides.
+ *
+ * Available variables:
+ * - attributes: HTML attributes for the containing span element.
+ * - items: List of all the field items. Each item contains:
+ *   - attributes: List of HTML attributes for each item.
+ *   - content: The field item content.
+ * - entity_type: The entity type to which the field belongs.
+ * - field_name: The name of the field.
+ * - field_type: The type of the field.
+ * - label_display: The display settings for the label.
+ *
+ * @see field.html.twig
+ */
+#}
+
+{% extends 'field.html.twig' %}
+
+{% set formattedTitle = {
+	'#type': 'processed_text',
+	'#text': element['#object'].field_formatted_title.0.value,
+	'#format': element['#object'].field_formatted_title.0.format
+} %}
+{% set bodyText = {
+	'#type': 'processed_text',
+	'#text': element['#object'].body.0.value,
+	'#format': element['#object'].body.0.format
+} %}
+
+{% block fieldSingleNo %}
+
+	<div class="page-header-wrapper{% if element['#object'].field_hero.0 %} has-hero page-hero-{{ element['#object'].field_hero.0.entity.field_hero_type.0.value|clean_class }}{% endif %}">
+
+		{# render a large version image for certain heros #}
+		{% if element['#object'].field_hero.0 %}
+			{% if element['#object'].field_hero.0.entity.field_hero_type.0.value == 
+			'image' or 'background_image' %}
+				{% if element['#object'].field_hero.0.entity.field_image.0 %}
+					<div class="image-right">
+						{{ drupal_entity('media',element['#object'].field_hero.0.entity.field_image.0.target_id,'default') }}
+					</div>
+				{% endif %}
+			{% endif %}
+		{% endif %}
+
+		{# set an area with breadcrumbs and header text content #}
+		<div class="page-header-text">
+			{% if element['#object'].field_hide_nav.0.value == '0' %}
+				{{ drupal_block('system_breadcrumb_block') }}
+			{% endif %}
+
+			<div class="page-header-text-inner">
+				<div class="field title string">
+					<h1 class="page-title formatted-title">{{ formattedTitle|render|striptags('<strong>')|trim|raw }}</h1>
+				</div>
+
+				
+
+				{% set nodeId = element.0['#markup'] %}
+
+				{% if element['#object'].field_subtitle.0 %}
+					<div class="field field-subtitle string">
+						{{ element['#object'].field_subtitle.0.value }}
+					</div>
+				{% endif %}
+
+				{% if element['#object'].body.0 %}
+					<div class="field field-body text-long">
+						{{ bodyText }}
+					</div>
+				{% endif %}
+			</div>
+		</div>
+
+		{# add a background image for certain heros #}
+		{% if element['#object'].field_hero.0 %}
+			{% if element['#object'].field_hero.0.entity.field_hero_type.0.value == 
+			'video' or 'background_image' %}
+				{% if element['#object'].field_hero.0.entity.field_image.0 %}
+					<div class="hero-background">
+						{{ drupal_entity('media',element['#object'].field_hero.0.entity.field_image.0.target_id,'default') }}
+					</div>
+				{% endif %}
+			{% endif %}
+		{% endif %}
+
+		
+
+		{# render the video and here you can if its a video hero #}
+		{% if element['#object'].field_hero.0 %}
+			{% if element['#object'].field_hero.0.entity.field_hero_type.0.value == 
+			'video' %}
+				{% if element['#object'].field_hero.0.entity.field_hero_video.0 %}
+					<div class="hero-video">
+						<div class="hero-video-mask">
+							<video playsinline autoplay muted loop {% if element['#object'].field_hero.0.entity.field_video_poster.0 %}poster="{{ element['#object'].field_hero.0.entity.field_video_poster.0.entity.field_media_image.0.entity.uri.0.value|replace({'public://':'/sites/default/files/'}) }}{% endif %}">
+								{% for video in element['#object'].field_hero.0.entity.field_hero_video %}
+									<source src="{{ video.entity.uri.0.value|replace({'public://':'/sites/default/files/'}) }}" type="{{ video.entity.filemime.0.value }}" />
+								{% endfor %}
+							</video>
+						</div>
+					</div>
+				{% endif %}
+				<div class="scroll-link">
+					<a href="{% if element['#object'].field_hero.0.entity.field_structure_section.0 %}#structured-content{% else %}#node-section-2{% endif %}">Here you can<span class="link-arrow">scroll to content</span></a>
+				</div>
+			{% endif %}
+		{% endif %}
+
+	</div>
+{% endblock %}
+
