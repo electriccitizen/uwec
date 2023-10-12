@@ -1,0 +1,23 @@
+uuid: a9f0f2e7-8e2b-4ee8-bdcd-c42383e06c4f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_links
+    - paragraphs.paragraphs_type.hero
+  module:
+    - link
+id: paragraph.hero.field_links
+field_name: field_links
+entity_type: paragraph
+bundle: hero
+label: Links
+description: 'Links will not be shown on a video hero.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 2
+  link_type: 17
+field_type: link

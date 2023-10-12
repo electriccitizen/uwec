@@ -1,0 +1,27 @@
+uuid: 006b68fe-704c-4af2-9f88-8f2133e12ca0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_hero_video
+    - paragraphs.paragraphs_type.hero
+  module:
+    - file
+id: paragraph.hero.field_hero_video
+field_name: field_hero_video
+entity_type: paragraph
+bundle: hero
+label: Video
+description: 'Allowed formats: webm, mp4.  Suggested length is < 30 seconds.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:file'
+  handler_settings: {  }
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'webm mp4'
+  max_filesize: ''
+  description_field: false
+field_type: file

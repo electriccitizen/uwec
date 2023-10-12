@@ -135,11 +135,6 @@ function citizen_custom_form_alter(&$form, FormStateInterface $form_state, $form
     $form['revision_information']['#access'] = FALSE;
     $form['revision']['#access'] = FALSE;
   }
-  // show wysiwyg editor for headline short text field
-  if(isset($form['field_headline_text_formatted'])) {
-    $form['field_headline_text_formatted']['widget']['0']['#base_type'] = 'textarea';
-  }
-
 }
 
 /**

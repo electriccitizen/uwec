@@ -8,6 +8,7 @@ dependencies:
     - block_content.type.reusable_widgets
     - block_content.type.social_media_links
     - block_content.type.structured_section
+    - filter.format.short_text_formatted_html
     - media.type.document
     - media.type.image
     - media.type.remote_video
@@ -47,6 +48,7 @@ dependencies:
     - domain_access
     - domain_alias
     - entity_usage
+    - filter
     - media
     - menu_admin_per_menu
     - menu_link_attributes
@@ -401,6 +403,7 @@ permissions:
   - 'use non_moderated transition archive'
   - 'use non_moderated transition create_new_draft'
   - 'use non_moderated transition publish'
+  - 'use text format short_text_formatted_html'
   - 'use workbench access'
   - 'view academic_program revisions'
   - 'view all media revisions'

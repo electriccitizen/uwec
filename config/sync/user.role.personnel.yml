@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - filter.format.short_text_formatted_html
     - media.type.document
     - media.type.image
     - node.type.bios
@@ -12,6 +13,7 @@ dependencies:
     - domain
     - domain_access
     - domain_alias
+    - filter
     - media
     - node
     - system
@@ -35,6 +37,7 @@ permissions:
   - 'use domain nav block'
   - 'use non_moderated transition create_new_draft'
   - 'use non_moderated transition publish'
+  - 'use text format short_text_formatted_html'
   - 'view assigned domains'
   - 'view bios revisions'
   - 'view domain aliases'

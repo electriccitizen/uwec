@@ -1,0 +1,24 @@
+uuid: cdb429c3-955c-4516-a6a4-63363b3ffb0d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_formatted_title
+    - filter.format.short_text_formatted_html
+    - node.type.page
+  module:
+    - text
+id: node.page.field_formatted_title
+field_name: field_formatted_title
+entity_type: node
+bundle: page
+label: 'Formatted Title'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - short_text_formatted_html
+field_type: text_long

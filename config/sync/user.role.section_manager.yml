@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - filter.format.short_text_formatted_html
     - media.type.document
     - media.type.image
     - media.type.remote_video
@@ -20,6 +21,7 @@ dependencies:
     - domain
     - domain_access
     - domain_alias
+    - filter
     - media
     - node
     - responsive_preview
@@ -97,6 +99,7 @@ permissions:
   - 'use non_moderated transition archive'
   - 'use non_moderated transition create_new_draft'
   - 'use non_moderated transition publish'
+  - 'use text format short_text_formatted_html'
   - 'use workbench access'
   - 'view all revisions'
   - 'view any unpublished content'
