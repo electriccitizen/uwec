@@ -23,7 +23,6 @@ dependencies:
     - layout_builder_restrictions
     - layout_discovery
     - menu_block
-    - system
     - text
     - user
   theme:
@@ -39,108 +38,12 @@ third_party_settings:
           label: ''
           context_mapping: {  }
         components:
-          87ff3b06-0381-47f3-b30d-0b8168ef1dd5:
-            uuid: 87ff3b06-0381-47f3-b30d-0b8168ef1dd5
-            region: content
-            configuration:
-              id: system_breadcrumb_block
-              label: Breadcrumbs
-              label_display: '0'
-              provider: system
-              context_mapping: {  }
-            weight: 1
-            additional: {  }
-          614fae1f-1237-4074-b89a-13d7ad7a3238:
-            uuid: 614fae1f-1237-4074-b89a-13d7ad7a3238
-            region: content
-            configuration:
-              id: 'field_block:node:page:title'
-              label: Title
-              label_display: '0'
-              provider: layout_builder
-              context_mapping:
-                entity: layout_builder.entity
-                view_mode: view_mode
-              formatter:
-                type: string
-                label: hidden
-                settings:
-                  link_to_entity: false
-                third_party_settings: {  }
-            weight: 2
-            additional: {  }
-          b7b7e9c4-781b-42a6-be8f-ccf4b34e3d04:
-            uuid: b7b7e9c4-781b-42a6-be8f-ccf4b34e3d04
-            region: content
-            configuration:
-              id: 'field_block:node:page:body'
-              label: Body
-              label_display: '0'
-              provider: layout_builder
-              context_mapping:
-                entity: layout_builder.entity
-                view_mode: view_mode
-              formatter:
-                type: text_default
-                label: hidden
-                settings: {  }
-                third_party_settings: {  }
-            weight: 5
-            additional: {  }
-          4fac4f50-1b9d-4666-bbc8-cc4aef624849:
-            uuid: 4fac4f50-1b9d-4666-bbc8-cc4aef624849
-            region: content
-            configuration:
-              id: 'field_block:node:page:field_hero'
-              label_display: '0'
-              context_mapping:
-                entity: layout_builder.entity
-              formatter:
-                type: entity_reference_revisions_entity_view
-                label: above
-                settings:
-                  view_mode: default
-                  link: ''
-                third_party_settings: {  }
-            weight: 6
-            additional: {  }
-          4830cede-1020-49b9-b161-036f3fe3bccd:
-            uuid: 4830cede-1020-49b9-b161-036f3fe3bccd
-            region: content
-            configuration:
-              id: 'field_block:node:page:field_formatted_title'
-              label_display: '0'
-              context_mapping:
-                entity: layout_builder.entity
-              formatter:
-                type: text_default
-                label: above
-                settings: {  }
-                third_party_settings: {  }
-            weight: 3
-            additional: {  }
-          f3426f5e-e4a8-4c94-9966-de82bca07bba:
-            uuid: f3426f5e-e4a8-4c94-9966-de82bca07bba
-            region: content
-            configuration:
-              id: 'field_block:node:page:field_subtitle'
-              label_display: '0'
-              context_mapping:
-                entity: layout_builder.entity
-              formatter:
-                type: string
-                label: above
-                settings:
-                  link_to_entity: false
-                third_party_settings: {  }
-            weight: 4
-            additional: {  }
           12718601-ec07-47b3-9156-5690205e08e8:
             uuid: 12718601-ec07-47b3-9156-5690205e08e8
             region: content
             configuration:
               id: 'field_block:node:page:nid'
-              label: ID
+              label: 'Placeholder for header/hero'
               label_display: '0'
               provider: layout_builder
               context_mapping:

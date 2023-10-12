@@ -10,6 +10,7 @@ dependencies:
     - field.field.node.page.field_editorial_sections
     - field.field.node.page.field_formatted_title
     - field.field.node.page.field_hero
+    - field.field.node.page.field_hide_nav
     - field.field.node.page.field_metatags
     - field.field.node.page.field_page_family
     - field.field.node.page.field_paragraphs
@@ -134,9 +135,16 @@ content:
         collapse_edit_all: '0'
         duplicate: '0'
     third_party_settings: {  }
+  field_hide_nav:
+    type: boolean_checkbox
+    weight: 3
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
   field_metatags:
     type: metatag_firehose
-    weight: 3
+    weight: 4
     region: content
     settings:
       sidebar: true

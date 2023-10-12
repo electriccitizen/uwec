@@ -1,0 +1,21 @@
+uuid: a0e52fc9-a69e-48b5-b4f7-7528de58c953
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_hide_nav
+    - node.type.page
+id: node.page.field_hide_nav
+field_name: field_hide_nav
+entity_type: node
+bundle: page
+label: 'Hide sidebar nav & breadcrumbs'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean
