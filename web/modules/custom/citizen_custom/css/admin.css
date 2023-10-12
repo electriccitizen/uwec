@@ -235,6 +235,13 @@ button[disabled]:hover,button.disabled:hover{
 .field--name-field-geolocation fieldset.geolocation-widget-input,.field--name-field-address #edit-field-address-0-address-country-code{
 	display: none;
 }
-#edit-field-headline-text-formatted-wrapper .ck-editor__main > :is(.ck-editor__editable) {
+#edit-field-formatted-title-wrapper .ck-editor__main > :is(.ck-editor__editable) {
 	min-height: 3.4rem;
+}
+.role-editor .field--name-field-formatted-title .ck.ck-editor__top,
+.role-marketing_editor .field--name-field-formatted-title .ck.ck-editor__top,
+.role-section_manager .field--name-field-formatted-title .ck.ck-editor__top,
+.role-site_manager .field--name-field-formatted-title .ck.ck-editor__top,
+.role-personnel .field--name-field-formatted-title .ck.ck-editor__top{
+	display: none;
 }

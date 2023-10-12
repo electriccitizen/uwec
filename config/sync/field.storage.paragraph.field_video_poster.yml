@@ -1,0 +1,20 @@
+uuid: 44d742ed-50fe-4878-8151-ee77075d448a
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+    - paragraphs
+id: paragraph.field_video_poster
+field_name: field_video_poster
+entity_type: paragraph
+type: entity_reference
+settings:
+  target_type: media
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

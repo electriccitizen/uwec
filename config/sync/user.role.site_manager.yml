@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - filter.format.limited_html
+    - filter.format.short_text_formatted_html
     - media.type.document
     - media.type.image
     - media.type.remote_video
@@ -109,6 +110,7 @@ permissions:
   - 'use non_moderated transition create_new_draft'
   - 'use non_moderated transition publish'
   - 'use text format limited_html'
+  - 'use text format short_text_formatted_html'
   - 'use workbench access'
   - 'view all revisions'
   - 'view any unpublished content'
