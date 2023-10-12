@@ -6,6 +6,27 @@
 
 /* PAGE CONTENT */
 .node-page{
+	.node-intro-simple{
+		position: absolute;
+		top: 0;
+		left: -$siteMarginMobile;
+		width: 100vw;
+		z-index: -1;
+		height: 800px;
+		overflow: hidden;
+		&:after{
+			content: '';
+			display: block;
+			position: absolute;
+			bottom: calc(100% - 400px);
+			left: -50vw;
+			height: 1000px;
+			width: 200vw;
+			z-index: -2;
+			background: $skyBlue;
+			@include rotate(16);
+		}
+	}//end intro simple
 	.layout--twocol-sideleft{
 		max-width: 100%;
 		.layout__region--content{

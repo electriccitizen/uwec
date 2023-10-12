@@ -8,6 +8,9 @@
 	width: 300px;
 	transform-origin: 0;
 	transform: translateZ(2px) scale(0.75);
+	.hide-nav &{
+		display: none;
+	}
 	@include onlyMobile{
 		margin-bottom: $spaceLg;
 	}
