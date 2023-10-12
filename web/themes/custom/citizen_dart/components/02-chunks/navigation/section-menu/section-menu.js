@@ -42,6 +42,11 @@ Drupal.behaviors.sectionMenu = {
           }
 				});
 			});
+
+			//remove nav region if nav is hidden
+			if($('body.hide-nav').length){
+				$('#node-section-2 .layout--twocol-sideleft .layout__region--first').remove();
+			}
 		});
 	}
 }//end section menu function

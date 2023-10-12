@@ -28,9 +28,9 @@ function citizen_dart_preprocess_html(&$variables) {
     } else {
       $variables['attributes']['class'][] = 'unpublished';
     }
-    //check for main image
-    if (!empty($node->field_image[0])){
-      $variables['attributes']['class'][] = 'has-main-image';
+    //check for hide breadcrumbs/nav
+    if ($node->field_hide_nav[0]->value == '1'){
+      $variables['attributes']['class'][] = 'hide-nav';
     }
   }
 }
