@@ -5,7 +5,7 @@
 @use '../../../00-base/base' as *;
 
 .site-header {
-	body:not(.hero-full_image):not(.node-type-news) &{
+	body:not(.hero-full_image):not(.node-type-news):not(.hero-video) &{
 		background: $headerBack;
 	}
 	padding: 20px $siteMarginMobile;

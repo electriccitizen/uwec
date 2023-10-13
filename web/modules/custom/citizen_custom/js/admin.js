@@ -63,7 +63,7 @@
   ----------------------- */
   Drupal.behaviors.previewLabel = {
     attach: function (context, settings) {
-    	$(once('isParaPreview', '.paragraph--view-mode--preview', context)).each(function(){
+    	$(once('isParaPreview', '.lp-builder .paragraph--view-mode--preview', context)).each(function(){
     		var label = $(this).attr('data-type') + ' widget';
     		$(this).prepend('<div class="para-preview-label">' + label.replace(/_/g, ' ') + '</div>');
     	});
