@@ -80,7 +80,7 @@
 				color: $white;
 			}
 		}
-		.hero-image &{
+		.hero-image &,.hero-background_image &{
 			@include safeFlex(row,wrap,start,start);
 			background: $skyBlue;
 		}
@@ -145,7 +145,7 @@
 				}
 			}
 			//when image right or background hero{
-			.hero-image &,.hero-background &{
+			.hero-image &,.hero-background_image &{
 				@include desk{
 					width: 50%;
 				}
@@ -183,6 +183,9 @@
 					@include fullBack($transMidBlue);
 					z-index: 0;
 				}
+			}
+			.hero-background_image &{
+				@include halfTone;
 			}
 		}//end hero background
 		.swirl-pattern{

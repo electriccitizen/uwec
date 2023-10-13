@@ -350,6 +350,31 @@
 	clip-path: polygon(0 0, 100% 0, 100% 43%, 0 100%);
 }
 
+@mixin halfTone{
+	&:before{
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		z-index: 1;
+		background: rgba(2,83,247,0.8);
+	}
+	&:after{
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		z-index: 1;
+		background-image: radial-gradient(#063492 30%, transparent 40%);
+		opacity: .2;
+	  background-size: 6px 6px;
+	}
+}
+
 /* ANIMATION MIXINS
 --------------------- */
 @mixin animation($animate...) {
