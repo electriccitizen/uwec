@@ -4,6 +4,22 @@
 
 @use '../../../00-base/base' as *;
 
+@mixin centeredHeaderText{
+	margin-top: 80px;
+	position: relative;
+	z-index: 1;
+	max-width: 1000px;
+	@include auto;
+	padding: 60px $siteMarginMobile;
+	.field.title{
+		margin-bottom: 60px;
+	}
+	.field:not(.title){
+		max-width: $textMax;
+		@include auto;
+	}
+}
+
 /* PAGE CONTENT */
 .node-page{
 	.node-intro-simple{
@@ -36,12 +52,194 @@
 			}
 		}
 	}
+	//page header section
 	#node-section-1{
 		transform-style: preserve-3d !important;
+		.hero-video &,.hero-full_image &,.hero-background &{
+			position: static;
+		}
 		*{
 			transform-style: unset;
 		}
 	}
+	//hero setups
+	.page-header-wrapper{
+		position: relative;
+		z-index: 0;
+		margin-top: -160px;
+		margin-left: -$siteMarginMobile;
+		width: 100vw;
+		min-height: 100vh;
+		padding-top: 160px;
+		@include desk{
+			margin-top: -114px;
+			padding-top: 114px;
+		}
+		.breadcrumb{
+			a{
+				color: $white;
+			}
+		}
+		.hero-image &,.hero-background_image &{
+			@include safeFlex(row,wrap,start,start);
+			background: $skyBlue;
+		}
+		.hero-pattern &{
+			background: $midBlue;
+			&:before{
+				content: '';
+				display: block;
+				position: absolute;
+				bottom: 30vh;
+				left: -50vw;
+				width: 200vw;
+				height: 500vh;
+				z-index: -1;
+				background: $skyBlue;
+				@include rotate(-16);
+			}
+		}
+		.page-header-text{
+			position: relative;
+			z-index: 10;
+			//when a video hero
+			.hero-video &{
+				width: 100%;
+				height: 100%;
+				@include safeFlex(column,nowrap,center,center);
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				@include translate(-50%,-50%);
+				h1.formatted-title{
+					color: $white;
+					font-size: 48px;
+					font-style: italic;
+					strong{
+						font-style: normal;
+					}
+				}
+			}
+			//when no hero
+			.hero-none &{
+				.page-header-text-inner{
+					@include centeredHeaderText;
+					&:after{
+						content: '';
+						display: block;
+						position: absolute;
+						top: 0;
+						left: 0;
+						width: 100%;
+						height: 400px;
+						z-index: -1;
+						background: $siteBack;
+					}//end after
+				}//end page header text inner
+			}//end no hero
+			// when pattern hero
+			.hero-pattern &{
+				@include centeredHeaderText;
+				h1.formatted-title{
+					color: $white;
+				}
+			}
+			//when image right or background hero{
+			.hero-image &,.hero-background_image &{
+				@include desk{
+					width: 50%;
+				}
+				.field{
+					color: $white;
+				}
+			}
+			//when full image
+			.hero-full_image &{
+				height: calc(100vh - 114px);
+				max-width: 1000px;
+				@include auto;
+				@include safeFlex(column,nowrap,end,start);
+				padding-bottom: 100px;
+				h1.formatted-title{
+					color: $white;
+				}
+			}
+		}//end page header text
+		.hero-background{
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			z-index: -1;
+			& *{
+				height: 100%;
+			}
+			img{
+				object-fit: cover;
+			}
+			.hero-video &{
+				&:before{
+					@include fullBack($transMidBlue);
+					z-index: 0;
+				}
+			}
+			.hero-background_image &{
+				@include halfTone;
+			}
+		}//end hero background
+		.swirl-pattern{
+			position: absolute;
+			right: 0;
+			top: 0;
+		}
+		.video-hero{
+			position: absolute;
+		  top: 0;
+		  left: 0;
+		  right: 0;
+		  bottom: 0;
+		  display: flex;
+		  align-items: center;
+			  justify-content: center;
+			.video-hero-mask{
+				width: 912px;
+				height: 835px;
+				position: relative;
+				clip-path: polygon(84% 8%, 100% 51%, 15% 92%, 0 46%);
+			}
+			.video-mask-inner{
+				position: absolute;
+			  top: 0;
+			  left: 0;
+			  right: 0;
+			  bottom: 0;
+			  display: flex;
+			  align-items: center;
+			  justify-content: center;
+			}
+		}//end hero video
+		.image-right{
+			@include desk{
+				width: 50%;
+				order: 2;
+			}
+		}
+		.field-links,.scroll-link{
+			position: absolute;
+			bottom: 100px;
+			right: 100px;
+			z-index: 10;
+			a{
+				color: $white;
+				.link-arrow{
+					display: block;
+					text-indent: -300vw;
+				}
+			}
+		}
+	}//end page-header-wrapper
+
 	.node-section:not(#node-section-1){
 		position: static;
 	}
@@ -50,4 +248,5 @@
 			transform-style: unset;
 		}
 	}
+	
 }//end basic page

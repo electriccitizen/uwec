@@ -29,8 +29,14 @@ function citizen_dart_preprocess_html(&$variables) {
       $variables['attributes']['class'][] = 'unpublished';
     }
     //check for hide breadcrumbs/nav
-    if ($node->field_hide_nav[0]->value == '1'){
+    if (($node->field_hide_nav) && ($node->field_hide_nav[0]->value == '1')){
       $variables['attributes']['class'][] = 'hide-nav';
+    }
+    //add global hero class
+    if (($node->field_hero) && ($node->field_hero[0])) {
+    	$variables['attributes']['class'][] = 'hero-' . $node->field_hero[0]->entity->field_hero_type[0]->value;
+    }else{
+    	$variables['attributes']['class'][] = 'hero-none';
     }
   }
 }

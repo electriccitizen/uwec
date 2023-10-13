@@ -22,6 +22,15 @@
 	}
 }//end field
 
+/* FORMATTED TITLE
+-------------------- */
+.formatted-title,.field-formatted-title{
+	font-weight: $regular;
+	strong{
+		font-weight: $heavy;
+	}
+}
+
 /* SOCIAL MEDIA LINKS FIELD
 -------------------- */
 .field-platforms{

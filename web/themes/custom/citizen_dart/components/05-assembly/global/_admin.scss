@@ -63,6 +63,7 @@
 	max-width: $contentStop;
 	padding: $spaceMd 0 $spaceSm;
 	position: relative;
+	z-index: 999;
 	@include auto;
 	body:not(.logged-in) &{
 		display: none;

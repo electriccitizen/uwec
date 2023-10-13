@@ -5,7 +5,9 @@
 @use '../../../00-base/base' as *;
 
 .site-header {
-	background: $headerBack;
+	body:not(.hero-full_image):not(.node-type-news):not(.hero-video) &{
+		background: $headerBack;
+	}
 	padding: 20px $siteMarginMobile;
 	.dialog-off-canvas-main-canvas &{
 		transform-style: unset;
