@@ -113,7 +113,7 @@
 				@include translate(-50%,-50%);
 				h1.formatted-title{
 					color: $white;
-					font-size: 48px;
+					font-size: 96px;
 					font-style: italic;
 					strong{
 						font-style: normal;
@@ -181,7 +181,7 @@
 			.hero-video &{
 				&:before{
 					@include fullBack($transMidBlue);
-					z-index: 0;
+					z-index: 1;
 				}
 			}
 			.hero-background_image &{
