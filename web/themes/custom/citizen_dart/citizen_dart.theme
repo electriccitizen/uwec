@@ -35,6 +35,8 @@ function citizen_dart_preprocess_html(&$variables) {
     //add global hero class
     if (($node->field_hero) && ($node->field_hero[0])) {
     	$variables['attributes']['class'][] = 'hero-' . $node->field_hero[0]->entity->field_hero_type[0]->value;
+    }else{
+    	$variables['attributes']['class'][] = 'hero-none';
     }
   }
 }

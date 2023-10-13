@@ -233,6 +233,28 @@
 			</div>
 		{% endif %}
 
+		{# set an area with breadcrumbs and header text content #}
+		<div class="page-header-text">
+			{% if element['#object'].field_hide_nav.0.value == '0' %}
+				{{ drupal_block('system_breadcrumb_block') }}
+			{% endif %}
+			<div class="page-header-text-inner">
+				<div class="field title string">
+					<h1 class="page-title formatted-title">{{ formattedTitle|render|striptags('<strong>')|trim|raw }}</h1>
+				</div>
+				{% if element['#object'].field_subtitle.0 %}
+					<div class="field field-subtitle string">
+						{{ element['#object'].field_subtitle.0.value }}
+					</div>
+				{% endif %}
+				{% if element['#object'].body.0 %}
+					<div class="field field-body text-long">
+						{{ bodyText }}
+					</div>
+				{% endif %}
+			</div>
+		</div>
+
 		{# render the video and arrow link if its a video hero #}
 		{% if element['#object'].field_hero.0.entity.field_hero_type.0.value == 
 		'video' %}
@@ -267,28 +289,6 @@
 				</div>
 			{% endif %}
 		{% endif %}
-
-		{# set an area with breadcrumbs and header text content #}
-		<div class="page-header-text">
-			{% if element['#object'].field_hide_nav.0.value == '0' %}
-				{{ drupal_block('system_breadcrumb_block') }}
-			{% endif %}
-			<div class="page-header-text-inner">
-				<div class="field title string">
-					<h1 class="page-title formatted-title">{{ formattedTitle|render|striptags('<strong>')|trim|raw }}</h1>
-				</div>
-				{% if element['#object'].field_subtitle.0 %}
-					<div class="field field-subtitle string">
-						{{ element['#object'].field_subtitle.0.value }}
-					</div>
-				{% endif %}
-				{% if element['#object'].body.0 %}
-					<div class="field field-body text-long">
-						{{ bodyText }}
-					</div>
-				{% endif %}
-			</div>
-		</div>
 
 	</div>{# end page header wrapper #}
 
