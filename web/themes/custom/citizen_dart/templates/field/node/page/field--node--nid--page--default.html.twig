@@ -47,28 +47,6 @@
 			{% endif %}
 		{% endif %}
 
-		{# set an area with breadcrumbs and header text content #}
-		<div class="page-header-text">
-			{% if element['#object'].field_hide_nav.0.value == '0' %}
-				{{ drupal_block('system_breadcrumb_block') }}
-			{% endif %}
-			<div class="page-header-text-inner">
-				<div class="field title string">
-					<h1 class="page-title formatted-title">{{ formattedTitle|render|striptags('<strong>')|trim|raw }}</h1>
-				</div>
-				{% if element['#object'].field_subtitle.0 %}
-					<div class="field field-subtitle string">
-						{{ element['#object'].field_subtitle.0.value }}
-					</div>
-				{% endif %}
-				{% if element['#object'].body.0 %}
-					<div class="field field-body text-long">
-						{{ bodyText }}
-					</div>
-				{% endif %}
-			</div>
-		</div>
-
 		{# add a background/full image for certain heros #}
 		{% if element['#object'].field_hero.0.entity.field_hero_type.0.value == 
 		'video' or element['#object'].field_hero.0.entity.field_hero_type.0.value == 'background_image' or element['#object'].field_hero.0.entity.field_hero_type.0.value == 'full_image' %}
@@ -259,8 +237,8 @@
 		{% if element['#object'].field_hero.0.entity.field_hero_type.0.value == 
 		'video' %}
 			{% if element['#object'].field_hero.0.entity.field_hero_video.0 %}
-				<div class="hero-video">
-					<div class="hero-video-mask">
+				<div class="video-hero">
+					<div class="video-hero-mask">
 						<div class="video-mask-inner">
 							<video playsinline autoplay muted loop {% if element['#object'].field_hero.0.entity.field_video_poster.0 %}poster="{{ element['#object'].field_hero.0.entity.field_video_poster.0.entity.field_media_image.0.entity.uri.0.value|replace({'public://':'/sites/default/files/'}) }}{% endif %}">
 								{% for video in element['#object'].field_hero.0.entity.field_hero_video %}
@@ -289,6 +267,28 @@
 				</div>
 			{% endif %}
 		{% endif %}
+
+		{# set an area with breadcrumbs and header text content #}
+		<div class="page-header-text">
+			{% if element['#object'].field_hide_nav.0.value == '0' %}
+				{{ drupal_block('system_breadcrumb_block') }}
+			{% endif %}
+			<div class="page-header-text-inner">
+				<div class="field title string">
+					<h1 class="page-title formatted-title">{{ formattedTitle|render|striptags('<strong>')|trim|raw }}</h1>
+				</div>
+				{% if element['#object'].field_subtitle.0 %}
+					<div class="field field-subtitle string">
+						{{ element['#object'].field_subtitle.0.value }}
+					</div>
+				{% endif %}
+				{% if element['#object'].body.0 %}
+					<div class="field field-body text-long">
+						{{ bodyText }}
+					</div>
+				{% endif %}
+			</div>
+		</div>
 
 	</div>{# end page header wrapper #}
 

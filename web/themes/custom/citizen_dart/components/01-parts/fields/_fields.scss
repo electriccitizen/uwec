@@ -26,8 +26,10 @@
 -------------------- */
 .formatted-title,.field-formatted-title{
 	font-weight: $regular;
+	font-style: italic;
 	strong{
 		font-weight: $heavy;
+		font-style: normal;
 	}
 }
 
