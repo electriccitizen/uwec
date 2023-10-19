@@ -1,57 +1,44 @@
 (function ($, Drupal, once) {
 
-  /* CONTENT PLACER PARAGRAPH SELECT LIST FUNCTIONALITY
+  /* LIST WIDGETS FIELD CONTROLS
   ----------------------- */
-  Drupal.behaviors.contentPlacer = {
+  Drupal.behaviors.listWidget = {
     attach: function (context, settings) {
-    	$(once('isContentPlacer', '.field--name-field-content-type .js-form-type-select', context)).each(function(){
-        //hide fields after the content type field
-        $('.field--name-field-content-type').nextAll('.field--widget-options-select').hide();
-        $('.field--name-field-limit-list').hide();
+    	$(once('isListWidget', '.field--name-field-list-type .js-form-type-select', context)).each(function(){
+ 
+ 				let manualFields = $('.field--name-field-manual-select,.field--name-field-testimonial,.field--name-field-facts,.field--name-field-profiles');
+
+        let autoFields = $('.field--name-field-placement-tag,.field--name-field-page-family,.field--name-field-type,.field--name-field-program,.field--name-field-snapshot-type,.field--name-field-limit-list,.field--name-field-randomize');
+
+        //hide manual field by default
+        manualFields.hide();
 
         $(document).ajaxComplete(function () {
-        // detect the chosen view and show the proper display list field
-          $('.field--name-field-content-type .js-form-type-select').each(function () {
+        // detect the chosen list type and show the proper select or manual field options
+          $('.field--name-field-list-type .js-form-type-select').each(function () {
             //when the content type select is changed
             $(this).find('select').change(function () {
               //get the option
               var chosen = $(this).find("option:selected").text().toLowerCase().replace(/_/g, '-');
-              //hide any options that are showing
-              $('.field--name-field-content-type').nextAll('.field--widget-options-select').hide();
-              //and show the list type field for the selected content type
-              $('.field--name-field-content-type').siblings('.field--name-field-' + chosen + '-list-type').show();
-              $('.field--name-field-limit-list').hide();
-            });
-          });
-          // for each selected display show or hide the categories and limit list fields if a custom field is used
-          $( "div[class*='-list-type']").each(function () {
-            //when one of the list type fields selects are changed
-            $(this).find('select').change(function () {
-              //get the content type again
-              var chosen = $('.field--name-field-content-type select').find("option:selected").text().toLowerCase().replace(/_/g, '-');
-              //get the list type
-              var typeChosen = $(this).find("option:selected").val().replace(/_/g, '-');
-
-              //if the list type is custom, show the category field for that content type
-              if(typeChosen == 'custom') {
-                $('.field--name-field-content-type').siblings('.field--name-field-' + chosen + '-category').show();
-                $('.field--name-field-limit-list').show();
-              } else {
-                $('.field--name-field-content-type').siblings('.field--name-field-' + chosen + '-category').hide();
-                $('.field--name-field-limit-list').hide();
+              
+              if (chosen == 'auto'){
+              	manualFields.hide();
+              	autoFields.show();
+              }else{
+              	manualFields.show();
+              	autoFields.hide();
               }
             });
           });
-          //when an existing content placer is opened, if the content type select has a value, show the appropriate field and if a custom display is selected show those related fields
-          if($('.field--name-field-content-type select').val()){
-            var chosen = $('.field--name-field-content-type select').find("option:selected").text().toLowerCase().replace(/_/g, '-');
-            $('.field--name-field-content-type').siblings('.field--name-field-' + chosen + '-list-type').show();
-            if($('.field--name-field-' + chosen + '-list-type select').val()){
-              var typeChosen = $('.field--name-field-' + chosen + '-list-type select').val().replace(/_/g, '-');
-            }
-            if(typeChosen == 'custom') {
-              $('.field--name-field-content-type').siblings('.field--name-field-' + chosen + '-category').show();
-              $('.field--name-field-limit-list').show();
+          //when an existing content placer is opened, run the same checks
+          if($('.field--name-field-list-type select').val()){
+            var chosen = $('.field--name-field-list-type select').find("option:selected").text().toLowerCase().replace(/_/g, '-');
+            if (chosen == 'auto'){
+            	manualFields.hide();
+            	autoFields.show();
+            }else{
+            	manualFields.show();
+            	autoFields.hide();
             }
           }
         });
@@ -64,8 +51,10 @@
   Drupal.behaviors.previewLabel = {
     attach: function (context, settings) {
     	$(once('isParaPreview', '.lp-builder .paragraph--view-mode--preview', context)).each(function(){
-    		var label = $(this).attr('data-type') + ' widget';
-    		$(this).prepend('<div class="para-preview-label">' + label.replace(/_/g, ' ') + '</div>');
+    		var label = $(this).attr('data-type');
+    		if (typeof label !== 'undefined') {
+	    		$(this).prepend('<div class="para-preview-label">' + label.replace(/_/g, ' ') + ' widget</div>');
+	    	}
     	});
     }
   };

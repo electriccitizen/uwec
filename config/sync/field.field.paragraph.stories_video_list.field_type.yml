@@ -1,0 +1,29 @@
+uuid: 7dd1823f-b870-4715-9e0f-7e14d33b101e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_type
+    - paragraphs.paragraphs_type.stories_video_list
+    - taxonomy.vocabulary.story_types
+id: paragraph.stories_video_list.field_type
+field_name: field_type
+entity_type: paragraph
+bundle: stories_video_list
+label: 'By Type'
+description: '<strong>NOTE:</strong> This field will only return stories.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      story_types: story_types
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

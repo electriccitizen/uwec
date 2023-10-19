@@ -15,12 +15,22 @@
 					&:first-child{
 						width: 33.33%;
 					}
-					&:last-child{
+					&:last-child:not(:only-child){
 						width: 66.67%;
 					}
 				}
 			}
 		}//end views both
 	}//end views wrapper
+	.field-manual-select{
+		@include safeFlex(row,wrap,start,start);
+		@include bleed(padding,24px);
+		& > div{
+			width: 100%;
+			@include tab{
+				width: 33.33%;
+			}
+		}
+	}
 }//end stories video list widget
 

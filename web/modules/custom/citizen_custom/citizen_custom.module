@@ -250,6 +250,22 @@ function citizen_custom_views_pre_view($view, $display_id, &$args) {
             unset($filters['field_page_families_target_id']);
           }
         }//end page families filter
+        if($paragraph->field_type[0]){
+          //make an array out of the type set in the paragraph
+          $types = [];
+          foreach ($paragraph->field_type as $delta => $type) {
+            $types[] = $type->target_id;
+          }
+          // replace the story_type_tid filter with the paragraph type (need to check if the filter is there first since videos don't have them)
+          if (isset($filters['field_story_type_target_id'])) {
+	          $filters['field_story_type_target_id']['value'] = $types;
+	        }
+        } else {
+          //if the type field is not used, then unset the type filter
+          if (isset($filters['field_story_type_target_id'])) {
+            unset($filters['field_story_type_target_id']);
+          }
+        }//end filter
         $view->display_handler->setOption('filters', $filters);
       }
     }
