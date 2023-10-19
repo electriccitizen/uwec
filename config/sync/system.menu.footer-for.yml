@@ -3,6 +3,6 @@ langcode: en
 status: true
 dependencies: {  }
 id: footer-for
-label: 'Footer For'
-description: "'For' links in footer."
+label: 'Footer Audience'
+description: 'Audience links in footer.'
 locked: false
