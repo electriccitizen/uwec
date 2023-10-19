@@ -245,3 +245,7 @@ button[disabled]:hover,button.disabled:hover{
 .role-personnel .field--name-field-formatted-title .ck.ck-editor__top{
 	display: none;
 }
+
+body:not(.role-super-user):not(.role-administrator):not(.role-site_admin) .field--name-field-primary-editor{
+	display: none;
+}

@@ -9,6 +9,7 @@ dependencies:
     - field.field.user.user.field_domain_all_affiliates
     - field.field.user.user.field_first_name
     - field.field.user.user.field_last_name
+    - field.field.user.user.field_primary_editor
     - field.field.user.user.field_user_image
   module:
     - layout_builder
@@ -22,7 +23,17 @@ third_party_settings:
         layout_id: layout_onecol
         layout_settings:
           label: ''
-        components: {  }
+        components:
+          e4f9d131-5998-45ef-92c2-e0789ece10e1:
+            uuid: e4f9d131-5998-45ef-92c2-e0789ece10e1
+            region: content
+            configuration:
+              id: 'extra_field_block:user:user:masquerade'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+            weight: 0
+            additional: {  }
         third_party_settings: {  }
 _core:
   default_config_hash: pf4BaAGXeNFxFBfLAElX844ef1Iww5_pUsF6cjuT1T4
@@ -30,7 +41,12 @@ id: user.user.compact
 targetEntityType: user
 bundle: user
 mode: compact
-content: {  }
+content:
+  masquerade:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 50
+    region: content
 hidden:
   field_authored_placeholder: true
   field_domain_access: true
@@ -38,6 +54,7 @@ hidden:
   field_domain_all_affiliates: true
   field_first_name: true
   field_last_name: true
+  field_primary_editor: true
   field_user_image: true
   member_for: true
   search_api_excerpt: true
