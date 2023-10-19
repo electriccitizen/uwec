@@ -6,8 +6,10 @@
 	margin-top: -312px;
 	margin-left: -24px;
 	width: 300px;
-	transform-origin: 0;
-	transform: translateZ(2px) scale(0.75);
+	body:not(.logged-in) &{
+		transform-origin: 0;
+		transform: translateZ(2px) scale(0.75);
+	}
 	.hide-nav &{
 		display: none;
 	}
