@@ -18,7 +18,6 @@ dependencies:
     - workflows.workflow.non_moderated
   module:
     - addanother
-    - citizen_custom
     - content_moderation
     - domain
     - domain_access
@@ -73,7 +72,6 @@ permissions:
   - 'edit any landing_page content'
   - 'edit any page content'
   - 'edit any remote_video media'
-  - 'edit layout paragraphs plugin config'
   - 'edit own bios content'
   - 'edit own college content'
   - 'edit own contact content'
