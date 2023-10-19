@@ -60,6 +60,9 @@ function citizen_custom_preprocess_html(&$variables){
     if($role != 'authenticated'){
       $variables['attributes']['class'][] = 'role-' . $role;
     }
+    if($user->id() == '1'){
+    	$variables['attributes']['class'][] = 'role-super-user';
+    }
   }
 }
 

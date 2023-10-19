@@ -1,0 +1,22 @@
+uuid: 3190b027-f739-4a12-b688-a8ab19883e19
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_primary_editor
+  module:
+    - user
+id: user.user.field_primary_editor
+field_name: field_primary_editor
+entity_type: user
+bundle: user
+label: 'Primary Editor'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean
