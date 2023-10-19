@@ -4,3 +4,15 @@
 
 @use '../../00-base/base' as *;
 
+/* NET PRICE CALCULATOR
+---------------------------- */
+.net-price-wrapper{
+	max-width: $textMax;
+	@include auto;
+	iframe{
+		min-height: 900px;
+		@include tab{
+			min-height: 616px;
+		}
+	}
+}//end net price calculator
