@@ -1,21 +1,19 @@
-uuid: 06a921ba-e991-4fbe-a82f-91ce84464fe7
+uuid: 4076d687-cde9-45fe-8628-e72b3e1ebd6b
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_category
+    - field.storage.node.field_story_type
     - node.type.news
     - taxonomy.vocabulary.story_types
-_core:
-  default_config_hash: FF5e7SdU8ekrsb2gQlmHK-JdlplWMugXyCHy0zd_-lU
-id: node.news.field_category
-field_name: field_category
+id: node.news.field_story_type
+field_name: field_story_type
 entity_type: node
 bundle: news
-label: Category
+label: 'Story Type'
 description: ''
-required: false
-translatable: true
+required: true
+translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
@@ -24,7 +22,7 @@ settings:
     target_bundles:
       story_types: story_types
     sort:
-      field: _none
+      field: name
       direction: asc
     auto_create: false
     auto_create_bundle: ''

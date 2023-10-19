@@ -43,25 +43,28 @@
 		<div class="paragraph paragraph--type--stories-video-list custom-views-list" data-quickedit-entity-id="paragraph/{{ paragraph.id.value }}">
 				{{ content.field_widget_title }}
 
-				{% if drupal_view('video_cards','recent_three', paragraph.id.value)|render|striptags|trim|length > 0 %}
-					<div class="views-wrapper views-both">
-						{{ drupal_view('video_cards','recent_three', paragraph.id.value) }}
-						{% if drupal_view('news','recent_two', paragraph.id.value)|render|striptags|trim|length > 0 %}
-							{{ drupal_view('news','recent_two', paragraph.id.value) }}
-						{% endif %}
-					</div>
+				{% if content.field_list_type.0['#markup'] == 'auto' %}
+					{% if drupal_view('video_cards','recent_three', paragraph.id.value)|render|striptags|trim|length > 0 and not content.field_type.0 %}
+						<div class="views-wrapper views-both">
+							{{ drupal_view('video_cards','recent_three', paragraph.id.value) }}
+							{% if drupal_view('news','recent_two', paragraph.id.value)|render|striptags|trim|length > 0 %}
+								{{ drupal_view('news','recent_two', paragraph.id.value) }}
+							{% endif %}
+						</div>
+					{% else %}
+						<div class="views-wrapper views-single">
+							{% if drupal_view('news','recent_three', paragraph.id.value)|render|striptags|trim|length > 0 %}
+								{{ drupal_view('news','recent_three', paragraph.id.value) }}
+							{% endif %}
+						</div>
+					{% endif %}
 				{% else %}
-					<div class="views-wrapper views-single">
-						{% if drupal_view('news','recent_three', paragraph.id.value)|render|striptags|trim|length > 0 %}
-							{{ drupal_view('news','recent_three', paragraph.id.value) }}
-						{% endif %}
-					</div>
+					{{ content.field_manual_select }}
 				{% endif %}
 				
-				{{ content.field_link }}
 		</div>
 	{% endif %}
-{# if no idea because the node has not yet been saved, spit out a preview message #}
+{# if no id because the node has not yet been saved, spit out a preview message #}
 {% else %}
 	<p><strong>Content placer widgets are not available in preview until the node is saved after they have been added.</strong></p>
 {% endif %}
