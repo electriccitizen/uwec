@@ -4,15 +4,15 @@
 ------------------------------------ */
 Drupal.behaviors.userLogin = {
 	attach: function (context, settings) {
-		$(once('showPass', '#user-login-form', context)).each(function(){
+		$(once('showPass', '#user-login-form,#user-register-form', context)).each(function(){
       $('.show-password').click(function(e){
         e.preventDefault();
         if($(this).is('.show')){
           $(this).removeClass('show').text('Show');
-          $('#edit-pass').attr('type', 'password');
+          $('#edit-pass,#edit-pass-pass1,#edit-pass-pass2').attr('type', 'password');
         }else{
           $(this).addClass('show').text('Hide');
-          $('#edit-pass').attr('type', 'text');
+          $('#edit-pass,#edit-pass-pass1,#edit-pass-pass2').attr('type', 'text');
         }
       });
 		});
