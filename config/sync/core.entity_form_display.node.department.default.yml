@@ -4,11 +4,13 @@ status: true
 dependencies:
   config:
     - field.field.node.department.body
+    - field.field.node.department.field_college
     - field.field.node.department.field_domain_access
     - field.field.node.department.field_domain_all_affiliates
     - field.field.node.department.field_domain_source
     - field.field.node.department.field_editorial_sections
     - field.field.node.department.field_metatags
+    - field.field.node.department.layout_builder__layout
     - node.type.department
     - workflows.workflow.non_moderated
   module:
@@ -52,6 +54,16 @@ content:
       summary_rows: 3
       placeholder: ''
       show_summary: false
+    third_party_settings: {  }
+  field_college:
+    type: entity_reference_autocomplete
+    weight: 1
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
   field_domain_access:
     type: options_buttons
@@ -115,6 +127,7 @@ content:
     third_party_settings: {  }
 hidden:
   created: true
+  layout_builder__layout: true
   promote: true
   publish_on: true
   publish_state: true

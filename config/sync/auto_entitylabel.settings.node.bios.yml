@@ -1,7 +1,7 @@
 _core:
   default_config_hash: gF-2RDqJjU9JF3bQBFeYgoshjpcXBb8pGSMRkkaRFpY
 status: 1
-pattern: '[node:field_first_name] [node:field_last_name]'
+pattern: '[node:field_username]'
 escape: false
 preserve_titles: false
 save: false

@@ -7,14 +7,14 @@ dependencies:
 _core:
   default_config_hash: gicNyrh86GvhPWq54RcD8IHdGapVTIXlKxuGuZlm7u0
 id: bios
-label: Bios
+label: Profiles
 type: 'canonical_entities:node'
-pattern: 'bios/[node:title]'
+pattern: 'profiles/[node:field_username]'
 selection_criteria:
-  1e19efa3-96e8-4998-8613-ae3f8e267d04:
+  bd7f044a-d8da-42f0-a2cf-71dcfc19f80a:
     id: 'entity_bundle:node'
     negate: false
-    uuid: 1e19efa3-96e8-4998-8613-ae3f8e267d04
+    uuid: bd7f044a-d8da-42f0-a2cf-71dcfc19f80a
     context_mapping:
       node: node
     bundles:
