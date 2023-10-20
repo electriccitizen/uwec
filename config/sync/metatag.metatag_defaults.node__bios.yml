@@ -1,0 +1,8 @@
+uuid: d0665699-bfff-4e7c-9a36-b24b8cfe4c68
+langcode: en
+status: true
+dependencies: {  }
+id: node__bios
+label: 'Content: Profile'
+tags:
+  title: '[node:field_first_name] [node:field_last_name] | [site:name]'
