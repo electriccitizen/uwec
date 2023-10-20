@@ -7,12 +7,12 @@ dependencies:
 id: department
 label: Department
 type: 'canonical_entities:node'
-pattern: '[node:menu-link:parents:join:/]/[node:title]'
+pattern: 'academics/[node:field_college]/departments-programs/[node:menu-link:parents:join:/]/[node:title]'
 selection_criteria:
-  d3e2235b-5618-4a82-a231-6c94406c0a80:
+  fe28fa4b-7ca8-4738-af83-1a9b7a7a2f32:
     id: 'entity_bundle:node'
     negate: false
-    uuid: d3e2235b-5618-4a82-a231-6c94406c0a80
+    uuid: fe28fa4b-7ca8-4738-af83-1a9b7a7a2f32
     context_mapping:
       node: node
     bundles:

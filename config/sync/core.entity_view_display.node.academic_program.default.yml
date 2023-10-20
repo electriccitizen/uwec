@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.academic_program.body
+    - field.field.node.academic_program.field_degree_level
     - field.field.node.academic_program.field_domain_access
     - field.field.node.academic_program.field_domain_all_affiliates
     - field.field.node.academic_program.field_domain_source
@@ -17,6 +18,7 @@ dependencies:
     - layout_builder_restrictions
     - layout_discovery
     - metatag
+    - options
     - text
     - user
 third_party_settings:
@@ -66,6 +68,21 @@ third_party_settings:
                 third_party_settings: {  }
             weight: 4
             additional: {  }
+          0e6adf17-99c9-4789-b484-fe73e01c250b:
+            uuid: 0e6adf17-99c9-4789-b484-fe73e01c250b
+            region: content
+            configuration:
+              id: 'field_block:node:academic_program:field_degree_level'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: list_default
+                label: above
+                settings: {  }
+                third_party_settings: {  }
+            weight: 5
+            additional: {  }
         third_party_settings: {  }
   layout_builder_restrictions:
     allowed_block_categories: {  }
@@ -91,6 +108,13 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: -20
+    region: content
+  field_degree_level:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 104
     region: content
   field_editorial_sections:
     type: entity_reference_label

@@ -7,12 +7,12 @@ dependencies:
 id: academic_programs
 label: 'Academic Programs'
 type: 'canonical_entities:node'
-pattern: 'academics/programs/[field_program_type]/[node:title]'
+pattern: 'academics/programs/[field_degree_level]/[node:title]'
 selection_criteria:
-  29323b52-d014-43fa-bd56-640a6de1e6b8:
+  ce4cb96a-95d6-4f34-9311-2eb3b860da60:
     id: 'entity_bundle:node'
     negate: false
-    uuid: 29323b52-d014-43fa-bd56-640a6de1e6b8
+    uuid: ce4cb96a-95d6-4f34-9311-2eb3b860da60
     context_mapping:
       node: node
     bundles:

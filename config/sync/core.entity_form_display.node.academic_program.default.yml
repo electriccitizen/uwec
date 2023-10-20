@@ -4,12 +4,14 @@ status: true
 dependencies:
   config:
     - field.field.node.academic_program.body
+    - field.field.node.academic_program.field_degree_level
     - field.field.node.academic_program.field_domain_access
     - field.field.node.academic_program.field_domain_all_affiliates
     - field.field.node.academic_program.field_domain_source
     - field.field.node.academic_program.field_editorial_sections
     - field.field.node.academic_program.field_metatags
     - field.field.node.academic_program.field_placement_tags
+    - field.field.node.academic_program.layout_builder__layout
     - node.type.academic_program
     - workflows.workflow.non_moderated
   module:
@@ -29,7 +31,7 @@ third_party_settings:
       label: Access
       region: content
       parent_name: ''
-      weight: 6
+      weight: 7
       format_type: details_sidebar
       format_settings:
         classes: ''
@@ -54,34 +56,40 @@ content:
       placeholder: ''
       show_summary: false
     third_party_settings: {  }
+  field_degree_level:
+    type: options_select
+    weight: 2
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   field_domain_access:
     type: options_buttons
-    weight: 47
+    weight: 52
     region: content
     settings: {  }
     third_party_settings: {  }
   field_domain_all_affiliates:
     type: boolean_checkbox
-    weight: 49
+    weight: 54
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   field_domain_source:
     type: options_select
-    weight: 48
+    weight: 53
     region: content
     settings: {  }
     third_party_settings: {  }
   field_editorial_sections:
     type: options_buttons
-    weight: 46
+    weight: 51
     region: content
     settings: {  }
     third_party_settings: {  }
   field_metatags:
     type: metatag_firehose
-    weight: 2
+    weight: 3
     region: content
     settings:
       sidebar: true
@@ -89,7 +97,7 @@ content:
     third_party_settings: {  }
   field_placement_tags:
     type: entity_reference_autocomplete
-    weight: 5
+    weight: 6
     region: content
     settings:
       match_operator: CONTAINS
@@ -99,19 +107,19 @@ content:
     third_party_settings: {  }
   moderation_state:
     type: moderation_state_default
-    weight: 7
+    weight: 8
     region: content
     settings: {  }
     third_party_settings: {  }
   path:
     type: path
-    weight: 3
+    weight: 4
     region: content
     settings: {  }
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 4
+    weight: 5
     region: content
     settings:
       display_label: true
@@ -126,6 +134,7 @@ content:
     third_party_settings: {  }
 hidden:
   created: true
+  layout_builder__layout: true
   promote: true
   publish_on: true
   publish_state: true
