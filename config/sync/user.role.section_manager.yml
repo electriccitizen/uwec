@@ -25,6 +25,7 @@ dependencies:
     - shortcut
     - smart_date_recur
     - system
+    - workbench
     - workbench_access
 id: section_manager
 label: 'Section Manager'
@@ -36,6 +37,7 @@ permissions:
   - 'access media overview'
   - 'access responsive preview'
   - 'access shortcuts'
+  - 'access workbench'
   - 'cancel smart date recur instances'
   - 'create contact content'
   - 'create contact content on assigned domains'

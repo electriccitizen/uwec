@@ -10,11 +10,9 @@ dependencies:
     - field.field.user.user.field_last_name
     - field.field.user.user.field_primary_editor
     - field.field.user.user.field_user_image
-    - views.view.user_dashboard
   module:
     - layout_builder
     - user
-    - views
   theme:
     - citizen_dart
 third_party_settings:
@@ -103,39 +101,6 @@ third_party_settings:
                 settings:
                   link_to_entity: false
                 third_party_settings: {  }
-            weight: 1
-            additional: {  }
-        third_party_settings: {  }
-      -
-        layout_id: tabs
-        layout_settings:
-          label: ''
-          context_mapping: {  }
-        components:
-          561a67c4-f9fa-41d2-af13-235b0ecb6a6b:
-            uuid: 561a67c4-f9fa-41d2-af13-235b0ecb6a6b
-            region: tabs
-            configuration:
-              id: 'views_block:user_dashboard-my_content'
-              label: ''
-              label_display: visible
-              provider: views
-              context_mapping: {  }
-              views_label: ''
-              items_per_page: none
-            weight: 0
-            additional: {  }
-          6daaa12b-a863-41c7-9610-0c818f23a731:
-            uuid: 6daaa12b-a863-41c7-9610-0c818f23a731
-            region: tabs
-            configuration:
-              id: 'views_block:user_dashboard-all_recent_content'
-              label: ''
-              label_display: visible
-              provider: views
-              context_mapping: {  }
-              views_label: ''
-              items_per_page: none
             weight: 1
             additional: {  }
         third_party_settings: {  }
