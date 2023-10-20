@@ -24,7 +24,6 @@
     "drupal/addanother": "^1.0",
     "drupal/address": "^1.9",
     "drupal/admin_toolbar": "^3.0",
-    "drupal/allowed_formats": "^2.0",
     "drupal/antibot": "^2.0",
     "drupal/auto_entitylabel": "^3.0@beta",
     "drupal/config_filter": "^2.0",
