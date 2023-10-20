@@ -2,6 +2,12 @@ uuid: 04b170fc-ac5a-41dd-8f2a-c135b61211bf
 langcode: en
 status: true
 dependencies:
+  config:
+    - user.role.administrator
+    - user.role.editor
+    - user.role.marketing_editor
+    - user.role.section_manager
+    - user.role.site_admin
   module:
     - node
     - user
@@ -759,6 +765,15 @@ display:
           empty_zero: false
           hide_alter_empty: true
           destination: false
+      access:
+        type: role
+        options:
+          role:
+            administrator: administrator
+            editor: editor
+            site_admin: site_admin
+            section_manager: section_manager
+            marketing_editor: marketing_editor
       empty:
         area_text_custom:
           id: area_text_custom
@@ -774,6 +789,7 @@ display:
       arguments: {  }
       defaults:
         empty: false
+        access: false
         title: false
         fields: false
         arguments: false
@@ -785,7 +801,7 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
-        - user.permissions
+        - user.roles
       tags: {  }
   my_content:
     id: my_content
@@ -1051,7 +1067,17 @@ display:
           empty_zero: false
           hide_alter_empty: true
           destination: false
+      access:
+        type: role
+        options:
+          role:
+            administrator: administrator
+            editor: editor
+            site_admin: site_admin
+            section_manager: section_manager
+            marketing_editor: marketing_editor
       defaults:
+        access: false
         fields: false
       display_description: ''
       display_extenders: {  }
@@ -1062,5 +1088,5 @@ display:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url
-        - user.permissions
+        - user.roles
       tags: {  }

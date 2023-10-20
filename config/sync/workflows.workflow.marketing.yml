@@ -3,9 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
-    - node.type.contact
     - node.type.fact
-    - node.type.hours
     - node.type.news
     - node.type.snapshot
     - node.type.testimonial
@@ -74,9 +72,7 @@ type_settings:
       weight: -1
   entity_types:
     node:
-      - contact
       - fact
-      - hours
       - news
       - snapshot
       - testimonial

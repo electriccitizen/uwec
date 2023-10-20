@@ -7,7 +7,9 @@ dependencies:
     - node.type.announcement
     - node.type.bios
     - node.type.college
+    - node.type.contact
     - node.type.department
+    - node.type.hours
     - node.type.landing_page
     - node.type.page
     - node.type.support_book
@@ -64,7 +66,9 @@ type_settings:
       - announcement
       - bios
       - college
+      - contact
       - department
+      - hours
       - landing_page
       - page
       - support_book

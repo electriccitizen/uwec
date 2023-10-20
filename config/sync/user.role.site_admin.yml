@@ -62,6 +62,7 @@ dependencies:
     - smart_date_recur
     - system
     - taxonomy
+    - workbench
     - workbench_access
 id: site_admin
 label: 'Site Admin'
@@ -77,6 +78,7 @@ permissions:
   - 'access shortcuts'
   - 'access taxonomy overview'
   - 'access user profiles'
+  - 'access workbench'
   - 'administer departments menu items'
   - 'administer example-site-main-menu menu items'
   - 'administer footer menu items'
