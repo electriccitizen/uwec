@@ -331,10 +331,10 @@ h1.webform-title {
 
 /* USER LOGIN
 --------------- */
-.user-login-form,#user-pass{
+.user-login-form,#user-pass,#user-register-form{
 	max-width: $desk;
 	@include auto;
-	.form-item:not([type="submit"]){
+	.form-item:not([type="submit"]),details{
 		max-width: 400px;
 	}
 	.js-form-type-password{

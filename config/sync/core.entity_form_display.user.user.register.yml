@@ -1,0 +1,76 @@
+uuid: 2857c191-6ce9-47bb-9261-ca82529c5e5e
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_form_mode.user.register
+    - field.field.user.user.field_domain_access
+    - field.field.user.user.field_domain_admin
+    - field.field.user.user.field_domain_all_affiliates
+    - field.field.user.user.field_first_name
+    - field.field.user.user.field_last_name
+    - field.field.user.user.field_primary_editor
+    - field.field.user.user.field_user_image
+  module:
+    - field_group
+    - user
+third_party_settings:
+  field_group:
+    group_user_personalization:
+      children: {  }
+      label: 'User Personalization'
+      region: hidden
+      parent_name: ''
+      weight: 4
+      format_type: details
+      format_settings:
+        classes: ''
+        id: ''
+        open: true
+        description: ''
+        required_fields: true
+_core:
+  default_config_hash: xCX4xp9cOAtKduKXGmA9GvmgiLBHQMqIqcKzbNNbbgg
+id: user.user.register
+targetEntityType: user
+bundle: user
+mode: register
+content:
+  account:
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  contact:
+    weight: 5
+    region: content
+  field_first_name:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_last_name:
+    type: string_textfield
+    weight: 2
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  google_analytics:
+    weight: 2
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  field_domain_access: true
+  field_domain_admin: true
+  field_domain_all_affiliates: true
+  field_primary_editor: true
+  field_user_image: true
+  language: true
+  path: true
+  timezone: true
