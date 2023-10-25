@@ -8,11 +8,8 @@ dependencies:
     - media.type.image
     - media.type.remote_video
     - node.type.bios
-    - node.type.college
     - node.type.contact
-    - node.type.department
     - node.type.hours
-    - node.type.landing_page
     - node.type.page
     - workflows.workflow.non_moderated
   module:
@@ -28,6 +25,7 @@ dependencies:
     - shortcut
     - smart_date_recur
     - system
+    - workbench
     - workbench_access
 id: section_manager
 label: 'Section Manager'
@@ -39,40 +37,26 @@ permissions:
   - 'access media overview'
   - 'access responsive preview'
   - 'access shortcuts'
+  - 'access workbench'
   - 'cancel smart date recur instances'
-  - 'create college content'
-  - 'create college content on assigned domains'
   - 'create contact content'
   - 'create contact content on assigned domains'
-  - 'create department content'
-  - 'create department content on assigned domains'
   - 'create document media'
   - 'create hours content'
   - 'create hours content on assigned domains'
   - 'create image media'
-  - 'create landing_page content'
-  - 'create landing_page content on assigned domains'
-  - 'create news content on assigned domains'
-  - 'create page content'
-  - 'create page content on assigned domains'
   - 'create remote_video media'
   - 'delete all revisions'
   - 'edit any bios content'
-  - 'edit any college content'
   - 'edit any contact content'
-  - 'edit any department content'
   - 'edit any document media'
   - 'edit any image media'
-  - 'edit any landing_page content'
   - 'edit any page content'
   - 'edit any remote_video media'
   - 'edit own bios content'
-  - 'edit own college content'
   - 'edit own contact content'
-  - 'edit own department content'
   - 'edit own document media'
   - 'edit own image media'
-  - 'edit own landing_page content'
   - 'edit own page content'
   - 'edit own remote_video media'
   - 'make smart dates recur'
@@ -80,18 +64,12 @@ permissions:
   - 'reschedule smart date recur instances'
   - 'revert all revisions'
   - 'revert bios revisions'
-  - 'revert college revisions'
   - 'revert contact revisions'
-  - 'revert department revisions'
   - 'revert hours revisions'
-  - 'revert landing_page revisions'
   - 'revert page revisions'
   - 'update bios content on assigned domains'
-  - 'update college content on assigned domains'
   - 'update contact content on assigned domains'
-  - 'update department content on assigned domains'
   - 'update hours content on assigned domains'
-  - 'update landing_page content on assigned domains'
   - 'update news content on assigned domains'
   - 'update page content on assigned domains'
   - 'use add another'
@@ -105,12 +83,9 @@ permissions:
   - 'view any unpublished content'
   - 'view assigned domains'
   - 'view bios revisions'
-  - 'view college revisions'
   - 'view contact revisions'
-  - 'view department revisions'
   - 'view domain aliases'
   - 'view hours revisions'
-  - 'view landing_page revisions'
   - 'view own unpublished content'
   - 'view page revisions'
   - 'view the administration theme'

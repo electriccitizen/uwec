@@ -20,7 +20,6 @@ dependencies:
     - node.type.department
     - node.type.fact
     - node.type.hours
-    - node.type.landing_page
     - node.type.news
     - node.type.page
     - node.type.snapshot
@@ -43,6 +42,7 @@ dependencies:
   module:
     - addanother
     - block_content
+    - citizen_custom
     - content_moderation
     - domain
     - domain_access
@@ -62,6 +62,7 @@ dependencies:
     - smart_date_recur
     - system
     - taxonomy
+    - workbench
     - workbench_access
 id: site_admin
 label: 'Site Admin'
@@ -77,6 +78,7 @@ permissions:
   - 'access shortcuts'
   - 'access taxonomy overview'
   - 'access user profiles'
+  - 'access workbench'
   - 'administer departments menu items'
   - 'administer example-site-main-menu menu items'
   - 'administer footer menu items'
@@ -91,6 +93,7 @@ permissions:
   - 'administer users'
   - 'administer workbench access'
   - 'assign domain editors'
+  - 'assign editor role'
   - 'assign editors to any domain'
   - 'assign marketing_editor role'
   - 'assign personnel role'
@@ -122,8 +125,6 @@ permissions:
   - 'create hours content'
   - 'create hours content on assigned domains'
   - 'create image media'
-  - 'create landing_page content'
-  - 'create landing_page content on assigned domains'
   - 'create news content'
   - 'create news content on assigned domains'
   - 'create page content'
@@ -194,7 +195,6 @@ permissions:
   - 'delete any formatted_promo block content revisions'
   - 'delete any hours content'
   - 'delete any image media'
-  - 'delete any landing_page content'
   - 'delete any news content'
   - 'delete any page content'
   - 'delete any remote_video media'
@@ -208,7 +208,6 @@ permissions:
   - 'delete any support_book content'
   - 'delete any testimonial content'
   - 'delete any video_card content'
-  - 'delete bios revisions'
   - 'delete college content on assigned domains'
   - 'delete college revisions'
   - 'delete contact content on assigned domains'
@@ -219,13 +218,10 @@ permissions:
   - 'delete fact revisions'
   - 'delete hours content on assigned domains'
   - 'delete hours revisions'
-  - 'delete landing_page content on assigned domains'
-  - 'delete landing_page revisions'
   - 'delete news content on assigned domains'
   - 'delete news revisions'
   - 'delete own academic_program content'
   - 'delete own announcement content'
-  - 'delete own bios content'
   - 'delete own college content'
   - 'delete own contact content'
   - 'delete own department content'
@@ -233,7 +229,6 @@ permissions:
   - 'delete own fact content'
   - 'delete own hours content'
   - 'delete own image media'
-  - 'delete own landing_page content'
   - 'delete own news content'
   - 'delete own page content'
   - 'delete own remote_video media'
@@ -297,7 +292,6 @@ permissions:
   - 'edit any formatted_promo block content'
   - 'edit any hours content'
   - 'edit any image media'
-  - 'edit any landing_page content'
   - 'edit any news content'
   - 'edit any page content'
   - 'edit any remote_video media'
@@ -309,6 +303,7 @@ permissions:
   - 'edit any testimonial content'
   - 'edit any video_card content'
   - 'edit domain content'
+  - 'edit layout paragraphs plugin config'
   - 'edit own academic_program content'
   - 'edit own announcement content'
   - 'edit own bios content'
@@ -319,7 +314,6 @@ permissions:
   - 'edit own fact content'
   - 'edit own hours content'
   - 'edit own image media'
-  - 'edit own landing_page content'
   - 'edit own news content'
   - 'edit own page content'
   - 'edit own remote_video media'
@@ -355,8 +349,8 @@ permissions:
   - 'revert college revisions'
   - 'revert contact revisions'
   - 'revert department revisions'
+  - 'revert fact revisions'
   - 'revert hours revisions'
-  - 'revert landing_page revisions'
   - 'revert news revisions'
   - 'revert page revisions'
   - 'revert snapshot revisions'
@@ -372,7 +366,6 @@ permissions:
   - 'update department content on assigned domains'
   - 'update fact content on assigned domains'
   - 'update hours content on assigned domains'
-  - 'update landing_page content on assigned domains'
   - 'update news content on assigned domains'
   - 'update page content on assigned domains'
   - 'update paragraph content block_placer'
@@ -424,7 +417,6 @@ permissions:
   - 'view domain list'
   - 'view fact revisions'
   - 'view hours revisions'
-  - 'view landing_page revisions'
   - 'view latest version'
   - 'view news revisions'
   - 'view own unpublished content'

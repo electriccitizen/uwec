@@ -1,0 +1,19 @@
+uuid: c858ccc6-b354-4bc1-8db3-9e368b3c6bcb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_username
+    - node.type.bios
+id: node.bios.field_username
+field_name: field_username
+entity_type: node
+bundle: bios
+label: Username
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -3,30 +3,27 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.paragraph.stories_video_list.field_link
+    - field.field.paragraph.stories_video_list.field_list_type
     - field.field.paragraph.stories_video_list.field_list_widgets
+    - field.field.paragraph.stories_video_list.field_manual_select
     - field.field.paragraph.stories_video_list.field_page_family
     - field.field.paragraph.stories_video_list.field_placement_tag
+    - field.field.paragraph.stories_video_list.field_type
     - field.field.paragraph.stories_video_list.field_widget_title
     - paragraphs.paragraphs_type.stories_video_list
   module:
-    - link
+    - options
 id: paragraph.stories_video_list.default
 targetEntityType: paragraph
 bundle: stories_video_list
 mode: default
 content:
-  field_link:
-    type: link
+  field_list_type:
+    type: list_key
     label: hidden
-    settings:
-      trim_length: 80
-      url_only: false
-      url_plain: false
-      rel: ''
-      target: ''
+    settings: {  }
     third_party_settings: {  }
-    weight: 4
+    weight: 6
     region: content
   field_list_widgets:
     type: entity_reference_label
@@ -35,6 +32,15 @@ content:
       link: true
     third_party_settings: {  }
     weight: 1
+    region: content
+  field_manual_select:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: teaser
+      link: false
+    third_party_settings: {  }
+    weight: 5
     region: content
   field_page_family:
     type: entity_reference_label
@@ -51,6 +57,14 @@ content:
       link: false
     third_party_settings: {  }
     weight: 2
+    region: content
+  field_type:
+    type: entity_reference_label
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 4
     region: content
   field_widget_title:
     type: string

@@ -1,0 +1,31 @@
+uuid: df7b7447-93e2-4709-b8b8-6efb2880d939
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_manual_select
+    - node.type.news
+    - node.type.video_card
+    - paragraphs.paragraphs_type.stories_video_list
+id: paragraph.stories_video_list.field_manual_select
+field_name: field_manual_select
+entity_type: paragraph
+bundle: stories_video_list
+label: 'Manual Select'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      news: news
+      video_card: video_card
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: news
+field_type: entity_reference

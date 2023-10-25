@@ -8,9 +8,11 @@ dependencies:
     - node.type.news
     - taxonomy.vocabulary.page_families
     - taxonomy.vocabulary.placement_tags
+    - taxonomy.vocabulary.story_types
   content:
     - 'taxonomy_term:page_families:e660eb6f-fc22-4daf-9d7f-bd93e363607b'
-    - 'taxonomy_term:placement_tags:256ff961-1b60-4785-afa0-51803c790031'
+    - 'taxonomy_term:placement_tags:479d2dfa-0914-41c7-90c9-7897ba00491d'
+    - 'taxonomy_term:story_types:6feb82a5-38c4-4a71-a13f-6329fff06de6'
   module:
     - node
     - paragraphs
@@ -1066,7 +1068,7 @@ display:
           plugin_id: taxonomy_index_tid
           operator: or
           value:
-            - 8
+            32: 32
           group: 1
           exposed: false
           expose:
@@ -1144,6 +1146,52 @@ display:
             group_items: {  }
           reduce_duplicates: false
           vid: page_families
+          type: select
+          hierarchy: false
+          limit: true
+          error_message: true
+        field_story_type_target_id:
+          id: field_story_type_target_id
+          table: node__field_story_type
+          field: field_story_type_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: taxonomy_index_tid
+          operator: or
+          value:
+            20: 20
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          vid: story_types
           type: select
           hierarchy: false
           limit: true
@@ -1426,7 +1474,7 @@ display:
           plugin_id: taxonomy_index_tid
           operator: or
           value:
-            - 8
+            32: 32
           group: 1
           exposed: false
           expose:
@@ -1504,6 +1552,52 @@ display:
             group_items: {  }
           reduce_duplicates: false
           vid: page_families
+          type: select
+          hierarchy: false
+          limit: true
+          error_message: true
+        field_story_type_target_id:
+          id: field_story_type_target_id
+          table: node__field_story_type
+          field: field_story_type_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: taxonomy_index_tid
+          operator: or
+          value:
+            - 20
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: true
+          vid: story_types
           type: select
           hierarchy: false
           limit: true

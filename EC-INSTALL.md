@@ -87,7 +87,7 @@ Open the generated login URL and you should be set to go.
 
 # Theming
 The active theme for this project is **citizen_dart**:
-`~/Projects/uwec/web/themes/citizen_dart`
+`~/Projects/uwec/web/themes/custom/citizen_dart`
 
 See the THEME-INSTALL.md file inside of the theme root for install instructions.
 [THEME-INSTALL.md](/web/themes/citizen_dart/THEME-INSTALL.md)

@@ -10,7 +10,6 @@ dependencies:
     - node.type.bios
     - node.type.fact
     - node.type.hours
-    - node.type.landing_page
     - node.type.news
     - node.type.page
     - node.type.snapshot
@@ -31,6 +30,7 @@ dependencies:
     - shortcut
     - smart_date_recur
     - system
+    - workbench
     - workbench_access
 id: marketing_editor
 label: 'Marketing Editor'
@@ -42,17 +42,14 @@ permissions:
   - 'access media overview'
   - 'access responsive preview'
   - 'access shortcuts'
+  - 'access workbench'
   - 'cancel smart date recur instances'
   - 'create document media'
   - 'create fact content'
   - 'create fact content on assigned domains'
   - 'create image media'
-  - 'create landing_page content'
-  - 'create landing_page content on assigned domains'
   - 'create news content'
   - 'create news content on assigned domains'
-  - 'create page content'
-  - 'create page content on assigned domains'
   - 'create remote_video media'
   - 'create snapshot content'
   - 'create snapshot content on assigned domains'
@@ -65,7 +62,6 @@ permissions:
   - 'edit any fact content'
   - 'edit any hours content'
   - 'edit any image media'
-  - 'edit any landing_page content'
   - 'edit any news content'
   - 'edit any page content'
   - 'edit any remote_video media'
@@ -77,7 +73,6 @@ permissions:
   - 'edit own fact content'
   - 'edit own hours content'
   - 'edit own image media'
-  - 'edit own landing_page content'
   - 'edit own news content'
   - 'edit own page content'
   - 'edit own remote_video media'
@@ -89,14 +84,12 @@ permissions:
   - 'reschedule smart date recur instances'
   - 'revert bios revisions'
   - 'revert fact revisions'
-  - 'revert landing_page revisions'
   - 'revert news revisions'
   - 'revert snapshot revisions'
   - 'revert testimonial revisions'
   - 'revert video_card revisions'
   - 'update bios content on assigned domains'
   - 'update fact content on assigned domains'
-  - 'update landing_page content on assigned domains'
   - 'update news content on assigned domains'
   - 'update page content on assigned domains'
   - 'update snapshot content on assigned domains'
@@ -106,23 +99,19 @@ permissions:
   - 'use domain nav block'
   - 'use marketing transition archive'
   - 'use marketing transition create_new_draft'
-  - 'use marketing transition publish'
   - 'use marketing transition review'
   - 'use non_moderated transition archive'
   - 'use non_moderated transition create_new_draft'
   - 'use non_moderated transition publish'
   - 'use text format short_text_formatted_html'
   - 'use workbench access'
-  - 'view all revisions'
   - 'view any unpublished content'
   - 'view assigned domains'
   - 'view bios revisions'
   - 'view domain aliases'
   - 'view fact revisions'
-  - 'view landing_page revisions'
   - 'view news revisions'
   - 'view own unpublished content'
-  - 'view page revisions'
   - 'view snapshot revisions'
   - 'view testimonial revisions'
   - 'view the administration theme'

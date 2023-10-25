@@ -4,14 +4,17 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.paragraph.preview
-    - field.field.paragraph.stories_video_list.field_link
+    - field.field.paragraph.stories_video_list.field_list_type
     - field.field.paragraph.stories_video_list.field_list_widgets
+    - field.field.paragraph.stories_video_list.field_manual_select
     - field.field.paragraph.stories_video_list.field_page_family
     - field.field.paragraph.stories_video_list.field_placement_tag
+    - field.field.paragraph.stories_video_list.field_type
     - field.field.paragraph.stories_video_list.field_widget_title
     - paragraphs.paragraphs_type.stories_video_list
   module:
     - layout_builder
+    - options
 third_party_settings:
   layout_builder:
     enabled: false
@@ -21,19 +24,10 @@ targetEntityType: paragraph
 bundle: stories_video_list
 mode: preview
 content:
-  field_page_family:
-    type: entity_reference_label
+  field_list_type:
+    type: list_default
     label: inline
-    settings:
-      link: false
-    third_party_settings: {  }
-    weight: 2
-    region: content
-  field_placement_tag:
-    type: entity_reference_label
-    label: inline
-    settings:
-      link: false
+    settings: {  }
     third_party_settings: {  }
     weight: 1
     region: content
@@ -46,6 +40,9 @@ content:
     weight: 0
     region: content
 hidden:
-  field_link: true
   field_list_widgets: true
+  field_manual_select: true
+  field_page_family: true
+  field_placement_tag: true
+  field_type: true
   search_api_excerpt: true

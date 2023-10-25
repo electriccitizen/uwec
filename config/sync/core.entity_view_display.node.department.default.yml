@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.department.body
+    - field.field.node.department.field_college
     - field.field.node.department.field_domain_access
     - field.field.node.department.field_domain_all_affiliates
     - field.field.node.department.field_domain_source
@@ -51,6 +52,22 @@ third_party_settings:
                   link_to_entity: false
                 third_party_settings: {  }
             weight: 2
+            additional: {  }
+          7cd43bac-db65-44be-867b-9f0f4ec51a16:
+            uuid: 7cd43bac-db65-44be-867b-9f0f4ec51a16
+            region: content
+            configuration:
+              id: 'field_block:node:department:field_college'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: entity_reference_label
+                label: hidden
+                settings:
+                  link: true
+                third_party_settings: {  }
+            weight: 3
             additional: {  }
         third_party_settings: {  }
       -
@@ -123,6 +140,14 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: -20
+    region: content
+  field_college:
+    type: entity_reference_label
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 104
     region: content
   field_editorial_sections:
     type: entity_reference_label
