@@ -130,7 +130,7 @@ button[disabled]:hover,button.disabled:hover{
 .lpb-component-list .lpb-component-list__group > .lpb-component-list__group--content > .type-hallmark > a:before{
   background-image: url('../icons/paragraphs/hallmark.svg');
 }
-.lpb-component-list .lpb-component-list__group > .lpb-component-list__group--content > .type-hightlight_box > a:before{
+.lpb-component-list .lpb-component-list__group > .lpb-component-list__group--content > .type-highlight_box > a:before{
   background-image: url('../icons/paragraphs/highlight-box.svg');
 }
 .lpb-component-list .lpb-component-list__group > .lpb-component-list__group--content > .type-hours_placer > a:before{

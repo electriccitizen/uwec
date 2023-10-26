@@ -64,6 +64,7 @@
 		position: absolute;
 		top: 18px;
 		right: 10px;
+		z-index: 1;
 		@include desk{
 			top: 0;
 		}
@@ -96,4 +97,16 @@
 	}//end desk
 
 }//end main nav
+
+/* SECONDARY MENU BLOCK
+--------------------- */
+.block-secondary-menu{
+	@include desk{
+		position: absolute;
+		right: 60px;
+		top: 0px;
+		z-index: 1;
+		width: calc(100% - 300px);
+	}//end desk
+}
 

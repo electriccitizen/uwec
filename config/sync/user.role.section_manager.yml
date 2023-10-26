@@ -70,7 +70,6 @@ permissions:
   - 'update bios content on assigned domains'
   - 'update contact content on assigned domains'
   - 'update hours content on assigned domains'
-  - 'update news content on assigned domains'
   - 'update page content on assigned domains'
   - 'use add another'
   - 'use domain nav block'

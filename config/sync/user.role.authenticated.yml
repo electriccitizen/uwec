@@ -93,7 +93,6 @@ permissions:
   - 'view paragraph content button'
   - 'view paragraph content contact_placer'
   - 'view paragraph content content_carousel'
-  - 'view paragraph content content_placer'
   - 'view paragraph content cta_item'
   - 'view paragraph content ctas'
   - 'view paragraph content custom_embed'
