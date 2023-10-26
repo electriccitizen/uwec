@@ -10,7 +10,6 @@ dependencies:
     - node.type.contact
     - node.type.department
     - node.type.hours
-    - node.type.landing_page
     - node.type.page
     - node.type.support_book
   module:
@@ -69,7 +68,6 @@ type_settings:
       - contact
       - department
       - hours
-      - landing_page
       - page
       - support_book
   default_moderation_state: draft
