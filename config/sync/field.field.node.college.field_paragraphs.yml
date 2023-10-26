@@ -6,7 +6,6 @@ dependencies:
     - field.storage.node.field_paragraphs
     - node.type.college
     - paragraphs.paragraphs_type.accordions
-    - paragraphs.paragraphs_type.content_placer
     - paragraphs.paragraphs_type.custom_embed
     - paragraphs.paragraphs_type.gallery
     - paragraphs.paragraphs_type.image
@@ -32,7 +31,6 @@ settings:
     target_bundles:
       accordions: accordions
       links_files: links_files
-      content_placer: content_placer
       custom_embed: custom_embed
       gallery: gallery
       image: image
