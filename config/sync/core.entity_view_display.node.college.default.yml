@@ -7,7 +7,6 @@ dependencies:
     - field.field.node.college.field_domain_access
     - field.field.node.college.field_domain_all_affiliates
     - field.field.node.college.field_domain_source
-    - field.field.node.college.field_editorial_sections
     - field.field.node.college.field_image
     - field.field.node.college.field_metatags
     - field.field.node.college.field_paragraphs
@@ -94,14 +93,6 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: -20
-    region: content
-  field_editorial_sections:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 105
     region: content
   field_image:
     type: entity_reference_entity_view
