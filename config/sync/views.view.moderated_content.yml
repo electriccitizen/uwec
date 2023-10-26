@@ -2,8 +2,15 @@ uuid: f858f75c-a061-4b98-a269-749eabd4e148
 langcode: en
 status: true
 dependencies:
+  config:
+    - taxonomy.vocabulary.editorial_sections
+    - workflows.workflow.marketing
+    - workflows.workflow.non_moderated
   module:
+    - content_moderation
+    - domain_source
     - node
+    - taxonomy
     - user
   enforced:
     module:
@@ -599,8 +606,9 @@ display:
           plugin_id: moderation_state_filter
           operator: in
           value:
-            editorial-draft: editorial-draft
-            editorial-archived: editorial-archived
+            marketing-draft: marketing-draft
+            marketing-review: marketing-review
+            non_moderated-draft: non_moderated-draft
           group: 1
           exposed: true
           expose:
@@ -619,50 +627,12 @@ display:
               authenticated: authenticated
               anonymous: '0'
               administrator: '0'
+              editor: '0'
+              site_admin: '0'
+              section_manager: '0'
+              marketing_editor: '0'
+              personnel: '0'
             reduce: true
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-        langcode:
-          id: langcode
-          table: node_field_revision
-          field: langcode
-          relationship: none
-          group_type: group
-          admin_label: ''
-          entity_type: node
-          entity_field: langcode
-          plugin_id: language
-          operator: in
-          value: {  }
-          group: 1
-          exposed: true
-          expose:
-            operator_id: langcode_op
-            label: Language
-            description: ''
-            use_operator: false
-            operator: langcode_op
-            operator_limit_selection: false
-            operator_list: {  }
-            identifier: langcode
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-            reduce: false
           is_grouped: false
           group_info:
             label: ''
@@ -684,9 +654,103 @@ display:
           admin_label: ''
           entity_type: node
           plugin_id: moderation_state_filter
-          operator: 'not in'
+          operator: in
           value:
-            editorial-published: editorial-published
+            marketing-draft: marketing-draft
+            marketing-review: marketing-review
+            non_moderated-draft: non_moderated-draft
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+        field_editorial_sections_target_id:
+          id: field_editorial_sections_target_id
+          table: node__field_editorial_sections
+          field: field_editorial_sections_target_id
+          relationship: nid
+          group_type: group
+          admin_label: ''
+          plugin_id: taxonomy_index_tid
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_editorial_sections_target_id_op
+            label: 'Editorial section'
+            description: ''
+            use_operator: false
+            operator: field_editorial_sections_target_id_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: field_editorial_sections_target_id
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              editor: '0'
+              site_admin: '0'
+              section_manager: '0'
+              marketing_editor: '0'
+              personnel: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          vid: editorial_sections
+          type: select
+          hierarchy: true
+          limit: true
+          error_message: true
+        field_domain_source_target_id:
+          id: field_domain_source_target_id
+          table: node__field_domain_source
+          field: field_domain_source_target_id
+          relationship: nid
+          group_type: group
+          admin_label: ''
+          plugin_id: domain_source
+          operator: in
+          value:
+            _active: _active
           group: 1
           exposed: false
           expose:
@@ -818,9 +882,11 @@ display:
         - 'languages:language_interface'
         - url
         - url.query_args
+        - user
         - 'user.node_grants:view'
         - user.permissions
-      tags: {  }
+      tags:
+        - 'config:workflow_list'
   moderated_content:
     id: moderated_content
     display_title: 'Moderated content'
@@ -837,6 +903,8 @@ display:
         - 'languages:language_interface'
         - url
         - url.query_args
+        - user
         - 'user.node_grants:view'
         - user.permissions
-      tags: {  }
+      tags:
+        - 'config:workflow_list'
