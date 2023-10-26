@@ -21,13 +21,13 @@ $adminTransGrey : rgba(92,96,98,.92);
 ----------------------- */
 .themeset-uwec{
 	--col-primary: #{$lightGrey};
-	--col-accent1: #{$lightHotPink};
-	--col-accent2: #{$hotPink};
+	--col-accent1: #{$brightBlue};
+	--col-accent2: #{$royalBlue};
 	--col-accent3: lemonchiffon;
 }
 .themeset-example{
 	--col-primary: #{$darkIce};
-	--col-accent1: #{$skyBlue};
+	--col-accent1: #{$midBlue};
 	--col-accent2: #011e54;
 	--col-accent3: aqua;
 }
@@ -73,15 +73,15 @@ $cautionTextHover  : $black;
 $siteBack                  : $white;
 $unpub                     : $adminPink;
 $headerBack                : var(--col-primary);
-$prefooterBack             : var(--col-accent2);
+$prefooterBack             : var(--col-accent3);
 $prefooterText             : $offWhite;
-$prefooterLink             : $adminGold;
-$prefooterLinkHover        : $adminWhiteGold;
-$footerBack                : var(--col-accent1);
+$prefooterLink             : $white;
+$prefooterLinkHover        : $white;
+$footerBack                : var(--col-accent2);
 $footerText                : $offWhite;
-$footerLink                : $adminGold;
-$footerLinkHover           : $adminWhiteGold;
-$footerSocial              : $skyBlue;
+$footerLink                : $white;
+$footerLinkHover           : $white;
+$footerSocial              : $white;
 $footerSocialHover         : $hoverLink;
 $borderRule                : $black;
 $modalBack                 : $adminTransGrey;
