@@ -1,0 +1,31 @@
+/* =============
+	 FOOTER MENUS
+------------------- */
+@use '../../../00-base/base' as *;
+
+.block-footer-menu{
+	ul:not(.contextual-links){
+		@include listReset;
+		li{
+			position: relative;
+			a{
+				display: block;
+				color: $prefooterLink;
+				.footer-v1 &{
+					text-decoration: underline;
+				}
+				&:hover,&:focus{
+					color: $prefooterLinkHover;
+					@include transAll(.3s);
+					.footer-v1 &{
+						text-decoration: none;
+					}
+				}
+			}
+		}//end li
+	}//end ul
+}//end footer-menu
+
+.block-footer-for-menu{
+	@extend .block-footer-menu;
+}//end footer-menu

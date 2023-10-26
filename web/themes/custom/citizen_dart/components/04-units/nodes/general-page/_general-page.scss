@@ -39,7 +39,7 @@
 			height: 1000px;
 			width: 200vw;
 			z-index: -2;
-			background: $skyBlue;
+			background: $brightBlue;
 			@include rotate(16);
 		}
 	}//end intro simple
@@ -82,10 +82,10 @@
 		}
 		.hero-image &,.hero-background_image &{
 			@include safeFlex(row,wrap,start,start);
-			background: $skyBlue;
+			background: $brightBlue;
 		}
 		.hero-pattern &{
-			background: $midBlue;
+			background: $royalBlue;
 			&:before{
 				content: '';
 				display: block;
@@ -95,7 +95,7 @@
 				width: 200vw;
 				height: 500vh;
 				z-index: -1;
-				background: $skyBlue;
+				background: $brightBlue;
 				@include rotate(-16);
 			}
 		}

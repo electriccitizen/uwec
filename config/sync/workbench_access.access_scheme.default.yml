@@ -3,12 +3,8 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.academic_program.field_editorial_sections
-    - field.field.node.college.field_editorial_sections
     - field.field.node.contact.field_editorial_sections
-    - field.field.node.department.field_editorial_sections
     - field.field.node.hours.field_editorial_sections
-    - field.field.node.news.field_editorial_sections
     - field.field.node.page.field_editorial_sections
     - taxonomy.vocabulary.editorial_sections
 id: default
@@ -25,23 +21,7 @@ scheme_settings:
       field: field_editorial_sections
     -
       entity_type: node
-      bundle: news
-      field: field_editorial_sections
-    -
-      entity_type: node
-      bundle: department
-      field: field_editorial_sections
-    -
-      entity_type: node
       bundle: contact
-      field: field_editorial_sections
-    -
-      entity_type: node
-      bundle: college
-      field: field_editorial_sections
-    -
-      entity_type: node
-      bundle: academic_program
       field: field_editorial_sections
     -
       entity_type: node

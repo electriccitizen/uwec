@@ -8,7 +8,6 @@ dependencies:
     - field.field.node.academic_program.field_domain_access
     - field.field.node.academic_program.field_domain_all_affiliates
     - field.field.node.academic_program.field_domain_source
-    - field.field.node.academic_program.field_editorial_sections
     - field.field.node.academic_program.field_metatags
     - field.field.node.academic_program.field_placement_tags
     - field.field.node.academic_program.layout_builder__layout
@@ -78,12 +77,6 @@ content:
   field_domain_source:
     type: options_select
     weight: 53
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  field_editorial_sections:
-    type: options_buttons
-    weight: 51
     region: content
     settings: {  }
     third_party_settings: {  }
