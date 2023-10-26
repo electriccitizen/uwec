@@ -45,25 +45,6 @@ third_party_settings:
                 third_party_settings: {  }
             weight: 0
             additional: {  }
-          103eb759-3d3a-4322-927c-8caea613c448:
-            uuid: 103eb759-3d3a-4322-927c-8caea613c448
-            region: content
-            configuration:
-              id: 'field_block:user:user:roles'
-              label: Roles
-              label_display: '0'
-              provider: layout_builder
-              context_mapping:
-                entity: layout_builder.entity
-                view_mode: view_mode
-              formatter:
-                type: entity_reference_label
-                label: hidden
-                settings:
-                  link: false
-                third_party_settings: {  }
-            weight: 2
-            additional: {  }
           6834419a-b02b-4dd4-b6d1-f218738f89ff:
             uuid: 6834419a-b02b-4dd4-b6d1-f218738f89ff
             region: content
