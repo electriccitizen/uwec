@@ -1,0 +1,24 @@
+/* =============
+	 SECONDARY MENUS
+------------------- */
+@use '../../../00-base/base' as *;
+
+.block-secondary-menu{
+	ul:not(.contextual-links){
+		@include listReset;
+		@include desk{
+			@include safeFlex(row,wrap,end,start);
+			@include bleed(padding,16px);
+		}
+		li{
+			a{
+				display: block;
+				color: $secondMenuLink;
+				&:hover,&:focus{
+					color: $secondMenuLinkHover;
+					@include transAll(.3s);
+				}
+			}
+		}//end li
+	}//end ul
+}//end secondary-menu

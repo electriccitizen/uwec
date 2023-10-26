@@ -98,8 +98,8 @@ $modalGalButtonShadow      : $transBlack;
 $modalGalButtonShadowHover : $transBlack;
 $hamburger                 : $black;
 $hamburgerActive           : $black;
-$searchIcon                : $black;
-$searchIconHover           : $link;
+$searchIcon                : $white;
+$searchIconHover           : $offWhite;
 $searchDropBack            : rgba(35,35,35,0.97);
 $searchDropText            : $white;
 $searchDropPlace           : $white;
@@ -168,15 +168,15 @@ $oddRowText          : $baseText;
 /* SUPERFISH
 ---------------------- */
 //desktop
-$sfTopLink            : $black;
+$sfTopLink            : $white;
 $sfTopLinkHover       : $black;
 $sfTopBackHover       : $lightGrey;
-$sfTopActive          : $link;
-$sfTopActiveHover     : $link;
-$sfChildLink          : $link;
+$sfTopActive          : $offWhite;
+$sfTopActiveHover     : $black;
+$sfChildLink          : $white;
 $sfChildLinkHover     : $hoverLink;
-$sfChildActive        : $black;
-$sfChildActiveHover   : $hoverLink;
+$sfChildActive        : $offWhite;
+$sfChildActiveHover   : $black;
 $sfDropdown           : $lightGrey;
 
 //mobile
@@ -206,6 +206,11 @@ $menuChildHover       : $black;
 $menuChildActive      : $black;
 $menuChildActiveHover : $white;
 
+
+/* SECONDARY MENU
+----------------------- */
+$secondMenuLink      : $white;
+$secondMenuLinkHover : $offWhite;
 
 /* WIDGET ANCHORS
 ---------------------- */
