@@ -48,6 +48,10 @@
 						width: 100%;
 						max-width: 100px;
 						max-height: 50px;
+						&.uwec-logo{
+							padding: 10px;
+							background: $brightBlue;
+						}
 					}
 				}
 			}//end li

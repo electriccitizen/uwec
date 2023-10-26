@@ -20,13 +20,13 @@ $adminTransGrey : rgba(92,96,98,.92);
 /* CHANGEABLE SUBSITE COLORS
 ----------------------- */
 .themeset-uwec{
-	--col-primary: #{$lightGrey};
-	--col-accent1: #{$brightBlue};
+	--col-primary: #{$brightBlue};
+	--col-accent1: #{$gold};
 	--col-accent2: #{$royalBlue};
 	--col-accent3: lemonchiffon;
 }
 .themeset-example{
-	--col-primary: #{$darkIce};
+	--col-primary: #{$gold};
 	--col-accent1: #{$midBlue};
 	--col-accent2: #011e54;
 	--col-accent3: aqua;
@@ -40,7 +40,7 @@ $adminTransGrey : rgba(92,96,98,.92);
 /* TEXT
 ---------------------- */
 $baseText          : $darkGrey;
-$link              : $red;
+$link              : $brightBlue;
 $activeLink        : $black;
 $hoverLink         : $midGrey;
 $breadLink         : $link;
@@ -193,18 +193,18 @@ $sfMobileChildActive     : $white;
 
 /* MENU BLOCK (Sidebar)
 --------------------- */
-$menuBlockTitle       : $white;
-$menuBlockTitleHover  : $black;
-$menuBlockTitleBack   : $lightHotPink;
-$menuBack             : $hotPink;
-$menuTop              : $white;
-$menuTopHover         : $black;
+$menuBlockTitle       : $link;
+$menuBlockTitleHover  : $hoverLink;
+$menuBlockTitleBack   : $iceBlue;
+$menuBack             : $iceBlue;
+$menuTop              : $link;
+$menuTopHover         : $hoverLink;
 $menuTopActive        : $black;
-$menuTopActiveHover   : $white;
-$menuChild            : $white;
-$menuChildHover       : $black;
+$menuTopActiveHover   : $hoverLink;
+$menuChild            : $link;
+$menuChildHover       : $hoverLink;
 $menuChildActive      : $black;
-$menuChildActiveHover : $white;
+$menuChildActiveHover : $hoverLink;
 
 
 /* SECONDARY MENU
