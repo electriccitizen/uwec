@@ -21,7 +21,6 @@ third_party_settings:
   field_group:
     group_access:
       children:
-        - field_editorial_sections
         - field_domain_access
         - field_domain_source
         - field_domain_all_affiliates
@@ -61,16 +60,6 @@ content:
     weight: 10
     region: content
     settings: {  }
-    third_party_settings: {  }
-  field_list_widget:
-    type: entity_reference_autocomplete
-    weight: 26
-    region: content
-    settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
     third_party_settings: {  }
   field_metatags:
     type: metatag_firehose
@@ -119,6 +108,7 @@ content:
     third_party_settings: {  }
 hidden:
   created: true
+  field_list_widget: true
   layout_builder__layout: true
   promote: true
   sticky: true
