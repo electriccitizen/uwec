@@ -90,13 +90,13 @@ form:not(.layout-builder-add-block):not(.layout-builder-update-block){
 		input:focus + label::before {
 			box-shadow: 0 0 0 2px $checkboxChecked;
 			outline: 3px solid transparent; /* For Windows high contrast mode. */
-			background-color: $grey;
+			background-color: $lightGrey;
 		}
 		input:checked:hover + label::after,
 		input:checked:focus + label::after {
 			box-shadow: 0 0 0 2px $checkboxChecked;
 			outline: 3px solid transparent; /* For Windows high contrast mode. */
-			background-color: $midGrey;
+			background-color: $warmGrey;
 		}
 
 	}//end form type checkbox

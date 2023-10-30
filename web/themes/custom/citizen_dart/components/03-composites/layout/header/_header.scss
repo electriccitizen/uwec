@@ -20,6 +20,12 @@
 		@include auto;
 		position: relative;
 		@include safeFlex(row,wrap,null,center);
+		.contextual-region{
+			position: static;
+			.contextual{
+				display: none;
+			}
+		}
 	}
 }//end layout container
 

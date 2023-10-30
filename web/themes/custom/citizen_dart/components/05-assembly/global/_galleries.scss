@@ -49,14 +49,12 @@
 			background: none;
 			font-size: 24px;
 			color: $modalGalButton;
-			text-shadow: 2px 2px 3px $modalGalButtonShadow;
 			height: 32px;
 			width: 32px;
-			font-family: $bodyFont;
+			font-family: $bodyText;
 			&:hover,&:focus{
 				color: $modalGalButtonHover;
 				background: $modalGalButtonBackHover;
-				text-shadow: 2px 2px 3px $modalGalButtonShadowHover;
 			}
 		}
 		.featherlight-previous {

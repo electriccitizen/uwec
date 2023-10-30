@@ -264,9 +264,6 @@ ul.sf-menu.sf-accordion{
 			& > a{
 				color: $sfMobileTopExpanded;
 				background: $sfMobileTopBackExpanded;
-				&:not(.sf-accordion-button){
-					border-bottom: 3px solid $transBlack;
-				}
 			}
 			& > ul{
 				padding: 1.5rem 0;

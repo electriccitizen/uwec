@@ -12,7 +12,7 @@ _core:
 id: citizen_dart_sitesearch
 theme: citizen_dart
 region: header
-weight: -4
+weight: -5
 provider: null
 plugin: site_search
 settings:

@@ -54,9 +54,6 @@
 
 	.block-field-email{
 		@extend %imageBio;
-		h2.block-title{
-			@include inlineBlockTitle;
-		}
 		&:not(:nth-last-child(2)){
 			margin-bottom: $spaceXs;
 		}
@@ -64,9 +61,6 @@
 
 	.block-field-phone{
 		@extend %imageBio;
-		h2.block-title{
-			@include inlineBlockTitle;
-		}
 	}//end phone
 
 	.block-field.block-body{

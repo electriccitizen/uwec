@@ -46,6 +46,7 @@
 		<title>{{ head_title|safe_join(' | ') }}</title>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="stylesheet" media="all" href="/themes/custom/citizen_dart/dist/critical.css">
+    <link rel="stylesheet" href="https://use.typekit.net/qyk7ugw.css">
 		<js-placeholder token="{{ placeholder_token|raw }}">
 		{% block headInsert %}
 			{# place for any site or page specific <head> additions #}
@@ -55,7 +56,7 @@
 			<link rel="manifest" href="/themes/custom/citizen_dart/favicons/manifest.webmanifest">
 			<link rel="shortcut icon" href="/themes/custom/citizen_dart/favicons/favicon.ico">
 			<meta name="theme-color" content="#ffffff">
-			<link rel="preconnect" href="https://fonts.gstatic.com">
+			<link rel="preconnect" href="https://use.typekit.net">
 		{% endblock %}
 	</head>
 	<body {{ attributes.addClass(body_classes) }}>

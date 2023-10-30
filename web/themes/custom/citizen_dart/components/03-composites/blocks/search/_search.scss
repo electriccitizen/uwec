@@ -48,7 +48,7 @@
 //search icon
 .t-search-wrapper{
 	.t-search{
-		border: $inputBorderWidth solid transparent;
+		border: 1px solid transparent;
 		color: $searchIcon;
 		&:hover,&:focus{
 			color: $searchIconHover;
@@ -128,7 +128,7 @@
 			padding: 8px 4px;
 			border: none;
 			color: $searchDropText;
-			border: $inputBorderWidth solid transparent;
+			border: 0;
 			border-bottom-color: $searchDropInputBorder;
 			border-radius: 0;
 			@extend %searchBlockPlaceholder;

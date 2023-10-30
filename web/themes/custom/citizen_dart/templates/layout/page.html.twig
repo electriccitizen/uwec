@@ -54,6 +54,18 @@
 			{%- trans %}Skip to main content{% endtrans -%}
 		</a>
 	</nav>
+
+	{% block pageAdmin %}
+		{% if page.admin %}
+			<section class="admin-wrapper" role="complementary">
+				<div class="admin-inner">	
+					{% block adminContent %}
+						{{ page.admin }}
+					{% endblock %}
+				</div>
+			</section>
+		{% endif %}
+	{% endblock %}
 	
 	{% block pageAlert %}
 		{% if page.alert %}

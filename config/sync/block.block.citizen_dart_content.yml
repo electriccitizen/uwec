@@ -11,7 +11,7 @@ _core:
 id: citizen_dart_content
 theme: citizen_dart
 region: content
-weight: -1
+weight: -7
 provider: null
 plugin: system_main_block
 settings:

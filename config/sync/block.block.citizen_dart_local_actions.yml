@@ -8,8 +8,8 @@ _core:
   default_config_hash: mA1Dlxxob7S55w43aZCov8NCXbH4B3Uvn_eKtAPxJLE
 id: citizen_dart_local_actions
 theme: citizen_dart
-region: content
-weight: -2
+region: admin
+weight: -4
 provider: null
 plugin: local_actions_block
 settings:
