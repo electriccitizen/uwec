@@ -10,7 +10,7 @@ dependencies:
     - taxonomy.vocabulary.placement_tags
   content:
     - 'taxonomy_term:page_families:e660eb6f-fc22-4daf-9d7f-bd93e363607b'
-    - 'taxonomy_term:placement_tags:256ff961-1b60-4785-afa0-51803c790031'
+    - 'taxonomy_term:placement_tags:479d2dfa-0914-41c7-90c9-7897ba00491d'
   module:
     - node
     - paragraphs
@@ -346,7 +346,7 @@ display:
           plugin_id: taxonomy_index_tid
           operator: or
           value:
-            8: 8
+            32: 32
           group: 1
           exposed: false
           expose:
