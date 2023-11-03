@@ -38,7 +38,7 @@ filters:
     status: true
     weight: -48
     settings:
-      allowed_html: '<br> <p class="text-align-left text-align-center text-align-right text-align-justify"> <h2 id class="text-align-left text-align-center text-align-right text-align-justify"> <h3 id class="text-align-left text-align-center text-align-right text-align-justify"> <h4 id class="text-align-left text-align-center text-align-right text-align-justify"> <h5 id class="text-align-left text-align-center text-align-right text-align-justify"> <h6 id class="text-align-left text-align-center text-align-right text-align-justify"> <cite> <dl> <dt> <dd> <blockquote cite> <ul type> <ol type start> <a hreflang title href data-entity-type data-entity-uuid data-entity-substitution> <strong> <em> <li>'
+      allowed_html: '<br> <p> <h2> <h3> <h4> <h5> <h6> <strong> <em> <sub> <sup> <a href data-entity-type data-entity-uuid data-entity-substitution> <ul> <ol start> <li>'
       filter_html_help: true
       filter_html_nofollow: false
   filter_autop:
@@ -100,6 +100,6 @@ filters:
   filter_image_lazy_load:
     id: filter_image_lazy_load
     provider: filter
-    status: true
+    status: false
     weight: -45
     settings: {  }
