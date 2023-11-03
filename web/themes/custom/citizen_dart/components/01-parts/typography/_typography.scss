@@ -73,8 +73,8 @@ h2.section-title{
 html,code{
 	font-family: $bodyText;
 	font-size: $em-base;
-	line-height: 1.4;
-	-webkit-font-smoothing: antialiased;
+	line-height: 1.875;
+	-webkit-font-smoothing: subpixel-antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	font-kerning: normal;
 	font-synthesis: none;

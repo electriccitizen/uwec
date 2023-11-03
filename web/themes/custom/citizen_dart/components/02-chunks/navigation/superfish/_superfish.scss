@@ -17,18 +17,19 @@
 		display: none;
 	}
 	&:before{
-		@include materialIcon(\e5d2);
+		width: 28px;
+		height: 28px;
 		display: block;
 		position: absolute;
 		top: 0;
 		right: 0;
-		color: $hamburger;
-		line-height: 28px;
+		background-image: url(../images/elements/menu-open-white.svg);
+		background-repeat: no-repeat;
+		background-size: 100%;
 	}
 	&.sf-expanded{
 		&:before{
-			@include materialIcon(\e5cd);
-			color: $hamburgerActive;
+			background-image: url(../images/elements/menu-close-white.svg);
 		}
 	}
 }//end superfish-main-toggle

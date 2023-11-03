@@ -304,8 +304,10 @@
 }
 
 @mixin lightBack($lightText,$lightLink) {
-	h2,h3,h4,h5,h6,p,div {
+	h1,h2,h3,h4,h5,h6,p,div,li,.field-caption {
 		color: $lightText;
+		-webkit-font-smoothing: subpixel-antialiased;
+
 	}
 	:before,:after{
 		color: $lightText;
@@ -320,8 +322,9 @@
 }//end lightBack
 
 @mixin darkBack($darkText,$darkLink) {
-	h2,h3,h4,h5,h6,p,div {
+	h1,h2,h3,h4,h5,h6,p,div,li,.field-caption {
 		color: $darkText;
+		-webkit-font-smoothing: antialiased;
 	}
 	:before,:after{
 		color: $darkText;
@@ -401,6 +404,24 @@
 		opacity: .2;
 	  background-size: 6px 6px;
 	}
+}
+
+@mixin rightArrow($arrowColor,$arrowBack,$arrowBorder,$arrowSize){
+	display: block;
+	@if $arrowSize == 'sm'{
+		width: 20px;
+		height: 20px;
+	}@else if $arrowSize == 'lg'{
+		width: 40px;
+		height: 40px;
+	}
+	border-radius: 50%;
+	border: 1px solid $arrowBorder;
+	background-color: $arrowBack;
+	background-image: url(../images/arrows/right-arrow-#{$arrowColor}-#{$arrowSize}.svg);
+	background-repeat: no-repeat;
+	background-size: 50%;
+	background-position: 50% 50%;
 }
 
 /* ANIMATION MIXINS

@@ -4,35 +4,19 @@
 
 @use '../../00-base/base' as *;
 
-@mixin outsideSliderArrows($arrowSpace,$arrowColor,$arrowHover){
-	padding-left: $arrowSpace;
-	padding-right: $arrowSpace;
+@mixin sliderPrev{
+	background-image: url(../images/arrows/slider-arrow-left-ltgrey.svg);
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: center;
+}
 
-	//override arrow padding then there are not enough slick items to have slider / have buttons
-	.slick-list:only-child{
-		@include edgeToEdge;
-	}
-	.slick-arrow{
-		&.slick-prev{
-			left: 0;
-			&:before{
-				border-right-color: $arrowColor;
-			}
-			&:hover:before{
-				border-right-color: $arrowHover;
-			}
-		}
-		&.slick-next{
-			right: 0;
-			&:before{
-				border-left-color: $arrowColor;
-			}
-			&:hover:before{
-				border-left-color: $arrowHover;
-			}
-		}
-	}
-}//end outside slider arrows
+@mixin sliderNext{
+	background-image: url(../images/arrows/slider-arrow-right-ltgrey.svg);
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: center;
+}
 
 /* FEATHERLIGHT
 ------------------- */
@@ -42,75 +26,52 @@
 		background: $siteBack;
 		padding: 0px !important;
 		border-bottom: 0px !important;
+		overflow: visible !important;
 		margin-left: 5%;
 		margin-right: 5%;
 		//controls
 		.featherlight-close-icon {
-			background: none;
-			font-size: 24px;
-			color: $modalGalButton;
-			height: 32px;
-			width: 32px;
-			font-family: $bodyText;
+			display: none;
 			&:hover,&:focus{
 				color: $modalGalButtonHover;
 				background: $modalGalButtonBackHover;
 			}
 		}
 		.featherlight-previous {
-			position: absolute;
-			left: 0;
-			top: 0;
+			width: 96px;
+			height: 96px;
+			top: calc(50% - 48px);
+			left: -100px;
+			bottom: auto;
 			right: auto;
-			width: 15%;
-			min-width: 60px;
+			@include sliderPrev;
+			&:hover,&:focus {
+				background-image: url(../images/arrows/slider-arrow-left-ice.svg);
+				@include transition(background-image, 0.3s, ease);
+			}
 			span {
 				display: block;
 		    font-size: 0;
 		    width: 0;
-		    left: auto;
-		    right: 90%;
-				&:before{
-					position: absolute;
-					top: 40px;
-					left: 10%;
-					@include materialIcon('arrow_back');
-				}
-			}
-			&:hover,&:focus {
-				background: $modalGalButtonBackHover;
-				span {
-					border-right-color: $link;
-					@include transition(border-right-color, 0.3s, ease);
-				}
 			}
 		}
 		//end previous
 		.featherlight-next {
-			position: absolute;
-			right: 0;
-			top: 0;
+			width: 96px;
+			height: 96px;
+			top: calc(50% - 48px);
+			right: -100px;
+			bottom: auto;
 			left: auto;
-			width: 15%;
-			min-width: 60px;
+			@include sliderNext;
+			&:hover,&:focus {
+				background-image: url(../images/arrows/slider-arrow-right-ice.svg);
+				@include transition(background-image, 0.3s, ease);
+			}
 			span {
 				display: block;
 		    font-size: 0;
 		    width: 0;
-		    left: 70%;
-		    right: auto;
-				&:before{
-					position: absolute;
-					top: 40px;
-					@include materialIcon('arrow_forward');
-				}
-			}
-			&:hover,&:focus {
-				background: $modalGalButtonBackHover;
-				span {
-					border-left-color: $link;
-					@include transition(border-left-color, 0.3s, ease);
-				}
 			}
 		}
 		//end next
@@ -149,42 +110,38 @@
 	}
 	.slick-arrow {
 		z-index: 1;
-		height: 100%;
-		top: 0;
-		@include translate(0,0);
-		width: 15%;
-		min-width: 60px;
+		width: 96px;
+		height: 96px;
 		&:before {
 			content: '';
 			display: block;
-			position: absolute;
-			top: calc(50% - 10px);
+			width: 100%;
+			height: 100%;
+			opacity: 1;
 		}
 		&.slick-prev {
-			left: 0;
+			left: -48px;
 			&:before{
-				left: 20px;
-				@include materialIcon('arrow_back');
+				@include sliderPrev;
 			}
 			&:hover,&:focus{
 				&:before{
-					border-right-color: $link;
-					@include transition(border-right-color, 0.3s, ease);
+					background-image: url(../images/arrows/slider-arrow-left-ice.svg);
+					@include transition(background-image, 0.3s, ease);
 				}
 			}
 		}
 		&.slick-next {
-			right: 0;
+			right: -48px;
 			&:before{
-				right: 20px;
-				@include materialIcon('arrow_forward');
+				@include sliderNext;
 			}
 			&:hover,&:focus{
 				&:before{
-					border-left-color: $link;
-					@include transition(border-left-color, 0.3s, ease);
+					background-image: url(../images/arrows/slider-arrow-right-ice.svg);
+					@include transition(background-image, 0.3s, ease);
 				}
 			}
 		}
-	}
+	}//end slick arrow
 }//end slick-slider

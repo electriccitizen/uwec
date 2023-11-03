@@ -9,9 +9,6 @@
 	.image-wrapper{
 		@include auto;
 		position: relative;
-		&:before{
-			@include fatStripes($navy);
-		}
 		&:after{
 			@include narrowStripes($gold);
 		}
