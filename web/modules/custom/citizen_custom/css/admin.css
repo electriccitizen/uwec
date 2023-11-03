@@ -17,6 +17,12 @@ button[disabled]:hover,button.disabled:hover{
 	background-color: transparent !important;
 }
 
+/* FIX CKE MODALS HIDING BEHIND OTHER MODALS
+------------------ */
+.ck.ck-balloon-panel{
+	z-index: 1261 !important;
+}
+
 /* ADJUST MEDIA LIBRARY
 ----------------------- */
 #media-library-wrapper{

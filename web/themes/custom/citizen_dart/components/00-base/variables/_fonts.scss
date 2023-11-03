@@ -58,7 +58,7 @@ $h4: 2.5rem;
 $h5: 2rem;
 
 //h6 sizes
-$h6: 225rem;
+$h6: 2.25rem;
 
 /* FONT AND TYPE MIXINS
 --------------------------- */
@@ -136,6 +136,13 @@ $h6: 225rem;
 	font-family: $displayHeader;
 }
 
+@mixin quoteMark{
+	width: 20px;
+	height: 19px;
+	background: url(../images/elements/quote.svg);
+	background-repeat: no-repeat;
+	background-size: 100%;
+}
 @mixin quote{
 	font-family: $displayHeader;
 	line-height: 1.5;
@@ -143,10 +150,7 @@ $h6: 225rem;
 	font-size: 4rem;
 	padding-top: 3.75rem;
 	padding-bottom: $spaceSm;
-	@include tab{
-		font-size: 4.5rem;
-		padding-bottom: 0;
-	}
+	color: $brightBlue;
 	.quote-pre{
 		@include auto;
 	}
