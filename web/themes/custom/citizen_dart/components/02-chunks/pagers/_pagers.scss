@@ -23,6 +23,27 @@ $pagerLine: 3rem;
 	}
 }
 
+@mixin prevLink{
+	background-image: url(../images/arrows/pager-left.svg);
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: center;
+	&:hover,&:focus{
+		background-image: url(../images/arrows/pager-left-navy.svg);
+		@include transition(background-image, 0.3s, ease);
+	}
+}
+@mixin nextLink{
+	background-image: url(../images/arrows/pager-right.svg);
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: center;
+	&:hover,&:focus{
+		background-image: url(../images/arrows/pager-right-navy.svg);
+		@include transition(background-image, 0.3s, ease);
+	}
+}
+
 /* RESULTS (PAGE X OF & RESULTS X-X OF)
 ------------------------- */
 
@@ -96,17 +117,21 @@ $pagerLine: 3rem;
 		}
 		@include tab{
 			&.pager__item--previous{
-				padding-right: 2.5rem;
+				& > a{
+					@include prevLink;
+				}
 			}
 			&.pager__item--next{
-				padding-left: 2.5rem;
+				& > a{
+					@include nextLink;
+				}
 			}
 		}
 	}//end page number items
 
 	.disabled{
 		a{
-			color: $midGrey;
+			color: $warmGrey;
 			pointer-events: none;
 		}
 	}
@@ -128,10 +153,14 @@ $pagerLine: 3rem;
 		}
 		.pager__item{
 			&.pager__item--previous{
-				padding-right: 2.5rem;
+				& > a{
+					@include prevLink;
+				}
 			}
 			&.pager__item--next{
-				padding-left: 2.5rem;
+				& > a{
+					@include nextLink;
+				}
 			}
 		}
 	}//end smart pager
@@ -144,14 +173,18 @@ $pagerLine: 3rem;
 			}
 			.pager__item{
 				&.pager__item--previous{
-					padding-right: 0;
+					& > a{
+						@include prevLink;
+					}
 				}
 				&.pager__item--next{
-					padding-left: 0;
+					& > a{
+						@include nextLink;
+					}
 				}
 			}
-		}
-	}
+		}//end onlyPhone
+	}//end results pager
 }//end full .pager
 
 
@@ -172,6 +205,18 @@ nav:not(.pager){
 			}
 		}
 	}//end js-pager-items
+	.pager__item{
+		&.pager__item--previous{
+			& > a{
+				@include prevLink;
+			}
+		}
+		&.pager__item--next{
+			& > a{
+				@include nextLink;
+			}
+		}
+	}
 }//end mini pager
 
 

@@ -45,13 +45,11 @@
 }
 
 @mixin textInput{
-	border: $inputBorderWidth solid $inputBorderColor;
-	font-size: 2rem;
-	font-family: $bodyFont;
-	padding: 1rem 1.75rem 1.1rem;
+	border-radius: 10px;
+	padding: 14px 26px 11px;
 	width: 100%;
-	line-height: 1.4;
-	min-height: 44px;
+	line-height: 2;
+	min-height: 60px;
 	@include placeholder;
 	&:hover{
 		border-color: $inputBorderHover;
@@ -69,10 +67,8 @@
 	font-family: $header;
 	font-size: $formLabelSize;
 	font-weight: $formLabelWeight;
-	color: $black;
 	display: block;
-	margin-bottom: $spaceXs;
-	padding-bottom: 0;
+	margin-bottom: 0;
 }
 
 @mixin required{
@@ -89,12 +85,11 @@
 @mixin inputSelect{
 	width: 100%;
 	font-size: 2rem;
-	border: $inputBorderWidth solid $inputBorderColor;
-	border-radius: 0;
+	border-radius: 10px;
 	height: auto;
 	background: $siteBack;
 	&.select2--container--focus{
-		box-shadow: 0 2px 2px rgba(35,35,35,0.3);
+		box-shadow: 0 2px 2px $warmGrey;
 	}
 }
 
@@ -106,7 +101,7 @@
 		-ms-user-select: none;
 		user-select: none;
 		outline: none;
-		border: $inputBorderWidth solid $checkbox;
+		border: 0;
 		width: 18px;
 		height: 18px;
 		background-color: $siteBack;
@@ -136,9 +131,9 @@
 		&[type="radio"]{
 			border-radius: 50%;
 			&:checked{
-				background-color: $red;
+				background-color: $brightBlue;
 				&:hover,&:focus{
-					background-color: $midGrey;
+					background-color: $warmGrey;
 				}
 			}
 		}

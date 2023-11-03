@@ -9,9 +9,9 @@ $em-base: 8px;
 $smallTab: 520px;
 $tab: 800px;
 $desk: 984px;
-$contentStop: 1200px;
+$contentStop: 1440px;
 $largeScreen: 1600px;
-$textMax: 800px;
+$textMax: 650px;
 $onlyTab: $tab $desk - 1px;
 $onlySmall: max-width $tab - 1px;
 $onlyPhone: max-width $smallTab - 1px;
@@ -27,11 +27,10 @@ $spaceMd : 4rem;
 $spaceLg : 6rem;
 $spaceXl : 9rem;
 
-$siteMarginMobile: 3rem;
-$siteMarginDesk: 6rem;
+$siteMarginMobile: 2.5rem;
+$siteMarginDesk: 7.5rem;
 
-$formElementSpace: $spaceMd;
-$inputBorderWidth: 1px;
+$formElementSpace: $spaceXs;
 $elementSpace: $spaceLg;
 $siteBottomSpace: 12rem;
 

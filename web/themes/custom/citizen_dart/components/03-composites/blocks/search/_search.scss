@@ -48,14 +48,16 @@
 //search icon
 .t-search-wrapper{
 	.t-search{
-		border: $inputBorderWidth solid transparent;
-		color: $searchIcon;
+		width: 40px;
+		height: 40px;
+		background-image: url(../images/elements/search-open-white.svg);
+		background-repeat: no-repeat;
+		background-size: 100%;
 		&:hover,&:focus{
-			color: $searchIconHover;
-			outline: none;
+			background-image: url(../images/elements/search-open-hover.svg);
 		}
-		.material-icons{
-			font-size: 24px;
+		span{
+			@include visuallyHidden;
 		}
 	}
 }//end t-search-wrapper
@@ -65,24 +67,23 @@
 	position: absolute;
 	top: -20px;
 	right: 0;
-	height: 48px;
-	width: 48px;
+	height: 40px;
+	width: 40px;
 	display: none;
 	z-index: 502;
 	.close-search{
-		font-family: $header;
 		display: block;
 		width: 100%;
 		height: 100%;
-		color: $searchClose;
-		font-size: 24px;
-		background: $searchCloseBack;
 		cursor: pointer;
-		@include safeFlex(column,null,center,center);
+		background-image: url(../images/elements/search-close-white.svg);
+		background-repeat: no-repeat;
+		background-size: 100%;
 		&:hover,&:focus{
-			text-decoration: none;
-			background: $searchCloseBackHover;
-			color: $searchCloseHover;
+			background-image: url(../images/elements/search-close-hover.svg);
+		}
+		span{
+			@include visuallyHidden;
 		}
 	}
 }//end search close
@@ -124,11 +125,11 @@
 		}
 		input{
 			width: 100%;
-			background: transparent;
+			background: $siteBack;
 			padding: 8px 4px;
 			border: none;
 			color: $searchDropText;
-			border: $inputBorderWidth solid transparent;
+			border: 0;
 			border-bottom-color: $searchDropInputBorder;
 			border-radius: 0;
 			@extend %searchBlockPlaceholder;
@@ -179,7 +180,7 @@
 				box-shadow: none;
 				border: 0;
 				& + .material-icons{
-					color: $searchDropSearchIconHover;
+					color: $navy;
 				}
 			}
 		}//end form submit
@@ -188,7 +189,7 @@
 			top: -45px;
 			right: 8px;
 			font-size: 3rem;
-			color: $searchDropSearchIcon;
+			color: $navy;
 			cursor: pointer;
 			@include tab{
 				font-size: 3.5rem;

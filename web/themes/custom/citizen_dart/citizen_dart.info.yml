@@ -12,6 +12,7 @@ ckeditor5-stylesheets:
 base theme: stable9
 hidden: false
 regions:
+  admin: Admin
   alert: Alert 
   header: Header 
   content: Content

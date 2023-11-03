@@ -10,11 +10,11 @@
 	background: $adminGreen;
 }
 #responsive-preview-toolbar-tab .responsive-preview-trigger.active:hover{
-	background: $midGrey;
+	background: $warmGrey;
 }
 
 #responsive-preview-modal-background{
-	background: $adminTransGrey;
+	background: $navy;
 }
 #responsive-preview-frame-container{
 	border-radius: 5px;
@@ -22,7 +22,7 @@
 .responsive-preview-device-label-text{
 	position: relative;
 	top: -2px;
-	color: $offWhite;
+	color: $lightGrey;
 }
 .responsive-preview-device-label-text:after{
 	content: none !important;
