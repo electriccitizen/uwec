@@ -112,19 +112,6 @@ strong{
 	font-weight: $heavy;
 }
 
-small{
-	font-size: 80%;
-}
-
-.warning{
-	background: none;
-	padding: 1rem 2rem;
-	margin-bottom: $spaceMd;
-	color: $validation;
-	border: 1px solid $validation;
-	text-align: center;
-}
-
 .hr,hr {
 	border-style: solid;
 	border-width: 1px 0 0;
@@ -136,6 +123,19 @@ small{
 
 blockquote{
 	@include quote;
+	margin: 0;
+	position: relative;
+	padding-top: 8rem;
+	border-top: 1px solid $brightBlue;
+	border-bottom: 1px solid $brightBlue;
+	&:before{
+		content: '';
+		display: block;
+		position: absolute;
+		top: 3rem;
+		left: calc(50% - 10px);
+		@include quoteMark;
+	}
 }
 
 //clear floats in common long text fields, remove bottom margin from last child
