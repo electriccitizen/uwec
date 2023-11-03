@@ -1,0 +1,17 @@
+uuid: ffa0bbc5-310e-4712-b052-8f9da9b91fb3
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: 426x508_non_webp
+label: '426x508 Non-webp'
+effects:
+  e583851e-9d53-448b-8acb-271e86c51ede:
+    uuid: e583851e-9d53-448b-8acb-271e86c51ede
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 426
+      height: 508
+      crop_type: focal_point

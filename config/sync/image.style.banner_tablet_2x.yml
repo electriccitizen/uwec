@@ -15,8 +15,8 @@ effects:
     id: focal_point_scale_and_crop
     weight: 1
     data:
-      width: 1600
-      height: 896
+      width: 1572
+      height: 1048
       crop_type: focal_point
   2c05bd5c-220b-4a31-a9d6-44d04e546b2b:
     uuid: 2c05bd5c-220b-4a31-a9d6-44d04e546b2b

@@ -23,6 +23,10 @@ button[disabled]:hover,button.disabled:hover{
 	z-index: 1261 !important;
 }
 
+.role-personnel .ck.ck-button.ck-source-editing-button,.role-editor .ck.ck-button.ck-source-editing-button,.role-marketing_editor .ck.ck-button.ck-source-editing-button,.role-section_manager .ck.ck-button.ck-source-editing-button{
+	display: none;
+}
+
 /* ADJUST MEDIA LIBRARY
 ----------------------- */
 #media-library-wrapper{
