@@ -50,9 +50,9 @@
 		      {%- for key, item in content.field_gallery_items -%}
 		        {%- if key|first != '#' and item['#paragraph'].field_image.0.target_id > 0 -%}
 		          <div class="featherlight-gal image-gal" href="#item{{ item['#paragraph'].field_image.0.target_id }}" rel="gallery-{{ paragraph.id.value }}">
-                {{ drupal_entity('media', item['#paragraph'].field_image.0.target_id, 'large_thumb') }}
+                {{ drupal_entity('media', item['#paragraph'].field_image.0.target_id, 'square') }}
 		            <div class="featherlight-hidden" id="item{{ item['#paragraph'].field_image.0.target_id }}">
-		              {{ drupal_entity('media', item['#paragraph'].field_image.0.target_id, 'large') }}
+		              {{ drupal_entity('media', item['#paragraph'].field_image.0.target_id, '650x650') }}
                   <div class="featherlight-caption">
                     {% if item['#paragraph'].field_caption_headline.0.value %}
                       <div class="field field-caption-headline string">{{ item['#paragraph'].field_caption_headline.0.value }}</div>

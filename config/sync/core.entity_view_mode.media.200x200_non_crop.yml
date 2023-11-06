@@ -1,0 +1,10 @@
+uuid: 28a6fc10-c391-481a-b1ec-4eb9663aeb27
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+id: media.200x200_non_crop
+label: '200x200 Non-crop'
+targetEntityType: media
+cache: true

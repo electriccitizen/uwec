@@ -130,6 +130,10 @@ function citizen_dart_preprocess_responsive_image(&$variables) {
       $img_width = 426;
       $img_height = 426;
       break;
+    case '426x508':
+      $img_width = 426;
+      $img_height = 426;
+      break;
     case '492x492':
       $img_width = 492;
       $img_height = 492;
