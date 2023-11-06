@@ -12,6 +12,7 @@ dependencies:
     - field.field.node.department.layout_builder__layout
     - node.type.department
     - system.menu.departments
+    - views.view.bios
   module:
     - layout_builder
     - layout_builder_restrictions
@@ -20,6 +21,7 @@ dependencies:
     - metatag
     - text
     - user
+    - views
   theme:
     - citizen_dart
 third_party_settings:
@@ -111,6 +113,26 @@ third_party_settings:
                 label: hidden
                 settings: {  }
                 third_party_settings: {  }
+            weight: 0
+            additional: {  }
+        third_party_settings: {  }
+      -
+        layout_id: layout_onecol
+        layout_settings:
+          label: ''
+          context_mapping: {  }
+        components:
+          7677247c-5b0d-456f-b867-41bcff93daeb:
+            uuid: 7677247c-5b0d-456f-b867-41bcff93daeb
+            region: content
+            configuration:
+              id: 'views_block:bios-department_faculty'
+              label: 'Meet The Faculty'
+              label_display: visible
+              provider: views
+              context_mapping: {  }
+              views_label: 'Meet The Faculty'
+              items_per_page: none
             weight: 0
             additional: {  }
         third_party_settings: {  }
