@@ -39,15 +39,11 @@
 
 {# check for a paragraph id #}
 {% if paragraph.id.value %}
-	Raw view 
-	{{ drupal_view('profiles','profiles_list', paragraph.id.value) }}
-
-	logic starts below here------
-	{% if (content.field_list_type.0['#markup'] == 'manual') or (drupal_view('profiles','profiles_list', paragraph.id.value)|render|striptags|trim|length > 0) %} 
+	{% if (content.field_list_type.0['#markup'] == 'manual') or (drupal_view('bios','profiles_list', paragraph.id.value)|render|striptags|trim|length > 0) %} 
 		<div class="paragraph paragraph--type--profiles-list custom-views-list" data-quickedit-entity-id="paragraph/{{ paragraph.id.value }}">
 				{{ content.field_widget_title }}
 				{% if content.field_list_type.0['#markup'] == 'auto' %}
-					{{ drupal_view('profiles','profiles_list', paragraph.id.value) }}
+					{{ drupal_view('bios','profiles_list', paragraph.id.value) }}
 				{% else %}
 					{{ content.field_profiles }}
 				{% endif %}
