@@ -13,7 +13,7 @@ field_name: field_image
 entity_type: paragraph
 bundle: image
 label: Image
-description: '<strong>NOTE:</strong> Make sure your image is large enough for the selected image size.'
+description: '<strong>Optimal image size:</strong> is 1516x856px'
 required: true
 translatable: false
 default_value: {  }
@@ -25,6 +25,7 @@ settings:
       image: image
     sort:
       field: _none
+      direction: ASC
     auto_create: false
     auto_create_bundle: ''
 field_type: entity_reference

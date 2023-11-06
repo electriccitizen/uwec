@@ -1,0 +1,15 @@
+uuid: 957e5437-3f50-4c92-af5f-217b9180a394
+langcode: en
+status: true
+dependencies: {  }
+name: icon
+label: Icon
+effects:
+  85f94d16-70f7-428f-b5a7-add809552b76:
+    uuid: 85f94d16-70f7-428f-b5a7-add809552b76
+    id: image_scale
+    weight: 1
+    data:
+      width: 32
+      height: 32
+      upscale: true

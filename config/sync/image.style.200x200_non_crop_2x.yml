@@ -1,0 +1,21 @@
+uuid: 855d0bdc-ec00-47c7-98d1-5dd3358f426f
+langcode: en
+status: true
+dependencies: {  }
+name: 200x200_non_crop_2x
+label: '200x200 Non-crop 2x'
+effects:
+  aa4fe1b7-eb56-438f-be57-c37dd8a6721d:
+    uuid: aa4fe1b7-eb56-438f-be57-c37dd8a6721d
+    id: image_scale
+    weight: 1
+    data:
+      width: 400
+      height: 400
+      upscale: true
+  d0c7a0f5-7c57-4bb1-8d11-47af96bf3653:
+    uuid: d0c7a0f5-7c57-4bb1-8d11-47af96bf3653
+    id: image_convert
+    weight: 2
+    data:
+      extension: webp

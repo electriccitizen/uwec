@@ -13,7 +13,7 @@ field_name: field_image
 entity_type: node
 bundle: news
 label: 'Story Image'
-description: '<strong>Optimal image size:</strong> 720x720px'
+description: '<strong>Optimal image size:</strong> 1920x1280px'
 required: true
 translatable: true
 default_value: {  }

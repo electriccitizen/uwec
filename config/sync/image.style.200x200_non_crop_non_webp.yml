@@ -1,0 +1,15 @@
+uuid: a6bdd9ac-0003-419b-b5f1-0bfe5ca8765a
+langcode: en
+status: true
+dependencies: {  }
+name: 200x200_non_crop_non_webp
+label: '200x200 Non-crop Non-webp'
+effects:
+  eba5adf4-9302-44d0-8756-a2bc64d64541:
+    uuid: eba5adf4-9302-44d0-8756-a2bc64d64541
+    id: image_scale
+    weight: 1
+    data:
+      width: 200
+      height: 200
+      upscale: true
