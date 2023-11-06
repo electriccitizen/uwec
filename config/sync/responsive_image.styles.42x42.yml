@@ -1,0 +1,31 @@
+uuid: 1f268085-2547-4423-a633-03f33f9e4f87
+langcode: en
+status: true
+dependencies:
+  config:
+    - image.style.42x42
+    - image.style.42x42_1_5x
+    - image.style.42x42_2x
+    - image.style.42x42_non_webp
+  theme:
+    - citizen_dart
+id: 42x42
+label: 42x42
+image_style_mappings:
+  -
+    image_mapping_type: image_style
+    image_mapping: 42x42
+    breakpoint_id: citizen_dart.mobile
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: 42x42_1_5x
+    breakpoint_id: citizen_dart.mobile
+    multiplier: 1.5x
+  -
+    image_mapping_type: image_style
+    image_mapping: 42x42_2x
+    breakpoint_id: citizen_dart.mobile
+    multiplier: 2x
+breakpoint_group: citizen_dart
+fallback_image_style: 42x42_non_webp

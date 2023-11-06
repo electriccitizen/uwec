@@ -1,75 +1,73 @@
-uuid: a5f9175d-f1db-47bf-8012-5e6ee7315fa0
+uuid: 34abb7ca-a4f0-4749-ba00-138e02bebe00
 langcode: en
 status: true
 dependencies:
   config:
-    - image.style.banner_big_desk
-    - image.style.banner_desk
-    - image.style.banner_desk_non_webp
-    - image.style.banner_middesk
-    - image.style.banner_mobile
-    - image.style.banner_mobile_1_5x
-    - image.style.banner_mobile_2x
-    - image.style.banner_tablet
-    - image.style.banner_tablet_1_5x
-    - image.style.banner_tablet_2x
-    - image.style.banner_wide_desk
+    - image.style.1192x897
+    - image.style.1440x1084
+    - image.style.1440x1084_non_webp
+    - image.style.1680x1260
+    - image.style.1920x1445
+    - image.style.426x508
+    - image.style.426x508_1_5x
+    - image.style.426x508_2x
+    - image.style.874x492
+    - image.style.874x492_1_5x
+    - image.style.874x492_2x
   theme:
     - citizen_dart
-_core:
-  default_config_hash: KyQe_l0tlauOOmgJ3PLBwH4-QwSREOFIzqFs9QgQOHw
-id: banner
-label: Banner
+id: 1920x1445
+label: 1920x1445
 image_style_mappings:
   -
     image_mapping_type: image_style
-    image_mapping: banner_wide_desk
+    image_mapping: 1920x1445
     breakpoint_id: citizen_dart.widedesk
     multiplier: 1x
   -
     image_mapping_type: image_style
-    image_mapping: banner_big_desk
+    image_mapping: 1680x1260
     breakpoint_id: citizen_dart.bigdesk
     multiplier: 1x
   -
     image_mapping_type: image_style
-    image_mapping: banner_middesk
+    image_mapping: 1440x1084
     breakpoint_id: citizen_dart.middesk
     multiplier: 1x
   -
     image_mapping_type: image_style
-    image_mapping: banner_desk
+    image_mapping: 1192x897
     breakpoint_id: citizen_dart.desk
     multiplier: 1x
   -
     image_mapping_type: image_style
-    image_mapping: banner_tablet
+    image_mapping: 874x492
     breakpoint_id: citizen_dart.tab
     multiplier: 1x
   -
     image_mapping_type: image_style
-    image_mapping: banner_tablet_1_5x
+    image_mapping: 874x492_1_5x
     breakpoint_id: citizen_dart.tab
     multiplier: 1.5x
   -
     image_mapping_type: image_style
-    image_mapping: banner_tablet_2x
+    image_mapping: 874x492_2x
     breakpoint_id: citizen_dart.tab
     multiplier: 2x
   -
     image_mapping_type: image_style
-    image_mapping: banner_mobile
+    image_mapping: 426x508
     breakpoint_id: citizen_dart.mobile
     multiplier: 1x
   -
     image_mapping_type: image_style
-    image_mapping: banner_mobile_1_5x
+    image_mapping: 426x508_1_5x
     breakpoint_id: citizen_dart.mobile
     multiplier: 1.5x
   -
     image_mapping_type: image_style
-    image_mapping: banner_mobile_2x
+    image_mapping: 426x508_2x
     breakpoint_id: citizen_dart.mobile
     multiplier: 2x
 breakpoint_group: citizen_dart
-fallback_image_style: banner_desk_non_webp
+fallback_image_style: 1440x1084_non_webp
