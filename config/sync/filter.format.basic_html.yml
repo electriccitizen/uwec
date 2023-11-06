@@ -19,7 +19,7 @@ filters:
     status: true
     weight: -44
     settings:
-      allowed_html: '<br> <p class> <h2 id class> <h3 id class> <h4 id class> <h5 id class> <h6 id class> <cite> <dl> <dt> <dd> <figcaption> <picture> <small> <mark> <blockquote cite> <span class> <img srcset typeof src alt height width data-entity-type data-entity-uuid data-entity-substitution data-align data-caption> <source srcset media type> <div id data-* class> <iframe src title frameborder aria-describedby tabindex allowtransparency width height class> <drupal-entity data-* alt title> <article data-* class> <a hreflang target id title class href data-entity-type data-entity-uuid data-entity-substitution> <ul type class> <ol type class start> <drupal-media data-caption title data-entity-type data-entity-uuid alt> <strong> <em> <sub> <sup> <li> <hr>'
+      allowed_html: '<br> <p class> <h2 id class> <h3 id class> <h4 id class> <h5 id class> <h6 id class> <cite> <dl> <dt> <dd> <figcaption> <picture> <small> <mark> <blockquote cite> <span class> <img srcset typeof src alt height width data-entity-type data-entity-uuid data-entity-substitution data-align data-caption> <source srcset media type> <div id data-* class> <iframe src title frameborder aria-describedby tabindex allowtransparency width height class> <drupal-entity data-* alt title> <article data-* class> <a hreflang target id title class href data-entity-type data-entity-uuid data-entity-substitution> <ul type class> <ol type class start> <drupal-media data-caption title> <strong> <em> <sub> <sup> <li> <hr>'
       filter_html_help: false
       filter_html_nofollow: false
   filter_align:
@@ -91,7 +91,7 @@ filters:
   media_embed:
     id: media_embed
     provider: media
-    status: true
+    status: false
     weight: -49
     settings:
       default_view_mode: default
