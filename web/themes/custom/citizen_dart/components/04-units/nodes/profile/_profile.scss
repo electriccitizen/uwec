@@ -4,70 +4,27 @@
 
 @use '../../../00-base/base' as *;
 
-%imageBio{
-	.has-main-image &{
-		@include tab{
-			margin-left: 360px;
-		}
-	}
-}
-
 .node-bios{
 
-	#node-section-1,#node-section-2{
+	#node-section-1{
+		.layout__region--first{
+			@include safeFlex(row,wrap,end,start);
+		}
+	}
+	#node-section-2{
+		max-width: 1000px;
+		@include auto;
+		background: $ice;
+		margin-bottom: $elementSpace;
+	}
+
+	#node-section-3{
 		max-width: $textMax;
-		.has-main-image &{
-			max-width: $contentStop;
-		}
 		@include auto;
-		@include clearFix;
 	}
-	
+
 	.block-field-image{
-		max-width: 320px;
-		@include auto;
-		@include tab{
-			float: left;
-			@include edgeReset;
-		}
-	}
-
-	.block-field.block-title{
-		@extend %imageBio;
-		@include tab{
-			text-align: left;
-		}
-	}
-
-	.block-field-position{
-		@extend %imageBio;
-		@include heading4;
-		margin-top: -$spaceMd;
-		text-align: center;
-		@include tab{
-			text-align: left;
-		}
-		&:not(:last-child){
-			margin-bottom: $spaceMd;
-		}
-	}
-
-	.block-field-email{
-		@extend %imageBio;
-		&:not(:nth-last-child(2)){
-			margin-bottom: $spaceXs;
-		}
-	}//end email
-
-	.block-field-phone{
-		@extend %imageBio;
-	}//end phone
-
-	.block-field.block-body{
-		@extend %imageBio;
-		@include tab{
-			margin-right: 0;
-		}
+		width: 100%;
 	}
 
 }//end news

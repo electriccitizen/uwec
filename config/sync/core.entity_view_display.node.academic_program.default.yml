@@ -12,6 +12,7 @@ dependencies:
     - field.field.node.academic_program.field_placement_tags
     - field.field.node.academic_program.layout_builder__layout
     - node.type.academic_program
+    - views.view.bios
   module:
     - layout_builder
     - layout_builder_restrictions
@@ -20,6 +21,7 @@ dependencies:
     - options
     - text
     - user
+    - views
 third_party_settings:
   layout_builder:
     enabled: true
@@ -81,6 +83,19 @@ third_party_settings:
                 settings: {  }
                 third_party_settings: {  }
             weight: 5
+            additional: {  }
+          ec96fee3-9d5f-4005-8274-d9b4d4ebae74:
+            uuid: ec96fee3-9d5f-4005-8274-d9b4d4ebae74
+            region: content
+            configuration:
+              id: 'views_block:bios-program_faculty'
+              label: 'Meet The Faculty'
+              label_display: visible
+              provider: views
+              context_mapping: {  }
+              views_label: 'Meet The Faculty'
+              items_per_page: none
+            weight: 6
             additional: {  }
         third_party_settings: {  }
   layout_builder_restrictions:

@@ -27,6 +27,7 @@
 	max-width: $contentStop;
 	@include auto;
 	@include safeFlex(row,wrap,start,start);
+	@include bleed(padding, 130px);
 	.layout__region--first{
 		width: 100%;
 		@include desk{
