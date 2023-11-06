@@ -7,8 +7,15 @@ dependencies:
     - field.storage.node.field_image
     - field.storage.node.field_position
     - node.type.bios
+    - taxonomy.vocabulary.page_families
+    - taxonomy.vocabulary.placement_tags
+  content:
+    - 'taxonomy_term:page_families:9f5d1d79-0dde-4a9d-8942-6be310a0a391'
+    - 'taxonomy_term:placement_tags:479d2dfa-0914-41c7-90c9-7897ba00491d'
   module:
     - node
+    - paragraphs
+    - taxonomy
     - user
 _core:
   default_config_hash: IGJxAc0UwEnl7UnxQseHIj-dFuzwMJDYNBJBGIwubjU
@@ -628,6 +635,268 @@ display:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url
+        - 'user.node_grants:view'
+        - user.permissions
+      tags:
+        - 'config:field.storage.node.field_image'
+        - 'config:field.storage.node.field_position'
+  profiles_list:
+    id: profiles_list
+    display_title: 'Profiles List'
+    display_plugin: embed
+    position: 3
+    display_options:
+      pager:
+        type: full
+        options:
+          offset: 0
+          items_per_page: 8
+          total_pages: null
+          id: 0
+          tags:
+            next: "Next\_»"
+            previous: "«\_Prev"
+            first: '« First'
+            last: 'Last »'
+          expose:
+            items_per_page: false
+            items_per_page_label: 'Items per page'
+            items_per_page_options: '5, 10, 25, 50'
+            items_per_page_options_all: false
+            items_per_page_options_all_label: '- All -'
+            offset: false
+            offset_label: Offset
+          quantity: 5
+      empty: {  }
+      arguments:
+        id:
+          id: id
+          table: paragraphs_item_field_data
+          field: id
+          relationship: reverse__paragraph__field_list_widget
+          group_type: group
+          admin_label: ''
+          entity_type: paragraph
+          entity_field: id
+          plugin_id: numeric
+          default_action: 'not found'
+          exception:
+            value: all
+            title_enable: false
+            title: All
+          title_enable: false
+          title: ''
+          default_argument_type: fixed
+          default_argument_options:
+            argument: ''
+          default_argument_skip_url: false
+          summary_options:
+            base_path: ''
+            count: true
+            override: false
+            items_per_page: 25
+          summary:
+            sort_order: asc
+            number_of_records: 0
+            format: default_summary
+          specify_validation: false
+          validate:
+            type: none
+            fail: 'not found'
+          validate_options: {  }
+          break_phrase: false
+          not: false
+      filters:
+        status:
+          id: status
+          table: node_field_data
+          field: status
+          entity_type: node
+          entity_field: status
+          plugin_id: boolean
+          value: '1'
+          group: 1
+          expose:
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+        type:
+          id: type
+          table: node_field_data
+          field: type
+          relationship: none
+          group_type: group
+          admin_label: ''
+          entity_type: node
+          entity_field: type
+          plugin_id: bundle
+          operator: in
+          value:
+            bios: bios
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+        field_page_families_target_id:
+          id: field_page_families_target_id
+          table: node__field_page_families
+          field: field_page_families_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: taxonomy_index_tid
+          operator: or
+          value:
+            27: 27
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: true
+          vid: page_families
+          type: select
+          hierarchy: false
+          limit: true
+          error_message: true
+        field_placement_tags_target_id:
+          id: field_placement_tags_target_id
+          table: node__field_placement_tags
+          field: field_placement_tags_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: taxonomy_index_tid
+          operator: or
+          value:
+            32: 32
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: true
+          vid: placement_tags
+          type: select
+          hierarchy: false
+          limit: true
+          error_message: true
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+      defaults:
+        empty: false
+        pager: false
+        relationships: false
+        arguments: false
+        filters: false
+        filter_groups: false
+        footer: false
+      relationships:
+        field_list_widget:
+          id: field_list_widget
+          table: node__field_list_widget
+          field: field_list_widget
+          relationship: none
+          group_type: group
+          admin_label: 'field_list_widget: Taxonomy term'
+          plugin_id: standard
+          required: false
+        reverse__paragraph__field_list_widget:
+          id: reverse__paragraph__field_list_widget
+          table: taxonomy_term_field_data
+          field: reverse__paragraph__field_list_widget
+          relationship: field_list_widget
+          group_type: group
+          admin_label: field_list_widget
+          entity_type: taxonomy_term
+          plugin_id: entity_reverse
+          required: false
+      display_description: ''
+      footer: {  }
+      display_extenders: {  }
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url
+        - url.query_args
+        - user
         - 'user.node_grants:view'
         - user.permissions
       tags:

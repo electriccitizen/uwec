@@ -1,0 +1,21 @@
+uuid: e6ff2185-ccb6-432b-bac2-69f10c3ba684
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_randomize
+    - paragraphs.paragraphs_type.profiles_list
+id: paragraph.profiles_list.field_randomize
+field_name: field_randomize
+entity_type: paragraph
+bundle: profiles_list
+label: 'Randomize Bios'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean
