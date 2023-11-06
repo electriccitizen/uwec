@@ -90,11 +90,11 @@
 					{{ node.field_first_name.0.value }}
 				{% endif %}
 				{% if node.field_last_override.0 %}
-					{{ node.field_last_override.0.value- }}
+					{{ node.field_last_override.0.value -}}
 				{%- else -%}
-					{{ node.field_last_name.0.value- }}
+					{{ node.field_last_name.0.value -}}
 				{%- endif -%}
-				{%- if node.field_suffixes.0- %}
+				{%- if node.field_suffixes.0 -%}
 					<span class="suffixes">, {{ node.field_suffixes.0.value }}</span>
 				{% endif %}
 			</a>

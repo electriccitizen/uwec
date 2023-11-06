@@ -39,33 +39,22 @@
 
 {# check for a paragraph id #}
 {% if paragraph.id.value %}
-	{% if drupal_view('video_cards','recent_three', paragraph.id.value)|render|striptags|trim|length > 0 or drupal_view('news','recent_two', paragraph.id.value)|render|striptags|trim|length > 0 %} 
-		<div class="paragraph paragraph--type--stories-video-list custom-views-list" data-quickedit-entity-id="paragraph/{{ paragraph.id.value }}">
-				{{ content.field_widget_title }}
+	Raw view 
+	{{ drupal_view('profiles','profiles_list', paragraph.id.value) }}
 
+	logic starts below here------
+	{% if (content.field_list_type.0['#markup'] == 'manual') or (drupal_view('profiles','profiles_list', paragraph.id.value)|render|striptags|trim|length > 0) %} 
+		<div class="paragraph paragraph--type--profiles-list custom-views-list" data-quickedit-entity-id="paragraph/{{ paragraph.id.value }}">
+				{{ content.field_widget_title }}
 				{% if content.field_list_type.0['#markup'] == 'auto' %}
-					{% if drupal_view('video_cards','recent_three', paragraph.id.value)|render|striptags|trim|length > 0 and not content.field_type.0 %}
-						<div class="views-wrapper views-both">
-							{{ drupal_view('video_cards','recent_three', paragraph.id.value) }}
-							{% if drupal_view('news','recent_two', paragraph.id.value)|render|striptags|trim|length > 0 %}
-								{{ drupal_view('news','recent_two', paragraph.id.value) }}
-							{% endif %}
-						</div>
-					{% else %}
-						<div class="views-wrapper views-single">
-							{% if drupal_view('news','recent_three', paragraph.id.value)|render|striptags|trim|length > 0 %}
-								{{ drupal_view('news','recent_three', paragraph.id.value) }}
-							{% endif %}
-						</div>
-					{% endif %}
+					{{ drupal_view('profiles','profiles_list', paragraph.id.value) }}
 				{% else %}
-					{{ content.field_manual_select }}
+					{{ content.field_profiles }}
 				{% endif %}
-				
 		</div>
 	{% endif %}
 {# if no id because the node has not yet been saved, spit out a preview message #}
 {% else %}
-	<p><strong>Content placer widgets are not available in preview until the node is saved after they have been added.</strong></p>
+	<p><strong>The profiles list widget is not available in preview until the node is saved after it has have been added.</strong></p>
 {% endif %}
 
