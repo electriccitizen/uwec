@@ -1,0 +1,24 @@
+uuid: 7c072380-8455-4414-adfe-cf459bb35a09
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_honors
+    - filter.format.limited_html
+    - node.type.bios
+  module:
+    - text
+id: node.bios.field_honors
+field_name: field_honors
+entity_type: node
+bundle: bios
+label: 'Honors And Recognition'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - limited_html
+field_type: text_long

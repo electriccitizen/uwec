@@ -14,11 +14,10 @@
 
 /* LAYOUT BUILDER FORM CUSTOMIZATIONS
 ---------------------------------- */
-
 .block-system-main-block {
 	.layout-builder-form,.layout-builder-discard-changes,.layout-builder-revert-overrides{
 		.form-actions{
-			@include safeFlex(row,wrap,start,start);
+			@include safeFlex(row,wrap,start,center);
 			& > input{
 				margin-right: 1.5rem;
 				margin-top: 1rem;
@@ -26,6 +25,7 @@
 			}
 			.button--primary{
 				@include submitButton;
+				border: 1px solid $brightBlue;
 			}
 			#edit-discard-changes{
 				@include cautionButton;
@@ -34,9 +34,13 @@
 				@include warningButton;
 				margin-top: 1rem;
 			}
-		}
-	}
-}
+			.form-item-toggle-content-preview{
+				margin-top: 0;
+				margin-bottom: 3rem;
+			}
+		}//end form actions
+	}//end layout builder forms
+}//end system main block
 //make room for contextual links to prevent cutoff
 .layout-builder--content-preview-disabled .layout-builder__layout .layout-builder-block{
 	margin-bottom: 20px;

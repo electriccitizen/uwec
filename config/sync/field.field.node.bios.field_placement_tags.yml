@@ -1,18 +1,18 @@
-uuid: ce92604d-f5f6-40bf-8707-c10207296781
+uuid: bde8bd0e-89cc-4083-bc6d-694d839dc101
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_page_family
+    - field.storage.node.field_placement_tags
     - node.type.bios
-    - taxonomy.vocabulary.page_families
-id: node.bios.field_page_family
-field_name: field_page_family
+    - taxonomy.vocabulary.placement_tags
+id: node.bios.field_placement_tags
+field_name: field_placement_tags
 entity_type: node
 bundle: bios
-label: 'Page Family'
+label: 'Placement tags'
 description: ''
-required: true
+required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''
@@ -20,7 +20,7 @@ settings:
   handler: 'default:taxonomy_term'
   handler_settings:
     target_bundles:
-      page_families: page_families
+      placement_tags: placement_tags
     sort:
       field: name
       direction: asc

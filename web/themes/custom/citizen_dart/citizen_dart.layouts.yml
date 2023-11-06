@@ -1,3 +1,16 @@
+two_column_even:
+  label: Two Column Even
+  category: Citizen Dart Layouts
+  path: templates/layout
+  template: layout--twocol-even
+  default_region: first
+  icon_map:
+    - [first, content]
+  regions:
+    first:
+      label: First
+    content:
+      label: Content
 two_column_sidebar_left:
   label: Two Column Sidebar Left
   category: Citizen Dart Layouts

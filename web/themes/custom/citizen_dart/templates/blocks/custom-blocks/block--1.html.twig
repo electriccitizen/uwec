@@ -29,13 +29,15 @@
 {% extends 'block.html.twig' %}
 
 {% block blockContent %}
-	{% set copyright = {
-		'#type': 'processed_text',
-		'#text': content.body.0['#text'],
-		'#format': content.body.0['#format']
-	} %}
-	<div class="field body copyright text-long">
-		<span class="copyright-year">©{{ "now"|date('Y') -}}</span> {{- copyright -}}
-	</div>
+	{% if content.body.0 %}
+		{% set copyright = {
+			'#type': 'processed_text',
+			'#text': content.body.0['#text'],
+			'#format': content.body.0['#format']
+		} %}
+		<div class="field body copyright text-long">
+			<span class="copyright-year">©{{ "now"|date('Y') -}}</span> {{- copyright -}}
+		</div>
+	{% endif %}
 {% endblock %}
 

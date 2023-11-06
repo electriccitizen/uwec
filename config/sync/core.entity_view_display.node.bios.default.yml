@@ -4,42 +4,124 @@ status: true
 dependencies:
   config:
     - field.field.node.bios.body
+    - field.field.node.bios.field_athena_id
+    - field.field.node.bios.field_campus
+    - field.field.node.bios.field_cv
+    - field.field.node.bios.field_departments
     - field.field.node.bios.field_domain_access
     - field.field.node.bios.field_domain_all_affiliates
     - field.field.node.bios.field_domain_source
+    - field.field.node.bios.field_education
     - field.field.node.bios.field_email
+    - field.field.node.bios.field_emeriti_status
     - field.field.node.bios.field_first_name
     - field.field.node.bios.field_first_override
+    - field.field.node.bios.field_honors
     - field.field.node.bios.field_image
+    - field.field.node.bios.field_interests
+    - field.field.node.bios.field_is_alumni
     - field.field.node.bios.field_last_name
     - field.field.node.bios.field_last_override
+    - field.field.node.bios.field_links
     - field.field.node.bios.field_list_widget
     - field.field.node.bios.field_metatags
-    - field.field.node.bios.field_page_family
+    - field.field.node.bios.field_office
+    - field.field.node.bios.field_office_hours
+    - field.field.node.bios.field_page_families
     - field.field.node.bios.field_phone
+    - field.field.node.bios.field_placement_tags
     - field.field.node.bios.field_position
+    - field.field.node.bios.field_position_override
     - field.field.node.bios.field_prefixes
+    - field.field.node.bios.field_programs
+    - field.field.node.bios.field_pronouns
+    - field.field.node.bios.field_publications
+    - field.field.node.bios.field_research
     - field.field.node.bios.field_suffixes
     - field.field.node.bios.field_username
     - field.field.node.bios.layout_builder__layout
     - node.type.bios
   module:
+    - file
     - layout_builder
     - layout_builder_restrictions
     - layout_discovery
+    - link
+    - options
     - system
     - text
     - user
+  theme:
+    - citizen_dart
 third_party_settings:
   layout_builder:
     enabled: true
     allow_custom: false
     sections:
       -
-        layout_id: layout_onecol
+        layout_id: two_column_even
         layout_settings:
           label: ''
+          context_mapping: {  }
         components:
+          93715856-4d57-4331-bf22-fe109b6f1ffd:
+            uuid: 93715856-4d57-4331-bf22-fe109b6f1ffd
+            region: first
+            configuration:
+              id: 'field_block:node:bios:field_is_alumni'
+              label: 'Alumni?'
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: boolean
+                label: hidden
+                settings:
+                  format: custom
+                  format_custom_false: ''
+                  format_custom_true: Alumnus
+                third_party_settings: {  }
+            weight: 2
+            additional: {  }
+          155aad20-f8c8-4ef8-838c-2fd41ba6e4eb:
+            uuid: 155aad20-f8c8-4ef8-838c-2fd41ba6e4eb
+            region: first
+            configuration:
+              id: 'field_block:node:bios:field_emeriti_status'
+              label: 'Emeriti Status'
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: list_key
+                label: hidden
+                settings: {  }
+                third_party_settings: {  }
+            weight: 1
+            additional: {  }
+          da69263f-8129-4557-ae64-9aac6a561d43:
+            uuid: da69263f-8129-4557-ae64-9aac6a561d43
+            region: first
+            configuration:
+              id: 'field_block:node:bios:field_image'
+              label: 'Bio Image'
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: entity_reference_entity_view
+                label: hidden
+                settings:
+                  view_mode: 426x508
+                third_party_settings: {  }
+            weight: 0
+            additional: {  }
           e15a1a58-82da-4a7b-9b50-51dd918ba150:
             uuid: e15a1a58-82da-4a7b-9b50-51dd918ba150
             region: content
@@ -51,13 +133,6 @@ third_party_settings:
               context_mapping: {  }
             weight: 0
             additional: {  }
-        third_party_settings: {  }
-      -
-        layout_id: layout_onecol
-        layout_settings:
-          label: 'Section 2'
-          context_mapping: {  }
-        components:
           309fb6a3-f256-4d0e-8b0a-c3eb31997687:
             uuid: 309fb6a3-f256-4d0e-8b0a-c3eb31997687
             region: content
@@ -75,14 +150,14 @@ third_party_settings:
                 settings:
                   link_to_entity: false
                 third_party_settings: {  }
-            weight: 2
+            weight: 1
             additional: {  }
-          40c08fae-ad78-46b3-917b-973e2ba599ce:
-            uuid: 40c08fae-ad78-46b3-917b-973e2ba599ce
+          bcf5d1f1-5aa6-4f5d-88f0-b44131d24d6b:
+            uuid: bcf5d1f1-5aa6-4f5d-88f0-b44131d24d6b
             region: content
             configuration:
-              id: 'field_block:node:bios:field_position'
-              label: Position
+              id: 'field_block:node:bios:field_pronouns'
+              label: Pronouns
               label_display: '0'
               provider: layout_builder
               context_mapping:
@@ -94,33 +169,90 @@ third_party_settings:
                 settings:
                   link_to_entity: false
                 third_party_settings: {  }
-            weight: 3
+            weight: 2
             additional: {  }
-          96b798b4-02ea-424c-975c-eacfedc89041:
-            uuid: 96b798b4-02ea-424c-975c-eacfedc89041
+          fe437057-96d4-4f75-bec5-b70742f6bcfb:
+            uuid: fe437057-96d4-4f75-bec5-b70742f6bcfb
             region: content
             configuration:
-              id: 'field_block:node:bios:field_email'
-              label: 'E:'
+              id: 'field_block:node:bios:field_departments'
+              label: Department
               label_display: visible
               provider: layout_builder
               context_mapping:
                 entity: layout_builder.entity
                 view_mode: view_mode
               formatter:
-                type: email_mailto
+                type: entity_reference_label
                 label: hidden
-                settings: {  }
+                settings:
+                  link: true
                 third_party_settings: {  }
             weight: 4
             additional: {  }
-          fb3202c4-36eb-49e3-8179-3a93348ab6a9:
-            uuid: fb3202c4-36eb-49e3-8179-3a93348ab6a9
+          0dc33970-4b1b-40ad-bdaf-cc21041c88bc:
+            uuid: 0dc33970-4b1b-40ad-bdaf-cc21041c88bc
             region: content
             configuration:
+              id: 'field_block:node:bios:created'
+              label: 'Placeholder for titles'
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: timestamp
+                label: hidden
+                settings:
+                  date_format: medium
+                  custom_date_format: ''
+                  timezone: ''
+                  tooltip:
+                    date_format: long
+                    custom_date_format: ''
+                  time_diff:
+                    enabled: false
+                    future_format: '@interval hence'
+                    past_format: '@interval ago'
+                    granularity: 2
+                    refresh: 60
+                    description: ''
+                third_party_settings: {  }
+            weight: 3
+            additional: {  }
+        third_party_settings: {  }
+      -
+        layout_id: two_column_even
+        layout_settings:
+          label: ''
+          context_mapping: {  }
+        components:
+          8f694e3b-caca-4e32-9ba3-3dc4476f9b25:
+            uuid: 8f694e3b-caca-4e32-9ba3-3dc4476f9b25
+            region: first
+            configuration:
+              id: 'field_block:node:bios:field_office'
+              label: Office
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: basic_string
+                label: hidden
+                settings: {  }
+                third_party_settings: {  }
+            weight: 0
+            additional: {  }
+          fb3202c4-36eb-49e3-8179-3a93348ab6a9:
+            uuid: fb3202c4-36eb-49e3-8179-3a93348ab6a9
+            region: first
+            configuration:
               id: 'field_block:node:bios:field_phone'
-              label: 'P:'
-              label_display: visible
+              label: Phone
+              label_display: '0'
               provider: layout_builder
               context_mapping:
                 entity: layout_builder.entity
@@ -131,7 +263,180 @@ third_party_settings:
                 settings:
                   title: ''
                 third_party_settings: {  }
-            weight: 5
+            weight: 2
+            additional: {  }
+          035a3c57-f3ea-4d25-b8ad-0d44a91b480f:
+            uuid: 035a3c57-f3ea-4d25-b8ad-0d44a91b480f
+            region: content
+            configuration:
+              id: 'field_block:node:bios:field_office_hours'
+              label: Hours
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: basic_string
+                label: hidden
+                settings: {  }
+                third_party_settings: {  }
+            weight: 0
+            additional: {  }
+          96b798b4-02ea-424c-975c-eacfedc89041:
+            uuid: 96b798b4-02ea-424c-975c-eacfedc89041
+            region: first
+            configuration:
+              id: 'field_block:node:bios:field_email'
+              label: Email
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: email_mailto
+                label: hidden
+                settings: {  }
+                third_party_settings: {  }
+            weight: 3
+            additional: {  }
+          d69428a9-0cd2-47e2-bfe4-0406e572ff82:
+            uuid: d69428a9-0cd2-47e2-bfe4-0406e572ff82
+            region: content
+            configuration:
+              id: 'field_block:node:bios:field_cv'
+              label: CV
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: file_url_plain
+                label: hidden
+                settings: {  }
+                third_party_settings: {  }
+            weight: 1
+            additional: {  }
+          3c082d9c-ebde-4927-81f4-3d554a33b087:
+            uuid: 3c082d9c-ebde-4927-81f4-3d554a33b087
+            region: content
+            configuration:
+              id: 'field_block:node:bios:field_links'
+              label: Links
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: link
+                label: hidden
+                settings:
+                  trim_length: 80
+                  url_only: false
+                  url_plain: false
+                  rel: '0'
+                  target: '0'
+                third_party_settings: {  }
+            weight: 3
+            additional: {  }
+        third_party_settings: {  }
+      -
+        layout_id: layout_onecol
+        layout_settings:
+          label: ''
+        components:
+          4e47f8de-f9d7-4efa-9c69-e114cf0db247:
+            uuid: 4e47f8de-f9d7-4efa-9c69-e114cf0db247
+            region: content
+            configuration:
+              id: 'field_block:node:bios:field_interests'
+              label: 'Teaching Interests'
+              label_display: visible
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: text_default
+                label: hidden
+                settings: {  }
+                third_party_settings: {  }
+            weight: 18
+            additional: {  }
+          1d0bd18f-52c2-4061-b1d7-7ff82cc3f487:
+            uuid: 1d0bd18f-52c2-4061-b1d7-7ff82cc3f487
+            region: content
+            configuration:
+              id: 'field_block:node:bios:field_research'
+              label: 'Research And Creative Activities'
+              label_display: visible
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: text_default
+                label: hidden
+                settings: {  }
+                third_party_settings: {  }
+            weight: 19
+            additional: {  }
+          64882d8f-24f6-481c-970d-810333afd00b:
+            uuid: 64882d8f-24f6-481c-970d-810333afd00b
+            region: content
+            configuration:
+              id: 'field_block:node:bios:field_education'
+              label: Education
+              label_display: visible
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: text_default
+                label: hidden
+                settings: {  }
+                third_party_settings: {  }
+            weight: 20
+            additional: {  }
+          51f84dc7-a6fd-48ec-a3cb-552afed214a4:
+            uuid: 51f84dc7-a6fd-48ec-a3cb-552afed214a4
+            region: content
+            configuration:
+              id: 'field_block:node:bios:field_honors'
+              label: 'Honors And Recognition'
+              label_display: visible
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: text_default
+                label: hidden
+                settings: {  }
+                third_party_settings: {  }
+            weight: 21
+            additional: {  }
+          e106a923-1488-425d-8b6d-fdedb4529b8e:
+            uuid: e106a923-1488-425d-8b6d-fdedb4529b8e
+            region: content
+            configuration:
+              id: 'field_block:node:bios:field_publications'
+              label: 'Published Research'
+              label_display: visible
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: text_default
+                label: hidden
+                settings: {  }
+                third_party_settings: {  }
+            weight: 22
             additional: {  }
           b8f1809e-7a20-4e59-a3c8-33097218a597:
             uuid: b8f1809e-7a20-4e59-a3c8-33097218a597
@@ -149,26 +454,7 @@ third_party_settings:
                 label: hidden
                 settings: {  }
                 third_party_settings: {  }
-            weight: 6
-            additional: {  }
-          da69263f-8129-4557-ae64-9aac6a561d43:
-            uuid: da69263f-8129-4557-ae64-9aac6a561d43
-            region: content
-            configuration:
-              id: 'field_block:node:bios:field_image'
-              label: 'Bio Image'
-              label_display: '0'
-              provider: layout_builder
-              context_mapping:
-                entity: layout_builder.entity
-                view_mode: view_mode
-              formatter:
-                type: entity_reference_entity_view
-                label: hidden
-                settings:
-                  view_mode: 426x508
-                third_party_settings: {  }
-            weight: 1
+            weight: 17
             additional: {  }
         third_party_settings: {  }
   layout_builder_restrictions:
@@ -176,6 +462,7 @@ third_party_settings:
     entity_view_mode_restriction:
       allowed_layouts:
         - layout_onecol
+        - two_column_even
       denylisted_blocks: {  }
       allowlisted_blocks:
         System:
@@ -219,12 +506,58 @@ content:
     third_party_settings: {  }
     weight: -20
     region: content
+  field_athena_id:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 113
+    region: content
+  field_campus:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 118
+    region: content
+  field_cv:
+    type: file_default
+    label: above
+    settings:
+      use_description_as_link_text: true
+    third_party_settings: {  }
+    weight: 123
+    region: content
+  field_departments:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 119
+    region: content
+  field_education:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 127
+    region: content
   field_email:
     type: basic_string
     label: above
     settings: {  }
     third_party_settings: {  }
     weight: 102
+    region: content
+  field_emeriti_status:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 117
     region: content
   field_first_name:
     type: string
@@ -242,6 +575,13 @@ content:
     third_party_settings: {  }
     weight: 108
     region: content
+  field_honors:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 128
+    region: content
   field_image:
     type: entity_reference_label
     label: above
@@ -249,6 +589,23 @@ content:
       link: true
     third_party_settings: {  }
     weight: 107
+    region: content
+  field_interests:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 125
+    region: content
+  field_is_alumni:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 116
     region: content
   field_last_name:
     type: string
@@ -266,13 +623,39 @@ content:
     third_party_settings: {  }
     weight: 109
     region: content
-  field_page_family:
+  field_links:
+    type: link
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 124
+    region: content
+  field_office:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 121
+    region: content
+  field_office_hours:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 122
+    region: content
+  field_page_families:
     type: entity_reference_label
     label: above
     settings:
       link: true
     third_party_settings: {  }
-    weight: 107
+    weight: 108
     region: content
   field_phone:
     type: basic_string
@@ -280,6 +663,14 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: 105
+    region: content
+  field_placement_tags:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 103
     region: content
   field_position:
     type: string
@@ -289,6 +680,14 @@ content:
     third_party_settings: {  }
     weight: 106
     region: content
+  field_position_override:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 115
+    region: content
   field_prefixes:
     type: string
     label: above
@@ -296,6 +695,36 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     weight: 110
+    region: content
+  field_programs:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 120
+    region: content
+  field_pronouns:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 114
+    region: content
+  field_publications:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 129
+    region: content
+  field_research:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 126
     region: content
   field_suffixes:
     type: string

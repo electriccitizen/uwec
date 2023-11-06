@@ -1,13 +1,11 @@
-uuid: a2461b18-d147-4f0b-a7b5-c2dd84d3378f
+uuid: d80d9984-d112-4cb1-a39a-9ffc1445d309
 langcode: en
 status: true
 dependencies:
   module:
     - node
-_core:
-  default_config_hash: lGiwFCr4GZPl0v5nw_2UYzwnRUkGVFBOfdVprkME6lw
-id: node.field_position
-field_name: field_position
+id: node.field_position_override
+field_name: field_position_override
 entity_type: node
 type: string
 settings:
