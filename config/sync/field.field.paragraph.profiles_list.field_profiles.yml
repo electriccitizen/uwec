@@ -1,0 +1,29 @@
+uuid: d250d8b5-7289-40fb-a9dc-f96101eb7967
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_profiles
+    - node.type.bios
+    - paragraphs.paragraphs_type.profiles_list
+id: paragraph.profiles_list.field_profiles
+field_name: field_profiles
+entity_type: paragraph
+bundle: profiles_list
+label: Profiles
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      bios: bios
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

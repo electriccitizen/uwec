@@ -219,7 +219,7 @@ function citizen_custom_field_widget_single_element_form_alter(&$element, FormSt
 function citizen_custom_views_pre_view($view, $display_id, &$args) {
 	// Alters views to accept fields from related paragraphs to be used for filters.
   if(isset($view->element['#name'])) {
-    if ((($view->element['#name'] === 'news') && ($view->current_display === 'recent_three')) || (($view->element['#name'] === 'news') && ($view->current_display === 'recent_two')) || (($view->element['#name'] === 'video_cards') && ($view->current_display === 'recent_three'))) {
+    if ((($view->element['#name'] === 'news') && ($view->current_display === 'recent_three')) || (($view->element['#name'] === 'news') && ($view->current_display === 'recent_two')) || (($view->element['#name'] === 'video_cards') && ($view->current_display === 'recent_three')) || (($view->element['#name'] === 'bios') && ($view->current_display === 'profiles_list'))) {
       $filters = $view->display_handler->getOption('filters');
       $paragraph_id = $view->args[0];
       if ($paragraph_id){
@@ -253,7 +253,7 @@ function citizen_custom_views_pre_view($view, $display_id, &$args) {
             unset($filters['field_page_families_target_id']);
           }
         }//end page families filter
-        if($paragraph->field_type[0]){
+        if(isset($paragraph->field_type) && ($paragraph->field_type[0])){
           //make an array out of the type set in the paragraph
           $types = [];
           foreach ($paragraph->field_type as $delta => $type) {

@@ -1,0 +1,33 @@
+uuid: a34197aa-4baa-4500-a4dd-7f5f813d38e8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_list_widget
+    - paragraphs.paragraphs_type.profiles_list
+    - taxonomy.vocabulary.list_widget
+  content:
+    - 'taxonomy_term:list_widget:478ca54b-c128-405b-93f1-fbc864daee6a'
+id: paragraph.profiles_list.field_list_widget
+field_name: field_list_widget
+entity_type: paragraph
+bundle: profiles_list
+label: 'List Widget'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    target_uuid: 478ca54b-c128-405b-93f1-fbc864daee6a
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      list_widget: list_widget
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

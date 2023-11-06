@@ -1,0 +1,23 @@
+uuid: ad0e45c1-1b63-43fd-9f2d-9a1bd67976f0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_list_type
+    - paragraphs.paragraphs_type.profiles_list
+  module:
+    - options
+id: paragraph.profiles_list.field_list_type
+field_name: field_list_type
+entity_type: paragraph
+bundle: profiles_list
+label: 'List Type'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: auto
+default_value_callback: ''
+settings: {  }
+field_type: list_string
