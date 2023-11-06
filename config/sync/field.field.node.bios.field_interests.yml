@@ -1,0 +1,24 @@
+uuid: a3674080-3742-4e4d-94ff-e567435948c0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_interests
+    - filter.format.limited_html
+    - node.type.bios
+  module:
+    - text
+id: node.bios.field_interests
+field_name: field_interests
+entity_type: node
+bundle: bios
+label: 'Teaching Interests'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - limited_html
+field_type: text_long

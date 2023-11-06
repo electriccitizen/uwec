@@ -2,15 +2,26 @@ _core:
   default_config_hash: ezrklxLGLYSrmspiVdXIMuljs-309bwyVfNpfUSes0g
 entity_type_groups:
   node:
-    event:
-      basic: basic
-    landing_page:
-      basic: basic
     news:
       basic: basic
     page:
       basic: basic
-    profiles:
-      basic: basic
+      advanced: advanced
+      open_graph: open_graph
+      twitter_cards: twitter_cards
     support_book:
       basic: basic
+tag_trim_method: beforeValue
+use_maxlength: true
+tag_trim_maxlength:
+  metatag_maxlength_title: null
+  metatag_maxlength_description: null
+  metatag_maxlength_abstract: null
+  metatag_maxlength_og_site_name: null
+  metatag_maxlength_og_title: null
+  metatag_maxlength_og_description: null
+  metatag_maxlength_twitter_cards_description: null
+  metatag_maxlength_twitter_cards_title: null
+  metatag_maxlength_twitter_cards_label1: null
+  metatag_maxlength_twitter_cards_label2: null
+tag_scroll_max_height: ''

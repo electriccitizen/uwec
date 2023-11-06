@@ -1,0 +1,39 @@
+{#
+/**
+ * @file
+ * Theme override for a breadcrumb trail.
+ *
+ * Available variables:
+ * - breadcrumb: Breadcrumb trail items.
+ */
+#}
+
+{% extends 'breadcrumb.html.twig' %}
+{% block trail %}
+	{% for item in breadcrumb %}
+		{% if loop.first %}
+			<li>
+				{% if item.url %}
+					<a href="{{- item.url -}}">{{- item.text -}}</a>
+				{% else %}
+					{{- item.text -}}
+				{% endif %}
+			</li>
+		{% endif %}
+	{% endfor %}
+	<li class="highlighter">Need to define logic for faculty vs non faculty trails</li>
+	<li class="highlighter">update trails after migration</li>
+	<li>
+		{% if currentNode.field_first_override.0 %}
+			{{ currentNode.field_first_override.0.value }}
+		{% else %}
+			{{ currentNode.field_first_name.0.value }}
+		{% endif %}
+		{% if currentNode.field_last_override.0 %}
+			{{ currentNode.field_last_override.0.value }}
+		{% else %}
+			{{ currentNode.field_last_name.0.value }}
+		{% endif %}
+	</li>
+{% endblock %}
+		

@@ -14,7 +14,7 @@ entity_type: node
 bundle: bios
 label: Headshot
 description: '<strong>Optimal image size:</strong> 852x1016px'
-required: false
+required: true
 translatable: true
 default_value: {  }
 default_value_callback: ''

@@ -1,0 +1,19 @@
+uuid: 3ee1692f-6b5d-43cd-87d9-ec2ecd29889d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_position_override
+    - node.type.bios
+id: node.bios.field_position_override
+field_name: field_position_override
+entity_type: node
+bundle: bios
+label: 'Title(s) Override'
+description: 'Override the title pulled from HR. <strong>WARNING:</strong> Using this field will override ALL titles synced from HR. If you have multiple titles, enter an override title for each of them.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
