@@ -68,6 +68,22 @@ content:
     third_party_settings: {  }
     weight: 0
     region: content
+  field_position:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_position_override:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 5
+    region: content
 hidden:
   body: true
   content_moderation_control: true
@@ -95,8 +111,6 @@ hidden:
   field_page_families: true
   field_phone: true
   field_placement_tags: true
-  field_position: true
-  field_position_override: true
   field_prefixes: true
   field_programs: true
   field_pronouns: true

@@ -30,7 +30,7 @@
 				{% endfor %}
 			{% elseif element['#object'].field_position.0 %}
 				{% for title in element['#object'].field_position %}
-					<div>default {{ title.value }}</div>
+					<div>{{ title.value }}</div>
 				{% endfor %}
 			{% endif %}
 		</div>

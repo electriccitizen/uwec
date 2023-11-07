@@ -78,8 +78,10 @@
 
 <article{{ attributes.addClass(classes) }}>
   {% block nodeContent %}
-    {{- content -}}
-    <h1 class="teaser-title">
+
+    {{ content.field_image }}
+
+    <div class="teaser-title">
     	<a href="{{ path('entity.node.canonical', {'node':node.nid.0.value}) }}">
 				{% if node.field_prefixes.0 %}
 					<span class="prefixes">{{ node.field_prefixes.0.value }}</span>
@@ -98,7 +100,16 @@
 					<span class="suffixes">, {{ node.field_suffixes.0.value }}</span>
 				{% endif %}
 			</a>
-		</h1>
+		</div>
+
+		{{ content.field_departments }}
+
+		{% if content.field_position_override.0 %}
+			{{ content.field_position_override }}
+		{% elseif content.field_position.0 %}
+			{{ content.field_position }}
+		{% endif %}
+
 	{% endblock %}
 </article>
 
