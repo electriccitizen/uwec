@@ -9,9 +9,9 @@ dependencies:
     - field.storage.node.field_first_override
     - field.storage.node.field_last_name
     - field.storage.node.field_last_override
-    - field.storage.node.field_programs
     - field.storage.node.field_position
     - field.storage.node.field_position_override
+    - field.storage.node.field_programs
     - search_api.server.local
   module:
     - taxonomy
@@ -183,17 +183,14 @@ processor_settings:
     weights:
       preprocess_index: -50
       preprocess_query: -48
-    all_fields: true
+    all_fields: false
     fields:
-      - campus
-      - departments
       - field_first_name
       - field_first_override
       - field_last_name
       - field_last_override
       - field_position
       - field_position_override
-      - programs
     spaces: ''
     ignored: ._-
     overlap_cjk: 1

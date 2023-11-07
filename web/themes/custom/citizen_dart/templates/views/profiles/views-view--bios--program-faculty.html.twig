@@ -32,4 +32,5 @@
 #}
 
 {% extends 'views-view--bios--department-faculty.html.twig' %}
+{% block filterURL %}{{ path('entity.node.canonical',{'node':'35'}) }}?programs_fulltext={% endblock %}
 {% block facultyType %}program{% endblock %}

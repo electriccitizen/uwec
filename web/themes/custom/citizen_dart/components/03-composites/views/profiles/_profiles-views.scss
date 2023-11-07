@@ -3,7 +3,26 @@
 ==================== */
 
 @use '../../../00-base/base' as *;
+@use '../views-mixins' as *;
 
+/* DIRECTORY
+--------------- */
+.profile-search.directory{
+	.views-exposed-form{
+		@include exposedForm;
+	}
+	.view-content{
+		@include bleed(padding,20px);
+	}
+	.views-row{
+		@include smallTab{
+			width: 50%;
+		}
+		@include tab{
+			width: 25%;
+		}
+	}
+}//end directory
 
 /* PROFILES LIST
 ------------- */

@@ -4,14 +4,10 @@
 
 @use '../../00-base/base' as *;
 
-@mixin viewsImage{
-	margin-bottom: $spaceSm;
+@mixin exposedForm{
+	background: $lightGrey;
+	max-width: $exposedFilterWidth;
+	margin: 0 auto 60px;
+	padding: 30px 60px 44px;
 }
-@mixin viewsTitle{
-	@include heading4;
-	margin-bottom: $spaceXxs;
-}
-@mixin viewsMeta{
-	@include metaText;
-	margin-bottom: $spaceSm;
-}
+
