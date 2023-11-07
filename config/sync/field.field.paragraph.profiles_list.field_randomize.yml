@@ -10,7 +10,7 @@ field_name: field_randomize
 entity_type: paragraph
 bundle: profiles_list
 label: 'Randomize Bios'
-description: ''
+description: 'Will not work with a manual list.'
 required: false
 translatable: false
 default_value: {  }

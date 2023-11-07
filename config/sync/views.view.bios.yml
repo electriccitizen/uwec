@@ -657,8 +657,8 @@ display:
           tags:
             next: "Next\_»"
             previous: "«\_Prev"
-            first: '« First'
-            last: 'Last »'
+            first: ''
+            last: ''
           expose:
             items_per_page: false
             items_per_page_label: 'Items per page'
@@ -669,6 +669,33 @@ display:
             offset_label: Offset
           quantity: 5
       empty: {  }
+      sorts:
+        field_last_name_value:
+          id: field_last_name_value
+          table: node__field_last_name
+          field: field_last_name_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: standard
+          order: ASC
+          expose:
+            label: ''
+            field_identifier: field_last_name_value
+          exposed: false
+        random:
+          id: random
+          table: views
+          field: random
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: random
+          order: ASC
+          expose:
+            label: ''
+            field_identifier: ''
+          exposed: false
       arguments:
         id:
           id: id
@@ -904,6 +931,7 @@ display:
         empty: false
         pager: false
         relationships: false
+        sorts: false
         arguments: false
         filters: false
         filter_groups: false
@@ -932,7 +960,7 @@ display:
       footer: {  }
       display_extenders: {  }
     cache_metadata:
-      max-age: -1
+      max-age: 0
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
