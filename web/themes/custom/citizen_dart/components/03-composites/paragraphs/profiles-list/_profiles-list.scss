@@ -9,7 +9,7 @@
 	//manual list
 	.field-profiles{
 		margin-bottom: -$spaceLg;
-		@include bleed(padding,40px);
+		@include bleed(padding,20px);
 		& > div{
 			&:not(:last-child){
 				margin-bottom: $spaceMd;

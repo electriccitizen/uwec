@@ -89,11 +89,11 @@ third_party_settings:
             region: content
             configuration:
               id: 'views_block:bios-program_faculty'
-              label: 'Meet The Faculty'
-              label_display: visible
+              label: ''
+              label_display: '0'
               provider: views
               context_mapping: {  }
-              views_label: 'Meet The Faculty'
+              views_label: ''
               items_per_page: none
             weight: 6
             additional: {  }
