@@ -1,0 +1,33 @@
+uuid: fa123d6a-3c4b-413a-9ee5-63e81bbded7c
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - paragraphs
+id: paragraph.field_view
+field_name: field_view
+entity_type: paragraph
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: jobs
+      label: Jobs
+    -
+      value: profile_search
+      label: Directory
+    -
+      value: program_search
+      label: Majors/Minors
+    -
+      value: news
+      label: 'All Stories'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
