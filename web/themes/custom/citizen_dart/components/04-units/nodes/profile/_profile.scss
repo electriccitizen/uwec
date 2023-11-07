@@ -4,6 +4,7 @@
 
 @use '../../../00-base/base' as *;
 
+//bio node
 .node-bios{
 
 	#node-section-1{
@@ -27,4 +28,13 @@
 		width: 100%;
 	}
 
-}//end news
+}//end bios
+
+//bio teaser
+.node-teaser-bios{
+	.teaser-title{
+		@include heading4;
+		font-size: 3.25rem;
+		line-height: 4rem;
+	}
+}//end node teaser bios

@@ -8,9 +8,10 @@
 /* PROFILES LIST
 ------------- */
 .bios.profiles-list{
+	max-width: 945px;
+	@include auto;
 	.view-content{
-		margin-bottom: -$spaceLg;
-		@include bleed(padding,40px);
+		@include bleed(padding,20px);
 	}
 	.views-row{
 		&:not(:last-child){
@@ -25,3 +26,29 @@
 	}
 }//end bios
 
+.bios.department-faculty{
+	@extend .bios,.profiles-list;
+	.more-link{
+		text-align: center;
+		a{
+			@include heading2;
+			&:before{
+				content: '';
+				display: inline-block;
+				margin-right: 2rem;
+				position: relative;
+				top: 10px;
+				@include rightArrow(navy,transparent,$navy,lg);
+			}
+			&:hover,&:focus{
+				&:before{
+					@include rightArrow(white,$navy,$navy,lg);
+				}
+			}
+		}//end a
+	}//end more link
+}//end department faculty
+
+.bios.program-faculty{
+	@extend .bios,.department-faculty;
+}

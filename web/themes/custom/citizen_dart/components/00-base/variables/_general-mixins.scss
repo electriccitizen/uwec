@@ -407,7 +407,6 @@
 }
 
 @mixin rightArrow($arrowColor,$arrowBack,$arrowBorder,$arrowSize){
-	display: block;
 	@if $arrowSize == 'sm'{
 		width: 20px;
 		height: 20px;
