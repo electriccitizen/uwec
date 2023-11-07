@@ -42,7 +42,7 @@
     {% if view.args.0 %}
 	    {% set currentNode = drupal_entity('node',view.args.0) %}
 	    <div class="more-link">
-	    	<a href="{% block filterURL %}{{ path('entity.node.canonical',{'node':'58'}) }}?profiles_fulltext={% endblock %}{{ currentNode['#node'].title.0.value|replace({' ':'+'}) }}">Meet all the {{ currentNode['#node'].title.0.value }} {% block facultyType %}department{% endblock %} faculty</a>
+	    	<a href="{% block filterURL %}{{ path('entity.node.canonical',{'node':'34'}) }}?profiles_fulltext={% endblock %}{{ currentNode['#node'].title.0.value|replace({' ':'+'}) }}">Meet all the {{ currentNode['#node'].title.0.value }} {% block facultyType %}department{% endblock %} faculty</a>
 	    </div>
 	  {% endif %}
   {% endif %}
