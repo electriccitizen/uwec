@@ -1,0 +1,29 @@
+uuid: 087ab4ed-8626-41cd-b788-7d530627968a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_manual_select
+    - node.type.snapshot
+    - paragraphs.paragraphs_type.snapshot_list
+id: paragraph.snapshot_list.field_manual_select
+field_name: field_manual_select
+entity_type: paragraph
+bundle: snapshot_list
+label: 'Manually Select'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      snapshot: snapshot
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: snapshot
+field_type: entity_reference

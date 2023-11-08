@@ -1,0 +1,29 @@
+uuid: e0d17b3c-37ce-425d-85a0-7d2a908f9213
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_list_widget
+    - paragraphs.paragraphs_type.snapshot_list
+    - taxonomy.vocabulary.list_widget
+id: paragraph.snapshot_list.field_list_widget
+field_name: field_list_widget
+entity_type: paragraph
+bundle: snapshot_list
+label: 'List Widget'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      list_widget: list_widget
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

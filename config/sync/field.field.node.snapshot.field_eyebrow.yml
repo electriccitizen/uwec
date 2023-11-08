@@ -1,0 +1,29 @@
+uuid: e250aac2-6641-4ee7-b395-6faf33ddc92c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_eyebrow
+    - node.type.snapshot
+    - taxonomy.vocabulary.eyebrows
+id: node.snapshot.field_eyebrow
+field_name: field_eyebrow
+entity_type: node
+bundle: snapshot
+label: Eyebrow
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      eyebrows: eyebrows
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

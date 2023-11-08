@@ -1,4 +1,4 @@
-uuid: 5d514f2e-7dfe-4bd7-9392-d3ac6be6cfa1
+uuid: 5823e7a6-a636-404d-a45d-758b71ff2e96
 langcode: en
 status: true
 dependencies:
@@ -11,68 +11,67 @@ dependencies:
     - field.field.paragraph.snapshot_list.field_snapshot_type
     - field.field.paragraph.snapshot_list.field_widget_title
     - paragraphs.paragraphs_type.snapshot_list
-  module:
-    - options
 id: paragraph.snapshot_list.default
 targetEntityType: paragraph
 bundle: snapshot_list
 mode: default
 content:
   field_list_type:
-    type: list_key
-    label: hidden
+    type: options_select
+    weight: 1
+    region: content
     settings: {  }
     third_party_settings: {  }
+  field_list_widget:
+    type: options_select
     weight: 6
     region: content
-  field_list_widget:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
+    settings: {  }
     third_party_settings: {  }
-    weight: 8
-    region: content
   field_manual_select:
-    type: entity_reference_entity_view
-    label: hidden
-    settings:
-      view_mode: teaser
-      link: false
-    third_party_settings: {  }
+    type: entity_reference_autocomplete
     weight: 5
     region: content
-  field_page_family:
-    type: entity_reference_label
-    label: hidden
     settings:
-      link: false
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
+  field_page_family:
+    type: entity_reference_autocomplete
     weight: 3
     region: content
-  field_placement_tag:
-    type: entity_reference_label
-    label: hidden
     settings:
-      link: false
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
+  field_placement_tag:
+    type: entity_reference_autocomplete
     weight: 2
     region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
   field_snapshot_type:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 7
+    type: options_select
+    weight: 4
     region: content
-  field_widget_title:
-    type: string
-    label: hidden
-    settings:
-      link_to_entity: false
+    settings: {  }
     third_party_settings: {  }
+  field_widget_title:
+    type: string_textfield
     weight: 0
     region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
 hidden:
-  search_api_excerpt: true
+  created: true
+  status: true
