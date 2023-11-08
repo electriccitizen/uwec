@@ -1,9 +1,9 @@
-uuid: edd7d9e2-fe43-4c8b-a182-a6e39a9196db
+uuid: a76c91b3-e9cf-46fb-be1f-2a2d804e1226
 langcode: en
-status: true
+status: false
 dependencies:
   config:
-    - core.entity_view_mode.node.teaser
+    - core.entity_view_mode.node.content_thumbnail
     - field.field.node.contact.body
     - field.field.node.contact.field_address
     - field.field.node.contact.field_domain_access
@@ -17,45 +17,39 @@ dependencies:
     - field.field.node.contact.layout_builder__layout
     - node.type.contact
   module:
-    - address
-    - telephone
     - user
-id: node.contact.teaser
+id: node.contact.content_thumbnail
 targetEntityType: node
 bundle: contact
-mode: teaser
+mode: content_thumbnail
 content:
-  field_address:
-    type: address_default
-    label: hidden
+  content_moderation_control:
     settings: {  }
     third_party_settings: {  }
-    weight: 0
+    weight: -20
     region: content
-  field_email:
-    type: email_mailto
-    label: hidden
-    settings: {  }
-    third_party_settings: {  }
-    weight: 1
-    region: content
-  field_phone:
-    type: telephone_link
-    label: hidden
+  field_placement_tags:
+    type: entity_reference_label
+    label: above
     settings:
-      title: ''
+      link: true
     third_party_settings: {  }
-    weight: 2
+    weight: 103
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
     region: content
 hidden:
   body: true
-  content_moderation_control: true
+  field_address: true
   field_domain_access: true
   field_domain_all_affiliates: true
   field_domain_source: true
   field_editorial_sections: true
+  field_email: true
   field_page_families: true
-  field_placement_tags: true
+  field_phone: true
   layout_builder__layout: true
-  links: true
   search_api_excerpt: true
