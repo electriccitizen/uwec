@@ -1,18 +1,18 @@
-uuid: e2e1fb67-f176-4421-9611-1cf2c5c17b53
+uuid: 92594cd4-ba18-4a28-bdb4-150e8ecee71f
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_department
+    - field.storage.paragraph.field_contact_info
     - node.type.contact
-    - node.type.department
-id: node.contact.field_department
-field_name: field_department
-entity_type: node
-bundle: contact
-label: Department
+    - paragraphs.paragraphs_type.contact_placer
+id: paragraph.contact_placer.field_contact_info
+field_name: field_contact_info
+entity_type: paragraph
+bundle: contact_placer
+label: 'Contact Information'
 description: ''
-required: false
+required: true
 translatable: false
 default_value: {  }
 default_value_callback: ''
@@ -20,7 +20,7 @@ settings:
   handler: 'default:node'
   handler_settings:
     target_bundles:
-      department: department
+      contact: contact
     sort:
       field: _none
       direction: ASC

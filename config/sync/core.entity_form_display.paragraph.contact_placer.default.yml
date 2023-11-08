@@ -1,4 +1,4 @@
-uuid: f39def7f-2f95-4e68-b54b-4b1d6baff1a2
+uuid: fa317eab-9441-4e9f-8a0c-4870a8104995
 langcode: en
 status: true
 dependencies:
@@ -11,13 +11,15 @@ bundle: contact_placer
 mode: default
 content:
   field_contact_info:
-    type: entity_reference_entity_view
-    label: hidden
-    settings:
-      view_mode: teaser
-      link: false
-    third_party_settings: {  }
+    type: entity_reference_autocomplete
     weight: 0
     region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
 hidden:
-  search_api_excerpt: true
+  created: true
+  status: true

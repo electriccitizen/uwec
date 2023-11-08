@@ -1,29 +1,29 @@
-uuid: b6353ddc-6ee4-4c17-bf84-d93ec0c2348c
+uuid: f382d785-ccf7-4e76-9fa5-a5bfe51f786a
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_college
-    - node.type.college
+    - field.storage.node.field_placement_tags
     - node.type.contact
-id: node.contact.field_college
-field_name: field_college
+    - taxonomy.vocabulary.placement_tags
+id: node.contact.field_placement_tags
+field_name: field_placement_tags
 entity_type: node
 bundle: contact
-label: College
+label: 'Placement tags'
 description: ''
 required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
-  handler: 'default:node'
+  handler: 'default:taxonomy_term'
   handler_settings:
     target_bundles:
-      college: college
+      placement_tags: placement_tags
     sort:
-      field: _none
-      direction: ASC
+      field: name
+      direction: asc
     auto_create: false
     auto_create_bundle: ''
 field_type: entity_reference

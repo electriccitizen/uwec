@@ -4,6 +4,42 @@
 
 @use '../../../00-base/base' as *;
 
-.node-contact-library{
-	
+@mixin contactHolder{
+	max-width: 914px;
+	@include auto;
+	& > *:first-child{
+		background: $ice;
+		padding: 60px 124px 76px;
+	}
+}
+
+.node-contact{
+	padding-top: $elementSpace;
+	.main-node-content{
+		@include contactHolder;
+	}
+	#node-section-1{
+		margin-bottom: $elementSpace;
+		.block-field:not(.block-title){
+			margin-bottom: $spaceXxs;
+		}
+	}//end node section 1
+	#node-section-2{
+		.block-field{
+			margin-bottom: $spaceXxs;
+		}
+	}
 }//end contact-library
+
+.node-teaser-contact{
+	@include contactHolder;
+	.contact-wrapper{
+		@include safeFlex(row,wrap,start,start);
+		@include bleed(padding,20px);
+		& > *{
+			@include tab{
+				width: 50%;
+			}
+		}
+	}
+}//end contact teaser

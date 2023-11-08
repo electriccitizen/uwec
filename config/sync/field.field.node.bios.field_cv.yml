@@ -21,7 +21,7 @@ settings:
   handler: 'default:file'
   handler_settings: {  }
   file_directory: profile-file-uploads
-  file_extensions: pdf
+  file_extensions: 'pdf doc docx txt'
   max_filesize: '10 MB'
   description_field: false
 field_type: file

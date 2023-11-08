@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.paragraph.preview
+    - field.field.paragraph.contact_placer.field_contact_info
     - paragraphs.paragraphs_type.contact_placer
   module:
     - layout_builder
@@ -15,6 +16,14 @@ id: paragraph.contact_placer.preview
 targetEntityType: paragraph
 bundle: contact_placer
 mode: preview
-content: {  }
+content:
+  field_contact_info:
+    type: entity_reference_label
+    label: hidden
+    settings:
+      link: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
 hidden:
   search_api_excerpt: true
