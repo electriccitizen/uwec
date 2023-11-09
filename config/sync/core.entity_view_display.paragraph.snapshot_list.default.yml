@@ -3,11 +3,33 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.paragraph.snapshot_list.field_list_type
+    - field.field.paragraph.snapshot_list.field_list_widget
+    - field.field.paragraph.snapshot_list.field_manual_select
+    - field.field.paragraph.snapshot_list.field_page_family
+    - field.field.paragraph.snapshot_list.field_placement_tag
+    - field.field.paragraph.snapshot_list.field_snapshot_type
+    - field.field.paragraph.snapshot_list.field_widget_title
     - paragraphs.paragraphs_type.snapshot_list
+  module:
+    - options
 id: paragraph.snapshot_list.default
 targetEntityType: paragraph
 bundle: snapshot_list
 mode: default
-content: {  }
+content:
+  field_list_type:
+    type: list_key
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
 hidden:
+  field_list_widget: true
+  field_manual_select: true
+  field_page_family: true
+  field_placement_tag: true
+  field_snapshot_type: true
+  field_widget_title: true
   search_api_excerpt: true
