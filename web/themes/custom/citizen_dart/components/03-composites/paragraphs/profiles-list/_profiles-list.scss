@@ -5,10 +5,12 @@
 @use '../../../00-base/base' as *;
 
 .paragraph--type--profiles-list{
+	max-width: 945px;
+	@include auto;
 
 	//manual list
 	.field-profiles{
-		margin-bottom: -$spaceLg;
+		@include safeFlex(row,wrap,center,start);
 		@include bleed(padding,20px);
 		& > div{
 			&:not(:last-child){
