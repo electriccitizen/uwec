@@ -1,0 +1,21 @@
+uuid: 0d634131-9dc1-4a77-a0ae-37a970807ab9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_entry_year
+    - node.type.snapshot
+  module:
+    - datetime
+id: node.snapshot.field_entry_year
+field_name: field_entry_year
+entity_type: node
+bundle: snapshot
+label: 'Entry Year'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime
