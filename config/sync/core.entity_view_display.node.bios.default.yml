@@ -18,6 +18,7 @@ dependencies:
     - field.field.node.bios.field_first_override
     - field.field.node.bios.field_honors
     - field.field.node.bios.field_image
+    - field.field.node.bios.field_import_date
     - field.field.node.bios.field_interests
     - field.field.node.bios.field_is_alumni
     - field.field.node.bios.field_last_name
@@ -25,11 +26,13 @@ dependencies:
     - field.field.node.bios.field_links
     - field.field.node.bios.field_list_widget
     - field.field.node.bios.field_metatags
+    - field.field.node.bios.field_middle_name
     - field.field.node.bios.field_office
     - field.field.node.bios.field_office_hours
     - field.field.node.bios.field_page_families
     - field.field.node.bios.field_phone
     - field.field.node.bios.field_placement_tags
+    - field.field.node.bios.field_platforms
     - field.field.node.bios.field_position
     - field.field.node.bios.field_position_override
     - field.field.node.bios.field_prefixes
@@ -37,11 +40,13 @@ dependencies:
     - field.field.node.bios.field_pronouns
     - field.field.node.bios.field_publications
     - field.field.node.bios.field_research
+    - field.field.node.bios.field_short_bio
     - field.field.node.bios.field_suffixes
     - field.field.node.bios.field_username
     - field.field.node.bios.layout_builder__layout
     - node.type.bios
   module:
+    - datetime
     - file
     - layout_builder
     - layout_builder_restrictions
@@ -317,7 +322,7 @@ third_party_settings:
                 label: hidden
                 settings: {  }
                 third_party_settings: {  }
-            weight: 1
+            weight: 2
             additional: {  }
           3c082d9c-ebde-4927-81f4-3d554a33b087:
             uuid: 3c082d9c-ebde-4927-81f4-3d554a33b087
@@ -341,6 +346,29 @@ third_party_settings:
                   target: '0'
                 third_party_settings: {  }
             weight: 3
+            additional: {  }
+          1a44a0ff-430a-4b12-85ce-df3e21fae96c:
+            uuid: 1a44a0ff-430a-4b12-85ce-df3e21fae96c
+            region: content
+            configuration:
+              id: 'field_block:node:bios:field_platforms'
+              label: Platforms
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: link
+                label: hidden
+                settings:
+                  trim_length: null
+                  url_only: true
+                  url_plain: true
+                  rel: '0'
+                  target: '0'
+                third_party_settings: {  }
+            weight: 4
             additional: {  }
         third_party_settings: {  }
       -
@@ -590,6 +618,15 @@ content:
     third_party_settings: {  }
     weight: 107
     region: content
+  field_import_date:
+    type: datetime_default
+    label: above
+    settings:
+      timezone_override: ''
+      format_type: medium
+    third_party_settings: {  }
+    weight: 132
+    region: first
   field_interests:
     type: text_default
     label: above
@@ -635,6 +672,14 @@ content:
     third_party_settings: {  }
     weight: 124
     region: content
+  field_middle_name:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 131
+    region: first
   field_office:
     type: basic_string
     label: above
@@ -672,6 +717,18 @@ content:
     third_party_settings: {  }
     weight: 103
     region: content
+  field_platforms:
+    type: link
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 133
+    region: first
   field_position:
     type: string
     label: above
@@ -726,6 +783,13 @@ content:
     third_party_settings: {  }
     weight: 126
     region: content
+  field_short_bio:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 130
+    region: first
   field_suffixes:
     type: string
     label: above

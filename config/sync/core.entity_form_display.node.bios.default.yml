@@ -18,6 +18,7 @@ dependencies:
     - field.field.node.bios.field_first_override
     - field.field.node.bios.field_honors
     - field.field.node.bios.field_image
+    - field.field.node.bios.field_import_date
     - field.field.node.bios.field_interests
     - field.field.node.bios.field_is_alumni
     - field.field.node.bios.field_last_name
@@ -25,11 +26,13 @@ dependencies:
     - field.field.node.bios.field_links
     - field.field.node.bios.field_list_widget
     - field.field.node.bios.field_metatags
+    - field.field.node.bios.field_middle_name
     - field.field.node.bios.field_office
     - field.field.node.bios.field_office_hours
     - field.field.node.bios.field_page_families
     - field.field.node.bios.field_phone
     - field.field.node.bios.field_placement_tags
+    - field.field.node.bios.field_platforms
     - field.field.node.bios.field_position
     - field.field.node.bios.field_position_override
     - field.field.node.bios.field_prefixes
@@ -37,6 +40,7 @@ dependencies:
     - field.field.node.bios.field_pronouns
     - field.field.node.bios.field_publications
     - field.field.node.bios.field_research
+    - field.field.node.bios.field_short_bio
     - field.field.node.bios.field_suffixes
     - field.field.node.bios.field_username
     - field.field.node.bios.layout_builder__layout
@@ -44,6 +48,7 @@ dependencies:
     - workflows.workflow.non_moderated
   module:
     - content_moderation
+    - datetime
     - field_group
     - file
     - link
@@ -61,10 +66,11 @@ third_party_settings:
         - field_office_hours
         - field_cv
         - field_links
+        - field_platforms
       label: 'Contact Information'
       region: content
       parent_name: ''
-      weight: 17
+      weight: 18
       format_type: details
       format_settings:
         classes: ''
@@ -80,7 +86,7 @@ third_party_settings:
       label: Access
       region: content
       parent_name: ''
-      weight: 22
+      weight: 25
       format_type: details_sidebar
       format_settings:
         classes: ''
@@ -100,7 +106,7 @@ third_party_settings:
       label: 'Additional Information'
       region: content
       parent_name: ''
-      weight: 19
+      weight: 21
       format_type: details
       format_settings:
         classes: ''
@@ -118,7 +124,7 @@ mode: default
 content:
   body:
     type: text_textarea_with_summary
-    weight: 18
+    weight: 20
     region: content
     settings:
       rows: 9
@@ -136,20 +142,20 @@ content:
     third_party_settings: {  }
   field_campus:
     type: options_select
-    weight: 14
+    weight: 15
     region: content
     settings: {  }
     third_party_settings: {  }
   field_cv:
     type: file_generic
-    weight: 22
+    weight: 27
     region: content
     settings:
       progress_indicator: throbber
     third_party_settings: {  }
   field_departments:
     type: entity_reference_autocomplete
-    weight: 15
+    weight: 16
     region: content
     settings:
       match_operator: CONTAINS
@@ -165,20 +171,20 @@ content:
     third_party_settings: {  }
   field_domain_all_affiliates:
     type: boolean_checkbox
-    weight: 29
+    weight: 30
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   field_domain_source:
     type: options_select
-    weight: 28
+    weight: 29
     region: content
     settings: {  }
     third_party_settings: {  }
   field_education:
     type: text_textarea
-    weight: 33
+    weight: 23
     region: content
     settings:
       rows: 5
@@ -186,7 +192,7 @@ content:
     third_party_settings: {  }
   field_email:
     type: email_default
-    weight: 20
+    weight: 25
     region: content
     settings:
       placeholder: 'Ex: email@website.com'
@@ -194,7 +200,7 @@ content:
     third_party_settings: {  }
   field_emeriti_status:
     type: options_select
-    weight: 12
+    weight: 13
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -216,7 +222,7 @@ content:
     third_party_settings: {  }
   field_honors:
     type: text_textarea
-    weight: 34
+    weight: 25
     region: content
     settings:
       rows: 5
@@ -229,9 +235,15 @@ content:
     settings:
       media_types: {  }
     third_party_settings: {  }
+  field_import_date:
+    type: datetime_default
+    weight: 24
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   field_interests:
     type: text_textarea
-    weight: 31
+    weight: 21
     region: content
     settings:
       rows: 5
@@ -239,20 +251,12 @@ content:
     third_party_settings: {  }
   field_is_alumni:
     type: boolean_checkbox
-    weight: 13
+    weight: 14
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   field_last_name:
-    type: string_textfield
-    weight: 6
-    region: content
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-  field_last_override:
     type: string_textfield
     weight: 7
     region: content
@@ -260,9 +264,17 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+  field_last_override:
+    type: string_textfield
+    weight: 8
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
   field_links:
     type: link_default
-    weight: 23
+    weight: 28
     region: content
     settings:
       placeholder_url: ''
@@ -270,15 +282,23 @@ content:
     third_party_settings: {  }
   field_metatags:
     type: metatag_firehose
-    weight: 24
+    weight: 27
     region: content
     settings:
       sidebar: true
       use_details: true
     third_party_settings: {  }
+  field_middle_name:
+    type: string_textfield
+    weight: 6
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
   field_office:
     type: string_textarea
-    weight: 18
+    weight: 23
     region: content
     settings:
       rows: 5
@@ -286,7 +306,7 @@ content:
     third_party_settings: {  }
   field_office_hours:
     type: string_textarea
-    weight: 21
+    weight: 26
     region: content
     settings:
       rows: 5
@@ -294,7 +314,7 @@ content:
     third_party_settings: {  }
   field_page_families:
     type: entity_reference_autocomplete
-    weight: 21
+    weight: 23
     region: content
     settings:
       match_operator: CONTAINS
@@ -304,14 +324,14 @@ content:
     third_party_settings: {  }
   field_phone:
     type: telephone_default
-    weight: 19
+    weight: 24
     region: content
     settings:
       placeholder: 'Ex: 555-555-5555'
     third_party_settings: {  }
   field_placement_tags:
     type: entity_reference_autocomplete
-    weight: 20
+    weight: 22
     region: content
     settings:
       match_operator: CONTAINS
@@ -319,9 +339,17 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+  field_platforms:
+    type: link_default
+    weight: 29
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
   field_position:
     type: string_textfield
-    weight: 10
+    weight: 11
     region: content
     settings:
       size: 60
@@ -329,7 +357,7 @@ content:
     third_party_settings: {  }
   field_position_override:
     type: string_textfield
-    weight: 11
+    weight: 12
     region: content
     settings:
       size: 60
@@ -345,7 +373,7 @@ content:
     third_party_settings: {  }
   field_programs:
     type: entity_reference_autocomplete
-    weight: 16
+    weight: 17
     region: content
     settings:
       match_operator: CONTAINS
@@ -355,7 +383,7 @@ content:
     third_party_settings: {  }
   field_pronouns:
     type: string_textfield
-    weight: 9
+    weight: 10
     region: content
     settings:
       size: 60
@@ -363,7 +391,7 @@ content:
     third_party_settings: {  }
   field_publications:
     type: text_textarea
-    weight: 35
+    weight: 26
     region: content
     settings:
       rows: 5
@@ -371,7 +399,15 @@ content:
     third_party_settings: {  }
   field_research:
     type: text_textarea
-    weight: 32
+    weight: 22
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_short_bio:
+    type: text_textarea
+    weight: 19
     region: content
     settings:
       rows: 5
@@ -379,7 +415,7 @@ content:
     third_party_settings: {  }
   field_suffixes:
     type: string_textfield
-    weight: 8
+    weight: 9
     region: content
     settings:
       size: 60
@@ -395,13 +431,13 @@ content:
     third_party_settings: {  }
   moderation_state:
     type: moderation_state_default
-    weight: 25
+    weight: 28
     region: content
     settings: {  }
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 23
+    weight: 26
     region: content
     settings:
       display_label: true
