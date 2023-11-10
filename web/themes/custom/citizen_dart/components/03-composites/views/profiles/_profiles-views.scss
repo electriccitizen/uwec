@@ -10,6 +10,9 @@
 .profile-search.directory{
 	.views-exposed-form{
 		@include exposedForm;
+		.form-item-title,.form-item-title-1{
+			display: none;
+		}
 	}
 	.view-content{
 		@include bleed(padding,20px);
