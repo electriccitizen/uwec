@@ -9,6 +9,26 @@
 
 @use '../../00-base/base' as *;
 
+.view-header{
+	.results-tally{
+		display: none;
+		@include heading2;
+		font-size: 20px;
+		line-height: 32px;
+		margin-bottom: $elementSpace;
+		.search-terms{
+			display: inline;
+			.search-term{
+				&:not(:last-child){
+					&:after{
+						content: ', ';
+					}
+				}
+			}
+		}//end search terms
+	}//end results tally
+}//end view header
+
 .view-content{
 	@include safeFlex(row,wrap,start,start);
 	& > *{

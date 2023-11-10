@@ -47,16 +47,16 @@
   {{ title }}
   {{ title_suffix }}
 
+  {% block viewExposed %}
+    {{ exposed }}
+  {% endblock %}
+  
   {% block viewHeader %}
     {% if header %}
       <div class="view-header">
         {{ header }}
       </div>
     {% endif %}
-  {% endblock %}
-
-  {% block viewExposed %}
-    {{ exposed }}
   {% endblock %}
 
   {% block viewAttachBefore %}
