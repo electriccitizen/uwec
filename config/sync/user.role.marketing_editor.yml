@@ -30,7 +30,6 @@ dependencies:
     - shortcut
     - smart_date_recur
     - system
-    - workbench
     - workbench_access
 id: marketing_editor
 label: 'Marketing Editor'
@@ -42,7 +41,6 @@ permissions:
   - 'access media overview'
   - 'access responsive preview'
   - 'access shortcuts'
-  - 'access workbench'
   - 'cancel smart date recur instances'
   - 'create document media'
   - 'create fact content'

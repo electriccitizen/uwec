@@ -123,6 +123,9 @@ fieldset{
 			background: $hoverLink;
 		}
 	}//end element help
+	input[type=text], input[type=search], input[type=url], input[type=number], textarea, input[type="search"], input[type="password"]{
+		border: 1px solid $navy;
+	}
 	.form-actions{
 		padding-top: $spaceMd;
 		@include safeFlex(row,wrap,justify,start);
@@ -336,14 +339,17 @@ h1.webform-title {
 	@include auto;
 	.form-item:not([type="submit"]),details{
 		max-width: 400px;
+		input{
+			border: 1px solid $navy;
+		}
 	}
 	.js-form-type-password{
 		position: relative;
 		.password-reset{
 			position: absolute;
-			top: 12px;
+			top: -1px;
 			right: 0;
-			font-size: 2rem;
+			font-size: 1.5rem;
 		}
 		.show-password{
 			position: absolute;
