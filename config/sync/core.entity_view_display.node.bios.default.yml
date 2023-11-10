@@ -53,7 +53,6 @@ dependencies:
     - layout_discovery
     - link
     - options
-    - system
     - text
     - user
   theme:
@@ -125,17 +124,6 @@ third_party_settings:
                 settings:
                   view_mode: 426x508
                 third_party_settings: {  }
-            weight: 0
-            additional: {  }
-          e15a1a58-82da-4a7b-9b50-51dd918ba150:
-            uuid: e15a1a58-82da-4a7b-9b50-51dd918ba150
-            region: content
-            configuration:
-              id: system_breadcrumb_block
-              label: Breadcrumbs
-              label_display: '0'
-              provider: system
-              context_mapping: {  }
             weight: 0
             additional: {  }
           309fb6a3-f256-4d0e-8b0a-c3eb31997687:
