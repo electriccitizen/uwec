@@ -9,6 +9,7 @@ dependencies:
     - field.field.node.fact.field_domain_source
     - field.field.node.fact.field_editorial_sections
     - field.field.node.fact.field_list_widget
+    - field.field.node.fact.field_metatags
     - field.field.node.fact.field_page_families
     - field.field.node.fact.field_placement_tags
     - field.field.node.fact.field_plain_text
@@ -22,6 +23,7 @@ dependencies:
     - datetime
     - field_group
     - link
+    - metatag
     - path
 third_party_settings:
   field_group:
@@ -63,14 +65,14 @@ content:
     third_party_settings: {  }
   field_domain_all_affiliates:
     type: boolean_checkbox
-    weight: 18
+    weight: 19
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   field_domain_source:
     type: options_select
-    weight: 17
+    weight: 18
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -79,6 +81,14 @@ content:
     weight: 15
     region: content
     settings: {  }
+    third_party_settings: {  }
+  field_metatags:
+    type: metatag_firehose
+    weight: 11
+    region: content
+    settings:
+      sidebar: true
+      use_details: true
     third_party_settings: {  }
   field_page_families:
     type: entity_reference_autocomplete

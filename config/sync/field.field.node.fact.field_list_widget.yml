@@ -6,6 +6,8 @@ dependencies:
     - field.storage.node.field_list_widget
     - node.type.fact
     - taxonomy.vocabulary.list_widget
+  content:
+    - 'taxonomy_term:list_widget:95127f95-752d-4b96-89de-699b4f2568af'
 id: node.fact.field_list_widget
 field_name: field_list_widget
 entity_type: node
@@ -14,7 +16,9 @@ label: 'List Widget'
 description: ''
 required: true
 translatable: false
-default_value: {  }
+default_value:
+  -
+    target_uuid: 95127f95-752d-4b96-89de-699b4f2568af
 default_value_callback: ''
 settings:
   handler: 'default:taxonomy_term'
