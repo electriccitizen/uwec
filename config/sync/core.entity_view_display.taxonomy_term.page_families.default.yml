@@ -5,8 +5,10 @@ dependencies:
   config:
     - field.field.taxonomy_term.page_families.field_contact
     - field.field.taxonomy_term.page_families.field_hours
+    - field.field.taxonomy_term.page_families.field_platforms
     - taxonomy.vocabulary.page_families
   module:
+    - link
     - text
 id: taxonomy_term.page_families.default
 targetEntityType: taxonomy_term
@@ -21,20 +23,34 @@ content:
     weight: 0
     region: content
   field_contact:
-    type: entity_reference_label
-    label: above
+    type: entity_reference_entity_view
+    label: hidden
     settings:
+      view_mode: default
       link: true
     third_party_settings: {  }
     weight: 1
     region: content
   field_hours:
-    type: entity_reference_label
-    label: above
+    type: entity_reference_entity_view
+    label: hidden
     settings:
+      view_mode: default
       link: true
     third_party_settings: {  }
     weight: 2
+    region: content
+  field_platforms:
+    type: link
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 3
     region: content
 hidden:
   search_api_excerpt: true
