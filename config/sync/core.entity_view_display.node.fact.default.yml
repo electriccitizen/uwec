@@ -40,14 +40,17 @@ third_party_settings:
             region: content
             configuration:
               id: 'field_block:node:fact:field_page_families'
+              label: 'Page Families'
               label_display: '0'
+              provider: layout_builder
               context_mapping:
                 entity: layout_builder.entity
+                view_mode: view_mode
               formatter:
                 type: entity_reference_label
-                label: above
+                label: inline
                 settings:
-                  link: true
+                  link: false
                 third_party_settings: {  }
             weight: 11
             additional: {  }
@@ -93,12 +96,15 @@ third_party_settings:
             region: content
             configuration:
               id: 'field_block:node:fact:field_source'
+              label: Source
               label_display: '0'
+              provider: layout_builder
               context_mapping:
                 entity: layout_builder.entity
+                view_mode: view_mode
               formatter:
                 type: string
-                label: above
+                label: inline
                 settings:
                   link_to_entity: false
                 third_party_settings: {  }
@@ -109,14 +115,17 @@ third_party_settings:
             region: content
             configuration:
               id: 'field_block:node:fact:field_placement_tags'
+              label: 'Placement tags'
               label_display: '0'
+              provider: layout_builder
               context_mapping:
                 entity: layout_builder.entity
+                view_mode: view_mode
               formatter:
                 type: entity_reference_label
-                label: above
+                label: inline
                 settings:
-                  link: true
+                  link: false
                 third_party_settings: {  }
             weight: 10
             additional: {  }
@@ -125,18 +134,21 @@ third_party_settings:
             region: content
             configuration:
               id: 'field_block:node:fact:field_source_link'
+              label: 'Link to Source'
               label_display: '0'
+              provider: layout_builder
               context_mapping:
                 entity: layout_builder.entity
+                view_mode: view_mode
               formatter:
                 type: link
-                label: above
+                label: inline
                 settings:
                   trim_length: 80
                   url_only: false
                   url_plain: false
-                  rel: ''
-                  target: ''
+                  rel: '0'
+                  target: '0'
                 third_party_settings: {  }
             weight: 8
             additional: {  }
@@ -153,7 +165,7 @@ third_party_settings:
                 view_mode: view_mode
               formatter:
                 type: smartdate_default
-                label: above
+                label: inline
                 settings:
                   timezone_override: ''
                   format: date_only

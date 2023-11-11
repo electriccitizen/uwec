@@ -5,12 +5,16 @@
 @use '../../../00-base/base' as *;
 
 .node-hours{
+	padding-top: $elementSpace;
 	@include auto;
 	max-width: $textMax;
-	.label{
-		font-weight: $heavy;
+	.block-field:not(.block-title){
+		margin-bottom: $spaceXxs;
 	}
 	.field-set-title{
 		@include heading2;
 	}
-}//end hours
+	.block-field-hours{
+		padding-top: $elementSpace;
+	}
+}//end hours-library
