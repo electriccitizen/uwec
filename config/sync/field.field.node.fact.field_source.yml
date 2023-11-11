@@ -1,0 +1,19 @@
+uuid: ca65d3b8-0d4d-401a-b792-e1638d33dfb9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_source
+    - node.type.fact
+id: node.fact.field_source
+field_name: field_source
+entity_type: node
+bundle: fact
+label: Source
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

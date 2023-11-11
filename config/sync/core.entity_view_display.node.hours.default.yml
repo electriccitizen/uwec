@@ -5,7 +5,6 @@ dependencies:
   config:
     - field.field.node.hours.field_building
     - field.field.node.hours.field_domain_all_affiliates
-    - field.field.node.hours.field_domain_record
     - field.field.node.hours.field_domain_source
     - field.field.node.hours.field_editorial_sections
     - field.field.node.hours.field_hours
@@ -99,21 +98,6 @@ third_party_settings:
                   view_mode: default
                 third_party_settings: {  }
             weight: 10
-            additional: {  }
-          65a86f55-8ef5-4836-9a04-332c625497b2:
-            uuid: 65a86f55-8ef5-4836-9a04-332c625497b2
-            region: content
-            configuration:
-              id: 'field_block:node:hours:field_metatags'
-              label_display: '0'
-              context_mapping:
-                entity: layout_builder.entity
-              formatter:
-                type: metatag_empty_formatter
-                label: above
-                settings: {  }
-                third_party_settings: {  }
-            weight: 11
             additional: {  }
         third_party_settings: {  }
   layout_builder_restrictions:
