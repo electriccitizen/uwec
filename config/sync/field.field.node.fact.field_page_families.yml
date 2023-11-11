@@ -1,18 +1,18 @@
-uuid: d2004b04-d089-4611-bc1b-42276bbf7b14
+uuid: a569c161-7231-4e61-95ca-65e4ac0bdfbc
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_list_widget
+    - field.storage.node.field_page_families
     - node.type.fact
-    - taxonomy.vocabulary.list_widget
-id: node.fact.field_list_widget
-field_name: field_list_widget
+    - taxonomy.vocabulary.page_families
+id: node.fact.field_page_families
+field_name: field_page_families
 entity_type: node
 bundle: fact
-label: 'List Widget'
+label: 'Page Families'
 description: ''
-required: true
+required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''
@@ -20,7 +20,7 @@ settings:
   handler: 'default:taxonomy_term'
   handler_settings:
     target_bundles:
-      list_widget: list_widget
+      page_families: page_families
     sort:
       field: name
       direction: asc

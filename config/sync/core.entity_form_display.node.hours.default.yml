@@ -4,8 +4,8 @@ status: true
 dependencies:
   config:
     - field.field.node.hours.field_building
+    - field.field.node.hours.field_domain_access
     - field.field.node.hours.field_domain_all_affiliates
-    - field.field.node.hours.field_domain_record
     - field.field.node.hours.field_domain_source
     - field.field.node.hours.field_editorial_sections
     - field.field.node.hours.field_hours
@@ -25,8 +25,8 @@ third_party_settings:
     group_access:
       children:
         - field_editorial_sections
+        - field_domain_access
         - field_domain_source
-        - field_domain_record
         - field_domain_all_affiliates
       label: Access
       region: content
@@ -54,6 +54,12 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+  field_domain_access:
+    type: options_buttons
+    weight: 33
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   field_domain_all_affiliates:
     type: boolean_checkbox
     weight: 35
@@ -61,15 +67,9 @@ content:
     settings:
       display_label: true
     third_party_settings: {  }
-  field_domain_record:
-    type: options_buttons
-    weight: 34
-    region: content
-    settings: {  }
-    third_party_settings: {  }
   field_domain_source:
     type: options_select
-    weight: 33
+    weight: 34
     region: content
     settings: {  }
     third_party_settings: {  }

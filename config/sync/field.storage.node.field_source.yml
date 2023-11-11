@@ -1,16 +1,17 @@
-uuid: 62ca1c2f-5c9d-42f9-b095-59a5e5c92268
+uuid: a2509405-4dd3-44c8-b178-b1f16fb8ace0
 langcode: en
 status: true
 dependencies:
   module:
-    - domain
     - node
-id: node.field_domain_record
-field_name: field_domain_record
+id: node.field_source
+field_name: field_source
 entity_type: node
-type: entity_reference
+type: string
 settings:
-  target_type: domain
+  max_length: 255
+  case_sensitive: false
+  is_ascii: false
 module: core
 locked: false
 cardinality: 1
