@@ -5,9 +5,10 @@
 @use '../../../00-base/base' as *;
 
 .node-fact{
+	padding-top: $elementSpace;
 	@include auto;
 	max-width: $textMax;
-	.label{
-		font-weight: $heavy;
+	.block-field:not(.block-title){
+		margin-bottom: $spaceXxs;
 	}
-}//end fact
+}//end fact-library
