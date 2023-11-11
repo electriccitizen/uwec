@@ -4,6 +4,13 @@
 
 @use '../../../00-base/base' as *;
 
-.node-hours-library{
-	
-}//end hours-library
+.node-hours{
+	@include auto;
+	max-width: $textMax;
+	.label{
+		font-weight: $heavy;
+	}
+	.field-set-title{
+		@include heading2;
+	}
+}//end hours
