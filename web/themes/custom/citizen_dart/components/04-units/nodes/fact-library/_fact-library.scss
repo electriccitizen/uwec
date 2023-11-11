@@ -4,6 +4,10 @@
 
 @use '../../../00-base/base' as *;
 
-.node-fact-library{
-	
-}//end fact-library
+.node-fact{
+	@include auto;
+	max-width: $textMax;
+	.label{
+		font-weight: $heavy;
+	}
+}//end fact
