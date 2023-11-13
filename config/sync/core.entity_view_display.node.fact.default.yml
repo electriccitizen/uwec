@@ -167,7 +167,7 @@ third_party_settings:
                 type: smartdate_default
                 label: inline
                 settings:
-                  timezone_override: ''
+                  timezone_override: America/North_Dakota/Center
                   format: date_only
                   force_chronological: false
                   add_classes: false
