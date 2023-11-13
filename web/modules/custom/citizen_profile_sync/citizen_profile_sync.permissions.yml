@@ -1,0 +1,4 @@
+administer citizen_profile_sync configuration:
+  title: 'Administer citizen_profile_sync configuration'
+  description: 'Optional description.'
+  restrict access: true
