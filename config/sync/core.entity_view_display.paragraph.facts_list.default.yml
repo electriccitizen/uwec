@@ -9,6 +9,8 @@ dependencies:
     - field.field.paragraph.facts_list.field_page_family
     - field.field.paragraph.facts_list.field_placement_tag
     - paragraphs.paragraphs_type.facts_list
+  module:
+    - options
 id: paragraph.facts_list.default
 targetEntityType: paragraph
 bundle: facts_list
@@ -23,9 +25,34 @@ content:
     third_party_settings: {  }
     weight: 0
     region: content
+  field_list_type:
+    type: list_key
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_list_widget:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_page_family:
+    type: entity_reference_entity_id
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_placement_tag:
+    type: entity_reference_entity_id
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
 hidden:
-  field_list_type: true
-  field_list_widget: true
-  field_page_family: true
-  field_placement_tag: true
   search_api_excerpt: true
