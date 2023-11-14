@@ -230,7 +230,34 @@ display:
         arguments: false
         filters: false
         filter_groups: false
-      relationships: {  }
+      relationships:
+        field_page_family:
+          id: field_page_family
+          table: node__field_page_family
+          field: field_page_family
+          relationship: none
+          group_type: group
+          admin_label: 'field_page_family: Taxonomy term'
+          plugin_id: standard
+          required: false
+        field_contact:
+          id: field_contact
+          table: taxonomy_term__field_contact
+          field: field_contact
+          relationship: field_page_family
+          group_type: group
+          admin_label: 'field_contact: Content'
+          plugin_id: standard
+          required: false
+        field_hours:
+          id: field_hours
+          table: taxonomy_term__field_hours
+          field: field_hours
+          relationship: field_page_family
+          group_type: group
+          admin_label: 'field_hours: Content'
+          plugin_id: standard
+          required: false
       display_description: ''
       display_extenders: {  }
       block_description: 'By Page Family'
