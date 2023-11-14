@@ -1,16 +1,16 @@
-uuid: 554c8bcd-4361-4413-98b8-2a331b7d2119
+uuid: c236bf60-c836-42fe-bb14-05d2607ec75b
 langcode: en
 status: true
 dependencies:
   module:
+    - link
     - node
-id: node.field_plain_text
-field_name: field_plain_text
+id: node.field_link
+field_name: field_link
 entity_type: node
-type: string_long
-settings:
-  case_sensitive: false
-module: core
+type: link
+settings: {  }
+module: link
 locked: false
 cardinality: 1
 translatable: true

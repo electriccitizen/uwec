@@ -1,15 +1,16 @@
-uuid: 554c8bcd-4361-4413-98b8-2a331b7d2119
+uuid: f6c51223-1714-4e79-9f6b-5b0ba4733893
 langcode: en
 status: true
 dependencies:
   module:
     - node
-id: node.field_plain_text
-field_name: field_plain_text
+    - taxonomy
+id: node.field_snapshot_type
+field_name: field_snapshot_type
 entity_type: node
-type: string_long
+type: entity_reference
 settings:
-  case_sensitive: false
+  target_type: taxonomy_term
 module: core
 locked: false
 cardinality: 1

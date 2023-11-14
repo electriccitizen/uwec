@@ -219,8 +219,7 @@ function citizen_custom_field_widget_single_element_form_alter(&$element, FormSt
 function citizen_custom_views_pre_view($view, $display_id, &$args) {
 	// Alters views to accept fields from related paragraphs to be used for filters.
   if(isset($view->element['#name'])) {
-    if ((($view->element['#name'] === 'facts') && ($view->current_display === 'list')) || (($view->element['#name'] === 'news') && ($view->current_display === 'recent_three')) || (($view->element['#name'] === 'news') && ($view->current_display === 'recent_two')) || (($view->element['#name'] === 'video_cards') && ($view->current_display === 'recent_three')) || (($view->element['#name'] === 'bios') && ($view->current_display === 'profiles_list'))) {
-
+    if ((($view->element['#name'] === 'facts') && ($view->current_display === 'list')) || (($view->element['#name'] === 'news') && ($view->current_display === 'recent_three')) || (($view->element['#name'] === 'news') && ($view->current_display === 'recent_two')) || (($view->element['#name'] === 'video_cards') && ($view->current_display === 'recent_three')) || (($view->element['#name'] === 'bios') && ($view->current_display === 'profiles_list')) || (($view->element['#name'] === 'snapshots') && ($view->current_display === 'list'))) {
       $filters = $view->display_handler->getOption('filters');
       $sorts = $view->display_handler->getOption('sorts');
       $paragraph_id = $view->args[0];
@@ -256,6 +255,7 @@ function citizen_custom_views_pre_view($view, $display_id, &$args) {
             unset($filters['field_page_families_target_id']);
           }
         }//end page families filter
+
         if(isset($paragraph->field_type[0])){
           //make an array out of the type set in the paragraph
           $types = [];
@@ -272,6 +272,26 @@ function citizen_custom_views_pre_view($view, $display_id, &$args) {
             unset($filters['field_story_type_target_id']);
           }
         }//end filter
+
+        // make the view's snapshot_type filter match what the user selected in the paragraph
+        if(isset($paragraph->field_snapshot_type[0])){
+          // make an array out of the snapshot type set in the paragraph
+          $snapshot_types = [];
+          foreach($paragraph->field_snapshot_type as $delta => $snapshot_type){
+            $snapshot_types[] = $snapshot_type->target_id;
+          }
+
+          // replace the snapshot_type_target_id filter with the paragraph's snapshot type
+          if(isset($filters['field_snapshot_type_target_id'])){
+            $filters['field_snapshot_type_target_id']['value'] = $snapshot_types;
+          }
+        }else{
+          // the snapshot type field is not set in the paragraph, so unset it in the view
+          if(isset($filters['field_snapshot_type_target_id'])){
+            unset($filters['field_snapshot_type_target_id']);
+          }
+        }
+
         $view->display_handler->setOption('filters', $filters);
 
         // change the pager if the paragraph has a limit lists field used

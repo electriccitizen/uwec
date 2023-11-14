@@ -4,9 +4,17 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.paragraph.preview
+    - field.field.paragraph.snapshot_list.field_list_type
+    - field.field.paragraph.snapshot_list.field_list_widget
+    - field.field.paragraph.snapshot_list.field_manual_select
+    - field.field.paragraph.snapshot_list.field_page_family
+    - field.field.paragraph.snapshot_list.field_placement_tag
+    - field.field.paragraph.snapshot_list.field_snapshot_type
+    - field.field.paragraph.snapshot_list.field_widget_title
     - paragraphs.paragraphs_type.snapshot_list
   module:
     - layout_builder
+    - options
 third_party_settings:
   layout_builder:
     enabled: false
@@ -15,6 +23,19 @@ id: paragraph.snapshot_list.preview
 targetEntityType: paragraph
 bundle: snapshot_list
 mode: preview
-content: {  }
+content:
+  field_list_type:
+    type: list_default
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
 hidden:
+  field_list_widget: true
+  field_manual_select: true
+  field_page_family: true
+  field_placement_tag: true
+  field_snapshot_type: true
+  field_widget_title: true
   search_api_excerpt: true
