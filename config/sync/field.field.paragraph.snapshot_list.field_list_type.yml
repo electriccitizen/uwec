@@ -1,0 +1,23 @@
+uuid: c296ef55-cfa7-4424-a4da-9552185d6831
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_list_type
+    - paragraphs.paragraphs_type.snapshot_list
+  module:
+    - options
+id: paragraph.snapshot_list.field_list_type
+field_name: field_list_type
+entity_type: paragraph
+bundle: snapshot_list
+label: 'List Type'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: auto
+default_value_callback: ''
+settings: {  }
+field_type: list_string
