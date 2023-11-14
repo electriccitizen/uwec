@@ -13,6 +13,7 @@ dependencies:
     - field.field.node.academic_program.layout_builder__layout
     - node.type.academic_program
     - views.view.bios
+    - views.view.facts
   module:
     - layout_builder
     - layout_builder_restrictions
@@ -96,6 +97,19 @@ third_party_settings:
               views_label: ''
               items_per_page: none
             weight: 6
+            additional: {  }
+          5680168e-3d53-4370-8acd-44c0421829db:
+            uuid: 5680168e-3d53-4370-8acd-44c0421829db
+            region: content
+            configuration:
+              id: 'views_block:facts-recent_by_tag'
+              label: ''
+              label_display: '0'
+              provider: views
+              context_mapping: {  }
+              views_label: ''
+              items_per_page: none
+            weight: 7
             additional: {  }
         third_party_settings: {  }
   layout_builder_restrictions:
