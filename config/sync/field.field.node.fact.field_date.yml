@@ -1,0 +1,21 @@
+uuid: bdf81c86-cb9f-4f0d-982e-3dbde0e22cf4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_date
+    - node.type.fact
+  module:
+    - datetime
+id: node.fact.field_date
+field_name: field_date
+entity_type: node
+bundle: fact
+label: 'Expiration date'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

@@ -5,5 +5,9 @@
 @use '../../../00-base/base' as *;
 
 .paragraph--type--contact-placer{
-
+	.field-contact-info{
+		& > div:not(:last-child){
+			margin-bottom: $elementSpace;
+		}
+	}
 }//end contact-placer widget

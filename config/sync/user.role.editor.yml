@@ -28,7 +28,6 @@ dependencies:
     - smart_date_recur
     - system
     - toolbar
-    - workbench
     - workbench_access
 _core:
   default_config_hash: EXd6odxtI3ATSRa8lIDzgMFLGlfXgkm31FsS0ncrzl8
@@ -43,7 +42,6 @@ permissions:
   - 'access responsive preview'
   - 'access shortcuts'
   - 'access toolbar'
-  - 'access workbench'
   - 'cancel smart date recur instances'
   - 'create contact content'
   - 'create contact content on assigned domains'

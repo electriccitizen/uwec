@@ -1,16 +1,16 @@
-uuid: faf8ea89-eac2-46b4-91e3-4f0fba914072
+uuid: df7266ba-e858-4d66-b338-0bbeaa26b6ad
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_department
-    - node.type.department
-    - node.type.hours
-id: node.hours.field_department
-field_name: field_department
-entity_type: node
-bundle: hours
-label: Department
+    - field.storage.paragraph.field_facts
+    - node.type.fact
+    - paragraphs.paragraphs_type.facts_list
+id: paragraph.facts_list.field_facts
+field_name: field_facts
+entity_type: paragraph
+bundle: facts_list
+label: 'Manually Select'
 description: ''
 required: false
 translatable: false
@@ -20,7 +20,7 @@ settings:
   handler: 'default:node'
   handler_settings:
     target_bundles:
-      department: department
+      fact: fact
     sort:
       field: _none
       direction: ASC

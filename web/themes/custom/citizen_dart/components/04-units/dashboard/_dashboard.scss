@@ -5,6 +5,8 @@
 @use '../../00-base/base' as *;
 
 .user-dashboard{
+	max-width: 945px;
+	@include auto;
 	.field-user-image{
 		border-radius: 50%;
 		overflow: hidden;

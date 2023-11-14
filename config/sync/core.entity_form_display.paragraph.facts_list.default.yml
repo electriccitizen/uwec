@@ -1,0 +1,56 @@
+uuid: 4e21f613-a797-4227-9626-8a144f1b52af
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.facts_list.field_facts
+    - field.field.paragraph.facts_list.field_list_type
+    - field.field.paragraph.facts_list.field_list_widget
+    - field.field.paragraph.facts_list.field_page_family
+    - field.field.paragraph.facts_list.field_placement_tag
+    - paragraphs.paragraphs_type.facts_list
+id: paragraph.facts_list.default
+targetEntityType: paragraph
+bundle: facts_list
+mode: default
+content:
+  field_facts:
+    type: entity_reference_autocomplete
+    weight: 3
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_list_type:
+    type: options_select
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_page_family:
+    type: entity_reference_autocomplete
+    weight: 2
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_placement_tag:
+    type: entity_reference_autocomplete
+    weight: 1
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  field_list_widget: true
+  status: true

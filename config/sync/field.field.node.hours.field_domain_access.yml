@@ -1,4 +1,4 @@
-uuid: f4d190bb-389c-41f7-99f6-c1cf8ae3b7ed
+uuid: a68a7843-9a3b-493c-a243-69d1010a3177
 langcode: en
 status: true
 dependencies:
@@ -9,10 +9,10 @@ id: node.hours.field_domain_access
 field_name: field_domain_access
 entity_type: node
 bundle: hours
-label: 'Domain Access'
+label: 'Domain Record'
 description: 'Select the affiliate domain(s) for this content'
 required: true
-translatable: true
+translatable: false
 default_value: {  }
 default_value_callback: 'Drupal\domain_access\DomainAccessManager::getDefaultValue'
 settings:
@@ -22,4 +22,5 @@ settings:
     sort:
       field: weight
       direction: ASC
+    auto_create: false
 field_type: entity_reference

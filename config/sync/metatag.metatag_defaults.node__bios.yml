@@ -5,4 +5,5 @@ dependencies: {  }
 id: node__bios
 label: 'Content: Profile'
 tags:
+  abstract: '[node:field_short_bio]'
   title: '[node:field_first_name] [node:field_last_name] | [site:name]'

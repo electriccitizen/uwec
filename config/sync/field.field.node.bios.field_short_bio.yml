@@ -1,0 +1,24 @@
+uuid: b5ccf11c-4762-43e5-bda9-39190d1d9e2f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_short_bio
+    - filter.format.limited_html
+    - node.type.bios
+  module:
+    - text
+id: node.bios.field_short_bio
+field_name: field_short_bio
+entity_type: node
+bundle: bios
+label: 'Short Bio'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - limited_html
+field_type: text_long

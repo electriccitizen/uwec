@@ -1,0 +1,23 @@
+uuid: 49d0dff5-4214-43b9-bfea-fd3ffcc017dd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_platforms
+    - taxonomy.vocabulary.page_families
+  module:
+    - link
+id: taxonomy_term.page_families.field_platforms
+field_name: field_platforms
+entity_type: taxonomy_term
+bundle: page_families
+label: 'Social Links'
+description: 'Paste in the links to your platform pages. <strong>WARNING:</strong> Only Facebook, Twitter, LinkedIn, Instagram, Snapchat, TikTok and YouTube are supported. '
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 0
+  link_type: 16
+field_type: link
