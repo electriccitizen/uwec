@@ -149,3 +149,10 @@ upstream/web/
 
 # Ignore docksal settings file
 #/web/sites/default/settings.docksal.php
+
+# Ignore local docksal files
+/.docksal/docksal-local.yml
+/.docksal/docksal-local.env
+
+# Ignore log files
+*.log
