@@ -13,6 +13,7 @@ dependencies:
     - field.field.node.college.field_placement_tags
     - field.field.node.college.layout_builder__layout
     - node.type.college
+    - views.view.contact_hours
     - views.view.facts
   module:
     - layout_builder
@@ -83,6 +84,19 @@ third_party_settings:
               views_label: ''
               items_per_page: none
             weight: 4
+            additional: {  }
+          b1d8bbe4-3972-4cd6-9dbc-d0068a7591cb:
+            uuid: b1d8bbe4-3972-4cd6-9dbc-d0068a7591cb
+            region: content
+            configuration:
+              id: 'views_block:contact_hours-by_tag'
+              label: ''
+              label_display: '0'
+              provider: views
+              context_mapping: {  }
+              views_label: ''
+              items_per_page: none
+            weight: 5
             additional: {  }
         third_party_settings: {  }
   layout_builder_restrictions:
