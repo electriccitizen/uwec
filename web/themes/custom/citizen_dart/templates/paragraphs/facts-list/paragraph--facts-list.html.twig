@@ -41,7 +41,7 @@
 {% if paragraph.id.value %}
 	<div class="paragraph paragraph--type--facts-list custom-views-list" data-quickedit-entity-id="paragraph/{{ paragraph.id.value }}">
 		{% if content.field_list_type.0['#markup'] == 'auto' %}
-			{{ drupal_view('facts','facts_list', paragraph.id.value) }}
+			{{ drupal_view('facts','list', paragraph.id.value) }}
 		{% else %}
 			{{ content.field_facts }}
 		{% endif %}

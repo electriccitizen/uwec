@@ -219,12 +219,12 @@ function citizen_custom_field_widget_single_element_form_alter(&$element, FormSt
 function citizen_custom_views_pre_view($view, $display_id, &$args) {
 	// Alters views to accept fields from related paragraphs to be used for filters.
   if(isset($view->element['#name'])) {
-    if ((($view->element['#name'] === 'news') && ($view->current_display === 'recent_three')) || (($view->element['#name'] === 'news') && ($view->current_display === 'recent_two')) || (($view->element['#name'] === 'video_cards') && ($view->current_display === 'recent_three')) || (($view->element['#name'] === 'bios') && ($view->current_display === 'profiles_list'))) {
-      
+    if ((($view->element['#name'] === 'facts') && ($view->current_display === 'list')) || (($view->element['#name'] === 'news') && ($view->current_display === 'recent_three')) || (($view->element['#name'] === 'news') && ($view->current_display === 'recent_two')) || (($view->element['#name'] === 'video_cards') && ($view->current_display === 'recent_three')) || (($view->element['#name'] === 'bios') && ($view->current_display === 'profiles_list'))) {
+
       $filters = $view->display_handler->getOption('filters');
       $sorts = $view->display_handler->getOption('sorts');
       $paragraph_id = $view->args[0];
-      
+
       if ($paragraph_id){
         $paragraph = Paragraph::load($paragraph_id);
         //unset or alter placement tag filter
