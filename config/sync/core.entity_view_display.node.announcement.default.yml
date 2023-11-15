@@ -82,7 +82,7 @@ third_party_settings:
                 label: inline
                 settings: {  }
                 third_party_settings: {  }
-            weight: 2
+            weight: 3
             additional: {  }
           b2643f97-fd04-4f5e-aad0-dfbd94995e9e:
             uuid: b2643f97-fd04-4f5e-aad0-dfbd94995e9e
@@ -103,7 +103,7 @@ third_party_settings:
                   format_custom_false: ''
                   format_custom_true: ''
                 third_party_settings: {  }
-            weight: 3
+            weight: 4
             additional: {  }
           71476888-0ea1-47fa-9b42-3d6365616281:
             uuid: 71476888-0ea1-47fa-9b42-3d6365616281
@@ -122,7 +122,40 @@ third_party_settings:
                 settings:
                   link_to_entity: false
                 third_party_settings: {  }
-            weight: 4
+            weight: 5
+            additional: {  }
+          2f3a0da9-ef22-4eef-b54c-b37ed94555ff:
+            uuid: 2f3a0da9-ef22-4eef-b54c-b37ed94555ff
+            region: content
+            configuration:
+              id: 'field_block:node:announcement:field_dates'
+              label: 'Display Range'
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: smartdate_default
+                label: inline
+                settings:
+                  timezone_override: ''
+                  format: default
+                  force_chronological: false
+                  add_classes: false
+                  time_wrapper: true
+                  localize: false
+                  parts:
+                    start: start
+                    end: end
+                    duration: '0'
+                  duration:
+                    separator: ' | '
+                    unit: ''
+                    decimals: 2
+                    suffix: h
+                third_party_settings: {  }
+            weight: 2
             additional: {  }
         third_party_settings: {  }
   layout_builder_restrictions:
