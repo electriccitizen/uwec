@@ -10,7 +10,7 @@ third_party_settings:
     parent: ''
 _core:
   default_config_hash: QfrXmpu53msy4OhG2fCRcAArasTZFhleZoL1XUKtMQg
-name: Story
+name: 'Story Library'
 type: news
 description: 'Add time sensitive story content.'
 help: ''

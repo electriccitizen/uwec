@@ -1,17 +1,17 @@
-uuid: 9635f0b2-3447-4dac-896b-74a28e749e12
+uuid: e6e41d21-d16a-44b8-9d42-81c8cb5156f0
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_page_families
+    - field.storage.node.field_editorial_sections
     - node.type.news
-    - taxonomy.vocabulary.page_families
-id: node.news.field_page_families
-field_name: field_page_families
+    - taxonomy.vocabulary.editorial_sections
+id: node.news.field_editorial_sections
+field_name: field_editorial_sections
 entity_type: node
 bundle: news
-label: 'Page Families'
-description: ''
+label: 'Editorial sections'
+description: 'Assign content to editorial sections in order to control access'
 required: true
 translatable: false
 default_value: {  }
@@ -20,7 +20,7 @@ settings:
   handler: 'default:taxonomy_term'
   handler_settings:
     target_bundles:
-      page_families: page_families
+      editorial_sections: editorial_sections
     sort:
       field: name
       direction: asc

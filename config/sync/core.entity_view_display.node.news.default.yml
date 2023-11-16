@@ -3,13 +3,18 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.news.field_authors
     - field.field.node.news.field_domain_access
     - field.field.node.news.field_domain_all_affiliates
     - field.field.node.news.field_domain_source
+    - field.field.node.news.field_editorial_sections
+    - field.field.node.news.field_eyebrow
     - field.field.node.news.field_image
+    - field.field.node.news.field_intro_text
     - field.field.node.news.field_list_widget
     - field.field.node.news.field_metatags
     - field.field.node.news.field_page_families
+    - field.field.node.news.field_paragraphs
     - field.field.node.news.field_placement_tags
     - field.field.node.news.field_story_type
     - field.field.node.news.layout_builder__layout
@@ -19,7 +24,9 @@ dependencies:
     - layout_builder
     - layout_builder_restrictions
     - layout_discovery
+    - layout_paragraphs
     - system
+    - text
     - user
   theme:
     - citizen_dart
@@ -82,6 +89,86 @@ third_party_settings:
                   view_mode: banner
                 third_party_settings: {  }
             weight: 0
+            additional: {  }
+          f888a4df-7e67-4115-ad38-8eaa00e297c1:
+            uuid: f888a4df-7e67-4115-ad38-8eaa00e297c1
+            region: content
+            configuration:
+              id: 'field_block:node:news:field_authors'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: entity_reference_label
+                label: above
+                settings:
+                  link: true
+                third_party_settings: {  }
+            weight: 3
+            additional: {  }
+          57f94acd-91c5-47a6-a5a3-ccdddc00fc04:
+            uuid: 57f94acd-91c5-47a6-a5a3-ccdddc00fc04
+            region: content
+            configuration:
+              id: 'field_block:node:news:field_eyebrow'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: entity_reference_label
+                label: hidden
+                settings:
+                  link: false
+                third_party_settings: {  }
+            weight: 4
+            additional: {  }
+          3f7478b8-9b08-423c-af55-122583017e86:
+            uuid: 3f7478b8-9b08-423c-af55-122583017e86
+            region: content
+            configuration:
+              id: 'field_block:node:news:field_intro_text'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: text_default
+                label: above
+                settings: {  }
+                third_party_settings: {  }
+            weight: 5
+            additional: {  }
+          ab7caf9c-bd4d-4a8b-8a57-4068e73b85d1:
+            uuid: ab7caf9c-bd4d-4a8b-8a57-4068e73b85d1
+            region: content
+            configuration:
+              id: 'field_block:node:news:field_paragraphs'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: layout_paragraphs
+                label: hidden
+                settings:
+                  view_mode: default
+                  link: ''
+                third_party_settings: {  }
+            weight: 6
+            additional: {  }
+          f4361e77-d352-43cb-8459-38cfc117f215:
+            uuid: f4361e77-d352-43cb-8459-38cfc117f215
+            region: content
+            configuration:
+              id: 'field_block:node:news:field_editorial_sections'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: entity_reference_label
+                label: above
+                settings:
+                  link: true
+                third_party_settings: {  }
+            weight: 7
             additional: {  }
         third_party_settings: {  }
       -
@@ -190,6 +277,37 @@ content:
     third_party_settings: {  }
     weight: -20
     region: content
+  field_authors:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 110
+    region: content
+  field_editorial_sections:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 107
+    region: content
+  field_eyebrow:
+    type: entity_reference_label
+    label: hidden
+    settings:
+      link: false
+    third_party_settings: {  }
+    weight: 111
+    region: content
+  field_intro_text:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 112
+    region: content
   field_list_widget:
     type: entity_reference_label
     label: above
@@ -205,6 +323,15 @@ content:
       link: true
     third_party_settings: {  }
     weight: 108
+    region: content
+  field_paragraphs:
+    type: layout_paragraphs
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 104
     region: content
   field_placement_tags:
     type: entity_reference_label
