@@ -1,0 +1,202 @@
+uuid: 72f321fa-db9d-4426-9a8c-2f9f51cb6814
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_paragraphs
+    - node.type.news
+    - paragraphs.paragraphs_type.accordions
+    - paragraphs.paragraphs_type.block_placer
+    - paragraphs.paragraphs_type.button
+    - paragraphs.paragraphs_type.contact_placer
+    - paragraphs.paragraphs_type.content_carousel
+    - paragraphs.paragraphs_type.ctas
+    - paragraphs.paragraphs_type.custom_embed
+    - paragraphs.paragraphs_type.events_list
+    - paragraphs.paragraphs_type.facts_list
+    - paragraphs.paragraphs_type.fauxfile
+    - paragraphs.paragraphs_type.gallery
+    - paragraphs.paragraphs_type.hallmark
+    - paragraphs.paragraphs_type.hero
+    - paragraphs.paragraphs_type.highlight_box
+    - paragraphs.paragraphs_type.hours_placer
+    - paragraphs.paragraphs_type.hours_set
+    - paragraphs.paragraphs_type.image
+    - paragraphs.paragraphs_type.links_files
+    - paragraphs.paragraphs_type.profiles_list
+    - paragraphs.paragraphs_type.program_search
+    - paragraphs.paragraphs_type.quote
+    - paragraphs.paragraphs_type.select_type
+    - paragraphs.paragraphs_type.snapshot_list
+    - paragraphs.paragraphs_type.social_media_links
+    - paragraphs.paragraphs_type.steps
+    - paragraphs.paragraphs_type.stories_video_list
+    - paragraphs.paragraphs_type.testimonial_placer
+    - paragraphs.paragraphs_type.text
+    - paragraphs.paragraphs_type.video
+    - paragraphs.paragraphs_type.view_placer
+    - paragraphs.paragraphs_type.wayfinding
+  module:
+    - entity_reference_revisions
+id: node.news.field_paragraphs
+field_name: field_paragraphs
+entity_type: node
+bundle: news
+label: Sections
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      accordions: accordions
+      links_files: links_files
+      custom_embed: custom_embed
+      gallery: gallery
+      image: image
+      social_media_links: social_media_links
+      text: text
+      video: video
+      block_placer: block_placer
+      button: button
+      contact_placer: contact_placer
+      content_carousel: content_carousel
+      ctas: ctas
+      events_list: events_list
+      facts_list: facts_list
+      fauxfile: fauxfile
+      hallmark: hallmark
+      hero: hero
+      highlight_box: highlight_box
+      hours_placer: hours_placer
+      hours_set: hours_set
+      profiles_list: profiles_list
+      program_search: program_search
+      quote: quote
+      select_type: select_type
+      snapshot_list: snapshot_list
+      steps: steps
+      stories_video_list: stories_video_list
+      testimonial_placer: testimonial_placer
+      view_placer: view_placer
+      wayfinding: wayfinding
+    negate: 0
+    target_bundles_drag_drop:
+      accordion_item:
+        weight: -77
+        enabled: false
+      accordions:
+        weight: -76
+        enabled: true
+      block_placer:
+        weight: -66
+        enabled: true
+      button:
+        weight: -65
+        enabled: true
+      contact_placer:
+        weight: -64
+        enabled: true
+      content_carousel:
+        weight: -63
+        enabled: true
+      cta_item:
+        weight: -62
+        enabled: false
+      ctas:
+        weight: -61
+        enabled: true
+      custom_embed:
+        weight: -74
+        enabled: true
+      events_list:
+        weight: -60
+        enabled: true
+      facts_list:
+        weight: -59
+        enabled: true
+      fauxfile:
+        weight: -58
+        enabled: true
+      fauxfile_item:
+        weight: -57
+        enabled: false
+      gallery:
+        weight: -72
+        enabled: true
+      gallery_item:
+        weight: -73
+        enabled: false
+      hallmark:
+        weight: -56
+        enabled: true
+      hero:
+        weight: -55
+        enabled: true
+      highlight_box:
+        weight: -54
+        enabled: true
+      hours_placer:
+        weight: -53
+        enabled: true
+      hours_set:
+        weight: -52
+        enabled: true
+      image:
+        weight: -71
+        enabled: true
+      layout_section:
+        weight: -70
+        enabled: false
+      links_files:
+        weight: -75
+        enabled: true
+      profiles_list:
+        weight: -51
+        enabled: true
+      program_search:
+        weight: -50
+        enabled: true
+      quote:
+        weight: -49
+        enabled: true
+      select_item:
+        weight: -48
+        enabled: false
+      select_type:
+        weight: -47
+        enabled: true
+      snapshot_list:
+        weight: -46
+        enabled: true
+      social_media_links:
+        weight: -69
+        enabled: true
+      step_item:
+        weight: -45
+        enabled: false
+      steps:
+        weight: -44
+        enabled: true
+      stories_video_list:
+        weight: -43
+        enabled: true
+      testimonial_placer:
+        weight: -42
+        enabled: true
+      text:
+        weight: -68
+        enabled: true
+      video:
+        weight: -67
+        enabled: true
+      view_placer:
+        weight: -41
+        enabled: true
+      wayfinding:
+        weight: -40
+        enabled: true
+field_type: entity_reference_revisions

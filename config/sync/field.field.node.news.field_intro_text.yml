@@ -1,0 +1,26 @@
+uuid: 6d9e58f6-0979-4b97-97a4-bad2e244b7e2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_intro_text
+    - filter.format.limited_html
+    - node.type.news
+  module:
+    - text
+id: node.news.field_intro_text
+field_name: field_intro_text
+entity_type: node
+bundle: news
+label: 'Intro text'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: false
+  required_summary: false
+  allowed_formats:
+    - limited_html
+field_type: text_with_summary

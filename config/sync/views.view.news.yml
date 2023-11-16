@@ -24,7 +24,7 @@ dependencies:
 _core:
   default_config_hash: W1GJXPa413G1CGmeSx1K_NyP_cvEqAytiQN1Laghr_g
 id: news
-label: Story
+label: Stories
 module: views
 description: 'Lists of story articles.'
 tag: ''

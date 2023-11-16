@@ -1,18 +1,18 @@
-uuid: 9635f0b2-3447-4dac-896b-74a28e749e12
+uuid: d3e6d457-7286-4d80-8060-e08b9bd14066
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_page_families
+    - field.storage.node.field_authors
     - node.type.news
-    - taxonomy.vocabulary.page_families
-id: node.news.field_page_families
-field_name: field_page_families
+    - taxonomy.vocabulary.author
+id: node.news.field_authors
+field_name: field_authors
 entity_type: node
 bundle: news
-label: 'Page Families'
+label: Authors
 description: ''
-required: true
+required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''
@@ -20,7 +20,7 @@ settings:
   handler: 'default:taxonomy_term'
   handler_settings:
     target_bundles:
-      page_families: page_families
+      author: author
     sort:
       field: name
       direction: asc
