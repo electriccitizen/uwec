@@ -1,0 +1,7 @@
+{% if content['#nids'] is not empty %}
+	<div class="block-announcements">
+		{% for id in content['#nids'] %}
+			{{ drupal_entity('node', id) }}
+		{% endfor %}
+	</div>
+{% endif %}

@@ -1,0 +1,46 @@
+/* ==============
+   ANNOUNCEMENTS!
+===============*/
+@use '../../../00-base/base' as *;
+
+.block-announcements{
+	.announcement{
+		display:flex;
+		padding:$spaceXs;
+	}
+	.announcement-title,
+	.announcement-body{
+		flex:1;
+		padding: $spaceXxs;
+		color: $royal;
+	}
+
+	.announcement-title{
+		font-style:italic;
+		text-transform:uppercase;
+	}
+
+	p{
+		margin:0;
+	}
+
+	.announcement.urgent{
+		background-color: $gold;
+	}
+	.announcement.casual{
+		background-color:$lightGrey;
+	}
+
+	.announcement{
+		flex-direction:column;
+	}
+	@include tab{
+		.announcement{
+			flex-direction:row;
+			align-items:center;
+		}
+		.announcement-title{
+			text-align:right;
+		}
+	}
+}
