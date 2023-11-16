@@ -72,13 +72,36 @@
 #}
 
 {% set classes = [
-  'node-content-thumbnail',
-  'node-content-thumbnail-' ~ node.type.0.target_id|clean_class,
+  'node-mini',
+  'node-mini-' ~ node.type.0.target_id|clean_class,
 ] %}
 
 <article{{ attributes.addClass(classes) }}>
-    {% block nodeTitle %}{% endblock %}
     {% block nodeContent %}
       {{- content -}}
+    {% endblock %}
+    {% block nodeTitle %}
+      {{ title_prefix }}
+      <h2{{ title_attributes }}>
+        <a href="{{- url -}}" rel="bookmark">
+          {% if elements['#node'].field_prefixes.0 %}
+      			<span class="prefixes">{{ elements['#node'].field_prefixes.0.value }}</span>
+      		{% endif %}
+      		{% if elements['#node'].field_first_override.0 %}
+      			{{ elements['#node'].field_first_override.0.value }}
+      		{% else %}
+      			{{ elements['#node'].field_first_name.0.value }}
+      		{% endif %}
+      		{% if elements['#node'].field_last_override.0 %}
+      			{{ elements['#node'].field_last_override.0.value -}}
+      		{%- else -%}
+      			{{ elements['#node'].field_last_name.0.value -}}
+      		{%- endif -%}
+      		{%- if elements['#node'].field_suffixes.0 -%}
+      			<span class="suffixes">, {{ elements['#node'].field_suffixes.0.value }}</span>
+      		{% endif %}
+        </a>
+      </h2>
+      {{ title_suffix }}
     {% endblock %}
 </article>

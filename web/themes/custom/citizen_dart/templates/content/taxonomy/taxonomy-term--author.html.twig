@@ -25,17 +25,26 @@
 #}
 {% set classes = [
 	'term-page',
-	'vocab-' ~ term.vid.0.target_id|clean_class
+	'vocab-' ~ term.vid.0.target_id|clean_class,
+  view_mode|clean_class
 ] %}
 
 <div{{ attributes.addClass(classes) }}>
   {% if view_mode == 'teaser' %}
     {% if content.field_profile.0 %}
-      {{ content|without('field_image') }}
+      {{ content.field_profile }}
+    {% else %}
+      {{ content.field_image }}
+    {% endif %}
+    {{ title_prefix }}
+    <h2>{{ name[0]['#context'].value }}</h2>
+    {{ title_suffix }}
+    {{ content.field_description }}
+  {% elseif view_mode == 'mini' %}
+    {% if content.field_profile.0 %}
+      {{ content.field_profile }}
     {% else %}
       {{ content|without('field_profile') }}
     {% endif %}
-  {% elseif view_mode == 'mini' %}
-    {{ content }}
   {% endif %}
 </div>

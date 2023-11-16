@@ -24,20 +24,12 @@ targetEntityType: taxonomy_term
 bundle: author
 mode: teaser
 content:
-  field_author_name:
-    type: string
-    label: hidden
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    weight: 2
-    region: content
   field_description:
     type: text_default
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 3
+    weight: 2
     region: content
   field_image:
     type: image
@@ -69,4 +61,5 @@ content:
     region: content
 hidden:
   description: true
+  field_author_name: true
   search_api_excerpt: true
