@@ -10,7 +10,7 @@ field_name: field_section_url
 entity_type: node
 bundle: announcement
 label: 'By Section URL'
-description: 'Enter the URL section path(s) you want this announcement displayed on. <strong>Example: /admissions/*</strong>  will display the announcement on all pages starting with /admissions'
+description: 'Enter the URL section path(s) you want this announcement displayed on. <strong>Example: <code>/admissions/</code></strong>  will display the announcement on all pages starting with <code>/admissions/</code>. Each path must start <em>and</em> end with a <code>/</code> character. Leave blank to show this announcement on <em>all</em> pages.'
 required: false
 translatable: false
 default_value: {  }

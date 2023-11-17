@@ -9,7 +9,6 @@ dependencies:
     - field.field.node.announcement.field_domain_all_affiliates
     - field.field.node.announcement.field_domain_source
     - field.field.node.announcement.field_section_url
-    - field.field.node.announcement.field_sitewide
     - field.field.node.announcement.field_urgency
     - field.field.node.announcement.layout_builder__layout
     - node.type.announcement
@@ -83,27 +82,6 @@ third_party_settings:
                 settings: {  }
                 third_party_settings: {  }
             weight: 3
-            additional: {  }
-          b2643f97-fd04-4f5e-aad0-dfbd94995e9e:
-            uuid: b2643f97-fd04-4f5e-aad0-dfbd94995e9e
-            region: content
-            configuration:
-              id: 'field_block:node:announcement:field_sitewide'
-              label: Sitewide
-              label_display: '0'
-              provider: layout_builder
-              context_mapping:
-                entity: layout_builder.entity
-                view_mode: view_mode
-              formatter:
-                type: boolean
-                label: inline
-                settings:
-                  format: default
-                  format_custom_false: ''
-                  format_custom_true: ''
-                third_party_settings: {  }
-            weight: 4
             additional: {  }
           71476888-0ea1-47fa-9b42-3d6365616281:
             uuid: 71476888-0ea1-47fa-9b42-3d6365616281
@@ -224,16 +202,6 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     weight: 104
-    region: content
-  field_sitewide:
-    type: boolean
-    label: above
-    settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
-    third_party_settings: {  }
-    weight: 103
     region: content
   field_urgency:
     type: list_default
