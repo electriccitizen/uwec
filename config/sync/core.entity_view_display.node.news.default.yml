@@ -176,6 +176,25 @@ third_party_settings:
                 third_party_settings: {  }
             weight: 2
             additional: {  }
+          a069c682-6b4f-454c-b6bd-73f71f2ad67b:
+            uuid: a069c682-6b4f-454c-b6bd-73f71f2ad67b
+            region: content
+            configuration:
+              id: 'field_block:node:news:field_image'
+              label: 'For the media'
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: entity_reference_label
+                label: hidden
+                settings:
+                  link: true
+                third_party_settings: {  }
+            weight: 3
+            additional: {  }
         third_party_settings: {  }
       -
         layout_id: layout_onecol
