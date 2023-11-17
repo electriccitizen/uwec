@@ -2,13 +2,16 @@
 
 namespace Drupal\citizen_profile_sync;
 
+use Drupal\Core\Datetime\DrupalDateTime;
 use Drupal\node\Entity\Node;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\node\NodeInterface;
 
 class ProfileSyncService {
 
+  const IGNORE_BEFORE_DATE = '2023-11-01 00:00:00';
   protected $entityTypeManager;
+
 
   public function __construct(EntityTypeManagerInterface $entityTypeManager) {
     $this->entityTypeManager = $entityTypeManager;
@@ -17,8 +20,6 @@ class ProfileSyncService {
   public function syncProfiles(array $profiles) {
     foreach ($profiles as $athenaId => $profile) {
       // Process $profileData and extract necessary information.
-
-
 
       // Check if a Profile node with a unique identifier already exists.
       $existingNode = $this->findExistingProfile($athenaId);
@@ -67,6 +68,7 @@ class ProfileSyncService {
     $node_values = [
       'type' => 'bios',
       'field_athena_id' => $athenaId,
+      'field_active' => 1,
       'field_username' => $profileData->username,
       'field_email' => $profileData->email,
       'field_phone' => $profileData->preferred_phone,
@@ -75,8 +77,9 @@ class ProfileSyncService {
       // todo department? No per Adam https://ecitizen.atlassian.net/browse/UWEC-64
       // todo office location? No per Adam https://ecitizen.atlassian.net/browse/UWEC-64
       'field_position' => $profileData->hrs_title_formatted,
-      //todo change field def to include time as well as date. Need full timestamp to check to see if data needs to be imported
-      'field_import_date' => date('Y-m-d H:i:s'),
+      'field_import_date' => (new DrupalDateTime())->format('Y-m-d H:i:s'),
+      //todo enable when Adam says ok
+      //      'status' => NodeInterface::PUBLISHED,
     ];
 
     // Create a new profile node.
@@ -95,6 +98,7 @@ class ProfileSyncService {
 
   protected function updateProfile(Node $existingNode, $profileData) {
     // Update the node values based on the $profileData.
+    $existingNode->set('field_active', true);
     $existingNode->set('field_username', $profileData->username);
     $existingNode->set('field_email', $profileData->email);
     $existingNode->set('field_phone', $profileData->preferred_phone);
@@ -104,10 +108,41 @@ class ProfileSyncService {
     // todo office location No per Adam https://ecitizen.atlassian.net/browse/UWEC-64
     $existingNode->set('field_position', $profileData->hrs_title_formatted);
     //todo change field def to include time as well as date. Need full timestamp to check to see if data needs to be imported
-    $existingNode->set('field_import_date', date('Y-m-d'));
+    $existingNode->set('field_import_date', (new DrupalDateTime())->format('Y-m-d H:i:s'));
 
     // Save the updated node to the database.
     $existingNode->save();
+  }
+
+  public function deactivateProfiles($profiles) {
+    foreach ($profiles as $athenaId => $profile) {
+
+      //todo skip all with updated_at datetimes before current dev date
+      //todo adjust that date later closer to launch
+      $athenaUpdateTime = $profile->updated_at;
+
+      if (strtotime($athenaUpdateTime) > strtotime(self::IGNORE_BEFORE_DATE)) {
+        $existingNode = $this->findExistingProfile($athenaId);
+        if ($existingNode) {
+          $drupalImportTime = $existingNode->get('field_import_date')->getString();
+          if (strtotime($athenaUpdateTime) >= strtotime($drupalImportTime)) {
+          //todo remove after testing
+//          if (true or strtotime($athenaUpdateTime) >= strtotime($drupalImportTime)) {
+          //todo end test code
+            $existingNode->set('field_active', 0);
+            $existingNode->set('field_import_date', (new DrupalDateTime())->format('Y-m-d H:i:s'));
+            $existingNode->set('status', NodeInterface::NOT_PUBLISHED);
+            $existingNode->save();
+          }
+        }
+        else {
+          // this should never happen
+        }
+      }
+
+
+
+    }
   }
 
 }

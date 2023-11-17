@@ -24,10 +24,10 @@ function citizen_profile_sync_cron() {
   $apikey = '36dadd0fab31edb063666ef8f43e595d';
 
   $query_string = '?apikey=' . $apikey;
-  $query_string .= '&isactive=1';
+  $active_query_string = $query_string . '&isactive=1';
 
   //todo add try-catch block
-  $response = $http_client->get($url . $query_string);
+  $response = $http_client->get($url . $active_query_string);
 
   if ($response->getStatusCode() == 200) {
     // Process the response body.
@@ -35,11 +35,55 @@ function citizen_profile_sync_cron() {
     // Do something with $data.
     $profiles = (array) $data;
 
+
+    //test code start
+    // let's not create all 1700+ for now
+    // removed after testing
+    $profiles = array_slice($profiles, 5, 10, true);
+    //test code end
+
+    //todo use batch API for enetity creation and updating
+    //    if (false) {
     $profileSyncService->syncProfiles($profiles);
+    //    }
   }
   else {
     // Handle the error, e.g., log it or throw an exception.
-    \Drupal::logger('your_module')
+    \Drupal::logger('citizen_profile_sync')
+      ->error('Error accessing API: @code - @message', [
+        '@code' => $response->getStatusCode(),
+        '@message' => $response->getReasonPhrase(),
+      ]);
+  }
+
+  $inactive_query_string = $query_string . '&isactive=0';
+  // todo remove after testing
+//  $inactive_query_string = $query_string . '&isactive=1';
+  // todo end remove after testing
+
+  $response = $http_client->get($url . $inactive_query_string);
+
+  if ($response->getStatusCode() == 200) {
+
+    $data = json_decode($response->getBody());
+
+    $inactive_profiles = (array) $data;
+
+    //test code start
+    // let's not process all for now
+    // remove after testing
+    $inactive_profiles = array_slice($inactive_profiles, 0, 15, true);
+    //test code end
+
+    //todo use batch API for enetity creation and updating
+    //    if (false) {
+    $profileSyncService->deactivateProfiles($inactive_profiles);
+    //    }
+
+  }
+  else {
+    // Handle the error, e.g., log it or throw an exception.
+    \Drupal::logger('citizen_profile_sync')
       ->error('Error accessing API: @code - @message', [
         '@code' => $response->getStatusCode(),
         '@message' => $response->getReasonPhrase(),
