@@ -24,8 +24,12 @@ class ProfileSyncService {
       $existingNode = $this->findExistingProfile($athenaId);
 
       if ($existingNode) {
-        // Update existing Profile node.
-        $this->updateProfile($existingNode, $profile);
+        // Update existing Profile node, if endpint data has been updated since last import
+         $athenaUpdateTime = $profile->updated_at;
+         $drupalImportTime = $existingNode->get('field_import_date')->getString();
+        if (strtotime($athenaUpdateTime) >= strtotime($drupalImportTime)) {
+          $this->updateProfile($existingNode, $profile);
+        }
       }
       else {
         // Create a new Profile node.
@@ -72,7 +76,7 @@ class ProfileSyncService {
       // todo office location? No per Adam https://ecitizen.atlassian.net/browse/UWEC-64
       'field_position' => $profileData->hrs_title_formatted,
       //todo change field def to include time as well as date. Need full timestamp to check to see if data needs to be imported
-      'field_import_date' => date('Y-m-d'),
+      'field_import_date' => date('Y-m-d H:i:s'),
     ];
 
     // Create a new profile node.
