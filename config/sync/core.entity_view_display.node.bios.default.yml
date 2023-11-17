@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.bios.body
+    - field.field.node.bios.field_active
     - field.field.node.bios.field_athena_id
     - field.field.node.bios.field_campus
     - field.field.node.bios.field_cv
@@ -211,6 +212,24 @@ third_party_settings:
                     granularity: 2
                     refresh: 60
                     description: ''
+                third_party_settings: {  }
+            weight: 3
+            additional: {  }
+          78015817-8625-4378-a150-bce8ed98d5e5:
+            uuid: 78015817-8625-4378-a150-bce8ed98d5e5
+            region: first
+            configuration:
+              id: 'field_block:node:bios:field_active'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: boolean
+                label: above
+                settings:
+                  format: default
+                  format_custom_false: ''
+                  format_custom_true: ''
                 third_party_settings: {  }
             weight: 3
             additional: {  }
@@ -522,6 +541,16 @@ content:
     third_party_settings: {  }
     weight: -20
     region: content
+  field_active:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 134
+    region: first
   field_athena_id:
     type: string
     label: above
