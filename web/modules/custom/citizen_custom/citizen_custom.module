@@ -46,6 +46,13 @@ function citizen_custom_theme() {
 		'data' => [],
       ],
     ],
+    'announcements_ajax'=>[
+      'render element'=>'children',
+      'template' => 'announcements-ajax',
+      'variables'=>[
+        'nids'=>[],
+      ],
+    ],
   ];
 }
 
