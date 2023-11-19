@@ -3,6 +3,7 @@
 namespace Drupal\citizen_profile_sync;
 
 use Drupal\Core\Datetime\DrupalDateTime;
+use Drupal\datetime\Plugin\Field\FieldType\DateTimeItemInterface;
 use Drupal\node\Entity\Node;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\node\NodeInterface;
@@ -77,9 +78,7 @@ class ProfileSyncService {
       // todo department? No per Adam https://ecitizen.atlassian.net/browse/UWEC-64
       // todo office location? No per Adam https://ecitizen.atlassian.net/browse/UWEC-64
       'field_position' => $profileData->hrs_title_formatted,
-      'field_import_date' => (new DrupalDateTime())->format('Y-m-d H:i:s'),
-      //todo enable when Adam says ok
-      //      'status' => NodeInterface::PUBLISHED,
+      'field_import_date' => $this->getUpdateTime(),
     ];
 
     // Create a new profile node.
@@ -90,6 +89,11 @@ class ProfileSyncService {
 
     // Save the node to the database.
     $node->save();
+
+    //todo enable when Adam says ok
+    //todo figure out why this doesn't work
+//    $node->set('status', NodeInterface::PUBLISHED);
+//    $node->save();
 
     // Return the newly created node.
     return $node;
@@ -108,7 +112,9 @@ class ProfileSyncService {
     // todo office location No per Adam https://ecitizen.atlassian.net/browse/UWEC-64
     $existingNode->set('field_position', $profileData->hrs_title_formatted);
     //todo change field def to include time as well as date. Need full timestamp to check to see if data needs to be imported
-    $existingNode->set('field_import_date', (new DrupalDateTime())->format('Y-m-d H:i:s'));
+    $existingNode->set('field_import_date', $this->getUpdateTime());
+    //todo enable when Adam says ok
+//    $existingNode->set('status', NodeInterface::PUBLISHED);
 
     // Save the updated node to the database.
     $existingNode->save();
@@ -130,7 +136,7 @@ class ProfileSyncService {
 //          if (true or strtotime($athenaUpdateTime) >= strtotime($drupalImportTime)) {
           //todo end test code
             $existingNode->set('field_active', 0);
-            $existingNode->set('field_import_date', (new DrupalDateTime())->format('Y-m-d H:i:s'));
+            $existingNode->set('field_import_date', $this->getUpdateTime());
             $existingNode->set('status', NodeInterface::NOT_PUBLISHED);
             $existingNode->save();
           }
@@ -143,6 +149,13 @@ class ProfileSyncService {
 
 
     }
+  }
+
+  protected function getUpdateTime() {
+    $now = DrupalDateTime::createFromTimestamp(time());
+    $now->setTimezone(new \DateTimeZone('UTC'));
+
+    return $now->format('Y-m-d\TH:i:s');
   }
 
 }
