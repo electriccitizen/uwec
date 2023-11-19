@@ -76,13 +76,16 @@
   'node-teaser-' ~ node.type.0.target_id|clean_class,
 ] %}
 
-<article{{ attributes.addClass(classes) }}>
-  {% block nodeTitle %}{% endblock %}
-  {% block nodeContent %}
-    {{ content.field_image }}
-    <h2{{ title_attributes }}>
-      <a href="{{- url -}}" rel="bookmark">{{- label.0['#context'].value -}}</a>
-    </h2>
-    {{ content.field_intro_text }}
-  {% endblock %}
-</article>
+{% if elements['#node'].published %}
+	{{ attach_library('citizen_dart/list-view') }}
+  <article{{ attributes.addClass(classes) }}>
+    {% block nodeTitle %}{% endblock %}
+    {% block nodeContent %}
+      {{ content.field_image }}
+      <h2{{ title_attributes }}>
+        <a href="{{- url -}}" rel="bookmark">{{- label.0['#context'].value -}}</a>
+      </h2>
+      {{ content.field_intro_text }}
+    {% endblock %}
+  </article>
+{% endif %}
