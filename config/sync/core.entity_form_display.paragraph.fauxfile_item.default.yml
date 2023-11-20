@@ -1,4 +1,4 @@
-uuid: 714b075c-0835-4df8-9707-bd3e1b266754
+uuid: 111cb854-3c8c-4877-a692-72fca7c98eb9
 langcode: en
 status: true
 dependencies:
@@ -10,6 +10,7 @@ dependencies:
     - field.field.paragraph.fauxfile_item.field_phone
     - paragraphs.paragraphs_type.fauxfile_item
   module:
+    - media_library
     - telephone
 id: paragraph.fauxfile_item.default
 targetEntityType: paragraph
@@ -17,44 +18,43 @@ bundle: fauxfile_item
 mode: default
 content:
   field_email:
-    type: basic_string
-    label: above
-    settings: {  }
-    third_party_settings: {  }
+    type: email_default
     weight: 2
     region: content
-  field_image:
-    type: entity_reference_entity_view
-    label: hidden
     settings:
-      view_mode: 1096x619
-      link: false
+      placeholder: ''
+      size: 60
     third_party_settings: {  }
+  field_image:
+    type: media_library_widget
     weight: 4
     region: content
-  field_job_title:
-    type: string
-    label: above
     settings:
-      link_to_entity: false
+      media_types: {  }
     third_party_settings: {  }
+  field_job_title:
+    type: string_textfield
     weight: 1
     region: content
-  field_name:
-    type: string
-    label: above
     settings:
-      link_to_entity: false
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
+  field_name:
+    type: string_textfield
     weight: 0
     region: content
-  field_phone:
-    type: telephone_link
-    label: above
     settings:
-      title: ''
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
+  field_phone:
+    type: telephone_default
     weight: 3
     region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
 hidden:
-  search_api_excerpt: true
+  created: true
+  status: true
