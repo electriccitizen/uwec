@@ -20,7 +20,7 @@ mode: default
 content:
   field_headline:
     type: string
-    label: above
+    label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
@@ -37,7 +37,7 @@ content:
     region: content
   field_link:
     type: link
-    label: above
+    label: hidden
     settings:
       trim_length: 80
       url_only: false
@@ -55,8 +55,8 @@ content:
     weight: 1
     region: content
   field_text_placement:
-    type: list_default
-    label: above
+    type: list_key
+    label: hidden
     settings: {  }
     third_party_settings: {  }
     weight: 4
