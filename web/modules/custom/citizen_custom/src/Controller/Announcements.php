@@ -13,8 +13,7 @@ class Announcements extends ControllerBase{
 		$response = new Response();
 
 		// if we have a path, load the announcements to show,
-		// and render the ajax template,
-		// and return that rendered html
+		// and render the ajax template
 		if(!empty($path)){
 			$build = [
 				'#theme'=>'announcements_ajax',
@@ -28,7 +27,8 @@ class Announcements extends ControllerBase{
 	}
 
 	// returns an array of announcement node ids (nids) to display
-	// on the current page, for the current datetime.
+	// on the given page $path,
+	// and for the current datetime.
 	private function getCurrentAnnouncementNids($path){
 		$query = \Drupal::entityQuery('node');
 
