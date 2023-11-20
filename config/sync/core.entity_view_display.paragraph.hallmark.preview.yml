@@ -4,9 +4,17 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.paragraph.preview
+    - field.field.paragraph.hallmark.field_headline
+    - field.field.paragraph.hallmark.field_image
+    - field.field.paragraph.hallmark.field_link
+    - field.field.paragraph.hallmark.field_long_text
+    - field.field.paragraph.hallmark.field_text_placement
+    - image.style.paragraph_preview
     - paragraphs.paragraphs_type.hallmark
   module:
     - layout_builder
+    - media
+    - options
 third_party_settings:
   layout_builder:
     enabled: false
@@ -15,6 +23,34 @@ id: paragraph.hallmark.preview
 targetEntityType: paragraph
 bundle: hallmark
 mode: preview
-content: {  }
+content:
+  field_headline:
+    type: string
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_image:
+    type: media_thumbnail
+    label: inline
+    settings:
+      image_link: ''
+      image_style: paragraph_preview
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_text_placement:
+    type: list_default
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
 hidden:
+  field_link: true
+  field_long_text: true
   search_api_excerpt: true
