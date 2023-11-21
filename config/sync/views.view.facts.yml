@@ -104,7 +104,7 @@ display:
         type: basic
         options:
           submit_button: Apply
-          reset_button: false
+          reset_button: true
           reset_button_label: Reset
           exposed_sorts_label: 'Sort by'
           expose_sort_order: true
@@ -689,7 +689,7 @@ display:
       tags: {  }
   review:
     id: review
-    display_title: 'Facts Review'
+    display_title: 'Expired Facts Review'
     display_plugin: page
     position: 1
     display_options:
@@ -966,6 +966,54 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
+        title:
+          id: title
+          table: node_field_data
+          field: title
+          relationship: none
+          group_type: group
+          admin_label: ''
+          entity_type: node
+          entity_field: title
+          plugin_id: string
+          operator: '='
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: title_op
+            label: 'Fact Title'
+            description: ''
+            use_operator: false
+            operator: title_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: title
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              editor: '0'
+              site_admin: '0'
+              section_manager: '0'
+              marketing_editor: '0'
+              personnel: '0'
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
       filter_groups:
         operator: AND
         groups:
@@ -1017,7 +1065,9 @@ display:
         sorts: false
         filters: false
         filter_groups: false
+        header: false
       display_description: ''
+      header: {  }
       display_extenders: {  }
       path: admin/facts-review
     cache_metadata:
@@ -1025,6 +1075,7 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
+        - url
         - 'user.node_grants:view'
         - user.permissions
       tags:

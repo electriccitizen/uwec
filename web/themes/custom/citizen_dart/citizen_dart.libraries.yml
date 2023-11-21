@@ -51,6 +51,7 @@ hours:
 layout:
   version: 1.0
   js:
+    components/03-composites/layout/layouts/layouts.js: {}
 modal:
   version: 1.0
   js:
