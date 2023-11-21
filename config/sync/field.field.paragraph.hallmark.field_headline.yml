@@ -1,0 +1,19 @@
+uuid: dd81ab0b-1640-462e-9b37-184c982a5991
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_headline
+    - paragraphs.paragraphs_type.hallmark
+id: paragraph.hallmark.field_headline
+field_name: field_headline
+entity_type: paragraph
+bundle: hallmark
+label: Headline
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,4 +1,4 @@
-uuid: ae215f3c-e4c7-4481-b0e7-e694e3769e2e
+uuid: 64f886dd-0711-4536-b82d-b8a7cad7d0b7
 langcode: en
 status: true
 dependencies:
@@ -11,7 +11,7 @@ dependencies:
     - paragraphs.paragraphs_type.hallmark
   module:
     - link
-    - options
+    - media_library
     - text
 id: paragraph.hallmark.default
 targetEntityType: paragraph
@@ -19,47 +19,42 @@ bundle: hallmark
 mode: default
 content:
   field_headline:
-    type: string
-    label: hidden
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    weight: 2
-    region: content
-  field_image:
-    type: entity_reference_entity_view
-    label: hidden
-    settings:
-      view_mode: 1096x619
-      link: false
-    third_party_settings: {  }
+    type: string_textfield
     weight: 1
     region: content
-  field_link:
-    type: link
-    label: hidden
     settings:
-      trim_length: 80
-      url_only: false
-      url_plain: false
-      rel: ''
-      target: ''
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
+  field_image:
+    type: media_library_widget
+    weight: 0
+    region: content
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+  field_link:
+    type: link_default
     weight: 3
     region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
   field_long_text:
-    type: text_default
-    label: hidden
-    settings: {  }
-    third_party_settings: {  }
-    weight: 1
+    type: text_textarea
+    weight: 2
     region: content
-  field_text_placement:
-    type: list_key
-    label: hidden
-    settings: {  }
+    settings:
+      rows: 5
+      placeholder: ''
     third_party_settings: {  }
+  field_text_placement:
+    type: options_select
     weight: 4
     region: content
+    settings: {  }
+    third_party_settings: {  }
 hidden:
-  search_api_excerpt: true
+  created: true
+  status: true
