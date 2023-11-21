@@ -165,6 +165,7 @@ content:
     third_party_settings: {  }
 hidden:
   created: true
+  layout_builder__layout: true
   path: true
   promote: true
   sticky: true

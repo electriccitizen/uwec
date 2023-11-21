@@ -12,7 +12,7 @@ entity_type: paragraph
 bundle: hallmark
 label: Image
 description: '<strong>Optimal image size:</strong> 1078x608px.'
-required: false
+required: true
 translatable: false
 default_value: {  }
 default_value_callback: ''

@@ -9,6 +9,7 @@ dependencies:
     - field.field.node.department.field_domain_access
     - field.field.node.department.field_domain_all_affiliates
     - field.field.node.department.field_domain_source
+    - field.field.node.department.field_hallmarks
     - field.field.node.department.field_metatags
     - field.field.node.department.layout_builder__layout
     - node.type.department
@@ -43,6 +44,7 @@ hidden:
   field_domain_access: true
   field_domain_all_affiliates: true
   field_domain_source: true
+  field_hallmarks: true
   field_metatags: true
   layout_builder__layout: true
   search_api_excerpt: true

@@ -1,0 +1,142 @@
+uuid: 6653626a-f964-4582-ba31-99479e134b10
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_hallmarks
+    - node.type.department
+    - paragraphs.paragraphs_type.hallmark
+  module:
+    - entity_reference_revisions
+id: node.department.field_hallmarks
+field_name: field_hallmarks
+entity_type: node
+bundle: department
+label: Hallmarks
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      hallmark: hallmark
+    negate: 0
+    target_bundles_drag_drop:
+      accordion_item:
+        weight: 40
+        enabled: false
+      accordions:
+        weight: 39
+        enabled: false
+      block_placer:
+        weight: 41
+        enabled: false
+      button:
+        weight: 42
+        enabled: false
+      contact_placer:
+        weight: 43
+        enabled: false
+      content_carousel:
+        weight: 44
+        enabled: false
+      cta_item:
+        weight: 46
+        enabled: false
+      ctas:
+        weight: 45
+        enabled: false
+      custom_embed:
+        weight: 47
+        enabled: false
+      events_list:
+        weight: 48
+        enabled: false
+      facts_list:
+        weight: 49
+        enabled: false
+      fauxfile:
+        weight: 50
+        enabled: false
+      fauxfile_item:
+        weight: 51
+        enabled: false
+      gallery:
+        weight: 52
+        enabled: false
+      gallery_item:
+        weight: 53
+        enabled: false
+      hallmark:
+        weight: 54
+        enabled: true
+      hero:
+        weight: 55
+        enabled: false
+      highlight_box:
+        weight: 56
+        enabled: false
+      hours_placer:
+        weight: 57
+        enabled: false
+      hours_set:
+        weight: 58
+        enabled: false
+      image:
+        weight: 59
+        enabled: false
+      layout_section:
+        weight: 60
+        enabled: false
+      links_files:
+        weight: 61
+        enabled: false
+      profiles_list:
+        weight: 62
+        enabled: false
+      program_search:
+        weight: 63
+        enabled: false
+      quote:
+        weight: 64
+        enabled: false
+      select_item:
+        weight: 65
+        enabled: false
+      select_type:
+        weight: 66
+        enabled: false
+      snapshot_list:
+        weight: 67
+        enabled: false
+      social_media_links:
+        weight: 68
+        enabled: false
+      step_item:
+        weight: 70
+        enabled: false
+      steps:
+        weight: 69
+        enabled: false
+      stories_video_list:
+        weight: 71
+        enabled: false
+      testimonial_placer:
+        weight: 72
+        enabled: false
+      text:
+        weight: 73
+        enabled: false
+      video:
+        weight: 74
+        enabled: false
+      view_placer:
+        weight: 75
+        enabled: false
+      wayfinding:
+        weight: 76
+        enabled: false
+field_type: entity_reference_revisions
