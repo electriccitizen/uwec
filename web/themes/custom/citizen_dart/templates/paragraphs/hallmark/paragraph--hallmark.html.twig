@@ -37,19 +37,18 @@
  */
 #}
 
-{# check for a paragraph id #}
-{% if paragraph.id.value %}
-	{% if (content.field_list_type.0['#markup'] == 'manual') or (drupal_view('facts','list', paragraph.id.value)|render|striptags|trim|length > 0) %}
-		<div class="paragraph paragraph--type--facts-list custom-views-list" data-quickedit-entity-id="paragraph/{{ paragraph.id.value }}">
-			<h2>Just the <strong>facts</strong></h2>
-			{% if content.field_list_type.0['#markup'] == 'auto' %}
-				{{ drupal_view('facts','list', paragraph.id.value) }}
-			{% else %}
-				{{ content.field_facts }}
-			{% endif %}
+{% extends 'paragraph.html.twig' %}
+
+{% block widgetContent %}
+	<div class="content {{ content.field_text_placement[0]['#markup'] }}">
+		<div>
+			{{ content.field_headline }}
+			{{ content.field_long_text }}
+			{{ content.field_link }}
 		</div>
-	{% endif %}
-{# if no id because the node has not yet been saved, spit out a preview message #}
-{% else %}
-	<p><strong>Content placer widgets are not available in preview until the node is saved after they have been added.</strong></p>
-{% endif %}
+		<div>
+			{{ content.field_image }}
+		</div>
+	</div>
+{% endblock %}
+
