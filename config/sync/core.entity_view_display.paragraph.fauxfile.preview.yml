@@ -4,8 +4,11 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.paragraph.preview
+    - field.field.paragraph.fauxfile.field_fauxfile_items
+    - field.field.paragraph.fauxfile.field_widget_title
     - paragraphs.paragraphs_type.fauxfile
   module:
+    - entity_reference_revisions
     - layout_builder
 third_party_settings:
   layout_builder:
@@ -15,6 +18,23 @@ id: paragraph.fauxfile.preview
 targetEntityType: paragraph
 bundle: fauxfile
 mode: preview
-content: {  }
+content:
+  field_fauxfile_items:
+    type: entity_reference_revisions_entity_view
+    label: hidden
+    settings:
+      view_mode: preview
+      link: ''
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_widget_title:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
 hidden:
   search_api_excerpt: true
