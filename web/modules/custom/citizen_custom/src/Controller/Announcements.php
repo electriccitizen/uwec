@@ -47,7 +47,7 @@ class Announcements extends ControllerBase{
 		// now we create a section_url condition
 		// first, generate a list of "sections" the current page is in
 		// in other words, the full path to all parent pages
-		$sections = [];
+		$sections = ['/'];
 		$section_path = '/';
 		$current_uri_tokens = array_filter(explode('/', $path));
 		foreach($current_uri_tokens as $path_token){
