@@ -43,4 +43,9 @@
 			text-align:right;
 		}
 	}
+
+	/* multiple announcements stacked can blend together, so add a small border */
+	.announcement+.announcement{
+		border-top:1px solid rgba(0,0,0,0.5);
+	}
 }
