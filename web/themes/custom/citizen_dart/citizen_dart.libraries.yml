@@ -15,6 +15,10 @@ accordion:
   version: 1.0
   js:
     components/03-composites/paragraphs/accordions/accordions.js: {}
+announcements:
+  version: 1.0
+  js:
+    components/03-composites/blocks/announcements/ajax.js: {}
 debounce:
   version: 1.0
   js:

@@ -9,8 +9,8 @@ dependencies:
     - field.field.node.announcement.field_domain_all_affiliates
     - field.field.node.announcement.field_domain_source
     - field.field.node.announcement.field_section_url
-    - field.field.node.announcement.field_sitewide
     - field.field.node.announcement.field_urgency
+    - field.field.node.announcement.layout_builder__layout
     - node.type.announcement
     - workflows.workflow.non_moderated
   module:
@@ -99,13 +99,6 @@ content:
     settings:
       size: 60
       placeholder: ''
-    third_party_settings: {  }
-  field_sitewide:
-    type: boolean_checkbox
-    weight: 4
-    region: content
-    settings:
-      display_label: true
     third_party_settings: {  }
   field_urgency:
     type: options_select
