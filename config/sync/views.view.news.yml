@@ -1399,6 +1399,8 @@ display:
       display_description: ''
       footer: {  }
       display_extenders: {  }
+      displays:
+        all_news: all_news
     cache_metadata:
       max-age: -1
       contexts:
