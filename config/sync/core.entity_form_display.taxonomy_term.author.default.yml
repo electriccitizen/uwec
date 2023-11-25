@@ -7,10 +7,9 @@ dependencies:
     - field.field.taxonomy_term.author.field_description
     - field.field.taxonomy_term.author.field_image
     - field.field.taxonomy_term.author.field_profile
-    - image.style.thumbnail
     - taxonomy.vocabulary.author
   module:
-    - svg_image
+    - media_library
     - text
 id: taxonomy_term.author.default
 targetEntityType: taxonomy_term
@@ -34,12 +33,11 @@ content:
       placeholder: ''
     third_party_settings: {  }
   field_image:
-    type: image_image
+    type: media_library_widget
     weight: 3
     region: content
     settings:
-      progress_indicator: throbber
-      preview_image_style: thumbnail
+      media_types: {  }
     third_party_settings: {  }
   field_profile:
     type: entity_reference_autocomplete

@@ -8,12 +8,9 @@ dependencies:
     - field.field.taxonomy_term.author.field_description
     - field.field.taxonomy_term.author.field_image
     - field.field.taxonomy_term.author.field_profile
-    - image.style.42x42
     - taxonomy.vocabulary.author
   module:
     - layout_builder
-    - lazy
-    - svg_image
 third_party_settings:
   layout_builder:
     enabled: false
@@ -32,22 +29,12 @@ content:
     weight: 2
     region: content
   field_image:
-    type: image
+    type: entity_reference_entity_view
     label: hidden
     settings:
-      image_link: ''
-      image_style: 42x42
-      image_loading:
-        attribute: lazy
-      svg_attributes:
-        width: null
-        height: null
-      svg_render_as_image: true
-    third_party_settings:
-      lazy:
-        lazy_image: '0'
-        placeholder_style: ''
-        data_uri: false
+      view_mode: 42x42
+      link: false
+    third_party_settings: {  }
     weight: 1
     region: content
   field_profile:

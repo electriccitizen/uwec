@@ -9,8 +9,6 @@ dependencies:
     - field.field.taxonomy_term.author.field_profile
     - taxonomy.vocabulary.author
   module:
-    - lazy
-    - svg_image
     - text
 id: taxonomy_term.author.default
 targetEntityType: taxonomy_term
@@ -33,22 +31,12 @@ content:
     weight: 0
     region: content
   field_image:
-    type: image
+    type: entity_reference_entity_view
     label: hidden
     settings:
-      image_link: ''
-      image_style: ''
-      image_loading:
-        attribute: lazy
-      svg_attributes:
-        width: null
-        height: null
-      svg_render_as_image: true
-    third_party_settings:
-      lazy:
-        lazy_image: '0'
-        placeholder_style: ''
-        data_uri: false
+      view_mode: default
+      link: false
+    third_party_settings: {  }
     weight: 2
     region: content
   field_profile:
