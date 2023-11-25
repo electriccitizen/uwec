@@ -2239,10 +2239,23 @@ display:
         operator: AND
         groups:
           1: AND
+      style:
+        type: default
+        options:
+          grouping: {  }
+          row_class: ''
+          default_row_class: true
+      row:
+        type: 'entity:node'
+        options:
+          relationship: none
+          view_mode: teaser
       defaults:
         empty: false
         title: false
         pager: false
+        style: false
+        row: false
         relationships: false
         fields: false
         arguments: false
@@ -3452,10 +3465,23 @@ display:
         operator: AND
         groups:
           1: AND
+      style:
+        type: default
+        options:
+          grouping: {  }
+          row_class: ''
+          default_row_class: true
+      row:
+        type: 'entity:node'
+        options:
+          relationship: none
+          view_mode: teaser
       defaults:
         empty: false
         title: false
         pager: false
+        style: false
+        row: false
         relationships: false
         fields: false
         arguments: false
