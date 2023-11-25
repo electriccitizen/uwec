@@ -876,7 +876,6 @@ display:
               anonymous: '0'
               administrator: '0'
               editor: '0'
-              site_manager: '0'
               site_admin: '0'
               section_manager: '0'
               marketing_editor: '0'
@@ -896,6 +895,7 @@ display:
             group_items: {  }
           fields:
             title: title
+            field_intro_text: field_intro_text
         field_story_type_target_id:
           id: field_story_type_target_id
           table: node__field_story_type
@@ -955,16 +955,14 @@ display:
       style:
         type: default
         options:
-          grouping: {  }
           row_class: ''
           default_row_class: true
+          uses_fields: true
       row:
-        type: fields
+        type: 'entity:node'
         options:
-          default_field_elements: true
-          inline: {  }
-          separator: ''
-          hide_empty: false
+          relationship: none
+          view_mode: teaser
       defaults:
         empty: false
         title: false
