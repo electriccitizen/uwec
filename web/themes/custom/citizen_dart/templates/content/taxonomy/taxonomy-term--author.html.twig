@@ -30,14 +30,23 @@
 ] %}
 
 <div{{ attributes.addClass(classes) }}>
-  {% if view_mode == 'teaser' %}
+	{% if view_mode == 'full' %}
+		{{ title_prefix }}
+		{% if not page %}
+			<h2><a href="{{ url }}">{{ name[0]['#context'].value }}</a></h2>
+		{% else %}
+			<h1 class="term-title">{{ name[0]['#context'].value }}</h1>
+		{% endif %}
+		{{ title_suffix }}
+		{{ content }}
+	{% elseif view_mode == 'teaser' %}
     {% if content.field_profile.0 %}
       {{ content.field_profile }}
     {% else %}
       {{ content.field_image }}
     {% endif %}
     {{ title_prefix }}
-    <h2>{{ name[0]['#context'].value }}</h2>
+    <div>{{ name[0]['#context'].value }}</div>
     {{ title_suffix }}
     {{ content.field_description }}
   {% elseif view_mode == 'mini' %}
