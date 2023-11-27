@@ -7,6 +7,7 @@ use Drupal\datetime\Plugin\Field\FieldType\DateTimeItemInterface;
 use Drupal\node\Entity\Node;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\node\NodeInterface;
+use Drupal\Core\Field\FieldItemInterface;
 
 class ProfileSyncService {
 
@@ -27,7 +28,7 @@ class ProfileSyncService {
 
       if ($existingNode) {
         // Update existing Profile node, if endpint data has been updated since last import
-         $athenaUpdateTime = $profile->updated_at;
+         $athenaUpdateTime = $this->convertToUTC($profile->updated_at);
          $drupalImportTime = $existingNode->get('field_import_date')->getString();
         if (strtotime($athenaUpdateTime) >= strtotime($drupalImportTime)) {
           $this->updateProfile($existingNode, $profile);
@@ -156,6 +157,15 @@ class ProfileSyncService {
     $now->setTimezone(new \DateTimeZone('UTC'));
 
     return $now->format('Y-m-d\TH:i:s');
+  }
+
+  protected function convertToUTC($datetimeStringCST) {
+    $datetimeCST = new DrupalDateTime($datetimeStringCST, 'America/Chicago');
+
+    $datetimeCST->setTimezone(new \DateTimeZone('UTC'));
+
+    return $datetimeCST->format('Y-m-d H:i:s');
+
   }
 
 }
