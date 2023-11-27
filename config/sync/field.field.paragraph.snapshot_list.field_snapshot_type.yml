@@ -1,0 +1,29 @@
+uuid: c37adebe-1052-4d6a-be1a-1382795f2936
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_snapshot_type
+    - paragraphs.paragraphs_type.snapshot_list
+    - taxonomy.vocabulary.snapshot_types
+id: paragraph.snapshot_list.field_snapshot_type
+field_name: field_snapshot_type
+entity_type: paragraph
+bundle: snapshot_list
+label: 'Snapshot Type'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      snapshot_types: snapshot_types
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

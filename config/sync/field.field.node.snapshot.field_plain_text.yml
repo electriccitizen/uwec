@@ -1,0 +1,19 @@
+uuid: 02942c85-194b-4958-91aa-05c022d90be7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_plain_text
+    - node.type.snapshot
+id: node.snapshot.field_plain_text
+field_name: field_plain_text
+entity_type: node
+bundle: snapshot
+label: Text
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

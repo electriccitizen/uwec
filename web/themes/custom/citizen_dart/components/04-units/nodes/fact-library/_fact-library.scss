@@ -12,3 +12,9 @@
 		margin-bottom: $spaceXxs;
 	}
 }//end fact-library
+
+.node-teaser-fact{
+	.teaser-title{
+		@include heading2;
+	}
+}

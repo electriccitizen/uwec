@@ -1,0 +1,7 @@
+citizen_custom.announcements_ajax:
+  path: '/ajax/announcements'
+  defaults:
+    _controller: '\Drupal\citizen_custom\Controller\Announcements::ajax'
+    _title: 'Announcements AJAX'
+  requirements:
+    _permission: 'access content'

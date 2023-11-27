@@ -1,0 +1,23 @@
+uuid: 441f3f02-0f7b-44b1-b609-805abb416859
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_text_placement
+    - paragraphs.paragraphs_type.hallmark
+  module:
+    - options
+id: paragraph.hallmark.field_text_placement
+field_name: field_text_placement
+entity_type: paragraph
+bundle: hallmark
+label: 'Text Placement'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: left
+default_value_callback: ''
+settings: {  }
+field_type: list_string

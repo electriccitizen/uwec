@@ -71,41 +71,48 @@
  */
 #}
 
-{% extends 'node--teaser.html.twig' %}
-{% block nodeTitle %}{% endblock %}
-{% block nodeContent %}
+{% set classes = [
+  'node-teaser',
+  'node-teaser-' ~ node.type.0.target_id|clean_class,
+] %}
 
-  {{ content.field_image }}
+{% if elements['#node'].published %}
 
-  <div class="teaser-title">
-  	<a href="{{ path('entity.node.canonical', {'node':node.nid.0.value}) }}">
-			{% if node.field_prefixes.0 %}
-				<span class="prefixes">{{ node.field_prefixes.0.value }}</span>
-			{% endif %}
-			{% if node.field_first_override.0 %}
-				{{ node.field_first_override.0.value }}
-			{% else %}
-				{{ node.field_first_name.0.value }}
-			{% endif %}
-			{% if node.field_last_override.0 %}
-				{{ node.field_last_override.0.value -}}
-			{%- else -%}
-				{{ node.field_last_name.0.value -}}
-			{%- endif -%}
-			{%- if node.field_suffixes.0 -%}
-				<span class="suffixes">, {{ node.field_suffixes.0.value }}</span>
-			{% endif %}
-		</a>
-	</div>
+	{{ attach_library('citizen_dart/list-view') }}
 
-	{{ content.field_departments }}
+	<article{{ attributes.addClass(classes) }}>
 
-	{% if content.field_position_override.0 %}
-		{{ content.field_position_override }}
-	{% elseif content.field_position.0 %}
-		{{ content.field_position }}
-	{% endif %}
+    {{ content.field_image }}
 
-{% endblock %}
+    <div class="teaser-title">
+      <a href="{{ path('entity.node.canonical', {'node':node.nid.0.value}) }}">
+        {% if node.field_prefixes.0 %}
+          <span class="prefixes">{{ node.field_prefixes.0.value }}</span>
+        {% endif %}
+        {% if node.field_first_override.0 %}
+          {{ node.field_first_override.0.value }}
+        {% else %}
+          {{ node.field_first_name.0.value }}
+        {% endif %}
+        {% if node.field_last_override.0 %}
+          {{ node.field_last_override.0.value -}}
+        {%- else -%}
+          {{ node.field_last_name.0.value -}}
+        {%- endif -%}
+        {%- if node.field_suffixes.0 -%}
+          <span class="suffixes">, {{ node.field_suffixes.0.value }}</span>
+        {% endif %}
+      </a>
+    </div>
 
+    {{ content.field_departments }}
 
+    {% if content.field_position_override.0 %}
+      {{ content.field_position_override }}
+    {% elseif content.field_position.0 %}
+      {{ content.field_position }}
+    {% endif %}
+
+	</article>
+
+{% endif %}

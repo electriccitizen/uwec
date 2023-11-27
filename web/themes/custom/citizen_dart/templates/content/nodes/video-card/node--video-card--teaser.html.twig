@@ -72,57 +72,22 @@
 #}
 
 {% set classes = [
-  'node-content',
-  'node-' ~ node.type.0.target_id|clean_class,
-  'node-' ~ node.id
+  'node-teaser',
+  'node-teaser-' ~ node.type.0.target_id|clean_class,
 ] %}
 
-{% if logged_in %}
+{% if elements['#node'].published %}
+	{{ attach_library('citizen_dart/list-view') }}
 	<article{{ attributes.addClass(classes) }}>
-		{% block nodeMeta %}
-		  {{ title_prefix }}
-		  {% if not page and (view_mode != 'full') %}
-		    {% block nodeTitle %}
-		      <h2{{ title_attributes }}>
-		        <a href="{{- url -}}" rel="bookmark">{{- label.0['#context'].value -}}</a>
-		      </h2>
-		    {% endblock %}
-		  {%- endif -%}
-		  {{ title_suffix }}
-		  {%- if display_submitted -%}
-		    <footer>
-		      {% block footerContent %}
-		        {{- author_picture -}}
-		        <div{{ author_attributes }}>
-		          {%- trans -%}Submitted by {{- author_name -}} on {{- date -}}{%- endtrans -%}
-		          {{- metadata -}}
-		        </div>
-		      {% endblock %}
-		    </footer>
-		  {%- endif -%}
-		{% endblock %}
-		<div class="main-node-content">
-			{% block node %}
-			  {%- if content._layout_builder -%}
-			    {% if content._layout_builder.0 %}
-			      {%- for key, layoutSection in content._layout_builder -%}
-			      	{% if key|first != "#" %}
-				        {% block layoutSectionContent %}
-				          <section id="node-section-{{ loop.index }}" class="node-section">
-				            {{- layoutSection -}}
-				          </section>
-				        {% endblock %}
-				      {% endif %}
-			      {%- endfor -%}
-			    {% else %}
-			      {% block nodeContent %}
-			      {{- content -}}
-			    {% endblock %}
-			    {% endif %}
-			  {%- else -%}
-			    {{- content -}}
-			  {%- endif -%}
-			{% endblock %}
-		</div>
+	    {% block nodeTitle %}
+	    	{{ title_prefix }}
+	      <h2{{ title_attributes }}>
+	        <a href="{{- url -}}" rel="bookmark">{{- label.0['#context'].value -}}</a>
+	      </h2>
+	      {{ title_suffix }}
+	    {% endblock %}
+	    {% block nodeContent %}
+	      {{- content -}}
+	    {% endblock %}
 	</article>
 {% endif %}

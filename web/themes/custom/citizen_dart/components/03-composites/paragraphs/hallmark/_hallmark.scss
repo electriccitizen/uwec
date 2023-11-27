@@ -5,5 +5,14 @@
 @use '../../../00-base/base' as *;
 
 .paragraph--type--hallmark{
+	.content{
+		display:flex;
+	}
 
+	.content.left{
+		flex-direction:row;
+	}
+	.content.right{
+		flex-direction:row-reverse;
+	}
 }//end hallmark widget

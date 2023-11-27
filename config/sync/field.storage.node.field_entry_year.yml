@@ -1,15 +1,17 @@
-uuid: 5bcb471c-9896-45f5-a6e0-58177ac549e6
+uuid: 6ce9771a-2369-46f6-9602-4c04d4b56d29
 langcode: en
 status: true
 dependencies:
   module:
+    - datetime
     - node
-id: node.field_sitewide
-field_name: field_sitewide
+id: node.field_entry_year
+field_name: field_entry_year
 entity_type: node
-type: boolean
-settings: {  }
-module: core
+type: datetime
+settings:
+  datetime_type: date
+module: datetime
 locked: false
 cardinality: 1
 translatable: true

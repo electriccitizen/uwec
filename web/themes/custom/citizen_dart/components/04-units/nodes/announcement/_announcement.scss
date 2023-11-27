@@ -5,5 +5,10 @@
 @use '../../../00-base/base' as *;
 
 .node-announcement{
-	
+	padding-top: $elementSpace;
+	max-width: $textMax;
+	@include auto;
+	.block-field:not(.block-title):not(.block-body){
+		margin-bottom: $spaceXxs;
+	}
 }//end announcement

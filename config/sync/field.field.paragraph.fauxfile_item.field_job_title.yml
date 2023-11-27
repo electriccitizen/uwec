@@ -1,0 +1,19 @@
+uuid: b1a841f1-b35d-4fb5-a8b5-caaff4315ec2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_job_title
+    - paragraphs.paragraphs_type.fauxfile_item
+id: paragraph.fauxfile_item.field_job_title
+field_name: field_job_title
+entity_type: paragraph
+bundle: fauxfile_item
+label: 'Job Title'
+description: 'If a person has multiple titles, use a pipe to separate them.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
