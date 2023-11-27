@@ -4,6 +4,70 @@
 
 @use '../../../00-base/base' as *;
 
-.node-snapshot-library{
-	
+.node-snapshot{
+	padding-top: $elementSpace;
+	max-width: 914px;
+	@include auto;
+	#node-section-1{
+		max-width: 492px;
+		@include auto;
+		margin-bottom: $elementSpace;
+		border-bottom: 1px solid $borderRule;
+		padding-bottom: $elementSpace;
+		.block-field:not(.block-field-image):not(.block-title){
+			margin-bottom: $spaceXxs;
+		}
+		.field-image{
+			max-width: 360px;
+			@include auto;
+		}
+	}
+	#node-section-2{
+		.block-field{
+			margin-bottom: $spaceXxs;
+		}
+	}
 }//end snapshot-library
+
+//snapshot teasers
+.node-teaser-snapshot{
+	.field-image{
+		max-width: 240px;
+		@include auto;
+	}
+	.teaser-title{
+		@include heading2;
+	}
+}
+
+//snapshot widget (for conten carousel)
+.node-widget-snapshot{
+	max-width: 966px;
+	@include auto;
+	.snapshot-top{
+		@include desk{
+			display: grid;
+			grid-template-columns: 492px 426px;
+  		grid-gap: 48px;
+  	}
+	}
+	.snapshot-top-left{
+		position: relative;
+		svg{
+			position: absolute;
+			top: -54px;
+			left: 84px;
+			@include desk{
+				width: 610px;
+				height: 374px;
+				z-index: -1;
+			}
+		}
+	}//end top left
+	.snapshot-top-right{
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-end;
+	}
+}//end widget snapshot
+

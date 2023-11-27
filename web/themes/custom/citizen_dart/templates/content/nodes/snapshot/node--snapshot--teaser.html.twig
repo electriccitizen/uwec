@@ -71,23 +71,15 @@
  */
 #}
 
-{% set classes = [
-  'node-teaser',
-  'node-teaser-' ~ node.type.0.target_id|clean_class,
-] %}
+{% extends 'node--teaser.html.twig' %}
 
-{% if elements['#node'].published %}
-	{{ attach_library('citizen_dart/list-view') }}
-	<article{{ attributes.addClass(classes) }}>
-	    {% block nodeTitle %}
-	    	{{ title_prefix }}
-	      <h2{{ title_attributes }}>
-	        <a href="{{- url -}}" rel="bookmark">{{- label.0['#context'].value -}}</a>
-	      </h2>
-	      {{ title_suffix }}
-	    {% endblock %}
-	    {% block nodeContent %}
-	      {{- content -}}
-	    {% endblock %}
-	</article>
-{% endif %}
+{% block nodeTitle %}{% endblock %}
+{% block nodeContent %}
+  {{- content.field_image -}}
+  <div class="teaser-title">
+		{{- label.0['#context'].value -}}
+	</div>
+	{{ content.field_plain_text }}
+	{{ content.field_link }}
+{% endblock %}
+	

@@ -4,6 +4,24 @@
 
 @use '../../../00-base/base' as *;
 
-.paragraph--type--snapshot-list{
+.paragraph--type--snapshots-list{
+	max-width: 945px;
+	@include auto;
 
+	//manual list
+	.field-manual-select{
+		// @include safeFlex(row,wrap,center,start);
+		// @include bleed(padding,20px);
+		// & > div{
+		// 	&:not(:last-child){
+		// 		margin-bottom: $spaceMd;
+		// 	}
+		// 	@include smallTab{
+		// 		width: 50%;
+		// 	}
+		// 	@include tab{
+		// 		width: 33.33%;
+		// 	}
+		// }
+	}//end field profiles
 }//end snapshot-list widget
