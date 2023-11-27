@@ -8,6 +8,8 @@ use Drupal\node\Entity\Node;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\node\NodeInterface;
 use Drupal\Core\Field\FieldItemInterface;
+use Drupal\user\Entity\User;
+use Drupal\user\UserInterface;
 
 class ProfileSyncService {
 
@@ -21,14 +23,34 @@ class ProfileSyncService {
 
   public function syncProfiles(array $profiles) {
     foreach ($profiles as $athenaId => $profile) {
-      // Process $profileData and extract necessary information.
+      // Check to see if user account exists
+      $existingUser = $this->findExistingUser($profile->username);
 
       // Check if a Profile node with a unique identifier already exists.
       $existingNode = $this->findExistingProfile($athenaId);
 
+      if ($existingUser ||  $existingNode) {
+        $athenaUpdateTime = $this->convertToUTC($profile->updated_at);
+      }
+
+      if ($existingUser) {
+        // Update existing User entity, if endpint data has been updated since last import
+        $userUpdateTime = $existingUser->get('field_last_imported')->getString();
+//        if (strtotime($athenaUpdateTime) >= strtotime($userUpdateTime)) {
+          //todo remove after testing
+          if (true or strtotime($athenaUpdateTime) >= strtotime($userUpdateTime)) {
+          //todo end test code
+          $this->updateUser($existingUser, $profile);
+        }
+      } else {
+        // Create a new User entity
+        $this->createUser($profile);
+        // todo create authmap
+        // $this->>createAuthMap();
+      }
+
       if ($existingNode) {
         // Update existing Profile node, if endpint data has been updated since last import
-         $athenaUpdateTime = $this->convertToUTC($profile->updated_at);
          $drupalImportTime = $existingNode->get('field_import_date')->getString();
         if (strtotime($athenaUpdateTime) >= strtotime($drupalImportTime)) {
           $this->updateProfile($existingNode, $profile);
@@ -57,10 +79,10 @@ class ProfileSyncService {
     if (!empty($nids)) {
       // Load the first matching profile node.
       $existing_node = $node_storage->load(reset($nids));
-      return $existing_node instanceof NodeInterface ? $existing_node : NULL;
+      return $existing_node instanceof NodeInterface ? $existing_node : false;
     }
 
-    return NULL;
+    return false;
   }
 
 
@@ -129,6 +151,7 @@ class ProfileSyncService {
       $athenaUpdateTime = $profile->updated_at;
 
       if (strtotime($athenaUpdateTime) > strtotime(self::IGNORE_BEFORE_DATE)) {
+        $existingActiveUser = $this->findExistingUser($profile, true);
         $existingNode = $this->findExistingProfile($athenaId);
         if ($existingNode) {
           $drupalImportTime = $existingNode->get('field_import_date')->getString();
@@ -166,6 +189,54 @@ class ProfileSyncService {
 
     return $datetimeCST->format('Y-m-d H:i:s');
 
+  }
+
+  protected function findExistingUser($username, $activeOnly = false) {
+    // Use the entityQuery service to retrieve the user ID.
+    $query = \Drupal::entityQuery('user')
+      ->condition('name', $username)
+      ->range(0, 1); // Limit the result to 1 record.
+
+    if ($activeOnly) {
+      $query->condition('status', 1);
+    }
+
+    $uids = $query->accessCheck(false)->execute();
+
+    // Check if a user was found.
+    if (!empty($uids)) {
+      $existing_user = User::load(reset($uids));
+      return $existing_user instanceof UserInterface ? $existing_user : false;
+    }
+
+    // User not found.
+    return false;
+  }
+
+  protected function createUser($profile) {
+    $newuser = [
+      'name' => $profile->username,
+      'mail' => $profile->email,
+      'field_first_name' => $profile->first_name,
+      'field_last_name' => $profile->last_name,
+      'field_last_imported' => $this->getUpdateTime(),
+      // Generate random password
+      'pass' => \Drupal::service('password_generator')->generate(),
+      'status' => 0, // Set to 0 for inactive users.
+    ];
+
+    $user = User::create($newuser);
+
+    //todo try-catch for failures
+    $user->save();
+  }
+
+  protected function updateUser($user, $profile) {
+    $user->set('mail', $profile->email);
+    $user->set('field_first_name', $profile->first_name);
+    $user->set('field_last_name', $profile->last_name);
+    $user->set('field_last_imported', $this->getUpdateTime());
+    $user->save();
   }
 
 }
