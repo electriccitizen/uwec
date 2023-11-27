@@ -85,6 +85,7 @@ module:
   responsive_image: 0
   responsive_preview: 0
   role_delegation: 0
+  samlauth: 0
   search_api: 0
   search_api_db: 0
   serialization: 0
@@ -113,6 +114,7 @@ module:
   menu_admin_per_menu: 1
   pathauto: 1
   xmlsitemap: 1
+  externalauth: 10
   views: 10
   paragraphs: 11
   citizen: 1000
