@@ -1,0 +1,21 @@
+uuid: a79bf38b-6ef3-483a-a63d-d8a11a2bdfe0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_last_imported
+  module:
+    - datetime
+    - user
+id: user.user.field_last_imported
+field_name: field_last_imported
+entity_type: user
+bundle: user
+label: 'Last Imported'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

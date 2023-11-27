@@ -8,6 +8,7 @@ dependencies:
     - field.field.user.user.field_domain_admin
     - field.field.user.user.field_domain_all_affiliates
     - field.field.user.user.field_first_name
+    - field.field.user.user.field_last_imported
     - field.field.user.user.field_last_name
     - field.field.user.user.field_primary_editor
     - field.field.user.user.field_user_image
@@ -69,6 +70,7 @@ hidden:
   field_domain_access: true
   field_domain_admin: true
   field_domain_all_affiliates: true
+  field_last_imported: true
   field_primary_editor: true
   field_user_image: true
   language: true
