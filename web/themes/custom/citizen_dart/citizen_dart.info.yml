@@ -8,6 +8,7 @@ libraries:
   - citizen_dart/global
   - citizen_dart/fonts
   - citizen_dart/announcements
+  - citizen_dart/omnilert
 ckeditor5-stylesheets:
   - dist/cke.css
 base theme: stable9

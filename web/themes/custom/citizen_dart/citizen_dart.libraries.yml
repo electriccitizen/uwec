@@ -19,6 +19,10 @@ announcements:
   version: 1.0
   js:
     components/03-composites/blocks/announcements/ajax.js: {}
+omnilert:
+  version: 1.0
+  js:
+    components/03-composites/blocks/omnilert/omnilert.js: {}
 debounce:
   version: 1.0
   js:
