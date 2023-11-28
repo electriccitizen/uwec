@@ -4,6 +4,15 @@
 
 @use '../../../00-base/base' as *;
 
+@mixin hoursHolder{
+	max-width: 914px;
+	@include auto;
+	& > *:first-child{
+		background: $ice;
+		padding: 60px 124px 76px;
+	}
+}
+
 .node-hours{
 	padding-top: $elementSpace;
 	@include auto;
@@ -18,3 +27,16 @@
 		padding-top: $elementSpace;
 	}
 }//end hours-library
+
+.node-teaser-hours{
+	@include hoursHolder;
+	.hours-wrapper{
+		@include safeFlex(row,wrap,start,start);
+		@include bleed(padding,20px);
+		& > *{
+			@include tab{
+				width: 50%;
+			}
+		}
+	}
+}//end hours teaser
