@@ -26,13 +26,15 @@ third_party_settings:
     allow_custom: false
     sections:
       -
-        layout_id: layout_onecol
+        layout_id: layout_twocol_section
         layout_settings:
           label: ''
+          context_mapping: {  }
+          column_widths: 50-50
         components:
           a9f31151-7788-40a9-8470-e4ff9146a093:
             uuid: a9f31151-7788-40a9-8470-e4ff9146a093
-            region: content
+            region: first
             configuration:
               id: 'field_block:node:hours:title'
               label: Title
@@ -47,8 +49,52 @@ third_party_settings:
                 settings:
                   link_to_entity: false
                 third_party_settings: {  }
+            weight: 0
+            additional: {  }
+          507eefe4-62bf-4e03-8e69-618d47eb535d:
+            uuid: 507eefe4-62bf-4e03-8e69-618d47eb535d
+            region: first
+            configuration:
+              id: 'field_block:node:hours:field_building'
+              label: 'Building Info'
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: string
+                label: inline
+                settings:
+                  link_to_entity: false
+                third_party_settings: {  }
             weight: 1
             additional: {  }
+          66b2cfd0-3c5d-4ff8-be80-53b4843a302f:
+            uuid: 66b2cfd0-3c5d-4ff8-be80-53b4843a302f
+            region: second
+            configuration:
+              id: 'field_block:node:hours:field_hours'
+              label: Hours
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: entity_reference_revisions_entity_view
+                label: hidden
+                settings:
+                  view_mode: default
+                third_party_settings: {  }
+            weight: 0
+            additional: {  }
+        third_party_settings: {  }
+      -
+        layout_id: layout_onecol
+        layout_settings:
+          label: ''
+        components:
           73b847c4-3894-437a-9ee6-0131c69638ff:
             uuid: 73b847c4-3894-437a-9ee6-0131c69638ff
             region: content
@@ -65,44 +111,6 @@ third_party_settings:
                 label: inline
                 settings:
                   link: false
-                third_party_settings: {  }
-            weight: 7
-            additional: {  }
-          507eefe4-62bf-4e03-8e69-618d47eb535d:
-            uuid: 507eefe4-62bf-4e03-8e69-618d47eb535d
-            region: content
-            configuration:
-              id: 'field_block:node:hours:field_building'
-              label: 'Building Info'
-              label_display: '0'
-              provider: layout_builder
-              context_mapping:
-                entity: layout_builder.entity
-                view_mode: view_mode
-              formatter:
-                type: string
-                label: inline
-                settings:
-                  link_to_entity: false
-                third_party_settings: {  }
-            weight: 9
-            additional: {  }
-          66b2cfd0-3c5d-4ff8-be80-53b4843a302f:
-            uuid: 66b2cfd0-3c5d-4ff8-be80-53b4843a302f
-            region: content
-            configuration:
-              id: 'field_block:node:hours:field_hours'
-              label: Hours
-              label_display: '0'
-              provider: layout_builder
-              context_mapping:
-                entity: layout_builder.entity
-                view_mode: view_mode
-              formatter:
-                type: entity_reference_revisions_entity_view
-                label: hidden
-                settings:
-                  view_mode: default
                 third_party_settings: {  }
             weight: 10
             additional: {  }
