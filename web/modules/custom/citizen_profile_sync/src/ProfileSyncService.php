@@ -3,30 +3,40 @@
 namespace Drupal\citizen_profile_sync;
 
 use Drupal\Core\Datetime\DrupalDateTime;
-use Drupal\datetime\Plugin\Field\FieldType\DateTimeItemInterface;
 use Drupal\node\Entity\Node;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\node\NodeInterface;
-use Drupal\Core\Field\FieldItemInterface;
 use Drupal\user\Entity\User;
 use Drupal\user\UserInterface;
 
+/**
+ * Syncs Drupal users and their profiles with Athena profiles endpoint data
+ */
 class ProfileSyncService {
 
   const IGNORE_BEFORE_DATE = '2023-11-01 00:00:00';
   protected $entityTypeManager;
 
-
+  /**
+   * Constructs a ProfileSyncService object.
+   *
+   * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entityTypeManager
+   */
   public function __construct(EntityTypeManagerInterface $entityTypeManager) {
     $this->entityTypeManager = $entityTypeManager;
   }
 
+  /**
+   * Loop through the Athena profiles data, and create, update,
+   *  or deactivate/unpublish associated users and profile nodes.
+   *
+   * @param array $profiles
+   *
+   * @return void
+   */
   public function syncProfiles(array $profiles) {
     foreach ($profiles as $athenaId => $profile) {
-      // Check to see if user account exists
       $existingUser = $this->findExistingUser($profile->username);
-
-      // Check if a Profile node with a unique identifier already exists.
       $existingNode = $this->findExistingProfile($athenaId);
 
       if ($existingUser ||  $existingNode) {
@@ -34,50 +44,53 @@ class ProfileSyncService {
       }
 
       if ($existingUser) {
-        // Update existing User entity, if endpint data has been updated since last import
+        // Update existing User entity, if endpoint data has been updated since last import
         $userUpdateTime = $existingUser->get('field_last_imported')->getString();
-//        if (strtotime($athenaUpdateTime) >= strtotime($userUpdateTime)) {
+        if (strtotime($athenaUpdateTime) >= strtotime($userUpdateTime)) {
           //todo remove after testing
-          if (true or strtotime($athenaUpdateTime) >= strtotime($userUpdateTime)) {
+//          if (true or strtotime($athenaUpdateTime) >= strtotime($userUpdateTime)) {
           //todo end test code
           $this->updateUser($existingUser, $profile);
         }
       } else {
-        // Create a new User entity
         $this->createUser($profile);
-        // todo create authmap
-        // $this->>createAuthMap();
+        // todo create authmap record
+        // $this->>createAuthMapRecord();
       }
 
       if ($existingNode) {
-        // Update existing Profile node, if endpint data has been updated since last import
+        // Update existing Profile node, if endpoint data has been updated since last import
          $drupalImportTime = $existingNode->get('field_import_date')->getString();
         if (strtotime($athenaUpdateTime) >= strtotime($drupalImportTime)) {
           $this->updateProfile($existingNode, $profile);
         }
       }
       else {
-        // Create a new Profile node.
         $this->createProfile($profile, $athenaId);
       }
     }
-    $bar = 1;
   }
 
+  /**
+   * Find existing user profile by AthenaId.
+   *
+   * @param $athenaId
+   *
+   * @return \Drupal\Core\Entity\EntityInterface|\Drupal\node\NodeInterface|false
+   * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
+   * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
+   */
   protected function findExistingProfile($athenaId) {
-    // Implement logic to find an existing Profile node based on a unique identifier.
     $node_storage = $this->entityTypeManager->getStorage('node');
 
-    // Query the database for a profile node with the unique identifier.
     $query = $node_storage->getQuery()
-      ->condition('type', 'bios') // Adjust the content type if needed.
+      ->condition('type', 'bios')
       ->condition('field_athena_id', $athenaId)
       ->range(0, 1);
 
     $nids = $query->accessCheck(false)->execute();
 
     if (!empty($nids)) {
-      // Load the first matching profile node.
       $existing_node = $node_storage->load(reset($nids));
       return $existing_node instanceof NodeInterface ? $existing_node : false;
     }
@@ -85,10 +98,16 @@ class ProfileSyncService {
     return false;
   }
 
-
-
+  /**
+   * Create new user profile using Athena sync field data.
+   *
+   * @param $profileData
+   * @param $athenaId
+   *
+   * @return \Drupal\Core\Entity\ContentEntityBase|\Drupal\Core\Entity\EntityBase|\Drupal\Core\Entity\EntityInterface|\Drupal\node\Entity\Node
+   * @throws \Drupal\Core\Entity\EntityStorageException
+   */
   protected function createProfile($profileData, $athenaId) {
-    // Prepare the node values based on the $profileData.
     $node_values = [
       'type' => 'bios',
       'field_athena_id' => $athenaId,
@@ -104,13 +123,8 @@ class ProfileSyncService {
       'field_import_date' => $this->getUpdateTime(),
     ];
 
-    // Create a new profile node.
     $node = Node::create($node_values);
-
-    // Set the author of the node to Admin.
     $node->setOwnerId(1);
-
-    // Save the node to the database.
     $node->save();
 
     //todo enable when Adam says ok
@@ -118,13 +132,19 @@ class ProfileSyncService {
 //    $node->set('status', NodeInterface::PUBLISHED);
 //    $node->save();
 
-    // Return the newly created node.
     return $node;
-
   }
 
+  /**
+   * Update existing profile with Athena sync field data.
+   *
+   * @param \Drupal\node\Entity\Node $existingNode
+   * @param $profileData
+   *
+   * @return void
+   * @throws \Drupal\Core\Entity\EntityStorageException
+   */
   protected function updateProfile(Node $existingNode, $profileData) {
-    // Update the node values based on the $profileData.
     $existingNode->set('field_active', true);
     $existingNode->set('field_username', $profileData->username);
     $existingNode->set('field_email', $profileData->email);
@@ -134,30 +154,47 @@ class ProfileSyncService {
     // todo department No per Adam https://ecitizen.atlassian.net/browse/UWEC-64
     // todo office location No per Adam https://ecitizen.atlassian.net/browse/UWEC-64
     $existingNode->set('field_position', $profileData->hrs_title_formatted);
-    //todo change field def to include time as well as date. Need full timestamp to check to see if data needs to be imported
     $existingNode->set('field_import_date', $this->getUpdateTime());
     //todo enable when Adam says ok
 //    $existingNode->set('status', NodeInterface::PUBLISHED);
 
-    // Save the updated node to the database.
     $existingNode->save();
   }
 
+  /**
+   * Unpublish existing profiles for users who have been flagged as inactive in Athena.
+   *
+   * @param $profiles
+   *
+   * @return void
+   * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
+   * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
+   * @throws \Drupal\Core\Entity\EntityStorageException
+   */
   public function deactivateProfiles($profiles) {
     foreach ($profiles as $athenaId => $profile) {
-
-      //todo skip all with updated_at datetimes before current dev date
-      //todo adjust that date later closer to launch
-      $athenaUpdateTime = $profile->updated_at;
-
+      $athenaUpdateTime = $this->convertToUTC($profile->updated_at);
+      //Skip all with updated_at datetimes before current dev date
+      //todo adjust the date constant before launch
       if (strtotime($athenaUpdateTime) > strtotime(self::IGNORE_BEFORE_DATE)) {
-        $existingActiveUser = $this->findExistingUser($profile, true);
+      //todo remove test code after testing
+//      if (true || (strtotime($athenaUpdateTime) > strtotime(self::IGNORE_BEFORE_DATE))) {
+        // todo end test code
+        $existingActiveUser = $this->findExistingUser($profile->username, true);
+
+        if ($existingActiveUser) {
+          $existingActiveUser->block();
+          $existingActiveUser->set('field_last_imported', $this->getUpdateTime());
+          $existingActiveUser->save();
+        }
+
         $existingNode = $this->findExistingProfile($athenaId);
+
         if ($existingNode) {
           $drupalImportTime = $existingNode->get('field_import_date')->getString();
           if (strtotime($athenaUpdateTime) >= strtotime($drupalImportTime)) {
           //todo remove after testing
-//          if (true or strtotime($athenaUpdateTime) >= strtotime($drupalImportTime)) {
+//          if (true || strtotime($athenaUpdateTime) >= strtotime($drupalImportTime)) {
           //todo end test code
             $existingNode->set('field_active', 0);
             $existingNode->set('field_import_date', $this->getUpdateTime());
@@ -165,16 +202,15 @@ class ProfileSyncService {
             $existingNode->save();
           }
         }
-        else {
-          // this should never happen
-        }
       }
-
-
-
     }
   }
 
+  /**
+   * Get current UTC datetime and format to ISO 8601 (no offset).
+   *
+   * @return string
+   */
   protected function getUpdateTime() {
     $now = DrupalDateTime::createFromTimestamp(time());
     $now->setTimezone(new \DateTimeZone('UTC'));
@@ -182,17 +218,29 @@ class ProfileSyncService {
     return $now->format('Y-m-d\TH:i:s');
   }
 
+  /**
+   * Convert CST/CDT datetime string to UTC.
+   *
+   * @param $datetimeStringCST
+   *
+   * @return string
+   */
   protected function convertToUTC($datetimeStringCST) {
     $datetimeCST = new DrupalDateTime($datetimeStringCST, 'America/Chicago');
-
     $datetimeCST->setTimezone(new \DateTimeZone('UTC'));
 
     return $datetimeCST->format('Y-m-d H:i:s');
-
   }
 
-  protected function findExistingUser($username, $activeOnly = false) {
-    // Use the entityQuery service to retrieve the user ID.
+  /**
+   * Find existing Drupal user by Athena username field value.
+   *
+   * @param $username
+   * @param bool $activeOnly
+   *
+   * @return \Drupal\Core\Entity\EntityBase|\Drupal\Core\Entity\EntityInterface|\Drupal\user\Entity\User|\Drupal\user\UserInterface|false
+   */
+  protected function findExistingUser($username, bool $activeOnly = false) {
     $query = \Drupal::entityQuery('user')
       ->condition('name', $username)
       ->range(0, 1); // Limit the result to 1 record.
@@ -203,16 +251,22 @@ class ProfileSyncService {
 
     $uids = $query->accessCheck(false)->execute();
 
-    // Check if a user was found.
     if (!empty($uids)) {
       $existing_user = User::load(reset($uids));
       return $existing_user instanceof UserInterface ? $existing_user : false;
     }
 
-    // User not found.
     return false;
   }
 
+  /**
+   * Create new Drupal user using Athena profiles sync fields data.
+   *
+   * @param $profile
+   *
+   * @return void
+   * @throws \Drupal\Core\Entity\EntityStorageException
+   */
   protected function createUser($profile) {
     $newuser = [
       'name' => $profile->username,
@@ -231,6 +285,14 @@ class ProfileSyncService {
     $user->save();
   }
 
+  /**
+   * Update existing Drupal user fields from Athena profiles sync fields data.
+   *
+   * @param $user
+   * @param $profile
+   *
+   * @return void
+   */
   protected function updateUser($user, $profile) {
     $user->set('mail', $profile->email);
     $user->set('field_first_name', $profile->first_name);
