@@ -38,7 +38,11 @@
 			<h1 class="term-title">{{ name[0]['#context'].value }}</h1>
 		{% endif %}
 		{{ title_suffix }}
-		{{ content }}
+		{% if content.field_profile.0 %}
+			{{ content|without('field_image') }}
+		{% else %}
+			{{ content|without('field_profile') }}
+		{% endif %}
 	{% elseif view_mode == 'teaser' %}
     {% if content.field_profile.0 %}
       {{ content.field_profile }}
