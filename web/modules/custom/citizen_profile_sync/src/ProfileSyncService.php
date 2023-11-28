@@ -8,6 +8,7 @@ use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\node\NodeInterface;
 use Drupal\user\Entity\User;
 use Drupal\user\UserInterface;
+use Drupal\Core\Database\Database;
 
 /**
  * Syncs Drupal users and their profiles with Athena profiles endpoint data
@@ -15,6 +16,19 @@ use Drupal\user\UserInterface;
 class ProfileSyncService {
 
   const IGNORE_BEFORE_DATE = '2023-11-01 00:00:00';
+
+  /**
+   * Active database connection.
+   *
+   * @var \Drupal\Core\Database\Connection
+   */
+  protected $database;
+
+  /**
+   * The entity type manager.
+   *
+   * @var \Drupal\Core\Entity\EntityTypeManagerInterface
+   */
   protected $entityTypeManager;
 
   /**
@@ -46,17 +60,22 @@ class ProfileSyncService {
       if ($existingUser) {
         // Update existing User entity, if endpoint data has been updated since last import
         $userUpdateTime = $existingUser->get('field_last_imported')->getString();
-        if (strtotime($athenaUpdateTime) >= strtotime($userUpdateTime)) {
+//        if (strtotime($athenaUpdateTime) >= strtotime($userUpdateTime)) {
           //todo remove after testing
-//          if (true or strtotime($athenaUpdateTime) >= strtotime($userUpdateTime)) {
+          if (true or strtotime($athenaUpdateTime) >= strtotime($userUpdateTime)) {
           //todo end test code
-          $this->updateUser($existingUser, $profile);
+          $user = $this->updateUser($existingUser, $profile);
+          // create authmap record
+          $this->createOrUpdateAuthMapRecord($user);
+
         }
       } else {
-        $this->createUser($profile);
-        // todo create authmap record
-        // $this->>createAuthMapRecord();
+        $user = $this->createUser($profile);
+        // create authmap record
+        $this->createOrUpdateAuthMapRecord($user);
       }
+
+
 
       if ($existingNode) {
         // Update existing Profile node, if endpoint data has been updated since last import
@@ -264,7 +283,7 @@ class ProfileSyncService {
    *
    * @param $profile
    *
-   * @return void
+   * @return \Drupal\Core\Entity\ContentEntityBase|\Drupal\Core\Entity\EntityBase|\Drupal\Core\Entity\EntityInterface|\Drupal\user\Entity\User
    * @throws \Drupal\Core\Entity\EntityStorageException
    */
   protected function createUser($profile) {
@@ -283,6 +302,8 @@ class ProfileSyncService {
 
     //todo try-catch for failures
     $user->save();
+
+    return $user;
   }
 
   /**
@@ -299,6 +320,46 @@ class ProfileSyncService {
     $user->set('field_last_name', $profile->last_name);
     $user->set('field_last_imported', $this->getUpdateTime());
     $user->save();
+
+    return $user;
   }
 
+  protected function createOrUpdateAuthMapRecord($user) {
+    $uid = $user->id();
+
+    if ($uid) {
+      // User exists, update authmap.
+      $authmap_exists = $this->getExistingAuthMap($uid);
+
+      if (!$authmap_exists) {
+        // Authmap record doesn't exist, create a new one.
+        Database::getConnection()
+          ->insert('authmap')
+          ->fields([
+            'uid' => $uid,
+            'authname' => $user->get('username'),
+            'module' => 'saml_auth'
+          ])
+          ->execute();
+      }
+    }
+  }
+
+  protected function getExistingAuthMap($uid) {
+    $query = Database::getConnection()
+      ->select('authmap', 'am')
+      ->fields('authname')
+      ->condition('am.uid', $uid);
+
+    $result = $query->execute();
+
+    $authmap_record = $result->fetchAssoc();
+
+    if ($authmap_record) {
+      return $authmap_record;
+    } else {
+      return false;
+    }
+
+  }
 }
