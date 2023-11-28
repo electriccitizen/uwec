@@ -15,16 +15,19 @@
 
 .node-hours{
 	padding-top: $elementSpace;
-	@include auto;
-	max-width: $textMax;
-	.block-field:not(.block-title){
-		margin-bottom: $spaceXxs;
+	.main-node-content{
+		@include hoursHolder;
 	}
-	.field-set-title{
-		@include heading2;
-	}
-	.block-field-hours{
-		padding-top: $elementSpace;
+	#node-section-1{
+		margin-bottom: $elementSpace;
+		.block-field:not(.block-title){
+			margin-bottom: $spaceXxs;
+		}
+	}//end node section 1
+	#node-section-2{
+		.block-field{
+			margin-bottom: $spaceXxs;
+		}
 	}
 }//end hours-library
 
