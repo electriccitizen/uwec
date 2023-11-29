@@ -1,0 +1,10 @@
+uuid: e0c6c4fc-9abf-4948-8ad5-2cbb72bf5fbb
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+id: media.social_share
+label: 'Social Share'
+targetEntityType: media
+cache: true

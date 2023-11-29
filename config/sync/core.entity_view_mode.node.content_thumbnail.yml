@@ -1,0 +1,10 @@
+uuid: b576dd6d-1609-450f-b075-ca65c06c60a0
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.content_thumbnail
+label: 'Content Thumbnail'
+targetEntityType: node
+cache: true

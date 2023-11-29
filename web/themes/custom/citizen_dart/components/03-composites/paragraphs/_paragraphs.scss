@@ -10,7 +10,6 @@
 @forward 'button/button';
 @forward 'contact-placer/contact-placer';
 @forward 'content-carousel/content-carousel';
-@forward 'content-placer/content-placer';
 @forward 'ctas/ctas';
 @forward 'events-list/events-list';
 @forward 'facts-list/facts-list';
@@ -58,10 +57,10 @@
 		&.background{
 			padding-top: $elementSpace;
 			&.light-grey{
-				background: $offWhite;
+				background: $lightGrey;
 			}
 			&.light-blue{
-				background: $iceBlue;
+				background: $ice;
 			}
 			& + .backless{
 				margin-top: $elementSpace;

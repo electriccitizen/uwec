@@ -9,7 +9,7 @@ id: paragraph.block_placer.field_widget_title
 field_name: field_widget_title
 entity_type: paragraph
 bundle: block_placer
-label: 'Accordions Title'
+label: 'Block Title'
 description: ''
 required: false
 translatable: false

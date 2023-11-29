@@ -264,7 +264,16 @@
 	}@else if $grad-direction == 'right'{
 		background: linear-gradient(to left, $grad-start $gradStartPercent,$grad-stop 100%); /* W3C */
 	}
+}
 
+@mixin fullImageOverlay{
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 70%;
+	z-index: 1;
+	@include gradient(top,rgba(217, 217, 217, 0),0,$navy);
 }
 
 @mixin triangle($triDirection,$triHeight,$triWidth,$triColor){
@@ -295,8 +304,10 @@
 }
 
 @mixin lightBack($lightText,$lightLink) {
-	h2,h3,h4,h5,h6,p,div,.field-caption {
+	h1,h2,h3,h4,h5,h6,p,div,li,.field-caption {
 		color: $lightText;
+		-webkit-font-smoothing: subpixel-antialiased;
+
 	}
 	:before,:after{
 		color: $lightText;
@@ -311,8 +322,9 @@
 }//end lightBack
 
 @mixin darkBack($darkText,$darkLink) {
-	h2,h3,h4,h5,h6,p,div,.field-caption {
+	h1,h2,h3,h4,h5,h6,p,div,li,.field-caption {
 		color: $darkText;
+		-webkit-font-smoothing: antialiased;
 	}
 	:before,:after{
 		color: $darkText;
@@ -350,6 +362,25 @@
 	clip-path: polygon(0 0, 100% 0, 100% 43%, 0 100%);
 }
 
+@mixin fatStripes($stripeColor){
+	content: '';
+	display: block;
+	position: absolute;
+	top: 0px;
+	left: -100px;
+	width: 170px;
+	height: 230px;
+	z-index: -1;
+	background: repeating-linear-gradient(
+	  0deg,
+	  #{$stripeColor},
+	  #{$stripeColor} 40px,
+	  transparent 40px,
+	  transparent 80px
+	);
+	@include skew(0,-16);
+}
+
 @mixin halfTone{
 	&:before{
 		content: '';
@@ -373,6 +404,23 @@
 		opacity: .2;
 	  background-size: 6px 6px;
 	}
+}
+
+@mixin rightArrow($arrowColor,$arrowBack,$arrowBorder,$arrowSize){
+	@if $arrowSize == 'sm'{
+		width: 20px;
+		height: 20px;
+	}@else if $arrowSize == 'lg'{
+		width: 40px;
+		height: 40px;
+	}
+	border-radius: 50%;
+	border: 1px solid $arrowBorder;
+	background-color: $arrowBack;
+	background-image: url(../images/arrows/right-arrow-#{$arrowColor}-#{$arrowSize}.svg);
+	background-repeat: no-repeat;
+	background-size: 50%;
+	background-position: 50% 50%;
 }
 
 /* ANIMATION MIXINS

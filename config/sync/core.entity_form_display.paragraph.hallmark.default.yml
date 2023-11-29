@@ -1,0 +1,60 @@
+uuid: 64f886dd-0711-4536-b82d-b8a7cad7d0b7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.hallmark.field_headline
+    - field.field.paragraph.hallmark.field_image
+    - field.field.paragraph.hallmark.field_link
+    - field.field.paragraph.hallmark.field_long_text
+    - field.field.paragraph.hallmark.field_text_placement
+    - paragraphs.paragraphs_type.hallmark
+  module:
+    - link
+    - media_library
+    - text
+id: paragraph.hallmark.default
+targetEntityType: paragraph
+bundle: hallmark
+mode: default
+content:
+  field_headline:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_image:
+    type: media_library_widget
+    weight: 0
+    region: content
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+  field_link:
+    type: link_default
+    weight: 3
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  field_long_text:
+    type: text_textarea
+    weight: 2
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_text_placement:
+    type: options_select
+    weight: 4
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

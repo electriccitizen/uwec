@@ -22,6 +22,20 @@
 
 /* PAGE CONTENT */
 .node-page{
+	&.contextual-region{
+		position: static;
+		& > .contextual{
+			display: none;
+		}
+		.page-header-wrapper{
+			margin-top: -216px;
+			padding-top: 216px;
+			@include desk{
+				margin-top: -170px;
+				padding-top: 170px;
+			}
+		}
+	}
 	.node-intro-simple{
 		position: absolute;
 		top: 0;
@@ -39,7 +53,7 @@
 			height: 1000px;
 			width: 200vw;
 			z-index: -2;
-			background: $skyBlue;
+			background: $brightBlue;
 			@include rotate(16);
 		}
 	}//end intro simple
@@ -66,11 +80,11 @@
 	.page-header-wrapper{
 		position: relative;
 		z-index: 0;
-		margin-top: -160px;
 		margin-left: -$siteMarginMobile;
+		margin-top: -160px;
+		padding-top: 160px;
 		width: 100vw;
 		min-height: 100vh;
-		padding-top: 160px;
 		@include desk{
 			margin-top: -114px;
 			padding-top: 114px;
@@ -82,10 +96,10 @@
 		}
 		.hero-image &,.hero-background_image &{
 			@include safeFlex(row,wrap,start,start);
-			background: $skyBlue;
+			background: $brightBlue;
 		}
 		.hero-pattern &{
-			background: $midBlue;
+			background: $royal;
 			&:before{
 				content: '';
 				display: block;
@@ -95,7 +109,7 @@
 				width: 200vw;
 				height: 500vh;
 				z-index: -1;
-				background: $skyBlue;
+				background: $brightBlue;
 				@include rotate(-16);
 			}
 		}
@@ -160,7 +174,8 @@
 				@include auto;
 				@include safeFlex(column,nowrap,end,start);
 				padding-bottom: 100px;
-				h1.formatted-title{
+				position: relative;
+				.page-header-text-inner{
 					color: $white;
 				}
 			}
@@ -181,6 +196,12 @@
 			.hero-video &{
 				&:before{
 					@include fullBack($transMidBlue);
+					z-index: 1;
+				}
+			}
+			.hero-full_image &{
+				&:before{
+					@include fullBack(rgba(35,35,35,0.4));
 					z-index: 1;
 				}
 			}

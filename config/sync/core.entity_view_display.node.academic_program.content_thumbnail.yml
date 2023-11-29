@@ -1,0 +1,86 @@
+uuid: 802657af-bd8d-46dc-824d-82397f83ea38
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.content_thumbnail
+    - field.field.node.academic_program.body
+    - field.field.node.academic_program.field_degree_level
+    - field.field.node.academic_program.field_domain_access
+    - field.field.node.academic_program.field_domain_all_affiliates
+    - field.field.node.academic_program.field_domain_source
+    - field.field.node.academic_program.field_metatags
+    - field.field.node.academic_program.field_placement_tags
+    - field.field.node.academic_program.layout_builder__layout
+    - node.type.academic_program
+  module:
+    - layout_builder
+    - layout_builder_restrictions
+    - metatag
+    - options
+    - text
+    - user
+third_party_settings:
+  layout_builder:
+    enabled: false
+    allow_custom: false
+  layout_builder_restrictions:
+    allowed_block_categories: {  }
+    entity_view_mode_restriction:
+      allowed_layouts:
+        - layout_onecol
+      denylisted_blocks: {  }
+      allowlisted_blocks: {  }
+      restricted_categories: {  }
+id: node.academic_program.content_thumbnail
+targetEntityType: node
+bundle: academic_program
+mode: content_thumbnail
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  content_moderation_control:
+    settings: {  }
+    third_party_settings: {  }
+    weight: -20
+    region: content
+  field_degree_level:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 104
+    region: content
+  field_metatags:
+    type: metatag_empty_formatter
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  field_placement_tags:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 103
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_domain_access: true
+  field_domain_all_affiliates: true
+  field_domain_source: true
+  layout_builder__layout: true
+  publish_state: true
+  search_api_excerpt: true
+  unpublish_state: true

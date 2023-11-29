@@ -10,8 +10,8 @@ id: node.college.field_image
 field_name: field_image
 entity_type: node
 bundle: college
-label: Hero
-description: '<strong>Optimal image size:</strong> 1600x912px'
+label: 'College Image'
+description: '<strong>Optimal image size:</strong> 1460x1680px'
 required: false
 translatable: false
 default_value: {  }

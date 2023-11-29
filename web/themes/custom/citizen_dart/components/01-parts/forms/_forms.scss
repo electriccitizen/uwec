@@ -123,6 +123,9 @@ fieldset{
 			background: $hoverLink;
 		}
 	}//end element help
+	input[type=text], input[type=search], input[type=url], input[type=number], textarea, input[type="search"], input[type="password"]{
+		border: 1px solid $navy;
+	}
 	.form-actions{
 		padding-top: $spaceMd;
 		@include safeFlex(row,wrap,justify,start);
@@ -145,7 +148,7 @@ h1.webform-title {
 .webform-confirmation{
 	max-width: $textMax;
 	@include auto;
-	border: $inputBorderWidth solid $inputBorderColor;
+	border: 0;
 	padding: 2.5rem;
 	text-align: center;
 	.webform-confirmation__back{
@@ -163,7 +166,7 @@ h1.webform-title {
 //pager
 .webform-progress{
 	& ~ .form-actions{
-		border-top: $inputBorderWidth solid $inputBorderColor;
+		border-top: 0;
 		margin-top: $spaceMd;
 	}
 	.webform-progress-tracker{
@@ -294,7 +297,7 @@ h1.webform-title {
 //signature
 .js-form-type-webform-signature{
 	.webform-signature-pad{
-		border: $inputBorderWidth solid $inputBorderColor;
+		border: 0;
 		&:hover{
 			border-color: $inputBorderHover;
 			box-shadow: inset 0 0 0 1px $inputBorderHover;
@@ -336,21 +339,24 @@ h1.webform-title {
 	@include auto;
 	.form-item:not([type="submit"]),details{
 		max-width: 400px;
+		input{
+			border: 1px solid $navy;
+		}
 	}
 	.js-form-type-password{
 		position: relative;
 		.password-reset{
 			position: absolute;
-			top: 12px;
+			top: -1px;
 			right: 0;
-			font-size: 2rem;
+			font-size: 1.5rem;
 		}
 		.show-password{
 			position: absolute;
 			top: 54px;
 			right: 12px;
 			font-size: 1.4rem;
-			color: $midGrey;
+			color: $warmGrey;
 			&:hover,&:focus{
 				color: $hoverLink;
 			}
@@ -388,7 +394,7 @@ details.form-wrapper{
 		}
 	}
 	summary{
-		border: $inputBorderWidth solid $inputBorderColor;
+		border: 1px solid $borderRule;
 		padding: 1.25rem 2.5rem;
 		font-weight: $heavy;
 		position: relative;

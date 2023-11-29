@@ -124,7 +124,7 @@ body,#drupal-off-canvas-wrapper-wrapper{
 				float: none;
 				padding: 2px 3px;
 				input.select2-search__field{
-					color: $darkGrey;
+					color: $navy;
 					@include placeholder;
 					&:focus{
 						@include placeholderFocus;
@@ -135,7 +135,7 @@ body,#drupal-off-canvas-wrapper-wrapper{
 			//selected item
 			.select2-selection__choice{
 				border-radius: 0;
-				background-color: $offWhite;
+				background-color: $lightGrey;
 			}
 		}//end multi
 
@@ -175,7 +175,7 @@ body,#drupal-off-canvas-wrapper-wrapper{
 ---------------- */
 .select2-container{
 	.select2-dropdown{
-		border: $inputBorderWidth solid $inputBorderFocus;
+		border: 0;
 		border-radius: 0;
 		border-top: 0;
 		padding: 0;
@@ -189,7 +189,7 @@ body,#drupal-off-canvas-wrapper-wrapper{
 	}
 }
 .select2-container--default .select2-results__option[aria-selected="true"]{
-	background-color: $offWhite;
+	background-color: $lightGrey;
 }
 .select2-container--default .select2-results__option--highlighted[aria-selected]{
 	background-color: $selectHighlight !important;

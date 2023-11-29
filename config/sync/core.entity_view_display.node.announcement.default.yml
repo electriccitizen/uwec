@@ -9,7 +9,6 @@ dependencies:
     - field.field.node.announcement.field_domain_all_affiliates
     - field.field.node.announcement.field_domain_source
     - field.field.node.announcement.field_section_url
-    - field.field.node.announcement.field_sitewide
     - field.field.node.announcement.field_urgency
     - field.field.node.announcement.layout_builder__layout
     - node.type.announcement
@@ -82,28 +81,40 @@ third_party_settings:
                 label: inline
                 settings: {  }
                 third_party_settings: {  }
-            weight: 2
+            weight: 4
             additional: {  }
-          b2643f97-fd04-4f5e-aad0-dfbd94995e9e:
-            uuid: b2643f97-fd04-4f5e-aad0-dfbd94995e9e
+          2f3a0da9-ef22-4eef-b54c-b37ed94555ff:
+            uuid: 2f3a0da9-ef22-4eef-b54c-b37ed94555ff
             region: content
             configuration:
-              id: 'field_block:node:announcement:field_sitewide'
-              label: Sitewide
+              id: 'field_block:node:announcement:field_dates'
+              label: 'Display Range'
               label_display: '0'
               provider: layout_builder
               context_mapping:
                 entity: layout_builder.entity
                 view_mode: view_mode
               formatter:
-                type: boolean
+                type: smartdate_default
                 label: inline
                 settings:
-                  format: default
-                  format_custom_false: ''
-                  format_custom_true: ''
+                  timezone_override: ''
+                  format: compact
+                  force_chronological: false
+                  add_classes: false
+                  time_wrapper: true
+                  localize: false
+                  parts:
+                    start: start
+                    end: end
+                    duration: '0'
+                  duration:
+                    separator: ' | '
+                    unit: ''
+                    decimals: 2
+                    suffix: h
                 third_party_settings: {  }
-            weight: 3
+            weight: 2
             additional: {  }
           71476888-0ea1-47fa-9b42-3d6365616281:
             uuid: 71476888-0ea1-47fa-9b42-3d6365616281
@@ -122,7 +133,7 @@ third_party_settings:
                 settings:
                   link_to_entity: false
                 third_party_settings: {  }
-            weight: 4
+            weight: 3
             additional: {  }
         third_party_settings: {  }
   layout_builder_restrictions:
@@ -191,16 +202,6 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     weight: 104
-    region: content
-  field_sitewide:
-    type: boolean
-    label: above
-    settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
-    third_party_settings: {  }
-    weight: 103
     region: content
   field_urgency:
     type: list_default

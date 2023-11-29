@@ -11,7 +11,7 @@ id: node.bios.field_position
 field_name: field_position
 entity_type: node
 bundle: bios
-label: Position
+label: Title(s)
 description: ''
 required: false
 translatable: true

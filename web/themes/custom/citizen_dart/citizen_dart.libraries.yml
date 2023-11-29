@@ -15,6 +15,14 @@ accordion:
   version: 1.0
   js:
     components/03-composites/paragraphs/accordions/accordions.js: {}
+announcements:
+  version: 1.0
+  js:
+    components/03-composites/blocks/announcements/ajax.js: {}
+omnilert:
+  version: 1.0
+  js:
+    components/03-composites/blocks/omnilert/omnilert.js: {}
 debounce:
   version: 1.0
   js:
@@ -52,14 +60,14 @@ layout:
   version: 1.0
   js:
     components/03-composites/layout/layouts/layouts.js: {}
+list-view:
+  version: 1.0
+  js:
+    components/03-composites/views/list-view.js: {}
 modal:
   version: 1.0
   js:
     components/02-chunks/modals/modals.js: {}
-pager:
-  version: 1.0
-  js:
-    components/02-chunks/pagers/pager.js: {}
 search-block:
   version: 1.0
   js:

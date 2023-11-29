@@ -1,0 +1,19 @@
+uuid: 4aa1a013-5c36-42dd-8255-daa59a5b48d0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_office
+    - node.type.bios
+id: node.bios.field_office
+field_name: field_office
+entity_type: node
+bundle: bios
+label: Office
+description: "<strong>Example:</strong></br>\r\nHibbard Humanities Hall 717</br>\r\n124 Garfield Ave </br>\r\nEau Claire, WI 54701"
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

@@ -1,0 +1,29 @@
+uuid: d3e6d457-7286-4d80-8060-e08b9bd14066
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_authors
+    - node.type.news
+    - taxonomy.vocabulary.author
+id: node.news.field_authors
+field_name: field_authors
+entity_type: node
+bundle: news
+label: Authors
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      author: author
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

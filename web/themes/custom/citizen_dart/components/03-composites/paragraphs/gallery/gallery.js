@@ -8,8 +8,8 @@
 			$(once('lightboxes', '.gallery-style.tiles', context)).each(function(){
 				$(document).ready(function(){
 					$('.featherlight-gal', this).featherlightGallery({
-						previousIcon: '<',
-						nextIcon: '>',
+						previousIcon: 'Prev',
+						nextIcon: 'Next',
 						galleryFadeIn: 300,
 						openSpeed: 300
 					});
@@ -23,8 +23,6 @@
 						autoplay: true,
 						autoplaySpeed: 5000
 					});
-					$('button.slick-prev').addClass('material-icons');
-					$('button.slick-next').addClass('material-icons');
 				});
 			});
 		}

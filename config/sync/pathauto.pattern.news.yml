@@ -7,14 +7,14 @@ dependencies:
 _core:
   default_config_hash: 4lpD0G1zgfhmyEH9VOlVBCJE7ZqZUT83ITZv-d6xlGc
 id: news
-label: Story
+label: 'Story Library'
 type: 'canonical_entities:node'
-pattern: 'news/[node:title]'
+pattern: 'stories/[node:title]'
 selection_criteria:
-  017d084f-0598-4dbe-8061-dd1ae2256736:
+  50edca57-3e7a-4aaf-aea6-c1df585a1fa1:
     id: 'entity_bundle:node'
     negate: false
-    uuid: 017d084f-0598-4dbe-8061-dd1ae2256736
+    uuid: 50edca57-3e7a-4aaf-aea6-c1df585a1fa1
     context_mapping:
       node: node
     bundles:

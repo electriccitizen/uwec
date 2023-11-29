@@ -10,8 +10,8 @@ dependencies:
     - field.field.node.announcement.field_domain_all_affiliates
     - field.field.node.announcement.field_domain_source
     - field.field.node.announcement.field_section_url
-    - field.field.node.announcement.field_sitewide
     - field.field.node.announcement.field_urgency
+    - field.field.node.announcement.layout_builder__layout
     - node.type.announcement
   module:
     - layout_builder
@@ -67,16 +67,6 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     weight: 104
-    region: content
-  field_sitewide:
-    type: boolean
-    label: above
-    settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
-    third_party_settings: {  }
-    weight: 103
     region: content
   field_urgency:
     type: list_default

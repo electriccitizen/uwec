@@ -1,0 +1,21 @@
+uuid: 3b424a8c-62fe-4611-be16-073135f03bad
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_emeriti_status
+    - node.type.bios
+  module:
+    - options
+id: node.bios.field_emeriti_status
+field_name: field_emeriti_status
+entity_type: node
+bundle: bios
+label: 'Emeriti Status'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

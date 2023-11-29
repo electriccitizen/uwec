@@ -21,6 +21,29 @@
 	}
 }
 
+/* TWO COLUMN EVEN */
+.layout--twocol-even{
+	width: 100%;
+	max-width: $contentStop;
+	@include auto;
+	@include safeFlex(row,wrap,start,start);
+	@include bleed(padding, 130px);
+	.layout__region--first{
+		width: 100%;
+		@include desk{
+			width: 50%;
+		}
+	}//end layout region second
+	.layout__region--content{
+		width: 100%;
+		@include desk{
+			&:not(:only-child){
+				width: 50%;
+			}
+		}
+	}
+}//end layout-twocol-sideleft
+
 /* TWO COLUMN SIDEBAR LEFT */
 .layout--twocol-sideleft{
 	width: 100%;
@@ -182,7 +205,7 @@
 					border-color: $borderRule;
 				}
 				&.active-tab{
-					background: $midGrey;
+					background: $warmGrey;
 					color: $white;
 					border-color: $borderRule;
 					&:hover,&:focus{

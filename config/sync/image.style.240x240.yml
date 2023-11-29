@@ -1,0 +1,23 @@
+uuid: ed3fd69b-0f0d-4f96-a4b8-1a690d108cbf
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: 240x240
+label: 240x240
+effects:
+  ab5616d3-06bd-405f-832e-076a9c1c8c4e:
+    uuid: ab5616d3-06bd-405f-832e-076a9c1c8c4e
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 240
+      height: 240
+      crop_type: focal_point
+  9cc56365-020b-42e1-ab3d-3bd8559a1393:
+    uuid: 9cc56365-020b-42e1-ab3d-3bd8559a1393
+    id: image_convert
+    weight: 2
+    data:
+      extension: webp

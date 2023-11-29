@@ -1,0 +1,29 @@
+uuid: df7266ba-e858-4d66-b338-0bbeaa26b6ad
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_facts
+    - node.type.fact
+    - paragraphs.paragraphs_type.facts_list
+id: paragraph.facts_list.field_facts
+field_name: field_facts
+entity_type: paragraph
+bundle: facts_list
+label: 'Manually Select'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      fact: fact
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

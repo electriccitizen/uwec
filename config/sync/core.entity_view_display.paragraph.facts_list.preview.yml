@@ -4,9 +4,15 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.paragraph.preview
+    - field.field.paragraph.facts_list.field_facts
+    - field.field.paragraph.facts_list.field_list_type
+    - field.field.paragraph.facts_list.field_list_widget
+    - field.field.paragraph.facts_list.field_page_family
+    - field.field.paragraph.facts_list.field_placement_tag
     - paragraphs.paragraphs_type.facts_list
   module:
     - layout_builder
+    - options
 third_party_settings:
   layout_builder:
     enabled: false
@@ -15,6 +21,17 @@ id: paragraph.facts_list.preview
 targetEntityType: paragraph
 bundle: facts_list
 mode: preview
-content: {  }
+content:
+  field_list_type:
+    type: list_default
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
 hidden:
+  field_facts: true
+  field_list_widget: true
+  field_page_family: true
+  field_placement_tag: true
   search_api_excerpt: true

@@ -5,6 +5,8 @@
 @use '../../00-base/base' as *;
 
 .user-dashboard{
+	max-width: 945px;
+	@include auto;
 	.field-user-image{
 		border-radius: 50%;
 		overflow: hidden;
@@ -18,6 +20,45 @@
 			margin-bottom: $spaceXs;
 		}
 	}
+	.user-roles > span{
+		&:not(:first-child):not(:last-child){
+			position: relative;
+			&:after{
+				@include vertRule(right,70%,$baseText);
+			}
+		}
+	}
+	.domains-access{
+		margin-bottom: $spaceMd;
+		ul{
+			@include listReset;
+			@include safeFlex(row,wrap,start,center);
+			@include bleed(padding,24px);
+			@include desk{
+				@include safeFlex(row,wrap,start,center);
+			}
+			li{
+				a{
+					display: block;
+					border: 1px solid transparent;
+					&:hover,&:focus{
+						opacity: .6;
+						border: 1px solid $warmGrey;
+					}
+					img{
+						display: block;
+						width: 100%;
+						max-width: 100px;
+						max-height: 50px;
+						&.uwec-logo{
+							padding: 10px;
+							background: $brightBlue;
+						}
+					}
+				}
+			}//end li
+		}//end ul
+	}//domains
 	.user-actions{
 		margin-bottom: $elementSpace;
 		@include safeFlex(row,wrap,start,start);

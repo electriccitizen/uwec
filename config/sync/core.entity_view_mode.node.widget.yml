@@ -1,0 +1,10 @@
+uuid: 9a9e05c1-7f50-4ac2-872a-594b9cc3f8e2
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.widget
+label: Widget
+targetEntityType: node
+cache: true

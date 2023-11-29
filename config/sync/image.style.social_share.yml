@@ -1,0 +1,15 @@
+uuid: 439a1473-65dd-4dd7-ad47-c74b81a71e76
+langcode: en
+status: true
+dependencies: {  }
+name: social_share
+label: 'Social Share'
+effects:
+  b325d311-df5e-4baa-a7ef-cc05ccfbdc4f:
+    uuid: b325d311-df5e-4baa-a7ef-cc05ccfbdc4f
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 1200
+      height: 628
+      anchor: center-center

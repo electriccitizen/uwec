@@ -9,6 +9,12 @@ Drupal.behaviors.removeEmptyRegions = {
         $(this).remove();
       }
     });
+    $(once('removeEmptyContact', '.node-bios #node-section-2', context)).each(function(){
+      if(!$('.field',this).length){
+      	console.log('no-contact');
+        $(this).remove();
+      }
+    });
   }
 }
 

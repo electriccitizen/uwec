@@ -4,6 +4,17 @@
 
 @use '../../../00-base/base' as *;
 
-.node-fact-library{
-	
+.node-fact{
+	padding-top: $elementSpace;
+	@include auto;
+	max-width: $textMax;
+	.block-field:not(.block-title){
+		margin-bottom: $spaceXxs;
+	}
 }//end fact-library
+
+.node-teaser-fact{
+	.teaser-title{
+		@include heading2;
+	}
+}

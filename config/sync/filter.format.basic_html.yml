@@ -2,11 +2,6 @@ uuid: ec78d3db-1c0f-41d0-8714-f011a0c8c942
 langcode: en
 status: true
 dependencies:
-  config:
-    - core.entity_view_mode.media.full
-    - core.entity_view_mode.media.large_embed
-    - core.entity_view_mode.media.medium_embed
-    - core.entity_view_mode.media.small_embed
   module:
     - editor
     - linkit
@@ -24,13 +19,13 @@ filters:
     status: true
     weight: -44
     settings:
-      allowed_html: '<br> <p class> <h2 id class> <h3 id class> <h4 id class> <h5 id class> <h6 id class> <a class hreflang target id title href data-entity-type data-entity-uuid data-entity-substitution> <cite> <dl> <dt> <dd> <figcaption> <picture> <small> <mark> <blockquote cite> <span class> <img srcset typeof src alt height width data-entity-type data-entity-uuid data-entity-substitution data-align data-caption> <source srcset media type> <div id data-* class> <iframe src title frameborder aria-describedby tabindex allowtransparency width height class> <drupal-entity data-* alt title> <article data-* class> <ul type class> <ol type class start> <drupal-media data-caption title data-entity-type data-entity-uuid alt data-view-mode data-align> <strong> <em> <u> <li> <hr> <table> <tr> <td rowspan colspan> <th rowspan colspan> <thead> <tbody> <tfoot> <caption>'
+      allowed_html: '<br> <p class> <h2 id class> <h3 id class> <h4 id class> <h5 id class> <h6 id class> <cite> <dl> <dt> <dd> <figcaption> <picture> <small> <mark> <blockquote cite> <span class> <img srcset typeof src alt height width data-entity-type data-entity-uuid data-entity-substitution data-align data-caption> <source srcset media type> <div id data-* class> <iframe src title frameborder aria-describedby tabindex allowtransparency width height class> <drupal-entity data-* alt title> <article data-* class> <a hreflang target id title class href data-entity-type data-entity-uuid data-entity-substitution> <ul type class> <ol type class start> <drupal-media data-caption title> <strong> <em> <sub> <sup> <li> <hr>'
       filter_html_help: false
       filter_html_nofollow: false
   filter_align:
     id: filter_align
     provider: filter
-    status: true
+    status: false
     weight: -50
     settings: {  }
   filter_caption:
@@ -42,7 +37,7 @@ filters:
   editor_file_reference:
     id: editor_file_reference
     provider: editor
-    status: true
+    status: false
     weight: -47
     settings: {  }
   filter_html_image_secure:
@@ -96,23 +91,16 @@ filters:
   media_embed:
     id: media_embed
     provider: media
-    status: true
+    status: false
     weight: -49
     settings:
       default_view_mode: default
       allowed_view_modes:
         default: default
-        full: full
-        large_embed: large_embed
-        medium_embed: medium_embed
-        small_embed: small_embed
-      allowed_media_types:
-        document: document
-        image: image
-        remote_video: remote_video
+      allowed_media_types: {  }
   filter_image_lazy_load:
     id: filter_image_lazy_load
     provider: filter
-    status: true
+    status: false
     weight: -46
     settings: {  }

@@ -3,11 +3,63 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.paragraph.hallmark.field_headline
+    - field.field.paragraph.hallmark.field_image
+    - field.field.paragraph.hallmark.field_link
+    - field.field.paragraph.hallmark.field_long_text
+    - field.field.paragraph.hallmark.field_text_placement
     - paragraphs.paragraphs_type.hallmark
+  module:
+    - link
+    - options
+    - text
 id: paragraph.hallmark.default
 targetEntityType: paragraph
 bundle: hallmark
 mode: default
-content: {  }
+content:
+  field_headline:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_image:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: 874x492
+      link: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_link:
+    type: link
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_long_text:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_text_placement:
+    type: list_key
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 4
+    region: content
 hidden:
   search_api_excerpt: true

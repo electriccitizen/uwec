@@ -1,0 +1,10 @@
+uuid: 1686bc37-b1b3-4985-91e6-807366f1cd57
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+id: media.874x492
+label: 874x492
+targetEntityType: media
+cache: true

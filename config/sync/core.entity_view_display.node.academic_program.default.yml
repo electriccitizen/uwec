@@ -8,11 +8,12 @@ dependencies:
     - field.field.node.academic_program.field_domain_access
     - field.field.node.academic_program.field_domain_all_affiliates
     - field.field.node.academic_program.field_domain_source
-    - field.field.node.academic_program.field_editorial_sections
     - field.field.node.academic_program.field_metatags
     - field.field.node.academic_program.field_placement_tags
     - field.field.node.academic_program.layout_builder__layout
     - node.type.academic_program
+    - views.view.bios
+    - views.view.facts
   module:
     - layout_builder
     - layout_builder_restrictions
@@ -21,6 +22,7 @@ dependencies:
     - options
     - text
     - user
+    - views
 third_party_settings:
   layout_builder:
     enabled: true
@@ -83,6 +85,32 @@ third_party_settings:
                 third_party_settings: {  }
             weight: 5
             additional: {  }
+          ec96fee3-9d5f-4005-8274-d9b4d4ebae74:
+            uuid: ec96fee3-9d5f-4005-8274-d9b4d4ebae74
+            region: content
+            configuration:
+              id: 'views_block:bios-program_faculty'
+              label: ''
+              label_display: '0'
+              provider: views
+              context_mapping: {  }
+              views_label: ''
+              items_per_page: none
+            weight: 6
+            additional: {  }
+          5680168e-3d53-4370-8acd-44c0421829db:
+            uuid: 5680168e-3d53-4370-8acd-44c0421829db
+            region: content
+            configuration:
+              id: 'views_block:facts-recent_by_tag'
+              label: ''
+              label_display: '0'
+              provider: views
+              context_mapping: {  }
+              views_label: ''
+              items_per_page: none
+            weight: 7
+            additional: {  }
         third_party_settings: {  }
   layout_builder_restrictions:
     allowed_block_categories: {  }
@@ -115,14 +143,6 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: 104
-    region: content
-  field_editorial_sections:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 102
     region: content
   field_metatags:
     type: metatag_empty_formatter

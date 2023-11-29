@@ -5,5 +5,24 @@
 @use '../../../00-base/base' as *;
 
 .paragraph--type--profiles-list{
+	max-width: 945px;
+	@include auto;
 
+	//manual list
+	.field-profiles{
+		@include safeFlex(row,wrap,center,start);
+		@include bleed(padding,20px);
+		& > div{
+			&:not(:last-child){
+				margin-bottom: $spaceMd;
+			}
+			@include smallTab{
+				width: 50%;
+			}
+			@include tab{
+				width: 33.33%;
+			}
+		}
+	}//end field profiles
+	
 }//end profiles-list widget

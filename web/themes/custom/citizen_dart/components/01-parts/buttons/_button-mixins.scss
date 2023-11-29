@@ -31,7 +31,8 @@
 ///mixin - button
 @mixin button{
 	background-color: $buttonBack;
-	border: 1px solid $buttonBack;
+	border: 1px solid $buttonText;
+	border-radius: 25px;
 	color: $buttonText;
 	line-height: 1.15;
 	padding: $buttonPadding;
@@ -116,18 +117,18 @@
 
 @mixin cautionButton{
 	@include submitButton;
-	background: $cautionBack;
-	color: $cautionText;
-	border-color: $cautionBack;
+	background: $warmGrey;
+	color: $navy;
+	border-color: $warmGrey;
 	&:hover,&:focus{
-		background: $buttonBackHover;
-		border-color: $buttonBackHover;
-		color: $buttonTextHover;
+		background: $lightGrey;
+		border-color: $lightGrey;
+		color: $navy;
 	}
 	&:active{
-		background: $buttonBackActive;
-		border-color: $buttonBackActive;
-		color: $buttonTextActive;
+		background: $white;
+		border-color: $white;
+		color: $navy;
 	}
 }
 

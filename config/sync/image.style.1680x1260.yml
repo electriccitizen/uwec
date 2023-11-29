@@ -1,0 +1,17 @@
+uuid: 6287feec-e08d-470c-becd-6ae2ce41cd4d
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: 1680x1260
+label: 1680x1260
+effects:
+  3f86ab40-5e34-4b2a-8d08-ce922b9ad670:
+    uuid: 3f86ab40-5e34-4b2a-8d08-ce922b9ad670
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 1680
+      height: 1260
+      crop_type: focal_point

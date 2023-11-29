@@ -1,0 +1,19 @@
+uuid: a0ab4591-cbd3-469d-908d-4c8a306e0587
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_email
+    - paragraphs.paragraphs_type.fauxfile_item
+id: paragraph.fauxfile_item.field_email
+field_name: field_email
+entity_type: paragraph
+bundle: fauxfile_item
+label: Email
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: email

@@ -1,8 +1,9 @@
-uuid: d0665699-bfff-4e7c-9a36-b24b8cfe4c68
+uuid: 0738ee5e-005f-4f2b-964d-d98bdfd2705c
 langcode: en
 status: true
 dependencies: {  }
 id: node__bios
 label: 'Content: Profile'
 tags:
+  abstract: '[node:field_short_bio]'
   title: '[node:field_first_name] [node:field_last_name] | [site:name]'

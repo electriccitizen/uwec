@@ -1,0 +1,81 @@
+uuid: 604fc91f-3f86-42fb-a1fa-4894db51fd35
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.profiles_list.field_limit_list
+    - field.field.paragraph.profiles_list.field_list_type
+    - field.field.paragraph.profiles_list.field_list_widget
+    - field.field.paragraph.profiles_list.field_page_family
+    - field.field.paragraph.profiles_list.field_placement_tag
+    - field.field.paragraph.profiles_list.field_profiles
+    - field.field.paragraph.profiles_list.field_randomize
+    - field.field.paragraph.profiles_list.field_widget_title
+    - paragraphs.paragraphs_type.profiles_list
+id: paragraph.profiles_list.default
+targetEntityType: paragraph
+bundle: profiles_list
+mode: default
+content:
+  field_limit_list:
+    type: number
+    weight: 6
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_list_type:
+    type: options_select
+    weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_page_family:
+    type: entity_reference_autocomplete
+    weight: 4
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_placement_tag:
+    type: entity_reference_autocomplete
+    weight: 3
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_profiles:
+    type: entity_reference_autocomplete
+    weight: 5
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_randomize:
+    type: boolean_checkbox
+    weight: 7
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_widget_title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  field_list_widget: true
+  status: true

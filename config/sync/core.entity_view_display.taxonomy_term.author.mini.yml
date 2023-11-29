@@ -1,0 +1,52 @@
+uuid: 835e8fe0-00ae-48bd-823b-3c3eb8ce80eb
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.taxonomy_term.mini
+    - field.field.taxonomy_term.author.field_author_name
+    - field.field.taxonomy_term.author.field_description
+    - field.field.taxonomy_term.author.field_image
+    - field.field.taxonomy_term.author.field_profile
+    - taxonomy.vocabulary.author
+  module:
+    - layout_builder
+third_party_settings:
+  layout_builder:
+    enabled: false
+    allow_custom: false
+id: taxonomy_term.author.mini
+targetEntityType: taxonomy_term
+bundle: author
+mode: mini
+content:
+  field_author_name:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_image:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: 42x42
+      link: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_profile:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: mini
+      link: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  description: true
+  field_description: true
+  search_api_excerpt: true

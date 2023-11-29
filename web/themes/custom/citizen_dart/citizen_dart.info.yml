@@ -7,11 +7,14 @@ core_version_requirement: ^10
 libraries:
   - citizen_dart/global
   - citizen_dart/fonts
+  - citizen_dart/announcements
+  - citizen_dart/omnilert
 ckeditor5-stylesheets:
   - dist/cke.css
 base theme: stable9
 hidden: false
 regions:
+  admin: Admin
   alert: Alert 
   header: Header 
   content: Content

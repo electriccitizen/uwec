@@ -1,0 +1,21 @@
+uuid: 6987df6f-b16b-47bf-ad24-d64f2ead3757
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_is_alumni
+    - node.type.bios
+id: node.bios.field_is_alumni
+field_name: field_is_alumni
+entity_type: node
+bundle: bios
+label: 'Alumni?'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

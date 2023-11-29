@@ -23,23 +23,26 @@ $pagerLine: 3rem;
 	}
 }
 
-/* RESULTS (PAGE X OF & RESULTS X-X OF)
-------------------------- */
-
-.results-count,.count-shim{
-	display: none;
-}
-.results-count-wrapper{
-	font-weight: $heavy;
-	margin-bottom: $spaceSm;
-	width: 100%;
-	text-align: center;
-	@include tab{
-		width: 50%;
-		text-align: left;
+@mixin prevLink{
+	background-image: url(../images/arrows/pager-left.svg);
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: center;
+	&:hover,&:focus{
+		background-image: url(../images/arrows/pager-left-navy.svg);
+		@include transition(background-image, 0.3s, ease);
 	}
 }
-
+@mixin nextLink{
+	background-image: url(../images/arrows/pager-right.svg);
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: center;
+	&:hover,&:focus{
+		background-image: url(../images/arrows/pager-right-navy.svg);
+		@include transition(background-image, 0.3s, ease);
+	}
+}
 
 /* GLOBAL PAGER STYLING
 -------------------- */
@@ -63,11 +66,14 @@ $pagerLine: 3rem;
 /* FULL PAGER
 ---------------- */
 .pager{
-	border-top: 1px solid $borderRule;
-	padding-top: $spaceSm;
 	@include safeFlex(row,wrap,center,center);
 	.view-content + &{
 		margin-top: $spaceXl;
+	}
+	.pager__items{
+		padding: 10px 40px;
+		margin-bottom: 0;
+		background: $lightGrey;
 	}
 	.pager__item{
 		a{
@@ -83,76 +89,27 @@ $pagerLine: 3rem;
 				}
 			}
 		}
-		@include onlySmall{
-			&.pager__item--first{
-				display: none;
-			}
-			&.pager__item--last{
-				display: none;
-			}
-			&.pager__item--ellipsis{
-				display: none;
+		&.pager__item--ellipsis{
+			display: none;
+		}
+		&.pager__item--previous{
+			margin-right: 2rem;
+			& > a{
+				@include prevLink;
 			}
 		}
-		@include tab{
-			&.pager__item--previous{
-				padding-right: 2.5rem;
-			}
-			&.pager__item--next{
-				padding-left: 2.5rem;
+		&.pager__item--next{
+			margin-left: 2rem;
+			& > a{
+				@include nextLink;
 			}
 		}
 	}//end page number items
 
 	.disabled{
-		a{
-			color: $midGrey;
-			pointer-events: none;
-		}
+		@include visuallyHidden;
 	}
-
-	//hide all numbers by default for smart pager
-	.pager-smart{
-		.pager__number,.pager__current{
-			display: none;
-		}
-		.results-pager{
-			@include tab{
-				@include safeFlex(row,nowrap,justify,center);
-			}
-		}
-		.pager__current{
-			span{
-				display: inline;
-			}
-		}
-		.pager__item{
-			&.pager__item--previous{
-				padding-right: 2.5rem;
-			}
-			&.pager__item--next{
-				padding-left: 2.5rem;
-			}
-		}
-	}//end smart pager
-
-	//smart pager with more than 7 pages
-	&.results-pager{
-		@include onlyPhone{
-			.pager__number{
-				margin: 0 .5rem !important;
-			}
-			.pager__item{
-				&.pager__item--previous{
-					padding-right: 0;
-				}
-				&.pager__item--next{
-					padding-left: 0;
-				}
-			}
-		}
-	}
-}//end full .pager
+}//end full pager
 
 
 /* MINI PAGER
@@ -172,20 +129,16 @@ nav:not(.pager){
 			}
 		}
 	}//end js-pager-items
-}//end mini pager
-
-
-/* FLIPPY PAGER
-------------------- */
-ul.flippy{
-	@include listReset;
-	@include safeFlex(row,wrap,null,null);
-	li{
-		padding: 2rem 0;
-		width: 50%;
-		&.flippy-next{
-			text-align: right;
+	.pager__item{
+		&.pager__item--previous{
+			& > a{
+				@include prevLink;
+			}
+		}
+		&.pager__item--next{
+			& > a{
+				@include nextLink;
+			}
 		}
 	}
-}//end flippy
-
+}//end mini pager

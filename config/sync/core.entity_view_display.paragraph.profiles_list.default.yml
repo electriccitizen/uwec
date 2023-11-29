@@ -3,11 +3,86 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.paragraph.profiles_list.field_limit_list
+    - field.field.paragraph.profiles_list.field_list_type
+    - field.field.paragraph.profiles_list.field_list_widget
+    - field.field.paragraph.profiles_list.field_page_family
+    - field.field.paragraph.profiles_list.field_placement_tag
+    - field.field.paragraph.profiles_list.field_profiles
+    - field.field.paragraph.profiles_list.field_randomize
+    - field.field.paragraph.profiles_list.field_widget_title
     - paragraphs.paragraphs_type.profiles_list
+  module:
+    - options
 id: paragraph.profiles_list.default
 targetEntityType: paragraph
 bundle: profiles_list
 mode: default
-content: {  }
+content:
+  field_limit_list:
+    type: number_integer
+    label: hidden
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 6
+    region: content
+  field_list_type:
+    type: list_key
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_list_widget:
+    type: entity_reference_label
+    label: hidden
+    settings:
+      link: false
+    third_party_settings: {  }
+    weight: 8
+    region: content
+  field_page_family:
+    type: entity_reference_entity_id
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_placement_tag:
+    type: entity_reference_entity_id
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_profiles:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: teaser
+      link: false
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  field_randomize:
+    type: boolean
+    label: hidden
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 7
+    region: content
+  field_widget_title:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
 hidden:
   search_api_excerpt: true

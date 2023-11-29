@@ -12,7 +12,7 @@ dependencies:
 id: citizen_dart_mainnavigation_2
 theme: citizen_dart
 region: content
-weight: 0
+weight: -6
 provider: null
 plugin: 'menu_block:main'
 settings:

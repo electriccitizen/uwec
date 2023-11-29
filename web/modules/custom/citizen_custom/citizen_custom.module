@@ -46,6 +46,13 @@ function citizen_custom_theme() {
 		'data' => [],
       ],
     ],
+    'announcements_ajax'=>[
+      'render element'=>'children',
+      'template' => 'announcements-ajax',
+      'variables'=>[
+        'nids'=>[],
+      ],
+    ],
   ];
 }
 
@@ -219,9 +226,11 @@ function citizen_custom_field_widget_single_element_form_alter(&$element, FormSt
 function citizen_custom_views_pre_view($view, $display_id, &$args) {
 	// Alters views to accept fields from related paragraphs to be used for filters.
   if(isset($view->element['#name'])) {
-    if ((($view->element['#name'] === 'news') && ($view->current_display === 'recent_three')) || (($view->element['#name'] === 'news') && ($view->current_display === 'recent_two')) || (($view->element['#name'] === 'video_cards') && ($view->current_display === 'recent_three'))) {
+    if ((($view->element['#name'] === 'facts') && ($view->current_display === 'list')) || (($view->element['#name'] === 'news') && ($view->current_display === 'recent_three')) || (($view->element['#name'] === 'news') && ($view->current_display === 'recent_two')) || (($view->element['#name'] === 'video_cards') && ($view->current_display === 'recent_three')) || (($view->element['#name'] === 'bios') && ($view->current_display === 'profiles_list')) || (($view->element['#name'] === 'snapshots') && ($view->current_display === 'list'))) {
       $filters = $view->display_handler->getOption('filters');
+      $sorts = $view->display_handler->getOption('sorts');
       $paragraph_id = $view->args[0];
+
       if ($paragraph_id){
         $paragraph = Paragraph::load($paragraph_id);
         //unset or alter placement tag filter
@@ -253,7 +262,8 @@ function citizen_custom_views_pre_view($view, $display_id, &$args) {
             unset($filters['field_page_families_target_id']);
           }
         }//end page families filter
-        if($paragraph->field_type[0]){
+
+        if(isset($paragraph->field_type[0])){
           //make an array out of the type set in the paragraph
           $types = [];
           foreach ($paragraph->field_type as $delta => $type) {
@@ -269,7 +279,44 @@ function citizen_custom_views_pre_view($view, $display_id, &$args) {
             unset($filters['field_story_type_target_id']);
           }
         }//end filter
+
+        // make the view's snapshot_type filter match what the user selected in the paragraph
+        if(isset($paragraph->field_snapshot_type[0])){
+          // make an array out of the snapshot type set in the paragraph
+          $snapshot_types = [];
+          foreach($paragraph->field_snapshot_type as $delta => $snapshot_type){
+            $snapshot_types[] = $snapshot_type->target_id;
+          }
+
+          // replace the snapshot_type_target_id filter with the paragraph's snapshot type
+          if(isset($filters['field_snapshot_type_target_id'])){
+            $filters['field_snapshot_type_target_id']['value'] = $snapshot_types;
+          }
+        }else{
+          // the snapshot type field is not set in the paragraph, so unset it in the view
+          if(isset($filters['field_snapshot_type_target_id'])){
+            unset($filters['field_snapshot_type_target_id']);
+          }
+        }
+
         $view->display_handler->setOption('filters', $filters);
+
+        // change the pager if the paragraph has a limit lists field used
+				if(isset($paragraph->field_limit_list[0]) && $paragraph->field_limit_list[0]->value != 0){
+					$per_page = $paragraph->field_limit_list[0]->value;
+					$pager = $view->display_handler->getOption('pager');
+					$pager['type'] = 'some';
+					$view->setItemsPerPage($per_page);
+					$view->display_handler->setOption('pager', $pager);
+				}
+
+				// change the sort on profiles lists view if randomize is used on the profiles list paragraph
+				if(isset($paragraph->field_randomize[0]) && $paragraph->field_randomize[0]->value == '1'){
+					unset($sorts['field_last_name_value']);
+				}else{
+					unset($sorts['random']);
+				}
+				$view->display_handler->setOption('sorts', $sorts);
       }
     }
   }

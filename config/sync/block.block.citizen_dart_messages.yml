@@ -10,8 +10,8 @@ _core:
   default_config_hash: xMERQgMHwy051TlzN3EDxHOmu97SHW9VgaePNStZc0w
 id: citizen_dart_messages
 theme: citizen_dart
-region: content
-weight: -5
+region: admin
+weight: -7
 provider: null
 plugin: system_messages_block
 settings:

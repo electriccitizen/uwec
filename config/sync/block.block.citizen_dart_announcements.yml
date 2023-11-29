@@ -1,0 +1,20 @@
+uuid: 1220a837-fe9b-45da-95d7-1007daad7c67
+langcode: en
+status: true
+dependencies:
+  module:
+    - citizen_custom
+  theme:
+    - citizen_dart
+id: citizen_dart_announcements
+theme: citizen_dart
+region: alert
+weight: -7
+provider: null
+plugin: announcements
+settings:
+  id: announcements
+  label: Announcements
+  label_display: '0'
+  provider: citizen_custom
+visibility: {  }

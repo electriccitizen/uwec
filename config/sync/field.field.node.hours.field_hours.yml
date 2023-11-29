@@ -31,17 +31,56 @@ settings:
       accordions:
         weight: 15
         enabled: false
-      content_placer:
-        weight: 17
+      block_placer:
+        weight: 41
+        enabled: false
+      button:
+        weight: 42
+        enabled: false
+      contact_placer:
+        weight: 43
+        enabled: false
+      content_carousel:
+        weight: 44
+        enabled: false
+      cta_item:
+        weight: 46
+        enabled: false
+      ctas:
+        weight: 45
         enabled: false
       custom_embed:
         weight: 18
+        enabled: false
+      events_list:
+        weight: 48
+        enabled: false
+      facts_list:
+        weight: 49
+        enabled: false
+      fauxfile:
+        weight: 50
+        enabled: false
+      fauxfile_item:
+        weight: 51
         enabled: false
       gallery:
         weight: 19
         enabled: false
       gallery_item:
         weight: 20
+        enabled: false
+      hallmark:
+        weight: 54
+        enabled: false
+      hero:
+        weight: 55
+        enabled: false
+      highlight_box:
+        weight: 56
+        enabled: false
+      hours_placer:
+        weight: 57
         enabled: false
       hours_set:
         weight: 21
@@ -52,19 +91,52 @@ settings:
       layout_section:
         weight: 23
         enabled: false
-      layout_section_single:
-        weight: 24
-        enabled: false
       links_files:
         weight: 25
         enabled: false
+      profiles_list:
+        weight: 62
+        enabled: false
+      program_search:
+        weight: 63
+        enabled: false
+      quote:
+        weight: 64
+        enabled: false
+      select_item:
+        weight: 65
+        enabled: false
+      select_type:
+        weight: 66
+        enabled: false
+      snapshot_list:
+        weight: 67
+        enabled: false
       social_media_links:
         weight: 26
+        enabled: false
+      step_item:
+        weight: 70
+        enabled: false
+      steps:
+        weight: 69
+        enabled: false
+      stories_video_list:
+        weight: 71
+        enabled: false
+      testimonial_placer:
+        weight: 72
         enabled: false
       text:
         weight: 27
         enabled: false
       video:
         weight: 28
+        enabled: false
+      view_placer:
+        weight: 75
+        enabled: false
+      wayfinding:
+        weight: 76
         enabled: false
 field_type: entity_reference_revisions

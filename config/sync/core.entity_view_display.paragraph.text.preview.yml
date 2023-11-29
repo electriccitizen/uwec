@@ -22,9 +22,10 @@ bundle: text
 mode: preview
 content:
   field_long_text:
-    type: text_default
+    type: text_trimmed
     label: hidden
-    settings: {  }
+    settings:
+      trim_length: 180
     third_party_settings: {  }
     weight: 0
     region: content

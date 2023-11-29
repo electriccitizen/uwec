@@ -1,0 +1,27 @@
+uuid: 11ac57de-bcfc-458a-98e4-d5e775f7c473
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_cv
+    - node.type.bios
+  module:
+    - file
+id: node.bios.field_cv
+field_name: field_cv
+entity_type: node
+bundle: bios
+label: CV
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:file'
+  handler_settings: {  }
+  file_directory: profile-file-uploads
+  file_extensions: 'pdf doc docx txt'
+  max_filesize: '10 MB'
+  description_field: false
+field_type: file

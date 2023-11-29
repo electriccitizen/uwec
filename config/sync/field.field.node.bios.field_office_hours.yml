@@ -1,0 +1,19 @@
+uuid: 21df14d3-dbef-4dea-ae74-e1b75ef20a9c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_office_hours
+    - node.type.bios
+id: node.bios.field_office_hours
+field_name: field_office_hours
+entity_type: node
+bundle: bios
+label: Hours
+description: "<strong>Example:</strong></br>\r\nSpring semester 2023:</br>\r\nWednesdays 12:30-2:30pm</br>\r\nand by appointment"
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

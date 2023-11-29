@@ -8,12 +8,16 @@ dependencies:
     - field.field.node.department.field_domain_access
     - field.field.node.department.field_domain_all_affiliates
     - field.field.node.department.field_domain_source
-    - field.field.node.department.field_editorial_sections
+    - field.field.node.department.field_hallmarks
     - field.field.node.department.field_metatags
     - field.field.node.department.layout_builder__layout
     - node.type.department
     - system.menu.departments
+    - views.view.bios
+    - views.view.contact_hours
+    - views.view.facts
   module:
+    - entity_reference_revisions
     - layout_builder
     - layout_builder_restrictions
     - layout_discovery
@@ -21,6 +25,7 @@ dependencies:
     - metatag
     - text
     - user
+    - views
   theme:
     - citizen_dart
 third_party_settings:
@@ -69,6 +74,25 @@ third_party_settings:
                 third_party_settings: {  }
             weight: 3
             additional: {  }
+          3037c218-b849-40b4-b4eb-82a887b60c9b:
+            uuid: 3037c218-b849-40b4-b4eb-82a887b60c9b
+            region: content
+            configuration:
+              id: 'field_block:node:department:field_hallmarks'
+              label: Hallmarks
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: entity_reference_revisions_entity_view
+                label: hidden
+                settings:
+                  view_mode: default
+                third_party_settings: {  }
+            weight: 4
+            additional: {  }
         third_party_settings: {  }
       -
         layout_id: two_column_sidebar_left
@@ -115,6 +139,52 @@ third_party_settings:
             weight: 0
             additional: {  }
         third_party_settings: {  }
+      -
+        layout_id: layout_onecol
+        layout_settings:
+          label: ''
+          context_mapping: {  }
+        components:
+          7677247c-5b0d-456f-b867-41bcff93daeb:
+            uuid: 7677247c-5b0d-456f-b867-41bcff93daeb
+            region: content
+            configuration:
+              id: 'views_block:bios-department_faculty'
+              label: ''
+              label_display: '0'
+              provider: views
+              context_mapping: {  }
+              views_label: ''
+              items_per_page: none
+            weight: 0
+            additional: {  }
+          bc63b224-5b3a-4096-8576-b8b5886b3340:
+            uuid: bc63b224-5b3a-4096-8576-b8b5886b3340
+            region: content
+            configuration:
+              id: 'views_block:facts-recent_by_tag'
+              label: ''
+              label_display: '0'
+              provider: views
+              context_mapping: {  }
+              views_label: ''
+              items_per_page: none
+            weight: 1
+            additional: {  }
+          7991f535-8bd2-4cc6-8413-068c5fbdcacd:
+            uuid: 7991f535-8bd2-4cc6-8413-068c5fbdcacd
+            region: content
+            configuration:
+              id: 'views_block:contact_hours-by_tag'
+              label: ''
+              label_display: '0'
+              provider: views
+              context_mapping: {  }
+              views_label: ''
+              items_per_page: none
+            weight: 2
+            additional: {  }
+        third_party_settings: {  }
   layout_builder_restrictions:
     allowed_block_categories: {  }
     entity_view_mode_restriction:
@@ -149,13 +219,14 @@ content:
     third_party_settings: {  }
     weight: 104
     region: content
-  field_editorial_sections:
-    type: entity_reference_label
+  field_hallmarks:
+    type: entity_reference_revisions_entity_view
     label: above
     settings:
-      link: true
+      view_mode: default
+      link: ''
     third_party_settings: {  }
-    weight: 102
+    weight: 105
     region: content
   field_metatags:
     type: metatag_empty_formatter

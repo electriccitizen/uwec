@@ -5,12 +5,43 @@ dependencies:
   config:
     - field.field.taxonomy_term.page_families.field_contact
     - field.field.taxonomy_term.page_families.field_hours
+    - field.field.taxonomy_term.page_families.field_platforms
     - taxonomy.vocabulary.page_families
+  module:
+    - link
 id: taxonomy_term.page_families.default
 targetEntityType: taxonomy_term
 bundle: page_families
 mode: default
 content:
+  field_contact:
+    type: entity_reference_autocomplete
+    weight: 1
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_hours:
+    type: entity_reference_autocomplete
+    weight: 2
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_platforms:
+    type: link_default
+    weight: 3
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
   name:
     type: string_textfield
     weight: 0
@@ -21,7 +52,5 @@ content:
     third_party_settings: {  }
 hidden:
   description: true
-  field_contact: true
-  field_hours: true
   path: true
   status: true

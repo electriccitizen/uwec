@@ -17,6 +17,16 @@ button[disabled]:hover,button.disabled:hover{
 	background-color: transparent !important;
 }
 
+/* FIX CKE MODALS HIDING BEHIND OTHER MODALS
+------------------ */
+.ck.ck-balloon-panel{
+	z-index: 1261 !important;
+}
+
+.role-personnel .ck.ck-button.ck-source-editing-button,.role-editor .ck.ck-button.ck-source-editing-button,.role-marketing_editor .ck.ck-button.ck-source-editing-button,.role-section_manager .ck.ck-button.ck-source-editing-button{
+	display: none;
+}
+
 /* ADJUST MEDIA LIBRARY
 ----------------------- */
 #media-library-wrapper{
@@ -130,7 +140,7 @@ button[disabled]:hover,button.disabled:hover{
 .lpb-component-list .lpb-component-list__group > .lpb-component-list__group--content > .type-hallmark > a:before{
   background-image: url('../icons/paragraphs/hallmark.svg');
 }
-.lpb-component-list .lpb-component-list__group > .lpb-component-list__group--content > .type-hightlight_box > a:before{
+.lpb-component-list .lpb-component-list__group > .lpb-component-list__group--content > .type-highlight_box > a:before{
   background-image: url('../icons/paragraphs/highlight-box.svg');
 }
 .lpb-component-list .lpb-component-list__group > .lpb-component-list__group--content > .type-hours_placer > a:before{

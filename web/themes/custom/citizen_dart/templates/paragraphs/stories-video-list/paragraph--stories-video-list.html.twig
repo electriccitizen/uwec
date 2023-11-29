@@ -39,7 +39,7 @@
 
 {# check for a paragraph id #}
 {% if paragraph.id.value %}
-	{% if drupal_view('video_cards','recent_three', paragraph.id.value)|render|striptags|trim|length > 0 or drupal_view('news','recent_two', paragraph.id.value)|render|striptags|trim|length > 0 %} 
+	{% if (content.field_list_type.0['#markup'] == 'manual') or (drupal_view('video_cards','recent_three', paragraph.id.value)|render|striptags|trim|length > 0) or (drupal_view('news','recent_two', paragraph.id.value)|render|striptags|trim|length > 0) %} 
 		<div class="paragraph paragraph--type--stories-video-list custom-views-list" data-quickedit-entity-id="paragraph/{{ paragraph.id.value }}">
 				{{ content.field_widget_title }}
 

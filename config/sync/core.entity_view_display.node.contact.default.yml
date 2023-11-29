@@ -5,15 +5,14 @@ dependencies:
   config:
     - field.field.node.contact.body
     - field.field.node.contact.field_address
-    - field.field.node.contact.field_college
-    - field.field.node.contact.field_department
     - field.field.node.contact.field_domain_access
     - field.field.node.contact.field_domain_all_affiliates
     - field.field.node.contact.field_domain_source
     - field.field.node.contact.field_editorial_sections
     - field.field.node.contact.field_email
-    - field.field.node.contact.field_fax
+    - field.field.node.contact.field_page_families
     - field.field.node.contact.field_phone
+    - field.field.node.contact.field_placement_tags
     - field.field.node.contact.layout_builder__layout
     - node.type.contact
   module:
@@ -24,20 +23,22 @@ dependencies:
     - telephone
     - text
     - user
+  theme:
+    - citizen_dart
 third_party_settings:
   layout_builder:
     enabled: true
     allow_custom: false
     sections:
       -
-        layout_id: layout_onecol
+        layout_id: two_column_even
         layout_settings:
-          label: 'Section 1'
+          label: ''
           context_mapping: {  }
         components:
           e35fdf78-2ee4-46e4-b6e0-6d528c98e8c8:
             uuid: e35fdf78-2ee4-46e4-b6e0-6d528c98e8c8
-            region: content
+            region: first
             configuration:
               id: 'field_block:node:contact:title'
               label: Title
@@ -53,81 +54,6 @@ third_party_settings:
                   link_to_entity: false
                 third_party_settings: {  }
             weight: 0
-            additional: {  }
-          a4c43c43-0654-41ab-8f40-dd174c862c77:
-            uuid: a4c43c43-0654-41ab-8f40-dd174c862c77
-            region: content
-            configuration:
-              id: 'field_block:node:contact:field_college'
-              label: College
-              label_display: '0'
-              provider: layout_builder
-              context_mapping:
-                entity: layout_builder.entity
-                view_mode: view_mode
-              formatter:
-                type: entity_reference_label
-                label: hidden
-                settings:
-                  link: true
-                third_party_settings: {  }
-            weight: 1
-            additional: {  }
-          deb94625-df9f-49b9-be0b-70a21be7cb56:
-            uuid: deb94625-df9f-49b9-be0b-70a21be7cb56
-            region: content
-            configuration:
-              id: 'field_block:node:contact:field_email'
-              label: Email
-              label_display: '0'
-              provider: layout_builder
-              context_mapping:
-                entity: layout_builder.entity
-                view_mode: view_mode
-              formatter:
-                type: email_mailto
-                label: hidden
-                settings: {  }
-                third_party_settings: {  }
-            weight: 2
-            additional: {  }
-          6f5ab64e-9438-4ee5-8e19-e445a57668e9:
-            uuid: 6f5ab64e-9438-4ee5-8e19-e445a57668e9
-            region: content
-            configuration:
-              id: 'field_block:node:contact:field_phone'
-              label: Phone
-              label_display: '0'
-              provider: layout_builder
-              context_mapping:
-                entity: layout_builder.entity
-                view_mode: view_mode
-              formatter:
-                type: telephone_link
-                label: hidden
-                settings:
-                  title: ''
-                third_party_settings: {  }
-            weight: 3
-            additional: {  }
-          69b5e6c5-dad1-4c55-b91c-b7bba48b8233:
-            uuid: 69b5e6c5-dad1-4c55-b91c-b7bba48b8233
-            region: content
-            configuration:
-              id: 'field_block:node:contact:field_fax'
-              label: Fax
-              label_display: '0'
-              provider: layout_builder
-              context_mapping:
-                entity: layout_builder.entity
-                view_mode: view_mode
-              formatter:
-                type: telephone_link
-                label: inline
-                settings:
-                  title: ''
-                third_party_settings: {  }
-            weight: 4
             additional: {  }
           89e7717b-6dfc-4bc2-a412-17f82ffc0cfb:
             uuid: 89e7717b-6dfc-4bc2-a412-17f82ffc0cfb
@@ -145,7 +71,89 @@ third_party_settings:
                 label: hidden
                 settings: {  }
                 third_party_settings: {  }
-            weight: 5
+            weight: 0
+            additional: {  }
+          6f5ab64e-9438-4ee5-8e19-e445a57668e9:
+            uuid: 6f5ab64e-9438-4ee5-8e19-e445a57668e9
+            region: content
+            configuration:
+              id: 'field_block:node:contact:field_phone'
+              label: Phone
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: string
+                label: hidden
+                settings:
+                  link_to_entity: false
+                third_party_settings: {  }
+            weight: 1
+            additional: {  }
+          deb94625-df9f-49b9-be0b-70a21be7cb56:
+            uuid: deb94625-df9f-49b9-be0b-70a21be7cb56
+            region: content
+            configuration:
+              id: 'field_block:node:contact:field_email'
+              label: Email
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: basic_string
+                label: hidden
+                settings: {  }
+                third_party_settings: {  }
+            weight: 2
+            additional: {  }
+        third_party_settings: {  }
+      -
+        layout_id: layout_onecol
+        layout_settings:
+          label: ''
+          context_mapping: {  }
+        components:
+          eee4fa43-d739-4312-a7fa-5689b7e1d736:
+            uuid: eee4fa43-d739-4312-a7fa-5689b7e1d736
+            region: content
+            configuration:
+              id: 'field_block:node:contact:field_page_families'
+              label: 'Page Families'
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: entity_reference_label
+                label: inline
+                settings:
+                  link: false
+                third_party_settings: {  }
+            weight: 1
+            additional: {  }
+          920c4276-f744-4cf1-9fff-5b37bdbfa274:
+            uuid: 920c4276-f744-4cf1-9fff-5b37bdbfa274
+            region: content
+            configuration:
+              id: 'field_block:node:contact:field_placement_tags'
+              label: 'Placement tags'
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: entity_reference_label
+                label: inline
+                settings:
+                  link: false
+                third_party_settings: {  }
+            weight: 0
             additional: {  }
         third_party_settings: {  }
   layout_builder_restrictions:
@@ -179,22 +187,6 @@ content:
     third_party_settings: {  }
     weight: 106
     region: content
-  field_college:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 102
-    region: content
-  field_department:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 108
-    region: content
   field_editorial_sections:
     type: entity_reference_label
     label: above
@@ -210,12 +202,13 @@ content:
     third_party_settings: {  }
     weight: 103
     region: content
-  field_fax:
-    type: basic_string
+  field_page_families:
+    type: entity_reference_label
     label: above
-    settings: {  }
+    settings:
+      link: true
     third_party_settings: {  }
-    weight: 105
+    weight: 108
     region: content
   field_phone:
     type: telephone_link
@@ -224,6 +217,14 @@ content:
       title: ''
     third_party_settings: {  }
     weight: 104
+    region: content
+  field_placement_tags:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 103
     region: content
   links:
     settings: {  }

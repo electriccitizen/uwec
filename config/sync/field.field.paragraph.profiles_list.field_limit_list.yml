@@ -1,0 +1,23 @@
+uuid: 332f8d76-6319-44dd-942a-b60ff6f115e8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_limit_list
+    - paragraphs.paragraphs_type.profiles_list
+id: paragraph.profiles_list.field_limit_list
+field_name: field_limit_list
+entity_type: paragraph
+bundle: profiles_list
+label: 'Limit List'
+description: 'Limit the profiles list to a certain number. Should be used with randomize. Will not work with manually selected profiles.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer
