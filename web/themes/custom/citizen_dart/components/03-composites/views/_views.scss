@@ -6,6 +6,7 @@
 ------------------- */
 @forward 'profiles/profiles-views';
 @forward 'stories/stories-views';
+@forward 'snapshots/snapshots-views';
 
 @use '../../00-base/base' as *;
 

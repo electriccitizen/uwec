@@ -1,9 +1,9 @@
-uuid: e99dc6fb-5c69-47ce-b7de-f57a2e2c64f0
+uuid: b1c8a5d2-e90a-465b-a186-161e9f4d8695
 langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_view_mode.node.teaser
+    - core.entity_view_mode.node.widget
     - field.field.node.snapshot.field_domain_access
     - field.field.node.snapshot.field_domain_all_affiliates
     - field.field.node.snapshot.field_domain_source
@@ -20,18 +20,39 @@ dependencies:
     - field.field.node.snapshot.layout_builder__layout
     - node.type.snapshot
   module:
+    - layout_builder
+    - layout_builder_restrictions
     - link
     - user
-id: node.snapshot.teaser
+third_party_settings:
+  layout_builder:
+    enabled: false
+    allow_custom: false
+  layout_builder_restrictions:
+    allowed_block_categories: {  }
+    entity_view_mode_restriction:
+      allowed_layouts: {  }
+      denylisted_blocks: {  }
+      allowlisted_blocks: {  }
+      restricted_categories: {  }
+id: node.snapshot.widget
 targetEntityType: node
 bundle: snapshot
-mode: teaser
+mode: widget
 content:
+  field_eyebrow:
+    type: entity_reference_label
+    label: hidden
+    settings:
+      link: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
   field_image:
     type: entity_reference_entity_view
     label: hidden
     settings:
-      view_mode: 240x240
+      view_mode: 492x492
       link: false
     third_party_settings: {  }
     weight: 0
@@ -40,20 +61,20 @@ content:
     type: link
     label: hidden
     settings:
-      trim_length: 80
+      trim_length: null
       url_only: false
       url_plain: false
-      rel: ''
-      target: ''
+      rel: '0'
+      target: '0'
     third_party_settings: {  }
-    weight: 2
+    weight: 3
     region: content
   field_plain_text:
     type: basic_string
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 1
+    weight: 2
     region: content
 hidden:
   content_moderation_control: true
@@ -61,7 +82,6 @@ hidden:
   field_domain_all_affiliates: true
   field_domain_source: true
   field_entry_year: true
-  field_eyebrow: true
   field_list_widget: true
   field_metatags: true
   field_page_families: true
