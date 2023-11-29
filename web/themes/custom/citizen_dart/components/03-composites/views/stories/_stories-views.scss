@@ -30,3 +30,53 @@
 		}
 	}
 }//end news recent two
+
+/* FEATURED NEWS */
+.news.featured-stories{
+	.view-content{
+		@include safeFlex(row,wrap,center,center);
+		& > .views-row{
+			&:first-of-type{
+				width: 100%;
+				& > .views-field{
+					width: 66.66%;
+					@include auto;
+				}
+			}
+		}
+	}
+}//end news recent three
+
+/* ALL NEWS */
+.news.all-news{
+	.views-exposed-form{
+		@include exposedForm;
+		@include safeFlex(column,wrap,start,start);
+		.form-item-combine{
+			width: 100%;
+	    max-width: none;
+			border-bottom: 1px solid darkGray;
+			padding-bottom: 3rem;
+		}
+		input[type="text"]{
+			border-radius: 30px;
+			border: 0;
+			min-height: 0;
+		}
+		.js-form-type-select{
+			max-width: none;
+			.select2-selection{
+				border: 0;
+			}
+		}
+	}
+	.view-content{
+		@include bleed(padding,24px);
+		& > .views-row{
+			width: 100%;
+			@include tab{
+				width: 33.33%;
+			}
+		}
+	}
+}//end all news

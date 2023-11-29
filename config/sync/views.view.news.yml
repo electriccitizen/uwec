@@ -673,7 +673,7 @@ display:
           exposed: true
           expose:
             operator_id: combine_op
-            label: Keyword(s)
+            label: Keyword
             description: ''
             use_operator: false
             operator: combine_op
@@ -692,7 +692,7 @@ display:
               section_manager: '0'
               marketing_editor: '0'
               personnel: '0'
-            placeholder: ''
+            placeholder: 'Enter keyword(s)'
           is_grouped: false
           group_info:
             label: ''
@@ -722,7 +722,7 @@ display:
           exposed: true
           expose:
             operator_id: field_story_type_target_id_op
-            label: 'Story Type'
+            label: Category
             description: ''
             use_operator: false
             operator: field_story_type_target_id_op
@@ -1084,7 +1084,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "<div class=\"title\">{{ title }}</div>\r\n{{ created }}\r\n{% if field_intro_text %}\r\n<div class=\"field_intro_text\">{{ field_intro_text }}</div>\r\n{% endif %}\r\n"
+            text: "<div class=\"title\">{{ title }}</div>\r\n{% if field_intro_text %}\r\n<div class=\"field_intro_text\">{{ field_intro_text }}</div>\r\n{% endif %}\r\n"
             make_link: false
             path: ''
             absolute: false
