@@ -70,12 +70,11 @@ class ProfileSyncService {
 
         }
       } else {
+        // todo exclude emeritus and alumni
         $user = $this->createUser($profile);
         // create authmap record
         $this->createOrUpdateAuthMapRecord($user);
       }
-
-
 
       if ($existingNode) {
         // Update existing Profile node, if endpoint data has been updated since last import
@@ -324,42 +323,60 @@ class ProfileSyncService {
     return $user;
   }
 
+  /**
+   * Creates or updates authmap record for active users.
+   *
+   * @param $user
+   *
+   * @return void
+   * @throws \Exception
+   */
   protected function createOrUpdateAuthMapRecord($user) {
     $uid = $user->id();
+    $username = $user->getAccountName();
 
     if ($uid) {
       // User exists, update authmap.
-      $authmap_exists = $this->getExistingAuthMap($uid);
+      $authname = $this->getExistingAuthname($uid);
 
-      if (!$authmap_exists) {
+      if (!$authname) {
         // Authmap record doesn't exist, create a new one.
         Database::getConnection()
           ->insert('authmap')
           ->fields([
             'uid' => $uid,
-            'authname' => $user->get('username'),
-            'module' => 'saml_auth'
+            'provider' => 'saml_auth',
+            'authname' => $username,
+            'data' => 'N;',
           ])
+          ->execute();
+      } elseif ($authname !== $username) {
+        // Athena username has changed, update authname to match
+        Database::getConnection()
+          ->update('authmap')
+          ->fields(['authname' => $username])
+          ->condition('uid', $uid)
           ->execute();
       }
     }
   }
 
-  protected function getExistingAuthMap($uid) {
+  /**
+   * Returns exisiting authname from authmap or false if no record.
+   *
+   * @param $uid
+   *
+   * @return array|bool|mixed
+   */
+  protected function getExistingAuthname($uid) {
     $query = Database::getConnection()
       ->select('authmap', 'am')
-      ->fields('authname')
+      ->fields('am', ['authname'])
       ->condition('am.uid', $uid);
 
     $result = $query->execute();
+    $resultArray = $result->fetchAssoc();
 
-    $authmap_record = $result->fetchAssoc();
-
-    if ($authmap_record) {
-      return $authmap_record;
-    } else {
-      return false;
-    }
-
+    return $resultArray ? reset($resultArray) : $resultArray;
   }
 }

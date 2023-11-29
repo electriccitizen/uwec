@@ -36,13 +36,14 @@ function citizen_profile_sync_cron() {
     $profiles = (array) $data;
 
 
-    //test code start
+    //todo test code start
     // let's not create all 1700+ for now
-    // removed after testing
-    $profiles = array_slice($profiles, 5, 10, true);
-    //test code end
+    // remove after testing
+    $profiles = array_slice($profiles, 0, 10, true);
+    //todo test code end
 
-    //todo use batch API for enetity creation and updating
+    //todo use batch API for entity creation and updating
+    // if needed
     //    if (false) {
     $profileSyncService->syncProfiles($profiles);
     //    }
@@ -58,7 +59,7 @@ function citizen_profile_sync_cron() {
 
   $inactive_query_string = $query_string . '&isactive=0';
   // todo remove after testing
-//  $inactive_query_string = $query_string . '&isactive=1';
+//    $inactive_query_string = $query_string . '&isactive=1';
   // todo end remove after testing
 
   $response = $http_client->get($url . $inactive_query_string);
@@ -72,7 +73,7 @@ function citizen_profile_sync_cron() {
     //test code start
     // let's not process all for now
     // remove after testing
-    $inactive_profiles = array_slice($inactive_profiles, 0, 15, true);
+    $inactive_profiles = array_slice($inactive_profiles, 0, 10, true);
     //test code end
 
     //todo use batch API for enetity creation and updating
