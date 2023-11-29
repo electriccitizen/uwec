@@ -1,0 +1,467 @@
+<?php
+
+namespace Drupal\city_migration\Plugin\migrate\process;
+
+use Drupal\citizen_migrate\CMProcess;
+use Drupal\citizen_migrate\Anchor;
+use Drupal\citizen_migrate\Image;
+use Drupal\migrate\MigrateException;
+use Drupal\migrate\MigrateExecutableInterface;
+use Drupal\migrate\Row;
+
+/**
+ * Processes the content in a text area field.
+ *
+ * @MigrateProcessPlugin (
+ *   id = "cm_text_processor"
+ * )
+ */
+class CmTextProcessor extends CMProcess {
+
+  /**
+   * The row value as a traversable DOMNode.
+   *
+   * @var \DOMDocument
+   */
+  private \DOMDocument $doc;
+
+  /**
+   * The row of data from the migration source.
+   *
+   * @var \Drupal\migrate\Row
+   */
+  private Row $row;
+
+  /**
+   * The list of tags to be transformed by the processor.
+   *
+   * @var array
+   */
+  private array $tags;
+
+  /**
+   * The list containing the data for all processed tags.
+   * @var array
+   */
+  private array $all_tag_data;
+
+  /**
+   * The array of files this page links to.
+   * Useful when moving links to documents to paragraph widgets.
+   *
+   * @var array
+   */
+  private array $pageLinks;
+
+  /**
+   * The array of images that appear on this page.
+   * Useful when moving inline images to paragraph widgets.
+   *
+   * @var array
+   */
+  private array $pageImages;
+
+  /**
+   * The array of divs that appear on this page.
+   *
+   * @var array
+   */
+  private array $pageDivs;
+
+  /**
+   * The array of divs that appear on this page.
+   *
+   * @var array
+   */
+  private array $pageShortcode;
+
+  /**
+   * The array of nodes to remove from this page.
+   *
+   * @var array
+   */
+  private array $remove;
+
+  public function transform($value, MigrateExecutableInterface $migrate_executable, Row $row, $destination_property) {
+    // Abort if processing is turned off.
+    if (!$this->configuration['process']) {
+      return $value;
+    }
+
+    // Get the storage service to hold all the processed tag data.
+    $storage = \Drupal::service('tempstore.private')->get('city_migration');
+    // Clear any data from the preceding row.
+    $this->all_tag_data = [];
+
+    $this->tags = [];
+    // Set 'log_data' to 'false' if not explicitly set in the migration.
+    $this->configuration['log_data'] = $this->configuration['log_data'] ?? 'false';
+    // Set 'log_to_console' to 'false if not explicitly set in the migration.
+    $this->configuration['log_to_console'] = $this->configuration['log_to_console'] ?? false;
+    // Run a quick check of the logging config.
+    $this->checkLogConfig();
+    // Assign the row to variable we can pass to functions.
+    $this->row = $row;
+
+    // Save config settings for post save operations.
+    $storage->set('log_to_console', $this->configuration['log_to_console']);
+    $storage->set('log_dir', $this->configuration['log_dir']);
+
+    // Add the tags to remove to a list for later processing.
+    foreach ($this->configuration['remove'] as $tag_name) {
+      $this->remove[$tag_name] = [];
+    }
+
+    // For logging/analysis purposes, get the source_id for each report row.
+    $this->pageLinks['source_id'] = $row->get('nid');
+    $this->pageImages['source_id'] = $row->get('nid');
+
+    // Create the DOM object for transformation.
+    $this->doc = new \DOMDocument(1.0, 'UTF-8');
+    @$this->doc->loadHTML(mb_convert_encoding($value, 'HTML-ENTITIES', 'UTF-8'));
+
+    // When removing/replacing DOMElements, list them in an array first
+    // then process them while iterating through the array.
+    // Otherwise, processing is faulty.
+    // Create the list of tag elements to transform keyed by tag name.
+    array_walk($this->configuration['tags'], function ($tag) {
+      foreach ($this->doc->getElementsByTagName($tag) as $node) {
+        $this->tags[$tag][] = $node;
+      }
+    });
+
+    // Perform the transformations on each tag/DOMElement.
+    foreach ($this->tags as $tag_name => $tags) {
+      array_walk($tags, function($tag, $index, $tag_name){
+        $element = NULL;
+        switch ($tag_name) {
+          case 'a':
+            // Abort if URL points to an external resource.
+            if ($this->isExternalUrl($tag)) break;
+
+            $element = Anchor::create($tag, $this->row, $this->configuration, $this->doc);
+            $tag_type = $element->processTag();
+
+            // Modify the tag for migration.
+            if ($tag_type == 'file' || $tag_type == 'page') {
+              $tag = $element->transformTag();
+            }
+
+            // Add 'empty' tags to the remove list.
+            if (isset($this->remove['a_empty']) && $tag_type == 'empty') {
+              $this->remove['a_empty'][] = $tag;
+            }
+
+            // If moving inline document links to paragraph widgets,
+            // add the file ID to the list of links on this page.
+            //          if ($node_type == 'file') {
+            //            $id = $a->get('data')['file_id'];
+            //            if (!empty($id)) {
+            //              $this->pageLinks['ids'][] = $id;
+            //            }
+            //          }
+            break;
+
+          case 'img':
+            // Abort if URL points to an external resource.
+            if ($this->isExternalUrl($tag)) break;
+
+            $element = Image::create($tag, $this->row, $this->configuration, $this->doc);
+            $img_status = $element->processTag();
+            try {
+              $img_alt = $element->saveAltText();
+            }
+            catch (Exception $exception) {
+              throw(new Exception($exception->getMessage()));
+            }
+
+            if (!isset($this->remove['img'])) {
+              // Replace the <img> tag with a <drupal-media> tag.
+              if ($img_status == 'active') {
+                $element->transformTag();
+              }
+            }
+            else {
+              // When moving inline images to paragraph widgets,
+              // add the image ID to the list of images appearing on this page.
+              if ($img_status == 'active') {
+                $src = $element->get('data')['src'];
+                if (!empty($src)) {
+                  $this->pageImages['imgs'][] = $src;
+                }
+              }
+              // Add the node to the remove list.
+              if (isset($this->remove['img'])) {
+                $this->remove['img'][] = $tag;
+              }
+            }
+            break;
+
+          case 'div':
+            $element = Div::create($tag, $this->row, $this->configuration, $this->doc);
+            $element->processTag();
+            $element->removeTag();
+            break;
+
+          case 'shortcode':
+            $element = Shortcode::create($tag, $this->row, $this->configuration, $this->doc);
+            $element->processTag();
+            $element->removeTag();
+            break;
+
+          case 'h3':
+          case 'h4':
+          case 'h5':
+          case 'h6':
+            $element = Heading::create($tag, $this->row, $this->configuration, $this->doc);
+            $element->processTag();
+            $element->transformTag();
+            break;
+        }
+        if (isset($element)) {
+          $this->all_tag_data[] = $element->getTagData();
+        }
+
+      }, $tag_name);
+    }
+
+
+    // Log the lists of page links and images.
+    if ($this->configuration['log_data'] == 'true') {
+      //      $this->logPageLinks();
+      //      $this->logPageImages();
+      //      $this->logPageDivs();
+      //     $this->logPageShortcode();
+    }
+
+    // Remove designated elements.
+    //    if (!empty($this->remove)) {
+    //      array_walk($this->remove, function ($array, $key) {
+    //        $this->cleanup($array, $key);
+    //      });
+
+    // Add the list of tags to temp storage for post_row_save processing.
+    $storage->set('row_tags', $this->all_tag_data);
+    return $this->stripBodyTag($this->doc);
+  }
+
+  /**
+   * Checks a URL to see if it points to an external resource.
+   *
+   * @param \DOMElement $tag
+   *
+   * @return bool
+   */
+  public function isExternalUrl(\DOMElement $tag): bool {
+    $url = '';
+
+    switch ($tag->nodeName) {
+      case 'a':
+        $url = $tag->getAttribute('href');
+        break;
+
+      case 'img':
+        $url = $tag->getAttribute('src');
+        break;
+    }
+    $href_type = \Drupal::service('city_migration.tools')->urlType($url, $this->configuration['patterns']);
+
+    if (in_array($href_type, $this->configuration['href_ignore'])) {
+      return true;
+    }
+
+    return false;
+  }
+
+  /**
+   * Confirm the settings for analysis are correct.
+   */
+  public function checkLogConfig() {
+
+    // Check the log setting.
+    //    if (!in_array($this->configuration['log_data'], ['true', 'false'])) {
+    //      // Stop the migration.
+    //      throw new MigrateException('The "log_data" key must be set to either "true" or "false".');
+    //    }
+
+    // Disregard if log_data is NOT set to 'false'.
+    if (!$this->configuration['log_data'] == 'false') {
+      return FALSE;
+    }
+
+    // Verify a directory for log files has been specified.
+    if ($this->configuration['log_data'] && !isset($this->configuration['log_dir'])) {
+      // Stop the migration.
+      throw new MigrateException('Set log_data to false or specify a directory to save log files in.');
+    }
+  }
+
+  /**
+   * Removes listed elements from the DOM and logs them to a file.
+   *
+   * @param array $array
+   *   The list of DOMElement nodes to remove from the document.
+   * @param string $key
+   *   The key in the remove array. Represents the tags being removed.
+   */
+  private function cleanup(array $array, string $key) {
+    foreach ($array as $el) {
+      $removed = $this->removeNode($el);
+
+      if ($removed) {
+        $data['page_url'] = $this->row->get('url');
+        $data['url_reference'] = $removed->hasAttribute('href') ? $removed->getAttribute('href') : $removed->getAttribute('src');
+        $data['link_text'] = $removed->nodeValue;
+        $this->logToFile($data, 'removed_' . $key . '.csv', $key . ' removed.');
+      }
+    }
+  }
+
+  /**
+   * Logs the list of files this page links to.
+   * Used to move document links out of text content and into a paragraph.
+   */
+  private function logPageLinks() {
+
+    if (isset($this->pageLinks['ids']) && !empty($this->pageLinks['ids'])) {
+      // Collapse ids into a single string.
+      $file_ids = trim(implode('|', $this->pageLinks['ids']));
+
+      // Assign the string to the array.
+      $this->pageLinks['fileIDs'] = $file_ids;
+
+      // Remove the ids array.
+      unset($this->pageLinks['ids']);
+
+      // Log results to the file.
+      $this->logToFile($this->pageLinks, 'file_link_paragraphs.csv', 'Page links logged.');
+
+      // Remove all values for the next iteration.
+      unset($this->pageLinks);
+    }
+  }
+
+  /**
+   * Logs the list of images appearing on this page.
+   * Used to move images out of text content and move into a paragraph.
+   */
+  private function logPageImages() {
+
+    if (isset($this->pageImages['imgs']) && !empty($this->pageImages['imgs'])) {
+      // Collapse ids into a single string.
+      $img_ids = trim(implode('|', $this->pageImages['imgs']));
+
+      // Assign the string to the array.
+      $this->pageImages['imgSrc'] = $img_ids;
+
+      // Remove the ids array.
+      unset($this->pageImages['imgs']);
+
+      // Log results to the file.
+      $this->logToFile($this->pageImages, 'image_paragraphs.csv', 'Page images logged.');
+
+      // Remove all values for the next iteration.
+      unset($this->pageImages);
+    }
+  }
+
+  /**
+   * Logs the list of divs appearing on this page.
+   */
+  private function logPageDivs() {
+
+    if (isset($this->pageDivs['divs']) && !empty($this->pageDivs['divs'])) {
+      // Collapse ids into a single string.
+      //      $div_ids = trim(implode('|', $this->pageDivs['divs']));
+
+      // Assign the string to the array.
+      //      $this->pageDivs['div_list'] = $div_ids;
+
+      // Remove the ids array.
+      //      unset($this->pageDivs['divs']);
+
+      // Log results to the file.
+      $this->logToFile($this->pageDivs, 'div_content.csv', 'Page divs logged.');
+
+      // Remove all values for the next iteration.
+      unset($this->pageDivs);
+    }
+  }
+
+  /**
+   * Logs the list of shortcode appearing on this page.
+   */
+  private function logPageShortcode() {
+
+    if (isset($this->pageShortcode['sc_tags']) && !empty($this->pageShortcode['sc_tags'])) {
+      // Collapse ids into a single string.
+      //      $shortcode_elements = trim(implode('|', $this->pageShortcode['sc_tags']));
+
+      // Assign the string to the array.
+      //      $this->pageShortcode['elements'] = $shortcode_elements;
+
+      // Remove the ids array.
+      //      unset($this->pageShortcode['sc_tags']);
+
+      // Log results to the file.
+      $this->logToFile($this->pageShortcode, 'shortcode_content.csv', 'Page shortcode logged.');
+
+      // Remove all values for the next iteration.
+      unset($this->pageShortcode);
+    }
+  }
+
+
+  /**
+   * Logs tag data to a file for analysis.
+   *
+   * @param array $data
+   *   Information about this tag logged as a row in the file.
+   * @param string $file
+   *   The file name to write to.
+   * @param string $message
+   *   An optional message to output to the console.
+   */
+  protected function logToFile(array $data, string $file, string $message = '') {
+    $path = $this->configuration['log_dir'] . '/' . $file;
+    \Drupal::service('city_migration.tools')->logToFile($data, $path, $message);
+  }
+
+  /**
+   * Removes the element from the $doc.
+   *
+   * @param \DOMElement $tag
+   *   The element to remove.
+   *
+   * @return mixed
+   *   An attribute value of the removed tag.
+   */
+  private function removeNode(\DOMElement $tag) {
+    $parent = $tag->parentNode;
+    if (isset($parent)) {
+      return $tag->parentNode->removeChild($tag);
+    }
+    $data = [];
+    $data['tag'] = $tag->nodeName;
+    $data['page_url'] = $this->row->get('url');
+    $data['url_reference'] = $tag->hasAttribute('href') ? $tag->getAttribute('href') : $tag->getAttribute('src');
+    $data['error'] = 'Unable to remove tag.';
+    $this->logToFile($data, 'unremoved_tags.csv', 'Unable to remove empty reference to ' . $data['url_reference'] . '.');
+    return FALSE;
+  }
+
+  /**
+   * Remove the <body> tags from the $doc value.
+   *
+   * @param \DOMDocument $doc
+   *   The processed $doc value.
+   *
+   * @return array|string|string[]|null
+   *   The processed $doc value without the wrapping <body> tags.
+   */
+  private function stripBodyTag(\DOMDocument $doc) {
+    // We need to strip out the <body> tag which was added
+    // when we created the DOMDocument object.
+    return preg_replace('/<[\/]?body>/', '', $doc->saveHTML($doc->getElementsByTagName('body')->item(0)));
+  }
+}

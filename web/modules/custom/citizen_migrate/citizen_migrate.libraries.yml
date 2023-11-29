@@ -1,0 +1,15 @@
+# Custom module library for general purposes.
+migration-status-css:
+  version: 1.x
+  css:
+    theme:
+      css/citizen_migrate.css: {}
+citizen_migrate:
+  js:
+    js/citizen-migrate.js: {}
+  css:
+    component:
+      css/citizen-migrate.css: {}
+  dependencies:
+    - core/drupalSettings
+    - citizen_migrate/jquery-labelauty

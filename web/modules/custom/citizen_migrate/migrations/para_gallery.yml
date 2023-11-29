@@ -1,0 +1,181 @@
+id: gallery
+label: 'Gallery'
+
+# This migration will be run with all the other migrations in
+# the ECM group when using the --group tag in Drush.
+#
+# Example: fin drush migrate:import --group=ecm
+migration_group: ecm
+
+# This migration will be run with the other migrations when
+# this tag is called in Drush with any migrate command. Tags
+# allow you to create and run smaller migration clusters
+# of similar items.
+#
+# Example: files, media, taxonomy, etc.
+# @Drush: fin drush migrate:import --tag=files
+migration_tags:
+  - para
+
+# Adding dependencies allows migrations to be run in the proper
+# order when run as part of the ECM Group or in a tag.
+migration_dependencies:
+  required: { }
+#    - files_doc
+#    - files_img
+#    - media_doc
+#    - media_img
+#    - media_video
+#    - gallery_items
+  optional: { }
+
+# These keys hold the shared configuration used by this and other
+# migrations of this type. You can add or modify the keys in the
+# shared config file.
+#
+# @See citizen_migrate.migrate_shared_configuration.yml.
+include:
+  - cm_defaults
+  - json_defaults
+
+# Keys set here for source, process and destination will override
+# any keys with the same name set in the shared configuration.
+#
+# @See citizen_migrate.migrate_shared_configuration.yml.
+#
+# @ATTN: EMPTY KEYS WILL THROW AN EXCEPTION.
+# If you uncomment any of the source, process or destination keys,
+# you must put a field with a value.
+source:
+  plugin: uwec_url_paragraphs
+  urls: 'https://athena.apps.uwec.edu/api/pages.json'
+  row_id: 47
+  target_entity: gallery
+  source_log: 'gallerys.csv'
+  fields:
+    - name: parentId
+      label: 'Parent ID'
+      selector: parentId
+    - name: rowIndex
+      label: 'Row Index'
+      selector: rowIndex
+    - name: photos
+      label: 'Photos'
+      selector: photos
+#    - name: image_id
+#      label: 'Image ID'
+#      selector: image_id
+#    - name: image_title
+#      label: 'Image Title'
+#      selector: image_title
+#    - name: image_caption
+#      label: 'Image Caption'
+#      selector: image_caption
+  ids:
+    parentId:
+      type: integer
+    rowIndex:
+      type: integer
+
+# Add processing for fields specific to this content type.
+process:
+  type:
+    plugin: default_value
+    default_value: 'gallery'
+  parent_type:
+    plugin: default_value
+    default_value: node
+  parent_field_name:
+    plugin: default_value
+    default_value: field_paragraphs
+
+#  photos:
+#    plugin: sub_process
+#    source: photos
+#    process:
+#      image:
+#        plugin: callback
+#        callable: var_dump
+#        source: image_title
+#    -
+#      plugin: callback
+#      callable: var_dump
+#    -
+#      plugin: extract
+#      source: photos
+#      index:
+#        - image_id
+#  id_one:
+#    plugin: extract
+#    source: photos
+#    index:
+#      - id1
+#  id_two:
+#    plugin: extract
+#    source: photos
+#    index:
+#      - id3
+#  id_three:
+#    plugin: extract
+#    source: photos
+#    index:
+#      - id1
+  gallery_items:
+#    plugin: callback
+#    callable: var_dump
+#    source: photos
+    plugin: sub_process
+    source: photos
+    process:
+      id_one: id1
+      id_two: id2
+      id_three: id3
+  new_ids:
+    plugin: sub_process
+    source: '@gallery_items'
+    process:
+      value:
+        plugin: migration_lookup
+        migration: gallery_items
+        source:
+          - id_one
+          - id_two
+          - id_three
+
+  field_gallery_items:
+    - plugin: sub_process
+#      source: '@gallery_items'
+      source: '@new_ids'
+      process:
+#        new_id:
+#          plugin: migration_lookup
+#          migration: gallery_items
+#          source:
+#            - id_one
+#            - id_two
+#            - id_three
+        target_id:
+#          -
+#            plugin: single_value
+#            source: '@new_id'
+          -
+            plugin: extract
+            source: value
+            index:
+              - 0
+        target_revision_id:
+#          -
+#            plugin: single_value
+#            source: '@new_id'
+          -
+            plugin: extract
+            source: value
+            index:
+              - 1
+  test:
+    plugin: callback
+    callable: var_dump
+    source: '@field_gallery_items'
+destination:
+  plugin: entity_reference_revisions:paragraph
+  default_bundle: gallery

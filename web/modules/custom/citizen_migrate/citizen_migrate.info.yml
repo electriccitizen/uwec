@@ -1,0 +1,15 @@
+name: Citizen Migrate
+type: module
+description: Provides custom functionality for site migrations.
+package: Custom
+core_version_requirement: ^9 || ^10
+dependencies:
+  - drupal:migrate
+  - drupal:migrate_plus
+  - drupal:migrate_tools
+  - drupal:migrate_source_csv
+# Not necessary when source is not Drupal.
+#  - drupal:migrate_upgrade
+#  - drupal:migrate_drupal
+libraries:
+  - citizen_migrate/migration-status-css

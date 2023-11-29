@@ -1,0 +1,95 @@
+id: tabular_rte
+label: 'Tabuluar RTE'
+
+# This migration will be run with all the other migrations in
+# the ECM group when using the --group tag in Drush.
+#
+# Example: fin drush migrate:import --group=ecm
+migration_group: ecm
+
+# This migration will be run with the other migrations when
+# this tag is called in Drush with any migrate command. Tags
+# allow you to create and run smaller migration clusters
+# of similar items.
+#
+# Example: files, media, taxonomy, etc.
+# @Drush: fin drush migrate:import --tag=files
+migration_tags:
+  - para
+
+# Adding dependencies allows migrations to be run in the proper
+# order when run as part of the ECM Group or in a tag.
+migration_dependencies:
+  required:
+    - files_doc
+    - files_img
+    - media_doc
+    - media_img
+    - media_video
+  optional: { }
+
+# These keys hold the shared configuration used by this and other
+# migrations of this type. You can add or modify the keys in the
+# shared config file.
+#
+# @See citizen_migrate.migrate_shared_configuration.yml.
+include:
+  - cm_defaults
+  - json_defaults
+
+# Keys set here for source, process and destination will override
+# any keys with the same name set in the shared configuration.
+#
+# @See citizen_migrate.migrate_shared_configuration.yml.
+#
+# @ATTN: EMPTY KEYS WILL THROW AN EXCEPTION.
+# If you uncomment any of the source, process or destination keys,
+# you must put a field with a value.
+source:
+  plugin: uwec_url_paragraphs
+  urls: 'https://athena.apps.uwec.edu/api/pages.json'
+  row_id: 21
+  fields:
+    - name: parentId
+      label: 'Parent ID'
+      selector: parentId
+    - name: rowIndex
+      label: 'Row Index'
+      selector: rowIndex
+    - name: tabular_rte
+      label: 'Content'
+      selector: tabular_rte
+  ids:
+    parentId:
+      type: integer
+    rowIndex:
+      type: integer
+
+# Add processing for fields specific to this content type.
+process:
+  type:
+    plugin: default_value
+    default_value: 'text'
+  parent_type:
+    plugin: default_value
+    default_value: node
+  parent_field_name:
+    plugin: default_value
+    default_value: field_paragraphs
+
+  'field_long_text/value':
+    plugin: extract
+    source: tabular_rte
+    index:
+      - content
+  'field_long_text/format':
+    plugin: default_value
+    default_value: basic_html
+  field_widget_title:
+    plugin: default_value
+    default_value: ''
+
+
+destination:
+  plugin: entity_reference_revisions:paragraph
+  default_bundle: text
