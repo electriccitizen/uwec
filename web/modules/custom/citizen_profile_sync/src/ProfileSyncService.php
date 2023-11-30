@@ -142,6 +142,7 @@ class ProfileSyncService {
     ];
 
     $node = Node::create($node_values);
+    // todo change to user id from just created user?
     $node->setOwnerId(1);
     $node->save();
 
