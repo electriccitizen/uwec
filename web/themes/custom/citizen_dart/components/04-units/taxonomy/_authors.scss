@@ -1,0 +1,54 @@
+/* ===============
+   AUTHOR VOCABULARY
+================= */
+
+@use '../../00-base/base' as *;
+
+
+.vocab-author.full{
+	.field-image{
+		width: 240px;
+		@include auto;
+		margin-bottom: $elementSpace;
+		img{
+			border-radius: 50%;
+		}
+	}
+	.field-author-name{
+		margin-bottom: $spaceXs;
+		@include heading3;
+	}
+}//end full author vocab
+
+.vocab-author.teaser{
+	@include safeFlex(row,nowrap,start,start);
+	padding-top: 45px;
+	.field-image{
+		width: 90px;
+		position: relative;
+		top: -45px;
+		margin-right: 20px;
+		img{
+			border-radius: 50%;
+		}
+	}
+	.author-name{
+		@include headerGlobals;
+		font-size: 26px;
+		line-height: 32px;
+	}
+}
+
+.vocab-author.mini{
+	@include safeFlex(row,nowrap,start,center);
+	.field-image{
+		width: 42px;
+		margin-right: 16px;
+		img{
+			border-radius: 50%;
+		}
+	}
+	.node-mini-bios{
+		@include safeFlex(row,nowrap,start,center);
+	}
+}//end author mini

@@ -80,3 +80,15 @@
 		}
 	}
 }//end all news
+
+.news.related-stories{
+	.view-content{
+		@include bleed(padding,24px);
+		& > .views-row{
+			width: 100%;
+			@include tab{
+				width: 33.33%;
+			}
+		}
+	}
+}

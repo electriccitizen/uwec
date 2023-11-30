@@ -49,10 +49,12 @@
     {% else %}
       {{ content.field_image }}
     {% endif %}
-    {{ title_prefix }}
-    <div>{{ name[0]['#context'].value }}</div>
-    {{ title_suffix }}
-    {{ content.field_description }}
+    <div class="teaser-text">
+	    {{ title_prefix }}
+	    <div class="author-name">{{ name[0]['#context'].value }}</div>
+	    {{ title_suffix }}
+	    {{ content.field_description }}
+	  </div>
   {% elseif view_mode == 'mini' %}
     {% if content.field_profile.0 %}
       {{ content.field_profile }}

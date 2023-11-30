@@ -71,13 +71,18 @@
  */
 #}
 
-{% extends 'node.html.twig' %}
+{% extends 'node--teaser.html.twig' %}
+{% set classes = [
+  'node-teaser',
+  'node-teaser-' ~ node.type.0.target_id|clean_class,
+] %}
 
-{% block node %} 
-	{% if not node.field_hero.0.target_id %}
-		<div class="node-intro-simple"></div>
-	{% endif %}
-	
-	{{ parent() }}
+{% block nodeTitle %}{% endblock %}
+
+{% block nodeContent %}
+	{{ content.field_image }}
+	<div class="teaser-title">
+		{{- label.0['#context'].value -}}
+	</div>
+	{{ content|without('field_image') }}
 {% endblock %}
-	
