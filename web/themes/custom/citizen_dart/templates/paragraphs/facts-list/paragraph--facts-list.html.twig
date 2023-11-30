@@ -41,7 +41,6 @@
 {% if paragraph.id.value %}
 	{% if (content.field_list_type.0['#markup'] == 'manual') or (drupal_view('facts','list', paragraph.id.value)|render|striptags|trim|length > 0) %}
 		<div class="paragraph paragraph--type--facts-list custom-views-list" data-quickedit-entity-id="paragraph/{{ paragraph.id.value }}">
-			<h2>Just the <strong>facts</strong></h2>
 			{% if content.field_list_type.0['#markup'] == 'auto' %}
 				{{ drupal_view('facts','list', paragraph.id.value) }}
 			{% else %}

@@ -184,7 +184,7 @@ third_party_settings:
             configuration:
               id: 'field_block:node:news:field_image'
               label: 'For the media'
-              label_display: visible
+              label_display: '0'
               provider: layout_builder
               context_mapping:
                 entity: layout_builder.entity
