@@ -22,11 +22,11 @@
 
 .vocab-author.teaser{
 	@include safeFlex(row,nowrap,start,start);
-	padding-top: 45px;
-	.field-image{
+	padding-top: 30px;
+	.teaser-image{
 		width: 90px;
 		position: relative;
-		top: -45px;
+		top: -30px;
 		margin-right: 20px;
 		img{
 			border-radius: 50%;
