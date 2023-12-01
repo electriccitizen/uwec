@@ -45,9 +45,15 @@
 		{% endif %}
 	{% elseif view_mode == 'teaser' %}
     {% if content.field_profile.0 %}
-      {{ content.field_profile }}
+    	<div class="teaser-image">
+     	 {{ content.field_profile }}
+    	</div>
     {% else %}
-      {{ content.field_image }}
+    	{% if content.field_image.0 %}
+	    	<div class="teaser-image">
+		      {{ content.field_image }}
+		    </div>
+		  {% endif %}
     {% endif %}
     <div class="teaser-text">
 	    {{ title_prefix }}
@@ -60,6 +66,7 @@
       {{ content.field_profile }}
     {% else %}
       {{ content|without('field_profile') }}
+      {{ name[0]['#context'].value }}
     {% endif %}
   {% endif %}
 </div>

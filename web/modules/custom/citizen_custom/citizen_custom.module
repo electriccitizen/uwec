@@ -154,8 +154,7 @@ function citizen_custom_form_node_form_alter(&$form, FormStateInterface $form_st
   $node = $form_state->getFormObject()->getEntity();
   // Change promotion text to something more contextual.
   if ($node->getType() == 'news') {
-    $form['promote']['widget']['value']['#title'] = 'Add to Featured News';
-    $form['promote']['widget']['value']['#description'] = 'Should have a news image.';
+    $form['promote']['widget']['value']['#title'] = 'Add to Featured Stories';
   }
   if ($node->getType() == 'contact') {
     if (in_array($form_id, array('node_contact_edit_form', 'node_contact_form'))) {
