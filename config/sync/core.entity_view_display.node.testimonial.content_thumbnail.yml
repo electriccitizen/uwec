@@ -1,9 +1,9 @@
-uuid: 1507ae0d-a164-434b-85da-957d39ddbbf2
+uuid: df62f533-2643-46b9-b909-984a41f04ef5
 langcode: en
-status: false
+status: true
 dependencies:
   config:
-    - core.entity_view_mode.node.teaser
+    - core.entity_view_mode.node.content_thumbnail
     - field.field.node.testimonial.body
     - field.field.node.testimonial.field_date
     - field.field.node.testimonial.field_domain_access
@@ -21,16 +21,33 @@ dependencies:
     - field.field.node.testimonial.field_position
     - node.type.testimonial
   module:
+    - text
     - user
-id: node.testimonial.teaser
+id: node.testimonial.content_thumbnail
 targetEntityType: node
 bundle: testimonial
-mode: teaser
+mode: content_thumbnail
 content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
   content_moderation_control:
     settings: {  }
     third_party_settings: {  }
     weight: -20
+    region: content
+  field_image:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: 240x240
+      link: false
+    third_party_settings: {  }
+    weight: 0
     region: content
   links:
     settings: {  }
@@ -38,7 +55,6 @@ content:
     weight: 100
     region: content
 hidden:
-  body: true
   field_date: true
   field_domain_access: true
   field_domain_all_affiliates: true
@@ -46,7 +62,6 @@ hidden:
   field_editorial_sections: true
   field_eyebrow: true
   field_grad_year: true
-  field_image: true
   field_is_quote: true
   field_list_widget: true
   field_major: true

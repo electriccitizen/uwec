@@ -3,16 +3,28 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.testimonial.body
+    - field.field.node.testimonial.field_date
     - field.field.node.testimonial.field_domain_access
     - field.field.node.testimonial.field_domain_all_affiliates
     - field.field.node.testimonial.field_domain_source
+    - field.field.node.testimonial.field_editorial_sections
+    - field.field.node.testimonial.field_eyebrow
+    - field.field.node.testimonial.field_grad_year
+    - field.field.node.testimonial.field_image
+    - field.field.node.testimonial.field_is_quote
     - field.field.node.testimonial.field_list_widget
+    - field.field.node.testimonial.field_major
+    - field.field.node.testimonial.field_page_families
     - field.field.node.testimonial.field_placement_tags
+    - field.field.node.testimonial.field_position
     - node.type.testimonial
   module:
     - layout_builder
     - layout_builder_restrictions
     - layout_discovery
+    - smart_date
+    - text
     - user
 third_party_settings:
   layout_builder:
@@ -43,6 +55,183 @@ third_party_settings:
                 third_party_settings: {  }
             weight: 0
             additional: {  }
+          6c765b46-d49c-48d7-b6a1-28ddf7839a07:
+            uuid: 6c765b46-d49c-48d7-b6a1-28ddf7839a07
+            region: content
+            configuration:
+              id: 'field_block:node:testimonial:field_image'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: entity_reference_entity_view
+                label: hidden
+                settings:
+                  view_mode: 426x508
+                  link: false
+                third_party_settings: {  }
+            weight: 1
+            additional: {  }
+          884aef15-2e09-4a82-a894-8b96ad94e2ca:
+            uuid: 884aef15-2e09-4a82-a894-8b96ad94e2ca
+            region: content
+            configuration:
+              id: 'field_block:node:testimonial:body'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: text_default
+                label: hidden
+                settings: {  }
+                third_party_settings: {  }
+            weight: 2
+            additional: {  }
+          99a56138-3207-44bb-bd25-1ca845a5943c:
+            uuid: 99a56138-3207-44bb-bd25-1ca845a5943c
+            region: content
+            configuration:
+              id: 'field_block:node:testimonial:field_is_quote'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: boolean
+                label: above
+                settings:
+                  format: default
+                  format_custom_false: ''
+                  format_custom_true: ''
+                third_party_settings: {  }
+            weight: 3
+            additional: {  }
+          d2421a31-d688-4bb2-aa7b-5baec5ae9894:
+            uuid: d2421a31-d688-4bb2-aa7b-5baec5ae9894
+            region: content
+            configuration:
+              id: 'field_block:node:testimonial:field_date'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: smartdate_default
+                label: inline
+                settings:
+                  timezone_override: America/North_Dakota/Center
+                  format_type: medium
+                  format: date_only
+                  force_chronological: false
+                  add_classes: false
+                  time_wrapper: false
+                  localize: false
+                  parts:
+                    start: start
+                    end: '0'
+                    duration: '0'
+                  duration:
+                    separator: ' | '
+                    unit: ''
+                    decimals: 2
+                    suffix: h
+                third_party_settings: {  }
+            weight: 4
+            additional: {  }
+          c0c95c27-3643-4692-b617-94b2f68d4b36:
+            uuid: c0c95c27-3643-4692-b617-94b2f68d4b36
+            region: content
+            configuration:
+              id: 'field_block:node:testimonial:field_grad_year'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: string
+                label: above
+                settings:
+                  link_to_entity: false
+                third_party_settings: {  }
+            weight: 5
+            additional: {  }
+          831e6d62-a951-4290-8c52-460c4d4dcd92:
+            uuid: 831e6d62-a951-4290-8c52-460c4d4dcd92
+            region: content
+            configuration:
+              id: 'field_block:node:testimonial:field_major'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: string
+                label: above
+                settings:
+                  link_to_entity: false
+                third_party_settings: {  }
+            weight: 6
+            additional: {  }
+          6d9a1411-c0b8-4581-afdf-ac3bc2f0f58b:
+            uuid: 6d9a1411-c0b8-4581-afdf-ac3bc2f0f58b
+            region: content
+            configuration:
+              id: 'field_block:node:testimonial:field_position'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: string
+                label: above
+                settings:
+                  link_to_entity: false
+                third_party_settings: {  }
+            weight: 7
+            additional: {  }
+          35edc466-a1ae-43ef-9eaf-8c4e25f15f68:
+            uuid: 35edc466-a1ae-43ef-9eaf-8c4e25f15f68
+            region: content
+            configuration:
+              id: 'field_block:node:testimonial:field_eyebrow'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: entity_reference_label
+                label: hidden
+                settings:
+                  link: false
+                third_party_settings: {  }
+            weight: 8
+            additional: {  }
+          77a1614e-a2fc-4710-a091-9deec780d2d8:
+            uuid: 77a1614e-a2fc-4710-a091-9deec780d2d8
+            region: content
+            configuration:
+              id: 'field_block:node:testimonial:field_page_families'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: entity_reference_label
+                label: above
+                settings:
+                  link: true
+                third_party_settings: {  }
+            weight: 9
+            additional: {  }
+          f164adc2-3128-4d3a-ae79-0917632bfe11:
+            uuid: f164adc2-3128-4d3a-ae79-0917632bfe11
+            region: content
+            configuration:
+              id: 'field_block:node:testimonial:field_editorial_sections'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: entity_reference_label
+                label: above
+                settings:
+                  link: true
+                third_party_settings: {  }
+            weight: 10
+            additional: {  }
         third_party_settings: {  }
   layout_builder_restrictions:
     allowed_block_categories: {  }
@@ -56,10 +245,83 @@ targetEntityType: node
 bundle: testimonial
 mode: default
 content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 106
+    region: content
   content_moderation_control:
     settings: {  }
     third_party_settings: {  }
     weight: -20
+    region: content
+  field_date:
+    type: smartdate_default
+    label: inline
+    settings:
+      timezone_override: America/North_Dakota/Center
+      format_type: medium
+      format: date_only
+      force_chronological: false
+      add_classes: false
+      time_wrapper: false
+      localize: false
+      parts:
+        start: start
+        end: '0'
+        duration: '0'
+      duration:
+        separator: ' | '
+        unit: ''
+        decimals: 2
+        suffix: h
+    third_party_settings: {  }
+    weight: 108
+    region: content
+  field_editorial_sections:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 107
+    region: content
+  field_eyebrow:
+    type: entity_reference_label
+    label: hidden
+    settings:
+      link: false
+    third_party_settings: {  }
+    weight: 111
+    region: content
+  field_grad_year:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 109
+    region: content
+  field_image:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: 426x508
+      link: false
+    third_party_settings: {  }
+    weight: 105
+    region: content
+  field_is_quote:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 107
     region: content
   field_list_widget:
     type: entity_reference_label
@@ -69,6 +331,22 @@ content:
     third_party_settings: {  }
     weight: 104
     region: content
+  field_major:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 110
+    region: content
+  field_page_families:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 108
+    region: content
   field_placement_tags:
     type: entity_reference_label
     label: above
@@ -76,6 +354,14 @@ content:
       link: true
     third_party_settings: {  }
     weight: 103
+    region: content
+  field_position:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 106
     region: content
   links:
     settings: {  }
