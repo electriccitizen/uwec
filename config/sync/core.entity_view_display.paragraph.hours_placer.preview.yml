@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.paragraph.preview
+    - field.field.paragraph.hours_placer.field_hours
     - paragraphs.paragraphs_type.hours_placer
   module:
     - layout_builder
@@ -17,4 +18,5 @@ bundle: hours_placer
 mode: preview
 content: {  }
 hidden:
+  field_hours: true
   search_api_excerpt: true

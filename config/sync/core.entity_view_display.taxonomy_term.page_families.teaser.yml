@@ -1,27 +1,25 @@
-uuid: 653be0a9-e20b-4680-a107-9e6eb8f7eeee
+uuid: 6c1b1cd3-1f64-4d64-98ec-5708618c990b
 langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_view_mode.taxonomy_term.teaser
     - field.field.taxonomy_term.page_families.field_contact
     - field.field.taxonomy_term.page_families.field_hours
     - field.field.taxonomy_term.page_families.field_platforms
     - taxonomy.vocabulary.page_families
   module:
+    - layout_builder
     - link
-    - text
-id: taxonomy_term.page_families.default
+third_party_settings:
+  layout_builder:
+    enabled: false
+    allow_custom: false
+id: taxonomy_term.page_families.teaser
 targetEntityType: taxonomy_term
 bundle: page_families
-mode: default
+mode: teaser
 content:
-  description:
-    type: text_default
-    label: hidden
-    settings: {  }
-    third_party_settings: {  }
-    weight: 0
-    region: content
   field_contact:
     type: entity_reference_entity_view
     label: hidden
@@ -29,7 +27,7 @@ content:
       view_mode: teaser
       link: false
     third_party_settings: {  }
-    weight: 1
+    weight: 0
     region: content
   field_hours:
     type: entity_reference_entity_view
@@ -38,7 +36,7 @@ content:
       view_mode: teaser
       link: false
     third_party_settings: {  }
-    weight: 2
+    weight: 1
     region: content
   field_platforms:
     type: link
@@ -50,7 +48,8 @@ content:
       rel: '0'
       target: '0'
     third_party_settings: {  }
-    weight: 3
+    weight: 2
     region: content
 hidden:
+  description: true
   search_api_excerpt: true

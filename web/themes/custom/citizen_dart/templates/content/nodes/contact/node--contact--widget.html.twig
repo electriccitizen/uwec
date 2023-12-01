@@ -71,11 +71,14 @@
  */
 #}
 
-{% extends 'node--teaser.html.twig' %}
+{% extends 'node--widget.html.twig' %}
 
 {% block nodeTitle %}{% endblock %}
 {% block nodeContent %}
-	<div class="hours-content">
-		{{ content }}
+	<div class="contact-wrapper">
+		<h2 class="contact-title">{{- label.0['#context'].value -}}</h2>
+		<div class="contact-content">
+			{{ content }}
+		</div>
 	</div>
 {% endblock %}

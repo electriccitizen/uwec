@@ -111,14 +111,26 @@ third_party_settings:
         layout_settings:
           label: ''
           context_mapping: {  }
-        components: {  }
-        third_party_settings: {  }
-      -
-        layout_id: layout_onecol
-        layout_settings:
-          label: ''
-          context_mapping: {  }
-        components: {  }
+        components:
+          df231355-7ab7-44df-b20a-3580e4502ab6:
+            uuid: df231355-7ab7-44df-b20a-3580e4502ab6
+            region: content
+            configuration:
+              id: 'field_block:node:page:field_page_family'
+              label: 'Page Family'
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: entity_reference_entity_view
+                label: hidden
+                settings:
+                  view_mode: teaser
+                third_party_settings: {  }
+            weight: 0
+            additional: {  }
         third_party_settings: {  }
   layout_builder_restrictions:
     allowed_block_categories: {  }

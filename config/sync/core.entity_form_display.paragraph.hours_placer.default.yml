@@ -1,4 +1,4 @@
-uuid: b8ed2806-a7e9-4e92-aaeb-8a18b8610645
+uuid: 8c918f71-694e-4f09-a92e-2ec66073f4fa
 langcode: en
 status: true
 dependencies:
@@ -11,13 +11,15 @@ bundle: hours_placer
 mode: default
 content:
   field_hours:
-    type: entity_reference_entity_view
-    label: hidden
-    settings:
-      view_mode: widget
-      link: false
-    third_party_settings: {  }
+    type: entity_reference_autocomplete
     weight: 0
     region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
 hidden:
-  search_api_excerpt: true
+  created: true
+  status: true

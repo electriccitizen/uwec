@@ -270,4 +270,8 @@
 		}
 	}
 	
+	.block-field-page-family{
+		max-width: 914px;
+		@include auto;
+	}
 }//end basic page
