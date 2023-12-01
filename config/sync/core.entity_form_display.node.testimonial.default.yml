@@ -99,6 +99,10 @@ hidden:
   created: true
   field_list_widget: true
   promote: true
+  publish_on: true
+  publish_state: true
   sticky: true
   uid: true
+  unpublish_on: true
+  unpublish_state: true
   url_redirects: true
