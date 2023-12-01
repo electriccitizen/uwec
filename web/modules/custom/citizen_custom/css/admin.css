@@ -259,3 +259,17 @@ button[disabled]:hover,button.disabled:hover{
 body:not(.role-super-user):not(.role-administrator):not(.role-site_admin) .field--name-field-primary-editor{
 	display: none;
 }
+
+/* CUSTOM ADMIN REVIEW VIEWS
+-------------------------- */
+.view-snapshots.view-display-id-review .form-item--field-entry-year-value-min .form-item__label,.view-snapshots.view-display-id-review .form-item--field-entry-year-value-max .form-item__label{
+	margin-top: -27px;
+	top: 5px;
+}
+
+.view-snapshots.view-display-id-review fieldset#edit-field-entry-year-value-wrapper{
+	border: 0;
+	padding: 0;
+	margin-top: 18px;
+}
+
