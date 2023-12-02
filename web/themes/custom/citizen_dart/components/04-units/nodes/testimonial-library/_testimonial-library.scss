@@ -30,7 +30,7 @@
    }
 }//end testimonial-library
 
-//testimonial teasers
+//testimonial teaser
 .node-teaser-testimonial{
    @include safeFlex(row,wrap,start,start);
    @include bleed (padding, 15px);
