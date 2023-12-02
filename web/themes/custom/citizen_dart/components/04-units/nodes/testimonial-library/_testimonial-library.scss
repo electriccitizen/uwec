@@ -4,6 +4,40 @@
 
 @use '../../../00-base/base' as *;
 
-.node-testimonial-library{
-	
+.node-testimonial{
+   padding-top: $elementSpace;
+	max-width: 914px;
+	@include auto;
+   #node-section-1 {
+      margin-bottom: $elementSpace;
+		border-bottom: 1px solid $borderRule;
+		padding-bottom: $elementSpace;
+      .field-image{
+         max-width: 240px;
+      }
+      .block-title {
+         margin-left: 0;
+         margin-right: 0;
+         h1 {
+            font-family: $bodyText;
+            font-size: $baseSize;
+            text-align: left;
+         }
+      }
+   }
+   .block-field{
+      margin-bottom: $spaceXs;
+   }
 }//end testimonial-library
+
+//testimonial teasers
+.node-teaser-testimonial{
+   @include safeFlex(row,wrap,start,start);
+   @include bleed (padding, 15px);
+	.field-image{
+		max-width: 240px;
+	}
+	.teaser-title{
+		@include heading2;
+	}
+}

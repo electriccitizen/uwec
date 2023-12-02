@@ -1,0 +1,21 @@
+uuid: 16210103-dd6d-4c5a-8a26-4a4db9808d1a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_is_quote
+    - node.type.testimonial
+id: node.testimonial.field_is_quote
+field_name: field_is_quote
+entity_type: node
+bundle: testimonial
+label: 'Is Quote'
+description: 'Will style quote/summary text as a quote.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

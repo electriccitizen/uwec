@@ -161,6 +161,10 @@ function citizen_custom_form_node_form_alter(&$form, FormStateInterface $form_st
       $form['field_address']['widget'][0]['address']['#after_build'][] = 'citizen_custom_address_organization_label';
     }
   }
+  // Set help text for title field on testimonials
+  if ($node->getType() == 'testimonial') {
+    $form['title']['widget'][0]['value']['#description'] = '<p>' . t('This is the person\'s name.') . '</p>';
+  }
 }
 
 function citizen_custom_address_organization_label($element, $form_state) {
