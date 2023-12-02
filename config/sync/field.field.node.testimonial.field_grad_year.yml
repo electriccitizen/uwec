@@ -1,0 +1,19 @@
+uuid: 6e02e943-a12d-4764-bb6c-6fd5abd7169f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_grad_year
+    - node.type.testimonial
+id: node.testimonial.field_grad_year
+field_name: field_grad_year
+entity_type: node
+bundle: testimonial
+label: 'Grad Year'
+description: "Format should be 'Class of XX'."
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
