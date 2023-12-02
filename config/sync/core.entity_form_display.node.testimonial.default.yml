@@ -38,7 +38,7 @@ third_party_settings:
       label: Access
       region: content
       parent_name: ''
-      weight: 15
+      weight: 13
       format_type: details_sidebar
       format_settings:
         classes: ''
@@ -122,16 +122,6 @@ content:
     settings:
       display_label: true
     third_party_settings: {  }
-  field_list_widget:
-    type: entity_reference_autocomplete
-    weight: 11
-    region: content
-    settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
   field_major:
     type: string_textfield
     weight: 6
@@ -170,19 +160,19 @@ content:
     third_party_settings: {  }
   moderation_state:
     type: moderation_state_default
-    weight: 16
+    weight: 14
     region: content
     settings: {  }
     third_party_settings: {  }
   path:
     type: path
-    weight: 13
+    weight: 11
     region: content
     settings: {  }
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 14
+    weight: 12
     region: content
     settings:
       display_label: true
@@ -197,6 +187,7 @@ content:
     third_party_settings: {  }
 hidden:
   created: true
+  field_list_widget: true
   promote: true
   publish_on: true
   publish_state: true
