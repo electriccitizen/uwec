@@ -4,9 +4,15 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.paragraph.preview
+    - field.field.paragraph.testimonial_placer.field_list_type
+    - field.field.paragraph.testimonial_placer.field_list_widget
+    - field.field.paragraph.testimonial_placer.field_page_family
+    - field.field.paragraph.testimonial_placer.field_placement_tag
+    - field.field.paragraph.testimonial_placer.field_testimonial
     - paragraphs.paragraphs_type.testimonial_placer
   module:
     - layout_builder
+    - options
 third_party_settings:
   layout_builder:
     enabled: false
@@ -15,6 +21,17 @@ id: paragraph.testimonial_placer.preview
 targetEntityType: paragraph
 bundle: testimonial_placer
 mode: preview
-content: {  }
+content:
+  field_list_type:
+    type: list_default
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
 hidden:
+  field_list_widget: true
+  field_page_family: true
+  field_placement_tag: true
+  field_testimonial: true
   search_api_excerpt: true

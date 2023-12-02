@@ -1,0 +1,23 @@
+uuid: e18d147b-98c1-42e6-b8f2-03ec1feb3ff8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_list_type
+    - paragraphs.paragraphs_type.testimonial_placer
+  module:
+    - options
+id: paragraph.testimonial_placer.field_list_type
+field_name: field_list_type
+entity_type: paragraph
+bundle: testimonial_placer
+label: 'List Type'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: auto
+default_value_callback: ''
+settings: {  }
+field_type: list_string
