@@ -22,7 +22,6 @@ dependencies:
     - media
     - node
     - responsive_preview
-    - scheduler
     - shortcut
     - smart_date_recur
     - system
@@ -66,7 +65,6 @@ permissions:
   - 'revert contact revisions'
   - 'revert hours revisions'
   - 'revert page revisions'
-  - 'schedule publishing of nodes'
   - 'update bios content on assigned domains'
   - 'update contact content on assigned domains'
   - 'update hours content on assigned domains'
@@ -87,7 +85,6 @@ permissions:
   - 'view hours revisions'
   - 'view own unpublished content'
   - 'view page revisions'
-  - 'view scheduled content'
   - 'view the administration theme'
   - 'view unpublished domain content'
   - 'view workbench access information'

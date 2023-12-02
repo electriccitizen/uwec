@@ -99,14 +99,23 @@
 	}//end node section 3
 
 	#node-section-4{
-		.field-authors{
-			& > div{
-				max-width: $textMax;
-				@include auto;
-				&:not(:last-child){
-					margin-bottom: $elementSpace;
+		.block-field-authors{
+			max-width: $textMax;
+			@include auto;
+			h2.block-title{
+				@include headerGlobals;
+				font-size: 26px;
+				line-height: 32px;
+				text-align: left;
+				text-transform: none;
+			}
+			.field-authors{
+				& > div{
+					&:not(:last-child){
+						margin-bottom: $elementSpace;
+					}
 				}
 			}
-		}
+		}//end authors fields block
 	}//end node section 4
 }//end news

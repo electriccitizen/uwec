@@ -16,23 +16,40 @@
 	}
 
 	.announcement-title{
+		font-family: $displayHeader;
 		font-style:italic;
 		text-transform:uppercase;
+		p{
+			margin-bottom: 0;
+		}
 	}
 
-	p{
-		margin:0;
+	.announcement-body{
+		font-size: 12px;
+		line-height: 1.5;
+		letter-spacing: 0.6px;
+		& > *:last-child{
+			margin:0;
+		}
 	}
 
 	.announcement.urgent{
 		background-color: $gold;
 	}
 	.announcement.casual{
-		background-color:$lightGrey;
+		background-color:$warmGrey;
 	}
 
 	.announcement{
 		flex-direction:column;
+		a{
+			color: $royal;
+			font-weight: $heavy;
+			text-decoration: underline;
+			&:hover,&:focus{
+				text-decoration: none;
+			}
+		}
 	}
 	@include tab{
 		.announcement{

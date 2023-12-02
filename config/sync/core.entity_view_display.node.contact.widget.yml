@@ -1,9 +1,9 @@
-uuid: edd7d9e2-fe43-4c8b-a182-a6e39a9196db
+uuid: c7ee5724-e699-4a2e-9ec9-6c800c4c00b4
 langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_view_mode.node.teaser
+    - core.entity_view_mode.node.widget
     - field.field.node.contact.body
     - field.field.node.contact.field_address
     - field.field.node.contact.field_domain_access
@@ -17,11 +17,24 @@ dependencies:
     - node.type.contact
   module:
     - address
+    - layout_builder
+    - layout_builder_restrictions
     - user
-id: node.contact.teaser
+third_party_settings:
+  layout_builder:
+    enabled: false
+    allow_custom: false
+  layout_builder_restrictions:
+    allowed_block_categories: {  }
+    entity_view_mode_restriction:
+      allowed_layouts: {  }
+      denylisted_blocks: {  }
+      allowlisted_blocks: {  }
+      restricted_categories: {  }
+id: node.contact.widget
 targetEntityType: node
 bundle: contact
-mode: teaser
+mode: widget
 content:
   field_address:
     type: address_default

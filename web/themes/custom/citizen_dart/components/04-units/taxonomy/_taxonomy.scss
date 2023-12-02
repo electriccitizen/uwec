@@ -10,7 +10,7 @@
 		margin-bottom: $elementSpace;
 	}
 	.taxonomy-term{
-		max-width: $textMax;
+		max-width: $desk;
 		@include auto;
 		.view-header{
 			.block-title{
