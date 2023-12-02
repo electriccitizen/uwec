@@ -1,6 +1,6 @@
 uuid: a3073ea4-771a-432c-bbdd-d53af4be8d25
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - core.entity_view_mode.node.mini
