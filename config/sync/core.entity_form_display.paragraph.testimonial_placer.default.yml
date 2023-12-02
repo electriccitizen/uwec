@@ -1,4 +1,4 @@
-uuid: 19f887d8-9b84-4700-85df-07855d28895c
+uuid: 0acae0bc-0f26-4ef9-88e8-ce4c2b5cbe59
 langcode: en
 status: true
 dependencies:
@@ -9,49 +9,48 @@ dependencies:
     - field.field.paragraph.testimonial_placer.field_placement_tag
     - field.field.paragraph.testimonial_placer.field_testimonial
     - paragraphs.paragraphs_type.testimonial_placer
-  module:
-    - options
 id: paragraph.testimonial_placer.default
 targetEntityType: paragraph
 bundle: testimonial_placer
 mode: default
 content:
   field_list_type:
-    type: list_key
-    label: hidden
+    type: options_select
+    weight: 0
+    region: content
     settings: {  }
     third_party_settings: {  }
-    weight: 1
-    region: content
-  field_list_widget:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 4
-    region: content
   field_page_family:
-    type: entity_reference_entity_id
-    label: hidden
-    settings: {  }
-    third_party_settings: {  }
-    weight: 3
-    region: content
-  field_placement_tag:
-    type: entity_reference_entity_id
-    label: hidden
-    settings: {  }
-    third_party_settings: {  }
+    type: entity_reference_autocomplete
     weight: 2
     region: content
-  field_testimonial:
-    type: entity_reference_label
-    label: above
     settings:
-      link: true
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
-    weight: 4
+  field_placement_tag:
+    type: entity_reference_autocomplete
+    weight: 1
     region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_testimonial:
+    type: entity_reference_autocomplete
+    weight: 3
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
 hidden:
-  search_api_excerpt: true
+  created: true
+  field_list_widget: true
+  status: true
