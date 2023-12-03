@@ -15,6 +15,8 @@ dependencies:
     - node.type.testimonial
     - taxonomy.vocabulary.page_families
     - taxonomy.vocabulary.placement_tags
+    - user.role.administrator
+    - user.role.site_admin
   content:
     - 'taxonomy_term:page_families:9f5d1d79-0dde-4a9d-8942-6be310a0a391'
     - 'taxonomy_term:placement_tags:479d2dfa-0914-41c7-90c9-7897ba00491d'
@@ -1320,6 +1322,12 @@ display:
           empty_zero: false
           hide_alter_empty: true
           destination: false
+      access:
+        type: role
+        options:
+          role:
+            administrator: administrator
+            site_admin: site_admin
       filters:
         type:
           id: type
@@ -1415,6 +1423,7 @@ display:
           relationship: none
           view_mode: teaser
       defaults:
+        access: false
         style: false
         row: false
         fields: false
@@ -1431,7 +1440,7 @@ display:
         - url
         - url.query_args
         - 'user.node_grants:view'
-        - user.permissions
+        - user.roles
       tags:
         - 'config:field.storage.node.field_date'
   second_recent:
