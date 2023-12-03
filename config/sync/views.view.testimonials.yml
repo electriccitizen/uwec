@@ -87,10 +87,26 @@ display:
           separator: ', '
           field_api_classes: false
       pager:
-        type: some
+        type: full
         options:
           offset: 0
-          items_per_page: 1
+          items_per_page: 20
+          total_pages: null
+          id: 0
+          tags:
+            next: 'Next ›'
+            previous: '‹ Previous'
+            first: '« First'
+            last: 'Last »'
+          expose:
+            items_per_page: false
+            items_per_page_label: 'Items per page'
+            items_per_page_options: '5, 10, 25, 50'
+            items_per_page_options_all: false
+            items_per_page_options_all_label: '- All -'
+            offset: false
+            offset_label: Offset
+          quantity: 9
       exposed_form:
         type: basic
         options:
@@ -175,6 +191,7 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
+        - url.query_args
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }
@@ -973,6 +990,7 @@ display:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url
+        - url.query_args
         - 'user.node_grants:view'
         - user.permissions
       tags:
@@ -1320,18 +1338,18 @@ display:
           group_type: group
           admin_label: ''
           plugin_id: datetime
-          operator: '<='
+          operator: '<'
           value:
             min: ''
             max: ''
             value: ''
-            type: offset
+            type: date
           group: 1
           exposed: true
           expose:
             operator_id: field_date_value_op
             label: 'Add date'
-            description: ''
+            description: 'Show testimonials older than the selected date.'
             use_operator: false
             operator: field_date_value_op
             operator_limit_selection: false
@@ -1411,6 +1429,7 @@ display:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url
+        - url.query_args
         - 'user.node_grants:view'
         - user.permissions
       tags:
