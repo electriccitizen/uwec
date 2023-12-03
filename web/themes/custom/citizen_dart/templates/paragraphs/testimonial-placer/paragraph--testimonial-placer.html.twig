@@ -41,13 +41,11 @@
 {% if paragraph.id.value %}
 	{% if (content.field_list_type.0['#markup'] == 'manual') or (drupal_view('testimonials','list', paragraph.id.value)|render|striptags|trim|length > 0) %} 
 		<div class="paragraph paragraph--type--testimonial-placer custom-views-list" data-quickedit-entity-id="paragraph/{{ paragraph.id.value }}">
-      {% if content.field_list_type.0['#markup'] == 'auto' %}
-        {% if drupal_view('testimonials','list', paragraph.id.value)|render|striptags|trim|length > 0 %}
-          <div class="views-wrapper">
-            {{ drupal_view('testimonials','list', paragraph.id.value) }}
-          </div>
-        {% endif %}
-      {% else %}
+      {% if content.field_list_type.0['#markup'] == 'auto' and drupal_view('testimonials','list', paragraph.id.value)|render|striptags|trim|length > 0 %}
+        <div class="views-wrapper">
+          {{ drupal_view('testimonials','list', paragraph.id.value) }}
+        </div>
+      {% elseif content.field_list_type.0['#markup'] == 'manual' %}
         {{ content.field_testimonial }}
       {% endif %}
 		</div>
