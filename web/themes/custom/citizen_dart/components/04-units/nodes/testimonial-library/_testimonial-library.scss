@@ -5,29 +5,44 @@
 @use '../../../00-base/base' as *;
 
 .node-testimonial{
-   padding-top: $elementSpace;
+  padding-top: $elementSpace;
 	max-width: 914px;
 	@include auto;
-   #node-section-1 {
-      margin-bottom: $elementSpace;
+  #node-section-1 {
+    margin-bottom: $elementSpace;
 		border-bottom: 1px solid $borderRule;
 		padding-bottom: $elementSpace;
-      .field-image{
-         max-width: 240px;
-      }
-      .block-title {
-         margin-left: 0;
-         margin-right: 0;
-         h1 {
-            font-family: $bodyText;
-            font-size: $baseSize;
-            text-align: left;
-         }
-      }
-   }
-   .block-field{
-      margin-bottom: $spaceXs;
-   }
+		.field.body{
+			font-size: 31px;
+			line-height: 48px;
+			font-family: $displayHeader;
+			font-style: italic;
+			&:before{
+				content: '';
+				display: block;
+				width: 20px;
+				height: 19px;
+				margin: 0 auto 20px;
+				background-color: $navy;
+		    -webkit-mask-image: url('../images/elements/quote.svg');
+		    mask-image: url('../images/elements/quote.svg');
+			}
+		}
+    .field-image{
+       width: 240px;
+       max-width: 100%;
+    }
+    .block-title {
+       margin-left: 0;
+       margin-right: 0;
+       h1 {
+         @include heading2;
+       }
+    }
+  }
+  .block-field{
+     margin-bottom: $spaceXs;
+  }
 }//end testimonial-library
 
 //testimonial teasers
