@@ -4,6 +4,22 @@
 
 @use '../../../00-base/base' as *;
 
+@mixin quote{
+	font-size: 31px;
+	line-height: 48px;
+	font-family: $displayHeader;
+	font-style: italic;
+	.quote-mark{
+		display: block;
+		width: 20px;
+		height: 19px;
+		margin: -16px auto 30px;
+		svg,.cls-1{
+			fill: $navy;
+		}
+	}
+}
+
 .node-testimonial{
   padding-top: $elementSpace;
 	max-width: 914px;
@@ -12,22 +28,6 @@
     margin-bottom: $elementSpace;
 		border-bottom: 1px solid $borderRule;
 		padding-bottom: $elementSpace;
-		.field.body{
-			font-size: 31px;
-			line-height: 48px;
-			font-family: $displayHeader;
-			font-style: italic;
-			&:before{
-				content: '';
-				display: block;
-				width: 20px;
-				height: 19px;
-				margin: 0 auto 20px;
-				background-color: $navy;
-		    -webkit-mask-image: url('../images/elements/quote.svg');
-		    mask-image: url('../images/elements/quote.svg');
-			}
-		}
     .field-image{
        width: 240px;
        max-width: 100%;
@@ -40,6 +40,9 @@
        }
     }
   }
+  .body-wrapper{
+		@include quote;
+	}
   .block-field{
      margin-bottom: $spaceXs;
   }
@@ -47,12 +50,23 @@
 
 //testimonial teasers
 .node-teaser-testimonial{
-   @include safeFlex(row,wrap,start,start);
-   @include bleed (padding, 15px);
+  @include safeFlex(row,wrap,justify,start);
+  @include bleed (padding, 15px);
+  .field.body{
+  	max-width: 650px;
+  	.body-wrapper{
+			@include quote;
+		}
+  }
+  .testimonial-details{
+  	@include desk{
+  		width: 240px;
+  	}
+  }
 	.field-image{
 		max-width: 240px;
 	}
-	.teaser-title{
+	.testimonial-title{
 		@include heading2;
 	}
 }
