@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.user.compact
+    - field.field.user.user.field_athena_id
     - field.field.user.user.field_domain_access
     - field.field.user.user.field_domain_admin
     - field.field.user.user.field_domain_all_affiliates
@@ -49,6 +50,7 @@ content:
     weight: 50
     region: content
 hidden:
+  field_athena_id: true
   field_authored_placeholder: true
   field_domain_access: true
   field_domain_admin: true
