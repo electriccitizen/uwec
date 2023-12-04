@@ -50,27 +50,24 @@ class ProfileSyncService {
    */
   public function syncProfiles(array $profiles) {
     foreach ($profiles as $athenaId => $profile) {
-      $existingUser = $this->findExistingUser($profile->username);
+      $user = $this->findExistingUser($profile->username);
       $existingNode = $this->findExistingProfile($athenaId);
 
-      if ($existingUser ||  $existingNode) {
+      if ($user ||  $existingNode) {
         $athenaUpdateTime = $this->convertToUTC($profile->updated_at);
       }
 
-      if ($existingUser) {
+      if ($user) {
         // Update existing User entity, if endpoint data has been updated since last import
-        $userUpdateTime = $existingUser->get('field_last_imported')->getString();
-//        if (strtotime($athenaUpdateTime) >= strtotime($userUpdateTime)) {
-          //todo remove after testing
-          if (true or strtotime($athenaUpdateTime) >= strtotime($userUpdateTime)) {
-          //todo end test code
-          $user = $this->updateUser($existingUser, $profile);
+        $userUpdateTime = $user->get('field_last_imported')->getString();
+        if (strtotime($athenaUpdateTime) >= strtotime($userUpdateTime)) {
+          $user = $this->updateUser($user, $profile);
           // create authmap record
           $this->createOrUpdateAuthMapRecord($user);
 
         }
       } else {
-        // todo exclude emeritus and alumni
+        // todo exclude emeritus?
         $user = $this->createUser($profile);
         // create authmap record
         $this->createOrUpdateAuthMapRecord($user);
@@ -84,7 +81,7 @@ class ProfileSyncService {
         }
       }
       else {
-        $this->createProfile($profile, $athenaId);
+        $this->createProfile($profile, $athenaId, $user->id());
       }
     }
   }
@@ -125,7 +122,7 @@ class ProfileSyncService {
    * @return \Drupal\Core\Entity\ContentEntityBase|\Drupal\Core\Entity\EntityBase|\Drupal\Core\Entity\EntityInterface|\Drupal\node\Entity\Node
    * @throws \Drupal\Core\Entity\EntityStorageException
    */
-  protected function createProfile($profileData, $athenaId) {
+  protected function createProfile($profileData, $athenaId, $userId) {
     $node_values = [
       'type' => 'bios',
       'field_athena_id' => $athenaId,
@@ -142,8 +139,7 @@ class ProfileSyncService {
     ];
 
     $node = Node::create($node_values);
-    // todo change to user id from just created user?
-    $node->setOwnerId(1);
+    $node->setOwnerId($userId);
     $node->save();
 
     //todo enable when Adam says ok
@@ -196,9 +192,6 @@ class ProfileSyncService {
       //Skip all with updated_at datetimes before current dev date
       //todo adjust the date constant before launch
       if (strtotime($athenaUpdateTime) > strtotime(self::IGNORE_BEFORE_DATE)) {
-      //todo remove test code after testing
-//      if (true || (strtotime($athenaUpdateTime) > strtotime(self::IGNORE_BEFORE_DATE))) {
-        // todo end test code
         $existingActiveUser = $this->findExistingUser($profile->username, true);
 
         if ($existingActiveUser) {
@@ -212,9 +205,6 @@ class ProfileSyncService {
         if ($existingNode) {
           $drupalImportTime = $existingNode->get('field_import_date')->getString();
           if (strtotime($athenaUpdateTime) >= strtotime($drupalImportTime)) {
-          //todo remove after testing
-//          if (true || strtotime($athenaUpdateTime) >= strtotime($drupalImportTime)) {
-          //todo end test code
             $existingNode->set('field_active', 0);
             $existingNode->set('field_import_date', $this->getUpdateTime());
             $existingNode->set('status', NodeInterface::NOT_PUBLISHED);

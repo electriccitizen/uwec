@@ -30,15 +30,6 @@ function citizen_profile_sync_cron() {
     // Do something with $data.
     $profiles = (array) $data;
 
-
-    //todo test code start
-    // let's not create all 1700+ for now
-    // remove after testing
-//    $profiles = array_slice($profiles, 0, 10, true);
-    //todo test code end
-
-    //todo use batch API for entity creation and updating
-    // if needed
     $profileSyncService->syncProfiles($profiles);
   }
   else {
@@ -51,9 +42,6 @@ function citizen_profile_sync_cron() {
   }
 
   $inactive_query_string = $query_string . '&isactive=0';
-  // todo remove after testing
-//    $inactive_query_string = $query_string . '&isactive=1';
-  // todo end remove after testing
 
   $response = $http_client->get($url . $inactive_query_string);
 
@@ -63,14 +51,6 @@ function citizen_profile_sync_cron() {
 
     $inactive_profiles = (array) $data;
 
-    //test code start
-    // let's not process all for now
-    // remove after testing
-//    $inactive_profiles = array_slice($inactive_profiles, 0, 10, true);
-    //test code end
-
-    //todo use batch API for enetity creation and updating
-    // if needed
     $profileSyncService->deactivateProfiles($inactive_profiles);
 
 
@@ -85,3 +65,31 @@ function citizen_profile_sync_cron() {
   }
 }
 
+function citizen_profile_sync_form_alter(&$form, $form_state, $form_id) {
+  /* Find the current user */
+  $user = \Drupal::currentUser();
+  $userId = $user->id();
+  if ($form_id === 'node_bios_edit_form') {
+    if ($userId == 1) {
+      $form['field_athena_id']['#access'] = TRUE;
+      $form['field_active']['#access'] = TRUE;
+      $form['field_username']['#access'] = TRUE;
+      $form['field_email']['#access'] = TRUE;
+      $form['field_phone']['#access'] = TRUE;
+      $form['field_first_name']['#access'] = TRUE;
+      $form['field_last_name']['#access'] = TRUE;
+      $form['field_position']['#access'] = TRUE;
+      $form['field_import_date']['#access'] = TRUE;
+    } else {
+      $form['field_athena_id']['#access'] = FALSE;
+      $form['field_active']['#access'] = FALSE;
+      $form['field_username']['#access'] = FALSE;
+      $form['field_email']['#access'] = FALSE;
+      $form['field_phone']['#access'] = FALSE;
+      $form['field_first_name']['#access'] = FALSE;
+      $form['field_last_name']['#access'] = FALSE;
+      $form['field_position']['#access'] = FALSE;
+      $form['field_import_date']['#access'] = FALSE;
+    }
+  }
+}
