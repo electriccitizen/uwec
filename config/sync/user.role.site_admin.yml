@@ -58,6 +58,7 @@ dependencies:
     - redirect
     - responsive_preview
     - role_delegation
+    - scheduler
     - shortcut
     - smart_date_recur
     - system
@@ -355,6 +356,7 @@ permissions:
   - 'revert support_book revisions'
   - 'revert testimonial revisions'
   - 'revert video_card revisions'
+  - 'schedule publishing of nodes'
   - 'select account cancellation method'
   - 'update academic_program content on assigned domains'
   - 'update announcement content on assigned domains'
@@ -419,6 +421,7 @@ permissions:
   - 'view news revisions'
   - 'view own unpublished content'
   - 'view page revisions'
+  - 'view scheduled content'
   - 'view snapshot revisions'
   - 'view support_book revisions'
   - 'view testimonial revisions'

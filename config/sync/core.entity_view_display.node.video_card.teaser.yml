@@ -1,6 +1,6 @@
 uuid: d78bfac1-24b3-4516-867f-605ff4869fff
 langcode: en
-status: false
+status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
@@ -13,6 +13,7 @@ dependencies:
     - field.field.node.video_card.field_page_families
     - field.field.node.video_card.field_placement_tags
     - field.field.node.video_card.field_video
+    - field.field.node.video_card.layout_builder__layout
     - node.type.video_card
   module:
     - text
@@ -23,24 +24,23 @@ bundle: video_card
 mode: teaser
 content:
   body:
-    type: text_summary_or_trimmed
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_video:
+    type: entity_reference_entity_view
     label: hidden
     settings:
-      trim_length: 600
+      view_mode: default
+      link: true
     third_party_settings: {  }
-    weight: 101
-    region: content
-  content_moderation_control:
-    settings: {  }
-    third_party_settings: {  }
-    weight: -20
-    region: content
-  links:
-    settings: {  }
-    third_party_settings: {  }
-    weight: 100
+    weight: 0
     region: content
 hidden:
+  content_moderation_control: true
   field_domain_access: true
   field_domain_all_affiliates: true
   field_domain_source: true
@@ -48,6 +48,6 @@ hidden:
   field_list_widget: true
   field_page_families: true
   field_placement_tags: true
-  field_video: true
   layout_builder__layout: true
+  links: true
   search_api_excerpt: true

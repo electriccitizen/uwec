@@ -1,0 +1,33 @@
+uuid: 2a118630-6652-4f6a-9a00-de9790d3f568
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_list_widget
+    - paragraphs.paragraphs_type.testimonial_placer
+    - taxonomy.vocabulary.list_widget
+  content:
+    - 'taxonomy_term:list_widget:00e2aa51-1872-4d70-9a1e-05c5780ddd73'
+id: paragraph.testimonial_placer.field_list_widget
+field_name: field_list_widget
+entity_type: paragraph
+bundle: testimonial_placer
+label: 'List Widget'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    target_uuid: 00e2aa51-1872-4d70-9a1e-05c5780ddd73
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      list_widget: list_widget
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

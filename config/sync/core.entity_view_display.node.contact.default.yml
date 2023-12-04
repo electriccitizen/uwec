@@ -10,7 +10,6 @@ dependencies:
     - field.field.node.contact.field_domain_source
     - field.field.node.contact.field_editorial_sections
     - field.field.node.contact.field_email
-    - field.field.node.contact.field_page_families
     - field.field.node.contact.field_phone
     - field.field.node.contact.field_placement_tags
     - field.field.node.contact.layout_builder__layout
@@ -117,25 +116,6 @@ third_party_settings:
           label: ''
           context_mapping: {  }
         components:
-          eee4fa43-d739-4312-a7fa-5689b7e1d736:
-            uuid: eee4fa43-d739-4312-a7fa-5689b7e1d736
-            region: content
-            configuration:
-              id: 'field_block:node:contact:field_page_families'
-              label: 'Page Families'
-              label_display: '0'
-              provider: layout_builder
-              context_mapping:
-                entity: layout_builder.entity
-                view_mode: view_mode
-              formatter:
-                type: entity_reference_label
-                label: inline
-                settings:
-                  link: false
-                third_party_settings: {  }
-            weight: 1
-            additional: {  }
           920c4276-f744-4cf1-9fff-5b37bdbfa274:
             uuid: 920c4276-f744-4cf1-9fff-5b37bdbfa274
             region: content
@@ -201,14 +181,6 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: 103
-    region: content
-  field_page_families:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 108
     region: content
   field_phone:
     type: telephone_link

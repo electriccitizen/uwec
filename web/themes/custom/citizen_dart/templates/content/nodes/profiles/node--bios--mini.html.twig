@@ -82,7 +82,7 @@
     {% endblock %}
     {% block nodeTitle %}
       {{ title_prefix }}
-      <h2{{ title_attributes }}>
+      <div class="bio-title">
         <a href="{{- url -}}" rel="bookmark">
           {% if elements['#node'].field_prefixes.0 %}
       			<span class="prefixes">{{ elements['#node'].field_prefixes.0.value }}</span>
@@ -101,7 +101,7 @@
       			<span class="suffixes">, {{ elements['#node'].field_suffixes.0.value }}</span>
       		{% endif %}
         </a>
-      </h2>
+      </div>
       {{ title_suffix }}
     {% endblock %}
 </article>

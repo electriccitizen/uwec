@@ -37,30 +37,21 @@
  */
 #}
 
-{% extends 'paragraph.html.twig' %}
+{# check for a paragraph id #}
+{% if paragraph.id.value %}
+	{% if (content.field_list_type.0['#markup'] == 'manual') or (drupal_view('testimonials','list', paragraph.id.value)|render|striptags|trim|length > 0) %} 
+		<div class="paragraph paragraph--type--testimonial-placer custom-views-list" data-quickedit-entity-id="paragraph/{{ paragraph.id.value }}">
+      {% if content.field_list_type.0['#markup'] == 'auto' and drupal_view('testimonials','list', paragraph.id.value)|render|striptags|trim|length > 0 %}
+        <div class="views-wrapper">
+          {{ drupal_view('testimonials','list', paragraph.id.value) }}
+        </div>
+      {% elseif content.field_list_type.0['#markup'] == 'manual' %}
+        {{ content.field_testimonial }}
+      {% endif %}
+		</div>
+	{% endif %}
+{# if no id because the node has not yet been saved, spit out a preview message #}
+{% else %}
+	<p><strong>Content placer widgets are not available in preview until the node is saved after they have been added.</strong></p>
+{% endif %}
 
-{% block widgetContent %}
-	{% set size = content.field_image_size[0]['#markup'] %}
-
-	{%- if (size == 'small') -%}
-		{% set image =  drupal_entity('media', paragraph.field_image.0.target_id, 'small') %}
-	{%- elseif (size == 'medium') -%}
-		{% set image =  drupal_entity('media', paragraph.field_image.0.target_id, 'medium') %}
-	{%- elseif (size == 'large') -%}
-		{% set image =  drupal_entity('media', paragraph.field_image.0.target_id, 'large') %}
-	{%- elseif (size == 'full') -%}
-		{% set image =  drupal_entity('media', paragraph.field_image.0.target_id, 'full') %}
-	{%- elseif (size == 'default') -%}
-		{% set image =  drupal_entity('media', paragraph.field_image.0.target_id, 'default') %}
-	{%- endif -%}
-
-	{% set maxWidth = image['#media'].field_media_image.0.width %}
-
-	<div class="image-wrapper {{ size }}"{% if size == 'default' %}style="width:{{ maxWidth }}px; max-width: 100%;"{% endif %}>
-		{% block image %}
-			{{ image }}
-		{% endblock %}
-		{{ content.field_caption_headline }}
-		{{ content.field_caption }}
-	</div>
-{% endblock %}

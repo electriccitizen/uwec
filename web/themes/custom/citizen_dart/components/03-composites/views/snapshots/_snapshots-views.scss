@@ -1,0 +1,28 @@
+/* ==================
+    SNAPSHOTS VIEWS
+==================== */
+
+@use '../../../00-base/base' as *;
+@use '../views-mixins' as *;
+
+/* SNAPSHOTS LIST
+------------- */
+.snapshots.list{
+	max-width: 945px;
+	@include auto;
+	.view-content{
+		@include bleed(padding,20px);
+		justify-content: center;
+	}
+	.views-row{
+		&:not(:last-child){
+			margin-bottom: $spaceMd;
+		}
+		@include smallTab{
+			width: 50%;
+		}
+		@include tab{
+			width: 33.33%;
+		}
+	}
+}//end snapshots list

@@ -3,11 +3,21 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.paragraph.hours_placer.field_hours
     - paragraphs.paragraphs_type.hours_placer
 id: paragraph.hours_placer.default
 targetEntityType: paragraph
 bundle: hours_placer
 mode: default
-content: {  }
+content:
+  field_hours:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: widget
+      link: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
 hidden:
   search_api_excerpt: true

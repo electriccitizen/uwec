@@ -31,7 +31,7 @@
 	}
 }//end contact-library
 
-.node-teaser-contact{
+.node-widget-contact{
 	@include contactHolder;
 	.contact-wrapper{
 		@include safeFlex(row,wrap,start,start);
@@ -42,4 +42,4 @@
 			}
 		}
 	}
-}//end contact teaser
+}//end contact widget

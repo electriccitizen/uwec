@@ -18,7 +18,6 @@ dependencies:
     - field.field.node.page.layout_builder__layout
     - node.type.page
     - system.menu.main
-    - views.view.contact_hours
   module:
     - entity_reference_revisions
     - layout_builder
@@ -27,7 +26,6 @@ dependencies:
     - menu_block
     - text
     - user
-    - views
   theme:
     - citizen_dart
 third_party_settings:
@@ -114,26 +112,25 @@ third_party_settings:
           label: ''
           context_mapping: {  }
         components:
-          0848c9b4-d621-45b2-b8a5-012760dec723:
-            uuid: 0848c9b4-d621-45b2-b8a5-012760dec723
+          df231355-7ab7-44df-b20a-3580e4502ab6:
+            uuid: df231355-7ab7-44df-b20a-3580e4502ab6
             region: content
             configuration:
-              id: 'views_block:contact_hours-by_family'
-              label: ''
+              id: 'field_block:node:page:field_page_family'
+              label: 'Page Family'
               label_display: '0'
-              provider: views
-              context_mapping: {  }
-              views_label: ''
-              items_per_page: none
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: entity_reference_entity_view
+                label: hidden
+                settings:
+                  view_mode: teaser
+                third_party_settings: {  }
             weight: 0
             additional: {  }
-        third_party_settings: {  }
-      -
-        layout_id: layout_onecol
-        layout_settings:
-          label: ''
-          context_mapping: {  }
-        components: {  }
         third_party_settings: {  }
   layout_builder_restrictions:
     allowed_block_categories: {  }

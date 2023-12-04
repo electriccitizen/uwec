@@ -1,0 +1,39 @@
+{#
+/**
+ * @file
+ * Theme override to display a view of unformatted rows.
+ *
+ * Available variables:
+ * - title: The title of this group of rows. May be empty.
+ * - rows: A list of the view's row items.
+ *   - attributes: The row's HTML attributes.
+ *   - content: The row's content.
+ * - view: The view object.
+ * - default_row_class: A flag indicating whether default classes should be
+ *   used on rows.
+ *
+ * @see template_preprocess_views_view_unformatted()
+ */
+#}
+
+
+{% set count = rows|length %}
+<div class="facts-wrapper facts-count-{{ count }}">
+	<h2 class="facts-title">Just</br>the</br><strong>facts</strong></h2>
+	{% set rowCount = 0 %}
+	{% for row in rows %}
+		{% set rowCount = rowCount + 1 %}
+	  {%
+	    set row_classes = [
+	      default_row_class ? 'views-row',
+	      'fact-' ~ rowCount
+	    ]
+	  %}
+	  <div{{ row.attributes.addClass(row_classes) }}>
+	  	{% block rowContent %}
+		    {{ row.content }}
+		  {% endblock %}
+	  </div>
+	{% endfor %}
+</div>
+
