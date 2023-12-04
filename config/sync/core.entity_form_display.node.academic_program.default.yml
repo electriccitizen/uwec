@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.academic_program.body
+    - field.field.node.academic_program.field_courseleaf_slug
     - field.field.node.academic_program.field_degree_level
     - field.field.node.academic_program.field_domain_access
     - field.field.node.academic_program.field_domain_all_affiliates
@@ -23,14 +24,13 @@ third_party_settings:
   field_group:
     group_access:
       children:
-        - field_editorial_sections
         - field_domain_access
         - field_domain_source
         - field_domain_all_affiliates
       label: Access
       region: content
       parent_name: ''
-      weight: 7
+      weight: 8
       format_type: details_sidebar
       format_settings:
         classes: ''
@@ -54,6 +54,14 @@ content:
       summary_rows: 3
       placeholder: ''
       show_summary: false
+    third_party_settings: {  }
+  field_courseleaf_slug:
+    type: string_textfield
+    weight: 3
+    region: content
+    settings:
+      size: 10
+      placeholder: ''
     third_party_settings: {  }
   field_degree_level:
     type: options_select
@@ -82,7 +90,7 @@ content:
     third_party_settings: {  }
   field_metatags:
     type: metatag_firehose
-    weight: 3
+    weight: 4
     region: content
     settings:
       sidebar: true
@@ -90,7 +98,7 @@ content:
     third_party_settings: {  }
   field_placement_tags:
     type: entity_reference_autocomplete
-    weight: 6
+    weight: 7
     region: content
     settings:
       match_operator: CONTAINS
@@ -100,19 +108,19 @@ content:
     third_party_settings: {  }
   moderation_state:
     type: moderation_state_default
-    weight: 8
+    weight: 9
     region: content
     settings: {  }
     third_party_settings: {  }
   path:
     type: path
-    weight: 4
+    weight: 5
     region: content
     settings: {  }
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 5
+    weight: 6
     region: content
     settings:
       display_label: true

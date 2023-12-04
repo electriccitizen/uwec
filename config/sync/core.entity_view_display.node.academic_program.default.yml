@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.academic_program.body
+    - field.field.node.academic_program.field_courseleaf_slug
     - field.field.node.academic_program.field_degree_level
     - field.field.node.academic_program.field_domain_access
     - field.field.node.academic_program.field_domain_all_affiliates
@@ -15,6 +16,7 @@ dependencies:
     - views.view.bios
     - views.view.facts
   module:
+    - citizen_custom
     - layout_builder
     - layout_builder_restrictions
     - layout_discovery
@@ -111,6 +113,17 @@ third_party_settings:
               items_per_page: none
             weight: 7
             additional: {  }
+          1e6f4f9f-1bfe-415c-9027-67dbb375757f:
+            uuid: 1e6f4f9f-1bfe-415c-9027-67dbb375757f
+            region: content
+            configuration:
+              id: courses
+              label: Courses
+              label_display: '0'
+              provider: citizen_custom
+              context_mapping: {  }
+            weight: 8
+            additional: {  }
         third_party_settings: {  }
   layout_builder_restrictions:
     allowed_block_categories: {  }
@@ -136,6 +149,14 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: -20
+    region: content
+  field_courseleaf_slug:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 105
     region: content
   field_degree_level:
     type: list_default
@@ -169,6 +190,4 @@ hidden:
   field_domain_all_affiliates: true
   field_domain_source: true
   layout_builder__layout: true
-  publish_state: true
   search_api_excerpt: true
-  unpublish_state: true

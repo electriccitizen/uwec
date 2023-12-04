@@ -5,6 +5,7 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.academic_program.body
+    - field.field.node.academic_program.field_courseleaf_slug
     - field.field.node.academic_program.field_degree_level
     - field.field.node.academic_program.field_domain_access
     - field.field.node.academic_program.field_domain_all_affiliates
@@ -40,6 +41,7 @@ content:
     weight: 100
     region: content
 hidden:
+  field_courseleaf_slug: true
   field_degree_level: true
   field_domain_access: true
   field_domain_all_affiliates: true
