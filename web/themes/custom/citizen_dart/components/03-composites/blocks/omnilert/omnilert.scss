@@ -2,14 +2,14 @@
 
 .omnilert{
 	/* colors */
-	background-color:$red;
-	color:#fff;
+	background-color: $red;
+	color: $white;
 	padding:0 2rem;
 
 	table{
 		/* full width */
 		width:100%;
-		max-width:1440px;
+		max-width: $contentStop;
 		margin:0 auto;
 
 		/* push the date into the top right corner */
@@ -22,13 +22,13 @@
 
 		/* bigger font size on heading */
 		.SmartBoard_Subject{
-			font-size:200%;
-			font-family: $header;
+			@include heading2;
+			color: $white;
 		}
 	}
 
 	td{
-		padding:2rem 0;
+		padding: 2rem 0;
 	}
 
 	/* add a border to the top of subsequent ones so they don't bleed together */
