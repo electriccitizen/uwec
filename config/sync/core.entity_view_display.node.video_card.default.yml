@@ -48,25 +48,6 @@ third_party_settings:
                 settings:
                   link_to_entity: false
                 third_party_settings: {  }
-            weight: 3
-            additional: {  }
-          cf09e281-424e-484c-917f-dbfdcf79924c:
-            uuid: cf09e281-424e-484c-917f-dbfdcf79924c
-            region: content
-            configuration:
-              id: 'field_block:node:video_card:field_video'
-              label: Video
-              label_display: '0'
-              provider: layout_builder
-              context_mapping:
-                entity: layout_builder.entity
-                view_mode: view_mode
-              formatter:
-                type: entity_reference_entity_view
-                label: hidden
-                settings:
-                  view_mode: default
-                third_party_settings: {  }
             weight: 4
             additional: {  }
           c69bb323-be8d-415c-bb24-d01777b28451:
@@ -87,6 +68,32 @@ third_party_settings:
                 third_party_settings: {  }
             weight: 5
             additional: {  }
+          cf09e281-424e-484c-917f-dbfdcf79924c:
+            uuid: cf09e281-424e-484c-917f-dbfdcf79924c
+            region: content
+            configuration:
+              id: 'field_block:node:video_card:field_video'
+              label: Video
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: entity_reference_entity_view
+                label: hidden
+                settings:
+                  view_mode: default
+                third_party_settings: {  }
+            weight: 3
+            additional: {  }
+        third_party_settings: {  }
+      -
+        layout_id: layout_onecol
+        layout_settings:
+          label: ''
+          context_mapping: {  }
+        components:
           c1809725-7c63-48d5-9d90-c7f8212bee1c:
             uuid: c1809725-7c63-48d5-9d90-c7f8212bee1c
             region: content
@@ -100,11 +107,49 @@ third_party_settings:
                 view_mode: view_mode
               formatter:
                 type: entity_reference_label
-                label: hidden
+                label: inline
                 settings:
                   link: false
                 third_party_settings: {  }
-            weight: 6
+            weight: 0
+            additional: {  }
+          9ea479c9-0ea7-41a6-ab7e-819e76084cde:
+            uuid: 9ea479c9-0ea7-41a6-ab7e-819e76084cde
+            region: content
+            configuration:
+              id: 'field_block:node:video_card:field_placement_tags'
+              label: 'Placement tags'
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: entity_reference_label
+                label: inline
+                settings:
+                  link: false
+                third_party_settings: {  }
+            weight: 1
+            additional: {  }
+          50fe3815-f708-401d-b57e-44c764f23cdd:
+            uuid: 50fe3815-f708-401d-b57e-44c764f23cdd
+            region: content
+            configuration:
+              id: 'field_block:node:video_card:field_page_families'
+              label: 'Page Families'
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: entity_reference_label
+                label: inline
+                settings:
+                  link: false
+                third_party_settings: {  }
+            weight: 2
             additional: {  }
         third_party_settings: {  }
   layout_builder_restrictions:
