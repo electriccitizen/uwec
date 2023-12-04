@@ -46,7 +46,7 @@ class Courses extends BlockBase{
 	}
 
 	// returns an array of courses
-	// each course is an array containing "name", "number", and "description"
+	// each course is an array containing "title", "number", and "description"
 	protected function getCourses($slug){
 		$url = 'https://catalog.uwec.edu/ribbit/?page=getcourse.rjs&subject='.$slug; $response = \Drupal::httpClient()->request('GET', $url);
 
