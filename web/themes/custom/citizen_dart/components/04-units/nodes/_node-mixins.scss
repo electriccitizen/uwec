@@ -14,4 +14,33 @@
 	@include auto;
 }
 
-
+@mixin contactSection{
+	max-width: 914px;
+	@include auto;
+	background: $ice;
+	padding: 60px 124px 76px;
+	.layout__region--content{
+		@include safeFlex(row,wrap,start,start);
+		@include bleed(padding,40px);
+	}
+	h2{
+		font-size: 32px;
+		line-height: 40px;
+		color: $brightBlue;
+		width: 100%;
+		font-family: $displayHeader;
+	}
+	.block-field-contact,.block-field-hours{
+		margin-bottom: $spaceMd;
+		@include tab{
+			width: 50%;
+		}
+	}
+	.block-field-platforms{
+		width: 100%;
+		margin-bottom: 0;
+		.platform-links{
+			justify-content: center;
+		}
+	}
+}//end contactSection

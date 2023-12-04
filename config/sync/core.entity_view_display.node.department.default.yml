@@ -5,22 +5,25 @@ dependencies:
   config:
     - field.field.node.department.body
     - field.field.node.department.field_college
+    - field.field.node.department.field_contact
     - field.field.node.department.field_domain_access
     - field.field.node.department.field_domain_all_affiliates
     - field.field.node.department.field_domain_source
     - field.field.node.department.field_hallmarks
+    - field.field.node.department.field_hours_library
     - field.field.node.department.field_metatags
+    - field.field.node.department.field_platforms
     - field.field.node.department.layout_builder__layout
     - node.type.department
     - system.menu.departments
     - views.view.bios
-    - views.view.contact_hours
     - views.view.facts
   module:
     - entity_reference_revisions
     - layout_builder
     - layout_builder_restrictions
     - layout_discovery
+    - link
     - menu_block
     - metatag
     - text
@@ -74,25 +77,6 @@ third_party_settings:
                 third_party_settings: {  }
             weight: 3
             additional: {  }
-          3037c218-b849-40b4-b4eb-82a887b60c9b:
-            uuid: 3037c218-b849-40b4-b4eb-82a887b60c9b
-            region: content
-            configuration:
-              id: 'field_block:node:department:field_hallmarks'
-              label: Hallmarks
-              label_display: '0'
-              provider: layout_builder
-              context_mapping:
-                entity: layout_builder.entity
-                view_mode: view_mode
-              formatter:
-                type: entity_reference_revisions_entity_view
-                label: hidden
-                settings:
-                  view_mode: default
-                third_party_settings: {  }
-            weight: 4
-            additional: {  }
         third_party_settings: {  }
       -
         layout_id: two_column_sidebar_left
@@ -136,7 +120,7 @@ third_party_settings:
                 label: hidden
                 settings: {  }
                 third_party_settings: {  }
-            weight: 0
+            weight: 2
             additional: {  }
         third_party_settings: {  }
       -
@@ -156,7 +140,7 @@ third_party_settings:
               context_mapping: {  }
               views_label: ''
               items_per_page: none
-            weight: 0
+            weight: 4
             additional: {  }
           bc63b224-5b3a-4096-8576-b8b5886b3340:
             uuid: bc63b224-5b3a-4096-8576-b8b5886b3340
@@ -169,20 +153,87 @@ third_party_settings:
               context_mapping: {  }
               views_label: ''
               items_per_page: none
-            weight: 1
+            weight: 6
             additional: {  }
-          7991f535-8bd2-4cc6-8413-068c5fbdcacd:
-            uuid: 7991f535-8bd2-4cc6-8413-068c5fbdcacd
+          3037c218-b849-40b4-b4eb-82a887b60c9b:
+            uuid: 3037c218-b849-40b4-b4eb-82a887b60c9b
             region: content
             configuration:
-              id: 'views_block:contact_hours-by_tag'
-              label: ''
+              id: 'field_block:node:department:field_hallmarks'
+              label: Hallmarks
               label_display: '0'
-              provider: views
-              context_mapping: {  }
-              views_label: ''
-              items_per_page: none
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: entity_reference_revisions_entity_view
+                label: hidden
+                settings:
+                  view_mode: default
+                third_party_settings: {  }
+            weight: 5
+            additional: {  }
+        third_party_settings: {  }
+      -
+        layout_id: layout_onecol
+        layout_settings:
+          label: ''
+          context_mapping: {  }
+        components:
+          ffdc1f45-3cda-47f6-8485-2d6c2133c4d6:
+            uuid: ffdc1f45-3cda-47f6-8485-2d6c2133c4d6
+            region: content
+            configuration:
+              id: 'field_block:node:department:field_platforms'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: link
+                label: hidden
+                settings:
+                  trim_length: null
+                  url_only: true
+                  url_plain: true
+                  rel: '0'
+                  target: '0'
+                third_party_settings: {  }
             weight: 2
+            additional: {  }
+          154ea777-4989-4cc1-a699-36a28c9c52b5:
+            uuid: 154ea777-4989-4cc1-a699-36a28c9c52b5
+            region: content
+            configuration:
+              id: 'field_block:node:department:field_hours_library'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: entity_reference_entity_view
+                label: hidden
+                settings:
+                  view_mode: teaser
+                  link: false
+                third_party_settings: {  }
+            weight: 1
+            additional: {  }
+          600f1edb-a4c6-47c6-80bc-8b404fecf74c:
+            uuid: 600f1edb-a4c6-47c6-80bc-8b404fecf74c
+            region: content
+            configuration:
+              id: 'field_block:node:department:field_contact'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: entity_reference_entity_view
+                label: hidden
+                settings:
+                  view_mode: teaser
+                  link: false
+                third_party_settings: {  }
+            weight: 0
             additional: {  }
         third_party_settings: {  }
   layout_builder_restrictions:
@@ -219,6 +270,15 @@ content:
     third_party_settings: {  }
     weight: 104
     region: content
+  field_contact:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: teaser
+      link: false
+    third_party_settings: {  }
+    weight: 106
+    region: content
   field_hallmarks:
     type: entity_reference_revisions_entity_view
     label: above
@@ -228,12 +288,33 @@ content:
     third_party_settings: {  }
     weight: 105
     region: content
+  field_hours_library:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: teaser
+      link: false
+    third_party_settings: {  }
+    weight: 107
+    region: content
   field_metatags:
     type: metatag_empty_formatter
     label: above
     settings: {  }
     third_party_settings: {  }
     weight: 103
+    region: content
+  field_platforms:
+    type: link
+    label: hidden
+    settings:
+      trim_length: null
+      url_only: true
+      url_plain: true
+      rel: '0'
+      target: '0'
+    third_party_settings: {  }
+    weight: 108
     region: content
   links:
     settings: {  }
