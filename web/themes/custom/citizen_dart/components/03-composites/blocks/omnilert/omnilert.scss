@@ -1,0 +1,38 @@
+@use '../../../00-base/base' as *;
+
+.omnilert{
+	/* colors */
+	background-color:$red;
+	color:#fff;
+	padding:0 2rem;
+
+	table{
+		/* full width */
+		width:100%;
+		max-width:1440px;
+		margin:0 auto;
+
+		/* push the date into the top right corner */
+		.SmartBoard_Subject{
+			width:99%;
+		}
+		.SmartBoard_DateTime{
+			white-space: nowrap;
+		}
+
+		/* bigger font size on heading */
+		.SmartBoard_Subject{
+			font-size:200%;
+			font-family: $header;
+		}
+	}
+
+	td{
+		padding:2rem 0;
+	}
+
+	/* add a border to the top of subsequent ones so they don't bleed together */
+	table+table{
+		border-top:1px solid rgba(255,255,255,0.3);
+	}
+}
