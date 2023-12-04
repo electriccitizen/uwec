@@ -25,15 +25,12 @@ function citizen_profile_sync_cron() {
   $response = $http_client->get($url . $active_query_string);
 
   if ($response->getStatusCode() == 200) {
-    // Process the response body.
     $data = json_decode($response->getBody());
-    // Do something with $data.
     $profiles = (array) $data;
 
     $profileSyncService->syncProfiles($profiles);
   }
   else {
-    // Handle the error, e.g., log it or throw an exception.
     \Drupal::logger('citizen_profile_sync')
       ->error('Error accessing API: @code - @message', [
         '@code' => $response->getStatusCode(),
@@ -56,7 +53,6 @@ function citizen_profile_sync_cron() {
 
   }
   else {
-    // Handle the error, e.g., log it or throw an exception.
     \Drupal::logger('citizen_profile_sync')
       ->error('Error accessing API: @code - @message', [
         '@code' => $response->getStatusCode(),
@@ -66,7 +62,6 @@ function citizen_profile_sync_cron() {
 }
 
 function citizen_profile_sync_form_node_bios_edit_form_alter(&$form, $form_state, $form_id) {
-  /* Find the current user */
   $user = \Drupal::currentUser();
   $userId = $user->id();
   if ($userId != 1) {
@@ -91,7 +86,6 @@ function citizen_profile_sync_form_node_bios_edit_form_alter(&$form, $form_state
 }
 
 function citizen_profile_sync_form_user_form_alter(&$form, $form_state, $form_id) {
-  /* Find the current user */
   $user = \Drupal::currentUser();
   $userId = $user->id();
   if ($userId != 1) {
@@ -101,6 +95,7 @@ function citizen_profile_sync_form_user_form_alter(&$form, $form_state, $form_id
       'field_first_name',
       'field_last_name',
       'field_last_imported',
+      'field_athena_id',
     ];
 
     foreach ($sync_fields as $field_name) {

@@ -50,7 +50,7 @@ class ProfileSyncService {
    */
   public function syncProfiles(array $profiles) {
     foreach ($profiles as $athenaId => $profile) {
-      $user = $this->findExistingUser($profile->username);
+      $user = $this->findExistingUser($athenaId);
       $existingNode = $this->findExistingProfile($athenaId);
 
       if ($user ||  $existingNode) {
@@ -192,7 +192,7 @@ class ProfileSyncService {
       //Skip all with updated_at datetimes before current dev date
       //todo adjust the date constant before launch
       if (strtotime($athenaUpdateTime) > strtotime(self::IGNORE_BEFORE_DATE)) {
-        $existingActiveUser = $this->findExistingUser($profile->username, true);
+        $existingActiveUser = $this->findExistingUser($athenaId, true);
 
         if ($existingActiveUser) {
           $existingActiveUser->block();
@@ -244,14 +244,14 @@ class ProfileSyncService {
   /**
    * Find existing Drupal user by Athena username field value.
    *
-   * @param $username
+   * @param $athenaId
    * @param bool $activeOnly
    *
    * @return \Drupal\Core\Entity\EntityBase|\Drupal\Core\Entity\EntityInterface|\Drupal\user\Entity\User|\Drupal\user\UserInterface|false
    */
-  protected function findExistingUser($username, bool $activeOnly = false) {
+  protected function findExistingUser($athenaId, bool $activeOnly = false) {
     $query = \Drupal::entityQuery('user')
-      ->condition('name', $username)
+      ->condition('field_athena_id', $athenaId)
       ->range(0, 1); // Limit the result to 1 record.
 
     if ($activeOnly) {
@@ -280,12 +280,14 @@ class ProfileSyncService {
     $newuser = [
       'name' => $profile->username,
       'mail' => $profile->email,
+      'field_athena_id' => $profile->id,
       'field_first_name' => $profile->first_name,
       'field_last_name' => $profile->last_name,
       'field_last_imported' => $this->getUpdateTime(),
       // Generate random password
       'pass' => \Drupal::service('password_generator')->generate(),
       'status' => 0, // Set to 0 for inactive users.
+      'roles' => ['personnel'],
     ];
 
     $user = User::create($newuser);
@@ -305,6 +307,7 @@ class ProfileSyncService {
    * @return void
    */
   protected function updateUser($user, $profile) {
+    $user->set('name', $profile->username);
     $user->set('mail', $profile->email);
     $user->set('field_first_name', $profile->first_name);
     $user->set('field_last_name', $profile->last_name);
