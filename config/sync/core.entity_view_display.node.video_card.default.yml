@@ -49,7 +49,7 @@ third_party_settings:
                 settings:
                   link_to_entity: false
                 third_party_settings: {  }
-            weight: 4
+            weight: 5
             additional: {  }
           c69bb323-be8d-415c-bb24-d01777b28451:
             uuid: c69bb323-be8d-415c-bb24-d01777b28451
@@ -67,7 +67,7 @@ third_party_settings:
                 label: hidden
                 settings: {  }
                 third_party_settings: {  }
-            weight: 5
+            weight: 6
             additional: {  }
           cf09e281-424e-484c-917f-dbfdcf79924c:
             uuid: cf09e281-424e-484c-917f-dbfdcf79924c
@@ -86,15 +86,8 @@ third_party_settings:
                 settings:
                   view_mode: default
                 third_party_settings: {  }
-            weight: 3
+            weight: 4
             additional: {  }
-        third_party_settings: {  }
-      -
-        layout_id: layout_onecol
-        layout_settings:
-          label: ''
-          context_mapping: {  }
-        components:
           c1809725-7c63-48d5-9d90-c7f8212bee1c:
             uuid: c1809725-7c63-48d5-9d90-c7f8212bee1c
             region: content
@@ -108,12 +101,19 @@ third_party_settings:
                 view_mode: view_mode
               formatter:
                 type: entity_reference_label
-                label: inline
+                label: hidden
                 settings:
                   link: false
                 third_party_settings: {  }
-            weight: 0
+            weight: 3
             additional: {  }
+        third_party_settings: {  }
+      -
+        layout_id: layout_onecol
+        layout_settings:
+          label: ''
+          context_mapping: {  }
+        components:
           9ea479c9-0ea7-41a6-ab7e-819e76084cde:
             uuid: 9ea479c9-0ea7-41a6-ab7e-819e76084cde
             region: content
