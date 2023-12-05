@@ -23,6 +23,7 @@ function citizen_profile_sync_cron() {
     if ($response->getStatusCode() == 200) {
       $data = json_decode($response->getBody());
       $profiles = (array) $data;
+      $profiles = array_slice($profiles, 0, 10, TRUE);
       $profileSyncService->syncProfiles($profiles);
     }
     else {
@@ -42,6 +43,7 @@ function citizen_profile_sync_cron() {
     if ($response->getStatusCode() == 200) {
       $data = json_decode($response->getBody());
       $inactive_profiles = (array) $data;
+      $inactive_profiles = array_slice($inactive_profiles, 0, 10, TRUE);
       $profileSyncService->deactivateProfiles($inactive_profiles);
     }
     else {
