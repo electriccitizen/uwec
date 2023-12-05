@@ -3,7 +3,11 @@
 ================ */
 
 @use '../../../00-base/base' as *;
+@use '../node-mixins' as *;
 
 .node-college{
-	
+
+	#node-section-4{
+		@include contactSection;
+	}//end node-section-4
 }//end college

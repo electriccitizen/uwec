@@ -1,0 +1,29 @@
+uuid: d0412b87-e972-4678-ac37-f2f9d038c261
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_hours_library
+    - node.type.college
+    - node.type.hours
+id: node.college.field_hours_library
+field_name: field_hours_library
+entity_type: node
+bundle: college
+label: Hours
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      hours: hours
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: hours
+field_type: entity_reference

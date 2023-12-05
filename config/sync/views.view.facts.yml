@@ -485,11 +485,11 @@ display:
       tags: {  }
   recent_by_tag:
     id: recent_by_tag
-    display_title: 'Most Recent by Tag'
+    display_title: 'Most Recent Facts by Tag'
     display_plugin: block
     position: 3
     display_options:
-      title: 'Most Recent by Tag'
+      title: 'Most Recent Facts by Tag'
       fields:
         title:
           id: title
@@ -682,7 +682,7 @@ display:
           required: false
       display_description: ''
       display_extenders: {  }
-      block_description: 'Most Recent by Tag'
+      block_description: 'Most Recent Facts by Tag'
       block_hide_empty: true
     cache_metadata:
       max-age: -1

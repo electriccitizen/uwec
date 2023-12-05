@@ -1692,11 +1692,11 @@ display:
         - 'config:field.storage.node.field_intro_text'
   recent_by_tag:
     id: recent_by_tag
-    display_title: 'Most Recent by Tag'
+    display_title: 'Most Recent Stories by Tag'
     display_plugin: block
     position: 5
     display_options:
-      title: 'Most Recent by Tag'
+      title: 'Most Recent Stories by Tag'
       fields:
         title:
           id: title
@@ -2134,7 +2134,7 @@ display:
       display_description: ''
       footer: {  }
       display_extenders: {  }
-      block_description: 'Most Recent by Tag'
+      block_description: 'Most Recent Stories by Tag'
       block_hide_empty: true
     cache_metadata:
       max-age: -1
