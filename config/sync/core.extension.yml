@@ -116,6 +116,7 @@ module:
   menu_admin_per_menu: 1
   pathauto: 1
   xmlsitemap: 1
+  externalauth: 10
   views: 10
   paragraphs: 11
   citizen: 1000
