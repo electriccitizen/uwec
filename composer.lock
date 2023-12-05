@@ -8092,7 +8092,7 @@
         },
         {
             "name": "pantheon-upstreams/upstream-configuration",
-            "version": "dev-UWEC-228-sp3-fixes-2",
+            "version": "dev-uwec-98",
             "dist": {
                 "type": "path",
                 "url": "upstream-configuration",
@@ -14918,5 +14918,5 @@
     "prefer-lowest": false,
     "platform": [],
     "platform-dev": [],
-    "plugin-api-version": "2.3.0"
+    "plugin-api-version": "2.2.0"
 }

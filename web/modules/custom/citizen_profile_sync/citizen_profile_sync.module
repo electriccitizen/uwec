@@ -1,0 +1,104 @@
+<?php
+
+use GuzzleHttp\Exception\GuzzleException;
+
+/**
+ * @file
+ * Primary module hooks for Citizen Profile Sync module.
+ */
+
+/**
+ * Cron job to connect to profiles endpoint and
+ *  sync to Profiles content type
+ */
+function citizen_profile_sync_cron() {
+  $profileSyncService = \Drupal::service('citizen_profile_sync.profile_sync_service');
+  $http_client = \Drupal::httpClient();
+  $url = "https://athena.apps.uwec.edu/api/profiles.json";
+  $apikey = '36dadd0fab31edb063666ef8f43e595d';
+  $query_string = '?apikey=' . $apikey;
+  $active_query_string = $query_string . '&isactive=1';
+  try {
+    $response = $http_client->get($url . $active_query_string);
+    if ($response->getStatusCode() == 200) {
+      $data = json_decode($response->getBody());
+      $profiles = (array) $data;
+      $profileSyncService->syncProfiles($profiles);
+    }
+    else {
+      \Drupal::logger('citizen_profile_sync')
+        ->error('Error accessing API: @code - @message', [
+          '@code' => $response->getStatusCode(),
+          '@message' => $response->getReasonPhrase(),
+        ]);
+    }
+  } catch (GuzzleException $e) {
+    \Drupal::logger('citizen_profile_sync', 'Athena endpoint connection failure due to "%error".')
+      ->error($e->getMessage());
+  }
+  $inactive_query_string = $query_string . '&isactive=0';
+  try {
+    $response = $http_client->get($url . $inactive_query_string);
+    if ($response->getStatusCode() == 200) {
+      $data = json_decode($response->getBody());
+      $inactive_profiles = (array) $data;
+      $profileSyncService->deactivateProfiles($inactive_profiles);
+    }
+    else {
+      \Drupal::logger('citizen_profile_sync')
+        ->error('Error accessing API: @code - @message', [
+          '@code' => $response->getStatusCode(),
+          '@message' => $response->getReasonPhrase(),
+        ]);
+    }
+  } catch (GuzzleException $e) {
+    \Drupal::logger('citizen_profile_sync', 'Athena endpoint connection failure due to "%error".')
+      ->error($e->getMessage());
+  }
+}
+
+function citizen_profile_sync_form_node_bios_edit_form_alter(&$form, $form_state, $form_id) {
+  $user = \Drupal::currentUser();
+  $userId = $user->id();
+  if ($userId != 1) {
+    $sync_fields = [
+      'field_athena_id',
+      'field_active',
+      'field_username',
+      'field_email',
+      'field_phone',
+      'field_first_name',
+      'field_last_name',
+      'field_position',
+      'field_import_date',
+    ];
+
+    foreach ($sync_fields as $field_name) {
+      if (isset($form[$field_name])) {
+        $form[$field_name]['#disabled'] = TRUE;
+      }
+    }
+  }
+}
+
+function citizen_profile_sync_form_user_form_alter(&$form, $form_state, $form_id) {
+  $user = \Drupal::currentUser();
+  $userId = $user->id();
+  if ($userId != 1) {
+    $form['account']['mail']['#disabled'] = TRUE;
+
+    $sync_fields = [
+      'field_first_name',
+      'field_last_name',
+      'field_last_imported',
+      'field_athena_id',
+    ];
+
+    foreach ($sync_fields as $field_name) {
+      if (isset($form[$field_name])) {
+        $form[$field_name]['#disabled'] = TRUE;
+      }
+    }
+  }
+
+}
