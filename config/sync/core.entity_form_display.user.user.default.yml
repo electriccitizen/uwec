@@ -3,14 +3,17 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.user.user.field_athena_id
     - field.field.user.user.field_domain_access
     - field.field.user.user.field_domain_admin
     - field.field.user.user.field_domain_all_affiliates
     - field.field.user.user.field_first_name
+    - field.field.user.user.field_last_imported
     - field.field.user.user.field_last_name
     - field.field.user.user.field_primary_editor
     - field.field.user.user.field_user_image
   module:
+    - datetime
     - field_group
     - media_library
     - user
@@ -47,6 +50,14 @@ content:
   contact:
     weight: 5
     region: content
+  field_athena_id:
+    type: string_textfield
+    weight: 8
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
   field_domain_access:
     type: options_buttons
     weight: 3
@@ -73,6 +84,12 @@ content:
     settings:
       size: 60
       placeholder: ''
+    third_party_settings: {  }
+  field_last_imported:
+    type: datetime_default
+    weight: 7
+    region: content
+    settings: {  }
     third_party_settings: {  }
   field_last_name:
     type: string_textfield
