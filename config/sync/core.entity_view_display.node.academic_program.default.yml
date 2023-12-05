@@ -8,6 +8,8 @@ dependencies:
     - field.field.node.academic_program.field_domain_access
     - field.field.node.academic_program.field_domain_all_affiliates
     - field.field.node.academic_program.field_domain_source
+    - field.field.node.academic_program.field_list_widget
+    - field.field.node.academic_program.field_meta_description
     - field.field.node.academic_program.field_metatags
     - field.field.node.academic_program.field_placement_tags
     - field.field.node.academic_program.layout_builder__layout
@@ -144,6 +146,22 @@ content:
     third_party_settings: {  }
     weight: 104
     region: content
+  field_list_widget:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 105
+    region: content
+  field_meta_description:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 106
+    region: content
   field_metatags:
     type: metatag_empty_formatter
     label: above
@@ -169,6 +187,4 @@ hidden:
   field_domain_all_affiliates: true
   field_domain_source: true
   layout_builder__layout: true
-  publish_state: true
   search_api_excerpt: true
-  unpublish_state: true

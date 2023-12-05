@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.paragraph.profiles_list.field_faculty_staff
     - field.field.paragraph.profiles_list.field_limit_list
     - field.field.paragraph.profiles_list.field_list_type
     - field.field.paragraph.profiles_list.field_list_widget
@@ -17,6 +18,12 @@ targetEntityType: paragraph
 bundle: profiles_list
 mode: default
 content:
+  field_faculty_staff:
+    type: options_select
+    weight: 4
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   field_limit_list:
     type: number
     weight: 6
@@ -32,7 +39,7 @@ content:
     third_party_settings: {  }
   field_page_family:
     type: entity_reference_autocomplete
-    weight: 4
+    weight: 3
     region: content
     settings:
       match_operator: CONTAINS
@@ -42,7 +49,7 @@ content:
     third_party_settings: {  }
   field_placement_tag:
     type: entity_reference_autocomplete
-    weight: 3
+    weight: 2
     region: content
     settings:
       match_operator: CONTAINS

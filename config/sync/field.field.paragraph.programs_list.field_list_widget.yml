@@ -1,0 +1,33 @@
+uuid: 4197537e-680b-47e5-a7bb-b305ba337228
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_list_widget
+    - paragraphs.paragraphs_type.programs_list
+    - taxonomy.vocabulary.list_widget
+  content:
+    - 'taxonomy_term:list_widget:b6ffd153-c040-4cca-9f60-3acd5487334c'
+id: paragraph.programs_list.field_list_widget
+field_name: field_list_widget
+entity_type: paragraph
+bundle: programs_list
+label: 'List Widget'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    target_uuid: b6ffd153-c040-4cca-9f60-3acd5487334c
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      list_widget: list_widget
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

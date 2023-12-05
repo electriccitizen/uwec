@@ -5,10 +5,12 @@ dependencies:
   config:
     - field.storage.node.field_campus
     - field.storage.node.field_departments
+    - field.storage.node.field_faculty_staff
     - field.storage.node.field_first_name
     - field.storage.node.field_first_override
     - field.storage.node.field_last_name
     - field.storage.node.field_last_override
+    - field.storage.node.field_middle_name
     - field.storage.node.field_programs
     - field.storage.node.field_position
     - field.storage.node.field_position_override
@@ -42,6 +44,14 @@ field_settings:
         - field.storage.node.field_departments
       module:
         - node
+  field_faculty_staff:
+    label: Faculty/Staff
+    datasource_id: 'entity:node'
+    property_path: field_faculty_staff
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_faculty_staff
   field_first_name:
     label: 'First Name'
     datasource_id: 'entity:node'
@@ -78,6 +88,14 @@ field_settings:
     dependencies:
       config:
         - field.storage.node.field_last_override
+  field_middle_name:
+    label: 'Middle Name'
+    datasource_id: 'entity:node'
+    property_path: field_middle_name
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_middle_name
   field_position:
     label: Title(s)
     datasource_id: 'entity:node'
@@ -148,10 +166,12 @@ processor_settings:
     fields:
       - campus
       - departments
+      - field_faculty_staff
       - field_first_name
       - field_first_override
       - field_last_name
       - field_last_override
+      - field_middle_name
       - field_position
       - field_position_override
       - programs
@@ -174,10 +194,12 @@ processor_settings:
     fields:
       - campus
       - departments
+      - field_faculty_staff
       - field_first_name
       - field_first_override
       - field_last_name
       - field_last_override
+      - field_middle_name
       - field_position
       - field_position_override
       - programs
@@ -193,10 +215,12 @@ processor_settings:
     fields:
       - campus
       - departments
+      - field_faculty_staff
       - field_first_name
       - field_first_override
       - field_last_name
       - field_last_override
+      - field_middle_name
       - field_position
       - field_position_override
       - programs
@@ -227,10 +251,12 @@ processor_settings:
     fields:
       - campus
       - departments
+      - field_faculty_staff
       - field_first_name
       - field_first_override
       - field_last_name
       - field_last_override
+      - field_middle_name
       - field_position
       - field_position_override
       - programs

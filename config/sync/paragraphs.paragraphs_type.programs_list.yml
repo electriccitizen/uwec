@@ -1,0 +1,10 @@
+uuid: bd2a45b7-6994-44db-8940-0a2c279bbce7
+langcode: en
+status: true
+dependencies: {  }
+id: programs_list
+label: 'Programs List'
+icon_uuid: null
+icon_default: null
+description: 'Add list of programs to a node.'
+behavior_plugins: {  }

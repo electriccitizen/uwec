@@ -13,6 +13,7 @@ dependencies:
     - field.field.node.news.field_image
     - field.field.node.news.field_intro_text
     - field.field.node.news.field_list_widget
+    - field.field.node.news.field_meta_description
     - field.field.node.news.field_metatags
     - field.field.node.news.field_page_families
     - field.field.node.news.field_paragraphs
@@ -61,6 +62,7 @@ hidden:
   field_editorial_sections: true
   field_eyebrow: true
   field_list_widget: true
+  field_meta_description: true
   field_metatags: true
   field_page_families: true
   field_paragraphs: true

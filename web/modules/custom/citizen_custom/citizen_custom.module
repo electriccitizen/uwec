@@ -302,6 +302,25 @@ function citizen_custom_views_pre_view($view, $display_id, &$args) {
           }
         }
 
+        // make the view's faculty/staff filter match what the user selected in the paragraph
+        if(isset($paragraph->field_faculty_staff[0])){
+          // make an array out of the faculty/staff choices set in the paragraph
+          $fac_staffs = [];
+          foreach($paragraph->field_faculty_staff as $delta => $fac_staff){
+            $fac_staffs[] = $fac_staff->value;
+          }
+
+          // replace the faculty/staff  filter with the paragraph's faculty/staff value
+          if(isset($filters['field_faculty_staff_value'])){
+            $filters['field_faculty_staff_value']['value'] = $fac_staffs;
+          }
+        }else{
+          //the faculty/staff field is not set in the paragraph, so unset it in the view
+          if(isset($filters['field_faculty_staff_value'])){
+            unset($filters['field_faculty_staff_value']);
+          }
+        }
+
         $view->display_handler->setOption('filters', $filters);
 
         // change the pager if the paragraph has a limit lists field used
