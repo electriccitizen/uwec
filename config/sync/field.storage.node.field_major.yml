@@ -1,16 +1,18 @@
-uuid: 52357b51-f10b-4695-997f-8ce79deea3ca
+uuid: 3bc8e392-f3fa-4a7f-b0df-685f430a5609
 langcode: en
 status: true
 dependencies:
   module:
     - node
-    - text
-id: node.field_research
-field_name: field_research
+id: node.field_major
+field_name: field_major
 entity_type: node
-type: text_long
-settings: {  }
-module: text
+type: string
+settings:
+  max_length: 255
+  case_sensitive: false
+  is_ascii: false
+module: core
 locked: false
 cardinality: 1
 translatable: true

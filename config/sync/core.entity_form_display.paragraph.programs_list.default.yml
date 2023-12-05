@@ -1,0 +1,32 @@
+uuid: b8eb5475-114a-4ec6-833f-5558da208cd9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.programs_list.field_list_type
+    - field.field.paragraph.programs_list.field_list_widget
+    - paragraphs.paragraphs_type.programs_list
+id: paragraph.programs_list.default
+targetEntityType: paragraph
+bundle: programs_list
+mode: default
+content:
+  field_list_type:
+    type: options_select
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_list_widget:
+    type: entity_reference_autocomplete
+    weight: 0
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

@@ -12,6 +12,7 @@ dependencies:
     - field.field.node.page.field_formatted_title
     - field.field.node.page.field_hero
     - field.field.node.page.field_hide_nav
+    - field.field.node.page.field_meta_description
     - field.field.node.page.field_metatags
     - field.field.node.page.field_page_family
     - field.field.node.page.field_paragraphs
@@ -65,6 +66,7 @@ hidden:
   field_formatted_title: true
   field_hero: true
   field_hide_nav: true
+  field_meta_description: true
   field_metatags: true
   field_oc_widgets: true
   field_page_family: true

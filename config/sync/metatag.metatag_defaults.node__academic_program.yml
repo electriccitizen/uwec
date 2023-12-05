@@ -1,0 +1,9 @@
+uuid: daa77d6b-b144-4914-b876-d25461c7c588
+langcode: en
+status: true
+dependencies: {  }
+id: node__academic_program
+label: 'Content: Academic Program'
+tags:
+  abstract: '[node:field_meta_description]'
+  description: '[node:field_meta_description]'

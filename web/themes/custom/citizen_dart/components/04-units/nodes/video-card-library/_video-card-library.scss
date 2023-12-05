@@ -4,6 +4,42 @@
 
 @use '../../../00-base/base' as *;
 
-.node-video-card-library{
-	
+.node-video-card {
+	padding-top: $elementSpace;
+	max-width: 914px;
+	@include auto;
+  #node-section-1 {
+    margin-bottom: $elementSpace;
+		border-bottom: 1px solid $borderRule;
+		padding-bottom: $elementSpace;
+		.layout__region--content{
+			@include safeFlex(row,wrap,start,start);
+			@include bleed(padding,40px);
+		}
+		.block-field-eyebrow{
+			width: 100%;
+			text-align: right;
+		}
+		.block-field-video{
+			width: 100%;
+		}
+    .block-title {
+    	margin-left: 0px;
+      margin-right: 0px;
+      @include smallTab{
+      	width: 50%;
+      }
+      h1 {
+      	@include heading2;
+      }
+    }
+    .block-field.block-body{
+    	@include smallTab{
+      	width: 50%;
+      }
+    }
+  }//end node section 1
+  .block-field{
+  	margin-bottom: $spaceXs;
+  }
 }//end video-card-library

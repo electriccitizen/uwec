@@ -12,6 +12,7 @@ dependencies:
     - field.field.node.news.field_image
     - field.field.node.news.field_intro_text
     - field.field.node.news.field_list_widget
+    - field.field.node.news.field_meta_description
     - field.field.node.news.field_metatags
     - field.field.node.news.field_page_families
     - field.field.node.news.field_paragraphs
@@ -184,7 +185,7 @@ third_party_settings:
             configuration:
               id: 'field_block:node:news:field_image'
               label: 'For the media'
-              label_display: visible
+              label_display: '0'
               provider: layout_builder
               context_mapping:
                 entity: layout_builder.entity
@@ -316,6 +317,14 @@ content:
       link: true
     third_party_settings: {  }
     weight: 101
+    region: content
+  field_meta_description:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 106
     region: content
   field_page_families:
     type: entity_reference_label

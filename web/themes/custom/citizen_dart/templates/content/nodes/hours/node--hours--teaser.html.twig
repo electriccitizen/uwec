@@ -75,10 +75,7 @@
 
 {% block nodeTitle %}{% endblock %}
 {% block nodeContent %}
-	<div class="hours-wrapper">
-		<h2 class="hours-title">{{- label.0['#context'].value -}}</h2>
-		<div class="hours-content">
-			{{ content }}
-		</div>
+	<div class="hours-content">
+		{{ content }}
 	</div>
 {% endblock %}

@@ -38,22 +38,35 @@
 			<h1 class="term-title">{{ name[0]['#context'].value }}</h1>
 		{% endif %}
 		{{ title_suffix }}
-		{{ content }}
+		{% if content.field_profile.0 %}
+			{{ content|without('field_image') }}
+		{% else %}
+			{{ content|without('field_profile') }}
+		{% endif %}
 	{% elseif view_mode == 'teaser' %}
     {% if content.field_profile.0 %}
-      {{ content.field_profile }}
+    	<div class="teaser-image">
+     	 {{ content.field_profile }}
+    	</div>
     {% else %}
-      {{ content.field_image }}
+    	{% if content.field_image.0 %}
+	    	<div class="teaser-image">
+		      {{ content.field_image }}
+		    </div>
+		  {% endif %}
     {% endif %}
-    {{ title_prefix }}
-    <div>{{ name[0]['#context'].value }}</div>
-    {{ title_suffix }}
-    {{ content.field_description }}
+    <div class="teaser-text">
+	    {{ title_prefix }}
+	    <div class="author-name">{{ name[0]['#context'].value }}</div>
+	    {{ title_suffix }}
+	    {{ content.field_description }}
+	  </div>
   {% elseif view_mode == 'mini' %}
     {% if content.field_profile.0 %}
       {{ content.field_profile }}
     {% else %}
       {{ content|without('field_profile') }}
+      {{ name[0]['#context'].value }}
     {% endif %}
   {% endif %}
 </div>

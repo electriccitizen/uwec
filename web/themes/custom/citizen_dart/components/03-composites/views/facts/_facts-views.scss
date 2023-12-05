@@ -1,0 +1,22 @@
+/* ==================
+    FACTSA VIEWS
+==================== */
+
+@use '../../../00-base/base' as *;
+@use '../views-mixins' as *;
+
+/* FACTS LIST
+------------- */
+.facts.list {
+	
+}//end facts list
+
+.facts.recent-by-tag{
+	.facts-wrapper{
+		width: 100%;
+		display: grid;
+		grid-template-columns: 33.33% 33.33% 33.33%;
+  	grid-gap: 65px;
+  	@include factsGrid;
+	}
+}

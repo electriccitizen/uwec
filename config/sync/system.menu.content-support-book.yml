@@ -1,0 +1,8 @@
+uuid: bf44e0a5-76e9-49a5-b556-2a36b99e93b4
+langcode: en
+status: true
+dependencies: {  }
+id: content-support-book
+label: 'Content Support Book'
+description: 'Menu for editorial content guidance'
+locked: false

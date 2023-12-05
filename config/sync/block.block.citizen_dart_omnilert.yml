@@ -1,0 +1,20 @@
+uuid: 49ba594e-7852-43e3-87ff-d101015fcd06
+langcode: en
+status: true
+dependencies:
+  module:
+    - citizen_custom
+  theme:
+    - citizen_dart
+id: citizen_dart_omnilert
+theme: citizen_dart
+region: alert
+weight: -8
+provider: null
+plugin: omnilert
+settings:
+  id: omnilert
+  label: Omnilert
+  label_display: '0'
+  provider: citizen_custom
+visibility: {  }

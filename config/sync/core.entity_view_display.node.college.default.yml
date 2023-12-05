@@ -4,22 +4,27 @@ status: true
 dependencies:
   config:
     - field.field.node.college.body
+    - field.field.node.college.field_contact
     - field.field.node.college.field_domain_access
     - field.field.node.college.field_domain_all_affiliates
     - field.field.node.college.field_domain_source
+    - field.field.node.college.field_hours_library
     - field.field.node.college.field_image
+    - field.field.node.college.field_meta_description
     - field.field.node.college.field_metatags
     - field.field.node.college.field_paragraphs
     - field.field.node.college.field_placement_tags
+    - field.field.node.college.field_platforms
     - field.field.node.college.layout_builder__layout
     - node.type.college
-    - views.view.contact_hours
     - views.view.facts
+    - views.view.news
   module:
     - layout_builder
     - layout_builder_restrictions
     - layout_discovery
     - layout_paragraphs
+    - link
     - metatag
     - text
     - user
@@ -54,6 +59,29 @@ third_party_settings:
                 third_party_settings: {  }
             weight: 2
             additional: {  }
+          805dba83-41ba-442e-a4aa-6d0319ae1d5a:
+            uuid: 805dba83-41ba-442e-a4aa-6d0319ae1d5a
+            region: content
+            configuration:
+              id: 'field_block:node:college:field_meta_description'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: string
+                label: above
+                settings:
+                  link_to_entity: false
+                third_party_settings: {  }
+            weight: 3
+            additional: {  }
+        third_party_settings: {  }
+      -
+        layout_id: layout_onecol
+        layout_settings:
+          label: ''
+          context_mapping: {  }
+        components:
           b4a2bb82-273b-4bd0-930b-560f800e5934:
             uuid: b4a2bb82-273b-4bd0-930b-560f800e5934
             region: content
@@ -70,10 +98,17 @@ third_party_settings:
                 label: hidden
                 settings: {  }
                 third_party_settings: {  }
-            weight: 3
+            weight: 0
             additional: {  }
-          15abd4c5-2a81-4ac4-98dd-67d92716ce2e:
-            uuid: 15abd4c5-2a81-4ac4-98dd-67d92716ce2e
+        third_party_settings: {  }
+      -
+        layout_id: layout_onecol
+        layout_settings:
+          label: ''
+          context_mapping: {  }
+        components:
+          0ea1f055-d697-47d3-9d66-175cd089e7fa:
+            uuid: 0ea1f055-d697-47d3-9d66-175cd089e7fa
             region: content
             configuration:
               id: 'views_block:facts-recent_by_tag'
@@ -83,20 +118,85 @@ third_party_settings:
               context_mapping: {  }
               views_label: ''
               items_per_page: none
-            weight: 4
+            weight: 0
             additional: {  }
-          b1d8bbe4-3972-4cd6-9dbc-d0068a7591cb:
-            uuid: b1d8bbe4-3972-4cd6-9dbc-d0068a7591cb
+          bbeecf67-b0cf-4cf8-8254-56870e44d906:
+            uuid: bbeecf67-b0cf-4cf8-8254-56870e44d906
             region: content
             configuration:
-              id: 'views_block:contact_hours-by_tag'
+              id: 'views_block:news-recent_by_tag'
               label: ''
               label_display: '0'
               provider: views
               context_mapping: {  }
               views_label: ''
               items_per_page: none
-            weight: 5
+            weight: 1
+            additional: {  }
+        third_party_settings: {  }
+      -
+        layout_id: layout_onecol
+        layout_settings:
+          label: ''
+          context_mapping: {  }
+        components:
+          cf5d7745-8115-4694-b7ab-f50c983b5bdb:
+            uuid: cf5d7745-8115-4694-b7ab-f50c983b5bdb
+            region: content
+            configuration:
+              id: 'field_block:node:college:field_platforms'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: link
+                label: hidden
+                settings:
+                  trim_length: null
+                  url_only: true
+                  url_plain: true
+                  rel: '0'
+                  target: '0'
+                third_party_settings: {  }
+            weight: 2
+            additional: {  }
+          8aa7cbf4-fe39-4015-b771-25c39f5d0969:
+            uuid: 8aa7cbf4-fe39-4015-b771-25c39f5d0969
+            region: content
+            configuration:
+              id: 'field_block:node:college:field_hours_library'
+              label: Hours
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: entity_reference_entity_view
+                label: hidden
+                settings:
+                  view_mode: teaser
+                third_party_settings: {  }
+            weight: 1
+            additional: {  }
+          edf4185c-83e3-4e90-aa8f-a45fe27cf4cb:
+            uuid: edf4185c-83e3-4e90-aa8f-a45fe27cf4cb
+            region: content
+            configuration:
+              id: 'field_block:node:college:field_contact'
+              label: Contact
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: entity_reference_entity_view
+                label: hidden
+                settings:
+                  view_mode: teaser
+                third_party_settings: {  }
+            weight: 0
             additional: {  }
         third_party_settings: {  }
   layout_builder_restrictions:
@@ -123,6 +223,22 @@ content:
     third_party_settings: {  }
     weight: -20
     region: content
+  field_contact:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 107
+    region: content
+  field_hours_library:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 108
+    region: content
   field_image:
     type: entity_reference_entity_view
     label: hidden
@@ -131,6 +247,14 @@ content:
       link: false
     third_party_settings: {  }
     weight: 102
+    region: content
+  field_meta_description:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 106
     region: content
   field_metatags:
     type: metatag_empty_formatter
@@ -156,6 +280,18 @@ content:
     third_party_settings: {  }
     weight: 103
     region: content
+  field_platforms:
+    type: link
+    label: hidden
+    settings:
+      trim_length: null
+      url_only: true
+      url_plain: true
+      rel: '0'
+      target: '0'
+    third_party_settings: {  }
+    weight: 109
+    region: content
   links:
     settings: {  }
     third_party_settings: {  }
@@ -166,6 +302,4 @@ hidden:
   field_domain_all_affiliates: true
   field_domain_source: true
   layout_builder__layout: true
-  publish_state: true
   search_api_excerpt: true
-  unpublish_state: true

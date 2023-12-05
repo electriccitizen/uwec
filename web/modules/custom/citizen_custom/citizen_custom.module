@@ -154,13 +154,16 @@ function citizen_custom_form_node_form_alter(&$form, FormStateInterface $form_st
   $node = $form_state->getFormObject()->getEntity();
   // Change promotion text to something more contextual.
   if ($node->getType() == 'news') {
-    $form['promote']['widget']['value']['#title'] = 'Add to Featured News';
-    $form['promote']['widget']['value']['#description'] = 'Should have a news image.';
+    $form['promote']['widget']['value']['#title'] = 'Add to Featured Stories';
   }
   if ($node->getType() == 'contact') {
     if (in_array($form_id, array('node_contact_edit_form', 'node_contact_form'))) {
       $form['field_address']['widget'][0]['address']['#after_build'][] = 'citizen_custom_address_organization_label';
     }
+  }
+  // Set help text for title field on testimonials
+  if ($node->getType() == 'testimonial' || $node->getType() == 'video_card') {
+    $form['title']['widget'][0]['value']['#description'] = '<p>' . t('This is the person\'s name.') . '</p>';
   }
 }
 
@@ -226,7 +229,7 @@ function citizen_custom_field_widget_single_element_form_alter(&$element, FormSt
 function citizen_custom_views_pre_view($view, $display_id, &$args) {
 	// Alters views to accept fields from related paragraphs to be used for filters.
   if(isset($view->element['#name'])) {
-    if ((($view->element['#name'] === 'facts') && ($view->current_display === 'list')) || (($view->element['#name'] === 'news') && ($view->current_display === 'recent_three')) || (($view->element['#name'] === 'news') && ($view->current_display === 'recent_two')) || (($view->element['#name'] === 'video_cards') && ($view->current_display === 'recent_three')) || (($view->element['#name'] === 'bios') && ($view->current_display === 'profiles_list')) || (($view->element['#name'] === 'snapshots') && ($view->current_display === 'list'))) {
+    if ((($view->element['#name'] === 'facts') && ($view->current_display === 'list')) || (($view->element['#name'] === 'news') && ($view->current_display === 'recent_three')) || (($view->element['#name'] === 'news') && ($view->current_display === 'recent_two')) || (($view->element['#name'] === 'video_cards') && ($view->current_display === 'recent_three')) || (($view->element['#name'] === 'bios') && ($view->current_display === 'profiles_list')) || (($view->element['#name'] === 'snapshots') && ($view->current_display === 'list')) || (($view->element['#name'] === 'testimonials') && ($view->current_display === 'list'))) {
       $filters = $view->display_handler->getOption('filters');
       $sorts = $view->display_handler->getOption('sorts');
       $paragraph_id = $view->args[0];
@@ -296,6 +299,25 @@ function citizen_custom_views_pre_view($view, $display_id, &$args) {
           // the snapshot type field is not set in the paragraph, so unset it in the view
           if(isset($filters['field_snapshot_type_target_id'])){
             unset($filters['field_snapshot_type_target_id']);
+          }
+        }
+
+        // make the view's faculty/staff filter match what the user selected in the paragraph
+        if(isset($paragraph->field_faculty_staff[0])){
+          // make an array out of the faculty/staff choices set in the paragraph
+          $fac_staffs = [];
+          foreach($paragraph->field_faculty_staff as $delta => $fac_staff){
+            $fac_staffs[] = $fac_staff->value;
+          }
+
+          // replace the faculty/staff  filter with the paragraph's faculty/staff value
+          if(isset($filters['field_faculty_staff_value'])){
+            $filters['field_faculty_staff_value']['value'] = $fac_staffs;
+          }
+        }else{
+          //the faculty/staff field is not set in the paragraph, so unset it in the view
+          if(isset($filters['field_faculty_staff_value'])){
+            unset($filters['field_faculty_staff_value']);
           }
         }
 

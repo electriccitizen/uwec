@@ -1,16 +1,16 @@
-uuid: b3f7cf7e-573f-4b1e-9175-6b8e7da5067c
+uuid: c89f4f3c-d3be-4c61-8c57-327657417d0c
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_page_families
-    - node.type.contact
+    - field.storage.paragraph.field_page_family
+    - paragraphs.paragraphs_type.testimonial_placer
     - taxonomy.vocabulary.page_families
-id: node.contact.field_page_families
-field_name: field_page_families
-entity_type: node
-bundle: contact
-label: 'Page Families'
+id: paragraph.testimonial_placer.field_page_family
+field_name: field_page_family
+entity_type: paragraph
+bundle: testimonial_placer
+label: 'By Page Family'
 description: ''
 required: false
 translatable: false

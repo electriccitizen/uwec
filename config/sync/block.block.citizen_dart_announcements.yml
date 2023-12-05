@@ -9,7 +9,7 @@ dependencies:
 id: citizen_dart_announcements
 theme: citizen_dart
 region: alert
-weight: 0
+weight: -7
 provider: null
 plugin: announcements
 settings:

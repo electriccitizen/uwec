@@ -15,6 +15,7 @@ dependencies:
     - field.field.node.bios.field_education
     - field.field.node.bios.field_email
     - field.field.node.bios.field_emeriti_status
+    - field.field.node.bios.field_faculty_staff
     - field.field.node.bios.field_first_name
     - field.field.node.bios.field_first_override
     - field.field.node.bios.field_honors
@@ -40,7 +41,6 @@ dependencies:
     - field.field.node.bios.field_programs
     - field.field.node.bios.field_pronouns
     - field.field.node.bios.field_publications
-    - field.field.node.bios.field_research
     - field.field.node.bios.field_short_bio
     - field.field.node.bios.field_suffixes
     - field.field.node.bios.field_username
@@ -401,24 +401,6 @@ third_party_settings:
                 third_party_settings: {  }
             weight: 18
             additional: {  }
-          1d0bd18f-52c2-4061-b1d7-7ff82cc3f487:
-            uuid: 1d0bd18f-52c2-4061-b1d7-7ff82cc3f487
-            region: content
-            configuration:
-              id: 'field_block:node:bios:field_research'
-              label: 'Research And Creative Activities'
-              label_display: visible
-              provider: layout_builder
-              context_mapping:
-                entity: layout_builder.entity
-                view_mode: view_mode
-              formatter:
-                type: text_default
-                label: hidden
-                settings: {  }
-                third_party_settings: {  }
-            weight: 19
-            additional: {  }
           64882d8f-24f6-481c-970d-810333afd00b:
             uuid: 64882d8f-24f6-481c-970d-810333afd00b
             region: content
@@ -604,6 +586,13 @@ content:
     third_party_settings: {  }
     weight: 117
     region: content
+  field_faculty_staff:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 134
+    region: first
   field_first_name:
     type: string
     label: above
@@ -792,13 +781,6 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: 129
-    region: content
-  field_research:
-    type: text_default
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    weight: 126
     region: content
   field_short_bio:
     type: text_default

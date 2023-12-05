@@ -58,6 +58,7 @@ dependencies:
     - redirect
     - responsive_preview
     - role_delegation
+    - scheduler
     - shortcut
     - smart_date_recur
     - system
@@ -77,6 +78,7 @@ permissions:
   - 'access shortcuts'
   - 'access taxonomy overview'
   - 'access user profiles'
+  - 'administer content-support-book menu items'
   - 'administer departments menu items'
   - 'administer example-site-main-menu menu items'
   - 'administer footer menu items'
@@ -143,6 +145,7 @@ permissions:
   - 'create paragraph content layout_section'
   - 'create paragraph content profiles_list'
   - 'create paragraph content program_search'
+  - 'create paragraph content programs_list'
   - 'create paragraph content quote'
   - 'create paragraph content select_item'
   - 'create paragraph content select_type'
@@ -251,6 +254,7 @@ permissions:
   - 'delete paragraph content layout_section'
   - 'delete paragraph content profiles_list'
   - 'delete paragraph content program_search'
+  - 'delete paragraph content programs_list'
   - 'delete paragraph content quote'
   - 'delete paragraph content select_item'
   - 'delete paragraph content select_type'
@@ -355,6 +359,7 @@ permissions:
   - 'revert support_book revisions'
   - 'revert testimonial revisions'
   - 'revert video_card revisions'
+  - 'schedule publishing of nodes'
   - 'select account cancellation method'
   - 'update academic_program content on assigned domains'
   - 'update announcement content on assigned domains'
@@ -375,6 +380,7 @@ permissions:
   - 'update paragraph content layout_section'
   - 'update paragraph content profiles_list'
   - 'update paragraph content program_search'
+  - 'update paragraph content programs_list'
   - 'update paragraph content quote'
   - 'update paragraph content snapshot_list'
   - 'update paragraph content stories_video_list'
@@ -419,6 +425,7 @@ permissions:
   - 'view news revisions'
   - 'view own unpublished content'
   - 'view page revisions'
+  - 'view scheduled content'
   - 'view snapshot revisions'
   - 'view support_book revisions'
   - 'view testimonial revisions'
