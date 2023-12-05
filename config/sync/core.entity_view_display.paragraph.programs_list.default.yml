@@ -1,0 +1,25 @@
+uuid: 70555ca4-4689-4e13-b6b9-0141e9fd4bd5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.programs_list.field_list_type
+    - field.field.paragraph.programs_list.field_list_widget
+    - paragraphs.paragraphs_type.programs_list
+  module:
+    - options
+id: paragraph.programs_list.default
+targetEntityType: paragraph
+bundle: programs_list
+mode: default
+content:
+  field_list_type:
+    type: list_key
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  field_list_widget: true
+  search_api_excerpt: true

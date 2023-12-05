@@ -8,6 +8,7 @@ dependencies:
     - field.field.node.academic_program.field_domain_access
     - field.field.node.academic_program.field_domain_all_affiliates
     - field.field.node.academic_program.field_domain_source
+    - field.field.node.academic_program.field_list_widget
     - field.field.node.academic_program.field_metatags
     - field.field.node.academic_program.field_placement_tags
     - field.field.node.academic_program.layout_builder__layout
@@ -111,6 +112,22 @@ third_party_settings:
               items_per_page: none
             weight: 7
             additional: {  }
+          b9500d60-fa0f-422c-be46-fc7ff4deb25f:
+            uuid: b9500d60-fa0f-422c-be46-fc7ff4deb25f
+            region: content
+            configuration:
+              id: 'field_block:node:academic_program:field_list_widget'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: entity_reference_label
+                label: above
+                settings:
+                  link: true
+                third_party_settings: {  }
+            weight: 8
+            additional: {  }
         third_party_settings: {  }
   layout_builder_restrictions:
     allowed_block_categories: {  }
@@ -144,6 +161,14 @@ content:
     third_party_settings: {  }
     weight: 104
     region: content
+  field_list_widget:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 105
+    region: content
   field_metatags:
     type: metatag_empty_formatter
     label: above
@@ -169,6 +194,4 @@ hidden:
   field_domain_all_affiliates: true
   field_domain_source: true
   layout_builder__layout: true
-  publish_state: true
   search_api_excerpt: true
-  unpublish_state: true
