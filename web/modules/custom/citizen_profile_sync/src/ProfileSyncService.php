@@ -64,7 +64,6 @@ class ProfileSyncService {
           $user = $this->updateUser($user, $profile);
           // create authmap record
           $this->createOrUpdateAuthMapRecord($user);
-
         }
       } else {
         // todo exclude emeritus?
@@ -79,8 +78,7 @@ class ProfileSyncService {
         if (strtotime($athenaUpdateTime) >= strtotime($drupalImportTime)) {
           $this->updateProfile($existingNode, $profile);
         }
-      }
-      else {
+      } else {
         $this->createProfile($profile, $athenaId, $user->id());
       }
     }
@@ -252,7 +250,7 @@ class ProfileSyncService {
   protected function findExistingUser($athenaId, bool $activeOnly = false) {
     $query = \Drupal::entityQuery('user')
       ->condition('field_athena_id', $athenaId)
-      ->range(0, 1); // Limit the result to 1 record.
+      ->range(0, 1);
 
     if ($activeOnly) {
       $query->condition('status', 1);
@@ -356,7 +354,7 @@ class ProfileSyncService {
   }
 
   /**
-   * Returns exisiting authname from authmap or false if no record.
+   * Returns existing authname from authmap or false if no record.
    *
    * @param $uid
    *
