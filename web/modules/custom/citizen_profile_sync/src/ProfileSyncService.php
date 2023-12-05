@@ -202,7 +202,7 @@ class ProfileSyncService {
 
         if ($existingNode) {
           $drupalImportTime = $existingNode->get('field_import_date')->getString();
-          if (strtotime($athenaUpdateTime) >= strtotime($drupalImportTime)) {
+          if (1 || strtotime($athenaUpdateTime) >= strtotime($drupalImportTime)) {
             $existingNode->set('field_active', 0);
             $existingNode->set('field_import_date', $this->getUpdateTime());
             $existingNode->set('status', NodeInterface::NOT_PUBLISHED);
