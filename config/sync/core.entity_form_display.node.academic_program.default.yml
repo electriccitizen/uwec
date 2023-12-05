@@ -81,16 +81,6 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_list_widget:
-    type: entity_reference_autocomplete
-    weight: 10
-    region: content
-    settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
   field_meta_description:
     type: string_textfield
     weight: 1
@@ -145,12 +135,13 @@ content:
       placeholder: ''
     third_party_settings: {  }
   url_redirects:
-    weight: 11
+    weight: 10
     region: content
     settings: {  }
     third_party_settings: {  }
 hidden:
   created: true
+  field_list_widget: true
   layout_builder__layout: true
   promote: true
   publish_on: true
