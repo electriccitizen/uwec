@@ -4,6 +4,25 @@
 
 @use '../../../00-base/base' as *;
 
-.node-video-card-library{
-	
+.node-video-card {
+	padding-top: $elementSpace;
+	max-width: 914px;
+	@include auto;
+   #node-section-1 {
+      margin-bottom: $elementSpace;
+		border-bottom: 1px solid $borderRule;
+		padding-bottom: $elementSpace;
+      .block-title {
+         margin-left: 0px;
+         margin-right: 0px;
+         h1 {
+            font-family: $bodyText;
+            font-size: $baseSize;
+            text-align: left;
+         }
+      }
+   }
+   .block-field{
+      margin-bottom: $spaceXs;
+   }
 }//end video-card-library

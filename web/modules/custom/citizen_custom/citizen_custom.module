@@ -162,7 +162,7 @@ function citizen_custom_form_node_form_alter(&$form, FormStateInterface $form_st
     }
   }
   // Set help text for title field on testimonials
-  if ($node->getType() == 'testimonial') {
+  if ($node->getType() == 'testimonial' || $node->getType() == 'video_card') {
     $form['title']['widget'][0]['value']['#description'] = '<p>' . t('This is the person\'s name.') . '</p>';
   }
 }
