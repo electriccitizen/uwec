@@ -10,6 +10,7 @@ dependencies:
     - field.field.node.academic_program.field_domain_all_affiliates
     - field.field.node.academic_program.field_domain_source
     - field.field.node.academic_program.field_list_widget
+    - field.field.node.academic_program.field_meta_description
     - field.field.node.academic_program.field_metatags
     - field.field.node.academic_program.field_placement_tags
     - field.field.node.academic_program.layout_builder__layout
@@ -46,6 +47,7 @@ hidden:
   field_domain_all_affiliates: true
   field_domain_source: true
   field_list_widget: true
+  field_meta_description: true
   field_metatags: true
   field_placement_tags: true
   layout_builder__layout: true

@@ -10,6 +10,7 @@ dependencies:
     - field.field.node.college.field_domain_source
     - field.field.node.college.field_hours_library
     - field.field.node.college.field_image
+    - field.field.node.college.field_meta_description
     - field.field.node.college.field_metatags
     - field.field.node.college.field_paragraphs
     - field.field.node.college.field_placement_tags
@@ -57,6 +58,22 @@ third_party_settings:
                   link_to_entity: false
                 third_party_settings: {  }
             weight: 2
+            additional: {  }
+          805dba83-41ba-442e-a4aa-6d0319ae1d5a:
+            uuid: 805dba83-41ba-442e-a4aa-6d0319ae1d5a
+            region: content
+            configuration:
+              id: 'field_block:node:college:field_meta_description'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: string
+                label: above
+                settings:
+                  link_to_entity: false
+                third_party_settings: {  }
+            weight: 3
             additional: {  }
         third_party_settings: {  }
       -
@@ -230,6 +247,14 @@ content:
       link: false
     third_party_settings: {  }
     weight: 102
+    region: content
+  field_meta_description:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 106
     region: content
   field_metatags:
     type: metatag_empty_formatter

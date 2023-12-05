@@ -11,6 +11,7 @@ dependencies:
     - field.field.node.college.field_domain_source
     - field.field.node.college.field_hours_library
     - field.field.node.college.field_image
+    - field.field.node.college.field_meta_description
     - field.field.node.college.field_metatags
     - field.field.node.college.field_paragraphs
     - field.field.node.college.field_placement_tags
@@ -50,6 +51,7 @@ hidden:
   field_domain_source: true
   field_hours_library: true
   field_image: true
+  field_meta_description: true
   field_metatags: true
   field_paragraphs: true
   field_placement_tags: true

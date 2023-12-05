@@ -1,0 +1,9 @@
+uuid: 64331e26-e9e2-4135-9805-e22906abb6c0
+langcode: en
+status: true
+dependencies: {  }
+id: node__college
+label: 'Content: College'
+tags:
+  abstract: '[node:field_meta_description]'
+  description: '[node:field_meta_description]'

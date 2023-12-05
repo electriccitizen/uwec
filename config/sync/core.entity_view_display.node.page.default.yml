@@ -11,6 +11,7 @@ dependencies:
     - field.field.node.page.field_formatted_title
     - field.field.node.page.field_hero
     - field.field.node.page.field_hide_nav
+    - field.field.node.page.field_meta_description
     - field.field.node.page.field_metatags
     - field.field.node.page.field_page_family
     - field.field.node.page.field_paragraphs
@@ -202,6 +203,14 @@ content:
       link: ''
     third_party_settings: {  }
     weight: 108
+    region: content
+  field_meta_description:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 106
     region: content
   field_page_family:
     type: entity_reference_label

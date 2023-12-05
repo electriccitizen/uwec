@@ -11,6 +11,7 @@ dependencies:
     - field.field.node.page.field_formatted_title
     - field.field.node.page.field_hero
     - field.field.node.page.field_hide_nav
+    - field.field.node.page.field_meta_description
     - field.field.node.page.field_metatags
     - field.field.node.page.field_page_family
     - field.field.node.page.field_paragraphs
@@ -141,6 +142,14 @@ content:
     region: content
     settings:
       display_label: true
+    third_party_settings: {  }
+  field_meta_description:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
   field_metatags:
     type: metatag_firehose
