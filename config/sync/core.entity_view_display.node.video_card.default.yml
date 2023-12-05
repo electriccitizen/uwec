@@ -88,22 +88,6 @@ third_party_settings:
                 third_party_settings: {  }
             weight: 3
             additional: {  }
-          5e89663e-eb87-4dfe-9ba9-656535800d6a:
-            uuid: 5e89663e-eb87-4dfe-9ba9-656535800d6a
-            region: content
-            configuration:
-              id: 'field_block:node:video_card:field_editorial_sections'
-              label_display: '0'
-              context_mapping:
-                entity: layout_builder.entity
-              formatter:
-                type: entity_reference_label
-                label: above
-                settings:
-                  link: true
-                third_party_settings: {  }
-            weight: 6
-            additional: {  }
         third_party_settings: {  }
       -
         layout_id: layout_onecol
