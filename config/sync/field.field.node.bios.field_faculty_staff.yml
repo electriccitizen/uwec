@@ -1,0 +1,21 @@
+uuid: 0f1bb449-af84-4933-8a76-ba480f6c8033
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_faculty_staff
+    - node.type.bios
+  module:
+    - options
+id: node.bios.field_faculty_staff
+field_name: field_faculty_staff
+entity_type: node
+bundle: bios
+label: Faculty/Staff
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

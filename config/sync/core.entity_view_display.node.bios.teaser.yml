@@ -15,6 +15,7 @@ dependencies:
     - field.field.node.bios.field_education
     - field.field.node.bios.field_email
     - field.field.node.bios.field_emeriti_status
+    - field.field.node.bios.field_faculty_staff
     - field.field.node.bios.field_first_name
     - field.field.node.bios.field_first_override
     - field.field.node.bios.field_honors
@@ -40,7 +41,6 @@ dependencies:
     - field.field.node.bios.field_programs
     - field.field.node.bios.field_pronouns
     - field.field.node.bios.field_publications
-    - field.field.node.bios.field_research
     - field.field.node.bios.field_short_bio
     - field.field.node.bios.field_suffixes
     - field.field.node.bios.field_username
@@ -100,6 +100,7 @@ hidden:
   field_education: true
   field_email: true
   field_emeriti_status: true
+  field_faculty_staff: true
   field_first_name: true
   field_first_override: true
   field_honors: true
@@ -122,7 +123,6 @@ hidden:
   field_programs: true
   field_pronouns: true
   field_publications: true
-  field_research: true
   field_short_bio: true
   field_suffixes: true
   field_username: true

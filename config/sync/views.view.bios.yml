@@ -613,6 +613,47 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
+        field_faculty_staff_value:
+          id: field_faculty_staff_value
+          table: node__field_faculty_staff
+          field: field_faculty_staff_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: list_field
+          operator: or
+          value:
+            faculty: faculty
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
       filter_groups:
         operator: AND
         groups:
@@ -923,6 +964,54 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           reduce_duplicates: true
+        field_faculty_staff_value:
+          id: field_faculty_staff_value
+          table: node__field_faculty_staff
+          field: field_faculty_staff_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: list_field
+          operator: or
+          value:
+            faculty: faculty
+          group: 1
+          exposed: false
+          expose:
+            operator_id: field_faculty_staff_value_op
+            label: Faculty/Staff
+            description: ''
+            use_operator: false
+            operator: field_faculty_staff_value_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: field_faculty_staff_value
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              editor: '0'
+              site_admin: '0'
+              section_manager: '0'
+              marketing_editor: '0'
+              personnel: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: true
       filter_groups:
         operator: AND
         groups:
@@ -1135,6 +1224,47 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
+        field_faculty_staff_value:
+          id: field_faculty_staff_value
+          table: node__field_faculty_staff
+          field: field_faculty_staff_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: list_field
+          operator: or
+          value:
+            faculty: faculty
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
       filter_groups:
         operator: AND
         groups:
