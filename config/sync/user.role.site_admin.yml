@@ -78,6 +78,7 @@ permissions:
   - 'access shortcuts'
   - 'access taxonomy overview'
   - 'access user profiles'
+  - 'administer content-support-book menu items'
   - 'administer departments menu items'
   - 'administer example-site-main-menu menu items'
   - 'administer footer menu items'
