@@ -88,6 +88,7 @@ function citizen_profile_sync_form_user_form_alter(&$form, $form_state, $form_id
   $userId = $user->id();
   if ($userId != 1) {
     $form['account']['mail']['#disabled'] = TRUE;
+    $form['account']['name']['#disabled'] = TRUE;
 
     $sync_fields = [
       'field_first_name',
