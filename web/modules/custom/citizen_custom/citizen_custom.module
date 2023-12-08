@@ -343,3 +343,30 @@ function citizen_custom_views_pre_view($view, $display_id, &$args) {
     }
   }
 }
+
+/**
+ * Implements hook_preprocess_HOOK().
+ *
+ * @param $variables
+ *
+ * @return void
+ */
+function citizen_custom_preprocess_node(&$variables) {
+  if ($variables['node']->getType() == 'academic_program') {
+    // Check if the checkbox field is checked.
+    $field_value = $variables['node']->get('field_slate_form')->value;
+
+    // If the checkbox is checked, enable and render the block.
+    if ($field_value) {
+      $block_id = 5;
+      $block = \Drupal\block_content\Entity\BlockContent::load($block_id); // Replace 'your_block_id' with the actual block ID.
+      if ($block) {
+        $block->set('status', 1);
+        $block_content = \Drupal::entityTypeManager()->getViewBuilder('block_content')->view($block);
+        $variables['content']['custom_block'] = [
+          '#markup' => \Drupal::service('renderer')->render($block_content),
+        ];
+      }
+    }
+  }
+}
