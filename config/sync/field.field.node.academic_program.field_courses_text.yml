@@ -1,26 +1,24 @@
-uuid: bc1cb35e-1784-4af4-8926-7ac64a2963d7
+uuid: 94d1178d-498a-45bf-a198-693baa833324
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.body
+    - field.storage.node.field_courses_text
     - filter.format.limited_html
     - node.type.academic_program
   module:
     - text
-id: node.academic_program.body
-field_name: body
+id: node.academic_program.field_courses_text
+field_name: field_courses_text
 entity_type: node
 bundle: academic_program
-label: Description
+label: 'Courses information'
 description: 'Always start with an H2 headline.'
 required: false
-translatable: true
+translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
-  display_summary: false
-  required_summary: false
   allowed_formats:
     - limited_html
-field_type: text_with_summary
+field_type: text_long

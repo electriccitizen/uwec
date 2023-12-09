@@ -1,0 +1,173 @@
+uuid: 8423af55-11dc-4523-b4ca-bbdb2e4fffbc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_paragraphs
+    - node.type.academic_program
+    - paragraphs.paragraphs_type.accordions
+    - paragraphs.paragraphs_type.ctas
+    - paragraphs.paragraphs_type.custom_embed
+    - paragraphs.paragraphs_type.gallery
+    - paragraphs.paragraphs_type.highlight_box
+    - paragraphs.paragraphs_type.image
+    - paragraphs.paragraphs_type.links_files
+    - paragraphs.paragraphs_type.programs_list
+    - paragraphs.paragraphs_type.snapshot_list
+    - paragraphs.paragraphs_type.social_media_links
+    - paragraphs.paragraphs_type.steps
+    - paragraphs.paragraphs_type.testimonial_placer
+    - paragraphs.paragraphs_type.text
+    - paragraphs.paragraphs_type.video
+    - paragraphs.paragraphs_type.view_placer
+  module:
+    - entity_reference_revisions
+id: node.academic_program.field_paragraphs
+field_name: field_paragraphs
+entity_type: node
+bundle: academic_program
+label: 'Flex Content'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      accordions: accordions
+      links_files: links_files
+      custom_embed: custom_embed
+      gallery: gallery
+      image: image
+      social_media_links: social_media_links
+      text: text
+      video: video
+      ctas: ctas
+      highlight_box: highlight_box
+      programs_list: programs_list
+      snapshot_list: snapshot_list
+      steps: steps
+      testimonial_placer: testimonial_placer
+      view_placer: view_placer
+    negate: 0
+    target_bundles_drag_drop:
+      accordion_item:
+        weight: -27
+        enabled: false
+      accordions:
+        weight: -26
+        enabled: true
+      block_placer:
+        weight: 42
+        enabled: false
+      button:
+        weight: 43
+        enabled: false
+      contact_placer:
+        weight: 44
+        enabled: false
+      content_carousel:
+        weight: 45
+        enabled: false
+      cta_item:
+        weight: 47
+        enabled: false
+      ctas:
+        weight: 46
+        enabled: true
+      custom_embed:
+        weight: -23
+        enabled: true
+      events_list:
+        weight: 49
+        enabled: false
+      facts_list:
+        weight: 50
+        enabled: false
+      fauxfile:
+        weight: 51
+        enabled: false
+      fauxfile_item:
+        weight: 52
+        enabled: false
+      gallery:
+        weight: -22
+        enabled: true
+      gallery_item:
+        weight: -16
+        enabled: false
+      hallmark:
+        weight: 55
+        enabled: false
+      hero:
+        weight: 56
+        enabled: false
+      highlight_box:
+        weight: 57
+        enabled: true
+      hours_placer:
+        weight: 58
+        enabled: false
+      hours_set:
+        weight: 59
+        enabled: false
+      image:
+        weight: -21
+        enabled: true
+      layout_section:
+        weight: -20
+        enabled: false
+      links_files:
+        weight: -25
+        enabled: true
+      profiles_list:
+        weight: 63
+        enabled: false
+      program_search:
+        weight: 65
+        enabled: false
+      programs_list:
+        weight: 64
+        enabled: true
+      quote:
+        weight: 66
+        enabled: false
+      select_item:
+        weight: 67
+        enabled: false
+      select_type:
+        weight: 68
+        enabled: false
+      snapshot_list:
+        weight: 69
+        enabled: true
+      social_media_links:
+        weight: -19
+        enabled: true
+      step_item:
+        weight: 72
+        enabled: false
+      steps:
+        weight: 71
+        enabled: true
+      stories_video_list:
+        weight: 73
+        enabled: false
+      testimonial_placer:
+        weight: 74
+        enabled: true
+      text:
+        weight: -18
+        enabled: true
+      video:
+        weight: -17
+        enabled: true
+      view_placer:
+        weight: 77
+        enabled: true
+      wayfinding:
+        weight: 78
+        enabled: false
+field_type: entity_reference_revisions

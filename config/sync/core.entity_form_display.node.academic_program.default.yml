@@ -4,21 +4,57 @@ status: true
 dependencies:
   config:
     - field.field.node.academic_program.body
+    - field.field.node.academic_program.field_accreditation
+    - field.field.node.academic_program.field_accreditation_logo
+    - field.field.node.academic_program.field_admissions_requirements
+    - field.field.node.academic_program.field_campus
+    - field.field.node.academic_program.field_college
+    - field.field.node.academic_program.field_content_carousel
+    - field.field.node.academic_program.field_courses
+    - field.field.node.academic_program.field_courses_text
     - field.field.node.academic_program.field_degree_level
+    - field.field.node.academic_program.field_degree_types
+    - field.field.node.academic_program.field_delivery_mode
+    - field.field.node.academic_program.field_departments
     - field.field.node.academic_program.field_domain_access
     - field.field.node.academic_program.field_domain_all_affiliates
     - field.field.node.academic_program.field_domain_source
+    - field.field.node.academic_program.field_editorial_sections
+    - field.field.node.academic_program.field_example_careers
+    - field.field.node.academic_program.field_facts
+    - field.field.node.academic_program.field_grads
+    - field.field.node.academic_program.field_hallmarks
+    - field.field.node.academic_program.field_image
+    - field.field.node.academic_program.field_intro_text
+    - field.field.node.academic_program.field_keywords
+    - field.field.node.academic_program.field_licensure
     - field.field.node.academic_program.field_list_widget
     - field.field.node.academic_program.field_meta_description
     - field.field.node.academic_program.field_metatags
+    - field.field.node.academic_program.field_minor_required
+    - field.field.node.academic_program.field_outcome_text
+    - field.field.node.academic_program.field_outcomes_image
+    - field.field.node.academic_program.field_page_families
+    - field.field.node.academic_program.field_paragraphs
     - field.field.node.academic_program.field_placement_tags
+    - field.field.node.academic_program.field_program_length
+    - field.field.node.academic_program.field_program_type
+    - field.field.node.academic_program.field_related_programs
+    - field.field.node.academic_program.field_request_for_info
+    - field.field.node.academic_program.field_slate_slug
+    - field.field.node.academic_program.field_tuition_link
+    - field.field.node.academic_program.field_whats_next
     - field.field.node.academic_program.layout_builder__layout
     - node.type.academic_program
     - workflows.workflow.non_moderated
   module:
     - content_moderation
     - field_group
+    - layout_paragraphs
+    - link
+    - media_library
     - metatag
+    - paragraphs
     - path
     - text
 third_party_settings:
@@ -31,7 +67,7 @@ third_party_settings:
       label: Access
       region: content
       parent_name: ''
-      weight: 8
+      weight: 24
       format_type: details_sidebar
       format_settings:
         classes: ''
@@ -41,6 +77,81 @@ third_party_settings:
         description: ''
         required_fields: true
         weight: 0
+    group_program_details:
+      children:
+        - field_degree_types
+        - field_degree_level
+        - field_program_length
+        - field_campus
+        - field_delivery_mode
+        - field_minor_required
+        - field_college
+        - field_departments
+        - field_accreditation
+        - field_accreditation_logo
+        - field_licensure
+      label: 'Program Details'
+      region: content
+      parent_name: ''
+      weight: 8
+      format_type: details
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        open: false
+        description: ''
+        required_fields: true
+    group_outcomes:
+      children:
+        - field_outcomes_image
+        - field_outcome_text
+        - field_example_careers
+        - field_grads
+      label: Outcomes
+      region: content
+      parent_name: ''
+      weight: 13
+      format_type: details
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        open: false
+        description: ''
+        required_fields: true
+    group_courses:
+      children:
+        - field_courses_text
+        - field_courses
+      label: Courses
+      region: content
+      parent_name: ''
+      weight: 14
+      format_type: details
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        open: false
+        description: ''
+        required_fields: true
+    group_more_info:
+      children:
+        - field_request_for_info
+        - field_slate_slug
+      label: 'More Info'
+      region: content
+      parent_name: ''
+      weight: 15
+      format_type: details
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        open: false
+        description: ''
+        required_fields: true
 id: node.academic_program.default
 targetEntityType: node
 bundle: academic_program
@@ -48,7 +159,7 @@ mode: default
 content:
   body:
     type: text_textarea_with_summary
-    weight: 2
+    weight: 7
     region: content
     settings:
       rows: 9
@@ -56,11 +167,122 @@ content:
       placeholder: ''
       show_summary: false
     third_party_settings: {  }
-  field_degree_level:
+  field_accreditation:
+    type: text_textarea_with_summary
+    weight: 32
+    region: content
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+      show_summary: false
+    third_party_settings: {  }
+  field_accreditation_logo:
+    type: media_library_widget
+    weight: 33
+    region: content
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+  field_admissions_requirements:
+    type: link_default
+    weight: 6
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  field_campus:
     type: options_select
-    weight: 3
+    weight: 27
     region: content
     settings: {  }
+    third_party_settings: {  }
+  field_college:
+    type: entity_reference_autocomplete
+    weight: 30
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_content_carousel:
+    type: paragraphs
+    weight: 10
+    region: content
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: closed
+      closed_mode: preview
+      autocollapse: none
+      closed_mode_threshold: 0
+      add_mode: button
+      form_display_mode: default
+      default_paragraph_type: _none
+      features:
+        add_above: '0'
+        collapse_edit_all: collapse_edit_all
+        duplicate: '0'
+    third_party_settings: {  }
+  field_courses:
+    type: paragraphs
+    weight: 25
+    region: content
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: closed
+      closed_mode: preview
+      autocollapse: none
+      closed_mode_threshold: 0
+      add_mode: button
+      form_display_mode: default
+      default_paragraph_type: _none
+      features:
+        add_above: '0'
+        collapse_edit_all: collapse_edit_all
+        duplicate: '0'
+    third_party_settings: {  }
+  field_courses_text:
+    type: text_textarea
+    weight: 24
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_degree_level:
+    type: options_select
+    weight: 25
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_degree_types:
+    type: string_textarea
+    weight: 24
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_delivery_mode:
+    type: options_select
+    weight: 28
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_departments:
+    type: entity_reference_autocomplete
+    weight: 31
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
   field_domain_access:
     type: options_buttons
@@ -81,6 +303,101 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  field_editorial_sections:
+    type: options_buttons
+    weight: 27
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_example_careers:
+    type: string_textfield
+    weight: 25
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_facts:
+    type: paragraphs
+    weight: 11
+    region: content
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: closed
+      closed_mode: preview
+      autocollapse: none
+      closed_mode_threshold: 0
+      add_mode: button
+      form_display_mode: default
+      default_paragraph_type: _none
+      features:
+        add_above: '0'
+        collapse_edit_all: collapse_edit_all
+        duplicate: '0'
+    third_party_settings: {  }
+  field_grads:
+    type: text_textarea
+    weight: 26
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_hallmarks:
+    type: paragraphs
+    weight: 9
+    region: content
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: closed
+      closed_mode: preview
+      autocollapse: none
+      closed_mode_threshold: 0
+      add_mode: button
+      form_display_mode: default
+      default_paragraph_type: _none
+      features:
+        add_above: '0'
+        collapse_edit_all: collapse_edit_all
+        duplicate: '0'
+    third_party_settings: {  }
+  field_image:
+    type: media_library_widget
+    weight: 2
+    region: content
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+  field_intro_text:
+    type: text_textarea_with_summary
+    weight: 3
+    region: content
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+      show_summary: false
+    third_party_settings: {  }
+  field_keywords:
+    type: string_textfield
+    weight: 18
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_licensure:
+    type: text_textarea_with_summary
+    weight: 34
+    region: content
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+      show_summary: false
+    third_party_settings: {  }
   field_meta_description:
     type: string_textfield
     weight: 1
@@ -91,15 +408,37 @@ content:
     third_party_settings: {  }
   field_metatags:
     type: metatag_firehose
-    weight: 4
+    weight: 19
     region: content
     settings:
       sidebar: true
       use_details: true
     third_party_settings: {  }
-  field_placement_tags:
+  field_minor_required:
+    type: boolean_checkbox
+    weight: 29
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_outcome_text:
+    type: text_textarea
+    weight: 24
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_outcomes_image:
+    type: media_library_widget
+    weight: 23
+    region: content
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+  field_page_families:
     type: entity_reference_autocomplete
-    weight: 7
+    weight: 23
     region: content
     settings:
       match_operator: CONTAINS
@@ -107,21 +446,92 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+  field_paragraphs:
+    type: layout_paragraphs
+    weight: 12
+    region: content
+    settings:
+      preview_view_mode: preview
+      nesting_depth: 0
+      require_layouts: 1
+      empty_message: ''
+    third_party_settings: {  }
+  field_placement_tags:
+    type: entity_reference_autocomplete
+    weight: 22
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_program_length:
+    type: options_select
+    weight: 26
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_program_type:
+    type: options_select
+    weight: 4
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_related_programs:
+    type: entity_reference_autocomplete
+    weight: 16
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_request_for_info:
+    type: boolean_checkbox
+    weight: 25
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_slate_slug:
+    type: string_textfield
+    weight: 26
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_tuition_link:
+    type: link_default
+    weight: 5
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  field_whats_next:
+    type: options_select
+    weight: 17
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   moderation_state:
     type: moderation_state_default
-    weight: 9
+    weight: 25
     region: content
     settings: {  }
     third_party_settings: {  }
   path:
     type: path
-    weight: 5
+    weight: 20
     region: content
     settings: {  }
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 6
+    weight: 21
     region: content
     settings:
       display_label: true
@@ -135,7 +545,7 @@ content:
       placeholder: ''
     third_party_settings: {  }
   url_redirects:
-    weight: 10
+    weight: 26
     region: content
     settings: {  }
     third_party_settings: {  }

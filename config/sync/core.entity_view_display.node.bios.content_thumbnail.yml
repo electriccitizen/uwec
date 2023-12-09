@@ -65,8 +65,8 @@ content:
     region: content
 hidden:
   body: true
-  field_active: true
   content_moderation_control: true
+  field_active: true
   field_athena_id: true
   field_campus: true
   field_cv: true

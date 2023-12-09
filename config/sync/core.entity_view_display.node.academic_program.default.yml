@@ -4,27 +4,60 @@ status: true
 dependencies:
   config:
     - field.field.node.academic_program.body
+    - field.field.node.academic_program.field_accreditation
+    - field.field.node.academic_program.field_accreditation_logo
+    - field.field.node.academic_program.field_admissions_requirements
+    - field.field.node.academic_program.field_campus
+    - field.field.node.academic_program.field_college
+    - field.field.node.academic_program.field_content_carousel
+    - field.field.node.academic_program.field_courses
+    - field.field.node.academic_program.field_courses_text
     - field.field.node.academic_program.field_degree_level
+    - field.field.node.academic_program.field_degree_types
+    - field.field.node.academic_program.field_delivery_mode
+    - field.field.node.academic_program.field_departments
     - field.field.node.academic_program.field_domain_access
     - field.field.node.academic_program.field_domain_all_affiliates
     - field.field.node.academic_program.field_domain_source
+    - field.field.node.academic_program.field_editorial_sections
+    - field.field.node.academic_program.field_example_careers
+    - field.field.node.academic_program.field_facts
+    - field.field.node.academic_program.field_grads
+    - field.field.node.academic_program.field_hallmarks
+    - field.field.node.academic_program.field_image
+    - field.field.node.academic_program.field_intro_text
+    - field.field.node.academic_program.field_keywords
+    - field.field.node.academic_program.field_licensure
     - field.field.node.academic_program.field_list_widget
     - field.field.node.academic_program.field_meta_description
     - field.field.node.academic_program.field_metatags
+    - field.field.node.academic_program.field_minor_required
+    - field.field.node.academic_program.field_outcome_text
+    - field.field.node.academic_program.field_outcomes_image
+    - field.field.node.academic_program.field_page_families
+    - field.field.node.academic_program.field_paragraphs
     - field.field.node.academic_program.field_placement_tags
+    - field.field.node.academic_program.field_program_length
+    - field.field.node.academic_program.field_program_type
+    - field.field.node.academic_program.field_related_programs
+    - field.field.node.academic_program.field_request_for_info
+    - field.field.node.academic_program.field_slate_slug
+    - field.field.node.academic_program.field_tuition_link
+    - field.field.node.academic_program.field_whats_next
     - field.field.node.academic_program.layout_builder__layout
     - node.type.academic_program
-    - views.view.bios
-    - views.view.facts
   module:
+    - entity_reference_revisions
     - layout_builder
     - layout_builder_restrictions
     - layout_discovery
+    - layout_paragraphs
+    - link
     - metatag
     - options
+    - system
     - text
     - user
-    - views
 third_party_settings:
   layout_builder:
     enabled: true
@@ -34,9 +67,40 @@ third_party_settings:
         layout_id: layout_onecol
         layout_settings:
           label: ''
+          context_mapping: {  }
         components:
-          a4f44394-4158-4a9d-91e9-c02d2f31a32d:
-            uuid: a4f44394-4158-4a9d-91e9-c02d2f31a32d
+          d4dc5a64-4afb-4353-868d-cbf4941a828e:
+            uuid: d4dc5a64-4afb-4353-868d-cbf4941a828e
+            region: content
+            configuration:
+              id: system_breadcrumb_block
+              label: Breadcrumbs
+              label_display: '0'
+              provider: system
+              context_mapping: {  }
+            weight: 0
+            additional: {  }
+          c26954b4-1160-4109-9678-f70420923f5c:
+            uuid: c26954b4-1160-4109-9678-f70420923f5c
+            region: content
+            configuration:
+              id: 'field_block:node:academic_program:field_image'
+              label: 'Program Image'
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: entity_reference_entity_view
+                label: hidden
+                settings:
+                  view_mode: 730x840
+                third_party_settings: {  }
+            weight: 1
+            additional: {  }
+          f830ab6c-61e2-4765-8195-95cfd66ffe0e:
+            uuid: f830ab6c-61e2-4765-8195-95cfd66ffe0e
             region: content
             configuration:
               id: 'field_block:node:academic_program:title'
@@ -52,14 +116,14 @@ third_party_settings:
                 settings:
                   link_to_entity: false
                 third_party_settings: {  }
-            weight: 3
+            weight: 2
             additional: {  }
-          cd87326e-59f7-4d76-8305-b10eab50eca1:
-            uuid: cd87326e-59f7-4d76-8305-b10eab50eca1
+          ec1d05d9-a2bc-48c1-8cc8-9a5fabe97821:
+            uuid: ec1d05d9-a2bc-48c1-8cc8-9a5fabe97821
             region: content
             configuration:
-              id: 'field_block:node:academic_program:body'
-              label: Body
+              id: 'field_block:node:academic_program:field_intro_text'
+              label: 'Intro text'
               label_display: '0'
               provider: layout_builder
               context_mapping:
@@ -70,48 +134,596 @@ third_party_settings:
                 label: hidden
                 settings: {  }
                 third_party_settings: {  }
+            weight: 3
+            additional: {  }
+          682ea435-47f3-4d0e-87ce-799dfbe88af1:
+            uuid: 682ea435-47f3-4d0e-87ce-799dfbe88af1
+            region: content
+            configuration:
+              id: 'field_block:node:academic_program:field_program_type'
+              label: 'Available as'
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: entity_reference_label
+                label: hidden
+                settings:
+                  link: false
+                third_party_settings: {  }
             weight: 4
             additional: {  }
-          0e6adf17-99c9-4789-b484-fe73e01c250b:
-            uuid: 0e6adf17-99c9-4789-b484-fe73e01c250b
+          f7ce7ac6-7af7-43ce-8964-0a59c84315b0:
+            uuid: f7ce7ac6-7af7-43ce-8964-0a59c84315b0
+            region: content
+            configuration:
+              id: 'field_block:node:academic_program:field_admissions_requirements'
+              label: 'Admissions requirements'
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: link
+                label: hidden
+                settings:
+                  trim_length: null
+                  url_only: true
+                  url_plain: true
+                  rel: '0'
+                  target: '0'
+                third_party_settings: {  }
+            weight: 5
+            additional: {  }
+          4b0307bc-a7f7-4844-8fe1-5f67d330b880:
+            uuid: 4b0307bc-a7f7-4844-8fe1-5f67d330b880
+            region: content
+            configuration:
+              id: 'field_block:node:academic_program:field_tuition_link'
+              label: 'Tuition info'
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: link
+                label: hidden
+                settings:
+                  trim_length: null
+                  url_only: true
+                  url_plain: true
+                  rel: '0'
+                  target: '0'
+                third_party_settings: {  }
+            weight: 6
+            additional: {  }
+        third_party_settings: {  }
+      -
+        layout_id: layout_onecol
+        layout_settings:
+          label: ''
+          context_mapping: {  }
+        components:
+          75241dd8-0d46-4265-86a1-8795077bb614:
+            uuid: 75241dd8-0d46-4265-86a1-8795077bb614
+            region: content
+            configuration:
+              id: 'field_block:node:academic_program:body'
+              label: Description
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: text_default
+                label: hidden
+                settings: {  }
+                third_party_settings: {  }
+            weight: 0
+            additional: {  }
+        third_party_settings: {  }
+      -
+        layout_id: layout_onecol
+        layout_settings:
+          label: ''
+          context_mapping: {  }
+        components:
+          9183d1db-07a1-4366-a081-1b0505e1394d:
+            uuid: 9183d1db-07a1-4366-a081-1b0505e1394d
+            region: content
+            configuration:
+              id: 'field_block:node:academic_program:field_degree_types'
+              label: 'Degree types'
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: basic_string
+                label: above
+                settings: {  }
+                third_party_settings: {  }
+            weight: 0
+            additional: {  }
+          6726fa26-228f-44c0-901c-14cfc2fe30ae:
+            uuid: 6726fa26-228f-44c0-901c-14cfc2fe30ae
             region: content
             configuration:
               id: 'field_block:node:academic_program:field_degree_level'
+              label: 'Degree level'
               label_display: '0'
+              provider: layout_builder
               context_mapping:
                 entity: layout_builder.entity
+                view_mode: view_mode
               formatter:
                 type: list_default
                 label: above
                 settings: {  }
                 third_party_settings: {  }
+            weight: 1
+            additional: {  }
+          01869bb7-cdc7-4f74-8be4-d4f865608bad:
+            uuid: 01869bb7-cdc7-4f74-8be4-d4f865608bad
+            region: content
+            configuration:
+              id: 'field_block:node:academic_program:field_program_type'
+              label: 'Available as'
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: entity_reference_label
+                label: above
+                settings:
+                  link: false
+                third_party_settings: {  }
+            weight: 2
+            additional: {  }
+          f022e13e-2174-41ad-92c2-07a11dc2b0eb:
+            uuid: f022e13e-2174-41ad-92c2-07a11dc2b0eb
+            region: content
+            configuration:
+              id: 'field_block:node:academic_program:field_program_length'
+              label: 'Program length'
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: list_default
+                label: above
+                settings: {  }
+                third_party_settings: {  }
+            weight: 3
+            additional: {  }
+          6b83aa49-985f-4ec6-a8ad-e9b1837c7ea6:
+            uuid: 6b83aa49-985f-4ec6-a8ad-e9b1837c7ea6
+            region: content
+            configuration:
+              id: 'field_block:node:academic_program:field_delivery_mode'
+              label: 'In-person or online'
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: entity_reference_label
+                label: above
+                settings:
+                  link: false
+                third_party_settings: {  }
+            weight: 4
+            additional: {  }
+          d5c41727-c48f-4a1b-a4d6-d945d7c038b2:
+            uuid: d5c41727-c48f-4a1b-a4d6-d945d7c038b2
+            region: content
+            configuration:
+              id: 'field_block:node:academic_program:field_college'
+              label: College
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: entity_reference_label
+                label: above
+                settings:
+                  link: false
+                third_party_settings: {  }
             weight: 5
             additional: {  }
-          ec96fee3-9d5f-4005-8274-d9b4d4ebae74:
-            uuid: ec96fee3-9d5f-4005-8274-d9b4d4ebae74
+          6513feea-0b28-4344-b47e-936c22d7c35d:
+            uuid: 6513feea-0b28-4344-b47e-936c22d7c35d
             region: content
             configuration:
-              id: 'views_block:bios-program_faculty'
-              label: ''
+              id: 'field_block:node:academic_program:field_campus'
+              label: Campus
               label_display: '0'
-              provider: views
-              context_mapping: {  }
-              views_label: ''
-              items_per_page: none
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: entity_reference_label
+                label: above
+                settings:
+                  link: false
+                third_party_settings: {  }
             weight: 6
             additional: {  }
-          5680168e-3d53-4370-8acd-44c0421829db:
-            uuid: 5680168e-3d53-4370-8acd-44c0421829db
+          25e178a5-bfca-49d1-8687-b80f17385958:
+            uuid: 25e178a5-bfca-49d1-8687-b80f17385958
             region: content
             configuration:
-              id: 'views_block:facts-recent_by_tag'
-              label: ''
+              id: 'field_block:node:academic_program:field_minor_required'
+              label: 'Requires a minor'
               label_display: '0'
-              provider: views
-              context_mapping: {  }
-              views_label: ''
-              items_per_page: none
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: boolean
+                label: above
+                settings:
+                  format: yes-no
+                  format_custom_false: ''
+                  format_custom_true: ''
+                third_party_settings: {  }
             weight: 7
+            additional: {  }
+          cd9651b8-97fe-4d18-9857-8f1eea88aa98:
+            uuid: cd9651b8-97fe-4d18-9857-8f1eea88aa98
+            region: content
+            configuration:
+              id: 'field_block:node:academic_program:field_departments'
+              label: Department
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: entity_reference_label
+                label: above
+                settings:
+                  link: false
+                third_party_settings: {  }
+            weight: 8
+            additional: {  }
+          213bf9ef-cebd-4326-97d9-8740a7f946bf:
+            uuid: 213bf9ef-cebd-4326-97d9-8740a7f946bf
+            region: content
+            configuration:
+              id: 'field_block:node:academic_program:field_accreditation_logo'
+              label: 'Accreditation Logo'
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: entity_reference_entity_view
+                label: hidden
+                settings:
+                  view_mode: 200x200_non_crop
+                third_party_settings: {  }
+            weight: 10
+            additional: {  }
+          9b60948c-d488-463d-aef6-43504ae24bb9:
+            uuid: 9b60948c-d488-463d-aef6-43504ae24bb9
+            region: content
+            configuration:
+              id: 'field_block:node:academic_program:field_accreditation'
+              label: 'Accreditation Information'
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: text_default
+                label: above
+                settings: {  }
+                third_party_settings: {  }
+            weight: 9
+            additional: {  }
+          34ea46a2-816e-4cd0-bad6-4c62c7c5be6a:
+            uuid: 34ea46a2-816e-4cd0-bad6-4c62c7c5be6a
+            region: content
+            configuration:
+              id: 'field_block:node:academic_program:field_licensure'
+              label: 'Licensure information'
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: text_default
+                label: hidden
+                settings: {  }
+                third_party_settings: {  }
+            weight: 11
+            additional: {  }
+        third_party_settings: {  }
+      -
+        layout_id: layout_onecol
+        layout_settings:
+          label: ''
+          context_mapping: {  }
+        components:
+          bb930b7d-0fab-4cb3-ac3d-bd953711d2e4:
+            uuid: bb930b7d-0fab-4cb3-ac3d-bd953711d2e4
+            region: content
+            configuration:
+              id: 'field_block:node:academic_program:field_hallmarks'
+              label: Hallmarks
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: entity_reference_revisions_entity_view
+                label: hidden
+                settings:
+                  view_mode: default
+                third_party_settings: {  }
+            weight: 0
+            additional: {  }
+          2835dace-ffb4-475b-abad-f4cd030df624:
+            uuid: 2835dace-ffb4-475b-abad-f4cd030df624
+            region: content
+            configuration:
+              id: 'field_block:node:academic_program:field_content_carousel'
+              label: 'Content Carousel'
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: entity_reference_revisions_entity_view
+                label: hidden
+                settings:
+                  view_mode: default
+                third_party_settings: {  }
+            weight: 1
+            additional: {  }
+          0656342b-d745-49ce-8995-ff81dc51ff55:
+            uuid: 0656342b-d745-49ce-8995-ff81dc51ff55
+            region: content
+            configuration:
+              id: 'field_block:node:academic_program:field_facts'
+              label: Facts
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: entity_reference_revisions_entity_view
+                label: hidden
+                settings:
+                  view_mode: default
+                third_party_settings: {  }
+            weight: 2
+            additional: {  }
+          fc9164d0-a94e-4bd7-8594-ce6a6d673d05:
+            uuid: fc9164d0-a94e-4bd7-8594-ce6a6d673d05
+            region: content
+            configuration:
+              id: 'field_block:node:academic_program:field_paragraphs'
+              label: 'Flex Content'
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: entity_reference_revisions_entity_view
+                label: hidden
+                settings:
+                  view_mode: default
+                third_party_settings: {  }
+            weight: 3
+            additional: {  }
+        third_party_settings: {  }
+      -
+        layout_id: layout_onecol
+        layout_settings:
+          label: ''
+          context_mapping: {  }
+        components:
+          fe201a7d-84be-4a35-aa23-893ad389bbef:
+            uuid: fe201a7d-84be-4a35-aa23-893ad389bbef
+            region: content
+            configuration:
+              id: 'field_block:node:academic_program:field_outcomes_image'
+              label: 'Outcomes Image'
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: entity_reference_entity_view
+                label: hidden
+                settings:
+                  view_mode: 874x492
+                third_party_settings: {  }
+            weight: 0
+            additional: {  }
+          58059c3d-b96f-4958-a843-c0e08dfb2163:
+            uuid: 58059c3d-b96f-4958-a843-c0e08dfb2163
+            region: content
+            configuration:
+              id: 'field_block:node:academic_program:field_outcome_text'
+              label: 'What can I do'
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: text_default
+                label: hidden
+                settings: {  }
+                third_party_settings: {  }
+            weight: 1
+            additional: {  }
+          3e7ab361-1eca-400a-be09-1ff47a79cb29:
+            uuid: 3e7ab361-1eca-400a-be09-1ff47a79cb29
+            region: content
+            configuration:
+              id: 'field_block:node:academic_program:field_example_careers'
+              label: 'Example Careers'
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: string
+                label: above
+                settings:
+                  link_to_entity: false
+                third_party_settings: {  }
+            weight: 2
+            additional: {  }
+          d0b3b43f-15b6-4da8-a6bb-fbf36444e592:
+            uuid: d0b3b43f-15b6-4da8-a6bb-fbf36444e592
+            region: content
+            configuration:
+              id: 'field_block:node:academic_program:field_grads'
+              label: 'Recent Graduates'
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: text_default
+                label: above
+                settings: {  }
+                third_party_settings: {  }
+            weight: 3
+            additional: {  }
+        third_party_settings: {  }
+      -
+        layout_id: layout_onecol
+        layout_settings:
+          label: ''
+          context_mapping: {  }
+        components:
+          f09af091-db08-48be-9daf-af981683f759:
+            uuid: f09af091-db08-48be-9daf-af981683f759
+            region: content
+            configuration:
+              id: 'field_block:node:academic_program:field_courses_text'
+              label: 'Courses information'
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: text_default
+                label: hidden
+                settings: {  }
+                third_party_settings: {  }
+            weight: 0
+            additional: {  }
+          2d530784-69f7-4b53-8bbe-312ddaea0e1a:
+            uuid: 2d530784-69f7-4b53-8bbe-312ddaea0e1a
+            region: content
+            configuration:
+              id: 'field_block:node:academic_program:field_courses'
+              label: 'Sample Courses'
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: entity_reference_revisions_entity_view
+                label: hidden
+                settings:
+                  view_mode: default
+                third_party_settings: {  }
+            weight: 1
+            additional: {  }
+          e2fb5944-e10a-46e6-b790-b304cea1263c:
+            uuid: e2fb5944-e10a-46e6-b790-b304cea1263c
+            region: content
+            configuration:
+              id: 'field_block:node:academic_program:field_request_for_info'
+              label: 'Get More Info'
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: boolean
+                label: hidden
+                settings:
+                  format: default
+                  format_custom_false: ''
+                  format_custom_true: ''
+                third_party_settings: {  }
+            weight: 2
+            additional: {  }
+          21867544-afca-44e3-a31b-67f264fe48b6:
+            uuid: 21867544-afca-44e3-a31b-67f264fe48b6
+            region: content
+            configuration:
+              id: 'field_block:node:academic_program:field_related_programs'
+              label: 'Related Programs'
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: entity_reference_entity_view
+                label: hidden
+                settings:
+                  view_mode: content_thumbnail
+                third_party_settings: {  }
+            weight: 3
+            additional: {  }
+          17201eb4-5e0f-4bd1-abdf-6ec6c9ae3b53:
+            uuid: 17201eb4-5e0f-4bd1-abdf-6ec6c9ae3b53
+            region: content
+            configuration:
+              id: 'field_block:node:academic_program:field_whats_next'
+              label: "What's Next"
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: entity_reference_entity_view
+                label: hidden
+                settings:
+                  view_mode: default
+                third_party_settings: {  }
+            weight: 4
             additional: {  }
         third_party_settings: {  }
   layout_builder_restrictions:
@@ -139,12 +751,176 @@ content:
     third_party_settings: {  }
     weight: -20
     region: content
+  field_accreditation:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 123
+    region: content
+  field_accreditation_logo:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 124
+    region: content
+  field_admissions_requirements:
+    type: link
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 111
+    region: content
+  field_campus:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 118
+    region: content
+  field_college:
+    type: entity_reference_label
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 121
+    region: content
+  field_content_carousel:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 128
+    region: content
+  field_courses:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 135
+    region: content
+  field_courses_text:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 134
+    region: content
   field_degree_level:
     type: list_default
     label: above
     settings: {  }
     third_party_settings: {  }
     weight: 104
+    region: content
+  field_degree_types:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 112
+    region: content
+  field_delivery_mode:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 119
+    region: content
+  field_departments:
+    type: entity_reference_label
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 122
+    region: content
+  field_editorial_sections:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 107
+    region: content
+  field_example_careers:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 132
+    region: content
+  field_facts:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 129
+    region: content
+  field_grads:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 133
+    region: content
+  field_hallmarks:
+    type: entity_reference_revisions_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 126
+    region: content
+  field_image:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: 426x508
+      link: false
+    third_party_settings: {  }
+    weight: 107
+    region: content
+  field_intro_text:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 108
+    region: content
+  field_keywords:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 140
+    region: content
+  field_licensure:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 125
     region: content
   field_list_widget:
     type: entity_reference_label
@@ -160,7 +936,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 106
+    weight: 141
     region: content
   field_metatags:
     type: metatag_empty_formatter
@@ -169,6 +945,49 @@ content:
     third_party_settings: {  }
     weight: 102
     region: content
+  field_minor_required:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 120
+    region: content
+  field_outcome_text:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 131
+    region: content
+  field_outcomes_image:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 130
+    region: content
+  field_page_families:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 108
+    region: content
+  field_paragraphs:
+    type: layout_paragraphs
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 104
+    region: content
   field_placement_tags:
     type: entity_reference_label
     label: above
@@ -176,6 +995,67 @@ content:
       link: true
     third_party_settings: {  }
     weight: 103
+    region: content
+  field_program_length:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 113
+    region: content
+  field_program_type:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 109
+    region: content
+  field_related_programs:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 138
+    region: content
+  field_request_for_info:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 136
+    region: content
+  field_slate_slug:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 137
+    region: content
+  field_tuition_link:
+    type: link
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 110
+    region: content
+  field_whats_next:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 139
     region: content
   links:
     settings: {  }

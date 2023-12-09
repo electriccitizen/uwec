@@ -1,9 +1,9 @@
-uuid: 802657af-bd8d-46dc-824d-82397f83ea38
+uuid: 1ebd3e69-da36-4ce2-8b0c-a097ec5bc8ca
 langcode: en
-status: true
+status: false
 dependencies:
   config:
-    - core.entity_view_mode.node.content_thumbnail
+    - core.entity_view_mode.node.mini
     - field.field.node.academic_program.body
     - field.field.node.academic_program.field_accreditation
     - field.field.node.academic_program.field_accreditation_logo
@@ -48,44 +48,30 @@ dependencies:
     - field.field.node.academic_program.layout_builder__layout
     - node.type.academic_program
   module:
-    - layout_builder
-    - layout_builder_restrictions
     - user
-third_party_settings:
-  layout_builder:
-    enabled: false
-    allow_custom: false
-  layout_builder_restrictions:
-    allowed_block_categories: {  }
-    entity_view_mode_restriction:
-      allowed_layouts:
-        - layout_onecol
-      denylisted_blocks: {  }
-      allowlisted_blocks: {  }
-      restricted_categories: {  }
-id: node.academic_program.content_thumbnail
+id: node.academic_program.mini
 targetEntityType: node
 bundle: academic_program
-mode: content_thumbnail
+mode: mini
 content:
   content_moderation_control:
     settings: {  }
     third_party_settings: {  }
-    weight: 0
+    weight: -20
     region: content
   field_image:
     type: entity_reference_entity_view
     label: hidden
     settings:
-      view_mode: 240x240
+      view_mode: 42x42
       link: false
     third_party_settings: {  }
-    weight: 1
+    weight: 0
     region: content
   links:
     settings: {  }
     third_party_settings: {  }
-    weight: 2
+    weight: 100
     region: content
 hidden:
   body: true

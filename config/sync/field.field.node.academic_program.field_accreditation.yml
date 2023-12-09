@@ -1,21 +1,21 @@
-uuid: bc1cb35e-1784-4af4-8926-7ac64a2963d7
+uuid: 0f2afd5d-c9e3-48f8-b1c7-d6f23e168d37
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.body
+    - field.storage.node.field_accreditation
     - filter.format.limited_html
     - node.type.academic_program
   module:
     - text
-id: node.academic_program.body
-field_name: body
+id: node.academic_program.field_accreditation
+field_name: field_accreditation
 entity_type: node
 bundle: academic_program
-label: Description
-description: 'Always start with an H2 headline.'
-required: false
-translatable: true
+label: 'Accreditation information'
+description: ''
+required: true
+translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:

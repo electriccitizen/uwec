@@ -1,0 +1,23 @@
+uuid: a9f74bf6-12cd-48db-939f-d7618cdb000d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_tuition_link
+    - node.type.academic_program
+  module:
+    - link
+id: node.academic_program.field_tuition_link
+field_name: field_tuition_link
+entity_type: node
+bundle: academic_program
+label: 'Tuition info'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 0
+  link_type: 17
+field_type: link

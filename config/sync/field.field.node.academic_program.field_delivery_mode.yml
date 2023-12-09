@@ -1,0 +1,29 @@
+uuid: f0eb5d0f-a42a-4fdd-8483-15ff8d284d45
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_delivery_mode
+    - node.type.academic_program
+    - taxonomy.vocabulary.delivery_modes
+id: node.academic_program.field_delivery_mode
+field_name: field_delivery_mode
+entity_type: node
+bundle: academic_program
+label: 'In-person or online'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      delivery_modes: delivery_modes
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

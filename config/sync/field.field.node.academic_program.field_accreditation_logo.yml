@@ -1,0 +1,29 @@
+uuid: 945b9bdd-d4e5-4b68-959d-1e573f1ad710
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_accreditation_logo
+    - media.type.image
+    - node.type.academic_program
+id: node.academic_program.field_accreditation_logo
+field_name: field_accreditation_logo
+entity_type: node
+bundle: academic_program
+label: 'Accreditation Logo'
+description: '<strong>Optimal image size:</strong> 400px wide'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

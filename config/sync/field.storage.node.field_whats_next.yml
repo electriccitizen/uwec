@@ -1,0 +1,20 @@
+uuid: edb9a373-a835-4b61-97f9-2e10c2763fca
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_content
+    - node
+id: node.field_whats_next
+field_name: field_whats_next
+entity_type: node
+type: entity_reference
+settings:
+  target_type: block_content
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
