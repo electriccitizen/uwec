@@ -201,6 +201,22 @@ third_party_settings:
                 third_party_settings: {  }
             weight: 6
             additional: {  }
+          88293e88-3b38-4180-9f25-2e09e052af89:
+            uuid: 88293e88-3b38-4180-9f25-2e09e052af89
+            region: content
+            configuration:
+              id: 'field_block:node:academic_program:field_program_length'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: string
+                label: above
+                settings:
+                  link_to_entity: false
+                third_party_settings: {  }
+            weight: 7
+            additional: {  }
         third_party_settings: {  }
       -
         layout_id: layout_onecol
@@ -287,24 +303,6 @@ third_party_settings:
                   link: false
                 third_party_settings: {  }
             weight: 2
-            additional: {  }
-          f022e13e-2174-41ad-92c2-07a11dc2b0eb:
-            uuid: f022e13e-2174-41ad-92c2-07a11dc2b0eb
-            region: content
-            configuration:
-              id: 'field_block:node:academic_program:field_program_length'
-              label: 'Program length'
-              label_display: '0'
-              provider: layout_builder
-              context_mapping:
-                entity: layout_builder.entity
-                view_mode: view_mode
-              formatter:
-                type: list_default
-                label: above
-                settings: {  }
-                third_party_settings: {  }
-            weight: 3
             additional: {  }
           6b83aa49-985f-4ec6-a8ad-e9b1837c7ea6:
             uuid: 6b83aa49-985f-4ec6-a8ad-e9b1837c7ea6
@@ -997,11 +995,12 @@ content:
     weight: 103
     region: content
   field_program_length:
-    type: list_default
+    type: string
     label: above
-    settings: {  }
+    settings:
+      link_to_entity: false
     third_party_settings: {  }
-    weight: 113
+    weight: 142
     region: content
   field_program_type:
     type: entity_reference_label

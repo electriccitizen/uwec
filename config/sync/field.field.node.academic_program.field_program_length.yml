@@ -1,12 +1,10 @@
-uuid: be7e3b1f-c603-4fcf-af80-5364e55d68ad
+uuid: 932afb60-252a-4bd3-b9b3-17f27dbe0041
 langcode: en
 status: true
 dependencies:
   config:
     - field.storage.node.field_program_length
     - node.type.academic_program
-  module:
-    - options
 id: node.academic_program.field_program_length
 field_name: field_program_length
 entity_type: node
@@ -18,4 +16,4 @@ translatable: false
 default_value: {  }
 default_value_callback: ''
 settings: {  }
-field_type: list_string
+field_type: string

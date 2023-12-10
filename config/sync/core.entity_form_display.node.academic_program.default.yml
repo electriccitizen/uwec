@@ -61,6 +61,7 @@ third_party_settings:
   field_group:
     group_access:
       children:
+        - field_editorial_sections
         - field_domain_access
         - field_domain_source
         - field_domain_all_affiliates
@@ -286,20 +287,20 @@ content:
     third_party_settings: {  }
   field_domain_access:
     type: options_buttons
-    weight: 52
+    weight: 28
     region: content
     settings: {  }
     third_party_settings: {  }
   field_domain_all_affiliates:
     type: boolean_checkbox
-    weight: 55
+    weight: 30
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   field_domain_source:
     type: options_select
-    weight: 53
+    weight: 29
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -467,10 +468,12 @@ content:
       placeholder: ''
     third_party_settings: {  }
   field_program_length:
-    type: options_select
+    type: string_textfield
     weight: 26
     region: content
-    settings: {  }
+    settings:
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
   field_program_type:
     type: options_select
