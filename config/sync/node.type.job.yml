@@ -25,7 +25,7 @@ third_party_settings:
     unpublish_revision: false
 name: Job
 type: job
-description: ''
+description: 'Add job postings.'
 help: ''
 new_revision: false
 preview_mode: 1
