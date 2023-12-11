@@ -25,6 +25,7 @@ button:
   testimonial: false
   video_card: false
   hours: false
+  job: true
 message:
   page: false
   event: false
@@ -46,6 +47,7 @@ message:
   testimonial: false
   video_card: false
   hours: false
+  job: true
 tab:
   page: true
   event: true
@@ -67,6 +69,7 @@ tab:
   testimonial: true
   video_card: true
   hours: true
+  job: false
 tab_edit:
   page: false
   event: false
@@ -88,3 +91,4 @@ tab_edit:
   testimonial: false
   video_card: false
   hours: false
+  job: false

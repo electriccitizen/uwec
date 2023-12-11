@@ -1,0 +1,21 @@
+uuid: b3fc81b5-b5ef-4def-b958-03fe8a6fc16d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_apply_by
+    - node.type.job
+  module:
+    - datetime
+id: node.job.field_apply_by
+field_name: field_apply_by
+entity_type: node
+bundle: job
+label: 'Apply By'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime
