@@ -10,6 +10,8 @@ use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\Core\Site\Settings;
 use Drupal\Component\Utility\Html;
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
 
 /**
  * Implements hook_help().
@@ -342,4 +344,27 @@ function citizen_custom_views_pre_view($view, $display_id, &$args) {
       }
     }
   }
+}
+
+/**
+ * Implements hook_entity_view_alter().
+ */
+function citizen_custom_entity_view_alter(array &$build, EntityInterface $entity, EntityViewDisplayInterface $display) {
+    // Check if the entity is of type node and if the content type is page.
+    if ($entity->getEntityTypeId() == 'node' && $entity->bundle() == 'page') {
+        // Make sure the exclude search field exists on the node (to avoid unexpected errors) and get its value.
+        if ($entity->hasField('field_exclude_search') && !$entity->get('field_exclude_search')->isEmpty()) {
+            $exclude_search = $entity->get('field_exclude_search')->value;
+            // If the field is true, set noindex and nofollow meta tags for the node.
+            if ($exclude_search) {
+                $build['#attached']['html_head'][] = [
+                    [
+                        '#tag' => 'meta',
+                        '#attributes' => ['name' => 'robots', 'content' => 'noindex, nofollow'],
+                    ],
+                    'noindex_nofollow',
+                ];
+            }
+        }
+    }
 }
