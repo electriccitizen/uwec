@@ -1,0 +1,21 @@
+uuid: 26bbd27c-9844-4e8d-a03e-4df3614b0477
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_exclude_search
+    - node.type.page
+id: node.page.field_exclude_search
+field_name: field_exclude_search
+entity_type: node
+bundle: page
+label: 'Exclude from search'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean
