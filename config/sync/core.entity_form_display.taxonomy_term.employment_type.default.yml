@@ -1,0 +1,27 @@
+uuid: 24ba0721-b680-49de-b820-ccd2eba28095
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.employment_type
+id: taxonomy_term.employment_type.default
+targetEntityType: taxonomy_term
+bundle: employment_type
+mode: default
+content:
+  name:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  description: true
+  path: true
+  publish_on: true
+  publish_state: true
+  status: true
+  unpublish_on: true
+  unpublish_state: true

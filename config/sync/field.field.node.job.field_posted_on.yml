@@ -1,0 +1,24 @@
+uuid: e8743793-42a7-4533-bc97-0c77db9ca133
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_posted_on
+    - node.type.job
+  module:
+    - datetime
+id: node.job.field_posted_on
+field_name: field_posted_on
+entity_type: node
+bundle: job
+label: 'Posted On'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    default_date_type: now
+    default_date: now
+default_value_callback: ''
+settings: {  }
+field_type: datetime
