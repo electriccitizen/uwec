@@ -18,10 +18,33 @@ dependencies:
     - field.field.node.job.field_page_family
     - field.field.node.job.field_posted_on
     - node.type.job
+    - workflows.workflow.non_moderated
   module:
     - content_moderation
     - datetime
+    - field_group
     - text
+third_party_settings:
+  field_group:
+    group_access:
+      children:
+        - field_editorial_sections
+        - field_domain_access
+        - field_domain_source
+        - field_domain_all_affiliates
+      label: Access
+      region: content
+      parent_name: ''
+      weight: 11
+      format_type: details_sidebar
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        open: false
+        description: ''
+        required_fields: true
+        weight: 0
 id: node.job.default
 targetEntityType: node
 bundle: job
@@ -58,6 +81,31 @@ content:
       match_limit: 10
       size: 60
       placeholder: ''
+    third_party_settings: {  }
+  field_domain_access:
+    type: options_buttons
+    weight: 17
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_domain_all_affiliates:
+    type: boolean_checkbox
+    weight: 19
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_domain_source:
+    type: options_select
+    weight: 18
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_editorial_sections:
+    type: options_buttons
+    weight: 16
+    region: content
+    settings: {  }
     third_party_settings: {  }
   field_employment_category:
     type: options_select
@@ -104,13 +152,13 @@ content:
     third_party_settings: {  }
   moderation_state:
     type: moderation_state_default
-    weight: 12
+    weight: 13
     region: content
     settings: {  }
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 11
+    weight: 12
     region: content
     settings:
       display_label: true
@@ -125,10 +173,6 @@ content:
     third_party_settings: {  }
 hidden:
   created: true
-  field_domain_access: true
-  field_domain_all_affiliates: true
-  field_domain_source: true
-  field_editorial_sections: true
   path: true
   promote: true
   publish_on: true

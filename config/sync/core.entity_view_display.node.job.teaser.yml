@@ -33,14 +33,10 @@ content:
     settings:
       trim_length: 600
     third_party_settings: {  }
-    weight: 101
-    region: content
-  links:
-    settings: {  }
-    third_party_settings: {  }
-    weight: 100
+    weight: 0
     region: content
 hidden:
+  content_moderation_control: true
   field_apply_by: true
   field_campus: true
   field_department: true
@@ -54,4 +50,5 @@ hidden:
   field_official_title: true
   field_page_family: true
   field_posted_on: true
+  links: true
   search_api_excerpt: true

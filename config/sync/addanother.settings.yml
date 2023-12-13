@@ -25,7 +25,7 @@ button:
   testimonial: false
   video_card: false
   hours: false
-  job: true
+  job: false
 message:
   page: false
   event: false
