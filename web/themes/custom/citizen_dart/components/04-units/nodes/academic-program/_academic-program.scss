@@ -5,5 +5,87 @@
 @use '../../../00-base/base' as *;
 
 .node-academic-program{
-	
+	&.contextual-region{
+		position: static;
+		& > .contextual{
+			display: none;
+		}
+		.program-hero {
+			margin-top: -216px;
+			padding-top: 216px;
+			@include desk{
+				margin-top: -170px;
+				padding-top: 170px;
+			}
+		}
+	}
+
+   //page header section
+	#node-section-1{
+		transform-style: preserve-3d !important;
+		.hero-video &,.hero-full_image &,.hero-background &{
+			position: static;
+		}
+		*{
+			transform-style: unset;
+		}
+	}
+
+	//hero setups
+	.program-hero{
+		position: relative;
+		z-index: 0;
+		margin-left: -$siteMarginMobile;
+		margin-top: -160px;
+		padding-top: 160px;
+		width: 100vw;
+		min-height: 100vh;
+		@include desk{
+			margin-top: -114px;
+			padding-top: 114px;
+		}
+		.breadcrumb{
+			a{
+				color: $white;
+			}
+		}
+		.hero-image {
+			@include safeFlex(row,wrap,start,start);
+			background: $brightBlue;
+         position: relative;
+		}
+		.page-header-text{
+			position: relative;
+			z-index: 10;
+			@include desk{
+				width: 50%;
+			}
+			.field{
+				color: $white;
+            &.available-as {
+               span {
+                  color: $white;
+                  display: block;
+                  text-transform: uppercase;
+               }
+            }
+			}
+		}//end page header text
+		.swirl-pattern{
+			position: absolute;
+			right: 0;
+			top: 0;
+		}
+		.image-right{
+			@include desk{
+				width: 50%;
+				order: 2;
+			}
+		}
+		.field-links{
+			a{
+				color: $white;
+			}
+		}
+	}//end page-header-wrapper
 }//end academic-program
