@@ -230,37 +230,6 @@ third_party_settings:
             weight: 5
             additional: {  }
         third_party_settings: {  }
-      -
-        layout_id: layout_onecol
-        layout_settings:
-          label: ''
-          context_mapping: {  }
-        components: {  }
-        third_party_settings: {  }
-      -
-        layout_id: layout_onecol
-        layout_settings:
-          label: ''
-          context_mapping: {  }
-        components:
-          9f62cea5-a936-4d01-9e27-f8ec7722570c:
-            uuid: 9f62cea5-a936-4d01-9e27-f8ec7722570c
-            region: content
-            configuration:
-              id: 'field_block:node:job:field_page_family'
-              label_display: '0'
-              context_mapping:
-                entity: layout_builder.entity
-              formatter:
-                type: entity_reference_entity_view
-                label: hidden
-                settings:
-                  view_mode: teaser
-                  link: false
-                third_party_settings: {  }
-            weight: 0
-            additional: {  }
-        third_party_settings: {  }
   layout_builder_restrictions:
     allowed_block_categories: {  }
     entity_view_mode_restriction:

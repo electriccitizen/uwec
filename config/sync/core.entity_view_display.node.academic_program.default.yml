@@ -10,9 +10,9 @@ dependencies:
     - field.field.node.academic_program.field_campus
     - field.field.node.academic_program.field_college
     - field.field.node.academic_program.field_content_carousel
+    - field.field.node.academic_program.field_courses
     - field.field.node.academic_program.field_courses_text
     - field.field.node.academic_program.field_degree_level
-    - field.field.node.academic_program.field_degree_types
     - field.field.node.academic_program.field_delivery_mode
     - field.field.node.academic_program.field_departments
     - field.field.node.academic_program.field_domain_access
@@ -90,26 +90,6 @@ third_party_settings:
                 third_party_settings: {  }
             weight: 0
             additional: {  }
-          17f42fdb-c135-4fc1-8461-d78c6ff6dbbf:
-            uuid: 17f42fdb-c135-4fc1-8461-d78c6ff6dbbf
-            region: content
-            configuration:
-              id: 'field_block:node:academic_program:field_faculty_link'
-              label_display: '0'
-              context_mapping:
-                entity: layout_builder.entity
-              formatter:
-                type: link
-                label: above
-                settings:
-                  trim_length: 80
-                  url_only: false
-                  url_plain: false
-                  rel: ''
-                  target: ''
-                third_party_settings: {  }
-            weight: 1
-            additional: {  }
         third_party_settings: {  }
       -
         layout_id: layout_onecol
@@ -159,24 +139,6 @@ third_party_settings:
                 settings: {  }
                 third_party_settings: {  }
             weight: 2
-            additional: {  }
-          8a965042-0804-418e-86a9-897ef2142e36:
-            uuid: 8a965042-0804-418e-86a9-897ef2142e36
-            region: content
-            configuration:
-              id: 'field_block:node:academic_program:field_degree_types'
-              label: 'Degree Types'
-              label_display: '0'
-              provider: layout_builder
-              context_mapping:
-                entity: layout_builder.entity
-                view_mode: view_mode
-              formatter:
-                type: basic_string
-                label: hidden
-                settings: {  }
-                third_party_settings: {  }
-            weight: 0
             additional: {  }
         third_party_settings: {  }
       -
@@ -543,18 +505,6 @@ content:
     third_party_settings: {  }
     weight: 144
     region: content
-  field_faculty_link:
-    type: link
-    label: above
-    settings:
-      trim_length: 80
-      url_only: false
-      url_plain: false
-      rel: ''
-      target: ''
-    third_party_settings: {  }
-    weight: 145
-    region: content
   field_grads:
     type: text_default
     label: above
@@ -744,8 +694,10 @@ content:
     weight: 100
     region: content
 hidden:
+  field_courses: true
   field_domain_access: true
   field_domain_all_affiliates: true
   field_domain_source: true
+  field_faculty_link: true
   layout_builder__layout: true
   search_api_excerpt: true

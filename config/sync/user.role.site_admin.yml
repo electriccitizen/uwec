@@ -29,6 +29,7 @@ dependencies:
     - node.type.video_card
     - taxonomy.vocabulary.author
     - taxonomy.vocabulary.campuses
+    - taxonomy.vocabulary.degree_types
     - taxonomy.vocabulary.delivery_modes
     - taxonomy.vocabulary.editorial_sections
     - taxonomy.vocabulary.employment_category
@@ -169,6 +170,7 @@ permissions:
   - 'create support_book content on assigned domains'
   - 'create terms in author'
   - 'create terms in campuses'
+  - 'create terms in degree_types'
   - 'create terms in delivery_modes'
   - 'create terms in editorial_sections'
   - 'create terms in employment_category'
@@ -280,6 +282,7 @@ permissions:
   - 'delete support_book revisions'
   - 'delete terms in author'
   - 'delete terms in campuses'
+  - 'delete terms in degree_types'
   - 'delete terms in delivery_modes'
   - 'delete terms in editorial_sections'
   - 'delete terms in employment_category'
@@ -340,6 +343,7 @@ permissions:
   - 'edit own video_card content'
   - 'edit terms in author'
   - 'edit terms in campuses'
+  - 'edit terms in degree_types'
   - 'edit terms in delivery_modes'
   - 'edit terms in editorial_sections'
   - 'edit terms in employment_category'

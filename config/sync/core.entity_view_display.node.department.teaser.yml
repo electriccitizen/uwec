@@ -10,6 +10,7 @@ dependencies:
     - field.field.node.department.field_domain_access
     - field.field.node.department.field_domain_all_affiliates
     - field.field.node.department.field_domain_source
+    - field.field.node.department.field_faculty_link
     - field.field.node.department.field_hallmarks
     - field.field.node.department.field_hours_library
     - field.field.node.department.field_meta_description
@@ -49,6 +50,7 @@ hidden:
   field_domain_access: true
   field_domain_all_affiliates: true
   field_domain_source: true
+  field_faculty_link: true
   field_hallmarks: true
   field_hours_library: true
   field_meta_description: true

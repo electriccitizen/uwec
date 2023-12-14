@@ -9,6 +9,7 @@ dependencies:
     - field.field.node.department.field_domain_access
     - field.field.node.department.field_domain_all_affiliates
     - field.field.node.department.field_domain_source
+    - field.field.node.department.field_faculty_link
     - field.field.node.department.field_hallmarks
     - field.field.node.department.field_hours_library
     - field.field.node.department.field_meta_description
@@ -279,6 +280,18 @@ content:
       link: false
     third_party_settings: {  }
     weight: 106
+    region: content
+  field_faculty_link:
+    type: link
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 109
     region: content
   field_hallmarks:
     type: entity_reference_revisions_entity_view
