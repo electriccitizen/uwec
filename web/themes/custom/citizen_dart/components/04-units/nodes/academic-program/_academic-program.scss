@@ -57,6 +57,7 @@
 		.page-header-text{
 			position: relative;
 			z-index: 10;
+			padding-left: $siteMarginDesk;
 			@include desk{
 				width: 50%;
 			}
@@ -73,10 +74,12 @@
 		}//end page header text
 		.swirl-pattern{
 			position: absolute;
-			right: 0;
-			top: 0;
+			right: 35%;
+			top: 15%;
 		}
 		.image-right{
+			position: relative;
+			z-index: 10;
 			@include desk{
 				width: 50%;
 				order: 2;
@@ -88,4 +91,140 @@
 			}
 		}
 	}//end page-header-wrapper
+	.field.body {
+		max-width: $textMax;
+		@include auto;
+	}
+	.program-details-wrapper {
+		color: $royal;
+		background-color: $lightGrey;
+		padding: 6.5rem 16.75rem;
+		h2 {
+			margin-bottom: 2.625rem;
+			color: $royal;
+		}
+		.program-details {
+			@include safeFlex(row,wrap,start,start);
+			.program-detail {
+				font-weight: $heavy;
+				margin-bottom: 3.625rem;
+				span {
+					display: block;
+					font-weight: $regular;
+				}
+			}
+			.first {
+				border-right: $warmGrey solid 1px;
+				width: calc(50% - 11rem);
+			}
+			.last {
+				@include safeFlex(row,wrap,start,flex-start);
+				width: 50%;
+				padding-left: 11rem;
+				div {
+					flex: 0 0 50%;
+					box-sizing: border-box; 
+				}
+			}
+		}
+	}
+	.accreditation-wrapper {
+		color: $royal;
+		background-color: $lightGrey;
+		padding: 6.5rem 16.75rem;
+		margin-top: .375rem;
+		h2 { 
+			color: $royal;
+		}
+		.accreditation-details {
+			@include safeFlex(row,wrap,justify,start);
+			p {
+				max-width: $textMax;
+			}
+		}
+		.licensure-details {
+			p {
+				max-width: $textMax;
+			}
+		}
+	}
+
+	#node-section-5 {
+		background-color: $brightBlue;
+		padding: 8.25rem 0;
+		margin-bottom: 8.75rem;
+		* {
+			color: $white;
+		}
+		.field-outcomes-image {
+			max-width: 874px;
+			@include auto;
+		}
+		.outcomes {
+			@include auto;
+			max-width: 874px;
+			@include safeFlex(row,wrap,justify,start);
+		}
+		.recent-grads {
+			@include auto;
+			max-width: 874px;
+			.grads {
+				@include safeFlex(row,wrap,start,start);
+				.grad {
+					flex: 0 0 33.33%;
+					box-sizing: border-box; 
+				}
+			}
+		}
+	}
+	.course-information {
+		@include safeFlex(row,wrap,justify,start);
+		max-width: $contentStop;
+		@include auto;
+	}
+	.more-info {
+		background-color: $ice;
+		@include safeFlex(row,wrap,justify,start);
+		max-width: $contentStop;
+		@include auto;
+		margin-bottom: 8.75rem;
+
+	}
+	.field-related-programs {
+		@include safeFlex(row,wrap,start,start);
+				div {
+					flex: 0 0 33.33%;
+					box-sizing: border-box; 
+				}
+	}
 }//end academic-program
+
+.academic-program-teaser {
+	.hidden {
+    display: none;
+	}
+	.program-toggle {
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+	}
+	.chevron-down {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-right: 2px solid currentColor;
+    border-bottom: 2px solid currentColor;
+    transform: rotate(45deg);
+    margin-left: 5px;
+    vertical-align: middle;
+			transition: transform 0.3s ease;
+		}
+	
+	.chevron-flip {
+			transform: rotate(225deg);
+	}
+}

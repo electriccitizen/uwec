@@ -23,21 +23,22 @@
 {% extends 'field.html.twig' %}
 
 {% block fieldSingleNo %}
+  <div class="program-details-wrapper">
+  <h2>{% trans %}Program Details{% endtrans %}</h2>
   <div class="program-details">
-    <div>
-      <h2>{% trans %}Program Details{% endtrans %}</h2>
+    <div class="first">
       {% if element['#object'].field_degree_types.0.value %}
-        <span>{% trans %}Degree Types{% endtrans %}</span>
-        {{ element['#object'].field_degree_types.0.value }}
+        <div class="program-detail"><span>{% trans %}Degree Types{% endtrans %}</span>
+        {{ element['#object'].field_degree_types.0.value }}</div>
       {% endif %}
 
       {% if element['#object'].field_degree_level.0.value %}
-        <span>{% trans %}Degree Level{% endtrans %}</span>
-        {{ element['#object'].field_degree_level.0.value }}
+        <div class="program-detail"><span>{% trans %}Degree Level{% endtrans %}</span>
+        {{ element['#object'].field_degree_level.0.value }}</div>
       {% endif %}
 
       {% if element['#object'].field_program_type|length > 0 %}
-        <div class="field available-as">
+        <div class="field available-as program-detail">
           <span>{% trans %}Available as{% endtrans %}</span>
         {%- for type in element['#object'].field_program_type -%}
           {% if not loop.first and loop.last %} {% trans %}or{% endtrans %} {% endif %}
@@ -48,42 +49,42 @@
       </div>
       {% endif %}
     </div>
-    <div>
+    <div class="last">
       {% if element['#object'].field_program_length.0.value %}
-        <span>{% trans %}Program Length{% endtrans %}</span>
-        {{ element['#object'].field_program_length.0.value }}
+        <div class="program-detail"><span>{% trans %}Program Length{% endtrans %}</span>
+        {{ element['#object'].field_program_length.0.value }}</div>
       {% endif %}
 
       {% if element['#object'].field_delivery_mode.0 %}
-        <span>{% trans %}In-person or online{% endtrans %}</span>
-        {{ element['#object'].field_delivery_mode.entity.label }}
+        <div class="program-detail"><span>{% trans %}In-person or online{% endtrans %}</span>
+        {{ element['#object'].field_delivery_mode.entity.label }}</div>
       {% endif %}
 
       {% if element['#object'].field_college.0 %}
-        <span>{% trans %}College{% endtrans %}</span>
-        {{ element['#object'].field_college.entity.label }}
+        <div class="program-detail"><span>{% trans %}College{% endtrans %}</span>
+        {{ element['#object'].field_college.entity.label }}</div>
       {% endif %}
 
       {% if element['#object'].field_campus.0 %}
-        <span>{% trans %}Campus{% endtrans %}</span>
-        {{ element['#object'].field_campus.entity.label }}
+        <div class="program-detail"><span>{% trans %}Campus{% endtrans %}</span>
+        {{ element['#object'].field_campus.entity.label }}</div>
       {% endif %}
 
       {% if element['#object'].field_minor_required.0 %}
-        <span>{% trans %}Requires a minor{% endtrans %}</span>
-        {{ element['#object'].field_minor_required.0.value ? 'Yes' : 'No' }}
+        <div class="program-detail"><span>{% trans %}Requires a minor{% endtrans %}</span>
+        {{ element['#object'].field_minor_required.0.value ? 'Yes' : 'No' }}</div>
       {% endif %}
 
       {% if element['#object'].field_departments|length > 0 %}
-        <span>{{ element['#object'].field_departments|length > 1 ? 'Departments'|t : 'Department'|t }}</span>
+       <div class="program-detail"><span>{{ element['#object'].field_departments|length > 1 ? 'Departments'|t : 'Department'|t }}</span>
          {%- for department in element['#object'].field_departments -%}
           {{- department.entity.label -}}
           {% if not loop.last %},
           {% endif %}
-        {%- endfor -%}
+        {%- endfor -%}</div>
       {% endif %}
     </div>
-
+</div> 
 
 {% endblock %}
 
