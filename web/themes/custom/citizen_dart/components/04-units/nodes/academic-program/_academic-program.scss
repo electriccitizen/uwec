@@ -58,6 +58,14 @@
 			position: relative;
 			z-index: 10;
 			padding-left: $siteMarginDesk;
+			& > * {
+				margin-bottom: $spaceXs;
+			}
+			.field-links {
+				a {
+					display: block;
+				}
+			}
 			@include desk{
 				width: 50%;
 			}
@@ -84,7 +92,7 @@
 				width: 50%;
 				order: 2;
 			}
-		}
+		} 
 		.field-links{
 			a{
 				color: $white;
@@ -126,8 +134,8 @@
 					box-sizing: border-box; 
 				}
 			}
-		}
-	}
+		} // end program-details
+	} // end program-details-wrapper
 	.accreditation-wrapper {
 		color: $royal;
 		background-color: $lightGrey;
@@ -147,7 +155,7 @@
 				max-width: $textMax;
 			}
 		}
-	}
+	}// end accreditation-wrapper
 
 	#node-section-5 {
 		background-color: $brightBlue;
@@ -176,7 +184,7 @@
 				}
 			}
 		}
-	}
+	} //end #node-section-5
 	.course-information {
 		@include safeFlex(row,wrap,justify,start);
 		max-width: $contentStop;
@@ -227,4 +235,4 @@
 	.chevron-flip {
 			transform: rotate(225deg);
 	}
-}
+} //end academic-program-teaser
