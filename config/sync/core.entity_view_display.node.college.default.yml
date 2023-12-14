@@ -59,22 +59,6 @@ third_party_settings:
                 third_party_settings: {  }
             weight: 2
             additional: {  }
-          805dba83-41ba-442e-a4aa-6d0319ae1d5a:
-            uuid: 805dba83-41ba-442e-a4aa-6d0319ae1d5a
-            region: content
-            configuration:
-              id: 'field_block:node:college:field_meta_description'
-              label_display: '0'
-              context_mapping:
-                entity: layout_builder.entity
-              formatter:
-                type: string
-                label: above
-                settings:
-                  link_to_entity: false
-                third_party_settings: {  }
-            weight: 3
-            additional: {  }
         third_party_settings: {  }
       -
         layout_id: layout_onecol

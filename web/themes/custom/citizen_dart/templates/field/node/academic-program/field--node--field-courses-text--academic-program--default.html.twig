@@ -30,11 +30,10 @@
 
 {% block fieldSingleNo %}
   <div class="course-information">
-    <h2>{% trans %}Sample Courses{% endtrans %}</h2>
-    {{ courseInformation }}
-  </div>
-  <div class="sample-courses">
-    {{ drupal_entity('paragraph', element['#object'].field_courses.0.target_id)}}
+    <div class='courses-header'>Sample</br><strong>Courses</strong></div>
+    <div class="course-text">
+	    {{ courseInformation }}
+	  </div>
   </div>
 {% endblock %}
 

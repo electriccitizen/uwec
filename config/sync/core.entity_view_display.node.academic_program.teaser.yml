@@ -11,7 +11,6 @@ dependencies:
     - field.field.node.academic_program.field_campus
     - field.field.node.academic_program.field_college
     - field.field.node.academic_program.field_content_carousel
-    - field.field.node.academic_program.field_courses
     - field.field.node.academic_program.field_courses_text
     - field.field.node.academic_program.field_degree_level
     - field.field.node.academic_program.field_degree_types
@@ -89,7 +88,6 @@ hidden:
   field_campus: true
   field_college: true
   field_content_carousel: true
-  field_courses: true
   field_courses_text: true
   field_degree_level: true
   field_degree_types: true

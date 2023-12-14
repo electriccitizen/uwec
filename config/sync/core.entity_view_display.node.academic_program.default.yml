@@ -10,7 +10,6 @@ dependencies:
     - field.field.node.academic_program.field_campus
     - field.field.node.academic_program.field_college
     - field.field.node.academic_program.field_content_carousel
-    - field.field.node.academic_program.field_courses
     - field.field.node.academic_program.field_courses_text
     - field.field.node.academic_program.field_degree_level
     - field.field.node.academic_program.field_degree_types
@@ -46,6 +45,7 @@ dependencies:
     - field.field.node.academic_program.field_whats_next
     - field.field.node.academic_program.layout_builder__layout
     - node.type.academic_program
+    - views.view.bios
   module:
     - entity_reference_revisions
     - layout_builder
@@ -57,6 +57,7 @@ dependencies:
     - options
     - text
     - user
+    - views
 third_party_settings:
   layout_builder:
     enabled: true
@@ -346,7 +347,7 @@ third_party_settings:
                 settings:
                   view_mode: content_thumbnail
                 third_party_settings: {  }
-            weight: 3
+            weight: 4
             additional: {  }
           17201eb4-5e0f-4bd1-abdf-6ec6c9ae3b53:
             uuid: 17201eb4-5e0f-4bd1-abdf-6ec6c9ae3b53
@@ -365,7 +366,20 @@ third_party_settings:
                 settings:
                   view_mode: default
                 third_party_settings: {  }
-            weight: 4
+            weight: 5
+            additional: {  }
+          21988c95-5815-46c4-ac7a-d9c6d3a111f5:
+            uuid: 21988c95-5815-46c4-ac7a-d9c6d3a111f5
+            region: content
+            configuration:
+              id: 'views_block:bios-program_faculty'
+              label: ''
+              label_display: '0'
+              provider: views
+              context_mapping: {  }
+              views_label: ''
+              items_per_page: none
+            weight: 3
             additional: {  }
         third_party_settings: {  }
   layout_builder_restrictions:
@@ -445,15 +459,6 @@ content:
       link: ''
     third_party_settings: {  }
     weight: 128
-    region: content
-  field_courses:
-    type: entity_reference_revisions_entity_view
-    label: above
-    settings:
-      view_mode: default
-      link: ''
-    third_party_settings: {  }
-    weight: 135
     region: content
   field_courses_text:
     type: text_default
@@ -578,7 +583,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 141
+    weight: 143
     region: content
   field_metatags:
     type: metatag_empty_formatter

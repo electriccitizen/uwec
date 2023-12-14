@@ -30,32 +30,33 @@
 
 
 {% block fieldSingleNo %}
-<div class="outcomes">
-  <div class="first">
-    {{ outcomeText }}
-  </div>
-  <div class="last">
-    <h2>{% trans %}Example Careers{% endtrans %}</h2>
-    <ul>
-    {% for career in element['#object'].field_example_careers %}
-      <li>{{ career.value }}</li>
-    {% endfor %}
-    </ul>
-  </div>
-</div>
-<div class="recent-grads">
-  <h2>{% trans %}Recent Graduates{% endtrans %}</h2>
-  <div class="grads">
-  {% for grad in element['#object'].field_grads %}
-    {% set gradText = {
-	      '#type': 'processed_text',
-	      '#text': grad.value,
-	      '#format': grad.format
-    } %}
-    <div class="grad">
-      {{ gradText}}
-    </div>
-  {% endfor %}
-</div>
+	<div class="outcomes">
+	  <div class="first">
+	    {{ outcomeText }}
+	  </div>
+	  <div class="last">
+	    <h2>{% trans %}Example Careers{% endtrans %}</h2>
+	    <ul>
+	    {% for career in element['#object'].field_example_careers %}
+	      <li>{{ career.value }}</li>
+	    {% endfor %}
+	    </ul>
+	  </div>
+	</div>
+	<div class="recent-grads">
+	  <h2>{% trans %}Recent Graduates{% endtrans %}</h2>
+	  <div class="grads">
+		  {% for grad in element['#object'].field_grads %}
+		    {% set gradText = {
+			      '#type': 'processed_text',
+			      '#text': grad.value,
+			      '#format': grad.format
+		    } %}
+		    <div class="grad">
+		      {{ gradText }}
+		    </div>
+		  {% endfor %}
+		 </div>
+	</div>
 {% endblock %}
 

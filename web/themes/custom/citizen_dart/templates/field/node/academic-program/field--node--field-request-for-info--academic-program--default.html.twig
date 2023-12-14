@@ -22,17 +22,17 @@
 
 {% extends 'field.html.twig' %}
 
-
 {% block fieldSingleNo %}
   {% if element.0['#markup'] == "On" %}
-   <div class="more-info">
-    <div class="first">
-      <h2>{% trans %}Get More Info{% endtrans %}</h2>
-      <p>{% trans %}Sign up to receive additional information about our Accounting program and campus.{% endtrans %}</p>
-    </div>
-    <div class="last">
-      {{ element['#object'].field_slate_slug.value }}
-    </div>
+    <div class="more-info">
+	    <div class="first">
+	      <h2>{% trans %}Get More Info{% endtrans %}</h2>
+	      <p>{% trans %}Sign up to receive additional information about our Accounting program and campus.{% endtrans %}</p>
+	    </div>
+	    <div class="last">
+	      {{ element['#object'].field_slate_slug.value }}
+	    </div>
+	  </div>
   {% endif %}
 {% endblock %}
 
