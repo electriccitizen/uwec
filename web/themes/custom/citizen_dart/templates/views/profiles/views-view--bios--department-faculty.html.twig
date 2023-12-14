@@ -43,7 +43,7 @@
 	    {% set currentNode = drupal_entity('node',view.args.0) %}
 		    {% if currentNode['#node'].field_faculty_link.0 %}
 		    <div class="more-link">
-		    	<a href="{{ currentNode['#node'].field_faculty_link.0.url }}">Meet all the {{ currentNode['#node'].title.0.value }} {% block facultyType %}department{% endblock %} faculty</a>
+		    	<a href="{{ currentNode['#node'].field_faculty_link.0.url }}">Meet all the {{ currentNode['#node'].title.0.value }} {% block facultyType %}{% endblock %} faculty</a>
 		    </div>
 		  {% endif %}
 	  {% endif %}
