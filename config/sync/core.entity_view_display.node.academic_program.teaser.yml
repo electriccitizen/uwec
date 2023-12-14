@@ -21,7 +21,8 @@ dependencies:
     - field.field.node.academic_program.field_domain_source
     - field.field.node.academic_program.field_editorial_sections
     - field.field.node.academic_program.field_example_careers
-    - field.field.node.academic_program.field_facts
+    - field.field.node.academic_program.field_facts_list
+    - field.field.node.academic_program.field_faculty_link
     - field.field.node.academic_program.field_grads
     - field.field.node.academic_program.field_hallmarks
     - field.field.node.academic_program.field_image
@@ -98,7 +99,8 @@ hidden:
   field_domain_source: true
   field_editorial_sections: true
   field_example_careers: true
-  field_facts: true
+  field_facts_list: true
+  field_faculty_link: true
   field_grads: true
   field_hallmarks: true
   field_keywords: true

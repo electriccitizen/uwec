@@ -20,7 +20,8 @@ dependencies:
     - field.field.node.academic_program.field_domain_source
     - field.field.node.academic_program.field_editorial_sections
     - field.field.node.academic_program.field_example_careers
-    - field.field.node.academic_program.field_facts
+    - field.field.node.academic_program.field_facts_list
+    - field.field.node.academic_program.field_faculty_link
     - field.field.node.academic_program.field_grads
     - field.field.node.academic_program.field_hallmarks
     - field.field.node.academic_program.field_image
@@ -89,6 +90,26 @@ third_party_settings:
                 third_party_settings: {  }
             weight: 0
             additional: {  }
+          17f42fdb-c135-4fc1-8461-d78c6ff6dbbf:
+            uuid: 17f42fdb-c135-4fc1-8461-d78c6ff6dbbf
+            region: content
+            configuration:
+              id: 'field_block:node:academic_program:field_faculty_link'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: link
+                label: above
+                settings:
+                  trim_length: 80
+                  url_only: false
+                  url_plain: false
+                  rel: ''
+                  target: ''
+                third_party_settings: {  }
+            weight: 1
+            additional: {  }
         third_party_settings: {  }
       -
         layout_id: layout_onecol
@@ -137,7 +158,7 @@ third_party_settings:
                 label: hidden
                 settings: {  }
                 third_party_settings: {  }
-            weight: 1
+            weight: 2
             additional: {  }
           8a965042-0804-418e-86a9-897ef2142e36:
             uuid: 8a965042-0804-418e-86a9-897ef2142e36
@@ -202,31 +223,31 @@ third_party_settings:
                 third_party_settings: {  }
             weight: 1
             additional: {  }
-          0656342b-d745-49ce-8995-ff81dc51ff55:
-            uuid: 0656342b-d745-49ce-8995-ff81dc51ff55
-            region: content
-            configuration:
-              id: 'field_block:node:academic_program:field_facts'
-              label: Facts
-              label_display: '0'
-              provider: layout_builder
-              context_mapping:
-                entity: layout_builder.entity
-                view_mode: view_mode
-              formatter:
-                type: entity_reference_revisions_entity_view
-                label: hidden
-                settings:
-                  view_mode: default
-                third_party_settings: {  }
-            weight: 2
-            additional: {  }
           fc9164d0-a94e-4bd7-8594-ce6a6d673d05:
             uuid: fc9164d0-a94e-4bd7-8594-ce6a6d673d05
             region: content
             configuration:
               id: 'field_block:node:academic_program:field_paragraphs'
               label: 'Flex Content'
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: layout_paragraphs
+                label: hidden
+                settings:
+                  view_mode: default
+                third_party_settings: {  }
+            weight: 4
+            additional: {  }
+          b7e62bff-95c2-4571-aa48-996a4b3b09e8:
+            uuid: b7e62bff-95c2-4571-aa48-996a4b3b09e8
+            region: content
+            configuration:
+              id: 'field_block:node:academic_program:field_facts_list'
+              label: 'Facts List'
               label_display: '0'
               provider: layout_builder
               context_mapping:
@@ -513,14 +534,26 @@ content:
     third_party_settings: {  }
     weight: 132
     region: content
-  field_facts:
+  field_facts_list:
     type: entity_reference_revisions_entity_view
     label: above
     settings:
       view_mode: default
       link: ''
     third_party_settings: {  }
-    weight: 129
+    weight: 144
+    region: content
+  field_faculty_link:
+    type: link
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 145
     region: content
   field_grads:
     type: text_default

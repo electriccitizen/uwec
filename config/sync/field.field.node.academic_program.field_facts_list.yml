@@ -1,18 +1,18 @@
-uuid: b52f40ff-2f4f-4c77-89ff-2efea2fcb533
+uuid: eb5c61ff-d127-4f31-956a-46a1cacd6a70
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_facts
+    - field.storage.node.field_facts_list
     - node.type.academic_program
     - paragraphs.paragraphs_type.facts_list
   module:
     - entity_reference_revisions
-id: node.academic_program.field_facts
-field_name: field_facts
+id: node.academic_program.field_facts_list
+field_name: field_facts_list
 entity_type: node
 bundle: academic_program
-label: Facts
+label: 'Facts List'
 description: ''
 required: false
 translatable: false
@@ -26,10 +26,10 @@ settings:
     negate: 0
     target_bundles_drag_drop:
       accordion_item:
-        weight: 41
+        weight: 40
         enabled: false
       accordions:
-        weight: 40
+        weight: 41
         enabled: false
       block_placer:
         weight: 42
@@ -44,10 +44,10 @@ settings:
         weight: 45
         enabled: false
       cta_item:
-        weight: 47
+        weight: 46
         enabled: false
       ctas:
-        weight: 46
+        weight: 47
         enabled: false
       custom_embed:
         weight: 48
@@ -98,10 +98,10 @@ settings:
         weight: 63
         enabled: false
       program_search:
-        weight: 65
+        weight: 64
         enabled: false
       programs_list:
-        weight: 64
+        weight: 65
         enabled: false
       quote:
         weight: 66
@@ -119,10 +119,10 @@ settings:
         weight: 70
         enabled: false
       step_item:
-        weight: 72
+        weight: 71
         enabled: false
       steps:
-        weight: 71
+        weight: 72
         enabled: false
       stories_video_list:
         weight: 73

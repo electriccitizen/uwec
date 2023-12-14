@@ -225,13 +225,24 @@
 		margin-bottom: 8.75rem;
 
 	}
-	.field-related-programs {
-		@include safeFlex(row,wrap,start,start);
-				div {
-					flex: 0 0 33.33%;
-					box-sizing: border-box; 
+	.block-field-related-programs{
+		max-width: 1136px;
+		@include auto;
+		background: $warmGrey;
+		padding: 40px 130px;
+		.field-related-programs {
+			@include safeFlex(row,wrap,start,start);
+			@include bleed(padding, 20px);
+			.related-intro{
+				width: 100%;
+			}
+			@include tab{
+				div:not(.related-intro) {
+					flex: 0 0 25%;
 				}
-	}
+			}
+		}//end field related programs
+	}//end block field related programs
 }//end academic-program
 
 .academic-program-teaser {
