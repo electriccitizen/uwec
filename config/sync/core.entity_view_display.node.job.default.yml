@@ -1,0 +1,366 @@
+uuid: 20a0a0d7-334e-4206-bda6-26a4f0bb6507
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.base_field_override.node.job.title
+    - field.field.node.job.body
+    - field.field.node.job.field_apply_by
+    - field.field.node.job.field_campus
+    - field.field.node.job.field_department
+    - field.field.node.job.field_domain_access
+    - field.field.node.job.field_domain_all_affiliates
+    - field.field.node.job.field_domain_source
+    - field.field.node.job.field_editorial_sections
+    - field.field.node.job.field_employment_category
+    - field.field.node.job.field_employment_type
+    - field.field.node.job.field_job_id
+    - field.field.node.job.field_official_title
+    - field.field.node.job.field_page_family
+    - field.field.node.job.field_posted_on
+    - node.type.job
+  module:
+    - datetime
+    - layout_builder
+    - layout_builder_restrictions
+    - layout_discovery
+    - system
+    - text
+    - user
+third_party_settings:
+  layout_builder:
+    enabled: true
+    allow_custom: false
+    sections:
+      -
+        layout_id: layout_onecol
+        layout_settings:
+          label: ''
+          context_mapping: {  }
+        components:
+          aabb39f4-530e-48f4-b090-a5f35962dfbe:
+            uuid: aabb39f4-530e-48f4-b090-a5f35962dfbe
+            region: content
+            configuration:
+              id: 'field_block:node:job:title'
+              label: 'Working Title'
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: string
+                label: hidden
+                settings:
+                  link_to_entity: false
+                third_party_settings: {  }
+            weight: 1
+            additional: {  }
+          06f8ad21-35c6-4883-aae4-2fd1fc9ce5c8:
+            uuid: 06f8ad21-35c6-4883-aae4-2fd1fc9ce5c8
+            region: content
+            configuration:
+              id: system_breadcrumb_block
+              label: Breadcrumbs
+              label_display: '0'
+              provider: system
+              context_mapping: {  }
+            weight: 0
+            additional: {  }
+          e4fdf1b7-bfe5-4b2b-bcb0-19992333c130:
+            uuid: e4fdf1b7-bfe5-4b2b-bcb0-19992333c130
+            region: content
+            configuration:
+              id: 'field_block:node:job:field_employment_type'
+              label: 'Employment Type'
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: entity_reference_label
+                label: hidden
+                settings:
+                  link: false
+                third_party_settings: {  }
+            weight: 3
+            additional: {  }
+          c4af821d-edc1-44d5-be05-a9505b00c5fe:
+            uuid: c4af821d-edc1-44d5-be05-a9505b00c5fe
+            region: content
+            configuration:
+              id: 'field_block:node:job:field_employment_category'
+              label: 'Employment Category'
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: entity_reference_label
+                label: hidden
+                settings:
+                  link: false
+                third_party_settings: {  }
+            weight: 4
+            additional: {  }
+          155cf9da-4ad4-448f-aae6-992cb2a8ba47:
+            uuid: 155cf9da-4ad4-448f-aae6-992cb2a8ba47
+            region: content
+            configuration:
+              id: 'field_block:node:job:field_campus'
+              label: Campus
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: entity_reference_label
+                label: hidden
+                settings:
+                  link: false
+                third_party_settings: {  }
+            weight: 2
+            additional: {  }
+        third_party_settings: {  }
+      -
+        layout_id: layout_onecol
+        layout_settings:
+          label: ''
+        components:
+          411909d1-1ffc-4885-a182-f3c2e2cc8936:
+            uuid: 411909d1-1ffc-4885-a182-f3c2e2cc8936
+            region: content
+            configuration:
+              id: 'field_block:node:job:field_official_title'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: string
+                label: inline
+                settings:
+                  link_to_entity: false
+                third_party_settings: {  }
+            weight: 4
+            additional: {  }
+          6eb65d73-3368-4d75-abc4-948296b5c556:
+            uuid: 6eb65d73-3368-4d75-abc4-948296b5c556
+            region: content
+            configuration:
+              id: 'field_block:node:job:field_job_id'
+              label: 'Job ID'
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: number_integer
+                label: inline
+                settings:
+                  thousand_separator: ''
+                  prefix_suffix: false
+                third_party_settings: {  }
+            weight: 5
+            additional: {  }
+          7a8a2b35-af23-4193-ae97-2ccab08dd01a:
+            uuid: 7a8a2b35-af23-4193-ae97-2ccab08dd01a
+            region: content
+            configuration:
+              id: 'field_block:node:job:field_posted_on'
+              label: 'Posted On'
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: datetime_default
+                label: inline
+                settings:
+                  timezone_override: ''
+                  format_type: short
+                third_party_settings: {  }
+            weight: 6
+            additional: {  }
+          fc1a4725-45ca-4691-9ea9-7634c38e91a4:
+            uuid: fc1a4725-45ca-4691-9ea9-7634c38e91a4
+            region: content
+            configuration:
+              id: 'field_block:node:job:field_apply_by'
+              label: 'Apply By'
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: datetime_default
+                label: inline
+                settings:
+                  timezone_override: ''
+                  format_type: short
+                third_party_settings: {  }
+            weight: 7
+            additional: {  }
+        third_party_settings: {  }
+      -
+        layout_id: layout_onecol
+        layout_settings:
+          label: ''
+          context_mapping: {  }
+        components:
+          c11a7733-1d58-4117-8cfa-4383b4dc1d5c:
+            uuid: c11a7733-1d58-4117-8cfa-4383b4dc1d5c
+            region: content
+            configuration:
+              id: 'field_block:node:job:body'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: text_default
+                label: hidden
+                settings: {  }
+                third_party_settings: {  }
+            weight: 5
+            additional: {  }
+        third_party_settings: {  }
+      -
+        layout_id: layout_onecol
+        layout_settings:
+          label: ''
+          context_mapping: {  }
+        components: {  }
+        third_party_settings: {  }
+      -
+        layout_id: layout_onecol
+        layout_settings:
+          label: ''
+          context_mapping: {  }
+        components:
+          9f62cea5-a936-4d01-9e27-f8ec7722570c:
+            uuid: 9f62cea5-a936-4d01-9e27-f8ec7722570c
+            region: content
+            configuration:
+              id: 'field_block:node:job:field_page_family'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: entity_reference_entity_view
+                label: hidden
+                settings:
+                  view_mode: teaser
+                  link: false
+                third_party_settings: {  }
+            weight: 0
+            additional: {  }
+        third_party_settings: {  }
+  layout_builder_restrictions:
+    allowed_block_categories: {  }
+    entity_view_mode_restriction:
+      allowed_layouts: {  }
+      denylisted_blocks: {  }
+      allowlisted_blocks: {  }
+      restricted_categories: {  }
+id: node.job.default
+targetEntityType: node
+bundle: job
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_apply_by:
+    type: datetime_default
+    label: inline
+    settings:
+      timezone_override: ''
+      format_type: medium
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_campus:
+    type: entity_reference_label
+    label: inline
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 7
+    region: content
+  field_department:
+    type: entity_reference_label
+    label: inline
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  field_employment_category:
+    type: entity_reference_label
+    label: inline
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 8
+    region: content
+  field_employment_type:
+    type: entity_reference_label
+    label: inline
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 9
+    region: content
+  field_job_id:
+    type: number_integer
+    label: inline
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_official_title:
+    type: string
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_page_family:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: teaser
+      link: false
+    third_party_settings: {  }
+    weight: 6
+    region: content
+  field_posted_on:
+    type: datetime_default
+    label: inline
+    settings:
+      timezone_override: ''
+      format_type: medium
+    third_party_settings: {  }
+    weight: 3
+    region: content
+hidden:
+  content_moderation_control: true
+  field_domain_access: true
+  field_domain_all_affiliates: true
+  field_domain_source: true
+  field_editorial_sections: true
+  links: true
+  search_api_excerpt: true

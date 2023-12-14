@@ -10,6 +10,7 @@ dependencies:
     - node.type.contact
     - node.type.department
     - node.type.hours
+    - node.type.job
     - node.type.page
     - node.type.support_book
   module:
@@ -68,6 +69,7 @@ type_settings:
       - contact
       - department
       - hours
+      - job
       - page
       - support_book
   default_moderation_state: draft

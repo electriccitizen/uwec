@@ -1,0 +1,29 @@
+uuid: 7062740f-9dc6-4405-8888-8eb097c1acca
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_page_family
+    - node.type.job
+    - taxonomy.vocabulary.page_families
+id: node.job.field_page_family
+field_name: field_page_family
+entity_type: node
+bundle: job
+label: 'Page Family'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      page_families: page_families
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

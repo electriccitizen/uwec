@@ -1,0 +1,18 @@
+uuid: 628cded8-decd-4935-9a18-5164e643bf6e
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.job
+id: node.job.title
+field_name: title
+entity_type: node
+bundle: job
+label: 'Working Title'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
