@@ -1,0 +1,24 @@
+uuid: 99e22d08-6a76-4745-b4a9-12ff8ad04a8f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_long_text
+    - filter.format.limited_html
+    - paragraphs.paragraphs_type.course
+  module:
+    - text
+id: paragraph.course.field_long_text
+field_name: field_long_text
+entity_type: paragraph
+bundle: course
+label: Text
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - limited_html
+field_type: text_long

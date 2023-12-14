@@ -1,0 +1,41 @@
+uuid: 3c2c4dda-5b8d-44ef-9d11-b7b28ec3ff62
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.course.field_course_name
+    - field.field.paragraph.course.field_course_number
+    - field.field.paragraph.course.field_long_text
+    - paragraphs.paragraphs_type.course
+  module:
+    - text
+id: paragraph.course.default
+targetEntityType: paragraph
+bundle: course
+mode: default
+content:
+  field_course_name:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_course_number:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_long_text:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  search_api_excerpt: true

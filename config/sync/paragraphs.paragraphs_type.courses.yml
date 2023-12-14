@@ -1,0 +1,10 @@
+uuid: 549816d1-27db-43e1-95c1-a45aa5470589
+langcode: en
+status: true
+dependencies: {  }
+id: courses
+label: Courses
+icon_uuid: null
+icon_default: null
+description: 'Add sample course to a program.'
+behavior_plugins: {  }

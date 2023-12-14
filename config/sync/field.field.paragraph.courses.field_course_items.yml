@@ -1,18 +1,18 @@
-uuid: 65580c9e-1a19-45a9-ac99-7497a594f67b
+uuid: 3736aba9-20d8-4f5d-8e46-139aacb8b23a
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_courses
-    - node.type.academic_program
+    - field.storage.paragraph.field_course_items
+    - paragraphs.paragraphs_type.course
     - paragraphs.paragraphs_type.courses
   module:
     - entity_reference_revisions
-id: node.academic_program.field_courses
-field_name: field_courses
-entity_type: node
-bundle: academic_program
-label: 'Sample Courses'
+id: paragraph.courses.field_course_items
+field_name: field_course_items
+entity_type: paragraph
+bundle: courses
+label: Courses
 description: ''
 required: false
 translatable: false
@@ -22,14 +22,14 @@ settings:
   handler: 'default:paragraph'
   handler_settings:
     target_bundles:
-      courses: courses
+      course: course
     negate: 0
     target_bundles_drag_drop:
       accordion_item:
-        weight: -82
+        weight: -83
         enabled: false
       accordions:
-        weight: -83
+        weight: -82
         enabled: false
       block_placer:
         weight: -81
@@ -44,16 +44,16 @@ settings:
         weight: -78
         enabled: false
       course:
-        weight: -77
-        enabled: false
-      courses:
         weight: -76
         enabled: true
+      courses:
+        weight: -77
+        enabled: false
       cta_item:
-        weight: -74
+        weight: -75
         enabled: false
       ctas:
-        weight: -75
+        weight: -74
         enabled: false
       custom_embed:
         weight: -73
@@ -104,10 +104,10 @@ settings:
         weight: -58
         enabled: false
       program_search:
-        weight: -56
+        weight: -57
         enabled: false
       programs_list:
-        weight: -57
+        weight: -56
         enabled: false
       quote:
         weight: -55
@@ -125,10 +125,10 @@ settings:
         weight: -51
         enabled: false
       step_item:
-        weight: -49
+        weight: -50
         enabled: false
       steps:
-        weight: -50
+        weight: -49
         enabled: false
       stories_video_list:
         weight: -48

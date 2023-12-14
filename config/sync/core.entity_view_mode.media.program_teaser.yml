@@ -1,0 +1,10 @@
+uuid: b52d7590-dfba-4d56-8e1b-8e9ca64f097e
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+id: media.program_teaser
+label: 'Program teaser'
+targetEntityType: media
+cache: true

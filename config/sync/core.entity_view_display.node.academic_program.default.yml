@@ -120,26 +120,8 @@ third_party_settings:
           label: ''
           context_mapping: {  }
         components:
-          9183d1db-07a1-4366-a081-1b0505e1394d:
-            uuid: 9183d1db-07a1-4366-a081-1b0505e1394d
-            region: content
-            configuration:
-              id: 'field_block:node:academic_program:field_degree_types'
-              label: 'Degree types'
-              label_display: '0'
-              provider: layout_builder
-              context_mapping:
-                entity: layout_builder.entity
-                view_mode: view_mode
-              formatter:
-                type: basic_string
-                label: hidden
-                settings: {  }
-                third_party_settings: {  }
-            weight: 2
-            additional: {  }
-          028f5b6d-9159-4f11-ad81-6e2708826b9a:
-            uuid: 028f5b6d-9159-4f11-ad81-6e2708826b9a
+          0366dfac-4a12-4c52-a7be-71531f0e0f50:
+            uuid: 0366dfac-4a12-4c52-a7be-71531f0e0f50
             region: content
             configuration:
               id: 'field_block:node:academic_program:field_accreditation'
@@ -154,25 +136,25 @@ third_party_settings:
                 label: hidden
                 settings: {  }
                 third_party_settings: {  }
-            weight: 3
+            weight: 1
             additional: {  }
-          5fd794bf-886a-4a9b-a40a-c34494462793:
-            uuid: 5fd794bf-886a-4a9b-a40a-c34494462793
+          8a965042-0804-418e-86a9-897ef2142e36:
+            uuid: 8a965042-0804-418e-86a9-897ef2142e36
             region: content
             configuration:
-              id: 'field_block:node:academic_program:field_licensure'
-              label: 'Licensure information'
+              id: 'field_block:node:academic_program:field_degree_types'
+              label: 'Degree Types'
               label_display: '0'
               provider: layout_builder
               context_mapping:
                 entity: layout_builder.entity
                 view_mode: view_mode
               formatter:
-                type: text_default
+                type: basic_string
                 label: hidden
                 settings: {  }
                 third_party_settings: {  }
-            weight: 4
+            weight: 0
             additional: {  }
         third_party_settings: {  }
       -
@@ -301,43 +283,6 @@ third_party_settings:
                 third_party_settings: {  }
             weight: 1
             additional: {  }
-          3e7ab361-1eca-400a-be09-1ff47a79cb29:
-            uuid: 3e7ab361-1eca-400a-be09-1ff47a79cb29
-            region: content
-            configuration:
-              id: 'field_block:node:academic_program:field_example_careers'
-              label: 'Example Careers'
-              label_display: '0'
-              provider: layout_builder
-              context_mapping:
-                entity: layout_builder.entity
-                view_mode: view_mode
-              formatter:
-                type: string
-                label: above
-                settings:
-                  link_to_entity: false
-                third_party_settings: {  }
-            weight: 2
-            additional: {  }
-          d0b3b43f-15b6-4da8-a6bb-fbf36444e592:
-            uuid: d0b3b43f-15b6-4da8-a6bb-fbf36444e592
-            region: content
-            configuration:
-              id: 'field_block:node:academic_program:field_grads'
-              label: 'Recent Graduates'
-              label_display: '0'
-              provider: layout_builder
-              context_mapping:
-                entity: layout_builder.entity
-                view_mode: view_mode
-              formatter:
-                type: text_default
-                label: above
-                settings: {  }
-                third_party_settings: {  }
-            weight: 3
-            additional: {  }
         third_party_settings: {  }
       -
         layout_id: layout_onecol
@@ -362,25 +307,6 @@ third_party_settings:
                 settings: {  }
                 third_party_settings: {  }
             weight: 0
-            additional: {  }
-          2d530784-69f7-4b53-8bbe-312ddaea0e1a:
-            uuid: 2d530784-69f7-4b53-8bbe-312ddaea0e1a
-            region: content
-            configuration:
-              id: 'field_block:node:academic_program:field_courses'
-              label: 'Sample Courses'
-              label_display: '0'
-              provider: layout_builder
-              context_mapping:
-                entity: layout_builder.entity
-                view_mode: view_mode
-              formatter:
-                type: entity_reference_revisions_entity_view
-                label: hidden
-                settings:
-                  view_mode: default
-                third_party_settings: {  }
-            weight: 1
             additional: {  }
           e2fb5944-e10a-46e6-b790-b304cea1263c:
             uuid: e2fb5944-e10a-46e6-b790-b304cea1263c
