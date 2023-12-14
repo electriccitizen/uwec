@@ -15,7 +15,12 @@ label: 'Admissions requirements'
 description: ''
 required: true
 translatable: false
-default_value: {  }
+default_value:
+  -
+    attributes: {  }
+    uri: 'entity:node/83'
+    title: ''
+    options: {  }
 default_value_callback: ''
 settings:
   title: 0
