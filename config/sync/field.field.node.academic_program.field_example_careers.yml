@@ -1,17 +1,17 @@
-uuid: 425e60ce-3c99-46ad-aaa7-ded8f5188504
+uuid: 78c98868-2855-42e6-afe2-583e2fbc315f
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_meta_description
+    - field.storage.node.field_example_careers
     - node.type.academic_program
-id: node.academic_program.field_meta_description
-field_name: field_meta_description
+id: node.academic_program.field_example_careers
+field_name: field_example_careers
 entity_type: node
 bundle: academic_program
-label: 'Meta Description'
+label: 'Example Careers'
 description: ''
-required: true
+required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''

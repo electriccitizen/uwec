@@ -1,0 +1,21 @@
+uuid: f05dcf5e-d631-4ccf-8b3e-34d078cc8b3f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_minor_required
+    - node.type.academic_program
+id: node.academic_program.field_minor_required
+field_name: field_minor_required
+entity_type: node
+bundle: academic_program
+label: 'Requires a minor'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

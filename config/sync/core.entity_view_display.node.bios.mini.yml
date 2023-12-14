@@ -103,6 +103,7 @@ content:
 hidden:
   body: true
   content_moderation_control: true
+  field_active: true
   field_athena_id: true
   field_campus: true
   field_cv: true

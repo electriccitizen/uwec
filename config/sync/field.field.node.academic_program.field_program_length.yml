@@ -1,17 +1,17 @@
-uuid: 425e60ce-3c99-46ad-aaa7-ded8f5188504
+uuid: 932afb60-252a-4bd3-b9b3-17f27dbe0041
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_meta_description
+    - field.storage.node.field_program_length
     - node.type.academic_program
-id: node.academic_program.field_meta_description
-field_name: field_meta_description
+id: node.academic_program.field_program_length
+field_name: field_program_length
 entity_type: node
 bundle: academic_program
-label: 'Meta Description'
+label: 'Program length'
 description: ''
-required: true
+required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''

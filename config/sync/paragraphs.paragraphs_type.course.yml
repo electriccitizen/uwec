@@ -1,0 +1,10 @@
+uuid: 8b01ad03-7525-4278-b519-dff2f8fdeb83
+langcode: en
+status: true
+dependencies: {  }
+id: course
+label: Course
+icon_uuid: null
+icon_default: null
+description: 'Add a course to a sample courses list.'
+behavior_plugins: {  }
