@@ -71,6 +71,7 @@
 			}
 			.field{
 				color: $white;
+				margin-bottom: $spaceXs
             &.available-as {
                span {
                   color: $white;
@@ -235,4 +236,4 @@
 	.chevron-flip {
 			transform: rotate(225deg);
 	}
-} //end academic-program-teaser
+} //end academic-program-teaser 
