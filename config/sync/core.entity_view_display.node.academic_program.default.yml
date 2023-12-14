@@ -13,6 +13,7 @@ dependencies:
     - field.field.node.academic_program.field_courses
     - field.field.node.academic_program.field_courses_text
     - field.field.node.academic_program.field_degree_level
+    - field.field.node.academic_program.field_degree_types
     - field.field.node.academic_program.field_delivery_mode
     - field.field.node.academic_program.field_departments
     - field.field.node.academic_program.field_domain_access
@@ -137,6 +138,25 @@ third_party_settings:
                 type: text_default
                 label: hidden
                 settings: {  }
+                third_party_settings: {  }
+            weight: 3
+            additional: {  }
+          f4b0fd1d-4350-4c45-ad3a-699524e9822c:
+            uuid: f4b0fd1d-4350-4c45-ad3a-699524e9822c
+            region: content
+            configuration:
+              id: 'field_block:node:academic_program:field_degree_types'
+              label: 'Degree Types'
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: entity_reference_label
+                label: hidden
+                settings:
+                  link: false
                 third_party_settings: {  }
             weight: 2
             additional: {  }
@@ -458,11 +478,12 @@ content:
     weight: 104
     region: content
   field_degree_types:
-    type: basic_string
+    type: entity_reference_label
     label: above
-    settings: {  }
+    settings:
+      link: true
     third_party_settings: {  }
-    weight: 112
+    weight: 145
     region: content
   field_delivery_mode:
     type: entity_reference_label

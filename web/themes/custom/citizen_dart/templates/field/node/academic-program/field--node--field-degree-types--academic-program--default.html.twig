@@ -22,7 +22,7 @@
 
 {% extends 'field.html.twig' %}
 
-{% block fieldSingleNo %}
+{% block fieldMultiNoClasses %}
 <div class="program-details-wrapper">
   <h2>{% trans %}Program Details{% endtrans %}</h2>
   <div class="program-details">
@@ -30,7 +30,9 @@
       {% if element['#object'].field_degree_types.0.value %}
         <div class="program-detail">
         	<span>{% trans %}Degree Types{% endtrans %}</span>
-	        {{ element['#object'].field_degree_types.0.value }}
+        	{%- for item in items -%}
+		        <div class="degree-type">{{- item.content -}}</div>
+		      {% endfor %}
 	      </div>
       {% endif %}
 
@@ -92,8 +94,9 @@
        <div class="program-detail">
 	       	<span>{{ element['#object'].field_departments|length > 1 ? 'Departments'|t : 'Department'|t }}</span>
 	       	{%- for department in element['#object'].field_departments -%}
-	          <a href="{{ path('entity.node.canonical',{'node':department.entity.nid.0.value}) }}" class="arrow-link">{{- department.entity.label -}}</a>
-	         	{% if not loop.last %},{% endif %}
+	          <div class="department">
+	          	<a href="{{ path('entity.node.canonical',{'node':department.entity.nid.0.value}) }}" class="arrow-link">{{- department.entity.label -}}</a>
+	         	</div>
 	        {%- endfor -%}
 	      </div>
       {% endif %}

@@ -1,0 +1,29 @@
+uuid: d9edcc03-d6e5-4a07-939b-e575cccce372
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_degree_types
+    - node.type.academic_program
+    - taxonomy.vocabulary.degree_types
+id: node.academic_program.field_degree_types
+field_name: field_degree_types
+entity_type: node
+bundle: academic_program
+label: 'Degree Types'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      degree_types: degree_types
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference
