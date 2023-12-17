@@ -4,23 +4,23 @@ status: true
 dependencies:
   config:
     - block_content.type.reusable_widgets
-    - field.field.block_content.reusable_widgets.body
+    - field.field.block_content.reusable_widgets.field_widgets
   module:
-    - text
+    - layout_paragraphs
 id: block_content.reusable_widgets.default
 targetEntityType: block_content
 bundle: reusable_widgets
 mode: default
 content:
-  body:
-    type: text_textarea_with_summary
+  field_widgets:
+    type: layout_paragraphs
     weight: 26
     region: content
     settings:
-      rows: 9
-      summary_rows: 3
-      placeholder: ''
-      show_summary: false
+      preview_view_mode: preview
+      nesting_depth: 0
+      require_layouts: 0
+      empty_message: ''
     third_party_settings: {  }
   info:
     type: string_textfield
