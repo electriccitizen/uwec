@@ -13,7 +13,7 @@
       {% if not loop.last %} | {% endif %}
     {% endfor %}  
     
-    <button class="program-toggle" onclick="toggleProgramDetails()">
+    <button class="program-toggle" onclick="toggleProgramDetails(this)">
       <span class="visually-hidden">View Program Details</span>
       <span class="chevron-down" id="chevronIcon"></span>
     </button>
