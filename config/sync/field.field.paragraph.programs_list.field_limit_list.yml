@@ -1,0 +1,23 @@
+uuid: f8328678-cff9-42ec-b996-3286e046d920
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_limit_list
+    - paragraphs.paragraphs_type.programs_list
+id: paragraph.programs_list.field_limit_list
+field_name: field_limit_list
+entity_type: paragraph
+bundle: programs_list
+label: 'Limit List'
+description: 'Does not affect manual lists.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer
