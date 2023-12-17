@@ -22,7 +22,7 @@ display:
     display_plugin: default
     position: 0
     display_options:
-      title: 'Programs List'
+      title: 'Programs By Department'
       fields:
         title:
           id: title
@@ -159,13 +159,35 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }
-  block_1:
-    id: block_1
-    display_title: Block
+  by_department:
+    id: by_department
+    display_title: 'Programs By Department'
+    display_plugin: block
+    position: 2
+    display_options:
+      display_description: ''
+      display_extenders: {  }
+      block_description: 'Programs By Department'
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - 'user.node_grants:view'
+        - user.permissions
+      tags: {  }
+  list:
+    id: list
+    display_title: 'Programs List'
     display_plugin: block
     position: 1
     display_options:
+      title: 'Programs List'
+      defaults:
+        title: false
+      display_description: ''
       display_extenders: {  }
+      block_description: 'Programs List'
     cache_metadata:
       max-age: -1
       contexts:

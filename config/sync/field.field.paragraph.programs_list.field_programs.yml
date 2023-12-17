@@ -1,0 +1,29 @@
+uuid: 46c9c09f-56a0-45f1-bc25-86eb45370325
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_programs
+    - node.type.academic_program
+    - paragraphs.paragraphs_type.programs_list
+id: paragraph.programs_list.field_programs
+field_name: field_programs
+entity_type: paragraph
+bundle: programs_list
+label: 'Manually Select'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      academic_program: academic_program
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference
