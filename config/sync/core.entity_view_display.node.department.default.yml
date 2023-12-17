@@ -14,12 +14,14 @@ dependencies:
     - field.field.node.department.field_hours_library
     - field.field.node.department.field_meta_description
     - field.field.node.department.field_metatags
+    - field.field.node.department.field_placement_tags
     - field.field.node.department.field_platforms
     - field.field.node.department.layout_builder__layout
     - node.type.department
     - system.menu.departments
     - views.view.bios
     - views.view.facts
+    - views.view.programs
   module:
     - entity_reference_revisions
     - layout_builder
@@ -78,6 +80,22 @@ third_party_settings:
                   link: true
                 third_party_settings: {  }
             weight: 3
+            additional: {  }
+          6bdc07f9-1c35-4897-955a-12e1c11887e8:
+            uuid: 6bdc07f9-1c35-4897-955a-12e1c11887e8
+            region: content
+            configuration:
+              id: 'field_block:node:department:field_placement_tags'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: entity_reference_label
+                label: above
+                settings:
+                  link: true
+                third_party_settings: {  }
+            weight: 4
             additional: {  }
         third_party_settings: {  }
       -
@@ -142,7 +160,7 @@ third_party_settings:
               context_mapping: {  }
               views_label: ''
               items_per_page: none
-            weight: 4
+            weight: 5
             additional: {  }
           bc63b224-5b3a-4096-8576-b8b5886b3340:
             uuid: bc63b224-5b3a-4096-8576-b8b5886b3340
@@ -155,7 +173,7 @@ third_party_settings:
               context_mapping: {  }
               views_label: ''
               items_per_page: none
-            weight: 6
+            weight: 7
             additional: {  }
           3037c218-b849-40b4-b4eb-82a887b60c9b:
             uuid: 3037c218-b849-40b4-b4eb-82a887b60c9b
@@ -174,7 +192,20 @@ third_party_settings:
                 settings:
                   view_mode: default
                 third_party_settings: {  }
-            weight: 5
+            weight: 6
+            additional: {  }
+          0e83c8ac-72f9-4785-a114-769f858782a1:
+            uuid: 0e83c8ac-72f9-4785-a114-769f858782a1
+            region: content
+            configuration:
+              id: 'views_block:programs-by_department'
+              label: ''
+              label_display: '0'
+              provider: views
+              context_mapping: {  }
+              views_label: ''
+              items_per_page: none
+            weight: 4
             additional: {  }
         third_party_settings: {  }
       -
@@ -323,6 +354,14 @@ content:
     type: metatag_empty_formatter
     label: above
     settings: {  }
+    third_party_settings: {  }
+    weight: 103
+    region: content
+  field_placement_tags:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
     third_party_settings: {  }
     weight: 103
     region: content
