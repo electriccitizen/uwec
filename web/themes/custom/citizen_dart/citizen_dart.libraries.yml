@@ -23,6 +23,12 @@ announcements:
   version: 1.0
   js:
     components/03-composites/blocks/announcements/ajax.js: {}
+content-carousel: 
+  version: 1.0
+  js:
+    components/03-composites/paragraphs/content-carousel/content-carousel.js: {}
+  dependencies:
+    - citizen_dart/slick
 omnilert:
   version: 1.0
   js:
