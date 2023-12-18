@@ -87,6 +87,7 @@ hidden:
   field_campus: true
   field_college: true
   field_content_carousel: true
+  field_courseleaf_slug: true
   field_courses: true
   field_courses_text: true
   field_degree_level: true

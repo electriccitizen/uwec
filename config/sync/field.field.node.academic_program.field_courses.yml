@@ -10,7 +10,7 @@ field_name: field_courses
 entity_type: node
 bundle: academic_program
 label: Courses
-description: 'Manually select courses to show using their course number.  <strong>Example:</strong>hist 205</strong></br>If no courses are manually selected three courses will be shown at random.'
+description: 'Manually select courses to show using their course number. <strong>Example:</strong> hist 205</br>If less than three valid courses are entered, random courses will be selected until three courses are shown.'
 required: false
 translatable: false
 default_value: {  }

@@ -10,6 +10,7 @@ dependencies:
     - field.field.node.academic_program.field_campus
     - field.field.node.academic_program.field_college
     - field.field.node.academic_program.field_content_carousel
+    - field.field.node.academic_program.field_courseleaf_slug
     - field.field.node.academic_program.field_courses
     - field.field.node.academic_program.field_courses_text
     - field.field.node.academic_program.field_degree_level
@@ -125,6 +126,7 @@ third_party_settings:
     group_courses:
       children:
         - field_courses_text
+        - field_courseleaf_slug
         - field_courses
       label: Courses
       region: content
@@ -229,9 +231,17 @@ content:
         collapse_edit_all: collapse_edit_all
         duplicate: '0'
     third_party_settings: {  }
-  field_courses:
+  field_courseleaf_slug:
     type: string_textfield
     weight: 25
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_courses:
+    type: string_textfield
+    weight: 26
     region: content
     settings:
       size: 60
@@ -275,26 +285,26 @@ content:
     third_party_settings: {  }
   field_domain_access:
     type: options_buttons
-    weight: 29
+    weight: 2
     region: content
     settings: {  }
     third_party_settings: {  }
   field_domain_all_affiliates:
     type: boolean_checkbox
-    weight: 31
+    weight: 4
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   field_domain_source:
     type: options_select
-    weight: 30
+    weight: 3
     region: content
     settings: {  }
     third_party_settings: {  }
   field_editorial_sections:
     type: options_buttons
-    weight: 27
+    weight: 1
     region: content
     settings: {  }
     third_party_settings: {  }

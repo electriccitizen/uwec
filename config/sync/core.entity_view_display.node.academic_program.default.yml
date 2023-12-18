@@ -50,6 +50,7 @@ dependencies:
     - node.type.academic_program
     - views.view.bios
   module:
+    - citizen_custom
     - entity_reference_revisions
     - layout_builder
     - layout_builder_restrictions
@@ -295,24 +296,6 @@ third_party_settings:
           label: ''
           context_mapping: {  }
         components:
-          f09af091-db08-48be-9daf-af981683f759:
-            uuid: f09af091-db08-48be-9daf-af981683f759
-            region: content
-            configuration:
-              id: 'field_block:node:academic_program:field_courses_text'
-              label: 'Courses information'
-              label_display: '0'
-              provider: layout_builder
-              context_mapping:
-                entity: layout_builder.entity
-                view_mode: view_mode
-              formatter:
-                type: text_default
-                label: hidden
-                settings: {  }
-                third_party_settings: {  }
-            weight: 0
-            additional: {  }
           e2fb5944-e10a-46e6-b790-b304cea1263c:
             uuid: e2fb5944-e10a-46e6-b790-b304cea1263c
             region: content
@@ -332,7 +315,7 @@ third_party_settings:
                   format_custom_false: ''
                   format_custom_true: ''
                 third_party_settings: {  }
-            weight: 3
+            weight: 4
             additional: {  }
           21867544-afca-44e3-a31b-67f264fe48b6:
             uuid: 21867544-afca-44e3-a31b-67f264fe48b6
@@ -351,7 +334,7 @@ third_party_settings:
                 settings:
                   view_mode: content_thumbnail
                 third_party_settings: {  }
-            weight: 5
+            weight: 6
             additional: {  }
           17201eb4-5e0f-4bd1-abdf-6ec6c9ae3b53:
             uuid: 17201eb4-5e0f-4bd1-abdf-6ec6c9ae3b53
@@ -370,7 +353,7 @@ third_party_settings:
                 settings:
                   view_mode: default
                 third_party_settings: {  }
-            weight: 6
+            weight: 7
             additional: {  }
           21988c95-5815-46c4-ac7a-d9c6d3a111f5:
             uuid: 21988c95-5815-46c4-ac7a-d9c6d3a111f5
@@ -383,26 +366,36 @@ third_party_settings:
               context_mapping: {  }
               views_label: ''
               items_per_page: none
-            weight: 4
+            weight: 5
             additional: {  }
-          9b3063f7-1e8e-495c-b793-017b441210fd:
-            uuid: 9b3063f7-1e8e-495c-b793-017b441210fd
+          f09af091-db08-48be-9daf-af981683f759:
+            uuid: f09af091-db08-48be-9daf-af981683f759
             region: content
             configuration:
-              id: 'field_block:node:academic_program:field_courseleaf_slug'
-              label: 'CourseLeaf Slug'
-              label_display: visible
+              id: 'field_block:node:academic_program:field_courses_text'
+              label: 'Courses information'
+              label_display: '0'
               provider: layout_builder
               context_mapping:
                 entity: layout_builder.entity
                 view_mode: view_mode
               formatter:
-                type: string
+                type: text_default
                 label: hidden
-                settings:
-                  link_to_entity: false
+                settings: {  }
                 third_party_settings: {  }
-            weight: 2
+            weight: 3
+            additional: {  }
+          d330eebb-d20b-484c-874e-931b27e48d14:
+            uuid: d330eebb-d20b-484c-874e-931b27e48d14
+            region: content
+            configuration:
+              id: courses
+              label: Courses
+              label_display: '0'
+              provider: citizen_custom
+              context_mapping: {  }
+            weight: 8
             additional: {  }
         third_party_settings: {  }
   layout_builder_restrictions:
@@ -735,6 +728,7 @@ content:
     weight: 100
     region: content
 hidden:
+  field_courseleaf_slug: true
   field_courses: true
   field_domain_access: true
   field_domain_all_affiliates: true
