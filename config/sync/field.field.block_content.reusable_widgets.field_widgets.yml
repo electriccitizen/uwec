@@ -1,0 +1,195 @@
+uuid: d073e79a-78f8-4c15-ab12-71a9885741ac
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.reusable_widgets
+    - field.storage.block_content.field_widgets
+    - paragraphs.paragraphs_type.accordions
+    - paragraphs.paragraphs_type.block_placer
+    - paragraphs.paragraphs_type.button
+    - paragraphs.paragraphs_type.contact_placer
+    - paragraphs.paragraphs_type.ctas
+    - paragraphs.paragraphs_type.custom_embed
+    - paragraphs.paragraphs_type.events_list
+    - paragraphs.paragraphs_type.facts_list
+    - paragraphs.paragraphs_type.fauxfile
+    - paragraphs.paragraphs_type.gallery
+    - paragraphs.paragraphs_type.highlight_box
+    - paragraphs.paragraphs_type.image
+    - paragraphs.paragraphs_type.links_files
+    - paragraphs.paragraphs_type.profiles_list
+    - paragraphs.paragraphs_type.program_search
+    - paragraphs.paragraphs_type.programs_list
+    - paragraphs.paragraphs_type.select_type
+    - paragraphs.paragraphs_type.snapshot_list
+    - paragraphs.paragraphs_type.social_media_links
+    - paragraphs.paragraphs_type.steps
+    - paragraphs.paragraphs_type.stories_video_list
+    - paragraphs.paragraphs_type.testimonial_placer
+    - paragraphs.paragraphs_type.text
+    - paragraphs.paragraphs_type.video
+    - paragraphs.paragraphs_type.view_placer
+    - paragraphs.paragraphs_type.wayfinding
+  module:
+    - entity_reference_revisions
+id: block_content.reusable_widgets.field_widgets
+field_name: field_widgets
+entity_type: block_content
+bundle: reusable_widgets
+label: Widgets
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      accordions: accordions
+      block_placer: block_placer
+      button: button
+      contact_placer: contact_placer
+      ctas: ctas
+      custom_embed: custom_embed
+      events_list: events_list
+      facts_list: facts_list
+      fauxfile: fauxfile
+      gallery: gallery
+      highlight_box: highlight_box
+      image: image
+      links_files: links_files
+      profiles_list: profiles_list
+      programs_list: programs_list
+      program_search: program_search
+      select_type: select_type
+      snapshot_list: snapshot_list
+      social_media_links: social_media_links
+      steps: steps
+      stories_video_list: stories_video_list
+      testimonial_placer: testimonial_placer
+      text: text
+      video: video
+      view_placer: view_placer
+      wayfinding: wayfinding
+    negate: 0
+    target_bundles_drag_drop:
+      accordion_item:
+        weight: 41
+        enabled: false
+      accordions:
+        weight: 40
+        enabled: true
+      block_placer:
+        weight: 42
+        enabled: true
+      button:
+        weight: 43
+        enabled: true
+      contact_placer:
+        weight: 44
+        enabled: true
+      content_carousel:
+        weight: 45
+        enabled: false
+      cta_item:
+        weight: 47
+        enabled: false
+      ctas:
+        weight: 46
+        enabled: true
+      custom_embed:
+        weight: 48
+        enabled: true
+      events_list:
+        weight: 49
+        enabled: true
+      facts_list:
+        weight: 50
+        enabled: true
+      fauxfile:
+        weight: 51
+        enabled: true
+      fauxfile_item:
+        weight: 52
+        enabled: false
+      gallery:
+        weight: 53
+        enabled: true
+      gallery_item:
+        weight: 54
+        enabled: false
+      hallmark:
+        weight: 55
+        enabled: false
+      hero:
+        weight: 56
+        enabled: false
+      highlight_box:
+        weight: 57
+        enabled: true
+      hours_placer:
+        weight: 58
+        enabled: false
+      hours_set:
+        weight: 59
+        enabled: false
+      image:
+        weight: 60
+        enabled: true
+      layout_section:
+        weight: 61
+        enabled: false
+      links_files:
+        weight: 62
+        enabled: true
+      profiles_list:
+        weight: 63
+        enabled: true
+      program_search:
+        weight: 65
+        enabled: true
+      programs_list:
+        weight: 64
+        enabled: true
+      quote:
+        weight: 66
+        enabled: false
+      select_item:
+        weight: 67
+        enabled: false
+      select_type:
+        weight: 68
+        enabled: true
+      snapshot_list:
+        weight: 69
+        enabled: true
+      social_media_links:
+        weight: 70
+        enabled: true
+      step_item:
+        weight: 72
+        enabled: false
+      steps:
+        weight: 71
+        enabled: true
+      stories_video_list:
+        weight: 73
+        enabled: true
+      testimonial_placer:
+        weight: 74
+        enabled: true
+      text:
+        weight: 75
+        enabled: true
+      video:
+        weight: 76
+        enabled: true
+      view_placer:
+        weight: 77
+        enabled: true
+      wayfinding:
+        weight: 78
+        enabled: true
+field_type: entity_reference_revisions

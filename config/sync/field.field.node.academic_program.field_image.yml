@@ -1,0 +1,29 @@
+uuid: 4c8f2817-5bd3-450d-8a97-afb7587e713a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_image
+    - media.type.image
+    - node.type.academic_program
+id: node.academic_program.field_image
+field_name: field_image
+entity_type: node
+bundle: academic_program
+label: 'Program Image'
+description: '<strong>Optimal image size:</strong> 1460x1680px'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

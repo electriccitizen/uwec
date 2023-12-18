@@ -11,6 +11,10 @@ global:
     - core/drupalSettings
     - core/jquery
     - core/once
+academic-program:
+  version: 1.0
+  js:
+    components/04-units/nodes/academic-program/program-toggle.js: {}
 accordion:
   version: 1.0
   js:

@@ -92,6 +92,9 @@
       		{% else %}
       			{{ elements['#node'].field_first_name.0.value }}
       		{% endif %}
+      		{% if elements['#node'].field_middle_name.0 %}
+      			{{ elements['#node'].field_middle_name.0.value -}}
+      		{% endif %}
       		{% if elements['#node'].field_last_override.0 %}
       			{{ elements['#node'].field_last_override.0.value -}}
       		{%- else -%}

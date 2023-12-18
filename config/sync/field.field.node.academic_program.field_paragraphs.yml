@@ -1,0 +1,171 @@
+uuid: 8423af55-11dc-4523-b4ca-bbdb2e4fffbc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_paragraphs
+    - node.type.academic_program
+    - paragraphs.paragraphs_type.accordions
+    - paragraphs.paragraphs_type.block_placer
+    - paragraphs.paragraphs_type.ctas
+    - paragraphs.paragraphs_type.custom_embed
+    - paragraphs.paragraphs_type.gallery
+    - paragraphs.paragraphs_type.highlight_box
+    - paragraphs.paragraphs_type.image
+    - paragraphs.paragraphs_type.layout_section
+    - paragraphs.paragraphs_type.links_files
+    - paragraphs.paragraphs_type.snapshot_list
+    - paragraphs.paragraphs_type.steps
+    - paragraphs.paragraphs_type.testimonial_placer
+    - paragraphs.paragraphs_type.text
+    - paragraphs.paragraphs_type.video
+  module:
+    - entity_reference_revisions
+id: node.academic_program.field_paragraphs
+field_name: field_paragraphs
+entity_type: node
+bundle: academic_program
+label: 'Flex Content'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      accordions: accordions
+      links_files: links_files
+      block_placer: block_placer
+      ctas: ctas
+      custom_embed: custom_embed
+      gallery: gallery
+      highlight_box: highlight_box
+      image: image
+      layout_section: layout_section
+      snapshot_list: snapshot_list
+      steps: steps
+      testimonial_placer: testimonial_placer
+      text: text
+      video: video
+    negate: 0
+    target_bundles_drag_drop:
+      accordion_item:
+        weight: -79
+        enabled: false
+      accordions:
+        weight: -78
+        enabled: true
+      block_placer:
+        weight: -76
+        enabled: true
+      button:
+        weight: -62
+        enabled: false
+      contact_placer:
+        weight: -61
+        enabled: false
+      content_carousel:
+        weight: -60
+        enabled: false
+      cta_item:
+        weight: -59
+        enabled: false
+      ctas:
+        weight: -75
+        enabled: true
+      custom_embed:
+        weight: -74
+        enabled: true
+      events_list:
+        weight: -58
+        enabled: false
+      facts_list:
+        weight: -57
+        enabled: false
+      fauxfile:
+        weight: -56
+        enabled: false
+      fauxfile_item:
+        weight: -55
+        enabled: false
+      gallery:
+        weight: -73
+        enabled: true
+      gallery_item:
+        weight: -63
+        enabled: false
+      hallmark:
+        weight: -54
+        enabled: false
+      hero:
+        weight: -53
+        enabled: false
+      highlight_box:
+        weight: -72
+        enabled: true
+      hours_placer:
+        weight: -52
+        enabled: false
+      hours_set:
+        weight: -51
+        enabled: false
+      image:
+        weight: -71
+        enabled: true
+      layout_section:
+        weight: -70
+        enabled: true
+      links_files:
+        weight: -77
+        enabled: true
+      profiles_list:
+        weight: -50
+        enabled: false
+      program_search:
+        weight: -48
+        enabled: false
+      programs_list:
+        weight: -49
+        enabled: false
+      quote:
+        weight: -47
+        enabled: false
+      select_item:
+        weight: -46
+        enabled: false
+      select_type:
+        weight: -45
+        enabled: false
+      snapshot_list:
+        weight: -69
+        enabled: true
+      social_media_links:
+        weight: -67
+        enabled: false
+      step_item:
+        weight: -44
+        enabled: false
+      steps:
+        weight: -68
+        enabled: true
+      stories_video_list:
+        weight: -43
+        enabled: false
+      testimonial_placer:
+        weight: -66
+        enabled: true
+      text:
+        weight: -65
+        enabled: true
+      video:
+        weight: -64
+        enabled: true
+      view_placer:
+        weight: -42
+        enabled: false
+      wayfinding:
+        weight: -41
+        enabled: false
+field_type: entity_reference_revisions

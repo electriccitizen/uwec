@@ -7,6 +7,7 @@ dependencies:
     - field.field.node.video_card.field_domain_access
     - field.field.node.video_card.field_domain_all_affiliates
     - field.field.node.video_card.field_domain_source
+    - field.field.node.video_card.field_editorial_sections
     - field.field.node.video_card.field_eyebrow
     - field.field.node.video_card.field_list_widget
     - field.field.node.video_card.field_page_families
@@ -48,7 +49,25 @@ third_party_settings:
                 settings:
                   link_to_entity: false
                 third_party_settings: {  }
-            weight: 3
+            weight: 5
+            additional: {  }
+          c69bb323-be8d-415c-bb24-d01777b28451:
+            uuid: c69bb323-be8d-415c-bb24-d01777b28451
+            region: content
+            configuration:
+              id: 'field_block:node:video_card:body'
+              label: Text
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: text_default
+                label: hidden
+                settings: {  }
+                third_party_settings: {  }
+            weight: 6
             additional: {  }
           cf09e281-424e-484c-917f-dbfdcf79924c:
             uuid: cf09e281-424e-484c-917f-dbfdcf79924c
@@ -69,24 +88,6 @@ third_party_settings:
                 third_party_settings: {  }
             weight: 4
             additional: {  }
-          c69bb323-be8d-415c-bb24-d01777b28451:
-            uuid: c69bb323-be8d-415c-bb24-d01777b28451
-            region: content
-            configuration:
-              id: 'field_block:node:video_card:body'
-              label: Text
-              label_display: '0'
-              provider: layout_builder
-              context_mapping:
-                entity: layout_builder.entity
-                view_mode: view_mode
-              formatter:
-                type: text_default
-                label: hidden
-                settings: {  }
-                third_party_settings: {  }
-            weight: 5
-            additional: {  }
           c1809725-7c63-48d5-9d90-c7f8212bee1c:
             uuid: c1809725-7c63-48d5-9d90-c7f8212bee1c
             region: content
@@ -104,7 +105,52 @@ third_party_settings:
                 settings:
                   link: false
                 third_party_settings: {  }
-            weight: 6
+            weight: 3
+            additional: {  }
+        third_party_settings: {  }
+      -
+        layout_id: layout_onecol
+        layout_settings:
+          label: ''
+          context_mapping: {  }
+        components:
+          9ea479c9-0ea7-41a6-ab7e-819e76084cde:
+            uuid: 9ea479c9-0ea7-41a6-ab7e-819e76084cde
+            region: content
+            configuration:
+              id: 'field_block:node:video_card:field_placement_tags'
+              label: 'Placement tags'
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: entity_reference_label
+                label: inline
+                settings:
+                  link: false
+                third_party_settings: {  }
+            weight: 1
+            additional: {  }
+          50fe3815-f708-401d-b57e-44c764f23cdd:
+            uuid: 50fe3815-f708-401d-b57e-44c764f23cdd
+            region: content
+            configuration:
+              id: 'field_block:node:video_card:field_page_families'
+              label: 'Page Families'
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: entity_reference_label
+                label: inline
+                settings:
+                  link: false
+                third_party_settings: {  }
+            weight: 2
             additional: {  }
         third_party_settings: {  }
   layout_builder_restrictions:
@@ -130,6 +176,14 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: -20
+    region: content
+  field_editorial_sections:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 107
     region: content
   field_eyebrow:
     type: entity_reference_label

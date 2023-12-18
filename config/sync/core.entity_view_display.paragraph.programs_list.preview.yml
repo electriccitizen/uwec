@@ -1,0 +1,39 @@
+uuid: 6fd68609-69ce-46ae-baf7-21506bf7ab03
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.preview
+    - field.field.paragraph.programs_list.field_limit_list
+    - field.field.paragraph.programs_list.field_list_type
+    - field.field.paragraph.programs_list.field_list_widget
+    - field.field.paragraph.programs_list.field_page_family
+    - field.field.paragraph.programs_list.field_placement_tag
+    - field.field.paragraph.programs_list.field_programs
+    - paragraphs.paragraphs_type.programs_list
+  module:
+    - layout_builder
+    - options
+third_party_settings:
+  layout_builder:
+    enabled: false
+    allow_custom: false
+id: paragraph.programs_list.preview
+targetEntityType: paragraph
+bundle: programs_list
+mode: preview
+content:
+  field_list_type:
+    type: list_default
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  field_limit_list: true
+  field_list_widget: true
+  field_page_family: true
+  field_placement_tag: true
+  field_programs: true
+  search_api_excerpt: true

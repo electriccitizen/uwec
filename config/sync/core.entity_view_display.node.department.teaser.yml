@@ -10,9 +10,12 @@ dependencies:
     - field.field.node.department.field_domain_access
     - field.field.node.department.field_domain_all_affiliates
     - field.field.node.department.field_domain_source
+    - field.field.node.department.field_faculty_link
     - field.field.node.department.field_hallmarks
     - field.field.node.department.field_hours_library
+    - field.field.node.department.field_meta_description
     - field.field.node.department.field_metatags
+    - field.field.node.department.field_placement_tags
     - field.field.node.department.field_platforms
     - field.field.node.department.layout_builder__layout
     - node.type.department
@@ -48,9 +51,12 @@ hidden:
   field_domain_access: true
   field_domain_all_affiliates: true
   field_domain_source: true
+  field_faculty_link: true
   field_hallmarks: true
   field_hours_library: true
+  field_meta_description: true
   field_metatags: true
+  field_placement_tags: true
   field_platforms: true
   layout_builder__layout: true
   search_api_excerpt: true

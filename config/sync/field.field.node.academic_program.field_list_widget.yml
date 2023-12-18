@@ -1,0 +1,33 @@
+uuid: 8632c97e-9e17-4afc-bbaf-0c6126697dd6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_list_widget
+    - node.type.academic_program
+    - taxonomy.vocabulary.list_widget
+  content:
+    - 'taxonomy_term:list_widget:b6ffd153-c040-4cca-9f60-3acd5487334c'
+id: node.academic_program.field_list_widget
+field_name: field_list_widget
+entity_type: node
+bundle: academic_program
+label: 'List Widget'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    target_uuid: b6ffd153-c040-4cca-9f60-3acd5487334c
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      list_widget: list_widget
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

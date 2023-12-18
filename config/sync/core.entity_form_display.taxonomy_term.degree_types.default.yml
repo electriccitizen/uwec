@@ -1,0 +1,27 @@
+uuid: 7932c583-a2e5-45ce-9348-05f22f365229
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.degree_types
+id: taxonomy_term.degree_types.default
+targetEntityType: taxonomy_term
+bundle: degree_types
+mode: default
+content:
+  name:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  description: true
+  path: true
+  publish_on: true
+  publish_state: true
+  status: true
+  unpublish_on: true
+  unpublish_state: true

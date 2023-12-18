@@ -1,0 +1,9 @@
+uuid: 113c57ec-6c2c-41df-958d-bd840db4a1b6
+langcode: en
+status: true
+dependencies: {  }
+id: node__news
+label: 'Content: Story Library'
+tags:
+  abstract: '[node:field_meta_description]'
+  description: '[node:field_meta_description]'

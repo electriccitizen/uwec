@@ -1,0 +1,28 @@
+uuid: 614f5095-a48d-49e0-9ba0-454a44e7fd1d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_admissions_requirements
+    - node.type.academic_program
+  module:
+    - link
+id: node.academic_program.field_admissions_requirements
+field_name: field_admissions_requirements
+entity_type: node
+bundle: academic_program
+label: 'Admissions requirements'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    attributes: {  }
+    uri: 'entity:node/83'
+    title: ''
+    options: {  }
+default_value_callback: ''
+settings:
+  title: 0
+  link_type: 17
+field_type: link

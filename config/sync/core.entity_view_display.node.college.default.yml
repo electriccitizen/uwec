@@ -10,6 +10,7 @@ dependencies:
     - field.field.node.college.field_domain_source
     - field.field.node.college.field_hours_library
     - field.field.node.college.field_image
+    - field.field.node.college.field_meta_description
     - field.field.node.college.field_metatags
     - field.field.node.college.field_paragraphs
     - field.field.node.college.field_placement_tags
@@ -230,6 +231,14 @@ content:
       link: false
     third_party_settings: {  }
     weight: 102
+    region: content
+  field_meta_description:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 106
     region: content
   field_metatags:
     type: metatag_empty_formatter

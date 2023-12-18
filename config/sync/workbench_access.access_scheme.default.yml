@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.node.contact.field_editorial_sections
     - field.field.node.hours.field_editorial_sections
+    - field.field.node.job.field_editorial_sections
     - field.field.node.page.field_editorial_sections
     - taxonomy.vocabulary.editorial_sections
 id: default
@@ -26,4 +27,8 @@ scheme_settings:
     -
       entity_type: node
       bundle: hours
+      field: field_editorial_sections
+    -
+      entity_type: node
+      bundle: job
       field: field_editorial_sections

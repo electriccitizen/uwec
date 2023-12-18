@@ -8,6 +8,7 @@ dependencies:
     - field.field.node.video_card.field_domain_access
     - field.field.node.video_card.field_domain_all_affiliates
     - field.field.node.video_card.field_domain_source
+    - field.field.node.video_card.field_editorial_sections
     - field.field.node.video_card.field_eyebrow
     - field.field.node.video_card.field_list_widget
     - field.field.node.video_card.field_page_families
@@ -44,6 +45,7 @@ hidden:
   field_domain_access: true
   field_domain_all_affiliates: true
   field_domain_source: true
+  field_editorial_sections: true
   field_eyebrow: true
   field_list_widget: true
   field_page_families: true

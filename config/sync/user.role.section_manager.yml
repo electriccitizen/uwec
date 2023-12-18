@@ -10,6 +10,7 @@ dependencies:
     - node.type.bios
     - node.type.contact
     - node.type.hours
+    - node.type.job
     - node.type.page
     - workflows.workflow.non_moderated
   module:
@@ -43,18 +44,24 @@ permissions:
   - 'create hours content'
   - 'create hours content on assigned domains'
   - 'create image media'
+  - 'create job content'
+  - 'create job content on assigned domains'
   - 'create remote_video media'
   - 'delete all revisions'
   - 'edit any bios content'
   - 'edit any contact content'
   - 'edit any document media'
+  - 'edit any hours content'
   - 'edit any image media'
+  - 'edit any job content'
   - 'edit any page content'
   - 'edit any remote_video media'
   - 'edit own bios content'
   - 'edit own contact content'
   - 'edit own document media'
+  - 'edit own hours content'
   - 'edit own image media'
+  - 'edit own job content'
   - 'edit own page content'
   - 'edit own remote_video media'
   - 'make smart dates recur'
@@ -64,10 +71,12 @@ permissions:
   - 'revert bios revisions'
   - 'revert contact revisions'
   - 'revert hours revisions'
+  - 'revert job revisions'
   - 'revert page revisions'
   - 'update bios content on assigned domains'
   - 'update contact content on assigned domains'
   - 'update hours content on assigned domains'
+  - 'update job content on assigned domains'
   - 'update page content on assigned domains'
   - 'use add another'
   - 'use domain nav block'
@@ -83,6 +92,7 @@ permissions:
   - 'view contact revisions'
   - 'view domain aliases'
   - 'view hours revisions'
+  - 'view job revisions'
   - 'view own unpublished content'
   - 'view page revisions'
   - 'view the administration theme'

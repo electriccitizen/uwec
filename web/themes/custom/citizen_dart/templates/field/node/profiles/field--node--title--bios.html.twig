@@ -33,6 +33,9 @@
 		{% else %}
 			{{ element['#object'].field_first_name.0.value }}
 		{% endif %}
+		{% if element['#object'].field_middle_name.0 %}
+			{{ element['#object'].field_middle_name.0.value }}
+		{% endif %}
 		{% if element['#object'].field_last_override.0 %}
 			{{ element['#object'].field_last_override.0.value -}}
 		{%- else -%}

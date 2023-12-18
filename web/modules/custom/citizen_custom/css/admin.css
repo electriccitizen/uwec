@@ -155,6 +155,9 @@ button[disabled]:hover,button.disabled:hover{
 .lpb-component-list .lpb-component-list__group > .lpb-component-list__group--content > .type-profiles_list > a:before{
   background-image: url('../icons/paragraphs/profiles-list.svg');
 }
+.lpb-component-list .lpb-component-list__group > .lpb-component-list__group--content > .type-programs_list > a:before{
+  background-image: url('../icons/paragraphs/programs-list.svg');
+}
 .lpb-component-list .lpb-component-list__group > .lpb-component-list__group--content > .type-program_search > a:before{
   background-image: url('../icons/paragraphs/program-search.svg');
 }

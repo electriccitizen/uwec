@@ -1,0 +1,62 @@
+{#
+/**
+ * @file
+ * Theme override for the node title field.
+ *
+ * This is an override of field.html.twig for the node title field. See that
+ * template for documentation about its details and overrides.
+ *
+ * Available variables:
+ * - attributes: HTML attributes for the containing span element.
+ * - items: List of all the field items. Each item contains:
+ *   - attributes: List of HTML attributes for each item.
+ *   - content: The field item content.
+ * - entity_type: The entity type to which the field belongs.
+ * - field_name: The name of the field.
+ * - field_type: The type of the field.
+ * - label_display: The display settings for the label.
+ *
+ * @see field.html.twig
+ */
+#}
+
+{% extends 'field.html.twig' %}
+
+{% set outcomeText = {
+	'#type': 'processed_text',
+	'#text': element['#object'].field_outcome_text.0.value,
+	'#format': element['#object'].field_outcome_text.0.format
+} %}
+
+
+{% block fieldSingleNo %}
+	<div class="outcomes">
+	  <div class="first">
+	    {{ outcomeText }}
+	  </div>
+	  <div class="last">
+	    <h2>{% trans %}Example Careers{% endtrans %}</h2>
+	    <ul>
+	    {% for career in element['#object'].field_example_careers %}
+	      <li>{{ career.value }}</li>
+	    {% endfor %}
+	    </ul>
+	  </div>
+	</div>
+	<div class="recent-grads">
+	  <h2>{% trans %}Recent Graduates{% endtrans %}</h2>
+	  <div class="grads">
+		  {% for grad in element['#object'].field_grads %}
+		    {% set gradText = {
+			      '#type': 'processed_text',
+			      '#text': grad.value,
+			      '#format': grad.format
+		    } %}
+		    <div class="grad">
+		      {{ gradText }}
+		    </div>
+		  {% endfor %}
+		 </div>
+	</div>
+{% endblock %}
+

@@ -1,0 +1,27 @@
+{{ attach_library('citizen_dart/academic-program') }}
+
+<div class="academic-program-teaser">
+  {% if node.field_image.0.target_id %}
+  <div class="program-image">        
+    {{ drupal_entity('media',node.field_image.0.target_id,'program_teaser') }}
+  </div>
+  {% endif %}
+  <div class="program-title">{{ node.title.value }}</div>
+  <div class="program-types">
+    {% for type in node.field_program_type %}
+      {{ type.entity.label }}
+      {% if not loop.last %} | {% endif %}
+    {% endfor %}  
+    
+    <button class="program-toggle" onclick="toggleProgramDetails(this)">
+      <span class="visually-hidden">View Program Details</span>
+      <span class="chevron-down" id="chevronIcon"></span>
+    </button>
+  </div>
+  <div class="program-body hidden" id="programBody">
+    {{ node.body.value|raw }}
+    <!-- Link to the node -->
+    <a href="{{ path('entity.node.canonical', {'node': node.id}) }}" class="program-link">View <span class="visually-hidden">{{ node.title.value }}</span> Program</a>
+  </div>
+</div>
+

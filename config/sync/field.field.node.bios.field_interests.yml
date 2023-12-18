@@ -12,7 +12,7 @@ id: node.bios.field_interests
 field_name: field_interests
 entity_type: node
 bundle: bios
-label: 'Teaching Interests'
+label: 'Teaching & Research Interests'
 description: ''
 required: false
 translatable: false

@@ -1,16 +1,16 @@
-uuid: be6a262b-bfc8-4715-a6e5-a93182739a9e
+uuid: fdfd0420-b3e0-4301-b12e-bb827b77f354
 langcode: en
 status: true
 dependencies:
   config:
-    - block_content.type.reusable_widgets
-    - field.storage.block_content.body
+    - field.storage.node.body
+    - node.type.job
   module:
     - text
-id: block_content.reusable_widgets.body
+id: node.job.body
 field_name: body
-entity_type: block_content
-bundle: reusable_widgets
+entity_type: node
+bundle: job
 label: Body
 description: ''
 required: false
@@ -18,7 +18,7 @@ translatable: true
 default_value: {  }
 default_value_callback: ''
 settings:
-  display_summary: false
+  display_summary: true
   required_summary: false
   allowed_formats: {  }
 field_type: text_with_summary

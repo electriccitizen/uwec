@@ -1,0 +1,23 @@
+uuid: 1d1cc5e5-0341-440e-9710-f9c387d06720
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_list_type
+    - paragraphs.paragraphs_type.programs_list
+  module:
+    - options
+id: paragraph.programs_list.field_list_type
+field_name: field_list_type
+entity_type: paragraph
+bundle: programs_list
+label: 'List Type'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: auto
+default_value_callback: ''
+settings: {  }
+field_type: list_string
