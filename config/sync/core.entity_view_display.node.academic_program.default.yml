@@ -10,6 +10,7 @@ dependencies:
     - field.field.node.academic_program.field_campus
     - field.field.node.academic_program.field_college
     - field.field.node.academic_program.field_content_carousel
+    - field.field.node.academic_program.field_courseleaf_slug
     - field.field.node.academic_program.field_courses
     - field.field.node.academic_program.field_courses_text
     - field.field.node.academic_program.field_degree_level
@@ -331,7 +332,7 @@ third_party_settings:
                   format_custom_false: ''
                   format_custom_true: ''
                 third_party_settings: {  }
-            weight: 2
+            weight: 3
             additional: {  }
           21867544-afca-44e3-a31b-67f264fe48b6:
             uuid: 21867544-afca-44e3-a31b-67f264fe48b6
@@ -350,7 +351,7 @@ third_party_settings:
                 settings:
                   view_mode: content_thumbnail
                 third_party_settings: {  }
-            weight: 4
+            weight: 5
             additional: {  }
           17201eb4-5e0f-4bd1-abdf-6ec6c9ae3b53:
             uuid: 17201eb4-5e0f-4bd1-abdf-6ec6c9ae3b53
@@ -369,7 +370,7 @@ third_party_settings:
                 settings:
                   view_mode: default
                 third_party_settings: {  }
-            weight: 5
+            weight: 6
             additional: {  }
           21988c95-5815-46c4-ac7a-d9c6d3a111f5:
             uuid: 21988c95-5815-46c4-ac7a-d9c6d3a111f5
@@ -382,7 +383,26 @@ third_party_settings:
               context_mapping: {  }
               views_label: ''
               items_per_page: none
-            weight: 3
+            weight: 4
+            additional: {  }
+          9b3063f7-1e8e-495c-b793-017b441210fd:
+            uuid: 9b3063f7-1e8e-495c-b793-017b441210fd
+            region: content
+            configuration:
+              id: 'field_block:node:academic_program:field_courseleaf_slug'
+              label: 'CourseLeaf Slug'
+              label_display: visible
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: string
+                label: hidden
+                settings:
+                  link_to_entity: false
+                third_party_settings: {  }
+            weight: 2
             additional: {  }
         third_party_settings: {  }
   layout_builder_restrictions:
