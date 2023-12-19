@@ -55,6 +55,13 @@ function citizen_custom_theme() {
         'nids'=>[],
       ],
     ],
+	'courses'=>[
+	  'variables'=>[
+	    'program_title'=>'',
+		'courses'=>[],
+		'courseleaf_slug'=>'',
+	  ],
+	],
   ];
 }
 

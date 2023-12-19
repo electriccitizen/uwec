@@ -1,11 +1,11 @@
-uuid: 72a1397e-00b3-4b2e-96bd-727c42b6230e
+uuid: 45a54060-e7dc-46db-969d-49d2ea7ca077
 langcode: en
 status: true
 dependencies:
   module:
     - node
-id: node.field_courses
-field_name: field_courses
+id: node.field_courseleaf_slug
+field_name: field_courseleaf_slug
 entity_type: node
 type: string
 settings:
@@ -14,7 +14,7 @@ settings:
   is_ascii: false
 module: core
 locked: false
-cardinality: -1
+cardinality: 1
 translatable: true
 indexes: {  }
 persist_with_no_fields: false
