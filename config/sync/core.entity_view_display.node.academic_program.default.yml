@@ -315,7 +315,7 @@ third_party_settings:
                   format_custom_false: ''
                   format_custom_true: ''
                 third_party_settings: {  }
-            weight: 4
+            weight: 5
             additional: {  }
           21867544-afca-44e3-a31b-67f264fe48b6:
             uuid: 21867544-afca-44e3-a31b-67f264fe48b6
@@ -334,7 +334,7 @@ third_party_settings:
                 settings:
                   view_mode: content_thumbnail
                 third_party_settings: {  }
-            weight: 6
+            weight: 7
             additional: {  }
           17201eb4-5e0f-4bd1-abdf-6ec6c9ae3b53:
             uuid: 17201eb4-5e0f-4bd1-abdf-6ec6c9ae3b53
@@ -353,7 +353,7 @@ third_party_settings:
                 settings:
                   view_mode: default
                 third_party_settings: {  }
-            weight: 7
+            weight: 8
             additional: {  }
           21988c95-5815-46c4-ac7a-d9c6d3a111f5:
             uuid: 21988c95-5815-46c4-ac7a-d9c6d3a111f5
@@ -366,7 +366,7 @@ third_party_settings:
               context_mapping: {  }
               views_label: ''
               items_per_page: none
-            weight: 5
+            weight: 6
             additional: {  }
           f09af091-db08-48be-9daf-af981683f759:
             uuid: f09af091-db08-48be-9daf-af981683f759
@@ -395,7 +395,7 @@ third_party_settings:
               label_display: '0'
               provider: citizen_custom
               context_mapping: {  }
-            weight: 8
+            weight: 4
             additional: {  }
         third_party_settings: {  }
   layout_builder_restrictions:
