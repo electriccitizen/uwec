@@ -1,0 +1,42 @@
+uuid: 60a87df4-6159-40f7-866e-170a03339f6d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_list_widgets
+    - paragraphs.paragraphs_type.content_carousel
+    - taxonomy.vocabulary.list_widget
+  content:
+    - 'taxonomy_term:list_widget:00e2aa51-1872-4d70-9a1e-05c5780ddd73'
+    - 'taxonomy_term:list_widget:41bd639a-3922-489e-9ab9-5c115229ebce'
+    - 'taxonomy_term:list_widget:95b2028c-77c6-4a0a-83da-b4579be6f9bf'
+    - 'taxonomy_term:list_widget:d45bf975-3f21-4da6-ba04-1518d2b325c4'
+id: paragraph.content_carousel.field_list_widgets
+field_name: field_list_widgets
+entity_type: paragraph
+bundle: content_carousel
+label: 'List widgets'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    target_uuid: d45bf975-3f21-4da6-ba04-1518d2b325c4
+  -
+    target_uuid: 95b2028c-77c6-4a0a-83da-b4579be6f9bf
+  -
+    target_uuid: 00e2aa51-1872-4d70-9a1e-05c5780ddd73
+  -
+    target_uuid: 41bd639a-3922-489e-9ab9-5c115229ebce
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      list_widget: list_widget
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference
