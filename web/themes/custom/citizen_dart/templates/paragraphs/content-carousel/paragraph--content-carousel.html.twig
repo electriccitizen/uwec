@@ -43,54 +43,59 @@
     {{ attach_library('citizen_dart/content-carousel') }}
 
     {% set showMe = [] %}
-    {% set count = content.field_how_many.0['#markup'] %}
     {% for item in content.field_list_widgets['#items'] %}
+
         {% set showItem = null %}
         {% set showItem2 = null %}
 
         {% if item.entity.label == 'Snapshot' %}
-            {% set viewOutput = drupal_view('snapshots','most_recent') %}
-            {% if viewOutput|render|striptags|trim|length > 0 and viewOutput not in showMe %}
-                {% set showItem = viewOutput %}
-                {% if count == '2' %}
-                    {% set showItem2 = drupal_view('snapshots','second_recent') %}
-                {% endif %}
-            {% endif %}
+					{% set viewOne = drupal_view('snapshots','most_recent', paragraph.id.value) %}
+					{% set viewTwo =  drupal_view('snapshots','second_recent', paragraph.id.value) %}
+					{% if viewOne|render|striptags|trim|length > 0 and viewOne not in showMe %}
+							{% set showItem = viewOne %}
+					{% endif %}
+					{% if viewTwo|render|striptags|trim|length > 0 and viewTwo not in showMe %}
+							{% set showItem2 = viewTwo %}
+					{% endif %}
         {% endif %}
 
         {% if item.entity.label == 'Story' %}
-            {% set viewOutput = drupal_view('news','most_recent') %}
-            {% if viewOutput|render|striptags|trim|length > 0 and viewOutput not in showMe %}
-                {% set showItem = viewOutput %}
-                {% if count == '2' %}
-                    {% set showItem2 = drupal_view('news','second_recent') %}
-                {% endif %}
-            {% endif %}
+					{% set viewOne = drupal_view('news','most_recent', paragraph.id.value) %}
+					{% set viewTwo =  drupal_view('news','second_recent', paragraph.id.value) %}
+					{% if viewOne|render|striptags|trim|length > 0 and viewOne not in showMe %}
+							{% set showItem = viewOne %}
+					{% endif %}
+					{% if viewTwo|render|striptags|trim|length > 0 and viewTwo not in showMe %}
+							{% set showItem2 = viewTwo %}
+					{% endif %}
         {% endif %}
 
         {% if item.entity.label == 'Testimonial' %}
-            {% set viewOutput = drupal_view('testimonials','most_recent') %}
-            {% if viewOutput|render|striptags|trim|length > 0 and viewOutput not in showMe %}
-                {% set showItem = viewOutput %}
-                {% if count == '2' %}
-                    {% set showItem2 = drupal_view('testimonials','second_recent') %}
-                {% endif %}
-            {% endif %}
-        {% endif %}
+          {% set viewOne = drupal_view('testimonials','most_recent', paragraph.id.value) %}
+					{% set viewTwo =  drupal_view('testimonials','second_recent', paragraph.id.value) %}
+					{% if viewOne|render|striptags|trim|length > 0 and viewOne not in showMe %}
+							{% set showItem = viewOne %}
+					{% endif %}
+					{% if viewTwo|render|striptags|trim|length > 0 and viewTwo not in showMe %}
+							{% set showItem2 = viewTwo %}
+					{% endif %}
+				{% endif %}
 
         {% if item.entity.label == 'Video Card' %}
-            {% set viewOutput = drupal_view('video_cards','most_recent') %}
-            {% if viewOutput|render|striptags|trim|length > 0 and viewOutput not in showMe %}
-                {% set showItem = viewOutput %}
-                {% if count == '2' %}
-                    {% set showItem2 = drupal_view('video_cards','second_recent') %}
-                {% endif %}
-            {% endif %}
+					{% set viewOne = drupal_view('video_cards','most_recent', paragraph.id.value) %}
+					{% set viewTwo =  drupal_view('video_cards','second_recent', paragraph.id.value) %}
+					{% if viewOne|render|striptags|trim|length > 0 and viewOne not in showMe %}
+							{% set showItem = viewOne %}
+					{% endif %}
+					{% if viewTwo|render|striptags|trim|length > 0 and viewTwo not in showMe %}
+							{% set showItem2 = viewTwo %}
+					{% endif %}
         {% endif %}
 
         {% if showItem or showItem2 %}
             {% set showMe = showMe|merge([showItem, showItem2]) %}
         {% endif %}
+
     {% endfor %}
     {{ showMe|shuffle }}
 {% endblock %}
