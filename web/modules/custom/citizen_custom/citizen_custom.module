@@ -355,17 +355,21 @@ function citizen_custom_preprocess_node(&$variables) {
   if ($variables['node']->getType() == 'academic_program') {
     // Check if the checkbox field is checked.
     $field_value = $variables['node']->get('field_slate_form')->value;
-
-    // If the checkbox is checked, enable and render the block.
-    if ($field_value) {
-      $block_id = 5;
-      $block = \Drupal\block_content\Entity\BlockContent::load($block_id); // Replace 'your_block_id' with the actual block ID.
+    // If the checkbox is not checked, remove the block from the _layout_builder array.
+    if (!$field_value) {
+      $block_id = 6;
+      $block = \Drupal\block_content\Entity\BlockContent::load($block_id);
       if ($block) {
-        $block->set('status', 1);
-        $block_content = \Drupal::entityTypeManager()->getViewBuilder('block_content')->view($block);
-        $variables['content']['custom_block'] = [
-          '#markup' => \Drupal::service('renderer')->render($block_content),
-        ];
+        $block_uuid = $block->uuid();
+        $unset_key = null;
+        foreach ($variables['content']['_layout_builder'][0]['content'] as $key => $layout_item) {
+          if (isset($layout_item['#derivative_plugin_id']) && $layout_item['#derivative_plugin_id'] ==  $block_uuid) {
+            $unset_key = $key;
+          }
+        }
+        if ($unset_key) {
+          unset($variables['content']['_layout_builder'][0]['content'][$key]);
+        }
       }
     }
   }
