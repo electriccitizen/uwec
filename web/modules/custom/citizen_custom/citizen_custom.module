@@ -378,7 +378,7 @@ function citizen_custom_views_pre_view($view, $display_id, &$args) {
         $view->display_handler->setOption('filters', $filters);
       }
     }
-
+    // end Content Carousel
   }
 }
 
