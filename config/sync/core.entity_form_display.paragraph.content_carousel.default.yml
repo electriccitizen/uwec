@@ -1,4 +1,4 @@
-uuid: cfd68f20-54ae-464b-8684-e2966601ff47
+uuid: a7ef7efd-3420-4ae9-ade0-3ee43ab4d459
 langcode: en
 status: true
 dependencies:
@@ -11,21 +11,17 @@ targetEntityType: paragraph
 bundle: content_carousel
 mode: default
 content:
-  field_list_widgets:
-    type: entity_reference_label
-    label: hidden
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 1
-    region: content
   field_tag:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
+    type: entity_reference_autocomplete
     weight: 0
     region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
 hidden:
-  search_api_excerpt: true
+  created: true
+  field_list_widgets: true
+  status: true
