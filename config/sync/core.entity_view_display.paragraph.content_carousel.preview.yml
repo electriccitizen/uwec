@@ -18,21 +18,14 @@ targetEntityType: paragraph
 bundle: content_carousel
 mode: preview
 content:
-  field_list_widgets:
-    type: entity_reference_label
-    label: inline
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 1
-    region: content
   field_tag:
     type: entity_reference_label
-    label: inline
+    label: hidden
     settings:
-      link: true
+      link: false
     third_party_settings: {  }
     weight: 0
     region: content
 hidden:
+  field_list_widgets: true
   search_api_excerpt: true
