@@ -1,0 +1,21 @@
+{% extends "block.html.twig" %}
+
+{% block blockContent %}
+	{% if content['#courses'] is not empty %}
+		<p>Here are a few courses in {{ content['#program_title'] ?? 'this program' }} at UW-Eau Claire.</p>
+
+		<div class="courses">
+			{% for course in content['#courses'] %}
+				<div class="course">
+					<p class="number">{{ course['number'] }}</p>
+					<p class="title">{{ course['title'] }}</p>
+					<p class="description">{{ course['description'] }}</p>
+				</div>
+			{% endfor %}
+		</div>
+
+		<div class="more-link">
+			<a href="https://catalog.uwec.edu/courses/{{ content['#courseleaf_slug'] }}" target="_blank">See the full course catalog</a>
+		</div>
+	{% endif %}
+{% endblock %}

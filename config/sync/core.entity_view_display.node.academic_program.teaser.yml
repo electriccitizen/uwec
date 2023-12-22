@@ -11,6 +11,7 @@ dependencies:
     - field.field.node.academic_program.field_campus
     - field.field.node.academic_program.field_college
     - field.field.node.academic_program.field_content_carousel
+    - field.field.node.academic_program.field_courseleaf_slug
     - field.field.node.academic_program.field_courses
     - field.field.node.academic_program.field_courses_text
     - field.field.node.academic_program.field_degree_level
@@ -56,11 +57,6 @@ targetEntityType: node
 bundle: academic_program
 mode: teaser
 content:
-  content_moderation_control:
-    settings: {  }
-    third_party_settings: {  }
-    weight: 0
-    region: content
   field_image:
     type: entity_reference_entity_view
     label: hidden
@@ -68,28 +64,25 @@ content:
       view_mode: program_teaser
       link: false
     third_party_settings: {  }
-    weight: 1
+    weight: 0
     region: content
   field_intro_text:
     type: text_default
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 2
-    region: content
-  links:
-    settings: {  }
-    third_party_settings: {  }
-    weight: 3
+    weight: 1
     region: content
 hidden:
   body: true
+  content_moderation_control: true
   field_accreditation: true
   field_accreditation_logo: true
   field_admissions_requirements: true
   field_campus: true
   field_college: true
   field_content_carousel: true
+  field_courseleaf_slug: true
   field_courses: true
   field_courses_text: true
   field_degree_level: true
@@ -124,4 +117,5 @@ hidden:
   field_tuition_link: true
   field_whats_next: true
   layout_builder__layout: true
+  links: true
   search_api_excerpt: true
