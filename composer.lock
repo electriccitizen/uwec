@@ -8264,7 +8264,7 @@
         },
         {
             "name": "pantheon-upstreams/upstream-configuration",
-            "version": "dev-uwec-98b",
+            "version": "dev-matt-saml",
             "dist": {
                 "type": "path",
                 "url": "upstream-configuration",
@@ -15132,5 +15132,5 @@
     "prefer-lowest": false,
     "platform": [],
     "platform-dev": [],
-    "plugin-api-version": "2.2.0"
+    "plugin-api-version": "2.3.0"
 }
