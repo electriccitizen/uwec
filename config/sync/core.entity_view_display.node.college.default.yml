@@ -8,15 +8,19 @@ dependencies:
     - field.field.node.college.field_domain_access
     - field.field.node.college.field_domain_all_affiliates
     - field.field.node.college.field_domain_source
+    - field.field.node.college.field_editorial_sections
     - field.field.node.college.field_hours_library
     - field.field.node.college.field_image
+    - field.field.node.college.field_intro_text
     - field.field.node.college.field_meta_description
     - field.field.node.college.field_metatags
     - field.field.node.college.field_paragraphs
     - field.field.node.college.field_placement_tags
     - field.field.node.college.field_platforms
+    - field.field.node.college.field_subtitle
     - field.field.node.college.layout_builder__layout
     - node.type.college
+    - system.menu.main
     - views.view.facts
     - views.view.news
   module:
@@ -25,10 +29,14 @@ dependencies:
     - layout_discovery
     - layout_paragraphs
     - link
+    - menu_block
     - metatag
+    - system
     - text
     - user
     - views
+  theme:
+    - citizen_dart
 third_party_settings:
   layout_builder:
     enabled: true
@@ -37,15 +45,45 @@ third_party_settings:
       -
         layout_id: layout_onecol
         layout_settings:
-          label: 'Section 1'
+          label: ''
           context_mapping: {  }
         components:
-          f4cdab2b-f882-42a9-aa04-dca1e7ab173e:
-            uuid: f4cdab2b-f882-42a9-aa04-dca1e7ab173e
+          42503511-23f7-45e0-a7dc-3d8bb365c4a8:
+            uuid: 42503511-23f7-45e0-a7dc-3d8bb365c4a8
             region: content
             configuration:
-              id: 'field_block:node:college:title'
-              label: Title
+              id: system_breadcrumb_block
+              label: Breadcrumbs
+              label_display: '0'
+              provider: system
+              context_mapping: {  }
+            weight: 0
+            additional: {  }
+          6c2de863-9f1b-4820-8a8e-e713859c7ca2:
+            uuid: 6c2de863-9f1b-4820-8a8e-e713859c7ca2
+            region: content
+            configuration:
+              id: 'field_block:node:college:field_image'
+              label: 'College Image'
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: entity_reference_entity_view
+                label: hidden
+                settings:
+                  view_mode: 730x840
+                third_party_settings: {  }
+            weight: 1
+            additional: {  }
+          51b371a3-fbf2-46e5-b8b1-ceff93c27a33:
+            uuid: 51b371a3-fbf2-46e5-b8b1-ceff93c27a33
+            region: content
+            configuration:
+              id: 'field_block:node:college:field_subtitle'
+              label: Subtitle
               label_display: '0'
               provider: layout_builder
               context_mapping:
@@ -57,21 +95,14 @@ third_party_settings:
                 settings:
                   link_to_entity: false
                 third_party_settings: {  }
-            weight: 2
+            weight: 3
             additional: {  }
-        third_party_settings: {  }
-      -
-        layout_id: layout_onecol
-        layout_settings:
-          label: ''
-          context_mapping: {  }
-        components:
-          b4a2bb82-273b-4bd0-930b-560f800e5934:
-            uuid: b4a2bb82-273b-4bd0-930b-560f800e5934
+          8a1753c7-d68c-4240-bf6f-b18d8be0eaf1:
+            uuid: 8a1753c7-d68c-4240-bf6f-b18d8be0eaf1
             region: content
             configuration:
-              id: 'field_block:node:college:body'
-              label: 'Intro Text'
+              id: 'field_block:node:college:field_intro_text'
+              label: 'Intro text'
               label_display: '0'
               provider: layout_builder
               context_mapping:
@@ -82,6 +113,70 @@ third_party_settings:
                 label: hidden
                 settings: {  }
                 third_party_settings: {  }
+            weight: 4
+            additional: {  }
+          c8174785-69bb-45d7-93fb-0cb6f9753d50:
+            uuid: c8174785-69bb-45d7-93fb-0cb6f9753d50
+            region: content
+            configuration:
+              id: 'field_block:node:college:title'
+              label: Title
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: string
+                label: visually_hidden
+                settings:
+                  link_to_entity: false
+                third_party_settings: {  }
+            weight: 2
+            additional: {  }
+        third_party_settings: {  }
+      -
+        layout_id: two_column_sidebar_left
+        layout_settings:
+          label: ''
+          context_mapping: {  }
+        components:
+          eeac30e5-21fc-48e4-af65-4184250bd584:
+            uuid: eeac30e5-21fc-48e4-af65-4184250bd584
+            region: content
+            configuration:
+              id: 'field_block:node:college:body'
+              label: Description
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: text_default
+                label: hidden
+                settings: {  }
+                third_party_settings: {  }
+            weight: 0
+            additional: {  }
+          76fd3075-70da-4a2f-8517-e72c7edf13f3:
+            uuid: 76fd3075-70da-4a2f-8517-e72c7edf13f3
+            region: first
+            configuration:
+              id: 'menu_block:main'
+              label: 'In This Section'
+              label_display: visible
+              provider: menu_block
+              context_mapping: {  }
+              follow: true
+              follow_parent: active
+              label_link: true
+              label_type: root
+              level: 2
+              depth: 3
+              expand_all_items: false
+              parent: 'main:'
+              suggestion: main
             weight: 0
             additional: {  }
         third_party_settings: {  }
@@ -102,7 +197,7 @@ third_party_settings:
               context_mapping: {  }
               views_label: ''
               items_per_page: none
-            weight: 0
+            weight: 1
             additional: {  }
           bbeecf67-b0cf-4cf8-8254-56870e44d906:
             uuid: bbeecf67-b0cf-4cf8-8254-56870e44d906
@@ -115,7 +210,26 @@ third_party_settings:
               context_mapping: {  }
               views_label: ''
               items_per_page: none
-            weight: 1
+            weight: 2
+            additional: {  }
+          126ad86a-7e5c-4210-9bdd-23b5b10c9bb1:
+            uuid: 126ad86a-7e5c-4210-9bdd-23b5b10c9bb1
+            region: content
+            configuration:
+              id: 'field_block:node:college:field_paragraphs'
+              label: 'Flex Content'
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: entity_reference_revisions_entity_view
+                label: hidden
+                settings:
+                  view_mode: default
+                third_party_settings: {  }
+            weight: 0
             additional: {  }
         third_party_settings: {  }
       -
@@ -215,6 +329,14 @@ content:
     third_party_settings: {  }
     weight: 107
     region: content
+  field_editorial_sections:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 107
+    region: content
   field_hours_library:
     type: entity_reference_label
     label: above
@@ -231,6 +353,13 @@ content:
       link: false
     third_party_settings: {  }
     weight: 102
+    region: content
+  field_intro_text:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 108
     region: content
   field_meta_description:
     type: string
@@ -275,6 +404,14 @@ content:
       target: '0'
     third_party_settings: {  }
     weight: 109
+    region: content
+  field_subtitle:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 110
     region: content
   links:
     settings: {  }
