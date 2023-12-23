@@ -6,7 +6,10 @@
 @use '../node-mixins' as *;
 
 .node-college{
-
+	.block-title {
+		margin-left: 0;
+		margin-right: 0;
+	}
 	#node-section-4{
 		@include contactSection;
 	}//end node-section-4
