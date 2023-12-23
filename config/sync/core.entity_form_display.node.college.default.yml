@@ -41,7 +41,7 @@ third_party_settings:
       label: Access
       region: content
       parent_name: ''
-      weight: 11
+      weight: 14
       format_type: details_sidebar
       format_settings:
         classes: ''
@@ -58,7 +58,7 @@ mode: default
 content:
   body:
     type: text_textarea_with_summary
-    weight: 2
+    weight: 5
     region: content
     settings:
       rows: 9
@@ -68,7 +68,7 @@ content:
     third_party_settings: {  }
   field_contact:
     type: entity_reference_autocomplete
-    weight: 4
+    weight: 7
     region: content
     settings:
       match_operator: CONTAINS
@@ -103,7 +103,7 @@ content:
     third_party_settings: {  }
   field_hours_library:
     type: entity_reference_autocomplete
-    weight: 5
+    weight: 8
     region: content
     settings:
       match_operator: CONTAINS
@@ -113,14 +113,14 @@ content:
     third_party_settings: {  }
   field_image:
     type: media_library_widget
-    weight: 1
+    weight: 0
     region: content
     settings:
       media_types: {  }
     third_party_settings: {  }
   field_intro_text:
     type: text_textarea_with_summary
-    weight: 3
+    weight: 4
     region: content
     settings:
       rows: 9
@@ -130,7 +130,7 @@ content:
     third_party_settings: {  }
   field_meta_description:
     type: string_textfield
-    weight: 1
+    weight: 3
     region: content
     settings:
       size: 60
@@ -138,7 +138,7 @@ content:
     third_party_settings: {  }
   field_metatags:
     type: metatag_firehose
-    weight: 8
+    weight: 11
     region: content
     settings:
       sidebar: true
@@ -146,7 +146,7 @@ content:
     third_party_settings: {  }
   field_paragraphs:
     type: layout_paragraphs
-    weight: 3
+    weight: 6
     region: content
     settings:
       preview_view_mode: preview
@@ -156,7 +156,7 @@ content:
     third_party_settings: {  }
   field_placement_tags:
     type: entity_reference_autocomplete
-    weight: 7
+    weight: 10
     region: content
     settings:
       match_operator: CONTAINS
@@ -166,7 +166,7 @@ content:
     third_party_settings: {  }
   field_platforms:
     type: link_default
-    weight: 6
+    weight: 9
     region: content
     settings:
       placeholder_url: ''
@@ -174,7 +174,7 @@ content:
     third_party_settings: {  }
   field_subtitle:
     type: string_textfield
-    weight: 4
+    weight: 2
     region: content
     settings:
       size: 60
@@ -182,26 +182,26 @@ content:
     third_party_settings: {  }
   moderation_state:
     type: moderation_state_default
-    weight: 12
+    weight: 15
     region: content
     settings: {  }
     third_party_settings: {  }
   path:
     type: path
-    weight: 9
+    weight: 12
     region: content
     settings: {  }
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 10
+    weight: 13
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   title:
     type: string_textfield
-    weight: 0
+    weight: 1
     region: content
     settings:
       size: 60
