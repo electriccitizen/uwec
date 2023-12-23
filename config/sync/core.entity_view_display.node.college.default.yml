@@ -59,25 +59,6 @@ third_party_settings:
               context_mapping: {  }
             weight: 0
             additional: {  }
-          6c2de863-9f1b-4820-8a8e-e713859c7ca2:
-            uuid: 6c2de863-9f1b-4820-8a8e-e713859c7ca2
-            region: content
-            configuration:
-              id: 'field_block:node:college:field_image'
-              label: 'College Image'
-              label_display: '0'
-              provider: layout_builder
-              context_mapping:
-                entity: layout_builder.entity
-                view_mode: view_mode
-              formatter:
-                type: entity_reference_entity_view
-                label: hidden
-                settings:
-                  view_mode: 730x840
-                third_party_settings: {  }
-            weight: 1
-            additional: {  }
           51b371a3-fbf2-46e5-b8b1-ceff93c27a33:
             uuid: 51b371a3-fbf2-46e5-b8b1-ceff93c27a33
             region: content
@@ -133,6 +114,25 @@ third_party_settings:
                   link_to_entity: false
                 third_party_settings: {  }
             weight: 2
+            additional: {  }
+          6c2de863-9f1b-4820-8a8e-e713859c7ca2:
+            uuid: 6c2de863-9f1b-4820-8a8e-e713859c7ca2
+            region: content
+            configuration:
+              id: 'field_block:node:college:field_image'
+              label: 'College Image'
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: entity_reference_entity_view
+                label: hidden
+                settings:
+                  view_mode: 730x840
+                third_party_settings: {  }
+            weight: 5
             additional: {  }
         third_party_settings: {  }
       -
