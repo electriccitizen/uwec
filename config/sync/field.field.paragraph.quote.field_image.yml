@@ -1,0 +1,29 @@
+uuid: d7476bf6-2b5d-414c-b94e-e5712578a523
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_image
+    - media.type.image
+    - paragraphs.paragraphs_type.quote
+id: paragraph.quote.field_image
+field_name: field_image
+entity_type: paragraph
+bundle: quote
+label: Image
+description: '<strong>Optimal image size:</strong> 720x720px'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

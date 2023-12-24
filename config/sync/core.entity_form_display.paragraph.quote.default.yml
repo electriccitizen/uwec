@@ -1,4 +1,4 @@
-uuid: e2b61d38-3b2d-4180-9f4a-6bf5a37395b6
+uuid: 8317fbd7-068f-432e-9f6b-08096bb15afb
 langcode: en
 status: true
 dependencies:
@@ -8,42 +8,44 @@ dependencies:
     - field.field.paragraph.quote.field_source
     - field.field.paragraph.quote.field_widget_title
     - paragraphs.paragraphs_type.quote
+  module:
+    - media_library
 id: paragraph.quote.default
 targetEntityType: paragraph
 bundle: quote
 mode: default
 content:
   field_image:
-    type: entity_reference_entity_view
-    label: hidden
-    settings:
-      view_mode: square
-      link: false
-    third_party_settings: {  }
+    type: media_library_widget
     weight: 3
     region: content
-  field_quote:
-    type: basic_string
-    label: hidden
-    settings: {  }
+    settings:
+      media_types: {  }
     third_party_settings: {  }
+  field_quote:
+    type: string_textarea
     weight: 1
     region: content
-  field_source:
-    type: string
-    label: hidden
     settings:
-      link_to_entity: false
+      rows: 5
+      placeholder: ''
     third_party_settings: {  }
+  field_source:
+    type: string_textfield
     weight: 2
     region: content
-  field_widget_title:
-    type: string
-    label: hidden
     settings:
-      link_to_entity: false
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
+  field_widget_title:
+    type: string_textfield
     weight: 0
     region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
 hidden:
-  search_api_excerpt: true
+  created: true
+  status: true
