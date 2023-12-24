@@ -44,8 +44,8 @@
   {%- set alignment = paragraph.field_alignment.value -%}
   {%- set imageId = paragraph.field_image.0.target_id -%}
 
-  {% if alignment != 'none' %}
     <div class="caption-{{ alignment }}">
+    {% if alignment != 'none' %}
       <div class="caption">
         {{ content.field_caption_headline }}
         {{ content.field_caption }}
