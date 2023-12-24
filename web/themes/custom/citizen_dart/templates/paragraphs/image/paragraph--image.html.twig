@@ -52,7 +52,7 @@
       </div>
   {% endif %}
       <div class="image-wrapper {{ imageSize }}">
-        {% if content.field_link %}
+        {% if content.field_link.0['#url'] %}
           <a href="{{ content.field_link.0['#url'] }}">
         {% endif %} 
         {{ drupal_entity('media', imageId) }}
