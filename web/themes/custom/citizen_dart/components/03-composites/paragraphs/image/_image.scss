@@ -13,6 +13,7 @@
 		@include bleed(padding,32px);
 		.caption {
 			flex: 1;
+			max-width: $contentStop;
 		}
 	}
 	.caption-right {
