@@ -1,0 +1,21 @@
+uuid: cf88d122-e5c3-4da5-90af-7dc68f3bb0d4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_alignment
+    - paragraphs.paragraphs_type.image
+  module:
+    - options
+id: paragraph.image.field_alignment
+field_name: field_alignment
+entity_type: paragraph
+bundle: image
+label: 'Caption Placement'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string
