@@ -50,15 +50,17 @@
         {{ content.field_caption_headline }}
         {{ content.field_caption }}
       </div>
+  {% endif %}
       <div class="image-wrapper {{ imageSize }}">
+        {% if content.field_link %}
+          <a href="{{ content.field_link.0['#url'] }}">
+        {% endif %} 
         {{ drupal_entity('media', imageId) }}
+        {% if content.field_link %}
+          </a>  
+        {% endif %} 
       </div>    
     </div>
-  {% else %}
-    <div class="image-wrapper {{ imageSize }}">
-        {{ drupal_entity('media', imageId) }}
-      </div>
-  {% endif %}
 {% endblock %}
 
 
