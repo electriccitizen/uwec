@@ -16,6 +16,7 @@ dependencies:
   module:
     - layout_builder
     - media
+    - options
 third_party_settings:
   layout_builder:
     enabled: false
@@ -27,6 +28,13 @@ targetEntityType: paragraph
 bundle: image
 mode: preview
 content:
+  field_alignment:
+    type: list_default
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
   field_image:
     type: media_thumbnail
     label: hidden
@@ -39,7 +47,6 @@ content:
     weight: 0
     region: content
 hidden:
-  field_alignment: true
   field_caption: true
   field_caption_headline: true
   field_image_size: true
