@@ -3,25 +3,15 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.paragraph.quote.field_image
     - field.field.paragraph.quote.field_quote
     - field.field.paragraph.quote.field_source
     - field.field.paragraph.quote.field_widget_title
     - paragraphs.paragraphs_type.quote
-  module:
-    - media_library
 id: paragraph.quote.default
 targetEntityType: paragraph
 bundle: quote
 mode: default
 content:
-  field_image:
-    type: media_library_widget
-    weight: 3
-    region: content
-    settings:
-      media_types: {  }
-    third_party_settings: {  }
   field_quote:
     type: string_textarea
     weight: 1
