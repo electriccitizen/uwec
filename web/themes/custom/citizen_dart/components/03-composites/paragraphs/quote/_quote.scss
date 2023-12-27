@@ -1,0 +1,33 @@
+/* ===============
+   QUOTE WIDGET
+==================== */
+
+@use '../../../00-base/base' as *;
+
+@mixin quote{
+	font-size: 31px;
+	line-height: 48px;
+	font-family: $displayHeader;
+	font-style: italic;
+	.quote-mark{
+		display: block;
+		width: 20px;
+		height: 19px;
+		margin: -16px auto 30px;
+		svg,.cls-1{
+			fill: $navy;
+		}
+	}
+}
+
+.paragraph--type--quote {
+  .quote-wrapper {
+    border-top: $navy 1px solid;
+    border-bottom: $navy 1px solid;
+    padding: $spaceMd 0;
+    text-align: center;
+    .quote {
+      @include quote;
+    }
+  }
+}
