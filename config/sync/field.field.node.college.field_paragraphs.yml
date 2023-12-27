@@ -12,14 +12,15 @@ dependencies:
     - paragraphs.paragraphs_type.gallery
     - paragraphs.paragraphs_type.highlight_box
     - paragraphs.paragraphs_type.image
+    - paragraphs.paragraphs_type.layout_section
     - paragraphs.paragraphs_type.links_files
+    - paragraphs.paragraphs_type.program_search
     - paragraphs.paragraphs_type.programs_list
-    - paragraphs.paragraphs_type.social_media_links
+    - paragraphs.paragraphs_type.snapshot_list
     - paragraphs.paragraphs_type.steps
     - paragraphs.paragraphs_type.testimonial_placer
     - paragraphs.paragraphs_type.text
     - paragraphs.paragraphs_type.video
-    - paragraphs.paragraphs_type.view_placer
   module:
     - entity_reference_revisions
 id: node.college.field_paragraphs
@@ -38,136 +39,137 @@ settings:
     target_bundles:
       accordions: accordions
       links_files: links_files
-      custom_embed: custom_embed
-      gallery: gallery
-      image: image
-      social_media_links: social_media_links
-      text: text
-      video: video
       block_placer: block_placer
       ctas: ctas
+      custom_embed: custom_embed
+      gallery: gallery
       highlight_box: highlight_box
+      image: image
+      layout_section: layout_section
       programs_list: programs_list
+      program_search: program_search
+      snapshot_list: snapshot_list
       steps: steps
       testimonial_placer: testimonial_placer
-      view_placer: view_placer
+      text: text
+      video: video
     negate: 0
     target_bundles_drag_drop:
       accordion_item:
-        weight: -27
+        weight: -79
         enabled: false
       accordions:
-        weight: -26
+        weight: -78
         enabled: true
       block_placer:
-        weight: 42
+        weight: -76
         enabled: true
       button:
-        weight: 43
+        weight: -58
         enabled: false
       contact_placer:
-        weight: 44
+        weight: -57
         enabled: false
       content_carousel:
-        weight: 45
+        weight: -56
         enabled: false
       cta_item:
-        weight: 47
+        weight: -55
         enabled: false
       ctas:
-        weight: 46
+        weight: -75
         enabled: true
       custom_embed:
-        weight: -23
+        weight: -74
         enabled: true
       events_list:
-        weight: 49
+        weight: -54
         enabled: false
       facts_list:
-        weight: 50
+        weight: -53
         enabled: false
       fauxfile:
-        weight: 51
+        weight: -73
         enabled: false
       fauxfile_item:
-        weight: 52
+        weight: -52
         enabled: false
       gallery:
-        weight: -22
+        weight: -72
         enabled: true
       gallery_item:
-        weight: -16
+        weight: -59
         enabled: false
       hallmark:
-        weight: 55
+        weight: -51
         enabled: false
       hero:
-        weight: 56
+        weight: -50
         enabled: false
       highlight_box:
-        weight: 57
+        weight: -71
         enabled: true
       hours_placer:
-        weight: 58
+        weight: -49
         enabled: false
       hours_set:
-        weight: 59
+        weight: -48
         enabled: false
       image:
-        weight: -21
+        weight: -70
         enabled: true
       layout_section:
-        weight: -20
-        enabled: false
+        weight: -69
+        enabled: true
       links_files:
-        weight: -25
+        weight: -77
         enabled: true
       profiles_list:
-        weight: 63
+        weight: -47
         enabled: false
       program_search:
-        weight: 65
-        enabled: false
+        weight: -66
+        enabled: true
       programs_list:
-        weight: 64
+        weight: -67
         enabled: true
       quote:
-        weight: 66
+        weight: -46
         enabled: false
       select_item:
-        weight: 67
+        weight: -45
         enabled: false
       select_type:
-        weight: 68
+        weight: -44
         enabled: false
       snapshot_list:
-        weight: 69
-        enabled: false
-      social_media_links:
-        weight: -19
+        weight: -65
         enabled: true
+      social_media_links:
+        weight: -68
+        enabled: false
       step_item:
-        weight: 72
+        weight: -43
         enabled: false
       steps:
-        weight: 71
+        weight: -64
         enabled: true
       stories_video_list:
-        weight: 73
+        weight: -42
         enabled: false
       testimonial_placer:
-        weight: 74
+        weight: -63
         enabled: true
       text:
-        weight: -18
+        weight: -62
         enabled: true
       video:
-        weight: -17
+        weight: -61
         enabled: true
       view_placer:
-        weight: 77
-        enabled: true
+        weight: -60
+        enabled: false
       wayfinding:
-        weight: 78
+        weight: -41
         enabled: false
 field_type: entity_reference_revisions
