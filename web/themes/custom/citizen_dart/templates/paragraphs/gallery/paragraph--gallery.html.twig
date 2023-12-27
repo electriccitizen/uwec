@@ -74,13 +74,14 @@
 	      {% endblock %}
       {% elseif 'masonry' in galleryStyle %}
 				{% block masonryContent %}
+					{{ attach_library('citizen_dart/masonry') }}
 					{# Initialize an empty array to store items with size class #}
 					{% set itemsWithClass = [] %}
 
 					{# Assign size class to each item and add to the array #}
 					{%- for key, item in content.field_gallery_items -%}
 						{%- if key|first != '#' and item['#paragraph'].field_image.0.target_id > 0 -%}
-							{% set size_class = (loop.index is odd) ? 'square' : 'large' %}
+							{% set size_class = (loop.index is odd) ? 'small' : 'large' %}
 							{% set itemsWithClass = itemsWithClass|merge([{ 'item': item, 'class': size_class }]) %}
 						{%- endif -%}
 					{%- endfor -%}

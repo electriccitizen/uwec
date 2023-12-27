@@ -47,25 +47,13 @@
 		}
 	}//end slider
 	.masonry {
-		.gallery-wrapper {
-			columns: 6 200px;
-			column-gap: 1rem;
-			& > div {
-				color: white;
-				margin: 0 1rem 1rem 0;
-				display: block;
-				width: 100%;
-				text-align: center;
-				font-family: system-ui;
-				font-weight: 900;
-				font-size: 2rem;
-			} 
-			@for $i from 1 through 36 { 
-				& > div:nth-child(#{$i}) {
-					$h: (random(400) + 100) + px;
-					width: $h;
-					line-height: $h;
-				}
+		.masonry-item {
+			margin-bottom: 2rem;
+			&.small {
+				width: 300px;
+			}
+			&.large {
+				width: 600px;
 			}
 		}
 	}

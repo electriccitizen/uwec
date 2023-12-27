@@ -74,6 +74,10 @@ list-view:
   version: 1.0
   js:
     components/03-composites/views/list-view.js: {}
+masonry:
+  version: 4.2.2
+  js:
+    components-addons/masonry/masonry.min.js: { minified: true }
 modal:
   version: 1.0
   js:
