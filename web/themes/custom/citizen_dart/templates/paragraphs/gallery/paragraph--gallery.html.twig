@@ -52,6 +52,7 @@
 		          <div class="featherlight-gal image-gal" href="#item{{ item['#paragraph'].field_image.0.target_id }}" rel="gallery-{{ paragraph.id.value }}">
                 {{ drupal_entity('media', item['#paragraph'].field_image.0.target_id, 'square') }}
 		            <div class="featherlight-hidden" id="item{{ item['#paragraph'].field_image.0.target_id }}">
+									<span class="featherlight-counter">{{key + 1}}/{{content.field_gallery_items['#items']|length}}</span>
 		              {{ drupal_entity('media', item['#paragraph'].field_image.0.target_id, '650x650') }}
                   <div class="featherlight-caption">
                     {% if item['#paragraph'].field_caption_headline.0.value %}
@@ -72,9 +73,29 @@
   	 			{{- content.field_gallery_items -}}
 	      {% endblock %}
       {% elseif 'masonry' in galleryStyle %}
-        {% block masonryContent %}
-          <p>Masonry</p>
-        {% endblock %}
+				{% block masonryContent %}
+					{# Initialize an empty array to store items with size class #}
+					{% set itemsWithClass = [] %}
+
+					{# Assign size class to each item and add to the array #}
+					{%- for key, item in content.field_gallery_items -%}
+						{%- if key|first != '#' and item['#paragraph'].field_image.0.target_id > 0 -%}
+							{% set size_class = (loop.index is odd) ? 'square' : 'large' %}
+							{% set itemsWithClass = itemsWithClass|merge([{ 'item': item, 'class': size_class }]) %}
+						{%- endif -%}
+					{%- endfor -%}
+
+					{# Shuffle the array of items with their assigned classes #}
+					{% set shuffledItems = itemsWithClass|shuffle %}
+
+					{# Render the shuffled items #}
+					{%- for itemWithClass in shuffledItems -%}
+							{% set image_id = itemWithClass.item['#paragraph'].field_image.0.target_id %}
+							<div class="masonry-item {{ itemWithClass.class }}">
+									{{ drupal_entity('media', image_id) }}
+							</div>
+					{%- endfor -%}
+				{% endblock %}
 	    {% endif %}
 	  </div>
 	</div>
