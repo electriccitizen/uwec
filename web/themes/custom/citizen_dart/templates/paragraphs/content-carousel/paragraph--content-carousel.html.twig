@@ -43,8 +43,9 @@
     {{ attach_library('citizen_dart/content-carousel') }}
 
     {% set showMe = [] %}
-    {% for item in content.field_list_widgets['#items'] %}
+						{{ dpm(paragraph)}}
 
+    {% for item in paragraph.field_list_widgets %}
         {% set showItem = null %}
         {% set showItem2 = null %}
 
