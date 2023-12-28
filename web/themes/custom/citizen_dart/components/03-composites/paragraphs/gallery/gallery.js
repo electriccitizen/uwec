@@ -13,6 +13,7 @@
 						galleryFadeIn: 300,
 						openSpeed: 300
 					});
+					$('.')
 				});
 			});
 			//Slider
@@ -23,6 +24,15 @@
 						autoplay: true,
 						autoplaySpeed: 5000
 					});
+				});
+			});
+			// Masonry
+			$(once('masonry', '.gallery-style.masonry', context)).each(function(){
+				$(this).masonry({
+					// options
+					itemSelector: '.masonry-item',
+					columnWidth: 300,
+					gutter: 16
 				});
 			});
 		}
