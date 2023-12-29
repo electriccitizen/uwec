@@ -6,22 +6,30 @@ dependencies:
     - field.field.node.department.body
     - field.field.node.department.field_college
     - field.field.node.department.field_contact
+    - field.field.node.department.field_content_carousel
     - field.field.node.department.field_domain_access
     - field.field.node.department.field_domain_all_affiliates
     - field.field.node.department.field_domain_source
+    - field.field.node.department.field_editorial_sections
     - field.field.node.department.field_faculty_link
     - field.field.node.department.field_hallmarks
     - field.field.node.department.field_hours_library
+    - field.field.node.department.field_intro_text
+    - field.field.node.department.field_links
     - field.field.node.department.field_meta_description
     - field.field.node.department.field_metatags
+    - field.field.node.department.field_paragraphs
     - field.field.node.department.field_placement_tags
     - field.field.node.department.field_platforms
+    - field.field.node.department.field_subtitle
+    - field.field.node.department.field_whats_next
     - field.field.node.department.layout_builder__layout
     - node.type.department
     - workflows.workflow.non_moderated
   module:
     - content_moderation
     - field_group
+    - layout_paragraphs
     - link
     - metatag
     - paragraphs
@@ -82,6 +90,25 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+  field_content_carousel:
+    type: paragraphs
+    weight: 11
+    region: content
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: closed
+      closed_mode: preview
+      autocollapse: none
+      closed_mode_threshold: 0
+      add_mode: button
+      form_display_mode: default
+      default_paragraph_type: _none
+      features:
+        add_above: '0'
+        collapse_edit_all: collapse_edit_all
+        duplicate: '0'
+    third_party_settings: {  }
   field_domain_access:
     type: options_buttons
     weight: 6
@@ -98,6 +125,12 @@ content:
   field_domain_source:
     type: options_select
     weight: 8
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_editorial_sections:
+    type: options_buttons
+    weight: 1
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -138,6 +171,24 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+  field_intro_text:
+    type: text_textarea_with_summary
+    weight: 3
+    region: content
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+      show_summary: false
+    third_party_settings: {  }
+  field_links:
+    type: link_default
+    weight: 33
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
   field_meta_description:
     type: string_textfield
     weight: 1
@@ -153,6 +204,16 @@ content:
     settings:
       sidebar: true
       use_details: true
+    third_party_settings: {  }
+  field_paragraphs:
+    type: layout_paragraphs
+    weight: 13
+    region: content
+    settings:
+      preview_view_mode: preview
+      nesting_depth: 0
+      require_layouts: 1
+      empty_message: ''
     third_party_settings: {  }
   field_placement_tags:
     type: entity_reference_autocomplete
@@ -171,6 +232,20 @@ content:
     settings:
       placeholder_url: ''
       placeholder_title: ''
+    third_party_settings: {  }
+  field_subtitle:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_whats_next:
+    type: options_select
+    weight: 19
+    region: content
+    settings: {  }
     third_party_settings: {  }
   moderation_state:
     type: moderation_state_default

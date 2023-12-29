@@ -1,0 +1,29 @@
+uuid: dccc1a0d-e149-4670-8609-5332974d3c37
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.reusable_widgets
+    - field.storage.node.field_whats_next
+    - node.type.department
+id: node.department.field_whats_next
+field_name: field_whats_next
+entity_type: node
+bundle: department
+label: "What's Next"
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:block_content'
+  handler_settings:
+    target_bundles:
+      reusable_widgets: reusable_widgets
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

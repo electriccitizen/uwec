@@ -6,16 +6,23 @@ dependencies:
     - field.field.node.department.body
     - field.field.node.department.field_college
     - field.field.node.department.field_contact
+    - field.field.node.department.field_content_carousel
     - field.field.node.department.field_domain_access
     - field.field.node.department.field_domain_all_affiliates
     - field.field.node.department.field_domain_source
+    - field.field.node.department.field_editorial_sections
     - field.field.node.department.field_faculty_link
     - field.field.node.department.field_hallmarks
     - field.field.node.department.field_hours_library
+    - field.field.node.department.field_intro_text
+    - field.field.node.department.field_links
     - field.field.node.department.field_meta_description
     - field.field.node.department.field_metatags
+    - field.field.node.department.field_paragraphs
     - field.field.node.department.field_placement_tags
     - field.field.node.department.field_platforms
+    - field.field.node.department.field_subtitle
+    - field.field.node.department.field_whats_next
     - field.field.node.department.layout_builder__layout
     - node.type.department
     - system.menu.departments
@@ -27,6 +34,7 @@ dependencies:
     - layout_builder
     - layout_builder_restrictions
     - layout_discovery
+    - layout_paragraphs
     - link
     - menu_block
     - metatag
@@ -96,6 +104,124 @@ third_party_settings:
                   link: true
                 third_party_settings: {  }
             weight: 4
+            additional: {  }
+          c6067889-6b5b-4542-9d0e-286a24fe3c77:
+            uuid: c6067889-6b5b-4542-9d0e-286a24fe3c77
+            region: content
+            configuration:
+              id: 'field_block:node:department:field_subtitle'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: string
+                label: hidden
+                settings:
+                  link_to_entity: false
+                third_party_settings: {  }
+            weight: 5
+            additional: {  }
+          67563ab3-8286-4c5c-a1ec-c862969b47a0:
+            uuid: 67563ab3-8286-4c5c-a1ec-c862969b47a0
+            region: content
+            configuration:
+              id: 'field_block:node:department:field_intro_text'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: text_default
+                label: hidden
+                settings: {  }
+                third_party_settings: {  }
+            weight: 6
+            additional: {  }
+          7eecc143-12bb-4990-b105-bda89e691dd2:
+            uuid: 7eecc143-12bb-4990-b105-bda89e691dd2
+            region: content
+            configuration:
+              id: 'field_block:node:department:field_links'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: link
+                label: hidden
+                settings:
+                  trim_length: 80
+                  url_only: false
+                  url_plain: false
+                  rel: '0'
+                  target: '0'
+                third_party_settings: {  }
+            weight: 7
+            additional: {  }
+          319ff3f9-ddb3-49ec-89ba-78414b308ffd:
+            uuid: 319ff3f9-ddb3-49ec-89ba-78414b308ffd
+            region: content
+            configuration:
+              id: 'field_block:node:department:field_content_carousel'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: entity_reference_revisions_entity_view
+                label: hidden
+                settings:
+                  view_mode: default
+                  link: ''
+                third_party_settings: {  }
+            weight: 8
+            additional: {  }
+          d528b8e8-4a7f-4275-b93a-7b1e24bbea72:
+            uuid: d528b8e8-4a7f-4275-b93a-7b1e24bbea72
+            region: content
+            configuration:
+              id: 'field_block:node:department:field_paragraphs'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: layout_paragraphs
+                label: hidden
+                settings:
+                  view_mode: default
+                  link: ''
+                third_party_settings: {  }
+            weight: 9
+            additional: {  }
+          444f03c7-8056-42b8-9597-4f66ba49137f:
+            uuid: 444f03c7-8056-42b8-9597-4f66ba49137f
+            region: content
+            configuration:
+              id: 'field_block:node:department:field_whats_next'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: entity_reference_entity_view
+                label: hidden
+                settings:
+                  view_mode: default
+                  link: false
+                third_party_settings: {  }
+            weight: 10
+            additional: {  }
+          1cd2b87b-af7d-4611-a016-eb0eb12d5efe:
+            uuid: 1cd2b87b-af7d-4611-a016-eb0eb12d5efe
+            region: content
+            configuration:
+              id: 'field_block:node:department:field_editorial_sections'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: entity_reference_label
+                label: above
+                settings:
+                  link: true
+                third_party_settings: {  }
+            weight: 11
             additional: {  }
         third_party_settings: {  }
       -
@@ -312,6 +438,23 @@ content:
     third_party_settings: {  }
     weight: 106
     region: content
+  field_content_carousel:
+    type: entity_reference_revisions_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 112
+    region: content
+  field_editorial_sections:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 107
+    region: content
   field_faculty_link:
     type: link
     label: above
@@ -342,6 +485,25 @@ content:
     third_party_settings: {  }
     weight: 107
     region: content
+  field_intro_text:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 108
+    region: content
+  field_links:
+    type: link
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: '0'
+      target: '0'
+    third_party_settings: {  }
+    weight: 111
+    region: content
   field_meta_description:
     type: string
     label: above
@@ -356,6 +518,15 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: 103
+    region: content
+  field_paragraphs:
+    type: layout_paragraphs
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 113
     region: content
   field_placement_tags:
     type: entity_reference_label
@@ -376,6 +547,23 @@ content:
       target: '0'
     third_party_settings: {  }
     weight: 108
+    region: content
+  field_subtitle:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 110
+    region: content
+  field_whats_next:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 114
     region: content
   links:
     settings: {  }
