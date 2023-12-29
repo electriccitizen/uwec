@@ -1,0 +1,145 @@
+uuid: e0e37a27-3689-4ecd-a464-6ac877ad6955
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_paragraphs
+    - node.type.department
+    - paragraphs.paragraphs_type.events_list
+  module:
+    - entity_reference_revisions
+id: node.department.field_paragraphs
+field_name: field_paragraphs
+entity_type: node
+bundle: department
+label: 'Events List'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      events_list: events_list
+    negate: 0
+    target_bundles_drag_drop:
+      accordion_item:
+        weight: -79
+        enabled: false
+      accordions:
+        weight: -78
+        enabled: false
+      block_placer:
+        weight: -76
+        enabled: false
+      button:
+        weight: -62
+        enabled: false
+      contact_placer:
+        weight: -61
+        enabled: false
+      content_carousel:
+        weight: -60
+        enabled: false
+      cta_item:
+        weight: -59
+        enabled: false
+      ctas:
+        weight: -75
+        enabled: false
+      custom_embed:
+        weight: -74
+        enabled: false
+      events_list:
+        weight: -58
+        enabled: true
+      facts_list:
+        weight: -57
+        enabled: false
+      fauxfile:
+        weight: -56
+        enabled: false
+      fauxfile_item:
+        weight: -55
+        enabled: false
+      gallery:
+        weight: -73
+        enabled: false
+      gallery_item:
+        weight: -63
+        enabled: false
+      hallmark:
+        weight: -54
+        enabled: false
+      hero:
+        weight: -53
+        enabled: false
+      highlight_box:
+        weight: -72
+        enabled: false
+      hours_placer:
+        weight: -52
+        enabled: false
+      hours_set:
+        weight: -51
+        enabled: false
+      image:
+        weight: -71
+        enabled: false
+      layout_section:
+        weight: -70
+        enabled: false
+      links_files:
+        weight: -77
+        enabled: false
+      profiles_list:
+        weight: -50
+        enabled: false
+      program_search:
+        weight: -48
+        enabled: false
+      programs_list:
+        weight: -49
+        enabled: false
+      quote:
+        weight: -47
+        enabled: false
+      select_item:
+        weight: -46
+        enabled: false
+      select_type:
+        weight: -45
+        enabled: false
+      snapshot_list:
+        weight: -69
+        enabled: false
+      social_media_links:
+        weight: -67
+        enabled: false
+      step_item:
+        weight: -44
+        enabled: false
+      steps:
+        weight: -68
+        enabled: false
+      stories_video_list:
+        weight: -43
+        enabled: false
+      testimonial_placer:
+        weight: -66
+        enabled: false
+      text:
+        weight: -65
+        enabled: false
+      video:
+        weight: -64
+        enabled: false
+      view_placer:
+        weight: -42
+        enabled: false
+      wayfinding:
+        weight: -41
+        enabled: false
+field_type: entity_reference_revisions
