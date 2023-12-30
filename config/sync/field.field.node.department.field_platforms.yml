@@ -12,7 +12,7 @@ field_name: field_platforms
 entity_type: node
 bundle: department
 label: 'Social media'
-description: 'Paste in the links to your platform pages. <strong>WARNING:</strong> Only Facebook, Twitter, LinkedIn, Instagram, Snapchat, TikTok, Flickr, Blogger, Pinterest, Tumblr, and YouTube are supported. '
+description: 'Paste in the links to your platform pages. <strong>WARNING:</strong> Only Facebook, Twitter, LinkedIn, Instagram, Snapchat, TikTok and YouTube are supported.'
 required: false
 translatable: false
 default_value: {  }
