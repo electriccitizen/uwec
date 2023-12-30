@@ -42,6 +42,11 @@ function citizen_custom_theme() {
         'title' => 'Site Search',
       ],
     ],
+    'program_search' => [
+      'variables' => [
+        'title' => 'Program Search',
+      ],
+    ],
 	'social_share_block' => [
       'variables' => [
         'title' => 'Social Share',
@@ -213,6 +218,17 @@ function citizen_custom_local_tasks_alter(&$local_tasks) {
  * @see \Drupal\search\Form\SearchBlockForm
  */
 function citizen_custom_form_site_search_form_alter(&$form, FormStateInterface $form_state) {
+  $form['form_build_id']['#access'] = FALSE;
+  $form['form_token']['#access'] = FALSE;
+  $form['form_id']['#access'] = FALSE;
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ *
+ * @see \Drupal\search\Form\SearchBlockForm
+ */
+function citizen_custom_form_program_search_form_alter(&$form, FormStateInterface $form_state) {
   $form['form_build_id']['#access'] = FALSE;
   $form['form_token']['#access'] = FALSE;
   $form['form_id']['#access'] = FALSE;
