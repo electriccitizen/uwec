@@ -120,7 +120,7 @@ display:
             offset_label: Offset
           quantity: 9
       exposed_form:
-        type: input_required
+        type: basic
         options:
           submit_button: Search
           reset_button: true
@@ -129,8 +129,6 @@ display:
           expose_sort_order: false
           sort_asc_label: Asc
           sort_desc_label: Desc
-          text_input_required: 'Enter your keywords to perform a site search. More keywords will provide a narrower search.'
-          text_input_required_format: basic_html
       access:
         type: none
         options: {  }

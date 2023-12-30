@@ -235,13 +235,10 @@ function citizen_custom_form_program_search_form_alter(&$form, FormStateInterfac
 }
 
 function citizen_custom_form_views_exposed_form_alter(&$form, FormStateInterface $form_state, $form_id) {
-    dpm($form);
     // If not the view we are looking, move on
     if ($form['#id'] != 'views-exposed-form-program-search-program-search') {
      return FALSE;
     }
-
-    dpm($form);
  
     // Query nodes
     $storage = Drupal::getContainer()->get('entity_type.manager')->getStorage('node');
@@ -253,9 +250,6 @@ function citizen_custom_form_views_exposed_form_alter(&$form, FormStateInterface
      ->sort('title')
      ->accessCheck(TRUE)
      ->execute();
-
-
-     dpm($nids);
  
     // If there are no nodes, move on
     if (!$nids) {
@@ -266,9 +260,10 @@ function citizen_custom_form_views_exposed_form_alter(&$form, FormStateInterface
     $options = [];
     $nodes = $storage->loadMultiple($nids);
  
+    $options[''] = '- Any -';
     // Push titles into select list
     foreach ($nodes as $node) {
-     $options[$node->id()] = $node->getTitle();
+      $options[$node->id()] = $node->getTitle();
     }
  
     // Start building out our new form element
@@ -281,9 +276,7 @@ function citizen_custom_form_views_exposed_form_alter(&$form, FormStateInterface
     $form[$college_filter]['#options'] = $options;
 
     // Add t('- Any -'); as the first value in the options array
-    $form[$college_filter]['#options'] = array_merge(['All' => t('- Any -')], $form[$college_filter]['#options']);
     unset($form[$college_filter]['#size']);
-    dpm($form);
   }
 
 /**
