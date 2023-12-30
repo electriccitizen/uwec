@@ -21,6 +21,7 @@ dependencies:
     - field.field.node.college.layout_builder__layout
     - node.type.college
     - system.menu.main
+    - views.view.departments
     - views.view.facts
     - views.view.news
   module:
@@ -178,6 +179,19 @@ third_party_settings:
               parent: 'main:'
               suggestion: main
             weight: 0
+            additional: {  }
+          eb7e3f6a-9f73-4f25-b4f4-84d69aa45428:
+            uuid: eb7e3f6a-9f73-4f25-b4f4-84d69aa45428
+            region: content
+            configuration:
+              id: 'views_block:departments-by_college'
+              label: ''
+              label_display: '0'
+              provider: views
+              context_mapping: {  }
+              views_label: ''
+              items_per_page: none
+            weight: 1
             additional: {  }
         third_party_settings: {  }
       -
