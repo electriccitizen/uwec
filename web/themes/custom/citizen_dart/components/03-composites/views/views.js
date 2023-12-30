@@ -19,7 +19,7 @@ Drupal.behaviors.viewsExposed = {
       }
 
       let vars = '';
-			$('.views-exposed-form input:not(#edit-submit-profile-search)').each((i, v) => {
+			$('.views-exposed-form input:not(#edit-submit-profile-search):not(#edit-submit-program-search):not(#edit-reset)').each((i, v) => {
 			  var isLastElement = i == v.length -1;
 			  if (isLastElement) {
 			    vars += $(v).val();
