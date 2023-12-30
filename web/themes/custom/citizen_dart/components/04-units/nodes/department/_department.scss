@@ -6,6 +6,17 @@
 @use '../node-mixins' as *;
 
 .node-department{
+	.block-field-college,
+	.block-field-subtitle,
+	.block-field-intro-text {
+		max-width: $textMax;
+		@include auto;
+	}
+	.block-field-links {
+		@include safeFlex(row,wrap,end,start);
+		max-width: $textMax;
+		@include auto;
+	}
 	#node-section-4{
 		@include contactSection;
 	}//end node-section-4
