@@ -27,6 +27,9 @@ Drupal.behaviors.select2 = {
       $( 'form.views-exposed-form select,form.webform-submission-form select' ).select2({
         placeholder: "Select an option"
       });
+      $( 'form.views-exposed-form select#edit-college-filter' ).select2({
+        placeholder: "- Any -"
+      });
       $(once('selectAccessiblity', '.js-form-type-select', context)).each(function(){
         $(document).ready(function(){
           $('.select2-search__field').each(function(){
