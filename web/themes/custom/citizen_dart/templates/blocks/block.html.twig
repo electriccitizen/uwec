@@ -25,7 +25,6 @@
  * @see template_preprocess_block()
  */
 #}
-
 {% if plugin_id %}
   {% if 'views_block' in plugin_id  %}
     {% set pluginClass = 'views-block block-' ~ content['#name']|clean_class ~ ' block-' ~ content['#display_id']|clean_class%}
