@@ -41,12 +41,13 @@
 			width: 96px;
 			height: 96px;
 			top: calc(50% - 48px);
-			left: -100px;
+			left: 100px;
 			bottom: auto;
 			right: auto;
 			@include sliderPrev;
 			&:hover,&:focus {
 				background-image: url(../images/arrows/slider-arrow-left-ice.svg);
+				background-color: transparent;
 				@include transition(background-image, 0.3s, ease);
 			}
 			span {
@@ -60,12 +61,13 @@
 			width: 96px;
 			height: 96px;
 			top: calc(50% - 48px);
-			right: -100px;
+			right: 100px;
 			bottom: auto;
 			left: auto;
 			@include sliderNext;
 			&:hover,&:focus {
 				background-image: url(../images/arrows/slider-arrow-right-ice.svg);
+				background-color: transparent;
 				@include transition(background-image, 0.3s, ease);
 			}
 			span {
