@@ -6,7 +6,6 @@ dependencies:
     - core.entity_view_mode.paragraph.preview
     - field.field.paragraph.quote.field_quote
     - field.field.paragraph.quote.field_source
-    - field.field.paragraph.quote.field_widget_title
     - paragraphs.paragraphs_type.quote
   module:
     - layout_builder
@@ -28,5 +27,4 @@ content:
     region: content
 hidden:
   field_source: true
-  field_widget_title: true
   search_api_excerpt: true
