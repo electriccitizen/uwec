@@ -1,0 +1,8 @@
+uuid: 3ea820f1-98aa-40aa-b339-89eebf458d4b
+langcode: en
+status: true
+dependencies: {  }
+id: slate_form
+label: 'Slate form'
+revision: 0
+description: 'Adds Slate form to program pages'
