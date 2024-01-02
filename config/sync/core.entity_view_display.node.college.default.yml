@@ -177,7 +177,7 @@ third_party_settings:
               depth: 3
               expand_all_items: false
               parent: 'main:'
-              suggestion: main
+              suggestion: section_menu
             weight: 0
             additional: {  }
           eb7e3f6a-9f73-4f25-b4f4-84d69aa45428:
