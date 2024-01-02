@@ -188,7 +188,7 @@ third_party_settings:
               depth: 3
               expand_all_items: true
               parent: 'departments:'
-              suggestion: departments_menu
+              suggestion: section_menu
             weight: 0
             additional: {  }
           89d3ca89-0adf-4865-b449-98e49794a541:
