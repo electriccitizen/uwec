@@ -1,0 +1,19 @@
+/* ==================
+    PROGRAM SEARCH VIEWS
+==================== */
+
+@use '../../../00-base/base' as *;
+@use '../views-mixins' as *;
+
+.view.program-search {
+	max-width: 984px;
+	@include auto;
+	@include tab{
+  	.view-content{
+  		width: 100%;
+  		display: grid;
+			grid-template-columns: 1fr 1fr 1fr;
+	  	grid-gap: 65px;
+  	}// end programs-wrapper
+	}//end tab
+}//end programs-list widget

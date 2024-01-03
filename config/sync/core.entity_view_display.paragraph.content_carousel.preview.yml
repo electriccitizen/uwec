@@ -4,6 +4,8 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.paragraph.preview
+    - field.field.paragraph.content_carousel.field_list_widgets
+    - field.field.paragraph.content_carousel.field_tag
     - paragraphs.paragraphs_type.content_carousel
   module:
     - layout_builder
@@ -15,6 +17,15 @@ id: paragraph.content_carousel.preview
 targetEntityType: paragraph
 bundle: content_carousel
 mode: preview
-content: {  }
+content:
+  field_tag:
+    type: entity_reference_label
+    label: hidden
+    settings:
+      link: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
 hidden:
+  field_list_widgets: true
   search_api_excerpt: true

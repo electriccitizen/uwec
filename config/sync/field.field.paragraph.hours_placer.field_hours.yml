@@ -1,0 +1,29 @@
+uuid: 48b25c77-4f4d-48c5-8b54-9565cbb9a357
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_hours
+    - node.type.hours
+    - paragraphs.paragraphs_type.hours_placer
+id: paragraph.hours_placer.field_hours
+field_name: field_hours
+entity_type: paragraph
+bundle: hours_placer
+label: Hours
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      hours: hours
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

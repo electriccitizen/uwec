@@ -1,0 +1,46 @@
+/* ==================
+    FACTSA VIEWS
+==================== */
+
+@use '../../../00-base/base' as *;
+@use '../views-mixins' as *;
+
+/* FACTS LIST
+------------- */
+.facts.list {
+	
+}//end facts list
+
+.facts.recent-by-tag{
+	max-width: 984px;
+	@include auto;
+	.facts-wrapper{
+		width: 100%;
+		display: grid;
+		grid-template-columns: 33.33% 33.33% 33.33%;
+  	grid-gap: 65px;
+  	@include factsGrid;
+	}
+	.facts-title{
+		grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 2;
+  	position: relative;
+  	@include headerGlobals;
+  	font-size: 73px;
+  	line-height: 73px;
+  	text-align: center;
+  	font-style: italic;
+  	text-transform: uppercase;
+  	letter-spacing: 3.65px;
+  	strong{
+  		font-size: 78.731px;
+  		line-height: normal;
+  		font-style: normal;
+  		font-family: $header;
+  		font-weight: $xHeavy;
+  		letter-spacing: normal;
+  	}
+	}
+}

@@ -12,8 +12,8 @@ id: node.academic_program.body
 field_name: body
 entity_type: node
 bundle: academic_program
-label: 'Intro Text'
-description: ''
+label: Description
+description: 'Always start with an H2 headline.'
 required: false
 translatable: true
 default_value: {  }

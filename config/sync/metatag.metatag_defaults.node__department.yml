@@ -1,0 +1,9 @@
+uuid: 59dda93e-a614-47f5-a2d1-6c0474cd9a10
+langcode: en
+status: true
+dependencies: {  }
+id: node__department
+label: 'Content: Department'
+tags:
+  abstract: '[node:field_meta_description]'
+  description: '[node:field_meta_description]'

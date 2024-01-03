@@ -1,0 +1,26 @@
+uuid: b8f3f8db-a0f6-4705-958e-2c20ab7eab8a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_licensure
+    - filter.format.limited_html
+    - node.type.academic_program
+  module:
+    - text
+id: node.academic_program.field_licensure
+field_name: field_licensure
+entity_type: node
+bundle: academic_program
+label: 'Licensure information'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: false
+  required_summary: false
+  allowed_formats:
+    - limited_html
+field_type: text_with_summary

@@ -1,0 +1,25 @@
+uuid: 8c918f71-694e-4f09-a92e-2ec66073f4fa
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.hours_placer.field_hours
+    - paragraphs.paragraphs_type.hours_placer
+id: paragraph.hours_placer.default
+targetEntityType: paragraph
+bundle: hours_placer
+mode: default
+content:
+  field_hours:
+    type: entity_reference_autocomplete
+    weight: 0
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

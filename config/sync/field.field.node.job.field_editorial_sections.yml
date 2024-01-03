@@ -1,0 +1,33 @@
+uuid: 189babdf-61ad-4385-857a-12d4e23a00e0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_editorial_sections
+    - node.type.job
+    - taxonomy.vocabulary.editorial_sections
+  content:
+    - 'taxonomy_term:editorial_sections:6bf449e8-79dc-4f42-aa1e-b9b37e403b43'
+id: node.job.field_editorial_sections
+field_name: field_editorial_sections
+entity_type: node
+bundle: job
+label: 'Editorial sections'
+description: 'Assign content to editorial sections in order to control access'
+required: true
+translatable: false
+default_value:
+  -
+    target_uuid: 6bf449e8-79dc-4f42-aa1e-b9b37e403b43
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      editorial_sections: editorial_sections
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -12,8 +12,8 @@ id: node.department.body
 field_name: body
 entity_type: node
 bundle: department
-label: 'Intro Text'
-description: ''
+label: 'Majors and Minors Description'
+description: 'Always start with an H2 headline.'
 required: false
 translatable: true
 default_value: {  }

@@ -1,0 +1,27 @@
+uuid: a7ef7efd-3420-4ae9-ade0-3ee43ab4d459
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.content_carousel.field_list_widgets
+    - field.field.paragraph.content_carousel.field_tag
+    - paragraphs.paragraphs_type.content_carousel
+id: paragraph.content_carousel.default
+targetEntityType: paragraph
+bundle: content_carousel
+mode: default
+content:
+  field_tag:
+    type: entity_reference_autocomplete
+    weight: 0
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  field_list_widgets: true
+  status: true

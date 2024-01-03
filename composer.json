@@ -34,6 +34,7 @@
     "drupal/core-recommended": "^10",
     "drupal/crop": "^2.1",
     "drupal/ctools": "^4.0",
+    "drupal/date_popup": "^2.0",
     "drupal/default_content": "^2.0",
     "drupal/devel": "^5.0",
     "drupal/domain": "^2.0@beta",
@@ -75,6 +76,7 @@
     "drupal/redirect": "^1.6",
     "drupal/responsive_preview": "^2.0",
     "drupal/role_delegation": "^1.1",
+    "drupal/samlauth": "^3.9",
     "drupal/scheduler_content_moderation_integration": "^2.0@beta",
     "drupal/search_api": "^1.18",
     "drupal/smart_date": "^4.0",
@@ -130,7 +132,8 @@
       	"Media library won't allow media in two fields with the same name on nodes": "https://www.drupal.org/files/issues/2023-02-28/3345064.patch",
         "Update module can get 'stuck' with 'no releases available', https://www.drupal.org/project/drupal/issues/2920285": "https://www.drupal.org/files/issues/2920285-update-status.patch",
         "Required summary forces default value": "https://www.drupal.org/files/issues/2020-09-25/3167773-summary_required-8.patch",
-        "Move add another outside of modals": "https://www.drupal.org/files/issues/2023-09-14/3151534-D10.1.x-based-on-77--81.patch"
+        "Move add another outside of modals": "https://www.drupal.org/files/issues/2023-09-14/3151534-D10.1.x-based-on-77--81.patch",
+        "Views bulk content moderation": "https://www.drupal.org/files/issues/2023-03-10/2797583-218.patch"
       },
       "drupal/focal_point": {
         "Preview modal closes media library": "https://www.drupal.org/files/issues/2020-10-06/3162210-17.patch",

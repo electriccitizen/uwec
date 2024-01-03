@@ -1,0 +1,24 @@
+uuid: 86b44fc3-951d-479c-849d-1a490ce0c877
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_outcome_text
+    - filter.format.limited_html
+    - node.type.academic_program
+  module:
+    - text
+id: node.academic_program.field_outcome_text
+field_name: field_outcome_text
+entity_type: node
+bundle: academic_program
+label: 'What can I do'
+description: 'Always start with an H2 headline.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - limited_html
+field_type: text_long

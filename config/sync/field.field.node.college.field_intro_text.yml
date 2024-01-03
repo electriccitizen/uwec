@@ -1,0 +1,26 @@
+uuid: a517f3bc-20b6-4a90-b220-ab144a837ced
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_intro_text
+    - filter.format.limited_html
+    - node.type.college
+  module:
+    - text
+id: node.college.field_intro_text
+field_name: field_intro_text
+entity_type: node
+bundle: college
+label: 'Intro text'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+  allowed_formats:
+    - limited_html
+field_type: text_with_summary

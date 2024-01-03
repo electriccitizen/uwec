@@ -5,17 +5,20 @@
 @use '../../../00-base/base' as *;
 @use '../views-mixins' as *;
 
+%newsThreeColumn{
+	@include bleed(padding,24px);
+	& > .views-row{
+		width: 100%;
+		@include tab{
+			width: 33.33%;
+		}
+	}
+}
 
 /* NEWS RECENT THREE */
 .news.recent-three{
 	.view-content{
-		@include bleed(padding,24px);
-		& > .views-row{
-			width: 100%;
-			@include tab{
-				width: 33.33%;
-			}
-		}
+		@extend %newsThreeColumn;
 	}
 }//end news recent three
 
@@ -30,6 +33,12 @@
 		}
 	}
 }//end news recent two
+
+.news.recent-by-tag{
+	.view-content{
+		@extend %newsThreeColumn;
+	}
+}
 
 /* FEATURED NEWS */
 .news.featured-stories{
@@ -80,3 +89,15 @@
 		}
 	}
 }//end all news
+
+.news.related-stories{
+	.view-content{
+		@include bleed(padding,24px);
+		& > .views-row{
+			width: 100%;
+			@include tab{
+				width: 33.33%;
+			}
+		}
+	}
+}

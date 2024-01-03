@@ -23,6 +23,7 @@
 {% extends 'field.html.twig' %}
 
 {% block fieldSingleNo %}
+	<div class="field-label">For the media</div>
 	{% if item.content['#type']  == 'link' %}
 		<a href="{{ file_url(item.content['#entity'].field_media_image.entity.fileuri) }}" download="{{ element['#object'].title.value|lower|replace({' ':'_'}) }}">Image download</a>
 	{% else %}

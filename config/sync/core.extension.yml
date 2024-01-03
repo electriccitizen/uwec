@@ -22,6 +22,7 @@ module:
   crop: 0
   ctools: 0
   ctools_block: 0
+  date_popup: 0
   datetime: 0
   default_content: 0
   domain: 0
@@ -90,6 +91,8 @@ module:
   responsive_image: 0
   responsive_preview: 0
   role_delegation: 0
+  scheduler: 0
+  scheduler_content_moderation_integration: 0
   search_api: 0
   search_api_db: 0
   serialization: 0
@@ -118,6 +121,7 @@ module:
   menu_admin_per_menu: 1
   pathauto: 1
   xmlsitemap: 1
+  externalauth: 10
   views: 10
   paragraphs: 11
   citizen: 1000

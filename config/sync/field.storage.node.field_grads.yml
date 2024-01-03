@@ -1,0 +1,19 @@
+uuid: dfe80f86-cd53-4788-9d16-fac3c54c76c5
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - text
+id: node.field_grads
+field_name: field_grads
+entity_type: node
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

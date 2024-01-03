@@ -82,7 +82,6 @@ class SiteSearchForm extends FormBase {
       // Prevent op from showing up in the query string.
       '#name' => '',
     ];
-
     return $form;
   }
 

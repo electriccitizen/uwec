@@ -6,8 +6,23 @@
 @use '../../../02-chunks/media/media-mixins' as *;
 
 .paragraph--type--image{
+	.caption-left,
+	.caption-right,
+	.caption-below {
+		@include safeFlex(row,wrap,left,start);
+		@include bleed(padding,32px);
+		.caption {
+			flex: 1;
+			max-width: $textMax;
+		}
+	}
+	.caption-right {
+		flex-direction: row-reverse;
+	}
+	.caption-below {
+		flex-direction: column-reverse;
+	}
 	.image-wrapper{
-		@include auto;
 		position: relative;
 		&:after{
 			@include narrowStripes($gold);

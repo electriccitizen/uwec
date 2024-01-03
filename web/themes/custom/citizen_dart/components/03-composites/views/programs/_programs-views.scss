@@ -1,0 +1,40 @@
+/* ==================
+    PROGRAMS VIEWS
+==================== */
+
+@use '../../../00-base/base' as *;
+@use '../views-mixins' as *;
+
+/* FACTS LIST
+------------- */
+.programs.list {
+	max-width: 984px;
+	@include auto;
+	@include tab{
+  	.programs-wrapper{
+  		width: 100%;
+  		display: grid;
+			grid-template-columns: 1fr 1fr 1fr;
+	  	grid-gap: 65px;
+  	}// end programs-wrapper
+	}//end tab
+}//end facts list
+
+.programs.by-department{
+  @include tab{
+    .programs-wrapper{
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 65px;
+    }// end programs-wrapper
+  }//end tab
+  @include desk{
+    .programs-wrapper{
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      grid-gap: 65px;
+    }// end programs-wrapper
+  }//end tab
+}

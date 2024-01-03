@@ -3,7 +3,19 @@
 ================ */
 
 @use '../../../00-base/base' as *;
+@use '../node-mixins' as *;
 
 .node-college{
-	
+	#node-section-1 {
+		.college-hero {
+			@include heroBackground;
+			@include heroImageRight;
+		}
+		.page-header-text {
+			@include heroText;
+		}
+	}
+	#node-section-4{
+		@include contactSection;
+	}//end node-section-4
 }//end college

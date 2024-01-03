@@ -4,13 +4,20 @@ status: true
 dependencies:
   config:
     - field.field.node.college.body
+    - field.field.node.college.field_contact
     - field.field.node.college.field_domain_access
     - field.field.node.college.field_domain_all_affiliates
     - field.field.node.college.field_domain_source
+    - field.field.node.college.field_editorial_sections
+    - field.field.node.college.field_hours_library
     - field.field.node.college.field_image
+    - field.field.node.college.field_intro_text
+    - field.field.node.college.field_meta_description
     - field.field.node.college.field_metatags
     - field.field.node.college.field_paragraphs
     - field.field.node.college.field_placement_tags
+    - field.field.node.college.field_platforms
+    - field.field.node.college.field_subtitle
     - field.field.node.college.layout_builder__layout
     - node.type.college
     - workflows.workflow.non_moderated
@@ -18,6 +25,7 @@ dependencies:
     - content_moderation
     - field_group
     - layout_paragraphs
+    - link
     - media_library
     - metatag
     - path
@@ -33,7 +41,7 @@ third_party_settings:
       label: Access
       region: content
       parent_name: ''
-      weight: 8
+      weight: 14
       format_type: details_sidebar
       format_settings:
         classes: ''
@@ -50,6 +58,68 @@ mode: default
 content:
   body:
     type: text_textarea_with_summary
+    weight: 5
+    region: content
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+      show_summary: false
+    third_party_settings: {  }
+  field_contact:
+    type: entity_reference_autocomplete
+    weight: 7
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_domain_access:
+    type: options_buttons
+    weight: 2
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_domain_all_affiliates:
+    type: boolean_checkbox
+    weight: 4
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_domain_source:
+    type: options_select
+    weight: 3
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_editorial_sections:
+    type: options_buttons
+    weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_hours_library:
+    type: entity_reference_autocomplete
+    weight: 8
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_image:
+    type: media_library_widget
+    weight: 4
+    region: content
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+  field_intro_text:
+    type: text_textarea_with_summary
     weight: 3
     region: content
     settings:
@@ -58,35 +128,17 @@ content:
       placeholder: ''
       show_summary: false
     third_party_settings: {  }
-  field_domain_access:
-    type: options_buttons
-    weight: 22
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  field_domain_all_affiliates:
-    type: boolean_checkbox
-    weight: 24
+  field_meta_description:
+    type: string_textfield
+    weight: 2
     region: content
     settings:
-      display_label: true
-    third_party_settings: {  }
-  field_domain_source:
-    type: options_select
-    weight: 23
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  field_image:
-    type: media_library_widget
-    weight: 1
-    region: content
-    settings:
-      media_types: {  }
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
   field_metatags:
     type: metatag_firehose
-    weight: 5
+    weight: 11
     region: content
     settings:
       sidebar: true
@@ -94,7 +146,7 @@ content:
     third_party_settings: {  }
   field_paragraphs:
     type: layout_paragraphs
-    weight: 4
+    weight: 6
     region: content
     settings:
       preview_view_mode: preview
@@ -104,7 +156,7 @@ content:
     third_party_settings: {  }
   field_placement_tags:
     type: entity_reference_autocomplete
-    weight: 2
+    weight: 10
     region: content
     settings:
       match_operator: CONTAINS
@@ -112,21 +164,37 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+  field_platforms:
+    type: link_default
+    weight: 9
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  field_subtitle:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
   moderation_state:
     type: moderation_state_default
-    weight: 9
+    weight: 15
     region: content
     settings: {  }
     third_party_settings: {  }
   path:
     type: path
-    weight: 6
+    weight: 12
     region: content
     settings: {  }
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 7
+    weight: 13
     region: content
     settings:
       display_label: true

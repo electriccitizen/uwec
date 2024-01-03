@@ -1,0 +1,332 @@
+uuid: 45074899-26d3-4fb2-841b-b6c14601dbde
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_program_type
+    - field.storage.node.field_campus
+    - field.storage.node.field_college
+    - field.storage.node.field_degree_types
+    - field.storage.node.field_departments
+    - field.storage.node.body
+    - field.storage.node.field_example_careers
+    - field.storage.node.field_delivery_mode
+    - field.storage.node.field_intro_text
+    - field.storage.node.field_program_length
+    - search_api.server.local
+  module:
+    - taxonomy
+    - node
+    - search_api
+id: programs
+name: Programs
+description: ''
+read_only: false
+field_settings:
+  body:
+    label: Description
+    datasource_id: 'entity:node'
+    property_path: body
+    type: text
+    boost: 8.0
+    dependencies:
+      config:
+        - field.storage.node.body
+  campus:
+    label: Campus
+    datasource_id: 'entity:node'
+    property_path: 'field_campus:entity:name'
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_campus
+      module:
+        - taxonomy
+  campus_filter:
+    label: 'Campus Filter'
+    datasource_id: 'entity:node'
+    property_path: field_campus
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_campus
+  college:
+    label: College
+    datasource_id: 'entity:node'
+    property_path: 'field_college:entity:title'
+    type: text
+    boost: 3.0
+    dependencies:
+      config:
+        - field.storage.node.field_college
+      module:
+        - node
+  college_filter:
+    label: 'College Filter'
+    datasource_id: 'entity:node'
+    property_path: field_college
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_college
+  degree_types:
+    label: 'Degree Types'
+    datasource_id: 'entity:node'
+    property_path: 'field_degree_types:entity:name'
+    type: text
+    boost: 5.0
+    dependencies:
+      config:
+        - field.storage.node.field_degree_types
+      module:
+        - taxonomy
+  degree_types_filter:
+    label: 'Degree Types Filter'
+    datasource_id: 'entity:node'
+    property_path: field_degree_types
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_degree_types
+  delivery_mode:
+    label: 'In-person or online'
+    datasource_id: 'entity:node'
+    property_path: 'field_delivery_mode:entity:name'
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_delivery_mode
+      module:
+        - taxonomy
+  delivery_mode_filter:
+    label: 'Delivery Mode Filter'
+    datasource_id: 'entity:node'
+    property_path: field_delivery_mode
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_delivery_mode
+  departments:
+    label: Department(s)
+    datasource_id: 'entity:node'
+    property_path: 'field_departments:entity:title'
+    type: text
+    boost: 5.0
+    dependencies:
+      config:
+        - field.storage.node.field_departments
+      module:
+        - node
+  example_careers:
+    label: 'Example Careers'
+    datasource_id: 'entity:node'
+    property_path: field_example_careers
+    type: text
+    boost: 5.0
+    dependencies:
+      config:
+        - field.storage.node.field_example_careers
+  intro_text:
+    label: 'Intro text'
+    datasource_id: 'entity:node'
+    property_path: field_intro_text
+    type: text
+    boost: 8.0
+    dependencies:
+      config:
+        - field.storage.node.field_intro_text
+  program_length:
+    label: 'Program length'
+    datasource_id: 'entity:node'
+    property_path: field_program_length
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_program_length
+  program_type:
+    label: 'Available as'
+    datasource_id: 'entity:node'
+    property_path: 'field_program_type:entity:name'
+    type: text
+    boost: 5.0
+    dependencies:
+      config:
+        - field.storage.node.field_program_type
+      module:
+        - taxonomy
+  program_type_filter:
+    label: 'Program Type Filter'
+    datasource_id: 'entity:node'
+    property_path: field_program_type
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_program_type
+  title:
+    label: Title
+    datasource_id: 'entity:node'
+    property_path: title
+    type: text
+    boost: 13.0
+    dependencies:
+      module:
+        - node
+datasource_settings:
+  'entity:node':
+    bundles:
+      default: false
+      selected:
+        - academic_program
+    languages:
+      default: true
+      selected: {  }
+processor_settings:
+  add_url: {  }
+  aggregated_field: {  }
+  entity_status: {  }
+  entity_type: {  }
+  html_filter:
+    weights:
+      preprocess_index: -48
+      preprocess_query: -48
+    all_fields: false
+    fields:
+      - body
+      - intro_text
+    title: true
+    alt: true
+    tags:
+      b: 2
+      h1: 5
+      h2: 3
+      h3: 2
+      h4: 2
+      h5: 2
+      h6: 2
+      strong: 2
+  ignore_character:
+    weights:
+      preprocess_index: -45
+      preprocess_query: -45
+    all_fields: true
+    fields:
+      - body
+      - campus
+      - campus_filter
+      - college
+      - college_filter
+      - degree_types
+      - degree_types_filter
+      - delivery_mode
+      - delivery_mode_filter
+      - departments
+      - example_careers
+      - intro_text
+      - program_length
+      - program_type
+      - program_type_filter
+      - title
+    ignorable: "['¿¡!?,.:;]"
+    ignorable_classes:
+      - Pc
+      - Pd
+      - Pe
+      - Pf
+      - Pi
+      - Po
+      - Ps
+  ignorecase:
+    weights:
+      preprocess_index: -49
+      preprocess_query: -49
+    all_fields: true
+    fields:
+      - body
+      - campus
+      - campus_filter
+      - college
+      - college_filter
+      - degree_types
+      - degree_types_filter
+      - delivery_mode
+      - delivery_mode_filter
+      - departments
+      - example_careers
+      - intro_text
+      - program_length
+      - program_type
+      - program_type_filter
+      - title
+  language_with_fallback: {  }
+  rendered_item: {  }
+  stemmer:
+    weights:
+      preprocess_index: -47
+      preprocess_query: -47
+    all_fields: true
+    fields:
+      - body
+      - campus
+      - college
+      - degree_types
+      - delivery_mode
+      - departments
+      - example_careers
+      - intro_text
+      - program_length
+      - program_type
+      - title
+    exceptions:
+      mexican: mexic
+      texan: texa
+  tokenizer:
+    weights:
+      preprocess_index: -50
+      preprocess_query: -50
+    all_fields: true
+    fields:
+      - body
+      - campus
+      - college
+      - degree_types
+      - delivery_mode
+      - departments
+      - example_careers
+      - intro_text
+      - program_length
+      - program_type
+      - title
+    spaces: ''
+    ignored: ._-
+    overlap_cjk: 1
+    minimum_word_size: '3'
+  transliteration:
+    weights:
+      preprocess_index: -46
+      preprocess_query: -46
+    all_fields: true
+    fields:
+      - body
+      - campus
+      - campus_filter
+      - college
+      - college_filter
+      - degree_types
+      - degree_types_filter
+      - delivery_mode
+      - delivery_mode_filter
+      - departments
+      - example_careers
+      - intro_text
+      - program_length
+      - program_type
+      - program_type_filter
+      - title
+tracker_settings:
+  default:
+    indexing_order: fifo
+options:
+  cron_limit: 50
+  index_directly: true
+  track_changes_in_references: true
+server: local

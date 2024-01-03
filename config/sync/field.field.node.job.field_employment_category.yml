@@ -1,0 +1,29 @@
+uuid: d1f145c4-8d1f-4795-982f-fdc1dd8bc070
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_employment_category
+    - node.type.job
+    - taxonomy.vocabulary.employment_category
+id: node.job.field_employment_category
+field_name: field_employment_category
+entity_type: node
+bundle: job
+label: 'Employment Category'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      employment_category: employment_category
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

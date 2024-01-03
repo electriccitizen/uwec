@@ -31,7 +31,7 @@
 	}
 }//end hours-library
 
-.node-teaser-hours{
+.node-widget-hours{
 	@include hoursHolder;
 	.hours-wrapper{
 		@include safeFlex(row,wrap,start,start);
@@ -42,4 +42,4 @@
 			}
 		}
 	}
-}//end hours teaser
+}//end hours widget

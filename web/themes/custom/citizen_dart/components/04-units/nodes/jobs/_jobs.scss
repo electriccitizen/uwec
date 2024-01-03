@@ -1,0 +1,59 @@
+/* ============
+   JOBS
+================ */
+
+@use '../../../00-base/base' as *;
+
+.node-job{
+	max-width: 914px;
+	@include auto;
+	#node-section-1{
+		.layout__region--content{
+			@include safeFlex(row,wrap,start,start);
+			@include bleed(padding,10px);
+			margin-bottom: $elementSpace - $spaceXxs;
+		}
+		.block-field,.block{
+			width: 100%;
+			&.block-title{
+				margin-left: 0;
+			}
+		}
+		.block-field-campus{
+			@include heading4;
+			margin-bottom: $spaceXxs;
+		}
+		.block-field-employment-type{
+			margin-bottom: $spaceXxs;
+			@include tab{
+				width: auto;
+				& + .block-field-employment-category{
+					&:before{
+						content: "|";
+						display: inline;
+						margin-right: 10px;
+					}
+				}
+			}//end tab
+		}//end block field employment tpye
+		.block-field-employment-category{
+			margin-bottom: $spaceXxs;
+			@include tab{
+				width: auto;
+				.field{
+					display: inline;
+				}
+			}
+		}// block employment category
+	}//end node section 1
+	#node-section-2{
+		.block-field:not(:last-child){
+			margin-bottom: $spaceXxs;
+		}
+	}
+
+	.block-field.block-body{
+		max-width: $textMax;
+		@include auto;
+	}
+}//end jobs node

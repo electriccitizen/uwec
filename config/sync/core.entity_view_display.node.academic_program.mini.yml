@@ -1,0 +1,121 @@
+uuid: 1ebd3e69-da36-4ce2-8b0c-a097ec5bc8ca
+langcode: en
+status: false
+dependencies:
+  config:
+    - core.entity_view_mode.node.mini
+    - field.field.node.academic_program.body
+    - field.field.node.academic_program.field_accreditation
+    - field.field.node.academic_program.field_accreditation_logo
+    - field.field.node.academic_program.field_admissions_requirements
+    - field.field.node.academic_program.field_campus
+    - field.field.node.academic_program.field_college
+    - field.field.node.academic_program.field_content_carousel
+    - field.field.node.academic_program.field_courses
+    - field.field.node.academic_program.field_courses_text
+    - field.field.node.academic_program.field_degree_level
+    - field.field.node.academic_program.field_degree_types
+    - field.field.node.academic_program.field_delivery_mode
+    - field.field.node.academic_program.field_departments
+    - field.field.node.academic_program.field_domain_access
+    - field.field.node.academic_program.field_domain_all_affiliates
+    - field.field.node.academic_program.field_domain_source
+    - field.field.node.academic_program.field_editorial_sections
+    - field.field.node.academic_program.field_example_careers
+    - field.field.node.academic_program.field_facts_list
+    - field.field.node.academic_program.field_faculty_link
+    - field.field.node.academic_program.field_grads
+    - field.field.node.academic_program.field_hallmarks
+    - field.field.node.academic_program.field_image
+    - field.field.node.academic_program.field_intro_text
+    - field.field.node.academic_program.field_keywords
+    - field.field.node.academic_program.field_licensure
+    - field.field.node.academic_program.field_list_widget
+    - field.field.node.academic_program.field_meta_description
+    - field.field.node.academic_program.field_metatags
+    - field.field.node.academic_program.field_minor_required
+    - field.field.node.academic_program.field_outcome_text
+    - field.field.node.academic_program.field_outcomes_image
+    - field.field.node.academic_program.field_page_families
+    - field.field.node.academic_program.field_paragraphs
+    - field.field.node.academic_program.field_placement_tags
+    - field.field.node.academic_program.field_program_length
+    - field.field.node.academic_program.field_program_type
+    - field.field.node.academic_program.field_related_programs
+    - field.field.node.academic_program.field_request_for_info
+    - field.field.node.academic_program.field_slate_slug
+    - field.field.node.academic_program.field_tuition_link
+    - field.field.node.academic_program.field_whats_next
+    - field.field.node.academic_program.layout_builder__layout
+    - node.type.academic_program
+  module:
+    - user
+id: node.academic_program.mini
+targetEntityType: node
+bundle: academic_program
+mode: mini
+content:
+  content_moderation_control:
+    settings: {  }
+    third_party_settings: {  }
+    weight: -20
+    region: content
+  field_image:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: 42x42
+      link: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  body: true
+  field_accreditation: true
+  field_accreditation_logo: true
+  field_admissions_requirements: true
+  field_campus: true
+  field_college: true
+  field_content_carousel: true
+  field_courseleaf_slug: true
+  field_courses: true
+  field_courses_text: true
+  field_degree_level: true
+  field_degree_types: true
+  field_delivery_mode: true
+  field_departments: true
+  field_domain_access: true
+  field_domain_all_affiliates: true
+  field_domain_source: true
+  field_editorial_sections: true
+  field_example_careers: true
+  field_facts_list: true
+  field_faculty_link: true
+  field_grads: true
+  field_hallmarks: true
+  field_intro_text: true
+  field_keywords: true
+  field_licensure: true
+  field_list_widget: true
+  field_meta_description: true
+  field_metatags: true
+  field_minor_required: true
+  field_outcome_text: true
+  field_outcomes_image: true
+  field_page_families: true
+  field_paragraphs: true
+  field_placement_tags: true
+  field_program_length: true
+  field_program_type: true
+  field_related_programs: true
+  field_request_for_info: true
+  field_slate_slug: true
+  field_tuition_link: true
+  field_whats_next: true
+  layout_builder__layout: true
+  search_api_excerpt: true

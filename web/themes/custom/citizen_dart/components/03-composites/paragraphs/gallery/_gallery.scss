@@ -46,4 +46,28 @@
 			}
 		}
 	}//end slider
+	.masonry {
+		.masonry-item {
+			margin-bottom: 2rem;
+			&.small {
+				width: 300px;
+			}
+			&.large {
+				width: 600px;
+			}
+		}
+	}
 }//end gallery paragraph
+
+.featherlight-content {
+	position: static !important;
+	.featherlight-counter {
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: 9999;
+		width: 100%;
+		text-align: center;
+		color: $white;
+	}
+}

@@ -1,0 +1,29 @@
+uuid: 30bb0c9d-ce2f-4cc1-b6d6-fac8646afd24
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_college
+    - node.type.academic_program
+    - node.type.college
+id: node.academic_program.field_college
+field_name: field_college
+entity_type: node
+bundle: academic_program
+label: College
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      college: college
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

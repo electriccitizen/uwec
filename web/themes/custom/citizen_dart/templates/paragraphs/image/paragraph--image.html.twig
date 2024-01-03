@@ -40,27 +40,19 @@
 {% extends 'paragraph.html.twig' %}
 
 {% block widgetContent %}
-	{% set size = content.field_image_size[0]['#markup'] %}
-
-	{%- if (size == 'small') -%}
-		{% set image =  drupal_entity('media', paragraph.field_image.0.target_id, 'small') %}
-	{%- elseif (size == 'medium') -%}
-		{% set image =  drupal_entity('media', paragraph.field_image.0.target_id, 'medium') %}
-	{%- elseif (size == 'large') -%}
-		{% set image =  drupal_entity('media', paragraph.field_image.0.target_id, 'large') %}
-	{%- elseif (size == 'full') -%}
-		{% set image =  drupal_entity('media', paragraph.field_image.0.target_id, 'full') %}
-	{%- elseif (size == 'default') -%}
-		{% set image =  drupal_entity('media', paragraph.field_image.0.target_id, 'default') %}
-	{%- endif -%}
-
-	{% set maxWidth = image['#media'].field_media_image.0.width %}
-
-	<div class="image-wrapper {{ size }}"{% if size == 'default' %}style="width:{{ maxWidth }}px; max-width: 100%;"{% endif %}>
-		{% block image %}
-			{{ image }}
-		{% endblock %}
-		{{ content.field_caption_headline }}
-		{{ content.field_caption }}
-	</div>
+  {%- set alignment = paragraph.field_alignment.value -%}
+  {%- set imageId = paragraph.field_image.0.target_id -%}
+  <div class="caption-{{ alignment }}">
+    {% if alignment != 'none' %}
+      <div class="caption">
+        {{ content.field_caption_headline }}
+        {{ content.field_caption }}
+      </div>
+    {% endif %}
+    <div class="image-wrapper">
+      {{ drupal_entity('media', imageId) }}
+    </div>    
+  </div>
 {% endblock %}
+
+

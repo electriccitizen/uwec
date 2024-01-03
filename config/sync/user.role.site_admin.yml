@@ -20,6 +20,7 @@ dependencies:
     - node.type.department
     - node.type.fact
     - node.type.hours
+    - node.type.job
     - node.type.news
     - node.type.page
     - node.type.snapshot
@@ -28,8 +29,11 @@ dependencies:
     - node.type.video_card
     - taxonomy.vocabulary.author
     - taxonomy.vocabulary.campuses
+    - taxonomy.vocabulary.degree_types
     - taxonomy.vocabulary.delivery_modes
     - taxonomy.vocabulary.editorial_sections
+    - taxonomy.vocabulary.employment_category
+    - taxonomy.vocabulary.employment_type
     - taxonomy.vocabulary.eyebrows
     - taxonomy.vocabulary.media_tags
     - taxonomy.vocabulary.page_families
@@ -58,6 +62,7 @@ dependencies:
     - redirect
     - responsive_preview
     - role_delegation
+    - scheduler
     - shortcut
     - smart_date_recur
     - system
@@ -77,6 +82,7 @@ permissions:
   - 'access shortcuts'
   - 'access taxonomy overview'
   - 'access user profiles'
+  - 'administer content-support-book menu items'
   - 'administer departments menu items'
   - 'administer example-site-main-menu menu items'
   - 'administer footer menu items'
@@ -123,6 +129,8 @@ permissions:
   - 'create hours content'
   - 'create hours content on assigned domains'
   - 'create image media'
+  - 'create job content'
+  - 'create job content on assigned domains'
   - 'create news content'
   - 'create news content on assigned domains'
   - 'create page content'
@@ -143,6 +151,7 @@ permissions:
   - 'create paragraph content layout_section'
   - 'create paragraph content profiles_list'
   - 'create paragraph content program_search'
+  - 'create paragraph content programs_list'
   - 'create paragraph content quote'
   - 'create paragraph content select_item'
   - 'create paragraph content select_type'
@@ -161,8 +170,11 @@ permissions:
   - 'create support_book content on assigned domains'
   - 'create terms in author'
   - 'create terms in campuses'
+  - 'create terms in degree_types'
   - 'create terms in delivery_modes'
   - 'create terms in editorial_sections'
+  - 'create terms in employment_category'
+  - 'create terms in employment_type'
   - 'create terms in eyebrows'
   - 'create terms in media_tags'
   - 'create terms in page_families'
@@ -193,6 +205,7 @@ permissions:
   - 'delete any formatted_promo block content revisions'
   - 'delete any hours content'
   - 'delete any image media'
+  - 'delete any job content'
   - 'delete any news content'
   - 'delete any page content'
   - 'delete any remote_video media'
@@ -216,6 +229,8 @@ permissions:
   - 'delete fact revisions'
   - 'delete hours content on assigned domains'
   - 'delete hours revisions'
+  - 'delete job content on assigned domains'
+  - 'delete job revisions'
   - 'delete news content on assigned domains'
   - 'delete news revisions'
   - 'delete own academic_program content'
@@ -227,6 +242,7 @@ permissions:
   - 'delete own fact content'
   - 'delete own hours content'
   - 'delete own image media'
+  - 'delete own job content'
   - 'delete own news content'
   - 'delete own page content'
   - 'delete own remote_video media'
@@ -251,6 +267,7 @@ permissions:
   - 'delete paragraph content layout_section'
   - 'delete paragraph content profiles_list'
   - 'delete paragraph content program_search'
+  - 'delete paragraph content programs_list'
   - 'delete paragraph content quote'
   - 'delete paragraph content select_item'
   - 'delete paragraph content select_type'
@@ -265,8 +282,11 @@ permissions:
   - 'delete support_book revisions'
   - 'delete terms in author'
   - 'delete terms in campuses'
+  - 'delete terms in degree_types'
   - 'delete terms in delivery_modes'
   - 'delete terms in editorial_sections'
+  - 'delete terms in employment_category'
+  - 'delete terms in employment_type'
   - 'delete terms in eyebrows'
   - 'delete terms in media_tags'
   - 'delete terms in page_families'
@@ -290,6 +310,7 @@ permissions:
   - 'edit any formatted_promo block content'
   - 'edit any hours content'
   - 'edit any image media'
+  - 'edit any job content'
   - 'edit any news content'
   - 'edit any page content'
   - 'edit any remote_video media'
@@ -312,6 +333,7 @@ permissions:
   - 'edit own fact content'
   - 'edit own hours content'
   - 'edit own image media'
+  - 'edit own job content'
   - 'edit own news content'
   - 'edit own page content'
   - 'edit own remote_video media'
@@ -321,8 +343,11 @@ permissions:
   - 'edit own video_card content'
   - 'edit terms in author'
   - 'edit terms in campuses'
+  - 'edit terms in degree_types'
   - 'edit terms in delivery_modes'
   - 'edit terms in editorial_sections'
+  - 'edit terms in employment_category'
+  - 'edit terms in employment_type'
   - 'edit terms in eyebrows'
   - 'edit terms in media_tags'
   - 'edit terms in page_families'
@@ -349,12 +374,14 @@ permissions:
   - 'revert department revisions'
   - 'revert fact revisions'
   - 'revert hours revisions'
+  - 'revert job revisions'
   - 'revert news revisions'
   - 'revert page revisions'
   - 'revert snapshot revisions'
   - 'revert support_book revisions'
   - 'revert testimonial revisions'
   - 'revert video_card revisions'
+  - 'schedule publishing of nodes'
   - 'select account cancellation method'
   - 'update academic_program content on assigned domains'
   - 'update announcement content on assigned domains'
@@ -364,6 +391,7 @@ permissions:
   - 'update department content on assigned domains'
   - 'update fact content on assigned domains'
   - 'update hours content on assigned domains'
+  - 'update job content on assigned domains'
   - 'update news content on assigned domains'
   - 'update page content on assigned domains'
   - 'update paragraph content block_placer'
@@ -375,6 +403,7 @@ permissions:
   - 'update paragraph content layout_section'
   - 'update paragraph content profiles_list'
   - 'update paragraph content program_search'
+  - 'update paragraph content programs_list'
   - 'update paragraph content quote'
   - 'update paragraph content snapshot_list'
   - 'update paragraph content stories_video_list'
@@ -415,10 +444,12 @@ permissions:
   - 'view domain list'
   - 'view fact revisions'
   - 'view hours revisions'
+  - 'view job revisions'
   - 'view latest version'
   - 'view news revisions'
   - 'view own unpublished content'
   - 'view page revisions'
+  - 'view scheduled content'
   - 'view snapshot revisions'
   - 'view support_book revisions'
   - 'view testimonial revisions'

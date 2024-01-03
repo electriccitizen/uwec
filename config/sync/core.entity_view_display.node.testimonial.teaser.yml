@@ -1,36 +1,91 @@
 uuid: 1507ae0d-a164-434b-85da-957d39ddbbf2
 langcode: en
-status: false
+status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
+    - field.field.node.testimonial.body
+    - field.field.node.testimonial.field_date
     - field.field.node.testimonial.field_domain_access
     - field.field.node.testimonial.field_domain_all_affiliates
     - field.field.node.testimonial.field_domain_source
+    - field.field.node.testimonial.field_editorial_sections
+    - field.field.node.testimonial.field_eyebrow
+    - field.field.node.testimonial.field_grad_year
+    - field.field.node.testimonial.field_image
+    - field.field.node.testimonial.field_is_quote
     - field.field.node.testimonial.field_list_widget
+    - field.field.node.testimonial.field_major
+    - field.field.node.testimonial.field_page_families
     - field.field.node.testimonial.field_placement_tags
+    - field.field.node.testimonial.field_position
     - node.type.testimonial
   module:
+    - text
     - user
 id: node.testimonial.teaser
 targetEntityType: node
 bundle: testimonial
 mode: teaser
 content:
-  content_moderation_control:
+  body:
+    type: text_default
+    label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: -20
+    weight: 0
     region: content
-  links:
-    settings: {  }
+  field_eyebrow:
+    type: entity_reference_label
+    label: hidden
+    settings:
+      link: false
     third_party_settings: {  }
-    weight: 100
+    weight: 1
+    region: content
+  field_grad_year:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  field_image:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: 240x240
+      link: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_major:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_position:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 3
     region: content
 hidden:
+  content_moderation_control: true
+  field_date: true
   field_domain_access: true
   field_domain_all_affiliates: true
   field_domain_source: true
+  field_editorial_sections: true
+  field_is_quote: true
   field_list_widget: true
+  field_page_families: true
   field_placement_tags: true
+  links: true
   search_api_excerpt: true

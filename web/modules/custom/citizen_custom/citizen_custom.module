@@ -10,6 +10,8 @@ use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\Core\Site\Settings;
 use Drupal\Component\Utility\Html;
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
 
 /**
  * Implements hook_help().
@@ -40,6 +42,11 @@ function citizen_custom_theme() {
         'title' => 'Site Search',
       ],
     ],
+    'program_search' => [
+      'variables' => [
+        'title' => 'Program Search',
+      ],
+    ],
 	'social_share_block' => [
       'variables' => [
         'title' => 'Social Share',
@@ -53,6 +60,13 @@ function citizen_custom_theme() {
         'nids'=>[],
       ],
     ],
+	'courses'=>[
+	  'variables'=>[
+	    'program_title'=>'',
+		'courses'=>[],
+		'courseleaf_slug'=>'',
+	  ],
+	],
   ];
 }
 
@@ -152,15 +166,28 @@ function citizen_custom_form_alter(&$form, FormStateInterface $form_state, $form
  */
 function citizen_custom_form_node_form_alter(&$form, FormStateInterface $form_state, $form_id) {
   $node = $form_state->getFormObject()->getEntity();
+  $user = \Drupal::currentUser();
+  $userRole = $user->getRoles();
+  if((in_array('editor', $userRole)) || (in_array('section_manager', $userRole)) || (in_array('marketing_editor', $userRole))){
+    $form['field_hide_nav']['#access'] = FALSE;
+    $form['field_exclude_search']['#access'] = FALSE;
+  }else{
+    $form['field_hide_nav']['#access'] = TRUE;
+    $form['field_exclude_search']['#access'] = TRUE;
+  }
+
   // Change promotion text to something more contextual.
   if ($node->getType() == 'news') {
-    $form['promote']['widget']['value']['#title'] = 'Add to Featured News';
-    $form['promote']['widget']['value']['#description'] = 'Should have a news image.';
+    $form['promote']['widget']['value']['#title'] = 'Add to Featured Stories';
   }
   if ($node->getType() == 'contact') {
     if (in_array($form_id, array('node_contact_edit_form', 'node_contact_form'))) {
       $form['field_address']['widget'][0]['address']['#after_build'][] = 'citizen_custom_address_organization_label';
     }
+  }
+  // Set help text for title field on testimonials
+  if ($node->getType() == 'testimonial' || $node->getType() == 'video_card') {
+    $form['title']['widget'][0]['value']['#description'] = '<p>' . t('This is the person\'s name.') . '</p>';
   }
 }
 
@@ -197,6 +224,62 @@ function citizen_custom_form_site_search_form_alter(&$form, FormStateInterface $
 }
 
 /**
+ * Implements hook_form_FORM_ID_alter().
+ *
+ * @see \Drupal\search\Form\SearchBlockForm
+ */
+function citizen_custom_form_program_search_form_alter(&$form, FormStateInterface $form_state) {
+  $form['form_build_id']['#access'] = FALSE;
+  $form['form_token']['#access'] = FALSE;
+  $form['form_id']['#access'] = FALSE;
+}
+
+function citizen_custom_form_views_exposed_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+    // If not the view we are looking, move on
+    if ($form['#id'] != 'views-exposed-form-program-search-program-search') {
+     return FALSE;
+    }
+ 
+    // Query nodes
+    $storage = Drupal::getContainer()->get('entity_type.manager')->getStorage('node');
+    $nids = $storage->getQuery();
+ 
+    // Gather published college nodes and sort by title
+    $nids = $nids->condition('type', 'college')
+     ->condition('status', 1)
+     ->sort('title')
+     ->accessCheck(TRUE)
+     ->execute();
+ 
+    // If there are no nodes, move on
+    if (!$nids) {
+     return FALSE;
+    }
+ 
+    // Start building out the options for our select list
+    $options = [];
+    $nodes = $storage->loadMultiple($nids);
+ 
+    $options[''] = '- Any -';
+    // Push titles into select list
+    foreach ($nodes as $node) {
+      $options[$node->id()] = $node->getTitle();
+    }
+ 
+    // Start building out our new form element
+    $college_filter = 'college_filter';
+    $form[$college_filter]['#type'] = 'select';
+    $form[$college_filter]['#multiple'] = FALSE;
+ 
+ 
+    // Add the $options from above to our select list
+    $form[$college_filter]['#options'] = $options;
+
+    // Add t('- Any -'); as the first value in the options array
+    unset($form[$college_filter]['#size']);
+  }
+
+/**
  * Implements hook_field_widget_single_element_form_alter()).
  */
 function citizen_custom_field_widget_single_element_form_alter(&$element, FormStateInterface $form_state, $context) {
@@ -226,7 +309,7 @@ function citizen_custom_field_widget_single_element_form_alter(&$element, FormSt
 function citizen_custom_views_pre_view($view, $display_id, &$args) {
 	// Alters views to accept fields from related paragraphs to be used for filters.
   if(isset($view->element['#name'])) {
-    if ((($view->element['#name'] === 'facts') && ($view->current_display === 'list')) || (($view->element['#name'] === 'news') && ($view->current_display === 'recent_three')) || (($view->element['#name'] === 'news') && ($view->current_display === 'recent_two')) || (($view->element['#name'] === 'video_cards') && ($view->current_display === 'recent_three')) || (($view->element['#name'] === 'bios') && ($view->current_display === 'profiles_list')) || (($view->element['#name'] === 'snapshots') && ($view->current_display === 'list'))) {
+    if ((($view->element['#name'] === 'facts') && ($view->current_display === 'list')) || (($view->element['#name'] === 'news') && ($view->current_display === 'recent_three')) || (($view->element['#name'] === 'news') && ($view->current_display === 'recent_two')) || (($view->element['#name'] === 'video_cards') && ($view->current_display === 'recent_three')) || (($view->element['#name'] === 'bios') && ($view->current_display === 'profiles_list')) || (($view->element['#name'] === 'snapshots') && ($view->current_display === 'list')) || (($view->element['#name'] === 'testimonials') && ($view->current_display === 'list')) || (($view->element['#name'] === 'programs') && ($view->current_display === 'list'))) {
       $filters = $view->display_handler->getOption('filters');
       $sorts = $view->display_handler->getOption('sorts');
       $paragraph_id = $view->args[0];
@@ -299,6 +382,25 @@ function citizen_custom_views_pre_view($view, $display_id, &$args) {
           }
         }
 
+        // make the view's faculty/staff filter match what the user selected in the paragraph
+        if(isset($paragraph->field_faculty_staff[0])){
+          // make an array out of the faculty/staff choices set in the paragraph
+          $fac_staffs = [];
+          foreach($paragraph->field_faculty_staff as $delta => $fac_staff){
+            $fac_staffs[] = $fac_staff->value;
+          }
+
+          // replace the faculty/staff  filter with the paragraph's faculty/staff value
+          if(isset($filters['field_faculty_staff_value'])){
+            $filters['field_faculty_staff_value']['value'] = $fac_staffs;
+          }
+        }else{
+          //the faculty/staff field is not set in the paragraph, so unset it in the view
+          if(isset($filters['field_faculty_staff_value'])){
+            unset($filters['field_faculty_staff_value']);
+          }
+        }
+
         $view->display_handler->setOption('filters', $filters);
 
         // change the pager if the paragraph has a limit lists field used
@@ -319,5 +421,54 @@ function citizen_custom_views_pre_view($view, $display_id, &$args) {
 				$view->display_handler->setOption('sorts', $sorts);
       }
     }
+
+    // Content Carousel
+    if ((($view->element['#name'] == 'video_cards') && ($view->current_display === 'most_recent' || $view->current_display === 'second_recent' )) || (($view->element['#name'] == 'testimonials') && ($view->current_display === 'most_recent' || $view->current_display === 'second_recent' )) || (($view->element['#name'] == 'news') && ($view->current_display === 'most_recent' || $view->current_display === 'second_recent' )) || (($view->element['#name'] == 'snapshots') && ($view->current_display === 'most_recent' || $view->current_display === 'second_recent' ))) {
+      $filters = $view->display_handler->getOption('filters');
+      $paragraph_id = $view->args[0];
+      if ($paragraph_id){
+        $paragraph = Paragraph::load($paragraph_id);
+        //unset or alter tags filter
+        if($paragraph->field_tag[0]){
+          //make an array out of the category set in the paragraph
+          $categories = [];
+          foreach ($paragraph->field_tag as $delta => $tag) {
+            $tags[] = $tag->target_id;
+          }
+          // replace the category_tid filter with the paragraph category
+          $filters['field_placement_tags_target_id']['value'] = $tags;
+        } else {
+          //if the tags field is not used, then unset the category filter
+          if ($filters['field_placement_tags_target_id']) {
+            unset($filters['field_placement_tags_target_id']);
+          }
+        }//end category filter
+        $view->display_handler->setOption('filters', $filters);
+      }
+    }
+    // end Content Carousel
   }
+}
+
+/**
+ * Implements hook_entity_view_alter().
+ */
+function citizen_custom_entity_view_alter(array &$build, EntityInterface $entity, EntityViewDisplayInterface $display) {
+    // Check if the entity is of type node and if the content type is page.
+    if ($entity->getEntityTypeId() == 'node' && $entity->bundle() == 'page') {
+        // Make sure the exclude search field exists on the node (to avoid unexpected errors) and get its value.
+        if ($entity->hasField('field_exclude_search') && !$entity->get('field_exclude_search')->isEmpty()) {
+            $exclude_search = $entity->get('field_exclude_search')->value;
+            // If the field is true, set noindex and nofollow meta tags for the node.
+            if ($exclude_search) {
+                $build['#attached']['html_head'][] = [
+                    [
+                        '#tag' => 'meta',
+                        '#attributes' => ['name' => 'robots', 'content' => 'noindex, nofollow'],
+                    ],
+                    'noindex_nofollow',
+                ];
+            }
+        }
+    }
 }

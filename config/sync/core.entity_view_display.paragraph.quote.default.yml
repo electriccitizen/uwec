@@ -3,11 +3,28 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.paragraph.quote.field_quote
+    - field.field.paragraph.quote.field_source
     - paragraphs.paragraphs_type.quote
 id: paragraph.quote.default
 targetEntityType: paragraph
 bundle: quote
 mode: default
-content: {  }
+content:
+  field_quote:
+    type: basic_string
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_source:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
 hidden:
   search_api_excerpt: true

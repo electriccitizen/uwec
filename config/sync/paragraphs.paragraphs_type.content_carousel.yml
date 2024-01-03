@@ -6,5 +6,5 @@ id: content_carousel
 label: 'Content Carousel'
 icon_uuid: null
 icon_default: null
-description: 'Add contact information to a page.'
+description: 'Add carousel content to programs and departments.'
 behavior_plugins: {  }

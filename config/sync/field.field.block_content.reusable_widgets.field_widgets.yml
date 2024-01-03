@@ -1,0 +1,173 @@
+uuid: d073e79a-78f8-4c15-ab12-71a9885741ac
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.reusable_widgets
+    - field.storage.block_content.field_widgets
+    - paragraphs.paragraphs_type.accordions
+    - paragraphs.paragraphs_type.button
+    - paragraphs.paragraphs_type.ctas
+    - paragraphs.paragraphs_type.custom_embed
+    - paragraphs.paragraphs_type.fauxfile
+    - paragraphs.paragraphs_type.gallery
+    - paragraphs.paragraphs_type.highlight_box
+    - paragraphs.paragraphs_type.image
+    - paragraphs.paragraphs_type.links_files
+    - paragraphs.paragraphs_type.select_type
+    - paragraphs.paragraphs_type.social_media_links
+    - paragraphs.paragraphs_type.steps
+    - paragraphs.paragraphs_type.text
+    - paragraphs.paragraphs_type.video
+    - paragraphs.paragraphs_type.wayfinding
+  module:
+    - entity_reference_revisions
+id: block_content.reusable_widgets.field_widgets
+field_name: field_widgets
+entity_type: block_content
+bundle: reusable_widgets
+label: Widgets
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      accordions: accordions
+      links_files: links_files
+      button: button
+      ctas: ctas
+      custom_embed: custom_embed
+      fauxfile: fauxfile
+      gallery: gallery
+      highlight_box: highlight_box
+      image: image
+      select_type: select_type
+      social_media_links: social_media_links
+      steps: steps
+      text: text
+      video: video
+      wayfinding: wayfinding
+    negate: 0
+    target_bundles_drag_drop:
+      accordion_item:
+        weight: -78
+        enabled: false
+      accordions:
+        weight: -79
+        enabled: true
+      block_placer:
+        weight: -77
+        enabled: false
+      button:
+        weight: -75
+        enabled: true
+      contact_placer:
+        weight: -74
+        enabled: false
+      content_carousel:
+        weight: -73
+        enabled: false
+      cta_item:
+        weight: -71
+        enabled: false
+      ctas:
+        weight: -72
+        enabled: true
+      custom_embed:
+        weight: -70
+        enabled: true
+      events_list:
+        weight: -69
+        enabled: false
+      facts_list:
+        weight: -68
+        enabled: false
+      fauxfile:
+        weight: -67
+        enabled: true
+      fauxfile_item:
+        weight: -66
+        enabled: false
+      gallery:
+        weight: -65
+        enabled: true
+      gallery_item:
+        weight: -64
+        enabled: false
+      hallmark:
+        weight: -63
+        enabled: false
+      hero:
+        weight: -62
+        enabled: false
+      highlight_box:
+        weight: -61
+        enabled: true
+      hours_placer:
+        weight: -60
+        enabled: false
+      hours_set:
+        weight: -59
+        enabled: false
+      image:
+        weight: -58
+        enabled: true
+      layout_section:
+        weight: -57
+        enabled: false
+      links_files:
+        weight: -76
+        enabled: true
+      profiles_list:
+        weight: -56
+        enabled: false
+      program_search:
+        weight: -54
+        enabled: false
+      programs_list:
+        weight: -55
+        enabled: false
+      quote:
+        weight: -53
+        enabled: false
+      select_item:
+        weight: -52
+        enabled: false
+      select_type:
+        weight: -51
+        enabled: true
+      snapshot_list:
+        weight: -50
+        enabled: false
+      social_media_links:
+        weight: -49
+        enabled: true
+      step_item:
+        weight: -47
+        enabled: false
+      steps:
+        weight: -48
+        enabled: true
+      stories_video_list:
+        weight: -46
+        enabled: false
+      testimonial_placer:
+        weight: -45
+        enabled: false
+      text:
+        weight: -44
+        enabled: true
+      video:
+        weight: -43
+        enabled: true
+      view_placer:
+        weight: -42
+        enabled: false
+      wayfinding:
+        weight: -41
+        enabled: true
+field_type: entity_reference_revisions

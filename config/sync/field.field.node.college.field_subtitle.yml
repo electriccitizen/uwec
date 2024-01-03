@@ -1,0 +1,19 @@
+uuid: 97dc41e9-cc77-4d53-a24c-03fb9d6d25ab
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_subtitle
+    - node.type.college
+id: node.college.field_subtitle
+field_name: field_subtitle
+entity_type: node
+bundle: college
+label: Subtitle
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,56 @@
+uuid: 0acae0bc-0f26-4ef9-88e8-ce4c2b5cbe59
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.testimonial_placer.field_list_type
+    - field.field.paragraph.testimonial_placer.field_list_widget
+    - field.field.paragraph.testimonial_placer.field_page_family
+    - field.field.paragraph.testimonial_placer.field_placement_tag
+    - field.field.paragraph.testimonial_placer.field_testimonial
+    - paragraphs.paragraphs_type.testimonial_placer
+id: paragraph.testimonial_placer.default
+targetEntityType: paragraph
+bundle: testimonial_placer
+mode: default
+content:
+  field_list_type:
+    type: options_select
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_page_family:
+    type: entity_reference_autocomplete
+    weight: 2
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_placement_tag:
+    type: entity_reference_autocomplete
+    weight: 1
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_testimonial:
+    type: entity_reference_autocomplete
+    weight: 3
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  field_list_widget: true
+  status: true

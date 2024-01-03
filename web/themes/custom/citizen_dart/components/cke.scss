@@ -80,4 +80,25 @@
 		background: $borderRule;
 		margin-bottom: 26px;
 	}
+
+	.ck-content .table{
+		table{
+			margin-top: 0;
+		}
+		& > figcaption{
+			background: $white;
+			font-weight: bold;
+			font-size: 1em;
+		}
+		thead{
+			th{
+				background: $warmGrey;
+			}
+		}
+		tbody{
+			tr:nth-child(even){
+				background: $lightGrey;
+			}
+		}
+	}//end table
 }//end CKE editor Main
