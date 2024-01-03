@@ -32,7 +32,6 @@ dependencies:
     - link
     - menu_block
     - metatag
-    - system
     - text
     - user
     - views
@@ -49,91 +48,25 @@ third_party_settings:
           label: ''
           context_mapping: {  }
         components:
-          42503511-23f7-45e0-a7dc-3d8bb365c4a8:
-            uuid: 42503511-23f7-45e0-a7dc-3d8bb365c4a8
+          3407a128-ea42-4a5e-ac9d-47789f5136d3:
+            uuid: 3407a128-ea42-4a5e-ac9d-47789f5136d3
             region: content
             configuration:
-              id: system_breadcrumb_block
-              label: Breadcrumbs
+              id: 'field_block:node:college:nid'
+              label: ID
               label_display: '0'
-              provider: system
-              context_mapping: {  }
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: number_integer
+                label: hidden
+                settings:
+                  thousand_separator: ''
+                  prefix_suffix: false
+                third_party_settings: {  }
             weight: 0
-            additional: {  }
-          51b371a3-fbf2-46e5-b8b1-ceff93c27a33:
-            uuid: 51b371a3-fbf2-46e5-b8b1-ceff93c27a33
-            region: content
-            configuration:
-              id: 'field_block:node:college:field_subtitle'
-              label: Subtitle
-              label_display: '0'
-              provider: layout_builder
-              context_mapping:
-                entity: layout_builder.entity
-                view_mode: view_mode
-              formatter:
-                type: string
-                label: hidden
-                settings:
-                  link_to_entity: false
-                third_party_settings: {  }
-            weight: 3
-            additional: {  }
-          8a1753c7-d68c-4240-bf6f-b18d8be0eaf1:
-            uuid: 8a1753c7-d68c-4240-bf6f-b18d8be0eaf1
-            region: content
-            configuration:
-              id: 'field_block:node:college:field_intro_text'
-              label: 'Intro text'
-              label_display: '0'
-              provider: layout_builder
-              context_mapping:
-                entity: layout_builder.entity
-                view_mode: view_mode
-              formatter:
-                type: text_default
-                label: hidden
-                settings: {  }
-                third_party_settings: {  }
-            weight: 4
-            additional: {  }
-          c8174785-69bb-45d7-93fb-0cb6f9753d50:
-            uuid: c8174785-69bb-45d7-93fb-0cb6f9753d50
-            region: content
-            configuration:
-              id: 'field_block:node:college:title'
-              label: Title
-              label_display: '0'
-              provider: layout_builder
-              context_mapping:
-                entity: layout_builder.entity
-                view_mode: view_mode
-              formatter:
-                type: string
-                label: visually_hidden
-                settings:
-                  link_to_entity: false
-                third_party_settings: {  }
-            weight: 2
-            additional: {  }
-          6c2de863-9f1b-4820-8a8e-e713859c7ca2:
-            uuid: 6c2de863-9f1b-4820-8a8e-e713859c7ca2
-            region: content
-            configuration:
-              id: 'field_block:node:college:field_image'
-              label: 'College Image'
-              label_display: '0'
-              provider: layout_builder
-              context_mapping:
-                entity: layout_builder.entity
-                view_mode: view_mode
-              formatter:
-                type: entity_reference_entity_view
-                label: hidden
-                settings:
-                  view_mode: 730x840
-                third_party_settings: {  }
-            weight: 5
             additional: {  }
         third_party_settings: {  }
       -
