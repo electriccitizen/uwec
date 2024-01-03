@@ -90,7 +90,6 @@ process:
     plugin: default_value
     default_value: ''
 
-
 destination:
   plugin: entity_reference_revisions:paragraph
   default_bundle: text
