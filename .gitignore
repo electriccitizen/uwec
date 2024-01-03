@@ -143,9 +143,10 @@ upstream/web/
 /web/themes/*/node_modules
 .DS_Store
 /database.sql
+.docksal/docksal-local.yml
 
 # Ignore local DB files
 /*.gz
-
+/*.bak
 # Ignore docksal settings file
 #/web/sites/default/settings.docksal.php
