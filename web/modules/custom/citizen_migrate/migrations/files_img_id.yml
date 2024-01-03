@@ -14,8 +14,8 @@ migration_group: ecm
 #
 # Example: files, media, taxonomy, etc.
 # @Drush: fin drush migrate:import --tag=files
-migration_tags:
-  - files
+migration_tags: { }
+#  - files
 
 # Adding dependencies allows migrations to be run in the proper
 # order when run as part of the ECM Group or in a tag.
