@@ -123,7 +123,7 @@ process:
     source:
       - url
       - '@destination'
-    file_exists: use_existing
+    file_exists: use existing
 
   uri: '@destination'
 
