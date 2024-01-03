@@ -16,6 +16,7 @@ migration_group: ecm
 # @Drush: fin drush migrate:import --tag=files
 migration_tags:
   - para
+  - para_text
 
 # Adding dependencies allows migrations to be run in the proper
 # order when run as part of the ECM Group or in a tag.
@@ -100,3 +101,4 @@ process:
 
 destination:
   plugin: entity_reference_revisions:paragraph
+  default_bundle: text
