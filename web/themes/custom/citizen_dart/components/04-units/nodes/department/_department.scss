@@ -6,6 +6,12 @@
 @use '../node-mixins' as *;
 
 .node-department{
+	#node-section-1 {
+		@include heroBackground;
+		.layout__region--content {
+			@include heroText;
+		}
+	}
 	.block-field-college,
 	.block-field-subtitle,
 	.block-field-intro-text {

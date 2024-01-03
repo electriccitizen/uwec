@@ -44,3 +44,66 @@
 		}
 	}
 }//end contactSection
+
+@mixin heroBackground {
+	position: relative;
+	z-index: 0;
+	margin-left: -$siteMarginMobile;
+	margin-top: -160px;
+	padding-top: 160px;
+	width: 100vw;
+	min-height: 100vh;
+	@include desk{
+		margin-top: -114px;
+		padding-top: 114px;
+	}
+	.swirl-pattern{
+		position: absolute;
+		right: 35%;
+		top: 15%;
+	}
+	& > div {
+		@include safeFlex(row,wrap,start,start);
+		background: $brightBlue;
+		position: relative;
+	}
+}
+@mixin heroImageRight {
+	.page-header-text {
+		@include desk{
+			width: 50%;
+		}
+	}
+	.image-right{
+		position: relative;
+		z-index: 10;
+		@include desk{
+			width: 50%;
+			order: 2;
+		}
+	} 
+}
+@mixin heroText {
+	position: relative;
+	z-index: 10;
+	padding-left: $siteMarginDesk;
+	& > * {
+		margin-bottom: $spaceXs;
+	}
+	.breadcrumb{
+		a{
+			color: $white;
+		}
+	}
+	.field-links {
+		a {
+			color: $white;
+			display: block;
+		}
+	}
+	.field,
+	.field > *{
+		color: $white;
+		margin-bottom: $spaceXs;
+	}
+}//end page header text

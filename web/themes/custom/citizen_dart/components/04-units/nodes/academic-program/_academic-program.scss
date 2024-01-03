@@ -3,6 +3,7 @@
 ================ */
 
 @use '../../../00-base/base' as *;
+@use '../node-mixins' as *;
 
 .node-academic-program{
 	&.contextual-region{
@@ -32,74 +33,15 @@
 	}
 
 	//hero setups
-	.program-hero{
-		position: relative;
-		z-index: 0;
-		margin-left: -$siteMarginMobile;
-		margin-top: -160px;
-		padding-top: 160px;
-		width: 100vw;
-		min-height: 100vh;
-		@include desk{
-			margin-top: -114px;
-			padding-top: 114px;
+	#node-section-1 {
+		.program-hero {
+			@include heroBackground;
+			@include heroImageRight;
 		}
-		.breadcrumb{
-			a{
-				color: $white;
-			}
+		.page-header-text {
+			@include heroText;
 		}
-		.hero-image {
-			@include safeFlex(row,wrap,start,start);
-			background: $brightBlue;
-         position: relative;
-		}
-		.page-header-text{
-			position: relative;
-			z-index: 10;
-			padding-left: $siteMarginDesk;
-			& > * {
-				margin-bottom: $spaceXs;
-			}
-			.field-links {
-				a {
-					display: block;
-				}
-			}
-			@include desk{
-				width: 50%;
-			}
-			.field{
-				color: $white;
-				margin-bottom: $spaceXs;
-            &.available-as {
-               span {
-                  color: $white;
-                  display: block;
-                  text-transform: uppercase;
-               }
-            }
-			}
-		}//end page header text
-		.swirl-pattern{
-			position: absolute;
-			right: 35%;
-			top: 15%;
-		}
-		.image-right{
-			position: relative;
-			z-index: 10;
-			@include desk{
-				width: 50%;
-				order: 2;
-			}
-		} 
-		.field-links{
-			a{
-				color: $white;
-			}
-		}
-	}//end page-header-wrapper
+	}
 	.field.body {
 		max-width: $textMax;
 		@include auto;
