@@ -109,6 +109,25 @@ class CmJsonDataParser extends DataParserPluginBase {
             }
             break;
 
+          case isset($this->configuration['target_entity']) && $this->configuration['target_entity'] == 'faux_profile':
+            foreach($row['data'] as $dataKey => $para) {
+              if (isset($para['faux_profile']) && is_array($para['faux_profile']['profiles'])) {
+                foreach ($para['faux_profile']['profiles'] as $i => $profile) {
+                  $item['fullname'] = $profile['val']['fullname'];
+                  $item['titlestring'] = $profile['val']['titlestring'];
+                  $item['email'] = $profile['val']['email'];
+                  $item['preferred_phone'] = $profile['val']['preferred_phone'];
+                  $item['headshot_image_id'] = $profile['val']['headshot_image_id'];
+                  $item['short_bio'] = $profile['val']['short_bio'];
+                  $item['parentId'] = $row['id'];
+                  $item['rowIndex'] = $dataKey;
+                  $item['profileIndex'] = $i;
+                  $this->results[] = $item;
+                }
+              }
+            }
+            break;
+
           // Accordion migration.
           case isset($this->configuration['target_entity']) && $this->configuration['target_entity'] == 'accordion':
             foreach ($row['data'] as $dataKey => $para) {
