@@ -175,7 +175,7 @@ class CmDataLogger implements EventSubscriberInterface {
     if (empty($data['dst_bundle'])) {
       $data['dst_bundle'] = 'file';
     }
-    $this->cmTools->logToConsole($data['dst_bundle']);
+//    $this->cmTools->logToConsole($data['dst_bundle']);
     $log_file = "public://migration-logs/{$data['dst_bundle']}_data.csv";
     $this->cmTools->logToFile($data, $log_file, '') ;
 
