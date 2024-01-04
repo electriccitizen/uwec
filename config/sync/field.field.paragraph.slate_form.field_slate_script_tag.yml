@@ -1,0 +1,24 @@
+uuid: b1c869d4-fb38-4e35-bb97-272ce745f211
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_slate_script_tag
+    - filter.format.full_html
+    - paragraphs.paragraphs_type.slate_form
+  module:
+    - text
+id: paragraph.slate_form.field_slate_script_tag
+field_name: field_slate_script_tag
+entity_type: paragraph
+bundle: slate_form
+label: 'Custom script tag'
+description: 'If "Custom" script tag type is selected, enter custom script tag here. If a script tag type other than "Custom" is selected, any script tag entered here will be overridden by a stored script tag matching the selected type.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - full_html
+field_type: text

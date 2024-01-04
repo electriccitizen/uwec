@@ -24,6 +24,7 @@ dependencies:
     - paragraphs.paragraphs_type.program_search
     - paragraphs.paragraphs_type.programs_list
     - paragraphs.paragraphs_type.select_type
+    - paragraphs.paragraphs_type.slate_form
     - paragraphs.paragraphs_type.snapshot_list
     - paragraphs.paragraphs_type.social_media_links
     - paragraphs.paragraphs_type.steps
@@ -79,6 +80,7 @@ settings:
       video: video
       view_placer: view_placer
       wayfinding: wayfinding
+      slate_form: slate_form
     negate: 0
     target_bundles_drag_drop:
       accordion_item:
@@ -167,6 +169,9 @@ settings:
         enabled: false
       select_type:
         weight: -57
+        enabled: true
+      slate_form:
+        weight: 70
         enabled: true
       snapshot_list:
         weight: -56

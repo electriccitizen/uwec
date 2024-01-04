@@ -1,0 +1,32 @@
+uuid: 50313ca0-8e2f-4411-89ca-cd894db19e1a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.slate_form.field_script_tag_type
+    - field.field.paragraph.slate_form.field_slate_script_tag
+    - paragraphs.paragraphs_type.slate_form
+  module:
+    - text
+id: paragraph.slate_form.default
+targetEntityType: paragraph
+bundle: slate_form
+mode: default
+content:
+  field_script_tag_type:
+    type: options_select
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_slate_script_tag:
+    type: text_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true
