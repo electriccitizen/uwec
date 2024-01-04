@@ -171,7 +171,7 @@ class CmJsonDataParser extends DataParserPluginBase {
                 }, $this);
                 $result['parentId'] = $row['id'];
                 $result['rowIndex'] = $dataKey;
-                $result['rowTitle'] = $para['utility-bar']['title'];
+                $result['rowTitle'] = $para['utility-bar']['title'] ?? '';
                 $result['files'] = $files;
                 $result['links'] = $links;
                 $this->results[] = $result;
