@@ -12,7 +12,7 @@ field_name: field_gallery_style
 entity_type: paragraph
 bundle: gallery
 label: 'Gallery Style'
-description: ''
+description: 'Image captions and caption headers will not be displayed in masonry galleries and will be displayed in the lightbox on tile galleries.'
 required: true
 translatable: false
 default_value: {  }
