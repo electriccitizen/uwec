@@ -92,15 +92,7 @@ process:
       plugin: extract
       index:
         - title
-#  test:
-##    - plugin: single_value
-##      source: stackla_widget
-#    -
-#      plugin: callback
-#      callable: var_dump
-#      source:
-#        - '@field_embed_content/value'
-#        - '@field_widget_title'
+
 destination:
   plugin: entity_reference_revisions:paragraph
   default_bundle: custom_embed
