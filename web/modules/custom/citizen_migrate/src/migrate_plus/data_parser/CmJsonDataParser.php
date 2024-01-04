@@ -109,6 +109,7 @@ class CmJsonDataParser extends DataParserPluginBase {
             }
             break;
 
+          // Faux profiles migration.
           case isset($this->configuration['target_entity']) && $this->configuration['target_entity'] == 'faux_profile':
             foreach($row['data'] as $dataKey => $para) {
               if (isset($para['faux_profile']) && is_array($para['faux_profile']['profiles'])) {

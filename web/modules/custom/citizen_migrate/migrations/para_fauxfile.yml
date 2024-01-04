@@ -1,5 +1,5 @@
 id: fauxfile
-label: 'Faux Profile'
+label: 'Fauxfile'
 
 # This migration will be run with all the other migrations in
 # the ECM group when using the --group tag in Drush.
@@ -16,16 +16,18 @@ migration_group: ecm
 # @Drush: fin drush migrate:import --tag=files
 migration_tags:
   - para
+  - para_fauxfile
 
 # Adding dependencies allows migrations to be run in the proper
 # order when run as part of the ECM Group or in a tag.
 migration_dependencies:
   required:
-    - files_doc
-    - files_img
-    - media_doc
-    - media_img
+#    - files_doc
+#    - files_img
+#    - media_doc
+#    - media_img
     - media_video
+    - fauxfile_item
   optional: { }
 
 # These keys hold the shared configuration used by this and other
@@ -46,10 +48,47 @@ include:
 # If you uncomment any of the source, process or destination keys,
 # you must put a field with a value.
 source:
+  plugin: uwec_url_paragraphs
+  urls: 'https://athena.apps.uwec.edu/api/pages.json'
   row_id: 55
+  target_entity: faux_profile
+  fields:
+    - name: parentId
+      label: 'Parent ID'
+      selector: parentId
+    - name: rowIndex
+      label: 'Row Index'
+      selector: rowIndex
+  ids:
+    parentId:
+      type: integer
+    rowIndex:
+      type: integer
 
 # Add processing for fields specific to this content type.
-process: { }
+process:
+  type:
+    plugin: default_value
+    default_value: 'fauxfile'
+  parent_type:
+    plugin: default_value
+    default_value: node
+  parent_field_name:
+    plugin: default_value
+    default_value: field_paragraphs
 
+  field_fauxfile_items:
+    - plugin: cm_lookup
+      migration: fauxfile_item
+      source:
+        - parentId
+        - rowIndex
+        - profileIndex
+    - plugin: sub_process
+      process:
+        target_id: id
+        target_revision_id: revision_id
 
-destination: { }
+destination:
+  plugin: entity_reference_revisions:paragraph
+  default_bundle: fauxfile
