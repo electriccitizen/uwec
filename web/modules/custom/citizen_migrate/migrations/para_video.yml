@@ -77,11 +77,15 @@ process:
     plugin: default_value
     default_value: field_paragraphs
 
-  field_video:
-    plugin: extract
-    source: video
-    index:
-      - video_id
+  'field_video/target_id':
+    -
+      plugin: extract
+      source: video
+      index:
+        - video_id
+    -
+      plugin: migration_lookup
+      migration: media_video
 
 destination:
   plugin: entity_reference_revisions:paragraph
