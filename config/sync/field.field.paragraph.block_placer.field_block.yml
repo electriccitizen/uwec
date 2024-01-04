@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - block_content.type.basic
+    - block_content.type.formatted_promo
     - block_content.type.reusable_widgets
     - field.storage.paragraph.field_block
     - paragraphs.paragraphs_type.block_placer
@@ -22,6 +23,7 @@ settings:
   handler_settings:
     target_bundles:
       basic: basic
+      formatted_promo: formatted_promo
       reusable_widgets: reusable_widgets
     sort:
       field: _none
