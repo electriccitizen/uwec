@@ -6,52 +6,28 @@
 @use '../../../02-chunks/media/media-mixins' as *;
 
 .paragraph--type--image{
+	max-width: 1104px;
+	@include auto;
 	.caption-left,
-	.caption-right,
-	.caption-below {
-		@include safeFlex(row,wrap,left,start);
-		@include bleed(padding,32px);
-		.caption {
-			flex: 1;
-			max-width: $textMax;
-		}
-	}
-	.caption-right {
-		flex-direction: row-reverse;
-	}
-	.caption-below {
-		flex-direction: column-reverse;
-	}
-	.image-wrapper{
-		position: relative;
-		&:after{
-			@include narrowStripes($gold);
-		}
-		&.small{
-			max-width: 280px;
-		}
-		&.medium{
-			max-width: 480px;
-		}
-		&.large{
-			max-width: 640px;
-		}
-		&.default{
-			img{
-				width: auto;
-				@include auto;
-				max-width: 100%;
+	.caption-right{
+		@include tab{
+			@include safeFlex(row,wrap,left,start);
+			@include bleed(padding,32px);
+			.caption {
+				flex: 1;
+				max-width: $textMax;
+			}
+			.image-wrapper{
+				max-width: 650px;
 			}
 		}
+	}//end left right
+	.caption-left {
+		flex-direction: row-reverse;
 	}
-	
-	a{
-		color: $baseText;
-		text-decoration: none;
-		img{
-			@include imageHover;
-		}
+	.caption-below,.caption-none {
+		max-width: 874px;
+		@include auto;
 	}
-	
 }//end image widget
 
