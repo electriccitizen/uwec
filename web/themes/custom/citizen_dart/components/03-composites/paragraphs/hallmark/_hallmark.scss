@@ -7,6 +7,9 @@
 .paragraph--type--hallmark{
 	.content{
 		display:flex;
+		& > div:last-child{
+			flex: 1 0 70%;
+		}
 	}
 
 	.content.left{

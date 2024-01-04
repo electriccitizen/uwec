@@ -7,7 +7,7 @@
 			//Slider
 			$(once('contentCarousel', '.paragraph--type--content-carousel', context)).each(function(){
 				$(document).ready(function(){
-					$('.widget-wrapper', this).slick({
+					$('.paragraph--type--content-carousel .widget-wrapper', this).slick({
 						adaptiveHeight: false,
 						autoplay: false,
 						autoplaySpeed: 5000
