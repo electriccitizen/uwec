@@ -16,17 +16,18 @@ migration_group: ecm
 # @Drush: fin drush migrate:import --tag=files
 migration_tags:
   - para
+  - para_gallery
 
 # Adding dependencies allows migrations to be run in the proper
 # order when run as part of the ECM Group or in a tag.
 migration_dependencies:
-  required: { }
+  required:
 #    - files_doc
 #    - files_img
 #    - media_doc
 #    - media_img
 #    - media_video
-#    - gallery_items
+    - gallery_items
   optional: { }
 
 # These keys hold the shared configuration used by this and other
@@ -172,10 +173,10 @@ process:
             source: value
             index:
               - 1
-  test:
-    plugin: callback
-    callable: var_dump
-    source: '@field_gallery_items'
+#  test:
+#    plugin: callback
+#    callable: var_dump
+#    source: '@field_gallery_items'
 destination:
   plugin: entity_reference_revisions:paragraph
   default_bundle: gallery

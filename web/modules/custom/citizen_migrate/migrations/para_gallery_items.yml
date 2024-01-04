@@ -16,6 +16,7 @@ migration_group: ecm
 # @Drush: fin drush migrate:import --tag=files
 migration_tags:
   - para
+  - para_gallery
 
 # Adding dependencies allows migrations to be run in the proper
 # order when run as part of the ECM Group or in a tag.
