@@ -125,10 +125,10 @@ process:
       process:
         uri: url
         title: title
-  test:
-    - plugin: callback
-      callable: var_dump
-      source: '@field_file_multi/target_id'
+#  test:
+#    - plugin: callback
+#      callable: var_dump
+#      source: '@field_link_multi'
 #  'field_link_multi/uri':
 #    -
 #      plugin: skip_on_empty
