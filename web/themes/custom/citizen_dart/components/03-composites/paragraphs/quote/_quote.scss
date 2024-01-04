@@ -15,15 +15,22 @@
 		height: 19px;
 		margin: -16px auto 30px;
 		svg,.cls-1{
-			fill: $navy;
+			fill: $brightBlue;
 		}
 	}
 }
 
 .paragraph--type--quote {
+	color: $brightBlue;
+	@media screen and (min-width: 690px){
+		margin-left: calc(-50vw + 345px);
+		margin-right: calc(-50vw + 345px);
+	}
   .quote-wrapper {
-    border-top: $navy 1px solid;
-    border-bottom: $navy 1px solid;
+  	max-width: 914px;
+  	@include auto;
+    border-top: $brightBlue 1px solid;
+    border-bottom: $brightBlue 1px solid;
     padding: $spaceMd 0;
     text-align: center;
     .quote {
