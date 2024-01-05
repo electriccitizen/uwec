@@ -407,8 +407,8 @@ function citizen_custom_preprocess_node(&$variables) {
     // Check if the checkbox field is checked.
     $field_value = $variables['node']->get('field_request_for_info')->value;
     // If the checkbox is not checked, remove the block from the _layout_builder array.
-    if (!$field_value) {
-      $block_id = 6;
+    if (!$field_value && isset($variables['content']['_layout_builder'][6])) {
+      $block_id = 7;
       $block = BlockContent::load($block_id);
       if ($block) {
         $block_uuid = $block->uuid();
