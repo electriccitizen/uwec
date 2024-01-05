@@ -50,7 +50,7 @@ dependencies:
     - node.type.academic_program
     - views.view.bios
   content:
-    - 'block_content:slate_form:ac5a7815-3ce8-43f7-b922-fd5ffdb3ee88'
+    - 'block_content:slate_form:66f013f0-f835-4b7e-85c1-49e917e12fde'
   module:
     - block_content
     - citizen_custom
@@ -407,11 +407,11 @@ third_party_settings:
           label: 'Slate form'
           context_mapping: {  }
         components:
-          5a85d5b7-0ee3-4b2c-a137-e2dc175c6ace:
-            uuid: 5a85d5b7-0ee3-4b2c-a137-e2dc175c6ace
+          3e74a3a9-19ed-40d5-98a6-0b6be5410580:
+            uuid: 3e74a3a9-19ed-40d5-98a6-0b6be5410580
             region: content
             configuration:
-              id: 'block_content:ac5a7815-3ce8-43f7-b922-fd5ffdb3ee88'
+              id: 'block_content:66f013f0-f835-4b7e-85c1-49e917e12fde'
               label: 'Slate form'
               label_display: '0'
               provider: block_content
