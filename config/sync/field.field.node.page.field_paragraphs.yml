@@ -71,6 +71,7 @@ settings:
       programs_list: programs_list
       program_search: program_search
       select_type: select_type
+      slate_form: slate_form
       snapshot_list: snapshot_list
       social_media_links: social_media_links
       steps: steps
@@ -80,127 +81,126 @@ settings:
       video: video
       view_placer: view_placer
       wayfinding: wayfinding
-      slate_form: slate_form
     negate: 0
     target_bundles_drag_drop:
       accordion_item:
-        weight: -77
+        weight: -79
         enabled: false
       accordions:
-        weight: -78
+        weight: -80
         enabled: true
       block_placer:
-        weight: -75
+        weight: -77
         enabled: true
       button:
-        weight: -74
-        enabled: true
-      contact_placer:
-        weight: -73
-        enabled: true
-      content_carousel:
-        weight: -72
-        enabled: false
-      cta_item:
-        weight: -45
-        enabled: false
-      ctas:
-        weight: -71
-        enabled: true
-      custom_embed:
-        weight: -70
-        enabled: true
-      events_list:
-        weight: -69
-        enabled: true
-      facts_list:
-        weight: -67
-        enabled: true
-      fauxfile:
-        weight: -68
-        enabled: true
-      fauxfile_item:
-        weight: -44
-        enabled: false
-      gallery:
-        weight: -66
-        enabled: true
-      gallery_item:
-        weight: -47
-        enabled: false
-      hallmark:
-        weight: -65
-        enabled: false
-      hero:
-        weight: -43
-        enabled: false
-      highlight_box:
-        weight: -64
-        enabled: true
-      hours_placer:
-        weight: -63
-        enabled: true
-      hours_set:
-        weight: -46
-        enabled: false
-      image:
-        weight: -62
-        enabled: true
-      layout_section:
-        weight: -79
-        enabled: true
-      links_files:
         weight: -76
         enabled: true
+      contact_placer:
+        weight: -75
+        enabled: true
+      content_carousel:
+        weight: -74
+        enabled: false
+      cta_item:
+        weight: -46
+        enabled: false
+      ctas:
+        weight: -73
+        enabled: true
+      custom_embed:
+        weight: -72
+        enabled: true
+      events_list:
+        weight: -71
+        enabled: true
+      facts_list:
+        weight: -69
+        enabled: true
+      fauxfile:
+        weight: -70
+        enabled: true
+      fauxfile_item:
+        weight: -45
+        enabled: false
+      gallery:
+        weight: -68
+        enabled: true
+      gallery_item:
+        weight: -48
+        enabled: false
+      hallmark:
+        weight: -67
+        enabled: false
+      hero:
+        weight: -44
+        enabled: false
+      highlight_box:
+        weight: -66
+        enabled: true
+      hours_placer:
+        weight: -65
+        enabled: true
+      hours_set:
+        weight: -47
+        enabled: false
+      image:
+        weight: -64
+        enabled: true
+      layout_section:
+        weight: -81
+        enabled: true
+      links_files:
+        weight: -78
+        enabled: true
       profiles_list:
-        weight: -61
+        weight: -63
         enabled: true
       program_search:
-        weight: -59
+        weight: -61
         enabled: true
       programs_list:
-        weight: -60
+        weight: -62
         enabled: true
       quote:
-        weight: -58
+        weight: -60
         enabled: false
       select_item:
-        weight: -42
+        weight: -43
         enabled: false
       select_type:
-        weight: -57
+        weight: -59
         enabled: true
       slate_form:
-        weight: 70
+        weight: -58
         enabled: true
       snapshot_list:
-        weight: -56
+        weight: -57
         enabled: true
       social_media_links:
-        weight: -55
+        weight: -56
         enabled: true
       step_item:
-        weight: -41
+        weight: -42
         enabled: false
       steps:
-        weight: -54
+        weight: -55
         enabled: true
       stories_video_list:
-        weight: -53
+        weight: -54
         enabled: true
       testimonial_placer:
-        weight: -51
-        enabled: true
-      text:
         weight: -52
         enabled: true
+      text:
+        weight: -53
+        enabled: true
       video:
-        weight: -50
+        weight: -51
         enabled: true
       view_placer:
-        weight: -49
+        weight: -50
         enabled: true
       wayfinding:
-        weight: -48
+        weight: -49
         enabled: true
 field_type: entity_reference_revisions
