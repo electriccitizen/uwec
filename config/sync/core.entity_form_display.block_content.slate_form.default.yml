@@ -1,0 +1,42 @@
+uuid: 353bbec6-910c-4a94-86a6-1278c211a451
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.slate_form
+    - field.field.block_content.slate_form.body
+    - field.field.block_content.slate_form.field_slate_script_tag
+  module:
+    - text
+id: block_content.slate_form.default
+targetEntityType: block_content
+bundle: slate_form
+mode: default
+content:
+  body:
+    type: text_textarea_with_summary
+    weight: 26
+    region: content
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+      show_summary: false
+    third_party_settings: {  }
+  field_slate_script_tag:
+    type: text_textfield
+    weight: 27
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  info:
+    type: string_textfield
+    weight: -5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden: {  }

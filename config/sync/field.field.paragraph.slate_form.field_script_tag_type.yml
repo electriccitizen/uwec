@@ -1,0 +1,29 @@
+uuid: d71b80e2-35eb-47c2-be6e-d4722d34ac98
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_script_tag_type
+    - paragraphs.paragraphs_type.slate_form
+    - taxonomy.vocabulary.slate_script_tag_types
+id: paragraph.slate_form.field_script_tag_type
+field_name: field_script_tag_type
+entity_type: paragraph
+bundle: slate_form
+label: 'Script tag type'
+description: 'Select either simple or dynamic script tag, or enter custom script tag'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      slate_script_tag_types: slate_script_tag_types
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

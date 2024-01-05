@@ -1,0 +1,10 @@
+uuid: cfea2d6c-3cc4-4188-ba15-005c4ef2bf8d
+langcode: en
+status: true
+dependencies: {  }
+id: slate_form
+label: 'Slate form'
+icon_uuid: null
+icon_default: null
+description: 'Adds widget to display Slate form'
+behavior_plugins: {  }

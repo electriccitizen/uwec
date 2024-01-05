@@ -1,0 +1,31 @@
+uuid: e87ef857-5a24-41d3-9554-ab21347c5e4d
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.preview
+    - field.field.paragraph.slate_form.field_script_tag_type
+    - field.field.paragraph.slate_form.field_slate_script_tag
+    - paragraphs.paragraphs_type.slate_form
+  module:
+    - layout_builder
+third_party_settings:
+  layout_builder:
+    enabled: false
+    allow_custom: false
+id: paragraph.slate_form.preview
+targetEntityType: paragraph
+bundle: slate_form
+mode: preview
+content:
+  field_script_tag_type:
+    type: entity_reference_label
+    label: hidden
+    settings:
+      link: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  field_slate_script_tag: true
+  search_api_excerpt: true
