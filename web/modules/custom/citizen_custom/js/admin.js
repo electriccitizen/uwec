@@ -45,6 +45,63 @@
       });
     }
   };
+  Drupal.behaviors.wayfindingWidget = {
+    attach: function (context, settings) {
+      $(once('isWayfindingWidget', '.field--name-field-version .js-form-type-select', context)).each(function(){
+      let comboFields = $('.field--name-field-link-multi');
+
+      let singleDetailFields = $('.field--name-field-link,.field--name-field-image');
+
+      let detailFields = $('.field--name-field-text-placement');
+
+      //hide combo & detail fields by default
+      comboFields.hide();
+      detailFields.hide(); 
+
+       $(document).ajaxComplete(function () {
+        // detect the chosen list type and show the proper select or manual field options
+        $('.field--name-field-version .js-form-type-select').each(function () {
+          //when the content type select is changed
+          $(this).find('select').change(function () {
+            //get the option
+            var chosen = $(this).find("option:selected").text().toLowerCase().replace(/_/g, '-');
+            
+            if (chosen == 'combo'){
+              singleDetailFields.hide();
+              comboFields.show();
+              detailFields.hide();
+            } else if (chosen == 'detail'){
+              detailFields.show();
+              singleDetailFields.show();
+              comboFields.hide();
+            } else {
+              singleDetailFields.show();
+              comboFields.hide();
+              detailFields.hide();
+            }
+          });
+        });
+         //when an existing content placer is opened, run the same checks
+        if($('.field--name-field-version select').val()){
+          var chosen = $('.field--name-field-version select').find("option:selected").text().toLowerCase().replace(/_/g, '-');
+          if (chosen == 'combo'){
+            singleDetailFields.hide();
+            comboFields.show();
+            detailFields.hide();
+          } else if (chosen == 'detail'){
+            detailFields.show();
+            singleDetailFields.show();
+            comboFields.hide();
+          } else {
+            singleDetailFields.show();
+            comboFields.hide();
+            detailFields.hide();
+          }
+         }
+       });
+     });
+    }
+  };
 
   /* Add paragraph preview labels
   ----------------------- */

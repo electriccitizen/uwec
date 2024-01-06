@@ -1,0 +1,23 @@
+uuid: 29c61253-af2e-4670-9344-f99653e5cd85
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_link
+    - paragraphs.paragraphs_type.wayfinding
+  module:
+    - link
+id: paragraph.wayfinding.field_link
+field_name: field_link
+entity_type: paragraph
+bundle: wayfinding
+label: Button
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 2
+  link_type: 17
+field_type: link

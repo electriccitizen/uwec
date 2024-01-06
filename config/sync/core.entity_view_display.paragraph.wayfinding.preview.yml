@@ -4,9 +4,17 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.paragraph.preview
+    - field.field.paragraph.wayfinding.field_additional_text
+    - field.field.paragraph.wayfinding.field_headline
+    - field.field.paragraph.wayfinding.field_image
+    - field.field.paragraph.wayfinding.field_link
+    - field.field.paragraph.wayfinding.field_link_multi
+    - field.field.paragraph.wayfinding.field_text_placement
+    - field.field.paragraph.wayfinding.field_version
     - paragraphs.paragraphs_type.wayfinding
   module:
     - layout_builder
+    - options
 third_party_settings:
   layout_builder:
     enabled: false
@@ -15,6 +23,26 @@ id: paragraph.wayfinding.preview
 targetEntityType: paragraph
 bundle: wayfinding
 mode: preview
-content: {  }
+content:
+  field_headline:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_version:
+    type: list_default
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
 hidden:
+  field_additional_text: true
+  field_image: true
+  field_link: true
+  field_link_multi: true
+  field_text_placement: true
   search_api_excerpt: true
