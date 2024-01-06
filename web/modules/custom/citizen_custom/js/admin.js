@@ -43,8 +43,12 @@
           }
         });
       });
+    }
+  };
+  Drupal.behaviors.wayfindingWidget = {
+    attach: function (context, settings) {
       $(once('isWayfindingWidget', '.field--name-field-version .js-form-type-select', context)).each(function(){
- 
+        alert('hi');
       let comboFields = $('.field--name-field-link-multi');
 
       let singleDetailFields = $('.field--name-field-link,.field--name-field-image');
