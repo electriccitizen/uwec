@@ -11,6 +11,8 @@
          gap: $spaceLg;
          .wayfinding-text {
             order: 1;
+            width: 100%;
+            max-width: calc(100% - 426px);
          }
          .image {
             order: 2;
@@ -27,6 +29,10 @@
       &.single {
          @include safeFlex(row,wrap,start,start);
          gap: $spaceLg;
+         .wayfinding-text {
+            width: 100%;
+            max-width: calc(100% - 360px);
+         }
       }
       &.combo {
          
