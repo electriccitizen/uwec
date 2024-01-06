@@ -1,0 +1,9 @@
+status: 1
+pattern: '[block_content:field_formatted_title]'
+escape: false
+preserve_titles: false
+save: false
+chunk: 50
+dependencies:
+  config:
+    - block_content.type.formatted_promo
