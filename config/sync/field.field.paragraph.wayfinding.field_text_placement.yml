@@ -1,0 +1,23 @@
+uuid: c4f0d333-3611-480b-b36c-f0b73c2c422f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_text_placement
+    - paragraphs.paragraphs_type.wayfinding
+  module:
+    - options
+id: paragraph.wayfinding.field_text_placement
+field_name: field_text_placement
+entity_type: paragraph
+bundle: wayfinding
+label: 'Text Placement'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: left
+default_value_callback: ''
+settings: {  }
+field_type: list_string

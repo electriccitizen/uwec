@@ -5,5 +5,31 @@
 @use '../../../00-base/base' as *;
 
 .paragraph--type--wayfinding{
-
+   .wayfinding {
+      &.detail {
+         @include safeFlex(row,wrap,start,start);
+         gap: $spaceLg;
+         .wayfinding-text {
+            order: 1;
+         }
+         .image {
+            order: 2;
+         }
+         &.right {
+            .wayfinding-text {
+               order: 2;
+            }
+            .image {
+               order: 1;
+            }
+         }
+      }
+      &.single {
+         @include safeFlex(row,wrap,start,start);
+         gap: $spaceLg;
+      }
+      &.combo {
+         
+      }
+   }
 }//end wayfinding widget
