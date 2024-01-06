@@ -14,7 +14,6 @@ dependencies:
     - paragraphs.paragraphs_type.wayfinding
   module:
     - layout_builder
-    - link
     - options
 third_party_settings:
   layout_builder:
@@ -33,18 +32,6 @@ content:
     third_party_settings: {  }
     weight: 1
     region: content
-  field_link_multi:
-    type: link
-    label: inline
-    settings:
-      trim_length: 80
-      url_only: false
-      url_plain: false
-      rel: ''
-      target: ''
-    third_party_settings: {  }
-    weight: 0
-    region: content
   field_version:
     type: list_default
     label: inline
@@ -56,5 +43,6 @@ hidden:
   field_additional_text: true
   field_image: true
   field_link: true
+  field_link_multi: true
   field_text_placement: true
   search_api_excerpt: true
