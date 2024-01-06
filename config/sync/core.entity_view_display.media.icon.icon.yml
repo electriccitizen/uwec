@@ -1,0 +1,47 @@
+uuid: c2c87e24-c555-44cf-bc5d-fd0f435ca72e
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.media.icon
+    - field.field.media.icon.field_media_icon
+    - image.style.icon
+    - media.type.icon
+  module:
+    - layout_builder
+    - lazy
+    - svg_image
+third_party_settings:
+  layout_builder:
+    enabled: false
+    allow_custom: false
+id: media.icon.icon
+targetEntityType: media
+bundle: icon
+mode: icon
+content:
+  field_media_icon:
+    type: image
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: icon
+      image_loading:
+        attribute: lazy
+      svg_attributes:
+        width: null
+        height: null
+      svg_render_as_image: true
+    third_party_settings:
+      lazy:
+        lazy_image: '0'
+        placeholder_style: ''
+        data_uri: false
+    weight: 0
+    region: content
+hidden:
+  created: true
+  name: true
+  search_api_excerpt: true
+  thumbnail: true
+  uid: true
