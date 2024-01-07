@@ -27,7 +27,10 @@
         {{ content.field_formatted_headline }}
         {{ content.body }}
         {% if content.field_program_finder.0['#markup'] == "On" %}
-          {{ drupal_block('program_search') }}
+          <div class="program-search">
+            <h3>What do you want to study?</h3>
+            {{ drupal_block('program_search') }}
+          </div>
         {% endif %}
       </div>
       <div class="last">
