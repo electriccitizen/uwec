@@ -1,4 +1,4 @@
-uuid: 283ab73a-87ee-4e16-8b7f-81cf91b5bdcd
+uuid: 050cd3b8-addc-4036-b218-559c6e4d1a67
 langcode: en
 status: true
 dependencies:
@@ -13,16 +13,13 @@ bundle: button
 mode: default
 content:
   field_link:
-    type: link
-    label: hidden
-    settings:
-      trim_length: 80
-      url_only: false
-      url_plain: false
-      rel: ''
-      target: ''
-    third_party_settings: {  }
+    type: link_default
     weight: 3
     region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
 hidden:
-  search_api_excerpt: true
+  created: true
+  status: true
