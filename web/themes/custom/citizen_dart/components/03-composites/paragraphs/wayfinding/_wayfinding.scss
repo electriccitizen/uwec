@@ -12,7 +12,7 @@
          .wayfinding-text {
             order: 1;
             width: 100%;
-            max-width: calc(100% - 426px);
+            max-width: calc(100% - 426px - $spaceLg);
          }
          .image {
             order: 2;
@@ -31,7 +31,7 @@
          gap: $spaceLg;
          .wayfinding-text {
             width: 100%;
-            max-width: calc(100% - 360px);
+            max-width: calc(100% - 360px - $spaceLg);
          }
       }
       &.combo {
