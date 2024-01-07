@@ -1,0 +1,19 @@
+uuid: 1b61a70e-3a2e-434e-89ad-e981382ccc09
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_content
+id: block_content.field_leadin
+field_name: field_leadin
+entity_type: block_content
+type: string_long
+settings:
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

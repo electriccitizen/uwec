@@ -1,0 +1,18 @@
+uuid: f813e608-31c5-430f-ad9b-551ca8250952
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_content
+id: block_content.field_program_finder
+field_name: field_program_finder
+entity_type: block_content
+type: boolean
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

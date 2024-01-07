@@ -1,0 +1,29 @@
+uuid: 19450c87-26d3-4062-a4b9-ecd85c16e1ae
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.structured_section
+    - field.storage.block_content.field_bg_image
+    - media.type.image
+id: block_content.structured_section.field_bg_image
+field_name: field_bg_image
+entity_type: block_content
+bundle: structured_section
+label: 'Background Image'
+description: '<strong>Optimal image size:</strong> is 1920x1920px'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

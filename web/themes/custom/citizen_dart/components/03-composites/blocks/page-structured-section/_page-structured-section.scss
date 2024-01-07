@@ -3,7 +3,62 @@
 =================== */
 @use '../../../00-base/base' as *;
 
-.block-page-structured-section{
-	
+.block-structured-section {
+   background-color: $brightBlue;
+   .field-wayfinding {
+      @include auto;
+      background-color: $lightGrey;
+      max-width: $contentStop;
+   }
+
+   .field-leadin {
+      max-width: $textMax;
+      color: $white;
+      @include auto;
+      text-align: center;
+   }
+
+   .field-button {
+      @include auto;
+      text-align: center;
+   }
+
+   .cta-section {
+      position: relative;
+      .bg-image {
+         position: absolute;
+         object-fit: cover;
+         width: 100%;
+         height: 100%;
+         opacity: 0.5;
+         top: 0;
+         left: 0;
+      }
+      .cta-section-inner {
+         @include safeFlex(row,wrap,start,start);
+         @include bleed(padding, $spaceLg);
+         max-width: $contentStop;
+         @include auto;
+         .first,.last {
+            width: 50%;
+            .field-formatted-headline {
+               h2 {
+                  color: $white;
+               }
+            }
+            .body {
+               color: $white;
+            }
+            .field-cta-image {
+               max-width: 426px;
+            }
+            .field-cta-links {
+               a {
+                  color: $white;
+               }
+            }
+         }
+      }
+   }
 }//end block page-structured-section
 
