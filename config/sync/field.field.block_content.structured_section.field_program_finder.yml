@@ -1,0 +1,21 @@
+uuid: 564ab83e-c83c-43bc-a17b-ad07a89ea9de
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.structured_section
+    - field.storage.block_content.field_program_finder
+id: block_content.structured_section.field_program_finder
+field_name: field_program_finder
+entity_type: block_content
+bundle: structured_section
+label: 'Show program finder?'
+description: 'Show the programs search block in the CTA.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

@@ -1,0 +1,19 @@
+uuid: 21611637-9e89-49e2-9475-84c31e0f585f
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.structured_section
+    - field.storage.block_content.field_leadin
+id: block_content.structured_section.field_leadin
+field_name: field_leadin
+entity_type: block_content
+bundle: structured_section
+label: Lead-in
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long
