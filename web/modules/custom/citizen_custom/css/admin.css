@@ -238,10 +238,13 @@ button[disabled]:hover,button.disabled:hover{
 
 /* INDIVIDUAL PARAGRAPH PREVIEW TWEAKS
 ------------------------------- */
-.paragraph--type--form-placer.paragraph--view-mode--preview .field--name-field-form a{
+.paragraph--type--form-placer.paragraph--view-mode--preview .field--name-field-form a,
+.paragraph--type--button.paragraph--view-mode--preview .field--name-field-link a{
 	pointer-events: none;
 	color: #444;
 }
+
+
 
 /* FIELD ADJUSTMENTS
 ------------------------ */
