@@ -9,6 +9,7 @@
 .paragraph--type--button{
 	@include textConstrain;
    .field-link {
+      text-align: center;
       a {
          @include outlineButton($navy);
       }
