@@ -15,11 +15,8 @@
 
 
 {% block blockContent %}
-  {{ content|without('field_formatted_headline', 'body', 'field_program_finder', 'field_cta_image', 'field_cta_links', 'field_bg_image' )}}
-  {% if content.field_bg_image.0['#plain_text'] %}
-    {% set imageEntity = drupal_entity('media', content.field_bg_image['#items'].0.target_id) %}
-    {% set bgImageUrl = imageEntity['#media'].field_media_image|file_url %}
-  {% endif %}  
+  {{ content|without('field_formatted_headline', 'body', 'field_program_finder', 'field_cta_image', 'field_cta_links')}}
+   
   <div class="cta-section">
     {% if bgImageUrl %} <img src="{{ bgImageUrl }}" alt="" class="bg-image" />{% endif %}
     <div class="cta-section-inner">

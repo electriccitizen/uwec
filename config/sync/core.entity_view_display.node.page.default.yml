@@ -8,6 +8,7 @@ dependencies:
     - field.field.node.page.field_domain_all_affiliates
     - field.field.node.page.field_domain_source
     - field.field.node.page.field_editorial_sections
+    - field.field.node.page.field_exclude_search
     - field.field.node.page.field_formatted_title
     - field.field.node.page.field_hero
     - field.field.node.page.field_hide_nav
@@ -15,6 +16,7 @@ dependencies:
     - field.field.node.page.field_metatags
     - field.field.node.page.field_page_family
     - field.field.node.page.field_paragraphs
+    - field.field.node.page.field_social_image
     - field.field.node.page.field_subtitle
     - field.field.node.page.layout_builder__layout
     - node.type.page
@@ -149,8 +151,6 @@ third_party_settings:
       restricted_categories:
         - '@entity'
         - 'Chaos Tools'
-        - 'Custom block types'
-        - 'Custom blocks'
         - Devel
         - Forms
         - Help
@@ -238,8 +238,10 @@ hidden:
   field_domain_access: true
   field_domain_all_affiliates: true
   field_domain_source: true
+  field_exclude_search: true
   field_hide_nav: true
   field_metatags: true
   field_paragraphs: true
+  field_social_image: true
   layout_builder__layout: true
   search_api_excerpt: true

@@ -30,9 +30,11 @@ content:
     weight: 4
     region: content
   field_bg_image:
-    type: entity_reference_entity_id
+    type: entity_reference_entity_view
     label: hidden
-    settings: {  }
+    settings:
+      view_mode: 1920x1920
+      link: false
     third_party_settings: {  }
     weight: 8
     region: content

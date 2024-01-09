@@ -73,8 +73,8 @@ function citizen_dart_preprocess_responsive_image(&$variables) {
 
   switch ($style_id) {
     case 'banner':
-      $img_width = 1000;
-      $img_height = 400;
+      $img_width = 1194;
+      $img_height = 786;
       // get the url for each image style being preloaded
       $deskURL = ImageStyle::load('banner_desk')->buildUrl($variables['uri']);
       $midDeskURL = ImageStyle::load('banner_middesk')->buildUrl($variables['uri']);
@@ -92,8 +92,8 @@ function citizen_dart_preprocess_responsive_image(&$variables) {
       $variables['#attached']['html_head'][] = [$wideDeskLinkTag, 'preloadBannerImageWideDesk'];
       break;
     case '1920x1445':
-      $img_width = 1000;
-      $img_height = 400;
+      $img_width = 1192;
+      $img_height = 897;
       // get the url for each image style being preloaded
       $deskURL = ImageStyle::load('1192x897')->buildUrl($variables['uri']);
       $midDeskURL = ImageStyle::load('1440x1084')->buildUrl($variables['uri']);
@@ -165,6 +165,10 @@ function citizen_dart_preprocess_responsive_image(&$variables) {
     case 'square':
       $img_width = 360;
       $img_height = 360;
+      break;
+    case '1920x1920':
+      $img_width = 1920;
+      $img_height = 1920;
       break;
     default:
       $img_width = 'default';
