@@ -1,0 +1,30 @@
+uuid: 7fc05551-dfe3-4288-a2ec-d17d128285c3
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:structured_section:00405090-e11f-4de1-babc-94af90dcf832'
+  module:
+    - block_content
+    - system
+  theme:
+    - citizen_dart
+id: citizen_dart_teststructuredsection
+theme: citizen_dart
+region: content
+weight: 0
+provider: null
+plugin: 'block_content:00405090-e11f-4de1-babc-94af90dcf832'
+settings:
+  id: 'block_content:00405090-e11f-4de1-babc-94af90dcf832'
+  label: 'Test Structured Section'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: /block-test
