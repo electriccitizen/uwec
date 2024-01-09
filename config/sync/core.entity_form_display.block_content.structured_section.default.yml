@@ -23,10 +23,8 @@ third_party_settings:
   field_group:
     group_call_to_action:
       children:
-        - field_bg_image
         - field_formatted_headline
         - body
-        - field_button
         - field_cta_image
         - field_cta_links
         - field_program_finder
@@ -59,14 +57,14 @@ content:
     third_party_settings: {  }
   field_bg_image:
     type: media_library_widget
-    weight: 28
+    weight: 5
     region: content
     settings:
       media_types: {  }
     third_party_settings: {  }
   field_button:
     type: link_default
-    weight: 31
+    weight: 3
     region: content
     settings:
       placeholder_url: ''
@@ -97,7 +95,7 @@ content:
     third_party_settings: {  }
   field_leadin:
     type: string_textarea
-    weight: 3
+    weight: 2
     region: content
     settings:
       rows: 5
