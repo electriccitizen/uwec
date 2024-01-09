@@ -1,0 +1,24 @@
+uuid: 49c5b380-56e4-4260-8847-c48a9dd7c6a4
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.formatted_promo
+    - field.storage.block_content.field_formatted_headline
+    - filter.format.short_text_formatted_html
+  module:
+    - text
+id: block_content.formatted_promo.field_formatted_headline
+field_name: field_formatted_headline
+entity_type: block_content
+bundle: formatted_promo
+label: 'Formatted Headline'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - short_text_formatted_html
+field_type: text_long
