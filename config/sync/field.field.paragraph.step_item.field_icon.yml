@@ -1,0 +1,29 @@
+uuid: de468579-ef78-4f62-b23f-032a9fe3d044
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_icon
+    - media.type.icon
+    - paragraphs.paragraphs_type.step_item
+id: paragraph.step_item.field_icon
+field_name: field_icon
+entity_type: paragraph
+bundle: step_item
+label: Icon
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      icon: icon
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

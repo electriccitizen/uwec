@@ -11,6 +11,7 @@ dependencies:
     - filter.format.full_html
     - filter.format.short_text_formatted_html
     - media.type.document
+    - media.type.icon
     - media.type.image
     - media.type.remote_video
     - node.type.academic_program
@@ -129,6 +130,7 @@ permissions:
   - 'create formatted_promo block content'
   - 'create hours content'
   - 'create hours content on assigned domains'
+  - 'create icon media'
   - 'create image media'
   - 'create job content'
   - 'create job content on assigned domains'
@@ -205,6 +207,7 @@ permissions:
   - 'delete any formatted_promo block content'
   - 'delete any formatted_promo block content revisions'
   - 'delete any hours content'
+  - 'delete any icon media'
   - 'delete any image media'
   - 'delete any job content'
   - 'delete any news content'
@@ -242,6 +245,7 @@ permissions:
   - 'delete own document media'
   - 'delete own fact content'
   - 'delete own hours content'
+  - 'delete own icon media'
   - 'delete own image media'
   - 'delete own job content'
   - 'delete own news content'
@@ -310,6 +314,7 @@ permissions:
   - 'edit any fact content'
   - 'edit any formatted_promo block content'
   - 'edit any hours content'
+  - 'edit any icon media'
   - 'edit any image media'
   - 'edit any job content'
   - 'edit any news content'
@@ -333,6 +338,7 @@ permissions:
   - 'edit own document media'
   - 'edit own fact content'
   - 'edit own hours content'
+  - 'edit own icon media'
   - 'edit own image media'
   - 'edit own job content'
   - 'edit own news content'

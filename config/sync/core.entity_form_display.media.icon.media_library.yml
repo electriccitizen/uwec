@@ -5,25 +5,15 @@ dependencies:
   config:
     - core.entity_form_mode.media.media_library
     - field.field.media.icon.field_media_icon
-    - image.style.thumbnail
     - media.type.icon
-  module:
-    - svg_image
 id: media.icon.media_library
 targetEntityType: media
 bundle: icon
 mode: media_library
-content:
-  field_media_icon:
-    type: image_image
-    weight: 0
-    region: content
-    settings:
-      progress_indicator: throbber
-      preview_image_style: thumbnail
-    third_party_settings: {  }
+content: {  }
 hidden:
   created: true
+  field_media_icon: true
   name: true
   path: true
   publish_on: true

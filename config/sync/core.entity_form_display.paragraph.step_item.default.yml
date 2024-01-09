@@ -1,23 +1,24 @@
-uuid: 74f5537b-1162-4e9d-a1ec-2a079beaa5f3
+uuid: 9356105d-6abc-4f7e-8506-016b09e959ff
 langcode: en
 status: true
 dependencies:
   config:
     - field.field.paragraph.step_item.field_icon
     - paragraphs.paragraphs_type.step_item
+  module:
+    - media_library
 id: paragraph.step_item.default
 targetEntityType: paragraph
 bundle: step_item
 mode: default
 content:
   field_icon:
-    type: entity_reference_entity_view
-    label: hidden
-    settings:
-      view_mode: icon
-      link: false
-    third_party_settings: {  }
+    type: media_library_widget
     weight: 0
     region: content
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
 hidden:
-  search_api_excerpt: true
+  created: true
+  status: true

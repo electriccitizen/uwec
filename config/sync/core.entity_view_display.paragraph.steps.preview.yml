@@ -4,8 +4,10 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.paragraph.preview
+    - field.field.paragraph.steps.field_step_items
     - paragraphs.paragraphs_type.steps
   module:
+    - entity_reference_revisions
     - layout_builder
 third_party_settings:
   layout_builder:
@@ -15,6 +17,15 @@ id: paragraph.steps.preview
 targetEntityType: paragraph
 bundle: steps
 mode: preview
-content: {  }
+content:
+  field_step_items:
+    type: entity_reference_revisions_entity_view
+    label: hidden
+    settings:
+      view_mode: preview
+      link: ''
+    third_party_settings: {  }
+    weight: 0
+    region: content
 hidden:
   search_api_excerpt: true

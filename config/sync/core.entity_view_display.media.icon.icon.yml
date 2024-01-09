@@ -29,9 +29,9 @@ content:
       image_loading:
         attribute: lazy
       svg_attributes:
-        width: null
-        height: null
-      svg_render_as_image: true
+        width: 32
+        height: 32
+      svg_render_as_image: false
     third_party_settings:
       lazy:
         lazy_image: '0'
