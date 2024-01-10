@@ -3,7 +3,22 @@
 ================== */
 
 @use '../../../00-base/base' as *;
+@use '../../../01-parts/buttons/button-mixins' as *;
+@use '../../../01-parts/forms/elements/form-mixins' as *;
 
 .paragraph--type--program-search{
-
+	@include exposedForm;
+	#program-search-form{
+		@include safeFlex(row,nowrap,start,center);
+		@include bleed(padding,20px);
+		.form-item{
+			margin-bottom: 0;
+		}
+		.form-actions{
+			input.form-submit.button{
+				@include submitButton;
+				margin: 0;
+			}
+		}//end form actions
+	}//end program search form
 }//end program-search widget

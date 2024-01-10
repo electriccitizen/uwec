@@ -6,8 +6,11 @@
 @use '../../01-parts/forms/elements/form-mixins' as *;
 
 .views-exposed-form{
-	@include safeFlex(row,wrap,start,center);
-	@include bleed(padding,20px);
+	@include exposedForm;
+	.views-exposed-form-inner{
+		@include safeFlex(row,wrap,start,center);
+		@include bleed(padding,20px);
+	}
 	.form-item{
 		width: 100%;
 		label{

@@ -486,6 +486,13 @@
 	}//end facts count 5
 }//end facts grid
 
+@mixin exposedForm{
+	background: #f8f7f6;
+	max-width: 894px;
+	margin: 0 auto 60px;
+	padding: 30px 60px 44px;
+}
+
 /* ANIMATION MIXINS
 --------------------- */
 @mixin animation($animate...) {

@@ -4,10 +4,4 @@
 
 @use '../../00-base/base' as *;
 
-@mixin exposedForm{
-	background: $lightGrey;
-	max-width: $exposedFilterWidth;
-	margin: 0 auto 60px;
-	padding: 30px 60px 44px;
-}
 
