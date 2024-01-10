@@ -54,9 +54,35 @@
                }
             }
             .program-search {
-               h3 {
-                  color: $white;
-               }
+              h3 {
+                 color: $white;
+              }
+              #program-search-form{
+               	position: relative;
+               	*{
+               		transform-style: unset;
+               	}
+               	#edit-program-search-submit{
+               		position: absolute;
+               		top: calc(50% - 12px);
+               		right: 20px;
+               		@include browserWipe;
+               		width: 24px;
+               		height: 24px;
+               		overflow: hidden;
+               		text-indent: -9000px;
+               		background-color: transparent;
+               		border: 0;
+               		background-image: url(../images/elements/search.svg);
+               		background-repeat: no-repeat;
+               		background-size: 100%;
+               		background-position: 0 0;
+               		&:hover,&:focus{
+               			opacity: .5;
+               			border-bottom: 1px solid $black;
+               		}
+               	}
+              }
             }
             .body {
                color: $white;
@@ -71,8 +97,8 @@
                   color: $white;
                }
             }
-         }
-      }
-   }
+         }//end first last
+      }//end CTA section inner
+   }//end CTA section
 }//end block page-structured-section
 

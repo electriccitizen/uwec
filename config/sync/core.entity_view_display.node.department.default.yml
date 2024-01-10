@@ -11,6 +11,7 @@ dependencies:
     - field.field.node.department.field_domain_all_affiliates
     - field.field.node.department.field_domain_source
     - field.field.node.department.field_editorial_sections
+    - field.field.node.department.field_facts_list
     - field.field.node.department.field_hallmarks
     - field.field.node.department.field_hours_library
     - field.field.node.department.field_intro_text
@@ -27,7 +28,6 @@ dependencies:
     - node.type.department
     - system.menu.departments
     - views.view.bios
-    - views.view.facts
     - views.view.programs
   module:
     - entity_reference_revisions
@@ -227,20 +227,7 @@ third_party_settings:
               context_mapping: {  }
               views_label: ''
               items_per_page: none
-            weight: 5
-            additional: {  }
-          bc63b224-5b3a-4096-8576-b8b5886b3340:
-            uuid: bc63b224-5b3a-4096-8576-b8b5886b3340
-            region: content
-            configuration:
-              id: 'views_block:facts-recent_by_tag'
-              label: ''
-              label_display: '0'
-              provider: views
-              context_mapping: {  }
-              views_label: ''
-              items_per_page: '2'
-            weight: 7
+            weight: 6
             additional: {  }
           3037c218-b849-40b4-b4eb-82a887b60c9b:
             uuid: 3037c218-b849-40b4-b4eb-82a887b60c9b
@@ -259,7 +246,7 @@ third_party_settings:
                 settings:
                   view_mode: default
                 third_party_settings: {  }
-            weight: 6
+            weight: 7
             additional: {  }
           0e83c8ac-72f9-4785-a114-769f858782a1:
             uuid: 0e83c8ac-72f9-4785-a114-769f858782a1
@@ -272,7 +259,7 @@ third_party_settings:
               context_mapping: {  }
               views_label: ''
               items_per_page: none
-            weight: 4
+            weight: 5
             additional: {  }
           104ae027-7111-4077-b7c4-8447f9a471ca:
             uuid: 104ae027-7111-4077-b7c4-8447f9a471ca
@@ -291,7 +278,7 @@ third_party_settings:
                 settings:
                   view_mode: default
                 third_party_settings: {  }
-            weight: 8
+            weight: 10
             additional: {  }
           fe3a37ab-ff32-4f6e-9a47-d608a8b5aa4a:
             uuid: fe3a37ab-ff32-4f6e-9a47-d608a8b5aa4a
@@ -310,7 +297,7 @@ third_party_settings:
                 settings:
                   view_mode: default
                 third_party_settings: {  }
-            weight: 9
+            weight: 11
             additional: {  }
           212cbfc7-b96c-42d1-bf97-c556c6a9fb59:
             uuid: 212cbfc7-b96c-42d1-bf97-c556c6a9fb59
@@ -324,12 +311,31 @@ third_party_settings:
                 entity: layout_builder.entity
                 view_mode: view_mode
               formatter:
+                type: layout_paragraphs
+                label: hidden
+                settings:
+                  view_mode: default
+                third_party_settings: {  }
+            weight: 12
+            additional: {  }
+          fb9a51e4-906c-4f44-aab0-c71bd38ad754:
+            uuid: fb9a51e4-906c-4f44-aab0-c71bd38ad754
+            region: content
+            configuration:
+              id: 'field_block:node:department:field_facts_list'
+              label: 'Facts List'
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
                 type: entity_reference_revisions_entity_view
                 label: hidden
                 settings:
                   view_mode: default
                 third_party_settings: {  }
-            weight: 10
+            weight: 8
             additional: {  }
         third_party_settings: {  }
       -
@@ -478,6 +484,15 @@ content:
       link: true
     third_party_settings: {  }
     weight: 107
+    region: content
+  field_facts_list:
+    type: entity_reference_revisions_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 116
     region: content
   field_hallmarks:
     type: entity_reference_revisions_entity_view

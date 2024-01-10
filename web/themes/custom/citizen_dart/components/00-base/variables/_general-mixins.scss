@@ -427,6 +427,13 @@
 	background-position: 50% 50%;
 }
 
+@mixin dottedLink($dotColor){
+	background-image: linear-gradient(to right, $dotColor 33%, rgba(0,0,0,0) 0%);
+	background-position: bottom;
+	background-size: 4px 1px;
+	background-repeat: repeat-x;
+}
+
 @mixin factsGrid{
 	.fact-1{
 		grid-column-start: 3;
@@ -485,6 +492,13 @@
 		}
 	}//end facts count 5
 }//end facts grid
+
+@mixin exposedForm{
+	background: #f8f7f6;
+	max-width: 894px;
+	margin: 0 auto 60px;
+	padding: 30px 60px 44px;
+}
 
 /* ANIMATION MIXINS
 --------------------- */

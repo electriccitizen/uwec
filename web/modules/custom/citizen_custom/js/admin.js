@@ -10,23 +10,21 @@
 
         let autoFields = $('.field--name-field-placement-tag,.field--name-field-page-family,.field--name-field-type,.field--name-field-program,.field--name-field-snapshot-type,.field--name-field-limit-list,.field--name-field-randomize');
 
-        //hide manual field by default
-        manualFields.hide();
-
         $(document).ajaxComplete(function () {
         // detect the chosen list type and show the proper select or manual field options
           $('.field--name-field-list-type .js-form-type-select').each(function () {
+          	$(this).closest('.paragraphs-subform,.layout-paragraphs-component-form').find(manualFields).hide()
             //when the content type select is changed
             $(this).find('select').change(function () {
               //get the option
               var chosen = $(this).find("option:selected").text().toLowerCase().replace(/_/g, '-');
               
               if (chosen == 'auto'){
-              	manualFields.hide();
-              	autoFields.show();
+              	$(this).closest('.paragraphs-subform,.layout-paragraphs-component-form').find(manualFields).hide();
+              	$(this).closest('.paragraphs-subform,.layout-paragraphs-component-form').find(autoFields).show();
               }else{
-              	manualFields.show();
-              	autoFields.hide();
+              	$(this).closest('.paragraphs-subform,.layout-paragraphs-component-form').find(manualFields).show();
+              	$(this).closest('.paragraphs-subform,.layout-paragraphs-component-form').find(autoFields).hide();
               }
             });
           });
@@ -34,11 +32,11 @@
           if($('.field--name-field-list-type select').val()){
             var chosen = $('.field--name-field-list-type select').find("option:selected").text().toLowerCase().replace(/_/g, '-');
             if (chosen == 'auto'){
-            	manualFields.hide();
-            	autoFields.show();
+            	$(this).closest('.paragraphs-subform,.layout-paragraphs-component-form').find(manualFields).hide();
+            	$(this).closest('.paragraphs-subform,.layout-paragraphs-component-form').find(autoFields).show();
             }else{
-            	manualFields.show();
-            	autoFields.hide();
+            	$(this).closest('.paragraphs-subform,.layout-paragraphs-component-form').find(manualFields).show();
+            	$(this).closest('.paragraphs-subform,.layout-paragraphs-component-form').find(autoFields).hide();
             }
           }
         });

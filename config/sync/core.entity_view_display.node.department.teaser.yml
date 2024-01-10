@@ -12,6 +12,7 @@ dependencies:
     - field.field.node.department.field_domain_all_affiliates
     - field.field.node.department.field_domain_source
     - field.field.node.department.field_editorial_sections
+    - field.field.node.department.field_facts_list
     - field.field.node.department.field_hallmarks
     - field.field.node.department.field_hours_library
     - field.field.node.department.field_intro_text
@@ -60,6 +61,7 @@ hidden:
   field_domain_all_affiliates: true
   field_domain_source: true
   field_editorial_sections: true
+  field_facts_list: true
   field_hallmarks: true
   field_hours_library: true
   field_intro_text: true
