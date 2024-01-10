@@ -22,11 +22,11 @@
               var chosen = $(this).find("option:selected").text().toLowerCase().replace(/_/g, '-');
               
               if (chosen == 'auto'){
-              	manualFields.hide();
-              	autoFields.show();
+              	$(this).closest('.paragraphs-subform,.layout-paragraphs-component-form').find(manualFields).hide();
+              	$(this).closest('.paragraphs-subform,.layout-paragraphs-component-form').find(autoFields).show();
               }else{
-              	manualFields.show();
-              	autoFields.hide();
+              	$(this).closest('.paragraphs-subform,.layout-paragraphs-component-form').find(manualFields).show();
+              	$(this).closest('.paragraphs-subform,.layout-paragraphs-component-form').find(autoFields).hide();
               }
             });
           });
@@ -34,11 +34,11 @@
           if($('.field--name-field-list-type select').val()){
             var chosen = $('.field--name-field-list-type select').find("option:selected").text().toLowerCase().replace(/_/g, '-');
             if (chosen == 'auto'){
-            	manualFields.hide();
-            	autoFields.show();
+            	$(this).closest('.paragraphs-subform,.layout-paragraphs-component-form').find(manualFields).hide();
+            	$(this).closest('.paragraphs-subform,.layout-paragraphs-component-form').find(autoFields).show();
             }else{
-            	manualFields.show();
-            	autoFields.hide();
+            	$(this).closest('.paragraphs-subform,.layout-paragraphs-component-form').find(manualFields).show();
+            	$(this).closest('.paragraphs-subform,.layout-paragraphs-component-form').find(autoFields).hide();
             }
           }
         });

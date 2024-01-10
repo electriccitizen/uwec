@@ -9,6 +9,7 @@ dependencies:
     - field.field.node.college.field_domain_all_affiliates
     - field.field.node.college.field_domain_source
     - field.field.node.college.field_editorial_sections
+    - field.field.node.college.field_facts_list
     - field.field.node.college.field_hours_library
     - field.field.node.college.field_image
     - field.field.node.college.field_intro_text
@@ -17,14 +18,14 @@ dependencies:
     - field.field.node.college.field_paragraphs
     - field.field.node.college.field_placement_tags
     - field.field.node.college.field_platforms
+    - field.field.node.college.field_stories_video_list
     - field.field.node.college.field_subtitle
     - field.field.node.college.layout_builder__layout
     - node.type.college
     - system.menu.main
     - views.view.departments
-    - views.view.facts
-    - views.view.news
   module:
+    - entity_reference_revisions
     - layout_builder
     - layout_builder_restrictions
     - layout_discovery
@@ -91,7 +92,7 @@ third_party_settings:
                 label: hidden
                 settings: {  }
                 third_party_settings: {  }
-            weight: 0
+            weight: 2
             additional: {  }
           76fd3075-70da-4a2f-8517-e72c7edf13f3:
             uuid: 76fd3075-70da-4a2f-8517-e72c7edf13f3
@@ -124,7 +125,7 @@ third_party_settings:
               context_mapping: {  }
               views_label: ''
               items_per_page: none
-            weight: 1
+            weight: 3
             additional: {  }
         third_party_settings: {  }
       -
@@ -133,32 +134,6 @@ third_party_settings:
           label: ''
           context_mapping: {  }
         components:
-          0ea1f055-d697-47d3-9d66-175cd089e7fa:
-            uuid: 0ea1f055-d697-47d3-9d66-175cd089e7fa
-            region: content
-            configuration:
-              id: 'views_block:facts-recent_by_tag'
-              label: ''
-              label_display: '0'
-              provider: views
-              context_mapping: {  }
-              views_label: ''
-              items_per_page: none
-            weight: 1
-            additional: {  }
-          bbeecf67-b0cf-4cf8-8254-56870e44d906:
-            uuid: bbeecf67-b0cf-4cf8-8254-56870e44d906
-            region: content
-            configuration:
-              id: 'views_block:news-recent_by_tag'
-              label: ''
-              label_display: '0'
-              provider: views
-              context_mapping: {  }
-              views_label: ''
-              items_per_page: none
-            weight: 2
-            additional: {  }
           126ad86a-7e5c-4210-9bdd-23b5b10c9bb1:
             uuid: 126ad86a-7e5c-4210-9bdd-23b5b10c9bb1
             region: content
@@ -177,6 +152,44 @@ third_party_settings:
                   view_mode: default
                 third_party_settings: {  }
             weight: 0
+            additional: {  }
+          ad821a00-e822-4c00-97cf-b1188f29c160:
+            uuid: ad821a00-e822-4c00-97cf-b1188f29c160
+            region: content
+            configuration:
+              id: 'field_block:node:college:field_facts_list'
+              label: 'Facts List'
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: entity_reference_revisions_entity_view
+                label: hidden
+                settings:
+                  view_mode: default
+                third_party_settings: {  }
+            weight: 1
+            additional: {  }
+          ff66f125-5744-44a9-93aa-b899878db5ba:
+            uuid: ff66f125-5744-44a9-93aa-b899878db5ba
+            region: content
+            configuration:
+              id: 'field_block:node:college:field_stories_video_list'
+              label: 'Stories & Video List'
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: entity_reference_revisions_entity_view
+                label: hidden
+                settings:
+                  view_mode: default
+                third_party_settings: {  }
+            weight: 2
             additional: {  }
         third_party_settings: {  }
       -
@@ -284,6 +297,15 @@ content:
     third_party_settings: {  }
     weight: 107
     region: content
+  field_facts_list:
+    type: entity_reference_revisions_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 111
+    region: content
   field_hours_library:
     type: entity_reference_label
     label: above
@@ -351,6 +373,15 @@ content:
       target: '0'
     third_party_settings: {  }
     weight: 109
+    region: content
+  field_stories_video_list:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 112
     region: content
   field_subtitle:
     type: string
