@@ -41,6 +41,12 @@
 .site-footer{
 	background: $footerBack;
 	color: $footerText;
+	.dialog-off-canvas-main-canvas &{
+		transform-style: unset;
+		*{
+			transform-style: unset;
+		}
+	}
 	.modal-content{
 		color: $baseText;
 	}
@@ -51,8 +57,7 @@
 		@include auto;
 		position: relative;
 		@include tab{
-			padding: 20px $siteMarginMobile;
-			min-height: 0;
+			padding: 20px $siteMarginMobile 100px;
 		}
 		& > div{
 			@include safeFlex(row,wrap,justify,end);

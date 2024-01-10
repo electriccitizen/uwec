@@ -92,6 +92,9 @@
 			@include safeFlex(row,wrap,start,end);
 			@include bleed(padding,10px);
 		}
+		@media screen and (min-width: 1240px){
+			justify-content: flex-end;
+		}
 		a{
 			color: $footerLink;
 			font-size: 1.5rem;
