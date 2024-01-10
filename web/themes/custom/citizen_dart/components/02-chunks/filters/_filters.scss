@@ -17,7 +17,7 @@
 			@include formLabel;
 			margin-bottom: $spaceXxs;
 		}
-		@include smallTab{
+		@include tab{
 			width: 50%;
 			max-width: 320px;
 		}
@@ -31,7 +31,7 @@
 	.form-actions{
 		@include auto;
 		@include safeFlex(row,wrap,start,start);
-		@include smallTab{
+		@include tab{
 			margin: .5rem 0 0 -10px;
 		}
 		input.form-submit.button{
