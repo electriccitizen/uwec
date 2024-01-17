@@ -21,7 +21,6 @@
 		position: relative;
 		@include safeFlex(row,wrap,null,center);
 		.contextual-region{
-			position: static;
 			.contextual{
 				display: none;
 			}
@@ -55,64 +54,57 @@
 
 /* SEARCH BLOCK PLACEMENT
 ------------------- */
-.block-site-search{
-	position: static !important;
-	display: inline-block;
-	text-align: right;
+.block-citizen-google-search-block{
+	display: none;
+	position: absolute !important;
+	top: -5px;
+	right: 1rem;
+	z-index: 2;
 	@include desk{
-		width: calc(100% - 240px);
+		display: block;
 	}
 	.contextual{
 		display: none !important;
 	}
-	//search toggler
-	.t-search{
-		position: absolute;
-		top: 18px;
-		right: 10px;
-		z-index: 1;
-		@include desk{
-			top: 0;
-		}
-	}
 }//end search block
-
-
-/* MAIN NAVIGATION BLOCK
------------------------- */
-.block-superfishmain{
-	@include onlyMobile{
-		&.contextual-region{
-			position: static;
-		}
-		#superfish-main-toggle{
-			position: absolute;
-			height: 32px;
-			width: 32px;
-			top: 20px;
-			right: 50px;
-		}
-	}
-	//desktop position
-	@include desk{
-		position: absolute;
-		right: 0;
-		bottom: -20px;
-		width: 100%;
-		padding-left: 280px;
-	}//end desk
-
-}//end main nav
 
 /* SECONDARY MENU BLOCK
 --------------------- */
 .block-secondary-menu{
 	@include desk{
-		position: absolute;
+		position: absolute !important;
 		right: 60px;
 		top: 0px;
 		z-index: 1;
 		width: calc(100% - 300px);
 	}//end desk
 }
+
+/* MAIN NAVIGATION BLOCK
+------------------------ */
+.block-superfishmain{
+	@include onlyMobile{
+		&.contextual-region{
+			position: static !important;
+		}
+		#superfish-main-toggle{
+			position: absolute;
+			height: 40px;
+			width: 40px;
+			top: 0;
+			right: 0;
+			z-index: 9;
+		}
+	}
+	//desktop position
+	@include desk{
+		position: absolute !important;
+		right: 0;
+		bottom: -20px;
+		z-index: 1;
+		width: 100%;
+		padding-left: 280px;
+	}//end desk
+
+}//end main nav
 
