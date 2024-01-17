@@ -4,9 +4,16 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.paragraph.preview
+    - field.field.paragraph.cta_item.field_additional_text
+    - field.field.paragraph.cta_item.field_headline
+    - field.field.paragraph.cta_item.field_image
+    - field.field.paragraph.cta_item.field_link
+    - image.style.paragraph_preview
     - paragraphs.paragraphs_type.cta_item
   module:
     - layout_builder
+    - lazy
+    - media
 third_party_settings:
   layout_builder:
     enabled: false
@@ -15,6 +22,31 @@ id: paragraph.cta_item.preview
 targetEntityType: paragraph
 bundle: cta_item
 mode: preview
-content: {  }
+content:
+  field_headline:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_image:
+    type: media_thumbnail
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: paragraph_preview
+      image_loading:
+        attribute: lazy
+    third_party_settings:
+      lazy:
+        lazy_image: '0'
+        placeholder_style: ''
+        data_uri: false
+    weight: 0
+    region: content
 hidden:
+  field_additional_text: true
+  field_link: true
   search_api_excerpt: true

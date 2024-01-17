@@ -1,0 +1,19 @@
+uuid: 6e9a46a9-e7c2-4739-a099-9ddf3bf1dcb2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_additional_text
+    - paragraphs.paragraphs_type.cta_item
+id: paragraph.cta_item.field_additional_text
+field_name: field_additional_text
+entity_type: paragraph
+bundle: cta_item
+label: Text
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

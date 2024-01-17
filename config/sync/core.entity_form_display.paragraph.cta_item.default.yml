@@ -1,4 +1,4 @@
-uuid: 8212667e-d903-4401-b82d-ca6aa72f4938
+uuid: fd0a8b76-7d53-4de3-a11d-e3db0610e6d8
 langcode: en
 status: true
 dependencies:
@@ -10,46 +10,43 @@ dependencies:
     - paragraphs.paragraphs_type.cta_item
   module:
     - link
+    - media_library
 id: paragraph.cta_item.default
 targetEntityType: paragraph
 bundle: cta_item
 mode: default
 content:
   field_additional_text:
-    type: basic_string
-    label: hidden
-    settings: {  }
-    third_party_settings: {  }
-    weight: 3
-    region: content
-  field_headline:
-    type: string
-    label: hidden
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
+    type: string_textarea
     weight: 2
     region: content
-  field_image:
-    type: entity_reference_entity_view
-    label: hidden
     settings:
-      view_mode: 1920x1445
-      link: false
+      rows: 5
+      placeholder: ''
     third_party_settings: {  }
+  field_headline:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_image:
+    type: media_library_widget
     weight: 0
     region: content
-  field_link:
-    type: link
-    label: hidden
     settings:
-      trim_length: null
-      url_only: false
-      url_plain: true
-      rel: '0'
-      target: '0'
+      media_types: {  }
     third_party_settings: {  }
+  field_link:
+    type: link_default
     weight: 3
     region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
 hidden:
-  search_api_excerpt: true
+  created: true
+  status: true
