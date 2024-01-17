@@ -1,0 +1,5 @@
+name: Citizen Google Search
+type: module
+description: Custom code to add Google Programmable Search.
+core_version_requirement: ^10
+package: Custom
