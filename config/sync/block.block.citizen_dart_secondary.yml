@@ -11,7 +11,7 @@ dependencies:
 id: citizen_dart_secondary
 theme: citizen_dart
 region: header
-weight: -6
+weight: -7
 provider: null
 plugin: 'menu_block:secondary'
 settings:

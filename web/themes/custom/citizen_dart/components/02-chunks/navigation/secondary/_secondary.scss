@@ -4,6 +4,9 @@
 @use '../../../00-base/base' as *;
 
 .block-secondary-menu{
+	@include onlySmall{
+		display: none;
+	}
 	ul:not(.contextual-links){
 		@include listReset;
 		@include desk{
@@ -22,3 +25,23 @@
 		}//end li
 	}//end ul
 }//end secondary-menu
+
+//mobile secondary menu
+ul.sf-menu.sf-accordion{
+	.mobile-secondary-container{
+		ul.mobile-secondary{
+			position: static;
+			width: 100%;
+			li{
+				a{
+					color: $sfMobileChild;
+					padding: 1rem 4rem; 
+					&.is-active{
+						color: $sfMobileChildActive;
+					}
+				}
+			}
+		}//end mobile secondary
+	}//end secondary container
+}//end ul.sf-menu
+

@@ -6,6 +6,7 @@ global:
       dist/style.css: {}
   js:
     components/05-assembly/global/site.js: {}
+    components-addons/debounce/debounce.js: {}
   dependencies:
     - core/drupal
     - core/drupalSettings
@@ -33,10 +34,6 @@ omnilert:
   version: 1.0
   js:
     components/03-composites/blocks/omnilert/omnilert.js: {}
-debounce:
-  version: 1.0
-  js:
-    components-addons/debounce/debounce.js: {}
 drawers:
   version: 1.0
   js:
@@ -94,8 +91,6 @@ section-menu:
   version: 1.0
   js:
     components/02-chunks/navigation/section-menu/section-menu.js: {}
-  dependencies:
-    - citizen_dart/debounce
 select:
   version: 4.0.3
   css:

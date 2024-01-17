@@ -13,24 +13,14 @@
 ------------------------ */
 #superfish-main-toggle{
 	display: block;
+	background-image: url(../images/elements/menu-open-white.svg);
+	background-repeat: no-repeat;
+	background-size: 100%;
 	span{
-		display: none;
-	}
-	&:before{
-		width: 28px;
-		height: 28px;
-		display: block;
-		position: absolute;
-		top: 0;
-		right: 0;
-		background-image: url(../images/elements/menu-open-white.svg);
-		background-repeat: no-repeat;
-		background-size: 100%;
+		@include visuallyHidden;
 	}
 	&.sf-expanded{
-		&:before{
-			background-image: url(../images/elements/menu-close-white.svg);
-		}
+		background-image: url(../images/elements/menu-close-white.svg);
 	}
 }//end superfish-main-toggle
 
@@ -182,14 +172,17 @@ ul.sf-menu.sf-horizontal{
 ----------------- */
 ul.sf-menu.sf-accordion{
 	&.sf-expanded{
-		position: absolute;
-		left: -$siteMarginMobile !important;
-		top: calc(100% + 20px) !important;
-		text-align: left;
-		width: calc(100% + $siteMarginMobile*2);
-		overflow: hidden;
-		background: $sfMobileDrop;
-		border-bottom: 8px solid $sfMobileDropBorder;
+		.site-header &{
+			position: absolute !important;
+			left: -$siteMarginMobile !important;
+			top: -20px !important;
+			text-align: left;
+			width: calc(100% + $siteMarginMobile*2);
+			overflow: hidden;
+			background: $sfMobileDrop;
+			padding-top: 100px;
+			z-index: 8;
+		}
 	}
 
 	// global mobile links

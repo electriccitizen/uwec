@@ -39,11 +39,6 @@ function citizen_custom_theme() {
       'template' => 'citizen_custom',
       'render element' => 'children',
     ],
-    'site_search' => [
-      'variables' => [
-        'title' => 'Site Search',
-      ],
-    ],
     'program_search' => [
       'variables' => [
         'title' => 'Program Search',
@@ -93,9 +88,6 @@ function citizen_custom_preprocess_html(&$variables){
  * Implements hook_preprocess_block().
  */
 function citizen_custom_preprocess_block(&$variables) {
-  if ($variables['plugin_id'] == 'site_search') {
-    $variables['attributes']['role'] = 'search';
-  }
   // Set custom help text.
   if ($variables['plugin_id'] == 'help_block') {
     $route_name = \Drupal::routeMatch()->getRouteName();
@@ -212,17 +204,6 @@ function citizen_custom_local_tasks_alter(&$local_tasks) {
       unset($local_tasks['redirect.settings']);
     }
   }
-}
-
-/**
- * Implements hook_form_FORM_ID_alter().
- *
- * @see \Drupal\search\Form\SearchBlockForm
- */
-function citizen_custom_form_site_search_form_alter(&$form, FormStateInterface $form_state) {
-  $form['form_build_id']['#access'] = FALSE;
-  $form['form_token']['#access'] = FALSE;
-  $form['form_id']['#access'] = FALSE;
 }
 
 /**
