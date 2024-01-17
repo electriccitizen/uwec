@@ -485,28 +485,33 @@ function citizen_custom_entity_view_alter(array &$build, EntityInterface $entity
  */
 function citizen_custom_preprocess_node(&$variables) {
   if ($variables['node']->getType() == 'academic_program') {
-    if (empty($variables['node']->get('field_slate_slug')->value)) {
-      // Set slate_slug to program title
-      // if we need machine readable format instead, extract last segment from URI
-      // \Drupal::request()->getRequestUri(), explode, pop
-      $variables['node']->set('field_slate_slug', $variables['node']->get('title')->value);
-    }
     // Check if the checkbox field is checked.
     $field_value = $variables['node']->get('field_request_for_info')->value;
     // If the checkbox is not checked, remove the block from the _layout_builder array.
-    if (!$field_value && isset($variables['content']['_layout_builder'][6])) {
+    if (isset($variables['content']['_layout_builder'][6])) {
       $block_id = 7;
       $block = BlockContent::load($block_id);
       if ($block) {
-        $block_uuid = $block->uuid();
-        $unset_key = null;
-        foreach ($variables['content']['_layout_builder'][6]['content'] as $key => $layout_item) {
-          if (isset($layout_item['#derivative_plugin_id']) && $layout_item['#derivative_plugin_id'] ==  $block_uuid) {
-            $unset_key = $key;
+          $block_uuid = $block->uuid();
+          $block_layout_key = null;
+          foreach ($variables['content']['_layout_builder'][6]['content'] as $key => $layout_item) {
+            if (isset($layout_item['#derivative_plugin_id']) && $layout_item['#derivative_plugin_id'] ==  $block_uuid) {
+              $block_layout_key = $key;
+            }
           }
-        }
-        if ($unset_key) {
-          unset($variables['content']['_layout_builder'][6]['content'][$key]);
+        if (!$field_value) {
+          if ($block_layout_key) {
+            unset($variables['content']['_layout_builder'][6]['content'][$key]);
+          }
+        } else {
+          if (!empty($variables['node']->get('field_slate_slug')->value)) {
+            $program_slug = urlencode($variables['node']->get('field_slate_slug')->value);
+            $script_tag = $block->get('field_slate_script_tag')->value;
+            $script_tag_array = explode('/?', $script_tag);
+            $script_tag_array[1] = "program_slug=$program_slug&" . $script_tag_array[1];
+            $script_tag = implode('/?', $script_tag_array);
+            $variables["content"]["_layout_builder"][6]["content"][$block_layout_key]["content"]["field_slate_script_tag"][0]["#text"] = $script_tag;
+          }
         }
       }
     }
