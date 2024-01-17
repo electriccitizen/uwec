@@ -59,6 +59,9 @@
 			.program-detail {
 				font-weight: $heavy;
 				margin-bottom: 3.625rem;
+				&.degree-level{
+					text-transform: capitalize;
+				}
 				span {
 					display: block;
 					font-weight: $regular;

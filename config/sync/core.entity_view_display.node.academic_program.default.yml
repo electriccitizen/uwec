@@ -49,10 +49,7 @@ dependencies:
     - field.field.node.academic_program.layout_builder__layout
     - node.type.academic_program
     - views.view.bios
-  content:
-    - 'block_content:slate_form:647e1a93-8206-4c56-91e6-4948158da1a6'
   module:
-    - block_content
     - citizen_custom
     - entity_reference_revisions
     - layout_builder
@@ -399,27 +396,6 @@ third_party_settings:
               provider: citizen_custom
               context_mapping: {  }
             weight: 4
-            additional: {  }
-        third_party_settings: {  }
-      -
-        layout_id: layout_onecol
-        layout_settings:
-          label: 'Slate form'
-          context_mapping: {  }
-        components:
-          fbf882ae-5abb-47ac-8c2a-c001fc2eaf36:
-            uuid: fbf882ae-5abb-47ac-8c2a-c001fc2eaf36
-            region: content
-            configuration:
-              id: 'block_content:647e1a93-8206-4c56-91e6-4948158da1a6'
-              label: 'Slate form'
-              label_display: '0'
-              provider: block_content
-              status: true
-              info: ''
-              view_mode: full
-              context_mapping: {  }
-            weight: 0
             additional: {  }
         third_party_settings: {  }
   layout_builder_restrictions:

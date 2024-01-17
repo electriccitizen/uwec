@@ -101,6 +101,43 @@
     }
   };
 
+  Drupal.behaviors.slateWidget = {
+    attach: function (context, settings) {
+      $(once('isSlateForm', '.form-item--field-script-tag-type', context)).each(function(){
+
+      //custom field by default
+      $('.field--name-field-slate-script-tag').hide();
+
+
+       $(document).ajaxComplete(function () {
+        // detect the chosen list type and show the proper select or manual field options
+        $('.layout-paragraphs-component-form .form-item--field-script-tag-type').each(function () {
+          //when the content type select is changed
+          $(this).find('select').change(function () {
+            //get the option
+            var chosen = $(this).find("option:selected").text().toLowerCase().replace(/_/g, '-');
+            
+            if (chosen == 'custom'){
+             	$('.field--name-field-slate-script-tag').show();
+            } else {
+              $('.field--name-field-slate-script-tag').hide();
+            }
+          });
+        });
+         //when an existing content placer is opened, run the same checks
+        if($('.layout-paragraphs-component-form .form-item--field-script-tag-type select').val()){
+          var chosen = $('.layout-paragraphs-component-form .form-item--field-script-tag-type select').find("option:selected").text().toLowerCase().replace(/_/g, '-');
+          if (chosen == 'custom'){
+           	$('.field--name-field-slate-script-tag').show();
+          } else {
+            $('.field--name-field-slate-script-tag').hide();
+          }
+         }
+       });
+     });
+    }
+  };
+
   /* Add paragraph preview labels
   ----------------------- */
   Drupal.behaviors.previewLabel = {
