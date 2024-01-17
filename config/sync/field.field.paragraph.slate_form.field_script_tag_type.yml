@@ -11,8 +11,8 @@ field_name: field_script_tag_type
 entity_type: paragraph
 bundle: slate_form
 label: 'Script tag type'
-description: 'Select either simple or dynamic script tag, or enter custom script tag'
-required: false
+description: 'Select either the simple or dynamic script, or enter a custom script.  <strong>NOTE:</strong> There are no visual differences between the simple and dynamic forms—they both have the same fields, they are just treated differently on the back end.'
+required: true
 translatable: false
 default_value: {  }
 default_value_callback: ''
