@@ -21,21 +21,7 @@
 	    grid-row-start: 1;
 	    grid-row-end: 2;
     	position: relative;
-    	@include headerGlobals;
-    	font-size: 73px;
-    	line-height: 73px;
-    	text-align: center;
-    	font-style: italic;
-    	text-transform: uppercase;
-    	letter-spacing: 3.65px;
-    	strong{
-    		font-size: 78.731px;
-    		line-height: normal;
-    		font-style: normal;
-    		font-family: $header;
-    		font-weight: $xHeavy;
-    		letter-spacing: normal;
-    	}
+    	@include styledHeader;
 		}//end facts title
 	}//end tab
 	

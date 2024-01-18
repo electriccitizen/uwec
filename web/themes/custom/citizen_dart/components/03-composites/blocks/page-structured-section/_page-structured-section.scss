@@ -7,7 +7,8 @@
 .block-structured-section {
 	padding-top: $elementSpace;
 	position: relative;
-	&:after{
+	padding-bottom: 300px;
+	&:before{
 	 	content: '';
 	 	display: block;
 	 	width: 5000px;
@@ -19,7 +20,7 @@
 	 	left: 0;
 	 	z-index: -2;
 	}
-  &:before{
+  &:after{
     @include fullBack($brightBlue);
   }
   .field-wayfinding {
@@ -51,9 +52,9 @@
   	left: -$siteMarginMobile;
   	object-fit: cover;
   	width: 100vw;
-  	height: 70%;
+  	height: 65%;
   	overflow: hidden;
-  	z-index: -1;
+  	z-index: 0;
   	mix-blend-mode: multiply;
   	img{
   		filter: grayscale(100%);
@@ -62,14 +63,18 @@
    .cta-section {
       position: relative;
       color: $white;
-      .bg-image {
-         position: absolute;
-         object-fit: cover;
-         width: 100vw;
-         height: 100%;
-         opacity: 0.5;
-         top: 0;
-         @include edgeToEdge
+      padding-bottom: 100px;
+      &:after{
+      	content: '';
+			 	display: block;
+			 	width: 5000px;
+			 	height: 600px;
+			 	@include rotate(-16);
+			 	background: $white;
+			 	position: absolute;
+			 	bottom: -400px;
+			 	left: -800px;
+			 	z-index: -2;
       }
       .cta-section-inner {
          @include safeFlex(row,wrap,start,start);

@@ -4,6 +4,11 @@
 @use '../../../00-base/base' as *;
 
 .block-formatted-promo{
-	
+	max-width: 650px;
+	@include auto;
+	.field-formatted-headline{
+		@include styledHeader;
+		text-align: left;
+	}
 }//end block formatted-promo
 

@@ -7,6 +7,8 @@
 .prefooter-wrapper{
 	background: $prefooterBack;
 	color: $prefooterText;
+	position: relative;
+	z-index: 1;
 	.dialog-off-canvas-main-canvas &{
 		transform-style: unset;
 		*{

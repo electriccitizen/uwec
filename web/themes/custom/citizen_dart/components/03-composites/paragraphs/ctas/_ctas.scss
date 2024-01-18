@@ -35,6 +35,10 @@
 				width: 100%;
 				padding: 60px;
 				@include safeFlex(row,wrap,start,center);
+				&:after{
+					@include fullBack($brightBlue);
+					z-index: -2;
+				}
 				.cta-text{
 					width: 60%;
 					padding-right: 20px;
@@ -46,11 +50,12 @@
 					width: 100%;
 					height: 100%;
 					z-index: -1;
-					&:before{
-						@include fullBack($brightBlue);
-						z-index: 1;
-						opacity: .8;
-					}
+					mix-blend-mode: multiply;
+					// &:before{
+					// 	@include fullBack($brightBlue);
+					// 	z-index: 1;
+					// 	opacity: .8;
+					// }
 					.field-media-image{
 						width: 100%;
 						height: 100%;

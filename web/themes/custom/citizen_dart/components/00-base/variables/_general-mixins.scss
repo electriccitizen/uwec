@@ -500,6 +500,30 @@
 	padding: 30px 60px 44px;
 }
 
+@mixin styledHeader{
+	line-height: 1.1;
+	font-weight: 500;
+	font-family: grad, serif;
+	color: #06233d;
+	margin: 0;
+	font-feature-settings: "liga", "dlig";
+	font-size: 73px;
+	line-height: 73px;
+	text-align: center;
+	font-style: italic;
+	text-transform: uppercase;
+	letter-spacing: 3.65px;
+	strong{
+		font-size: 78.731px;
+		line-height: normal;
+		font-style: normal;
+		font-family: vinila-extended, sans-serif;
+		font-weight: 800;
+		letter-spacing: normal;
+		white-space: pre;
+	}
+}
+
 /* ANIMATION MIXINS
 --------------------- */
 @mixin animation($animate...) {
