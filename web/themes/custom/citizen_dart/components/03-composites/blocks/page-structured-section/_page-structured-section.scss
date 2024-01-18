@@ -2,31 +2,63 @@
    PAGE STRUCTURED SECTION
 =================== */
 @use '../../../00-base/base' as *;
+@use '../../../01-parts/buttons/button-mixins' as *;
 
 .block-structured-section {
-   &:before{
-      @include fullBack($brightBlue);
-   }
-   .field-wayfinding {
-      @include auto;
-      background-color: $lightGrey;
-      max-width: $contentStop;
-   }
+	padding-top: $elementSpace;
+	position: relative;
+	&:after{
+	 	content: '';
+	 	display: block;
+	 	width: 5000px;
+	 	height: 600px;
+	 	@include rotate(-16);
+	 	background: $brightBlue;
+	 	position: absolute;
+	 	top: -400px;
+	 	left: 0;
+	 	z-index: -2;
+	}
+  &:before{
+    @include fullBack($brightBlue);
+  }
+  .field-wayfinding {
+    @include auto;
+    background-color: $lightGrey;
+    max-width: 1136px;
+  }
 
-   .field-leadin {
-      max-width: $textMax;
-      color: $white;
-      @include auto;
-      text-align: center;
-      margin-top: $spaceMd;
-      margin-bottom: $spaceMd;
-   }
+  .field-leadin {
+    max-width: $textMax;
+    color: $white;
+    @include auto;
+    text-align: center;
+    margin-top: $spaceMd;
+    margin-bottom: $spaceMd;
+  }
 
-   .field-button {
-      @include auto;
-      text-align: center;
-   }
+  .field-button {
+    @include auto;
+    text-align: center;
+    a{
+    	@include outlineButton($white);
+    }
+  }
 
+  .field-bg-image{
+  	position: absolute;
+  	bottom: 0;
+  	left: -$siteMarginMobile;
+  	object-fit: cover;
+  	width: 100vw;
+  	height: 70%;
+  	overflow: hidden;
+  	z-index: -1;
+  	mix-blend-mode: multiply;
+  	img{
+  		filter: grayscale(100%);
+  	}
+  }
    .cta-section {
       position: relative;
       color: $white;
