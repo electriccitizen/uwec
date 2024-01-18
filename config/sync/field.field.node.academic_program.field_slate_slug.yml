@@ -10,7 +10,7 @@ field_name: field_slate_slug
 entity_type: node
 bundle: academic_program
 label: 'Slate Slug'
-description: 'Paste in the slug that Slate uses for the form.'
+description: 'Paste in the slug that Slate uses for the form. The format should be all lowercase and hyphen separated.  Example:  business-administration'
 required: false
 translatable: false
 default_value: {  }

@@ -12,7 +12,7 @@ field_name: field_version
 entity_type: paragraph
 bundle: wayfinding
 label: Version
-description: ''
+description: 'Wayfinding single will allow one button and layout with the image locked to the left inside of a stylized border. Wayfinding combo does not show an image and allows three buttons. Wayfinding detail is similar to the single version but does not have border, the image is slightly larger and you have choice to place the image to the left or right.'
 required: true
 translatable: false
 default_value: {  }
