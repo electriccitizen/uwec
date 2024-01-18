@@ -11,6 +11,15 @@
 	.block-field:not(.block-title){
 		margin-bottom: $spaceXxs;
 	}
+	.field.entity-reference{
+		.field-multi-item{
+			& > div:not(:last-child){
+				&:after{
+					content: ', ';
+				}
+			}
+		}
+	}
 }//end fact-library
 
 .node-teaser-fact{

@@ -4,6 +4,8 @@ status: true
 dependencies:
   config:
     - field.field.node.video_card.body
+    - field.field.node.video_card.field_colleges
+    - field.field.node.video_card.field_departments
     - field.field.node.video_card.field_domain_access
     - field.field.node.video_card.field_domain_all_affiliates
     - field.field.node.video_card.field_domain_source
@@ -12,6 +14,7 @@ dependencies:
     - field.field.node.video_card.field_list_widget
     - field.field.node.video_card.field_page_families
     - field.field.node.video_card.field_placement_tags
+    - field.field.node.video_card.field_programs
     - field.field.node.video_card.field_video
     - field.field.node.video_card.layout_builder__layout
     - node.type.video_card
@@ -33,7 +36,7 @@ third_party_settings:
       label: Access
       region: content
       parent_name: ''
-      weight: 8
+      weight: 11
       format_type: details_sidebar
       format_settings:
         classes: ''
@@ -58,22 +61,42 @@ content:
       placeholder: ''
       show_summary: false
     third_party_settings: {  }
+  field_colleges:
+    type: entity_reference_autocomplete
+    weight: 4
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_departments:
+    type: entity_reference_autocomplete
+    weight: 5
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
   field_domain_access:
     type: options_buttons
-    weight: 23
+    weight: 25
     region: content
     settings: {  }
     third_party_settings: {  }
   field_domain_all_affiliates:
     type: boolean_checkbox
-    weight: 25
+    weight: 27
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   field_domain_source:
     type: options_select
-    weight: 24
+    weight: 26
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -91,7 +114,7 @@ content:
     third_party_settings: {  }
   field_page_families:
     type: entity_reference_autocomplete
-    weight: 5
+    weight: 8
     region: content
     settings:
       match_operator: CONTAINS
@@ -101,7 +124,17 @@ content:
     third_party_settings: {  }
   field_placement_tags:
     type: entity_reference_autocomplete
-    weight: 4
+    weight: 7
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_programs:
+    type: entity_reference_autocomplete
+    weight: 6
     region: content
     settings:
       match_operator: CONTAINS
@@ -118,19 +151,19 @@ content:
     third_party_settings: {  }
   moderation_state:
     type: moderation_state_default
-    weight: 9
+    weight: 12
     region: content
     settings: {  }
     third_party_settings: {  }
   path:
     type: path
-    weight: 6
+    weight: 9
     region: content
     settings: {  }
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 7
+    weight: 10
     region: content
     settings:
       display_label: true
