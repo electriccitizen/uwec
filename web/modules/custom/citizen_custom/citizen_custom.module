@@ -14,6 +14,7 @@ use Drupal\Component\Utility\Html;
 use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
+use Drupal\node\Entity\Node;
 
 /**
  * Implements hook_help().
@@ -451,31 +452,50 @@ function citizen_custom_views_pre_view($view, $display_id, &$args) {
       }
     }
 
-    // Content Carousel
-    if ((($view->element['#name'] == 'video_cards') && ($view->current_display === 'most_recent' || $view->current_display === 'second_recent' )) || (($view->element['#name'] == 'testimonials') && ($view->current_display === 'most_recent' || $view->current_display === 'second_recent' )) || (($view->element['#name'] == 'news') && ($view->current_display === 'most_recent' || $view->current_display === 'second_recent' )) || (($view->element['#name'] == 'snapshots') && ($view->current_display === 'most_recent' || $view->current_display === 'second_recent' ))) {
-      $filters = $view->display_handler->getOption('filters');
-      $paragraph_id = $view->args[0];
-      if ($paragraph_id){
-        $paragraph = Paragraph::load($paragraph_id);
-        //unset or alter tags filter
-        if($paragraph->field_tag[0]){
-          //make an array out of the category set in the paragraph
-          $categories = [];
-          foreach ($paragraph->field_tag as $delta => $tag) {
-            $tags[] = $tag->target_id;
-          }
-          // replace the category_tid filter with the paragraph category
-          $filters['field_placement_tags_target_id']['value'] = $tags;
-        } else {
-          //if the tags field is not used, then unset the category filter
-          if ($filters['field_placement_tags_target_id']) {
-            unset($filters['field_placement_tags_target_id']);
-          }
-        }//end category filter
-        $view->display_handler->setOption('filters', $filters);
-      }
-    }
-    // end Content Carousel
+    // Define valid combinations of view names and display names.
+		$validCombinations = [
+		  ['view_name' => 'video_cards', 'display_names' => ['most_recent', 'second_recent']],
+		  ['view_name' => 'testimonials', 'display_names' => ['most_recent', 'second_recent']],
+		  ['view_name' => 'news', 'display_names' => ['most_recent', 'second_recent']],
+		  ['view_name' => 'snapshots', 'display_names' => ['most_recent', 'second_recent']],
+		];
+
+		foreach ($validCombinations as $combination) {
+		  if (
+		    ($view->element['#name'] == $combination['view_name']) &&
+		    in_array($view->current_display, $combination['display_names'])
+		  ) {
+		    $filters = $view->display_handler->getOption('filters');
+		    $paragraph_id = $view->args[0];
+
+		    if ($paragraph_id) {
+		      $paragraph = Paragraph::load($paragraph_id);
+		      $parentNode = $paragraph->parent_id;
+
+		      if ($parentNode) {
+		        $node = Node::load($parentNode->value);
+
+		        if ($node) {
+		          $nodeType = $node->getType();
+
+		          if ($nodeType == 'department' || $nodeType == 'academic_program') {
+		            $targetField = ($nodeType == 'department') ? 'field_departments_target_id' : 'field_programs_target_id';
+		            $fieldValue = array_column($parentNode->getValue(), 'value');
+
+		            if (isset($filters[$targetField])) {
+		              $filters[$targetField]['value']['value'] = $fieldValue;
+		            }
+
+		            $oppositeField = ($nodeType == 'department') ? 'field_programs_target_id' : 'field_departments_target_id';
+		            unset($filters[$oppositeField]);
+		          }
+		        }
+		      }//end if parent node
+
+		      $view->display_handler->setOption('filters', $filters);
+		    }
+		  }//end for earch combination
+		}//end content carousel
   }
 }
 
