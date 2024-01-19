@@ -10,7 +10,7 @@ id: paragraph.snapshot_list.field_department
 field_name: field_department
 entity_type: paragraph
 bundle: snapshot_list
-label: Department
+label: 'By Department'
 description: ''
 required: false
 translatable: false

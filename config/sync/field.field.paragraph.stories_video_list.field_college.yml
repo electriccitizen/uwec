@@ -1,16 +1,16 @@
-uuid: f068c213-e23b-433a-b11e-c4278056836e
+uuid: fff32ba1-c739-4696-b205-b954394ca300
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.paragraph.field_department
-    - node.type.department
-    - paragraphs.paragraphs_type.programs_list
-id: paragraph.programs_list.field_department
-field_name: field_department
+    - field.storage.paragraph.field_college
+    - node.type.college
+    - paragraphs.paragraphs_type.stories_video_list
+id: paragraph.stories_video_list.field_college
+field_name: field_college
 entity_type: paragraph
-bundle: programs_list
-label: 'By Department'
+bundle: stories_video_list
+label: 'By College'
 description: ''
 required: false
 translatable: false
@@ -20,7 +20,7 @@ settings:
   handler: 'default:node'
   handler_settings:
     target_bundles:
-      department: department
+      college: college
     sort:
       field: _none
       direction: ASC

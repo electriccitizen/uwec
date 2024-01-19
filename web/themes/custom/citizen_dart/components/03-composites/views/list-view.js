@@ -20,8 +20,8 @@ Drupal.behaviors.removeListView = {
 ------------------------------------ */
 Drupal.behaviors.removeShortList = {
   attach: function (context, settings) {
-    $(once('shortSnaps', '.paragraph--type--snapshots-list,.paragraph--type--stories-video-list', context)).each(function(){
-    	$('.paragraph--type--snapshots-list,.paragraph--type--stories-video-list').each(function(){
+    $(once('shortSnaps', '.paragraph--type--snapshot-list,.paragraph--type--stories-video-list', context)).each(function(){
+    	$('.paragraph--type--snapshot-list,.paragraph--type--stories-video-list').each(function(){
     		var count = $('.node-teaser',this).length;
     		if (count < 3){
 	        $(this).remove();

@@ -10,7 +10,7 @@ id: paragraph.facts_list.field_college
 field_name: field_college
 entity_type: paragraph
 bundle: facts_list
-label: College
+label: 'By College'
 description: ''
 required: false
 translatable: false

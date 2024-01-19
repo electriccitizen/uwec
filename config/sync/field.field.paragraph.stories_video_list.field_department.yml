@@ -1,15 +1,15 @@
-uuid: f068c213-e23b-433a-b11e-c4278056836e
+uuid: f9126dc2-6614-4a37-be9c-34c85ee42ac8
 langcode: en
 status: true
 dependencies:
   config:
     - field.storage.paragraph.field_department
     - node.type.department
-    - paragraphs.paragraphs_type.programs_list
-id: paragraph.programs_list.field_department
+    - paragraphs.paragraphs_type.stories_video_list
+id: paragraph.stories_video_list.field_department
 field_name: field_department
 entity_type: paragraph
-bundle: programs_list
+bundle: stories_video_list
 label: 'By Department'
 description: ''
 required: false

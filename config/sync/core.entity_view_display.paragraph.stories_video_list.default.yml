@@ -3,11 +3,14 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.paragraph.stories_video_list.field_college
+    - field.field.paragraph.stories_video_list.field_department
     - field.field.paragraph.stories_video_list.field_list_type
     - field.field.paragraph.stories_video_list.field_list_widgets
     - field.field.paragraph.stories_video_list.field_manual_select
     - field.field.paragraph.stories_video_list.field_page_family
     - field.field.paragraph.stories_video_list.field_placement_tag
+    - field.field.paragraph.stories_video_list.field_program
     - field.field.paragraph.stories_video_list.field_type
     - field.field.paragraph.stories_video_list.field_widget_title
     - paragraphs.paragraphs_type.stories_video_list
@@ -18,12 +21,26 @@ targetEntityType: paragraph
 bundle: stories_video_list
 mode: default
 content:
+  field_college:
+    type: entity_reference_entity_id
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_department:
+    type: entity_reference_entity_id
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 3
+    region: content
   field_list_type:
     type: list_key
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 6
+    weight: 9
     region: content
   field_list_widgets:
     type: entity_reference_label
@@ -40,7 +57,7 @@ content:
       view_mode: teaser
       link: false
     third_party_settings: {  }
-    weight: 5
+    weight: 8
     region: content
   field_page_family:
     type: entity_reference_label
@@ -48,7 +65,7 @@ content:
     settings:
       link: false
     third_party_settings: {  }
-    weight: 3
+    weight: 6
     region: content
   field_placement_tag:
     type: entity_reference_label
@@ -56,7 +73,14 @@ content:
     settings:
       link: false
     third_party_settings: {  }
-    weight: 2
+    weight: 5
+    region: content
+  field_program:
+    type: entity_reference_entity_id
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 4
     region: content
   field_type:
     type: entity_reference_label
@@ -64,7 +88,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 4
+    weight: 7
     region: content
   field_widget_title:
     type: string

@@ -10,7 +10,7 @@ id: paragraph.profiles_list.field_program
 field_name: field_program
 entity_type: paragraph
 bundle: profiles_list
-label: Program
+label: 'By Program'
 description: ''
 required: false
 translatable: false

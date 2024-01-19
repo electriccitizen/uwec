@@ -10,7 +10,7 @@ id: paragraph.profiles_list.field_department
 field_name: field_department
 entity_type: paragraph
 bundle: profiles_list
-label: Department
+label: 'By Department'
 description: ''
 required: false
 translatable: false

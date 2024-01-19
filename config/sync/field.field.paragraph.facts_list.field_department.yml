@@ -10,7 +10,7 @@ id: paragraph.facts_list.field_department
 field_name: field_department
 entity_type: paragraph
 bundle: facts_list
-label: Department
+label: 'By Department'
 description: ''
 required: false
 translatable: false
