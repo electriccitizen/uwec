@@ -3,11 +3,14 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.paragraph.snapshot_list.field_college
+    - field.field.paragraph.snapshot_list.field_department
     - field.field.paragraph.snapshot_list.field_list_type
     - field.field.paragraph.snapshot_list.field_list_widget
     - field.field.paragraph.snapshot_list.field_manual_select
     - field.field.paragraph.snapshot_list.field_page_family
     - field.field.paragraph.snapshot_list.field_placement_tag
+    - field.field.paragraph.snapshot_list.field_program
     - field.field.paragraph.snapshot_list.field_snapshot_type
     - field.field.paragraph.snapshot_list.field_widget_title
     - paragraphs.paragraphs_type.snapshot_list
@@ -23,7 +26,7 @@ content:
     label: inline
     settings: {  }
     third_party_settings: {  }
-    weight: 0
+    weight: 1
     region: content
   field_manual_select:
     type: entity_reference_entity_view
@@ -32,7 +35,7 @@ content:
       view_mode: teaser
       link: false
     third_party_settings: {  }
-    weight: 1
+    weight: 2
     region: content
   field_widget_title:
     type: string
@@ -40,11 +43,14 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 2
+    weight: 0
     region: content
 hidden:
+  field_college: true
+  field_department: true
   field_list_widget: true
   field_page_family: true
   field_placement_tag: true
+  field_program: true
   field_snapshot_type: true
   search_api_excerpt: true

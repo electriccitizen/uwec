@@ -299,8 +299,54 @@ function citizen_custom_views_pre_view($view, $display_id, &$args) {
 
       if ($paragraph_id){
         $paragraph = Paragraph::load($paragraph_id);
+        //unset or alter colleges tag filter
+        if(isset($paragraph->field_college[0])){
+
+          //make an array out of the college set in the paragraph
+          $colleges = [];
+          foreach ($paragraph->field_college as $delta => $college) {
+            $colleges[] = $college->target_id;
+          }
+          // replace the colleges_target_id filter with the paragraph college node (we need the double [value][value] because this is a content type reference instead of a term reference)
+          $filters['field_colleges_target_id']['value']['value'] = $colleges;
+        } else {
+          //if the college field is not used, then unset the colleges filter
+          if (isset($filters['field_colleges_target_id'])) {
+            unset($filters['field_colleges_target_id']);
+          }
+        }//end colleges filter
+        //unset or alter departments tag filter
+        if(isset($paragraph->field_department[0])){
+          //make an array out of the department set in the paragraph
+          $departments = [];
+          foreach ($paragraph->field_department as $delta => $department) {
+            $departments[] = $department->target_id;
+          }
+          // replace the departments_target_id filter with the paragraph department node (we need the double [value][value] because this is a content type reference instead of a term reference)
+          $filters['field_departments_target_id']['value']['value'] = $departments;
+        } else {
+          //if the college field is not used, then unset the colleges filter
+          if (isset($filters['field_departments_target_id'])) {
+            unset($filters['field_departments_target_id']);
+          }
+        }//end departments filter
+        //unset or alter programs tag filter
+        if(isset($paragraph->field_program[0])){
+          //make an array out of the program set in the paragraph
+          $programs = [];
+          foreach ($paragraph->field_program as $delta => $program) {
+            $programs[] = $program->target_id;
+          }
+          // replace the programs_target_id filter with the paragraph program node (we need the double [value][value] because this is a content type reference instead of a term reference)
+          $filters['field_programs_target_id']['value']['value'] = $programs;
+        } else {
+          //if the program field is not used, then unset the programs filter
+          if (isset($filters['field_programs_target_id'])) {
+            unset($filters['field_programs_target_id']);
+          }
+        }//end programs filter
         //unset or alter placement tag filter
-        if($paragraph->field_placement_tag[0]){
+        if(isset($paragraph->field_placement_tag[0])){
           //make an array out of the placement tag set in the paragraph
           $placements = [];
           foreach ($paragraph->field_placement_tag as $delta => $placement) {
@@ -310,11 +356,11 @@ function citizen_custom_views_pre_view($view, $display_id, &$args) {
           $filters['field_placement_tags_target_id']['value'] = $placements;
         } else {
           //if the placement tag field is not used, then unset the placement tag filter
-          if ($filters['field_placement_tags_target_id']) {
+          if (isset($filters['field_placement_tags_target_id'])) {
             unset($filters['field_placement_tags_target_id']);
           }
         }//end placement tags filter
-        if($paragraph->field_page_family[0]){
+        if(isset($paragraph->field_page_family[0])){
           //make an array out of the page family set in the paragraph
           $families = [];
           foreach ($paragraph->field_page_family as $delta => $family) {
@@ -324,7 +370,7 @@ function citizen_custom_views_pre_view($view, $display_id, &$args) {
           $filters['field_page_families_target_id']['value'] = $families;
         } else {
           //if the page family field is not used, then unset the page families filter
-          if ($filters['field_page_families_target_id']) {
+          if (isset($filters['field_page_families_target_id'])) {
             unset($filters['field_page_families_target_id']);
           }
         }//end page families filter

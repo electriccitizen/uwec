@@ -4,11 +4,14 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.paragraph.preview
+    - field.field.paragraph.facts_list.field_college
+    - field.field.paragraph.facts_list.field_department
     - field.field.paragraph.facts_list.field_facts
     - field.field.paragraph.facts_list.field_list_type
     - field.field.paragraph.facts_list.field_list_widget
     - field.field.paragraph.facts_list.field_page_family
     - field.field.paragraph.facts_list.field_placement_tag
+    - field.field.paragraph.facts_list.field_program
     - paragraphs.paragraphs_type.facts_list
   module:
     - layout_builder
@@ -30,8 +33,11 @@ content:
     weight: 1
     region: content
 hidden:
+  field_college: true
+  field_department: true
   field_facts: true
   field_list_widget: true
   field_page_family: true
   field_placement_tag: true
+  field_program: true
   search_api_excerpt: true

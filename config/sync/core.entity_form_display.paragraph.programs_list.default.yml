@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.paragraph.programs_list.field_department
     - field.field.paragraph.programs_list.field_limit_list
     - field.field.paragraph.programs_list.field_list_type
     - field.field.paragraph.programs_list.field_list_widget
@@ -15,9 +16,19 @@ targetEntityType: paragraph
 bundle: programs_list
 mode: default
 content:
+  field_department:
+    type: entity_reference_autocomplete
+    weight: 2
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
   field_limit_list:
     type: number
-    weight: 3
+    weight: 5
     region: content
     settings:
       placeholder: ''
@@ -30,7 +41,7 @@ content:
     third_party_settings: {  }
   field_page_family:
     type: entity_reference_autocomplete
-    weight: 2
+    weight: 4
     region: content
     settings:
       match_operator: CONTAINS
@@ -40,7 +51,7 @@ content:
     third_party_settings: {  }
   field_placement_tag:
     type: entity_reference_autocomplete
-    weight: 1
+    weight: 3
     region: content
     settings:
       match_operator: CONTAINS
@@ -50,7 +61,7 @@ content:
     third_party_settings: {  }
   field_programs:
     type: entity_reference_autocomplete
-    weight: 4
+    weight: 6
     region: content
     settings:
       match_operator: CONTAINS

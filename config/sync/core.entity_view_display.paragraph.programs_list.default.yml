@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.paragraph.programs_list.field_department
     - field.field.paragraph.programs_list.field_limit_list
     - field.field.paragraph.programs_list.field_list_type
     - field.field.paragraph.programs_list.field_list_widget
@@ -17,12 +18,19 @@ targetEntityType: paragraph
 bundle: programs_list
 mode: default
 content:
+  field_department:
+    type: entity_reference_entity_id
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
   field_limit_list:
     type: number_unformatted
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 3
+    weight: 5
     region: content
   field_list_type:
     type: list_key
@@ -36,14 +44,14 @@ content:
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 2
+    weight: 4
     region: content
   field_placement_tag:
     type: entity_reference_entity_id
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 1
+    weight: 3
     region: content
   field_programs:
     type: entity_reference_entity_view
@@ -52,7 +60,7 @@ content:
       view_mode: teaser
       link: false
     third_party_settings: {  }
-    weight: 4
+    weight: 6
     region: content
 hidden:
   field_list_widget: true

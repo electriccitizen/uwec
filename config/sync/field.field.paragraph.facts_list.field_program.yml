@@ -1,0 +1,29 @@
+uuid: 6e754423-d1a5-4ca4-b450-63feb63d9c41
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_program
+    - node.type.academic_program
+    - paragraphs.paragraphs_type.facts_list
+id: paragraph.facts_list.field_program
+field_name: field_program
+entity_type: paragraph
+bundle: facts_list
+label: Program
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      academic_program: academic_program
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

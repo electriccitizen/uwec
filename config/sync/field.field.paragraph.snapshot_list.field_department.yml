@@ -1,0 +1,29 @@
+uuid: 986f2a75-1a19-4450-80b4-1c8a57e98b25
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_department
+    - node.type.department
+    - paragraphs.paragraphs_type.snapshot_list
+id: paragraph.snapshot_list.field_department
+field_name: field_department
+entity_type: paragraph
+bundle: snapshot_list
+label: Department
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      department: department
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

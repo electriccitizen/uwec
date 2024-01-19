@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.paragraph.preview
+    - field.field.paragraph.programs_list.field_department
     - field.field.paragraph.programs_list.field_limit_list
     - field.field.paragraph.programs_list.field_list_type
     - field.field.paragraph.programs_list.field_list_widget
@@ -31,6 +32,7 @@ content:
     weight: 0
     region: content
 hidden:
+  field_department: true
   field_limit_list: true
   field_list_widget: true
   field_page_family: true

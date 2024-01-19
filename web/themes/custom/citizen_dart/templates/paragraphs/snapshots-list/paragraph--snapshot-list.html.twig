@@ -44,11 +44,7 @@
 			{{ content.field_widget_title }}
 
 			{% if content.field_list_type.0['#markup'] == 'auto' %}
-				<div class="views-wrapper views-single">
-					{% if drupal_view('snapshots','list', paragraph.id.value)|render|striptags|trim|length > 0 %}
-						{{ drupal_view('snapshots','list', paragraph.id.value) }}
-					{% endif %}
-				</div>
+				{{ drupal_view('snapshots','list', paragraph.id.value) }}
 			{% else %}
 				{{ content.field_manual_select }}
 			{% endif %}

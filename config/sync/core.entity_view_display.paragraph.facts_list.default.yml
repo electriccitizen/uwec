@@ -3,11 +3,14 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.paragraph.facts_list.field_college
+    - field.field.paragraph.facts_list.field_department
     - field.field.paragraph.facts_list.field_facts
     - field.field.paragraph.facts_list.field_list_type
     - field.field.paragraph.facts_list.field_list_widget
     - field.field.paragraph.facts_list.field_page_family
     - field.field.paragraph.facts_list.field_placement_tag
+    - field.field.paragraph.facts_list.field_program
     - paragraphs.paragraphs_type.facts_list
   module:
     - options
@@ -16,6 +19,20 @@ targetEntityType: paragraph
 bundle: facts_list
 mode: default
 content:
+  field_college:
+    type: entity_reference_entity_id
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_department:
+    type: entity_reference_entity_id
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 3
+    region: content
   field_facts:
     type: entity_reference_entity_view
     label: hidden
@@ -38,21 +55,28 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 4
+    weight: 7
     region: content
   field_page_family:
     type: entity_reference_entity_id
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 3
+    weight: 6
     region: content
   field_placement_tag:
     type: entity_reference_entity_id
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 2
+    weight: 5
+    region: content
+  field_program:
+    type: entity_reference_entity_id
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 4
     region: content
 hidden:
   search_api_excerpt: true
