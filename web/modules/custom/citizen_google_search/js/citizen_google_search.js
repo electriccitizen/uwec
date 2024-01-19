@@ -1,43 +1,45 @@
 (function($, Drupal) {
   Drupal.behaviors.googleCustomSearch = {
     attach: function (context, settings) {
-      document.onreadystatechange = function () {
-        if (document.readyState === 'complete') {
+    	$(once('hasSearch', '.google-search', context)).each(function(){
+	      document.onreadystatechange = function () {
+	        if (document.readyState === 'complete') {
 
-          // The full host in the URL.
-          var host = this.location.host;
-          // The pattern to check for.
-          var site_pattern = /(\w+)\./;
-          // Isolate the domain/subdomain.
-          var site = host.match(site_pattern);
-          // The name of the site determined below.
-          var site_name;
+	          // The full host in the URL.
+	          var host = this.location.host;
+	          // The pattern to check for.
+	          var site_pattern = /(\w+)\./;
+	          // Isolate the domain/subdomain.
+	          var site = host.match(site_pattern);
+	          // The name of the site determined below.
+	          var site_name;
 
-          // Determine which site is being viewed.
-          switch (site[1]) {
-            case 'example':
-              site_name = 'Fancy Example';
-              break;
-            default:
-              site_name = 'UW-Eau Claire';
-              break;
-          }
-         
-          var form = document.querySelector('form.gsc-search-box');
-          var input = document.querySelector('input.gsc-input');
-          var placeholder = 'What are you searching for?';
-					var label = document.createElement("Label");
+	          // Determine which site is being viewed.
+	          switch (site[1]) {
+	            case 'example':
+	              site_name = 'Fancy Example';
+	              break;
+	            default:
+	              site_name = 'UW-Eau Claire';
+	              break;
+	          }
+	         
+	          var form = document.querySelector('form.gsc-search-box');
+	          var input = document.querySelector('input.gsc-input');
+	          var placeholder = 'What are you searching for?';
+						var label = document.createElement("Label");
 
-          label.htmlFor = 'gsc-i-id1';
-          label.innerHTML = 'Search the ' + site_name + ' Website';
-          
-          form.prepend(label);
-          input.setAttribute('placeholder', placeholder);
-          input.style.backgroundImage = 'none';
-          document.querySelector('button.gsc-search-button svg').remove();
-          document.querySelector('button.gsc-search-button').append('Search');
-        }
-      };
+	          label.htmlFor = 'gsc-i-id1';
+	          label.innerHTML = 'Search the ' + site_name + ' Website';
+	          
+	          form.prepend(label);
+	          input.setAttribute('placeholder', placeholder);
+	          input.style.backgroundImage = 'none';
+	          document.querySelector('button.gsc-search-button svg').remove();
+	          document.querySelector('button.gsc-search-button').append('Search');
+	        }
+	      };
+	    });
     }
   };
 

@@ -10,35 +10,42 @@
 
         let autoFields = $('.field--name-field-placement-tag,.field--name-field-page-family,.field--name-field-type,.field--name-field-program,.field--name-field-snapshot-type,.field--name-field-limit-list,.field--name-field-randomize,.field--name-field-college,.field--name-field-department,.field--name-field-program');
 
+        $(this).closest('.paragraphs-subform,.layout-paragraphs-component-form').find(manualFields).hide();
+
         $(document).ajaxComplete(function () {
         // detect the chosen list type and show the proper select or manual field options
           $('.field--name-field-list-type .js-form-type-select').each(function () {
-          	$(this).closest('.paragraphs-subform,.layout-paragraphs-component-form').find(manualFields).hide()
-            //when the content type select is changed
+          	
+            
+          	//when an existing content placer is opened, check the type chosen and show/hide the appropriate fields 
+	          if($(this).find("option:selected").val()){
+	            var chosen = $(this).find("option:selected").text().toLowerCase().replace(/_/g, '-');
+	            console.log(chosen);
+	            if (chosen == 'auto'){
+	            	$(this).closest('.paragraphs-subform,.layout-paragraphs-component-form').find(manualFields).hide();
+	            	$(this).closest('.paragraphs-subform,.layout-paragraphs-component-form').find(autoFields).show();
+	            }else{
+	            	$(this).closest('.paragraphs-subform,.layout-paragraphs-component-form').find(autoFields).hide();
+	            	$(this).closest('.paragraphs-subform,.layout-paragraphs-component-form').find(manualFields).show();
+	            }
+	          }
+
+            //when the content type select is changed run the same checks
             $(this).find('select').change(function () {
+            	$(this).closest('.paragraphs-subform,.layout-paragraphs-component-form').find(manualFields).hide()
               //get the option
-              var chosen = $(this).find("option:selected").text().toLowerCase().replace(/_/g, '-');
+              var choice = $(this).find("option:selected").text().toLowerCase().replace(/_/g, '-');
               
-              if (chosen == 'auto'){
+              if (choice == 'auto'){
               	$(this).closest('.paragraphs-subform,.layout-paragraphs-component-form').find(manualFields).hide();
               	$(this).closest('.paragraphs-subform,.layout-paragraphs-component-form').find(autoFields).show();
               }else{
-              	$(this).closest('.paragraphs-subform,.layout-paragraphs-component-form').find(manualFields).show();
               	$(this).closest('.paragraphs-subform,.layout-paragraphs-component-form').find(autoFields).hide();
+              	$(this).closest('.paragraphs-subform,.layout-paragraphs-component-form').find(manualFields).show();
               }
             });
+
           });
-          //when an existing content placer is opened, run the same checks
-          if($('.field--name-field-list-type select').val()){
-            var chosen = $('.field--name-field-list-type select').find("option:selected").text().toLowerCase().replace(/_/g, '-');
-            if (chosen == 'auto'){
-            	$(this).closest('.paragraphs-subform,.layout-paragraphs-component-form').find(manualFields).hide();
-            	$(this).closest('.paragraphs-subform,.layout-paragraphs-component-form').find(autoFields).show();
-            }else{
-            	$(this).closest('.paragraphs-subform,.layout-paragraphs-component-form').find(manualFields).show();
-            	$(this).closest('.paragraphs-subform,.layout-paragraphs-component-form').find(autoFields).hide();
-            }
-          }
         });
       });
     }
