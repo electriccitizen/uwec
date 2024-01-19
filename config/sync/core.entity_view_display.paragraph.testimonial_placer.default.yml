@@ -3,10 +3,13 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.paragraph.testimonial_placer.field_college
+    - field.field.paragraph.testimonial_placer.field_department
     - field.field.paragraph.testimonial_placer.field_list_type
     - field.field.paragraph.testimonial_placer.field_list_widget
     - field.field.paragraph.testimonial_placer.field_page_family
     - field.field.paragraph.testimonial_placer.field_placement_tag
+    - field.field.paragraph.testimonial_placer.field_program
     - field.field.paragraph.testimonial_placer.field_testimonial
     - paragraphs.paragraphs_type.testimonial_placer
   module:
@@ -16,12 +19,26 @@ targetEntityType: paragraph
 bundle: testimonial_placer
 mode: default
 content:
+  field_college:
+    type: entity_reference_entity_id
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_department:
+    type: entity_reference_entity_id
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
   field_list_type:
     type: list_key
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 1
+    weight: 0
     region: content
   field_list_widget:
     type: entity_reference_label
@@ -29,21 +46,28 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 4
+    weight: 6
     region: content
   field_page_family:
     type: entity_reference_entity_id
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 3
+    weight: 5
     region: content
   field_placement_tag:
     type: entity_reference_entity_id
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 2
+    weight: 4
+    region: content
+  field_program:
+    type: entity_reference_entity_id
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 3
     region: content
   field_testimonial:
     type: entity_reference_entity_view
@@ -52,7 +76,7 @@ content:
       view_mode: teaser
       link: false
     third_party_settings: {  }
-    weight: 4
+    weight: 7
     region: content
 hidden:
   search_api_excerpt: true

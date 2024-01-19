@@ -1,0 +1,29 @@
+uuid: a31ca5cc-7b56-4704-8650-503e8e3d2099
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_college
+    - node.type.college
+    - paragraphs.paragraphs_type.testimonial_placer
+id: paragraph.testimonial_placer.field_college
+field_name: field_college
+entity_type: paragraph
+bundle: testimonial_placer
+label: 'By College'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      college: college
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference
