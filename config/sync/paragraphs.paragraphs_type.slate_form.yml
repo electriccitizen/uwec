@@ -3,8 +3,8 @@ langcode: en
 status: true
 dependencies: {  }
 id: slate_form
-label: 'Slate form'
+label: 'Slate Form'
 icon_uuid: null
 icon_default: null
-description: 'Adds widget to display Slate form'
+description: 'Add a slate form to the page.'
 behavior_plugins: {  }

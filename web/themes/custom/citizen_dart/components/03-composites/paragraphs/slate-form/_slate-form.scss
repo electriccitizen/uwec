@@ -1,0 +1,28 @@
+/* ===============
+   SLATE FORM WIDGET
+================== */
+
+@use '../../../00-base/base' as *;
+
+.paragraph--type--slate-form{
+	max-width: 1136px;
+	@include auto;
+	background: $ice;
+	padding: 60px 120px;
+	.widget-wrapper{
+		@include safeFlex(row,wrap,start,start);
+		@include bleed(padding,60px);
+		.slate-left,.slate-right{
+			width: 100%;
+			@include tab{
+				&:not(:only-child){
+					width: 50%;
+				}
+			}
+		}
+	}
+	.field-formatted-headline{
+		@include styledHeader;
+		text-align: left;
+	}
+}//end slate form widget
