@@ -9,6 +9,7 @@ dependencies:
     - field.field.paragraph.wayfinding.field_link
     - field.field.paragraph.wayfinding.field_link_multi
     - field.field.paragraph.wayfinding.field_text_placement
+    - field.field.paragraph.wayfinding.field_version
     - paragraphs.paragraphs_type.wayfinding
   module:
     - link
@@ -70,6 +71,13 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: 4
+    region: content
+  field_version:
+    type: list_key
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 5
     region: content
 hidden:
   search_api_excerpt: true

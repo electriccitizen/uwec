@@ -20,7 +20,6 @@
           	//when an existing content placer is opened, check the type chosen and show/hide the appropriate fields 
 	          if($(this).find("option:selected").val()){
 	            var chosen = $(this).find("option:selected").text().toLowerCase().replace(/_/g, '-');
-	            console.log(chosen);
 	            if (chosen == 'auto'){
 	            	$(this).closest('.paragraphs-subform,.layout-paragraphs-component-form').find(manualFields).hide();
 	            	$(this).closest('.paragraphs-subform,.layout-paragraphs-component-form').find(autoFields).show();
@@ -53,56 +52,57 @@
   Drupal.behaviors.wayfindingWidget = {
     attach: function (context, settings) {
       $(once('isWayfindingWidget', '.field--name-field-version .js-form-type-select', context)).each(function(){
+      
       let comboFields = $('.field--name-field-link-multi');
+      let boxSingleFields = $('.field--name-field-link,.field--name-field-image');
+      let singleFields = $('.field--name-field-text-placement');
 
-      let singleDetailFields = $('.field--name-field-link,.field--name-field-image');
-
-      let detailFields = $('.field--name-field-text-placement');
-
-      //hide combo & detail fields by default
-      comboFields.hide();
-      detailFields.hide(); 
+      //hide combo by default
+      $(this).closest('.paragraphs-subform,.layout-paragraphs-component-form').find(comboFields).hide();
 
        $(document).ajaxComplete(function () {
+
+       	//when an existing wayfind is opened, ckeck the version and set show the correct fields
+       	if($('.field--name-field-version .js-form-type-select', this).find("option:selected").val()){
+	        var chosen = $('.field--name-field-version .js-form-type-select', this).find("option:selected").text().toLowerCase().replace(/_/g, '-');
+	        if (chosen == 'combo'){
+            boxSingleFields.hide();
+            singleFields.hide();
+            comboFields.show();
+          } else if (chosen == 'single'){
+            singleFields.show();
+            boxSingleFields.show();
+            comboFields.hide();
+          } else {
+          	comboFields.hide();
+            singleFields.hide();
+            boxSingleFields.show();
+          }
+	      }
+
         // detect the chosen list type and show the proper select or manual field options
         $('.field--name-field-version .js-form-type-select').each(function () {
           //when the content type select is changed
           $(this).find('select').change(function () {
             //get the option
-            var chosen = $(this).find("option:selected").text().toLowerCase().replace(/_/g, '-');
+            var choice = $(this).find("option:selected").text().toLowerCase().replace(/_/g, '-');
             
-            if (chosen == 'combo'){
-              singleDetailFields.hide();
-              comboFields.show();
-              detailFields.hide();
-            } else if (chosen == 'detail'){
-              detailFields.show();
-              singleDetailFields.show();
-              comboFields.hide();
-            } else {
-              singleDetailFields.show();
-              comboFields.hide();
-              detailFields.hide();
-            }
+            if (choice == 'combo'){
+	            boxSingleFields.hide();
+	            singleFields.hide();
+	            comboFields.show();
+	          } else if (choice == 'single'){
+	            singleFields.show();
+	            boxSingleFields.show();
+	            comboFields.hide();
+	          } else {
+	          	comboFields.hide();
+	            singleFields.hide();
+	            boxSingleFields.show();
+	          }
           });
         });
-         //when an existing content placer is opened, run the same checks
-        if($('.field--name-field-version select').val()){
-          var chosen = $('.field--name-field-version select').find("option:selected").text().toLowerCase().replace(/_/g, '-');
-          if (chosen == 'combo'){
-            singleDetailFields.hide();
-            comboFields.show();
-            detailFields.hide();
-          } else if (chosen == 'detail'){
-            detailFields.show();
-            singleDetailFields.show();
-            comboFields.hide();
-          } else {
-            singleDetailFields.show();
-            comboFields.hide();
-            detailFields.hide();
-          }
-         }
+         
        });
      });
     }

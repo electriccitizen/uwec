@@ -43,9 +43,9 @@
   {%- set version = paragraph.field_version.value -%}
   {%- set alignment = paragraph.field_text_placement.value -%}
 
-  {% if version == 'single' %}
+  {% if version == 'box' %}
     {% set imageStyle = 'square' %}
-  {% elseif version == 'detail' %}
+  {% elseif version == 'single' %}
     {% set imageStyle = '426x426' %}
   {% endif %}
 
@@ -58,10 +58,10 @@
       <p>{{ paragraph.field_additional_text.value }}</p>
       {% if version == 'combo' and paragraph.field_link_multi is not empty %}
         {% for link in paragraph.field_link_multi %}
-          <a href="{{ link.uri }}">{{ link.title }}</a>
+          <a href="{{ link.url }}">{{ link.title }}</a>
         {% endfor %}
       {% elseif paragrah.field_link is not empty %}
-        <a href="{{ paragraph.field_link.uri }}">{{ paragraph.field_link.title }}</a>
+        <a href="{{ paragraph.field_link.url }}">{{ paragraph.field_link.title }}</a>
       {% endif %}
     </div>
   </div>

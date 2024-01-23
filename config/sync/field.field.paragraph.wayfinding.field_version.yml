@@ -1,0 +1,23 @@
+uuid: fe0c4b4c-c803-4f66-b6c1-e9b780add346
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_version
+    - paragraphs.paragraphs_type.wayfinding
+  module:
+    - options
+id: paragraph.wayfinding.field_version
+field_name: field_version
+entity_type: paragraph
+bundle: wayfinding
+label: Version
+description: 'Wayfinding box will allow one button and layout with the image locked to the left inside of a stylized border. Wayfinding combo does not show an image and allows three buttons. Wayfinding single is similar to the box version but does not have border, the image is slightly larger and you have choice to place the image to the left or right.'
+required: true
+translatable: false
+default_value:
+  -
+    value: single
+default_value_callback: ''
+settings: {  }
+field_type: list_string

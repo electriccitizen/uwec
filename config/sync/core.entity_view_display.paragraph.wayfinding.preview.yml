@@ -10,9 +10,11 @@ dependencies:
     - field.field.paragraph.wayfinding.field_link
     - field.field.paragraph.wayfinding.field_link_multi
     - field.field.paragraph.wayfinding.field_text_placement
+    - field.field.paragraph.wayfinding.field_version
     - paragraphs.paragraphs_type.wayfinding
   module:
     - layout_builder
+    - options
 third_party_settings:
   layout_builder:
     enabled: false
@@ -27,6 +29,13 @@ content:
     label: hidden
     settings:
       link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_version:
+    type: list_default
+    label: inline
+    settings: {  }
     third_party_settings: {  }
     weight: 1
     region: content

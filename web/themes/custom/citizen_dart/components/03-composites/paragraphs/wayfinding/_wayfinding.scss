@@ -6,7 +6,7 @@
 
 .paragraph--type--wayfinding{
    .wayfinding {
-      &.detail {
+      &.single {
          @include safeFlex(row,wrap,start,start);
          gap: $spaceLg;
          .wayfinding-text {
@@ -28,7 +28,7 @@
             }
          }
       }
-      &.single {
+      &.box {
          @include safeFlex(row,wrap,start,start);
          gap: $spaceLg;
          .wayfinding-text {
