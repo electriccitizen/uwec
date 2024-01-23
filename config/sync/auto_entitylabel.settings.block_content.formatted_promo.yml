@@ -1,5 +1,5 @@
 status: 1
-pattern: '[block_content:field_formatted_title]'
+pattern: '[block_content:field_formatted_headline]'
 escape: false
 preserve_titles: false
 save: false

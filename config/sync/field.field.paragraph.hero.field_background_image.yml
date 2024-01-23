@@ -1,17 +1,17 @@
-uuid: f0c9833b-df4d-4557-8679-c49c357eb7a2
+uuid: 7a9b65ec-272a-465a-ac23-c45cbd39c199
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.paragraph.field_image
+    - field.storage.paragraph.field_background_image
     - media.type.image
     - paragraphs.paragraphs_type.hero
-id: paragraph.hero.field_image
-field_name: field_image
+id: paragraph.hero.field_background_image
+field_name: field_background_image
 entity_type: paragraph
 bundle: hero
-label: Image
-description: '<strong>Optimal image size:</strong> 1460x1680px. This image is the large portrait color image in the right side of image and background heros.'
+label: 'Background Image'
+description: '<strong>Optimal image size:</strong> 1920x1445px. If this is a video or background hero, the image should be pre-styled to work as the hero background. If this is a full image hero, no pre-styling is needed.'
 required: false
 translatable: false
 default_value: {  }
