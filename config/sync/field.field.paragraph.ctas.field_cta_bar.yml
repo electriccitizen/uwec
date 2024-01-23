@@ -1,19 +1,19 @@
-uuid: 73eac8a3-4ae3-4b58-a26f-bc5a8489b7cc
+uuid: d16dca8a-af0d-458c-afd4-4247759a8037
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.paragraph.field_cta_items
+    - field.storage.paragraph.field_cta_bar
     - paragraphs.paragraphs_type.cta_item
     - paragraphs.paragraphs_type.ctas
   module:
     - entity_reference_revisions
-id: paragraph.ctas.field_cta_items
-field_name: field_cta_items
+id: paragraph.ctas.field_cta_bar
+field_name: field_cta_bar
 entity_type: paragraph
 bundle: ctas
-label: 'CTA Items'
-description: 'Add three CTA items to make a trio.'
+label: 'CTA Bar'
+description: 'Add a single CTA where the image will be used a background. '
 required: false
 translatable: false
 default_value: {  }

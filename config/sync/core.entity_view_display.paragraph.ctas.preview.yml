@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.paragraph.preview
+    - field.field.paragraph.ctas.field_cta_bar
     - field.field.paragraph.ctas.field_cta_items
     - field.field.paragraph.ctas.field_is_trio
     - paragraphs.paragraphs_type.ctas
@@ -19,9 +20,18 @@ targetEntityType: paragraph
 bundle: ctas
 mode: preview
 content:
+  field_cta_bar:
+    type: entity_reference_revisions_entity_view
+    label: inline
+    settings:
+      view_mode: preview
+      link: ''
+    third_party_settings: {  }
+    weight: 2
+    region: content
   field_cta_items:
     type: entity_reference_revisions_entity_view
-    label: hidden
+    label: inline
     settings:
       view_mode: preview
       link: ''

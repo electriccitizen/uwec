@@ -42,59 +42,59 @@
 {% extends 'paragraph.html.twig' %}
 
 {% block widgetContent %}
-		{% set ctaType = paragraph.field_is_trio.0.value %}
-		<div class="field field-cta-items {% if ctaType == '1' %}is-trio{% else %}is-bar{% endif %}">
+	{% set ctaType = paragraph.field_is_trio.0.value %}
+
+	{% if ctaType == '1' %}
+		<div class="cta-trio">
 			<div class="ctas-wrapper">
-				{# trio setup #}
-				{% if ctaType == '1' %}
-					{%- for key, cta in content.field_cta_items -%}
-						{% if key|first != '#' %}
-							<div class="cta-item">
-								<div class="cta-item-inner">
-									<div class="cta-image">
-										{{ drupal_entity('media', cta['#paragraph'].field_image.0.target_id, '393x221') }}
+				{%- for key, cta in content.field_cta_items -%}
+					{% if key|first != '#' %}
+						<div class="cta-item">
+							<div class="cta-item-inner">
+								<div class="cta-image">
+									{{ drupal_entity('media', cta['#paragraph'].field_image.0.target_id, '393x221') }}
+								</div>
+								<div class="cta-text">
+									<div class="cta-headline">
+										{{- cta['#paragraph'].field_headline.0.value -}}
 									</div>
-									<div class="cta-text">
-										<div class="cta-headline">
-											{{- cta['#paragraph'].field_headline.0.value -}}
+									{% if cta['#paragraph'].field_additional_text.0.value %}
+										<div class="cta-text">
+											{{- cta['#paragraph'].field_additional_text.0.value -}}
 										</div>
-										{% if cta['#paragraph'].field_additional_text.0.value %}
-											<div class="cta-text">
-												{{- cta['#paragraph'].field_additional_text.0.value -}}
-											</div>
-										{% endif %}
-									</div>
-									<div class="cta-button">
-										<a href="{{ cta['#paragraph'].field_link.0.url }}">{{ cta['#paragraph'].field_link.0.title }}</a> 
-									</div>
+									{% endif %}
 								</div>
-							</div>
-						{% endif %}
-					{%- endfor -%}
-				{% else %}
-					{# bar setup #}
-					<div class="cta-item">
-						<div class="cta-item-inner">
-							<div class="cta-image">
-								{{ drupal_entity('media', content.field_cta_items.0['#paragraph'].field_image.0.target_id, '1920x1445') }}
-							</div>
-							<div class="cta-text">
-								<div class="cta-headline">
-									{{- content.field_cta_items.0['#paragraph'].field_headline.0.value -}}
+								<div class="cta-button">
+									<a href="{{ cta['#paragraph'].field_link.0.url }}">{{ cta['#paragraph'].field_link.0.title }}</a> 
 								</div>
-								{% if content.field_cta_items.0['#paragraph'].field_additional_text.0.value %}
-									<div class="cta-text">
-										{{- content.field_cta_items.0['#paragraph'].field_additional_text.0.value -}}
-									</div>
-								{% endif %}
-							</div>
-							<div class="cta-button">
-								<a href="{{ content.field_cta_items.0['#paragraph'].field_link.0.url }}">{{ content.field_cta_items.0['#paragraph'].field_link.0.title }}</a> 
 							</div>
 						</div>
-					</div>
-				{% endif %}
+					{% endif %}
+				{%- endfor -%}
 			</div>
 		</div>
-
+	{% else %}
+		<div class="cta-bar">
+			<div class="cta-item">
+				<div class="cta-item-inner">
+					<div class="cta-image">
+						{{ drupal_entity('media', content.field_cta_bar.0['#paragraph'].field_image.0.target_id, '1920x1445') }}
+					</div>
+					<div class="cta-text">
+						<div class="cta-headline">
+							{{- content.field_cta_bar.0['#paragraph'].field_headline.0.value -}}
+						</div>
+						{% if content.field_cta_bar.0['#paragraph'].field_additional_text.0.value %}
+							<div class="cta-text">
+								{{- content.field_cta_bar.0['#paragraph'].field_additional_text.0.value -}}
+							</div>
+						{% endif %}
+					</div>
+					<div class="cta-button">
+						<a href="{{ content.field_cta_bar.0['#paragraph'].field_link.0.url }}">{{ content.field_cta_bar.0['#paragraph'].field_link.0.title }}</a> 
+					</div>
+				</div>
+			</div>
+		</div>
+	{% endif %}
 {% endblock %}

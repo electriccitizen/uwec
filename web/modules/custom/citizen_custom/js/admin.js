@@ -45,10 +45,11 @@
             });
 
           });
-        });
+        });//end ajax complete
       });
     }
-  };
+  };//end list widget
+
   Drupal.behaviors.wayfindingWidget = {
     attach: function (context, settings) {
       $(once('isWayfindingWidget', '.field--name-field-version .js-form-type-select', context)).each(function(){
@@ -103,10 +104,53 @@
           });
         });
          
-       });
+       });//end ajax complete
      });
     }
-  };
+  };//end wayfinding
+
+  Drupal.behaviors.ctaWidget = {
+    attach: function (context, settings) {
+      $(once('isCTAWidget', '.field--name-field-is-trio .js-form-type-checkbox', context)).each(function(){
+      
+      let barField = $('.field--name-field-cta-bar');
+      let trioField = $('.field--name-field-cta-items');
+
+      $(this).closest('.layout-paragraphs-component-form').find(trioField).hide();
+
+       $(document).ajaxComplete(function () {
+
+       	//when an existing wayfind is opened, ckeck the version and set show the correct fields
+       	if($('.field--name-field-is-trio .form-boolean--type-checkbox', this).is(':checked')){
+       		console.log('checked');
+	       	$('.layout-paragraphs-component-form').find(trioField).show();
+	       	$('.layout-paragraphs-component-form').find(barField).hide();
+	      }else{
+	      	console.log('checked');
+	      	$('.layout-paragraphs-component-form').find(trioField).hide();
+	       	$('.layout-paragraphs-component-form').find(barField).show();
+	      }
+
+        // detect the chosen list type and show the proper select or manual field options
+        $('.field--name-field-is-trio .form-boolean--type-checkbox').each(function () {
+          //when the content type select is changed
+          $(this).change(function () {
+            //get the option
+            if($(this).is(':checked')){
+            	$(this).closest('.paragraphs-subform,.layout-paragraphs-component-form').find(trioField).show();
+	       			$(this).closest('.paragraphs-subform,.layout-paragraphs-component-form').find(barField).hide();
+            }else{
+            	$(this).closest('.paragraphs-subform,.layout-paragraphs-component-form').find(trioField).hide();
+	       			$(this).closest('.paragraphs-subform,.layout-paragraphs-component-form').find(barField).show();
+            }
+
+          });
+        });
+         
+       });//end ajax complete
+     });
+    }
+  };//end cta
 
   Drupal.behaviors.slateWidget = {
     attach: function (context, settings) {
@@ -140,10 +184,10 @@
             $('.field--name-field-slate-script-tag').hide();
           }
          }
-       });
+       });//end ajax complete
      });
     }
-  };
+  };//end slate
 
   /* Add paragraph preview labels
   ----------------------- */
