@@ -1,0 +1,52 @@
+<?php
+
+/**
+ * Implements hook_form_BASE_FORM_ID_alter().
+ */
+function citizen_domain_form_node_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+
+  // Hide the Domain Access "Send to all affiliates" option on node edit forms.
+  if(isset($form['field_domain_all_affiliates'])){
+    // Hide the field from view.
+    //$form['field_domain_all_affiliates']['#attributes']['hidden'] = 'hidden';
+  }
+
+  // Sync the "Domain Source" value to the "Domain Access" value.
+  if(isset($form['field_domain_access']) && isset($form['field_domain_source'])){
+    // Match the "Domain Source" value to the "Domain Access" default value.
+    $form['field_domain_source']['widget']['#default_value'][0] = $form['field_domain_access']['widget']['#default_value'];
+
+    // Attach the JS script that will sync the "Domain Source" value
+    // to the "Domain Access" value when changed by the user.
+    $form['#attached']['library'][] = 'citizen_domain/citizen_domain';
+  }
+
+  // Update "Show On" values to match "Domain Access"
+  if(isset($form['field_domain_access'])){
+    $domainAccess = $form['field_domain_access']['widget']['#default_value'];
+    if (is_array($domainAccess)) {
+      $domainAccess = array_pop($domainAccess);
+    }
+    if (str_contains($domainAccess, 'library')){
+      if(isset($form['field_show_library'])){
+        $form['field_show_library']['widget']['value']['#default_value'] = 1;
+      }
+    } elseif (str_contains($domainAccess, 'sbparksandrec')){
+      if(isset($form['field_show_parks'])){
+        $form['field_show_parks']['widget']['value']['#default_value'] = 1;
+      }
+    } elseif (str_contains($domainAccess, 'statestreet')){
+      if(isset($form['field_show_state'])){
+        $form['field_show_state']['widget']['value']['#default_value'] = 1;
+      }
+    } elseif (str_contains($domainAccess, 'flysba')){
+      if(isset($form['field_show_airport'])){
+        $form['field_show_airport']['widget']['value']['#default_value'] = 1;
+      }
+    } else {
+      if(isset($form['field_sitewide'])){
+        $form['field_sitewide']['widget']['value']['#default_value'] = 1;
+      }
+    }
+  }
+}

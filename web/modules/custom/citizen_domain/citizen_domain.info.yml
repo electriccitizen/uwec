@@ -1,0 +1,8 @@
+name: Citizen Domain
+type: module
+description: Custom code for the Domain Access module.
+core_version_requirement: ^9 || ^10
+package: Custom
+
+dependencies:
+  - domain:domain_access

@@ -1,0 +1,4 @@
+citizen_domain:
+  version: 1.x
+  js:
+    js/citizen_domain.js: {}
