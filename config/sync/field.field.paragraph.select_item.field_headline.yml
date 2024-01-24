@@ -1,0 +1,19 @@
+uuid: 0cb6dba7-1130-42c7-99a0-ffda0c73d2bb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_headline
+    - paragraphs.paragraphs_type.select_item
+id: paragraph.select_item.field_headline
+field_name: field_headline
+entity_type: paragraph
+bundle: select_item
+label: Headline
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
