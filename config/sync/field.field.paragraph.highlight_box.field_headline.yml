@@ -1,0 +1,19 @@
+uuid: ea823d92-1524-4d10-b797-8b1e07033557
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_headline
+    - paragraphs.paragraphs_type.highlight_box
+id: paragraph.highlight_box.field_headline
+field_name: field_headline
+entity_type: paragraph
+bundle: highlight_box
+label: Headline
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
