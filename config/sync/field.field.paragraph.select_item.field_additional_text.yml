@@ -1,14 +1,14 @@
-uuid: f10c98d6-35d8-4577-a26b-9f355b61b79d
+uuid: 5006548c-9a01-4990-b17a-8baa4c07b007
 langcode: en
 status: true
 dependencies:
   config:
     - field.storage.paragraph.field_additional_text
-    - paragraphs.paragraphs_type.highlight_box
-id: paragraph.highlight_box.field_additional_text
+    - paragraphs.paragraphs_type.select_item
+id: paragraph.select_item.field_additional_text
 field_name: field_additional_text
 entity_type: paragraph
-bundle: highlight_box
+bundle: select_item
 label: Text
 description: ''
 required: true

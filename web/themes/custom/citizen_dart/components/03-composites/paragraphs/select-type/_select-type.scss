@@ -5,5 +5,45 @@
 @use '../../../00-base/base' as *;
 
 .paragraph--type--select-type{
-
+   .select-items-wrapper {
+      @include safeFlex(row,nowrap,start,start);
+      @include auto;
+      .select-item {
+         background-color: $navy;
+         &:nth-child(even) {
+            background-color: rgba(6, 35, 61, .93);
+         }
+         .field-headline h2 {
+            color: $white;
+         }
+         .field-additional-text {
+            color: $white;
+         }
+         .field-link a {
+            color: $gold;
+         }
+      }
+      &.items-2 {
+         max-width: 660px;
+         .select-item {
+            width: 50%;
+         }
+      }
+      &.items-3 {
+         max-width: 990px;
+         .select-item {
+            width: 33%;
+         }
+      }
+      &.items-4 {
+         .select-item {
+            width: 25%;
+         }
+      }
+      &.items-5 {
+         .select-item {
+            width: 20%;
+         }
+      }
+   }
 }//end select-type widget

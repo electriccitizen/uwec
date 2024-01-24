@@ -1,0 +1,19 @@
+uuid: a44db934-bc7e-403e-9795-0b3797e40814
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_widget_title
+    - paragraphs.paragraphs_type.select_type
+id: paragraph.select_type.field_widget_title
+field_name: field_widget_title
+entity_type: paragraph
+bundle: select_type
+label: 'Widget Title'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

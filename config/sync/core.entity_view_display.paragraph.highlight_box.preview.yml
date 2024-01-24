@@ -4,7 +4,6 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.paragraph.preview
-    - field.field.paragraph.highlight_box.field_additional_text
     - field.field.paragraph.highlight_box.field_headline
     - field.field.paragraph.highlight_box.field_link
     - paragraphs.paragraphs_type.highlight_box
@@ -28,6 +27,5 @@ content:
     weight: 0
     region: content
 hidden:
-  field_additional_text: true
   field_link: true
   search_api_excerpt: true
