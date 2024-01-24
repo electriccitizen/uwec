@@ -7,8 +7,6 @@ dependencies:
     - field.field.paragraph.programs_list.field_limit_list
     - field.field.paragraph.programs_list.field_list_type
     - field.field.paragraph.programs_list.field_list_widget
-    - field.field.paragraph.programs_list.field_page_family
-    - field.field.paragraph.programs_list.field_placement_tag
     - field.field.paragraph.programs_list.field_programs
     - paragraphs.paragraphs_type.programs_list
   module:
@@ -38,20 +36,6 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: 0
-    region: content
-  field_page_family:
-    type: entity_reference_entity_id
-    label: hidden
-    settings: {  }
-    third_party_settings: {  }
-    weight: 4
-    region: content
-  field_placement_tag:
-    type: entity_reference_entity_id
-    label: hidden
-    settings: {  }
-    third_party_settings: {  }
-    weight: 3
     region: content
   field_programs:
     type: entity_reference_entity_view

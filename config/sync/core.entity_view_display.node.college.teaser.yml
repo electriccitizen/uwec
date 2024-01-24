@@ -17,7 +17,6 @@ dependencies:
     - field.field.node.college.field_meta_description
     - field.field.node.college.field_metatags
     - field.field.node.college.field_paragraphs
-    - field.field.node.college.field_placement_tags
     - field.field.node.college.field_platforms
     - field.field.node.college.field_stories_video_list
     - field.field.node.college.field_subtitle
@@ -62,7 +61,6 @@ hidden:
   field_meta_description: true
   field_metatags: true
   field_paragraphs: true
-  field_placement_tags: true
   field_platforms: true
   field_stories_video_list: true
   field_subtitle: true

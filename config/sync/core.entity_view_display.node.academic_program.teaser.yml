@@ -37,9 +37,7 @@ dependencies:
     - field.field.node.academic_program.field_minor_required
     - field.field.node.academic_program.field_outcome_text
     - field.field.node.academic_program.field_outcomes_image
-    - field.field.node.academic_program.field_page_families
     - field.field.node.academic_program.field_paragraphs
-    - field.field.node.academic_program.field_placement_tags
     - field.field.node.academic_program.field_program_length
     - field.field.node.academic_program.field_program_type
     - field.field.node.academic_program.field_related_programs
@@ -106,9 +104,7 @@ hidden:
   field_minor_required: true
   field_outcome_text: true
   field_outcomes_image: true
-  field_page_families: true
   field_paragraphs: true
-  field_placement_tags: true
   field_program_length: true
   field_program_type: true
   field_related_programs: true

@@ -5,12 +5,8 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - node.type.academic_program
-    - taxonomy.vocabulary.page_families
-    - taxonomy.vocabulary.placement_tags
     - taxonomy.vocabulary.program_types
   content:
-    - 'taxonomy_term:page_families:9f5d1d79-0dde-4a9d-8942-6be310a0a391'
-    - 'taxonomy_term:placement_tags:479d2dfa-0914-41c7-90c9-7897ba00491d'
     - 'taxonomy_term:program_types:7dd01a43-ed58-44ec-805b-f31aadae6dee'
     - 'taxonomy_term:program_types:8f02622e-fa12-4935-99c9-b34c42ca4f2a'
   module:
@@ -394,98 +390,6 @@ display:
           value:
             academic_program: academic_program
           group: 1
-        field_placement_tags_target_id:
-          id: field_placement_tags_target_id
-          table: node__field_placement_tags
-          field: field_placement_tags_target_id
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: taxonomy_index_tid
-          operator: or
-          value:
-            32: 32
-          group: 1
-          exposed: false
-          expose:
-            operator_id: ''
-            label: ''
-            description: ''
-            use_operator: false
-            operator: ''
-            operator_limit_selection: false
-            operator_list: {  }
-            identifier: ''
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-            reduce: false
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          reduce_duplicates: false
-          vid: placement_tags
-          type: select
-          hierarchy: false
-          limit: true
-          error_message: true
-        field_page_families_target_id:
-          id: field_page_families_target_id
-          table: node__field_page_families
-          field: field_page_families_target_id
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: taxonomy_index_tid
-          operator: or
-          value:
-            27: 27
-          group: 1
-          exposed: false
-          expose:
-            operator_id: ''
-            label: ''
-            description: ''
-            use_operator: false
-            operator: ''
-            operator_limit_selection: false
-            operator_list: {  }
-            identifier: ''
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-            reduce: false
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          reduce_duplicates: false
-          vid: page_families
-          type: select
-          hierarchy: false
-          limit: true
-          error_message: true
         field_list_type_value:
           id: field_list_type_value
           table: paragraph__field_list_type
@@ -611,7 +515,6 @@ display:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url
-        - user
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }

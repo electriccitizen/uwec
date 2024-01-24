@@ -21,7 +21,6 @@ dependencies:
     - field.field.node.department.field_metatags
     - field.field.node.department.field_opportunities
     - field.field.node.department.field_paragraphs
-    - field.field.node.department.field_placement_tags
     - field.field.node.department.field_platforms
     - field.field.node.department.field_subtitle
     - field.field.node.department.field_whats_next
@@ -70,7 +69,6 @@ hidden:
   field_metatags: true
   field_opportunities: true
   field_paragraphs: true
-  field_placement_tags: true
   field_platforms: true
   field_subtitle: true
   field_whats_next: true

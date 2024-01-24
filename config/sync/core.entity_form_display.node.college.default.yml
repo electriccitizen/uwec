@@ -16,7 +16,6 @@ dependencies:
     - field.field.node.college.field_meta_description
     - field.field.node.college.field_metatags
     - field.field.node.college.field_paragraphs
-    - field.field.node.college.field_placement_tags
     - field.field.node.college.field_platforms
     - field.field.node.college.field_stories_video_list
     - field.field.node.college.field_subtitle
@@ -175,16 +174,6 @@ content:
       nesting_depth: 0
       require_layouts: 1
       empty_message: ''
-    third_party_settings: {  }
-  field_placement_tags:
-    type: entity_reference_autocomplete
-    weight: 12
-    region: content
-    settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
     third_party_settings: {  }
   field_platforms:
     type: link_default
