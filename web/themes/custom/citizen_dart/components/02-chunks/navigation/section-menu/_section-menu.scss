@@ -119,12 +119,15 @@
 			&.parent{
 				& > .expander{
 					position: absolute;
-					top: .75rem;
-					left: 1rem;
+					top: 0;
+					left: 0;
 					font-size: 3rem;
-					line-height: 1;
+					line-height: 36px;
 					width: 3.75rem;
+					height: 38px;
 					text-align: center;
+					padding: 0;
+					z-index: 1;
 					&:before{
 						content: "+";
 					}
