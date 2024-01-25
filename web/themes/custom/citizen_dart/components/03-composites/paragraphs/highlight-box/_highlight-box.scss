@@ -13,6 +13,8 @@
       @include auto;
       .field-headline {
          color: $navy;
+         font-family: $displayHeader;
+         font-size: 4rem;;
       }
       .field-additional-text {
          color: $navy;
