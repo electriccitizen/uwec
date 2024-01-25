@@ -1,0 +1,34 @@
+uuid: 816cfe4b-0dbd-4657-a986-c5148cac7e7c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.highlight_box.field_headline
+    - field.field.paragraph.highlight_box.field_link
+    - paragraphs.paragraphs_type.highlight_box
+  module:
+    - link
+id: paragraph.highlight_box.default
+targetEntityType: paragraph
+bundle: highlight_box
+mode: default
+content:
+  field_headline:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_link:
+    type: link_default
+    weight: 3
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

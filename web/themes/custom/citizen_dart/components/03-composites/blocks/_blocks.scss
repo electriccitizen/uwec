@@ -19,14 +19,53 @@
 /* MISC BLOCKS
 -------------- */
 
+// FOOTER ADDRESS
+.block-2{
+	color: $gold;
+	position: relative;
+	@include tab{
+		color: $black;
+		background: $gold;
+	}
+	p{
+		margin-bottom: $spaceXxs;
+		&:first-child{
+			font-family: $header;
+			font-weight: $xHeavy;
+		}
+	}
+}//end block 2
+
 //COPYRIGHT
-.block-4{
+.block-1{
+	.block-social-media{
+		.field-platforms{
+			.platform-links{
+				justify-content: center;
+			}
+			li{
+				a{
+					color: $footerLink;
+					*{
+						transform-style: unset;
+					}
+					svg,.cls-1{
+						fill: $footerLink;
+					}
+					&:hover,&:focus{
+						color: $footerLinkHover;
+						svg,.cls-1{
+							fill: $footerLinkHover;
+							color: $footerLinkHover;
+						}
+					}
+				}
+			}
+		}//end field platforms
+	}//end block social media
 	.copyright{
 		text-align: center;
-		font-size: 2rem;
-		@include tab{
-			text-align: left;
-		}
+		font-size: 1.5rem;
 		& > span:first-child{
 			padding-right: .25em;
 			& + *{
@@ -36,5 +75,5 @@
 		p{
 			margin: 0;
 		}
-	}
+	}//end copyright
 }//end footer-copyright

@@ -3,11 +3,53 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.paragraph.cta_item.field_additional_text
+    - field.field.paragraph.cta_item.field_headline
+    - field.field.paragraph.cta_item.field_image
+    - field.field.paragraph.cta_item.field_link
     - paragraphs.paragraphs_type.cta_item
+  module:
+    - link
 id: paragraph.cta_item.default
 targetEntityType: paragraph
 bundle: cta_item
 mode: default
-content: {  }
+content:
+  field_additional_text:
+    type: basic_string
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_headline:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_image:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: 1920x1445
+      link: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_link:
+    type: link
+    label: hidden
+    settings:
+      trim_length: null
+      url_only: false
+      url_plain: true
+      rel: '0'
+      target: '0'
+    third_party_settings: {  }
+    weight: 3
+    region: content
 hidden:
   search_api_excerpt: true

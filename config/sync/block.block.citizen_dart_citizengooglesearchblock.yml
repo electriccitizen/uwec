@@ -1,0 +1,25 @@
+uuid: 9030efd3-0f0e-410d-8f90-055d3154c54c
+langcode: en
+status: true
+dependencies:
+  module:
+    - citizen_google_search
+    - system
+  theme:
+    - citizen_dart
+id: citizen_dart_citizengooglesearchblock
+theme: citizen_dart
+region: header
+weight: -6
+provider: null
+plugin: citizen_google_search_block
+settings:
+  id: citizen_google_search_block
+  label: 'Citizen Google Search block'
+  label_display: '0'
+  provider: citizen_google_search
+visibility:
+  request_path:
+    id: request_path
+    negate: true
+    pages: /search

@@ -45,158 +45,301 @@
 	}
 }
 
-//search icon
-.t-search-wrapper{
+.block-citizen-google-search-block{
 	.t-search{
+		@include safeFlex(column,nowrap,center,center);
 		width: 40px;
 		height: 40px;
-		background-image: url(../images/elements/search-open-white.svg);
+		background-image: url('../images/elements/search-open-white.svg');
 		background-repeat: no-repeat;
 		background-size: 100%;
 		&:hover,&:focus{
-			background-image: url(../images/elements/search-open-hover.svg);
-		}
-		span{
-			@include visuallyHidden;
+			background-image: url('../images/elements/search-open-hover.svg');
 		}
 	}
-}//end t-search-wrapper
-
-//close search
-.t-search-close{
-	position: absolute;
-	top: -20px;
-	right: 0;
-	height: 40px;
-	width: 40px;
-	display: none;
-	z-index: 502;
-	.close-search{
-		display: block;
+	.google-search-container {
+		display: none;
+		position: fixed;
+		top: 0;
+		left: 0;
+		z-index: 9;
 		width: 100%;
-		height: 100%;
-		cursor: pointer;
-		background-image: url(../images/elements/search-close-white.svg);
-		background-repeat: no-repeat;
-		background-size: 100%;
-		&:hover,&:focus{
-			background-image: url(../images/elements/search-close-hover.svg);
+		height: 100vh;
+		background: $navy;
+		.logged-in &{
+			top: 56px;
 		}
-		span{
-			@include visuallyHidden;
-		}
-	}
-}//end search close
-
-
-//put search form wrapper at top of screen and full width, hide for slide effect
-#search-form-wrapper{
-	position: absolute;
-	display: none;
-	z-index: 500;
-	top: -20px;
-	left: -$siteMarginMobile;
-	width: calc(100% + $siteMarginMobile*2);
-	@include contentStop{
-		left: calc(-50vw + 600px);
-		width: 100vw;
-	}
-}//end search-form-wrapper
-
-
-#site-search-form {
-	position: relative;
-	width: 100%;
-	padding: 80px $siteMarginMobile;
-	text-align: center;
-	background: $searchDropBack;
-	@include desk{
-		padding: 160px $siteMarginMobile;
-	}
-	//search box input
-	.js-form-item-site-search-api-fulltext{
-		padding: 1.5 0;
-		width: 100%;
-		margin-bottom: 0;
-		max-width: 800px;
-		@include auto;
-		label{
-			@include visuallyHidden;
-		}
-		input{
+		.search-box-wrapper{
+			position: relative;
 			width: 100%;
-			background: $siteBack;
-			padding: 8px 4px;
-			border: none;
-			color: $searchDropText;
-			border: 0;
-			border-bottom-color: $searchDropInputBorder;
-			border-radius: 0;
-			@extend %searchBlockPlaceholder;
-			//prevent yellow chrome autofill inset                                                   
-			&:-webkit-autofill{
-				-webkit-box-shadow: 0 0 0 1000px $searchDropInputFocus inset;
-			}
-			@include tab{
-				font-size: 2.5rem;
-			}
-			&:hover{
-				border-color: $searchDropInputFocus;
-				box-shadow: inset 0 0 0 1px $searchDropInputFocus;
-			}
-			&:focus{
-				outline: none;
-				border-color: $inputBorderFocus;
-				box-shadow: inset 0 0 0 1px $inputBorderFocus;
-				@extend %searchBlockPlaceholderFocus;
-			}
-		}//end input
-	}//end fulltext search
-
-	//search submit button
-	.form-actions{
-		position: relative;
-		@include auto;
-		max-width: 800px;
-		.form-submit.button{
-			position: absolute;
-			top: -46px;
-			right: 5px;
-			height: 32px;
-			width: 32px;
-			background: transparent;
-			z-index: 2;
-			text-indent: -9000px;
-			cursor: pointer;
-			padding: 0;
-			min-width: 0;
-			border: 0;
-			@include tab{
-				top: -48px;
-				right: 12px;
-			}
-			&:focus,&:hover{
-				outline: none;
-				box-shadow: none;
-				border: 0;
-				& + .material-icons{
-					color: $navy;
+			height: 100%;
+			max-width: $contentStop;
+			@include auto;
+			padding: 0 20px;
+			@include safeFlex(column,nowrap,center,center);
+			.close-search{
+				position: absolute;
+				top: 17px;
+				right: 28px;
+				width: 40px;
+				height: 40px;
+				background-image: url('../images/elements/search-close-white.svg');
+				background-repeat: no-repeat;
+				background-size: 100%;
+				&:hover,&:focus{
+					background-image: url('../images/elements/search-close-hover.svg');
 				}
 			}
-		}//end form submit
-		.material-icons{
-			position: absolute;
-			top: -45px;
-			right: 8px;
-			font-size: 3rem;
-			color: $navy;
-			cursor: pointer;
-			@include tab{
-				font-size: 3.5rem;
-				top: -48px;
-				right: 12px;
+			.gsc-control-searchbox-only{
+				width: 820px;
+				max-width: 100%;
+				//clear search box
+				.gsst_a .gscb_a {
+					padding-top: 4px;
+					color: $navy !important;
+					&:hover,&:focus {
+						color: $link !important;
+					}
+				}
 			}
-		}//end i
-	}//end form-actions
+		}
+	}//end google search container
 }//end search block form
+
+//search console wrapper
+.gsc-control-wrapper-cse,.gsc-control-searchbox-only{
+	font-family: $bodyText;
+	.paragraph--type--custom-embed &{
+		visibility: visible !important;
+		.gsc-search-box{
+			display: table !important;
+		}
+	}
+	.gsc-search-box{
+		width: 100%;
+		@include auto;
+		position: relative;
+		padding: 0;
+		margin: 0;
+		background: none;
+		border: 0;
+		box-shadow: none;
+		.layout__region--content &{
+			@include exposedForm;
+			.gsc-search-box{
+				padding: 0;
+				margin: 0;
+			}
+		}
+		& > label{
+			@include heading3;
+			margin-bottom: $spaceXxs;
+			color: $navy;
+			header &{
+				color: $white;
+			}
+		}
+		//search box input
+		td.gsc-input{
+			padding-right: 0;
+			.gsc-input-box{
+				padding: 4px 50px 5px 20px;
+				border-radius: 25px;
+				border: 0;
+				@include desk{
+					padding: 4px 20px 5px;
+					margin-right: 12px;
+				}
+				input.gsc-input{
+					@include browserWipe;
+					font-size: 2rem;
+					font-family: $bodyText;
+					font-weight: $regular;
+					@extend %searchBlockPlaceholder;
+					background: none !important;
+					&:focus{
+						@extend %searchBlockPlaceholderFocus;
+					}
+					.layout__region--content &{
+						&::placeholder{
+							font-weight: $heavy;
+						}
+					}
+				}//end input
+			}//end gsc input box
+		}// end gsc input td
+
+		.gsc-search-button{
+			@include onlyMobile{
+				position: absolute;
+				top: 0;
+				right: 0;
+			}
+			button.gsc-search-button-v2{
+				@include browserWipe;
+				border: 1px solid $navy;
+				border-radius: 25px;
+				color: $navy;
+				background-color: transparent;
+				margin-bottom: 0;
+				height: 50px;
+				padding: 3px 23px 0;
+				text-transform: uppercase;
+				@include onlyMobile{
+					background-image: url('../images/elements/search.svg');
+					background-repeat: no-repeat;
+					background-position: center;
+					background-size: 17px 17px;
+				}
+				@include desk{
+					font-size: 14px;
+					line-height: 1.2;
+					font-family: $header;
+					font-weight: $xHeavy;
+				}
+				&:hover,&:focus{
+					background-color: $navy;
+					color: $white;
+				}
+				header &{
+					border: 1px solid $white;
+					color: $white;
+					&:hover,&:focus{
+						background-color: $white;
+						color: $navy;
+					}
+				}
+				svg{
+					display: none;
+				}//end svg
+			}//end button v2
+		}//end gsc search button
+	}//end gsc search box
+}//end google search control wrapper
+
+//search autocomplete suggestions
+.gssb_c{
+	z-index: 500;
+	.gssb_e{
+		box-shadow: none;
+	}
+	table.gsc-completion-container{
+		font-family: $bodyText;
+		margin: 11px -20px 0;
+		width: calc(100% + 68px) !important;
+		& > tbody{
+			& > tr{
+				//hide enhanced by Google
+				&:last-child{
+					display: none;
+				}
+				div.gsq_a{
+					margin-bottom: 5px;
+					padding-left: 20px;
+				}
+			}
+		}
+	}//end completion container
+}//end autocomplete suggestions table
+
+
+//search results
+.gsc-results-wrapper-visible{
+	width: 100%;
+	max-width: 894px;
+	margin: $elementSpace auto 0;
+}
+
+#search-results-wrapper {
+	a, a * {
+		color: $link !important;
+	}
+	//clear search box
+	.gsst_a .gscb_a {
+		padding-top: 4px;
+		color: $navy !important;
+		&:hover,&:focus {
+			color: $link !important;
+		}
+	}
+	.gsc-tabsArea{
+		display: none;
+	}
+	.gsc-refinementBlock {
+		.gsc-refinementhInactive {
+			color: $link;
+		}
+	}
+	.gsc-webResult {
+		padding: 0;
+		margin-top: $spaceXs;
+		margin-bottom: 4rem;
+	}
+	.gs-per-result-labels{
+		display: none;
+	}
+	.gs-title,.gs-title *,.gs-visibleUrl,.gs-fileFormat,.gs-fileFormatType,.gs-snippet,.gs-per-result-labels {
+		font-family: $bodyText;
+		font-size: $baseSize;
+		a {
+			color: $link;
+			text-decoration: none;
+			b {
+				color: $link;
+			}
+			&:hover {
+				color: $hoverLink;
+				text-decoration: underline;
+				b {
+					color: $hoverLink;
+				}
+			}
+		}
+	}
+	.gs-title,.gs-title * {
+		font-size: 22px;
+		font-weight: $heavy;
+	}
+	.gsc-url-top * {
+		color: #595959;
+	}
+	.gsc-cursor-box {
+		text-align: center;
+		margin-bottom: $elementSpace;
+		border-top: 1px solid var(--border);
+		padding-top: 4.5rem;
+		.gsc-cursor{
+			background: $lightGrey;
+			padding: 14px 20px;
+			border-radius: 25px;
+			.gsc-cursor-page {
+				color: $navy;
+				font-size: 14px;
+				line-height: 32px;
+				margin: 0 4px;
+				padding: 2px 0;
+				width: 30px;
+				text-align: center;
+				display: inline-block;
+				border: 0;
+				background-color: transparent;
+				&:hover,&:focus{
+					background: $warmGrey;
+				}
+				&.gsc-cursor-current-page{
+					color: $white;
+					background: $navy;
+					&:hover,&:focus{
+						color: $navy;
+						background: $warmGrey;
+					}
+				}
+			}
+		}	
+	}//end GSC cursor
+	.gcsc-find-more-on-google-magnifier {
+		fill: $link;
+	}
+}//end search results wrapper
+
 

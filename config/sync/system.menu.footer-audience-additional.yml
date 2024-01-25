@@ -1,0 +1,8 @@
+uuid: d1c79a82-8da7-4a37-b0ba-4b27a5c815eb
+langcode: en
+status: true
+dependencies: {  }
+id: footer-audience-additional
+label: 'Footer Audience Additional'
+description: 'Additional links to the footer audience menu'
+locked: false

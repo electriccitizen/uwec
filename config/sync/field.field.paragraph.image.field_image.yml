@@ -13,7 +13,7 @@ field_name: field_image
 entity_type: paragraph
 bundle: image
 label: Image
-description: '<strong>Optimal image size:</strong> is 1516x856px'
+description: '<strong>Optimal image size:</strong> is 1748×984px'
 required: true
 translatable: false
 default_value: {  }

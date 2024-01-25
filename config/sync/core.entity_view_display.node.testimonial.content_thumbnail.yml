@@ -5,7 +5,9 @@ dependencies:
   config:
     - core.entity_view_mode.node.content_thumbnail
     - field.field.node.testimonial.body
+    - field.field.node.testimonial.field_colleges
     - field.field.node.testimonial.field_date
+    - field.field.node.testimonial.field_departments
     - field.field.node.testimonial.field_domain_access
     - field.field.node.testimonial.field_domain_all_affiliates
     - field.field.node.testimonial.field_domain_source
@@ -19,6 +21,7 @@ dependencies:
     - field.field.node.testimonial.field_page_families
     - field.field.node.testimonial.field_placement_tags
     - field.field.node.testimonial.field_position
+    - field.field.node.testimonial.field_programs
     - node.type.testimonial
   module:
     - text
@@ -55,7 +58,9 @@ content:
     weight: 100
     region: content
 hidden:
+  field_colleges: true
   field_date: true
+  field_departments: true
   field_domain_access: true
   field_domain_all_affiliates: true
   field_domain_source: true
@@ -68,4 +73,5 @@ hidden:
   field_page_families: true
   field_placement_tags: true
   field_position: true
+  field_programs: true
   search_api_excerpt: true

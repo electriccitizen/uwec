@@ -22,7 +22,6 @@ third_party_settings:
   field_group:
     group_access:
       children:
-        - field_editorial_sections
         - field_domain_access
         - field_domain_source
         - field_domain_all_affiliates
@@ -68,7 +67,7 @@ content:
         120|2 hours
         custom
       show_extra: false
-      hide_date: true
+      hide_date: false
       allday: true
       remove_seconds: false
       separator: to

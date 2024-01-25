@@ -1,0 +1,29 @@
+uuid: 20a91370-ba21-4142-a623-b1f1424be604
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_program
+    - node.type.academic_program
+    - paragraphs.paragraphs_type.snapshot_list
+id: paragraph.snapshot_list.field_program
+field_name: field_program
+entity_type: paragraph
+bundle: snapshot_list
+label: 'By Program'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      academic_program: academic_program
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

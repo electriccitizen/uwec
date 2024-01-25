@@ -5,7 +5,10 @@ dependencies:
   config:
     - block_content.type.formatted_promo
     - field.field.block_content.formatted_promo.body
+    - field.field.block_content.formatted_promo.field_formatted_headline
+    - field.field.block_content.formatted_promo.field_link
   module:
+    - link
     - text
 id: block_content.formatted_promo.default
 targetEntityType: block_content
@@ -17,7 +20,26 @@ content:
     label: hidden
     settings: {  }
     third_party_settings: {  }
+    weight: 1
+    region: content
+  field_formatted_headline:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
     weight: 0
+    region: content
+  field_link:
+    type: link
+    label: hidden
+    settings:
+      trim_length: null
+      url_only: false
+      url_plain: false
+      rel: '0'
+      target: '0'
+    third_party_settings: {  }
+    weight: 2
     region: content
 hidden:
   search_api_excerpt: true

@@ -1,0 +1,23 @@
+uuid: 5ea29398-f368-40bb-90b3-c9d4e8486466
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.program_search.field_widget_title
+    - paragraphs.paragraphs_type.program_search
+id: paragraph.program_search.default
+targetEntityType: paragraph
+bundle: program_search
+mode: default
+content:
+  field_widget_title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

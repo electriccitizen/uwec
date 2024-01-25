@@ -4,8 +4,11 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.paragraph.preview
+    - field.field.paragraph.select_type.field_select_items
+    - field.field.paragraph.select_type.field_widget_title
     - paragraphs.paragraphs_type.select_type
   module:
+    - entity_reference_revisions
     - layout_builder
 third_party_settings:
   layout_builder:
@@ -15,6 +18,16 @@ id: paragraph.select_type.preview
 targetEntityType: paragraph
 bundle: select_type
 mode: preview
-content: {  }
+content:
+  field_select_items:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: preview
+      link: ''
+    third_party_settings: {  }
+    weight: 0
+    region: content
 hidden:
+  field_widget_title: true
   search_api_excerpt: true

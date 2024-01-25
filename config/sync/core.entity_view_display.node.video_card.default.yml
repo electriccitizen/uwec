@@ -4,6 +4,8 @@ status: true
 dependencies:
   config:
     - field.field.node.video_card.body
+    - field.field.node.video_card.field_colleges
+    - field.field.node.video_card.field_departments
     - field.field.node.video_card.field_domain_access
     - field.field.node.video_card.field_domain_all_affiliates
     - field.field.node.video_card.field_domain_source
@@ -12,6 +14,7 @@ dependencies:
     - field.field.node.video_card.field_list_widget
     - field.field.node.video_card.field_page_families
     - field.field.node.video_card.field_placement_tags
+    - field.field.node.video_card.field_programs
     - field.field.node.video_card.field_video
     - field.field.node.video_card.layout_builder__layout
     - node.type.video_card
@@ -131,7 +134,7 @@ third_party_settings:
                 settings:
                   link: false
                 third_party_settings: {  }
-            weight: 1
+            weight: 4
             additional: {  }
           50fe3815-f708-401d-b57e-44c764f23cdd:
             uuid: 50fe3815-f708-401d-b57e-44c764f23cdd
@@ -139,6 +142,63 @@ third_party_settings:
             configuration:
               id: 'field_block:node:video_card:field_page_families'
               label: 'Page Families'
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: entity_reference_label
+                label: inline
+                settings:
+                  link: false
+                third_party_settings: {  }
+            weight: 5
+            additional: {  }
+          118383a7-a24b-4741-ab7b-352c952d5fa1:
+            uuid: 118383a7-a24b-4741-ab7b-352c952d5fa1
+            region: content
+            configuration:
+              id: 'field_block:node:video_card:field_programs'
+              label: Program(s)
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: entity_reference_label
+                label: inline
+                settings:
+                  link: false
+                third_party_settings: {  }
+            weight: 3
+            additional: {  }
+          78fa00e5-44b3-4d2d-9f8f-d0825574abf3:
+            uuid: 78fa00e5-44b3-4d2d-9f8f-d0825574abf3
+            region: content
+            configuration:
+              id: 'field_block:node:video_card:field_colleges'
+              label: College(s)
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: entity_reference_label
+                label: inline
+                settings:
+                  link: false
+                third_party_settings: {  }
+            weight: 1
+            additional: {  }
+          f86f4ad1-e3d7-40cc-8d81-5b60676b6a6f:
+            uuid: f86f4ad1-e3d7-40cc-8d81-5b60676b6a6f
+            region: content
+            configuration:
+              id: 'field_block:node:video_card:field_departments'
+              label: Department(s)
               label_display: '0'
               provider: layout_builder
               context_mapping:
@@ -176,6 +236,22 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: -20
+    region: content
+  field_colleges:
+    type: entity_reference_label
+    label: inline
+    settings:
+      link: false
+    third_party_settings: {  }
+    weight: 109
+    region: content
+  field_departments:
+    type: entity_reference_label
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 122
     region: content
   field_editorial_sections:
     type: entity_reference_label
@@ -216,6 +292,14 @@ content:
       link: true
     third_party_settings: {  }
     weight: 103
+    region: content
+  field_programs:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 120
     region: content
   field_video:
     type: entity_reference_revisions_entity_view

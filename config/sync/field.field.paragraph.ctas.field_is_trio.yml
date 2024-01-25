@@ -1,0 +1,23 @@
+uuid: 96e2a46b-8eba-42c4-9837-d064c37cd89c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_is_trio
+    - paragraphs.paragraphs_type.ctas
+id: paragraph.ctas.field_is_trio
+field_name: field_is_trio
+entity_type: paragraph
+bundle: ctas
+label: 'Trio?'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Is Trio'
+  off_label: 'Is Bar'
+field_type: boolean

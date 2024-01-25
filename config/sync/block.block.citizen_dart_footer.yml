@@ -12,8 +12,8 @@ _core:
   default_config_hash: MP1FZ87On3WuHukyeo7h-HyiKQom_0_yODWJ4hH4XPw
 id: citizen_dart_footer
 theme: citizen_dart
-region: footer
-weight: -4
+region: prefooter
+weight: -7
 provider: null
 plugin: 'menu_block:footer'
 settings:

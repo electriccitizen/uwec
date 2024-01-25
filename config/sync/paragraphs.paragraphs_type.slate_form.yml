@@ -1,0 +1,10 @@
+uuid: cfea2d6c-3cc4-4188-ba15-005c4ef2bf8d
+langcode: en
+status: true
+dependencies: {  }
+id: slate_form
+label: 'Slate Form'
+icon_uuid: null
+icon_default: null
+description: 'Add a slate form to the page.'
+behavior_plugins: {  }

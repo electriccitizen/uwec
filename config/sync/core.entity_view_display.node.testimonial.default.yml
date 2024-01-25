@@ -4,7 +4,9 @@ status: true
 dependencies:
   config:
     - field.field.node.testimonial.body
+    - field.field.node.testimonial.field_colleges
     - field.field.node.testimonial.field_date
+    - field.field.node.testimonial.field_departments
     - field.field.node.testimonial.field_domain_access
     - field.field.node.testimonial.field_domain_all_affiliates
     - field.field.node.testimonial.field_domain_source
@@ -18,6 +20,7 @@ dependencies:
     - field.field.node.testimonial.field_page_families
     - field.field.node.testimonial.field_placement_tags
     - field.field.node.testimonial.field_position
+    - field.field.node.testimonial.field_programs
     - node.type.testimonial
   module:
     - layout_builder
@@ -56,7 +59,7 @@ third_party_settings:
                 settings:
                   link_to_entity: false
                 third_party_settings: {  }
-            weight: 5
+            weight: 7
             additional: {  }
           831e6d62-a951-4290-8c52-460c4d4dcd92:
             uuid: 831e6d62-a951-4290-8c52-460c4d4dcd92
@@ -194,7 +197,7 @@ third_party_settings:
                   format_custom_false: ''
                   format_custom_true: ''
                 third_party_settings: {  }
-            weight: 1
+            weight: 2
             additional: {  }
           d2421a31-d688-4bb2-aa7b-5baec5ae9894:
             uuid: d2421a31-d688-4bb2-aa7b-5baec5ae9894
@@ -227,7 +230,7 @@ third_party_settings:
                     decimals: 2
                     suffix: h
                 third_party_settings: {  }
-            weight: 2
+            weight: 4
             additional: {  }
           8cca5ef9-9e5e-4e61-a0ec-4c16e92be1f6:
             uuid: 8cca5ef9-9e5e-4e61-a0ec-4c16e92be1f6
@@ -246,7 +249,7 @@ third_party_settings:
                 settings:
                   link: false
                 third_party_settings: {  }
-            weight: 3
+            weight: 8
             additional: {  }
           77a1614e-a2fc-4710-a091-9deec780d2d8:
             uuid: 77a1614e-a2fc-4710-a091-9deec780d2d8
@@ -265,7 +268,64 @@ third_party_settings:
                 settings:
                   link: false
                 third_party_settings: {  }
-            weight: 4
+            weight: 9
+            additional: {  }
+          dad7f0e5-da44-4c1e-95e9-6540dc49c16d:
+            uuid: dad7f0e5-da44-4c1e-95e9-6540dc49c16d
+            region: content
+            configuration:
+              id: 'field_block:node:testimonial:field_programs'
+              label: Program(s)
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: entity_reference_label
+                label: inline
+                settings:
+                  link: false
+                third_party_settings: {  }
+            weight: 7
+            additional: {  }
+          57674680-af88-4550-85b9-43d7abb28c0c:
+            uuid: 57674680-af88-4550-85b9-43d7abb28c0c
+            region: content
+            configuration:
+              id: 'field_block:node:testimonial:field_departments'
+              label: Department(s)
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: entity_reference_label
+                label: inline
+                settings:
+                  link: false
+                third_party_settings: {  }
+            weight: 6
+            additional: {  }
+          12ab6b1f-5978-4ae3-8988-e23932979237:
+            uuid: 12ab6b1f-5978-4ae3-8988-e23932979237
+            region: content
+            configuration:
+              id: 'field_block:node:testimonial:field_colleges'
+              label: College(s)
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: entity_reference_label
+                label: inline
+                settings:
+                  link: false
+                third_party_settings: {  }
+            weight: 5
             additional: {  }
         third_party_settings: {  }
   layout_builder_restrictions:
@@ -292,6 +352,14 @@ content:
     third_party_settings: {  }
     weight: -20
     region: content
+  field_colleges:
+    type: entity_reference_label
+    label: inline
+    settings:
+      link: false
+    third_party_settings: {  }
+    weight: 112
+    region: content
   field_date:
     type: smartdate_default
     label: inline
@@ -314,6 +382,14 @@ content:
         suffix: h
     third_party_settings: {  }
     weight: 108
+    region: content
+  field_departments:
+    type: entity_reference_label
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 122
     region: content
   field_editorial_sections:
     type: entity_reference_label
@@ -397,6 +473,14 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     weight: 106
+    region: content
+  field_programs:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 120
     region: content
   links:
     settings: {  }

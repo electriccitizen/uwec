@@ -1,0 +1,32 @@
+<?php
+
+/**
+ * Implements hook_page_attachments.
+ *
+ * Removed for Santa Barbara implementation.
+ *
+ * @param array $attacments
+ * @return void
+ */
+
+/**
+ * Implements hook_theme().
+ */
+
+function citizen_google_search_page_attachments(array &$attachments) {
+  $attachments['#attached']['library'][] = 'citizen_google_search/citizen_google_search';
+}
+
+function citizen_google_search_theme($existing, $type, $theme, $path) {
+
+  return [
+    'citizen_google_search_block' => [
+      'variables' => [
+        'domain' => NULL,
+        'results_page' => NULL,
+        'site' => NULL,
+        'js_sha' => NULL,
+      ],
+    ],
+  ];
+}

@@ -1,0 +1,29 @@
+uuid: 3a325899-4484-4cbc-80dc-8393d898f0c2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_department
+    - node.type.department
+    - paragraphs.paragraphs_type.testimonial_placer
+id: paragraph.testimonial_placer.field_department
+field_name: field_department
+entity_type: paragraph
+bundle: testimonial_placer
+label: 'By Department'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      department: department
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

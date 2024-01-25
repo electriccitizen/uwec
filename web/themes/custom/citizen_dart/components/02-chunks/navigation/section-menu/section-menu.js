@@ -6,7 +6,7 @@ Drupal.behaviors.sectionMenu = {
 			//mobile toggle
 			$('.section-menu-toggle').click(function(e){
 				e.preventDefault();
-		      if($(window).outerWidth() < 980){
+		      if($(window).outerWidth() < 984){
 		        if($(this).is('.active-nav')){
 		          $(this).attr('aria-expanded', 'false').removeClass('active-nav').find('.material-icons').html('menu').closest('#section-menu-title').next('#section-menu-wrapper').attr('aria-hidden', 'true').slideUp(500);
 		        }else{
@@ -53,7 +53,7 @@ Drupal.behaviors.sectionMenu = {
 
 function mobileSectionnav() {
   var wwidth = $(window).outerWidth();
-  if (wwidth < 980) {
+  if (wwidth < 984) {
   	$('.section-menu-toggle').attr('href','#');
     //add aria roles to menu title and wrapper if not already set by click above
     if(!$('.section-menu-toggle').attr('aria-controls')){

@@ -1,0 +1,20 @@
+uuid: 6c1b277f-cb0b-478f-9132-b8cef5c0684a
+langcode: en
+status: true
+dependencies:
+  module:
+    - taxonomy
+    - text
+id: taxonomy_term.field_slate_script_tag
+field_name: field_slate_script_tag
+entity_type: taxonomy_term
+type: text
+settings:
+  max_length: 1000
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

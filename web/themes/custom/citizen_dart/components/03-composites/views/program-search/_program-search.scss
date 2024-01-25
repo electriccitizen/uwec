@@ -8,6 +8,60 @@
 .view.program-search {
 	max-width: 984px;
 	@include auto;
+	.views-exposed-form{
+		.views-exposed-form-inner{
+			display: block;
+			margin: 0;
+			width: 100%;
+			& > *{
+				padding-left: 0;
+				padding-right: 0;
+			}
+			.keyword-wrapper{
+				.form-item{
+					@include smallTab{
+						max-width: 100%;
+						width: 100%;
+					}
+				}
+			}//end keyword wrapper
+			.advanced-form{
+				@include tab{
+					@include safeFlex(row,wrap,justify,start);
+					.filter-toggle{
+						order: 2;
+						width: 50%;
+					}
+					.advanced-form-inner{
+						width: 100%;
+						order: 1;
+						display: none;
+						.advanced-form-inner-filters{
+							@include safeFlex(row,wrap,start,center);
+							@include bleed(padding,20px);
+							border-top: 1px solid $borderRule;
+							border-bottom: 1px solid $borderRule;
+							margin-top: $spaceMd;
+							margin-bottom: $spaceMd;
+							padding-top: $spaceMd;
+							padding-bottom: $spaceMd;
+							.form-item{
+								max-width: 50%;
+								&.form-item-delivery-mode,&.form-item-college-filter,&.form-item-campus{
+									max-width: 33.33%;
+								}
+							}
+						}
+					}//end advanced form
+					.form-actions{
+						order: 3;
+						width: 50%;
+						justify-content: flex-end;
+					}
+				}//end tab
+			}//end advanced form
+		}//end exposed form inner
+	}//end views exposed form
 	@include tab{
   	.view-content{
   		width: 100%;

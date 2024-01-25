@@ -1,0 +1,29 @@
+uuid: f9126dc2-6614-4a37-be9c-34c85ee42ac8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_department
+    - node.type.department
+    - paragraphs.paragraphs_type.stories_video_list
+id: paragraph.stories_video_list.field_department
+field_name: field_department
+entity_type: paragraph
+bundle: stories_video_list
+label: 'By Department'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      department: department
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

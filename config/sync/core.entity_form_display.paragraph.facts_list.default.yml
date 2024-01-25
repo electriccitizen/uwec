@@ -3,20 +3,43 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.paragraph.facts_list.field_college
+    - field.field.paragraph.facts_list.field_department
     - field.field.paragraph.facts_list.field_facts
     - field.field.paragraph.facts_list.field_list_type
     - field.field.paragraph.facts_list.field_list_widget
     - field.field.paragraph.facts_list.field_page_family
     - field.field.paragraph.facts_list.field_placement_tag
+    - field.field.paragraph.facts_list.field_program
     - paragraphs.paragraphs_type.facts_list
 id: paragraph.facts_list.default
 targetEntityType: paragraph
 bundle: facts_list
 mode: default
 content:
+  field_college:
+    type: entity_reference_autocomplete
+    weight: 1
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_department:
+    type: entity_reference_autocomplete
+    weight: 2
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
   field_facts:
     type: entity_reference_autocomplete
-    weight: 3
+    weight: 6
     region: content
     settings:
       match_operator: CONTAINS
@@ -32,7 +55,7 @@ content:
     third_party_settings: {  }
   field_page_family:
     type: entity_reference_autocomplete
-    weight: 2
+    weight: 5
     region: content
     settings:
       match_operator: CONTAINS
@@ -42,7 +65,17 @@ content:
     third_party_settings: {  }
   field_placement_tag:
     type: entity_reference_autocomplete
-    weight: 1
+    weight: 4
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_program:
+    type: entity_reference_autocomplete
+    weight: 3
     region: content
     settings:
       match_operator: CONTAINS

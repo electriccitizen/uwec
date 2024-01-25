@@ -43,15 +43,15 @@
   {%- set alignment = paragraph.field_alignment.value -%}
   {%- set imageId = paragraph.field_image.0.target_id -%}
   <div class="caption-{{ alignment }}">
+    <div class="image-wrapper">
+      {{ drupal_entity('media', imageId) }}
+    </div>  
     {% if alignment != 'none' %}
       <div class="caption">
         {{ content.field_caption_headline }}
         {{ content.field_caption }}
       </div>
-    {% endif %}
-    <div class="image-wrapper">
-      {{ drupal_entity('media', imageId) }}
-    </div>    
+    {% endif %}  
   </div>
 {% endblock %}
 

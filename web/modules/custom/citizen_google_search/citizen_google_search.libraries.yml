@@ -1,0 +1,4 @@
+citizen_google_search:
+  version: 1.x
+  js:
+    js/citizen_google_search.js: {}

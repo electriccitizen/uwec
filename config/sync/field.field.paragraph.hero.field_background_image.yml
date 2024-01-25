@@ -1,0 +1,29 @@
+uuid: 7a9b65ec-272a-465a-ac23-c45cbd39c199
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_background_image
+    - media.type.image
+    - paragraphs.paragraphs_type.hero
+id: paragraph.hero.field_background_image
+field_name: field_background_image
+entity_type: paragraph
+bundle: hero
+label: 'Background Image'
+description: '<strong>Optimal image size:</strong> 1920x1445px. If this is a video or background hero, the image should be pre-styled to work as the hero background. If this is a full image hero, no pre-styling is needed.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

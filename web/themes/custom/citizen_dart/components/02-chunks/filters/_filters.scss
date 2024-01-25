@@ -6,15 +6,18 @@
 @use '../../01-parts/forms/elements/form-mixins' as *;
 
 .views-exposed-form{
-	@include safeFlex(row,wrap,start,center);
-	@include bleed(padding,20px);
+	@include exposedForm;
+	.views-exposed-form-inner{
+		@include safeFlex(row,wrap,start,center);
+		@include bleed(padding,20px);
+	}
 	.form-item{
 		width: 100%;
 		label{
 			@include formLabel;
 			margin-bottom: $spaceXxs;
 		}
-		@include smallTab{
+		@include tab{
 			width: 50%;
 			max-width: 320px;
 		}
@@ -28,7 +31,7 @@
 	.form-actions{
 		@include auto;
 		@include safeFlex(row,wrap,start,start);
-		@include smallTab{
+		@include tab{
 			margin: .5rem 0 0 -10px;
 		}
 		input.form-submit.button{

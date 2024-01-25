@@ -45,6 +45,15 @@
 	}
   .block-field{
      margin-bottom: $spaceXs;
+     .field.entity-reference{
+			.field-multi-item{
+				& > div:not(:last-child){
+					&:after{
+						content: ', ';
+					}
+				}
+			}
+		}
   }
 }//end testimonial-library
 

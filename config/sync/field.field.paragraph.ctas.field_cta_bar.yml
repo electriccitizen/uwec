@@ -1,0 +1,148 @@
+uuid: d16dca8a-af0d-458c-afd4-4247759a8037
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_cta_bar
+    - paragraphs.paragraphs_type.cta_item
+    - paragraphs.paragraphs_type.ctas
+  module:
+    - entity_reference_revisions
+id: paragraph.ctas.field_cta_bar
+field_name: field_cta_bar
+entity_type: paragraph
+bundle: ctas
+label: 'CTA Bar'
+description: 'Add a single CTA where the image will be used a background. '
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      cta_item: cta_item
+    negate: 0
+    target_bundles_drag_drop:
+      accordion_item:
+        weight: 42
+        enabled: false
+      accordions:
+        weight: 41
+        enabled: false
+      block_placer:
+        weight: 43
+        enabled: false
+      button:
+        weight: 44
+        enabled: false
+      contact_placer:
+        weight: 45
+        enabled: false
+      content_carousel:
+        weight: 46
+        enabled: false
+      cta_item:
+        weight: 48
+        enabled: true
+      ctas:
+        weight: 47
+        enabled: false
+      custom_embed:
+        weight: 49
+        enabled: false
+      events_list:
+        weight: 50
+        enabled: false
+      facts_list:
+        weight: 51
+        enabled: false
+      fauxfile:
+        weight: 52
+        enabled: false
+      fauxfile_item:
+        weight: 53
+        enabled: false
+      gallery:
+        weight: 54
+        enabled: false
+      gallery_item:
+        weight: 55
+        enabled: false
+      hallmark:
+        weight: 56
+        enabled: false
+      hero:
+        weight: 57
+        enabled: false
+      highlight_box:
+        weight: 58
+        enabled: false
+      hours_placer:
+        weight: 59
+        enabled: false
+      hours_set:
+        weight: 60
+        enabled: false
+      image:
+        weight: 61
+        enabled: false
+      layout_section:
+        weight: 62
+        enabled: false
+      links_files:
+        weight: 63
+        enabled: false
+      profiles_list:
+        weight: 64
+        enabled: false
+      program_search:
+        weight: 66
+        enabled: false
+      programs_list:
+        weight: 65
+        enabled: false
+      quote:
+        weight: 67
+        enabled: false
+      select_item:
+        weight: 68
+        enabled: false
+      select_type:
+        weight: 69
+        enabled: false
+      slate_form:
+        weight: 70
+        enabled: false
+      snapshot_list:
+        weight: 71
+        enabled: false
+      social_media_links:
+        weight: 72
+        enabled: false
+      step_item:
+        weight: 74
+        enabled: false
+      steps:
+        weight: 73
+        enabled: false
+      stories_video_list:
+        weight: 75
+        enabled: false
+      testimonial_placer:
+        weight: 76
+        enabled: false
+      text:
+        weight: 77
+        enabled: false
+      video:
+        weight: 78
+        enabled: false
+      view_placer:
+        weight: 79
+        enabled: false
+      wayfinding:
+        weight: 80
+        enabled: false
+field_type: entity_reference_revisions

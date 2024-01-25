@@ -1,5 +1,6 @@
 <?php
 
+use Drupal\block_content\Entity\BlockContent;
 use Drupal\paragraphs\Entity\Paragraph;
 /**
  * @file
@@ -12,6 +13,8 @@ use Drupal\Core\Site\Settings;
 use Drupal\Component\Utility\Html;
 use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
+use Drupal\Core\Entity\EntityTypeManagerInterface;
+use Drupal\node\Entity\Node;
 
 /**
  * Implements hook_help().
@@ -36,11 +39,6 @@ function citizen_custom_theme() {
     'citizen_custom' => [
       'template' => 'citizen_custom',
       'render element' => 'children',
-    ],
-    'site_search' => [
-      'variables' => [
-        'title' => 'Site Search',
-      ],
     ],
     'program_search' => [
       'variables' => [
@@ -91,9 +89,6 @@ function citizen_custom_preprocess_html(&$variables){
  * Implements hook_preprocess_block().
  */
 function citizen_custom_preprocess_block(&$variables) {
-  if ($variables['plugin_id'] == 'site_search') {
-    $variables['attributes']['role'] = 'search';
-  }
   // Set custom help text.
   if ($variables['plugin_id'] == 'help_block') {
     $route_name = \Drupal::routeMatch()->getRouteName();
@@ -217,17 +212,6 @@ function citizen_custom_local_tasks_alter(&$local_tasks) {
  *
  * @see \Drupal\search\Form\SearchBlockForm
  */
-function citizen_custom_form_site_search_form_alter(&$form, FormStateInterface $form_state) {
-  $form['form_build_id']['#access'] = FALSE;
-  $form['form_token']['#access'] = FALSE;
-  $form['form_id']['#access'] = FALSE;
-}
-
-/**
- * Implements hook_form_FORM_ID_alter().
- *
- * @see \Drupal\search\Form\SearchBlockForm
- */
 function citizen_custom_form_program_search_form_alter(&$form, FormStateInterface $form_state) {
   $form['form_build_id']['#access'] = FALSE;
   $form['form_token']['#access'] = FALSE;
@@ -316,8 +300,54 @@ function citizen_custom_views_pre_view($view, $display_id, &$args) {
 
       if ($paragraph_id){
         $paragraph = Paragraph::load($paragraph_id);
+        //unset or alter colleges tag filter
+        if(isset($paragraph->field_college[0])){
+
+          //make an array out of the college set in the paragraph
+          $colleges = [];
+          foreach ($paragraph->field_college as $delta => $college) {
+            $colleges[] = $college->target_id;
+          }
+          // replace the colleges_target_id filter with the paragraph college node (we need the double [value][value] because this is a content type reference instead of a term reference)
+          $filters['field_colleges_target_id']['value']['value'] = $colleges;
+        } else {
+          //if the college field is not used, then unset the colleges filter
+          if (isset($filters['field_colleges_target_id'])) {
+            unset($filters['field_colleges_target_id']);
+          }
+        }//end colleges filter
+        //unset or alter departments tag filter
+        if(isset($paragraph->field_department[0])){
+          //make an array out of the department set in the paragraph
+          $departments = [];
+          foreach ($paragraph->field_department as $delta => $department) {
+            $departments[] = $department->target_id;
+          }
+          // replace the departments_target_id filter with the paragraph department node (we need the double [value][value] because this is a content type reference instead of a term reference)
+          $filters['field_departments_target_id']['value']['value'] = $departments;
+        } else {
+          //if the college field is not used, then unset the colleges filter
+          if (isset($filters['field_departments_target_id'])) {
+            unset($filters['field_departments_target_id']);
+          }
+        }//end departments filter
+        //unset or alter programs tag filter
+        if(isset($paragraph->field_program[0])){
+          //make an array out of the program set in the paragraph
+          $programs = [];
+          foreach ($paragraph->field_program as $delta => $program) {
+            $programs[] = $program->target_id;
+          }
+          // replace the programs_target_id filter with the paragraph program node (we need the double [value][value] because this is a content type reference instead of a term reference)
+          $filters['field_programs_target_id']['value']['value'] = $programs;
+        } else {
+          //if the program field is not used, then unset the programs filter
+          if (isset($filters['field_programs_target_id'])) {
+            unset($filters['field_programs_target_id']);
+          }
+        }//end programs filter
         //unset or alter placement tag filter
-        if($paragraph->field_placement_tag[0]){
+        if(isset($paragraph->field_placement_tag[0])){
           //make an array out of the placement tag set in the paragraph
           $placements = [];
           foreach ($paragraph->field_placement_tag as $delta => $placement) {
@@ -327,11 +357,11 @@ function citizen_custom_views_pre_view($view, $display_id, &$args) {
           $filters['field_placement_tags_target_id']['value'] = $placements;
         } else {
           //if the placement tag field is not used, then unset the placement tag filter
-          if ($filters['field_placement_tags_target_id']) {
+          if (isset($filters['field_placement_tags_target_id'])) {
             unset($filters['field_placement_tags_target_id']);
           }
         }//end placement tags filter
-        if($paragraph->field_page_family[0]){
+        if(isset($paragraph->field_page_family[0])){
           //make an array out of the page family set in the paragraph
           $families = [];
           foreach ($paragraph->field_page_family as $delta => $family) {
@@ -341,7 +371,7 @@ function citizen_custom_views_pre_view($view, $display_id, &$args) {
           $filters['field_page_families_target_id']['value'] = $families;
         } else {
           //if the page family field is not used, then unset the page families filter
-          if ($filters['field_page_families_target_id']) {
+          if (isset($filters['field_page_families_target_id'])) {
             unset($filters['field_page_families_target_id']);
           }
         }//end page families filter
@@ -422,31 +452,50 @@ function citizen_custom_views_pre_view($view, $display_id, &$args) {
       }
     }
 
-    // Content Carousel
-    if ((($view->element['#name'] == 'video_cards') && ($view->current_display === 'most_recent' || $view->current_display === 'second_recent' )) || (($view->element['#name'] == 'testimonials') && ($view->current_display === 'most_recent' || $view->current_display === 'second_recent' )) || (($view->element['#name'] == 'news') && ($view->current_display === 'most_recent' || $view->current_display === 'second_recent' )) || (($view->element['#name'] == 'snapshots') && ($view->current_display === 'most_recent' || $view->current_display === 'second_recent' ))) {
-      $filters = $view->display_handler->getOption('filters');
-      $paragraph_id = $view->args[0];
-      if ($paragraph_id){
-        $paragraph = Paragraph::load($paragraph_id);
-        //unset or alter tags filter
-        if($paragraph->field_tag[0]){
-          //make an array out of the category set in the paragraph
-          $categories = [];
-          foreach ($paragraph->field_tag as $delta => $tag) {
-            $tags[] = $tag->target_id;
-          }
-          // replace the category_tid filter with the paragraph category
-          $filters['field_placement_tags_target_id']['value'] = $tags;
-        } else {
-          //if the tags field is not used, then unset the category filter
-          if ($filters['field_placement_tags_target_id']) {
-            unset($filters['field_placement_tags_target_id']);
-          }
-        }//end category filter
-        $view->display_handler->setOption('filters', $filters);
-      }
-    }
-    // end Content Carousel
+    // Define valid combinations of view names and display names.
+		$validCombinations = [
+		  ['view_name' => 'video_cards', 'display_names' => ['most_recent', 'second_recent']],
+		  ['view_name' => 'testimonials', 'display_names' => ['most_recent', 'second_recent']],
+		  ['view_name' => 'news', 'display_names' => ['most_recent', 'second_recent']],
+		  ['view_name' => 'snapshots', 'display_names' => ['most_recent', 'second_recent']],
+		];
+
+		foreach ($validCombinations as $combination) {
+		  if (
+		    ($view->element['#name'] == $combination['view_name']) &&
+		    in_array($view->current_display, $combination['display_names'])
+		  ) {
+		    $filters = $view->display_handler->getOption('filters');
+		    $paragraph_id = $view->args[0];
+
+		    if ($paragraph_id) {
+		      $paragraph = Paragraph::load($paragraph_id);
+		      $parentNode = $paragraph->parent_id;
+
+		      if ($parentNode) {
+		        $node = Node::load($parentNode->value);
+
+		        if ($node) {
+		          $nodeType = $node->getType();
+
+		          if ($nodeType == 'department' || $nodeType == 'academic_program') {
+		            $targetField = ($nodeType == 'department') ? 'field_departments_target_id' : 'field_programs_target_id';
+		            $fieldValue = array_column($parentNode->getValue(), 'value');
+
+		            if (isset($filters[$targetField])) {
+		              $filters[$targetField]['value']['value'] = $fieldValue;
+		            }
+
+		            $oppositeField = ($nodeType == 'department') ? 'field_programs_target_id' : 'field_departments_target_id';
+		            unset($filters[$oppositeField]);
+		          }
+		        }
+		      }//end if parent node
+
+		      $view->display_handler->setOption('filters', $filters);
+		    }
+		  }//end for earch combination
+		}//end content carousel
   }
 }
 
@@ -472,3 +521,45 @@ function citizen_custom_entity_view_alter(array &$build, EntityInterface $entity
         }
     }
 }
+
+/**
+ * Adds Slate script tag to Slate form paragraph
+ *  Implements hook_preprocess_HOOK().
+ *
+ * @param $variables
+ *
+ * @return void
+ * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
+ * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
+ */
+function citizen_custom_preprocess_paragraph(&$variables) {
+  if (isset($variables['paragraph']) && $variables['paragraph']->getType() == 'slate_form') {
+    $script_tag_type_value = $variables["content"]["field_script_tag_type"][0]["#plain_text"] ?? "";
+    if ($script_tag_type_value !== '') {
+      if ($variables['view_mode'] === "default") {
+        $variables['content']['field_script_tag_type'][0]['#plain_text'] = '';
+        if ($script_tag_type_value !== 'Custom') {
+          $script_tag_type_id = $variables['paragraph']->get('field_script_tag_type')->getValue()[0]['target_id'];
+          $entityTypeManager = \Drupal::entityTypeManager();
+          $script_tag_type = $entityTypeManager->getStorage('taxonomy_term')->load($script_tag_type_id);
+          $slate_script_tag = $script_tag_type->get('field_slate_script_tag')->value;
+          $variables['content']['field_slate_script_tag']['#theme'] = "field";
+          $variables['content']['field_slate_script_tag']['#title'] = "Slate script tag";
+          $variables['content']['field_slate_script_tag']['#label_display'] = "hidden";
+          $variables['content']['field_slate_script_tag']['#view_mode'] = "default";
+          $variables['content']['field_slate_script_tag']['#language'] = "en";
+          $variables['content']['field_slate_script_tag']['#field_name'] = "field_slate_script_tag";
+          $variables['content']['field_slate_script_tag']['#field_type'] = "text";
+          $variables['content']['field_slate_script_tag']['#entity_type'] = "paragraph";
+          $variables['content']['field_slate_script_tag']['#bundle'] = "slate_form";
+          $variables['content']['field_slate_script_tag']['#is_multiple'] = false;
+          $variables['content']['field_slate_script_tag'][0]['#text'] = $slate_script_tag;
+          $variables['content']['field_slate_script_tag'][0]['#format'] = 'full_html';
+          $variables['content']['field_slate_script_tag'][0]['#type'] = "processed_text";
+          $variables['content']['field_slate_script_tag'][0]['#langcode'] = "en";
+        }
+      }
+    }
+  }
+}
+

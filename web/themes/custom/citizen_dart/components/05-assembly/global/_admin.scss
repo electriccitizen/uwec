@@ -59,9 +59,16 @@
 
 /* ADMIN NODE EDIT TABS
 ----------------- */
+section.admin-wrapper{
+	position: relative;
+	z-index: 1;
+	background: $white;
+	padding: 0 20px;
+}
+
 #block-citizen-dart-local-tasks{
 	max-width: $contentStop;
-	padding: $spaceMd 0 $spaceSm;
+	padding: $spaceXs 0 0;
 	position: relative;
 	z-index: 999;
 	@include auto;

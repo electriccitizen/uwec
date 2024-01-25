@@ -5,14 +5,30 @@ dependencies:
   config:
     - field.storage.node.field_paragraphs
     - node.type.department
+    - paragraphs.paragraphs_type.accordions
+    - paragraphs.paragraphs_type.block_placer
+    - paragraphs.paragraphs_type.ctas
+    - paragraphs.paragraphs_type.custom_embed
     - paragraphs.paragraphs_type.events_list
+    - paragraphs.paragraphs_type.gallery
+    - paragraphs.paragraphs_type.highlight_box
+    - paragraphs.paragraphs_type.image
+    - paragraphs.paragraphs_type.layout_section
+    - paragraphs.paragraphs_type.links_files
+    - paragraphs.paragraphs_type.program_search
+    - paragraphs.paragraphs_type.programs_list
+    - paragraphs.paragraphs_type.snapshot_list
+    - paragraphs.paragraphs_type.steps
+    - paragraphs.paragraphs_type.testimonial_placer
+    - paragraphs.paragraphs_type.text
+    - paragraphs.paragraphs_type.video
   module:
     - entity_reference_revisions
 id: node.department.field_paragraphs
 field_name: field_paragraphs
 entity_type: node
 bundle: department
-label: 'Events List'
+label: 'Flex Content'
 description: ''
 required: false
 translatable: false
@@ -22,38 +38,54 @@ settings:
   handler: 'default:paragraph'
   handler_settings:
     target_bundles:
+      accordions: accordions
+      links_files: links_files
+      block_placer: block_placer
+      ctas: ctas
+      custom_embed: custom_embed
       events_list: events_list
+      gallery: gallery
+      highlight_box: highlight_box
+      image: image
+      layout_section: layout_section
+      programs_list: programs_list
+      program_search: program_search
+      snapshot_list: snapshot_list
+      steps: steps
+      testimonial_placer: testimonial_placer
+      text: text
+      video: video
     negate: 0
     target_bundles_drag_drop:
       accordion_item:
-        weight: -79
+        weight: -81
         enabled: false
       accordions:
-        weight: -78
-        enabled: false
+        weight: -80
+        enabled: true
       block_placer:
-        weight: -76
-        enabled: false
+        weight: -78
+        enabled: true
       button:
-        weight: -62
-        enabled: false
-      contact_placer:
         weight: -61
         enabled: false
-      content_carousel:
+      contact_placer:
         weight: -60
         enabled: false
-      cta_item:
+      content_carousel:
         weight: -59
         enabled: false
-      ctas:
-        weight: -75
-        enabled: false
-      custom_embed:
-        weight: -74
-        enabled: false
-      events_list:
+      cta_item:
         weight: -58
+        enabled: false
+      ctas:
+        weight: -77
+        enabled: true
+      custom_embed:
+        weight: -76
+        enabled: true
+      events_list:
+        weight: -75
         enabled: true
       facts_list:
         weight: -57
@@ -65,10 +97,10 @@ settings:
         weight: -55
         enabled: false
       gallery:
-        weight: -73
-        enabled: false
+        weight: -74
+        enabled: true
       gallery_item:
-        weight: -63
+        weight: -62
         enabled: false
       hallmark:
         weight: -54
@@ -77,8 +109,8 @@ settings:
         weight: -53
         enabled: false
       highlight_box:
-        weight: -72
-        enabled: false
+        weight: -73
+        enabled: true
       hours_placer:
         weight: -52
         enabled: false
@@ -86,60 +118,63 @@ settings:
         weight: -51
         enabled: false
       image:
-        weight: -71
-        enabled: false
+        weight: -72
+        enabled: true
       layout_section:
-        weight: -70
-        enabled: false
+        weight: -71
+        enabled: true
       links_files:
-        weight: -77
-        enabled: false
+        weight: -79
+        enabled: true
       profiles_list:
         weight: -50
         enabled: false
       program_search:
-        weight: -48
-        enabled: false
+        weight: -69
+        enabled: true
       programs_list:
+        weight: -70
+        enabled: true
+      quote:
         weight: -49
         enabled: false
-      quote:
-        weight: -47
-        enabled: false
       select_item:
-        weight: -46
+        weight: -48
         enabled: false
       select_type:
-        weight: -45
+        weight: -47
         enabled: false
-      snapshot_list:
-        weight: -69
-        enabled: false
-      social_media_links:
-        weight: -67
-        enabled: false
-      step_item:
-        weight: -44
-        enabled: false
-      steps:
-        weight: -68
-        enabled: false
-      stories_video_list:
-        weight: -43
-        enabled: false
-      testimonial_placer:
-        weight: -66
-        enabled: false
-      text:
-        weight: -65
-        enabled: false
-      video:
-        weight: -64
-        enabled: false
-      view_placer:
+      slate_form:
         weight: -42
         enabled: false
+      snapshot_list:
+        weight: -68
+        enabled: true
+      social_media_links:
+        weight: -66
+        enabled: false
+      step_item:
+        weight: -46
+        enabled: false
+      steps:
+        weight: -67
+        enabled: true
+      stories_video_list:
+        weight: -45
+        enabled: false
+      testimonial_placer:
+        weight: -65
+        enabled: true
+      text:
+        weight: -64
+        enabled: true
+      video:
+        weight: -63
+        enabled: true
+      view_placer:
+        weight: -44
+        enabled: false
       wayfinding:
-        weight: -41
+        weight: -43
         enabled: false
 field_type: entity_reference_revisions

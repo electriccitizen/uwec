@@ -1,0 +1,38 @@
+uuid: c7248858-d030-4df5-99d3-da23bfb86e53
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.slate_script_tag_types.field_slate_script_tag
+    - taxonomy.vocabulary.slate_script_tag_types
+  module:
+    - text
+id: taxonomy_term.slate_script_tag_types.default
+targetEntityType: taxonomy_term
+bundle: slate_script_tag_types
+mode: default
+content:
+  field_slate_script_tag:
+    type: text_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  name:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  description: true
+  path: true
+  publish_on: true
+  publish_state: true
+  status: true
+  unpublish_on: true
+  unpublish_state: true

@@ -3,11 +3,21 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.paragraph.step_item.field_icon
     - paragraphs.paragraphs_type.step_item
 id: paragraph.step_item.default
 targetEntityType: paragraph
 bundle: step_item
 mode: default
-content: {  }
+content:
+  field_icon:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: icon
+      link: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
 hidden:
   search_api_excerpt: true

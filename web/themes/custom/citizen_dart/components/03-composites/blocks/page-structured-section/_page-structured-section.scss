@@ -2,8 +2,136 @@
    PAGE STRUCTURED SECTION
 =================== */
 @use '../../../00-base/base' as *;
+@use '../../../01-parts/buttons/button-mixins' as *;
 
-.block-page-structured-section{
-	
+.block-structured-section {
+	padding-top: $elementSpace;
+	position: relative;
+	padding-bottom: 300px;
+	&:before{
+	 	content: '';
+	 	display: block;
+	 	width: 5000px;
+	 	height: 600px;
+	 	@include rotate(-16);
+	 	background: $brightBlue;
+	 	position: absolute;
+	 	top: -400px;
+	 	left: 0;
+	 	z-index: -2;
+	}
+  &:after{
+    @include fullBack($brightBlue);
+  }
+  .field-wayfinding {
+    @include auto;
+    background-color: $lightGrey;
+    max-width: 1136px;
+  }
+
+  .field-leadin {
+    max-width: $textMax;
+    color: $white;
+    @include auto;
+    text-align: center;
+    margin-top: $spaceMd;
+    margin-bottom: $spaceMd;
+  }
+
+  .field-button {
+    @include auto;
+    text-align: center;
+    a{
+    	@include outlineButton($white);
+    }
+  }
+
+  .field-bg-image{
+  	position: absolute;
+  	bottom: 0;
+  	left: -$siteMarginMobile;
+  	object-fit: cover;
+  	width: 100vw;
+  	height: 65%;
+  	overflow: hidden;
+  	z-index: 0;
+  }
+   .cta-section {
+      position: relative;
+      color: $white;
+      padding-bottom: 100px;
+      &:after{
+      	content: '';
+			 	display: block;
+			 	width: 5000px;
+			 	height: 600px;
+			 	@include rotate(-16);
+			 	background: $white;
+			 	position: absolute;
+			 	bottom: -400px;
+			 	left: -800px;
+			 	z-index: -2;
+      }
+      .cta-section-inner {
+         @include safeFlex(row,wrap,start,start);
+         @include bleed(padding, $spaceLg);
+         max-width: $contentStop;
+         @include auto;
+         padding-top: $spaceMd;
+         padding-bottom: $spaceMd;
+         .first,.last {
+            width: 50%;
+            .field-formatted-headline {
+               h2 {
+                  color: $white;
+               }
+            }
+            .program-search {
+              h3 {
+                 color: $white;
+              }
+              #program-search-form{
+               	position: relative;
+               	*{
+               		transform-style: unset;
+               	}
+               	#edit-program-search-submit{
+               		position: absolute;
+               		top: calc(50% - 12px);
+               		right: 20px;
+               		@include browserWipe;
+               		width: 24px;
+               		height: 24px;
+               		overflow: hidden;
+               		text-indent: -9000px;
+               		background-color: transparent;
+               		border: 0;
+               		background-image: url(../images/elements/search.svg);
+               		background-repeat: no-repeat;
+               		background-size: 100%;
+               		background-position: 0 0;
+               		&:hover,&:focus{
+               			opacity: .5;
+               			border-bottom: 1px solid $black;
+               		}
+               	}
+              }
+            }
+            .body {
+               color: $white;
+               margin-bottom: $spaceMd;
+            }
+            .field-cta-image {
+               max-width: 426px;
+               margin-bottom: $spaceMd;
+            }
+            .field-cta-links {
+               a {
+                  color: $white;
+               }
+            }
+         }//end first last
+      }//end CTA section inner
+   }//end CTA section
 }//end block page-structured-section
 

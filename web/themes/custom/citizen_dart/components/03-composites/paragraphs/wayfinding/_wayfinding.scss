@@ -5,5 +5,41 @@
 @use '../../../00-base/base' as *;
 
 .paragraph--type--wayfinding{
-
+   .wayfinding {
+      &.single {
+         @include safeFlex(row,wrap,start,start);
+         gap: $spaceLg;
+         .wayfinding-text {
+            order: 1;
+            width: 100%;
+            @include tab {
+               max-width: calc(100% - 426px - $spaceLg);
+            }
+         }
+         .image {
+            order: 2;
+         }
+         &.right {
+            .wayfinding-text {
+               order: 2;
+            }
+            .image {
+               order: 1;
+            }
+         }
+      }
+      &.box {
+         @include safeFlex(row,wrap,start,start);
+         gap: $spaceLg;
+         .wayfinding-text {
+            width: 100%;
+            @include tab {
+               max-width: calc(100% - 360px - $spaceLg);
+            }
+         }
+      }
+      &.combo {
+         
+      }
+   }
 }//end wayfinding widget

@@ -1,0 +1,24 @@
+uuid: a4bbf78c-27ac-4bf2-99a5-c5899440a8f4
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.structured_section
+    - field.storage.block_content.field_formatted_headline
+    - filter.format.short_text_formatted_html
+  module:
+    - text
+id: block_content.structured_section.field_formatted_headline
+field_name: field_formatted_headline
+entity_type: block_content
+bundle: structured_section
+label: 'Formatted Headline'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - short_text_formatted_html
+field_type: text_long

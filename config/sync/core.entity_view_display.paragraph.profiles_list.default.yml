@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.paragraph.profiles_list.field_department
     - field.field.paragraph.profiles_list.field_faculty_staff
     - field.field.paragraph.profiles_list.field_limit_list
     - field.field.paragraph.profiles_list.field_list_type
@@ -10,6 +11,7 @@ dependencies:
     - field.field.paragraph.profiles_list.field_page_family
     - field.field.paragraph.profiles_list.field_placement_tag
     - field.field.paragraph.profiles_list.field_profiles
+    - field.field.paragraph.profiles_list.field_program
     - field.field.paragraph.profiles_list.field_randomize
     - field.field.paragraph.profiles_list.field_widget_title
     - paragraphs.paragraphs_type.profiles_list
@@ -20,12 +22,19 @@ targetEntityType: paragraph
 bundle: profiles_list
 mode: default
 content:
+  field_department:
+    type: entity_reference_entity_id
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
   field_faculty_staff:
     type: list_key
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 4
+    weight: 6
     region: content
   field_limit_list:
     type: number_integer
@@ -34,7 +43,7 @@ content:
       thousand_separator: ''
       prefix_suffix: true
     third_party_settings: {  }
-    weight: 6
+    weight: 8
     region: content
   field_list_type:
     type: list_key
@@ -49,21 +58,21 @@ content:
     settings:
       link: false
     third_party_settings: {  }
-    weight: 8
+    weight: 10
     region: content
   field_page_family:
     type: entity_reference_entity_id
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 3
+    weight: 5
     region: content
   field_placement_tag:
     type: entity_reference_entity_id
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 2
+    weight: 4
     region: content
   field_profiles:
     type: entity_reference_entity_view
@@ -72,7 +81,14 @@ content:
       view_mode: teaser
       link: false
     third_party_settings: {  }
-    weight: 5
+    weight: 7
+    region: content
+  field_program:
+    type: entity_reference_entity_id
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 3
     region: content
   field_randomize:
     type: boolean
@@ -82,7 +98,7 @@ content:
       format_custom_false: ''
       format_custom_true: ''
     third_party_settings: {  }
-    weight: 7
+    weight: 9
     region: content
   field_widget_title:
     type: string

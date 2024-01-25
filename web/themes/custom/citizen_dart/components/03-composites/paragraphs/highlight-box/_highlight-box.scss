@@ -5,5 +5,24 @@
 @use '../../../00-base/base' as *;
 
 .paragraph--type--highlight-box{
-
+   background-color: $lightGrey;
+   border: 6px solid $oldGold;
+   padding: $spaceLg 0;
+   .widget-wrapper {
+      max-width: $textMax;
+      @include auto;
+      .field-headline {
+         color: $navy;
+         font-family: $displayHeader;
+         font-size: 4rem;;
+      }
+      .field-additional-text {
+         color: $navy;
+      }
+      .field-link {
+         a {
+            color: $navy;
+         }
+      }
+   }
 }//end highlight-box widget

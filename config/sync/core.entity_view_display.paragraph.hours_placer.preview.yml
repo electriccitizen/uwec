@@ -16,7 +16,14 @@ id: paragraph.hours_placer.preview
 targetEntityType: paragraph
 bundle: hours_placer
 mode: preview
-content: {  }
+content:
+  field_hours:
+    type: entity_reference_label
+    label: hidden
+    settings:
+      link: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
 hidden:
-  field_hours: true
   search_api_excerpt: true

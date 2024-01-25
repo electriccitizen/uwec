@@ -3,11 +3,81 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.paragraph.wayfinding.field_additional_text
+    - field.field.paragraph.wayfinding.field_headline
+    - field.field.paragraph.wayfinding.field_image
+    - field.field.paragraph.wayfinding.field_link
+    - field.field.paragraph.wayfinding.field_link_multi
+    - field.field.paragraph.wayfinding.field_text_placement
+    - field.field.paragraph.wayfinding.field_version
     - paragraphs.paragraphs_type.wayfinding
+  module:
+    - link
+    - options
 id: paragraph.wayfinding.default
 targetEntityType: paragraph
 bundle: wayfinding
 mode: default
-content: {  }
+content:
+  field_additional_text:
+    type: basic_string
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_headline:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_image:
+    type: entity_reference_entity_id
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_link:
+    type: link
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_link_multi:
+    type: link
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_text_placement:
+    type: list_key
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_version:
+    type: list_key
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 5
+    region: content
 hidden:
   search_api_excerpt: true

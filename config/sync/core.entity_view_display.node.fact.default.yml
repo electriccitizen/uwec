@@ -3,7 +3,9 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.fact.field_colleges
     - field.field.node.fact.field_date
+    - field.field.node.fact.field_departments
     - field.field.node.fact.field_domain_access
     - field.field.node.fact.field_domain_all_affiliates
     - field.field.node.fact.field_domain_source
@@ -13,6 +15,7 @@ dependencies:
     - field.field.node.fact.field_page_families
     - field.field.node.fact.field_placement_tags
     - field.field.node.fact.field_plain_text
+    - field.field.node.fact.field_programs
     - field.field.node.fact.field_source
     - field.field.node.fact.field_source_link
     - field.field.node.fact.layout_builder__layout
@@ -52,7 +55,7 @@ third_party_settings:
                 settings:
                   link: false
                 third_party_settings: {  }
-            weight: 11
+            weight: 14
             additional: {  }
           ab62245e-c0a8-4730-8753-213c5f861952:
             uuid: ab62245e-c0a8-4730-8753-213c5f861952
@@ -127,7 +130,7 @@ third_party_settings:
                 settings:
                   link: false
                 third_party_settings: {  }
-            weight: 10
+            weight: 13
             additional: {  }
           63535f19-0ce7-4f38-ad82-3928d6e7d904:
             uuid: 63535f19-0ce7-4f38-ad82-3928d6e7d904
@@ -185,6 +188,63 @@ third_party_settings:
                 third_party_settings: {  }
             weight: 9
             additional: {  }
+          259d248c-a05d-480a-98a1-055c22187d13:
+            uuid: 259d248c-a05d-480a-98a1-055c22187d13
+            region: content
+            configuration:
+              id: 'field_block:node:fact:field_colleges'
+              label: College(s)
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: entity_reference_label
+                label: inline
+                settings:
+                  link: false
+                third_party_settings: {  }
+            weight: 10
+            additional: {  }
+          0338ae1e-6b46-4b5c-954f-84a4c91e00fe:
+            uuid: 0338ae1e-6b46-4b5c-954f-84a4c91e00fe
+            region: content
+            configuration:
+              id: 'field_block:node:fact:field_programs'
+              label: Program(s)
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: entity_reference_label
+                label: inline
+                settings:
+                  link: false
+                third_party_settings: {  }
+            weight: 12
+            additional: {  }
+          50db1be0-09d8-43d7-ae50-c903b6ad9d7f:
+            uuid: 50db1be0-09d8-43d7-ae50-c903b6ad9d7f
+            region: content
+            configuration:
+              id: 'field_block:node:fact:field_departments'
+              label: Department(s)
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: entity_reference_label
+                label: inline
+                settings:
+                  link: false
+                third_party_settings: {  }
+            weight: 11
+            additional: {  }
         third_party_settings: {  }
   layout_builder_restrictions:
     allowed_block_categories: {  }
@@ -203,6 +263,14 @@ content:
     third_party_settings: {  }
     weight: -20
     region: content
+  field_colleges:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 123
+    region: content
   field_date:
     type: datetime_default
     label: above
@@ -211,6 +279,14 @@ content:
       format_type: medium
     third_party_settings: {  }
     weight: 107
+    region: content
+  field_departments:
+    type: entity_reference_label
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 122
     region: content
   field_editorial_sections:
     type: entity_reference_label
@@ -257,6 +333,14 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: 104
+    region: content
+  field_programs:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 120
     region: content
   field_source:
     type: string

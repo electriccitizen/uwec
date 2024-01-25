@@ -1,0 +1,64 @@
+uuid: 5fca3ec6-6b8d-48c7-95a8-97d029ba157f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.ctas.field_cta_bar
+    - field.field.paragraph.ctas.field_cta_items
+    - field.field.paragraph.ctas.field_is_trio
+    - paragraphs.paragraphs_type.ctas
+  module:
+    - paragraphs
+id: paragraph.ctas.default
+targetEntityType: paragraph
+bundle: ctas
+mode: default
+content:
+  field_cta_bar:
+    type: paragraphs
+    weight: 6
+    region: content
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: closed
+      closed_mode: preview
+      autocollapse: none
+      closed_mode_threshold: 0
+      add_mode: button
+      form_display_mode: default
+      default_paragraph_type: _none
+      features:
+        add_above: '0'
+        collapse_edit_all: collapse_edit_all
+        duplicate: duplicate
+    third_party_settings: {  }
+  field_cta_items:
+    type: paragraphs
+    weight: 5
+    region: content
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: closed
+      closed_mode: preview
+      autocollapse: none
+      closed_mode_threshold: 0
+      add_mode: button
+      form_display_mode: default
+      default_paragraph_type: _none
+      features:
+        add_above: '0'
+        collapse_edit_all: collapse_edit_all
+        duplicate: duplicate
+    third_party_settings: {  }
+  field_is_trio:
+    type: boolean_checkbox
+    weight: 4
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

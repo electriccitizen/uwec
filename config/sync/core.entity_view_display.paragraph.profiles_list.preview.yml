@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.paragraph.preview
+    - field.field.paragraph.profiles_list.field_department
     - field.field.paragraph.profiles_list.field_faculty_staff
     - field.field.paragraph.profiles_list.field_limit_list
     - field.field.paragraph.profiles_list.field_list_type
@@ -11,6 +12,7 @@ dependencies:
     - field.field.paragraph.profiles_list.field_page_family
     - field.field.paragraph.profiles_list.field_placement_tag
     - field.field.paragraph.profiles_list.field_profiles
+    - field.field.paragraph.profiles_list.field_program
     - field.field.paragraph.profiles_list.field_randomize
     - field.field.paragraph.profiles_list.field_widget_title
     - paragraphs.paragraphs_type.profiles_list
@@ -42,11 +44,13 @@ content:
     weight: 0
     region: content
 hidden:
+  field_department: true
   field_faculty_staff: true
   field_limit_list: true
   field_list_widget: true
   field_page_family: true
   field_placement_tag: true
   field_profiles: true
+  field_program: true
   field_randomize: true
   search_api_excerpt: true

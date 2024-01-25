@@ -1,0 +1,24 @@
+uuid: a95fbd57-a1f1-4c29-bec8-49beccaaed99
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_slate_script_tag
+    - filter.format.full_html
+    - taxonomy.vocabulary.slate_script_tag_types
+  module:
+    - text
+id: taxonomy_term.slate_script_tag_types.field_slate_script_tag
+field_name: field_slate_script_tag
+entity_type: taxonomy_term
+bundle: slate_script_tag_types
+label: 'Slate script tag'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - full_html
+field_type: text

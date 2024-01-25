@@ -32,6 +32,7 @@
 	top: 0;
 	left: 0;
 	background: $siteBack;
+
 	.unpublished &{
 		background: $unpub;
 	}
@@ -73,7 +74,7 @@
 	  transform: translateZ(0px);
 	  .gin--vertical-toolbar &{
 	  	left: 66px;
-			width: calc(100% - 58px);
+			width: calc(100% - 66px);
 		}
   }//end layout container
 }//end off canvas main canvas

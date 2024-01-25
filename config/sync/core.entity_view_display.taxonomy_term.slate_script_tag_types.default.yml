@@ -1,0 +1,30 @@
+uuid: a9dc481e-d225-430e-864b-7ae4560ae871
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.slate_script_tag_types.field_slate_script_tag
+    - taxonomy.vocabulary.slate_script_tag_types
+  module:
+    - text
+id: taxonomy_term.slate_script_tag_types.default
+targetEntityType: taxonomy_term
+bundle: slate_script_tag_types
+mode: default
+content:
+  description:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_slate_script_tag:
+    type: text_default
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  search_api_excerpt: true

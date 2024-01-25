@@ -385,31 +385,6 @@
 	@include skew(0,-16);
 }
 
-@mixin halfTone{
-	&:before{
-		content: '';
-		position: absolute;
-		top: 0;
-		left: 0;
-		right: 0;
-		bottom: 0;
-		z-index: 1;
-		background: rgba(2,83,247,0.8);
-	}
-	&:after{
-		content: '';
-		position: absolute;
-		top: 0;
-		left: 0;
-		right: 0;
-		bottom: 0;
-		z-index: 1;
-		background-image: radial-gradient(#063492 30%, transparent 40%);
-		opacity: .2;
-	  background-size: 6px 6px;
-	}
-}
-
 @mixin rightArrow($arrowColor,$arrowBack,$arrowBorder,$arrowSize){
 	@if $arrowSize == 'sm'{
 		width: 20px;
@@ -425,6 +400,13 @@
 	background-repeat: no-repeat;
 	background-size: 50%;
 	background-position: 50% 50%;
+}
+
+@mixin dottedLink($dotColor){
+	background-image: linear-gradient(to right, $dotColor 33%, rgba(0,0,0,0) 0%);
+	background-position: bottom;
+	background-size: 4px 1px;
+	background-repeat: repeat-x;
 }
 
 @mixin factsGrid{
@@ -485,6 +467,37 @@
 		}
 	}//end facts count 5
 }//end facts grid
+
+@mixin exposedForm{
+	background: #f8f7f6;
+	max-width: 894px;
+	margin: 0 auto 60px;
+	padding: 30px 60px 44px;
+}
+
+@mixin styledHeader{
+	line-height: 1.1;
+	font-weight: 500;
+	font-family: grad, serif;
+	color: #06233d;
+	margin: 0;
+	font-feature-settings: "liga", "dlig";
+	font-size: 73px;
+	line-height: 73px;
+	text-align: center;
+	font-style: italic;
+	text-transform: uppercase;
+	letter-spacing: 3.65px;
+	strong{
+		font-size: 78.731px;
+		line-height: normal;
+		font-style: normal;
+		font-family: vinila-extended, sans-serif;
+		font-weight: 800;
+		letter-spacing: normal;
+		display: block;
+	}
+}
 
 /* ANIMATION MIXINS
 --------------------- */

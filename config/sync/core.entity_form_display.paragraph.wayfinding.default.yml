@@ -1,0 +1,75 @@
+uuid: f9087b46-02dd-4c47-9a4f-8c78a14cd00c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.wayfinding.field_additional_text
+    - field.field.paragraph.wayfinding.field_headline
+    - field.field.paragraph.wayfinding.field_image
+    - field.field.paragraph.wayfinding.field_link
+    - field.field.paragraph.wayfinding.field_link_multi
+    - field.field.paragraph.wayfinding.field_text_placement
+    - field.field.paragraph.wayfinding.field_version
+    - paragraphs.paragraphs_type.wayfinding
+  module:
+    - link
+    - media_library
+id: paragraph.wayfinding.default
+targetEntityType: paragraph
+bundle: wayfinding
+mode: default
+content:
+  field_additional_text:
+    type: string_textarea
+    weight: 2
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_headline:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_image:
+    type: media_library_widget
+    weight: 5
+    region: content
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+  field_link:
+    type: link_default
+    weight: 3
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  field_link_multi:
+    type: link_default
+    weight: 4
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  field_text_placement:
+    type: options_select
+    weight: 6
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_version:
+    type: options_select
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

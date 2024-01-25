@@ -170,6 +170,9 @@ button[disabled]:hover,button.disabled:hover{
 .lpb-component-list .lpb-component-list__group > .lpb-component-list__group--content > .type-select_type > a:before{
   background-image: url('../icons/paragraphs/select-type.svg');
 }
+.lpb-component-list .lpb-component-list__group > .lpb-component-list__group--content > .type-slate_form > a:before{
+  background-image: url('../icons/paragraphs/form-placer.svg');
+}
 .lpb-component-list .lpb-component-list__group > .lpb-component-list__group--content > .type-snapshot_list > a:before{
   background-image: url('../icons/paragraphs/snapshot-list.svg');
 }
@@ -238,17 +241,19 @@ button[disabled]:hover,button.disabled:hover{
 
 /* INDIVIDUAL PARAGRAPH PREVIEW TWEAKS
 ------------------------------- */
-.paragraph--type--form-placer.paragraph--view-mode--preview .field--name-field-form a{
+.paragraph--type--form-placer.paragraph--view-mode--preview .field--name-field-form a,
+.paragraph--type--button.paragraph--view-mode--preview .field--name-field-link a{
 	pointer-events: none;
 	color: #444;
 }
+
 
 /* FIELD ADJUSTMENTS
 ------------------------ */
 .field--name-field-geolocation fieldset.geolocation-widget-input,.field--name-field-address #edit-field-address-0-address-country-code{
 	display: none;
 }
-#edit-field-formatted-title-wrapper .ck-editor__main > :is(.ck-editor__editable) {
+#edit-field-formatted-title-wrapper .ck-editor__main > :is(.ck-editor__editable),#edit-field-formatted-headline-wrapper .ck-editor__main > :is(.ck-editor__editable),.field--name-field-formatted-headline .ck-editor__main > :is(.ck-editor__editable){
 	min-height: 3.4rem;
 }
 .role-editor .field--name-field-formatted-title .ck.ck-editor__top,

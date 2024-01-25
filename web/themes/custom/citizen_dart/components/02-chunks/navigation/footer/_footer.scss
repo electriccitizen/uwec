@@ -3,21 +3,40 @@
 ------------------- */
 @use '../../../00-base/base' as *;
 
+// visit apply etc
 .block-footer-menu{
 	ul:not(.contextual-links){
 		@include listReset;
+		@include safeFlex(row,wrap,center,center);
+		margin-bottom: $spaceMd;
 		li{
-			position: relative;
+			margin-left: 10px;
+			margin-right: 10px;
 			a{
 				display: block;
 				color: $prefooterLink;
-				.footer-v1 &{
-					text-decoration: underline;
+				&:not(.menu-button){
+					@include onlySmall{
+						display: none;
+					}
 				}
 				&:hover,&:focus{
 					color: $prefooterLinkHover;
+					border-color: $prefooterLinkHover;
 					@include transAll(.3s);
-					.footer-v1 &{
+				}
+				&.menu-button{
+					border: 1px solid $prefooterLink;
+					border-radius: 25px;
+					line-height: 1.15;
+					padding: $buttonPadding;
+					display: inline-block;
+					text-align: center;
+					text-transform: uppercase;
+					font-family: $header;
+					font-weight: $heavy;
+					font-size: $button;
+					&:hover,&:focus{
 						text-decoration: none;
 					}
 				}
@@ -26,6 +45,75 @@
 	}//end ul
 }//end footer-menu
 
+//for audience links
 .block-footer-for-menu{
-	@extend .block-footer-menu;
-}//end footer-menu
+	ul:not(.contextual-links){
+		@include listReset;
+		a{
+			color: $prefooterLink;
+			&:hover,&:focus{
+				color: $prefooterLinkHover;
+			}
+		}
+	}//end ul
+	.audience-menu{
+		.link-label{
+			font-family: $displayHeader;
+			font-style: italic;
+		}
+		a{
+			font-family: $header;
+			font-weight: $xHeavy;
+			text-transform: uppercase;
+		}
+	}
+	.additional-audience-menu{
+		ul:not(.contextual-links){
+			margin-top: $spaceMd;
+			border-top: 1px solid rgba(255,255,255,.12);
+			padding-top: $spaceMd;
+			margin-bottom: $spaceMd;
+			a{
+				@include dottedLink($prefooterLink);
+				&:hover,&:focus{
+					background: none;
+					text-decoration: none;
+				}
+			}
+		}
+	}
+}//end footer-for menu
+
+//Footer ancillary left
+.block-footer-ancillary-left-menu{
+	ul:not(.contextual-links){
+		@include listReset;
+		@include tab{
+			@include safeFlex(row,wrap,start,end);
+			@include bleed(padding,10px);
+		}
+		@media screen and (min-width: 1240px){
+			justify-content: flex-end;
+		}
+		a{
+			color: $footerLink;
+			font-size: 1.5rem;
+			&:hover,&:focus{
+				color: $footerLinkHover;
+			}
+		}
+	}
+}//end ancillary left
+
+.block-footer-ancillary-right-menu{
+	@extend .block-footer-ancillary-left-menu;
+	ul:not(.contextual-links){
+		@include tab{
+			justify-content: flex-end;
+		}
+		@media screen and (min-width: 1240px){
+			justify-content: flex-start;
+		}
+	}
+}
+

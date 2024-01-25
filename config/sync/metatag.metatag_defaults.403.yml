@@ -7,7 +7,7 @@ _core:
 id: '403'
 label: '403 access denied'
 tags:
+  canonical_url: '[site:url]'
+  robots: 'noindex, nofollow, noarchive, nosnippet, noimageindex'
   shortlink: '[site:url]'
   title: '[current-page:title] | [site:name]'
-  robots: 'noindex, nofollow, noarchive, nosnippet, noodp, noydir, noimageindex, notranslate'
-  canonical_url: '[site:url]'

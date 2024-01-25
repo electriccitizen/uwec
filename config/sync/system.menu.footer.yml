@@ -5,6 +5,6 @@ dependencies: {  }
 _core:
   default_config_hash: GuBjmqVVkn4N1NLhkQ82MSP5uV3w3noFd4MyAWFR5-E
 id: footer
-label: Footer
+label: 'Footer Main'
 description: 'Site information links'
 locked: true

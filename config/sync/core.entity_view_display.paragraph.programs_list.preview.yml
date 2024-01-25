@@ -4,11 +4,10 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.paragraph.preview
+    - field.field.paragraph.programs_list.field_department
     - field.field.paragraph.programs_list.field_limit_list
     - field.field.paragraph.programs_list.field_list_type
     - field.field.paragraph.programs_list.field_list_widget
-    - field.field.paragraph.programs_list.field_page_family
-    - field.field.paragraph.programs_list.field_placement_tag
     - field.field.paragraph.programs_list.field_programs
     - paragraphs.paragraphs_type.programs_list
   module:
@@ -31,9 +30,8 @@ content:
     weight: 0
     region: content
 hidden:
+  field_department: true
   field_limit_list: true
   field_list_widget: true
-  field_page_family: true
-  field_placement_tag: true
   field_programs: true
   search_api_excerpt: true

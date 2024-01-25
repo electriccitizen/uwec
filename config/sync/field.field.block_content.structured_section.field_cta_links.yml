@@ -1,0 +1,23 @@
+uuid: 3608d950-38a0-491b-9374-df66e33b1cea
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.structured_section
+    - field.storage.block_content.field_cta_links
+  module:
+    - link
+id: block_content.structured_section.field_cta_links
+field_name: field_cta_links
+entity_type: block_content
+bundle: structured_section
+label: Links
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 2
+  link_type: 17
+field_type: link

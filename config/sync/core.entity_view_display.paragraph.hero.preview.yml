@@ -4,16 +4,17 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.paragraph.preview
+    - field.field.paragraph.hero.field_background_image
     - field.field.paragraph.hero.field_hero_type
     - field.field.paragraph.hero.field_hero_video
     - field.field.paragraph.hero.field_image
     - field.field.paragraph.hero.field_links
-    - field.field.paragraph.hero.field_structure_section
     - field.field.paragraph.hero.field_video_poster
     - image.style.paragraph_preview
     - paragraphs.paragraphs_type.hero
   module:
     - layout_builder
+    - lazy
     - media
     - options
 third_party_settings:
@@ -25,6 +26,21 @@ targetEntityType: paragraph
 bundle: hero
 mode: preview
 content:
+  field_background_image:
+    type: media_thumbnail
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: paragraph_preview
+      image_loading:
+        attribute: lazy
+    third_party_settings:
+      lazy:
+        lazy_image: '0'
+        placeholder_style: ''
+        data_uri: false
+    weight: 1
+    region: content
   field_hero_type:
     type: list_default
     label: inline
@@ -41,11 +57,24 @@ content:
       image_loading:
         attribute: lazy
     third_party_settings: {  }
-    weight: 1
+    weight: 2
+    region: content
+  field_video_poster:
+    type: media_thumbnail
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: paragraph_preview
+      image_loading:
+        attribute: lazy
+    third_party_settings:
+      lazy:
+        lazy_image: '0'
+        placeholder_style: ''
+        data_uri: false
+    weight: 3
     region: content
 hidden:
   field_hero_video: true
   field_links: true
-  field_structure_section: true
-  field_video_poster: true
   search_api_excerpt: true

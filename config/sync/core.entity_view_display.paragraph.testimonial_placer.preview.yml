@@ -4,10 +4,13 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.paragraph.preview
+    - field.field.paragraph.testimonial_placer.field_college
+    - field.field.paragraph.testimonial_placer.field_department
     - field.field.paragraph.testimonial_placer.field_list_type
     - field.field.paragraph.testimonial_placer.field_list_widget
     - field.field.paragraph.testimonial_placer.field_page_family
     - field.field.paragraph.testimonial_placer.field_placement_tag
+    - field.field.paragraph.testimonial_placer.field_program
     - field.field.paragraph.testimonial_placer.field_testimonial
     - paragraphs.paragraphs_type.testimonial_placer
   module:
@@ -30,8 +33,11 @@ content:
     weight: 1
     region: content
 hidden:
+  field_college: true
+  field_department: true
   field_list_widget: true
   field_page_family: true
   field_placement_tag: true
+  field_program: true
   field_testimonial: true
   search_api_excerpt: true

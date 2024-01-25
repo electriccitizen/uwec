@@ -1,0 +1,39 @@
+uuid: ca604915-a357-4986-837f-7aff56b08421
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.footer-ancillary-right
+  module:
+    - domain
+    - menu_block
+  theme:
+    - citizen_dart
+id: citizen_dart_footerancillaryright
+theme: citizen_dart
+region: footer
+weight: -8
+provider: null
+plugin: 'menu_block:footer-ancillary-right'
+settings:
+  id: 'menu_block:footer-ancillary-right'
+  label: 'Footer Ancillary Right'
+  label_display: '0'
+  provider: menu_block
+  follow: false
+  follow_parent: child
+  label_link: false
+  label_type: block
+  level: 1
+  depth: 1
+  expand_all_items: false
+  parent: 'footer-ancillary-right:'
+  suggestion: footer_ancillary_right
+visibility:
+  domain:
+    id: domain
+    negate: false
+    context_mapping:
+      domain: '@domain.current_domain_context:domain'
+    domains:
+      uwec_docksal_site: uwec_docksal_site

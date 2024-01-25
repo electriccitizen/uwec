@@ -4,11 +4,14 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.paragraph.preview
+    - field.field.paragraph.stories_video_list.field_college
+    - field.field.paragraph.stories_video_list.field_department
     - field.field.paragraph.stories_video_list.field_list_type
     - field.field.paragraph.stories_video_list.field_list_widgets
     - field.field.paragraph.stories_video_list.field_manual_select
     - field.field.paragraph.stories_video_list.field_page_family
     - field.field.paragraph.stories_video_list.field_placement_tag
+    - field.field.paragraph.stories_video_list.field_program
     - field.field.paragraph.stories_video_list.field_type
     - field.field.paragraph.stories_video_list.field_widget_title
     - paragraphs.paragraphs_type.stories_video_list
@@ -40,9 +43,12 @@ content:
     weight: 0
     region: content
 hidden:
+  field_college: true
+  field_department: true
   field_list_widgets: true
   field_manual_select: true
   field_page_family: true
   field_placement_tag: true
+  field_program: true
   field_type: true
   search_api_excerpt: true

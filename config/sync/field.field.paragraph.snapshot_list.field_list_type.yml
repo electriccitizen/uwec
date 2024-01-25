@@ -12,7 +12,7 @@ field_name: field_list_type
 entity_type: paragraph
 bundle: snapshot_list
 label: 'List Type'
-description: ''
+description: '<strong>WARNING:</strong> If there are less than three results that match your auto list parameters, this widget will not be displayed.'
 required: true
 translatable: false
 default_value:

@@ -50,9 +50,9 @@
 		{# add a background/full image for certain heros #}
 		{% if element['#object'].field_hero.0.entity.field_hero_type.0.value == 
 		'video' or element['#object'].field_hero.0.entity.field_hero_type.0.value == 'background_image' or element['#object'].field_hero.0.entity.field_hero_type.0.value == 'full_image' %}
-			{% if element['#object'].field_hero.0.entity.field_image.0 %}
+			{% if element['#object'].field_hero.0.entity.field_background_image.0 %}
 				<div class="hero-background">
-					{{ drupal_entity('media',element['#object'].field_hero.0.entity.field_image.0.target_id,'1920x1445') }}
+					{{ drupal_entity('media',element['#object'].field_hero.0.entity.field_background_image.0.target_id,'1920x1445') }}
 				</div>
 			{% endif %}
 		{% endif %}
@@ -291,15 +291,6 @@
 		{% endif %}
 
 	</div>{# end page header wrapper #}
-
-	{# render the structured section block if one is referenced #}
-	{% if element['#object'].field_hero.0.entity.field_structure_section.0 %}
-		<div id="structured-content">
-			<div class="block block-structured-section block-{{ element['#object'].field_hero.0.entity.field_structure_section.0.target_id }}">
-				{{ drupal_entity('block_content',element['#object'].field_hero.0.entity.field_structure_section.0.target_id) }}
-			</div>
-		</div>
-	{% endif %}
 
 {% endblock %}
 
