@@ -40,10 +40,52 @@ include:
 # @ATTN: EMPTY KEYS WILL THROW AN EXCEPTION.
 # If you uncomment any of the source, process or destination keys,
 # you must put a field with a value.
-source: { }
+source:
+  plugin: uwec_url
+  urls: 'https://athena.apps.uwec.edu/api/testimonials.json'
+  fields:
+    - name: id
+      label: 'ID'
+      selector: id
+    - name: name
+      label: 'Name'
+      selector: name
+    - name: quote
+      label: 'Quote'
+      selector: quote
+    - name: major
+      label: 'Major'
+      selector: major
+    - name: image_id
+      label: 'Image ID'
+      selector: image_id
+    - name: updated_at
+      label: 'Updated'
+      selector: updated_at
+  ids:
+    id:
+      type: integer
 
 # Add processing for fields specific to this content type.
-process: { }
+process:
+  type:
+    plugin: default_value
+    default_value: testimonial
+  field_image:
+    plugin: migration_lookup
+    migration: media_img
+    source: image_id
+  field_major: major
+  'body/value': quote
+  'body/format':
+    plugin: default_value
+    default_value: plain_text
+  title: name
+  changed:
+    plugin: format_date
+    from_format: 'Y-m-d H:i:s' #2024-01-08 14:51:11
+    to_format: 'U'
+    source: updated_at
 
 
 destination:
