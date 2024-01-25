@@ -12,6 +12,7 @@ dependencies:
     - field.field.node.department.field_domain_source
     - field.field.node.department.field_editorial_sections
     - field.field.node.department.field_facts_list
+    - field.field.node.department.field_faculty_link
     - field.field.node.department.field_hallmarks
     - field.field.node.department.field_hours_library
     - field.field.node.department.field_intro_text
@@ -79,7 +80,7 @@ content:
     third_party_settings: {  }
   field_contact:
     type: entity_reference_autocomplete
-    weight: 12
+    weight: 13
     region: content
     settings:
       match_operator: CONTAINS
@@ -89,7 +90,7 @@ content:
     third_party_settings: {  }
   field_content_carousel:
     type: paragraphs
-    weight: 10
+    weight: 11
     region: content
     settings:
       title: Paragraph
@@ -133,7 +134,7 @@ content:
     third_party_settings: {  }
   field_facts_list:
     type: paragraphs
-    weight: 8
+    weight: 9
     region: content
     settings:
       title: Paragraph
@@ -150,9 +151,17 @@ content:
         collapse_edit_all: collapse_edit_all
         duplicate: '0'
     third_party_settings: {  }
+  field_faculty_link:
+    type: link_default
+    weight: 7
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
   field_hallmarks:
     type: paragraphs
-    weight: 7
+    weight: 8
     region: content
     settings:
       title: Paragraph
@@ -171,7 +180,7 @@ content:
     third_party_settings: {  }
   field_hours_library:
     type: entity_reference_autocomplete
-    weight: 13
+    weight: 14
     region: content
     settings:
       match_operator: CONTAINS
@@ -215,7 +224,7 @@ content:
     third_party_settings: {  }
   field_opportunities:
     type: paragraphs
-    weight: 9
+    weight: 10
     region: content
     settings:
       title: Paragraph
@@ -234,7 +243,7 @@ content:
     third_party_settings: {  }
   field_paragraphs:
     type: layout_paragraphs
-    weight: 11
+    weight: 12
     region: content
     settings:
       preview_view_mode: preview
@@ -244,7 +253,7 @@ content:
     third_party_settings: {  }
   field_platforms:
     type: link_default
-    weight: 14
+    weight: 15
     region: content
     settings:
       placeholder_url: ''
@@ -260,7 +269,7 @@ content:
     third_party_settings: {  }
   field_whats_next:
     type: options_select
-    weight: 15
+    weight: 16
     region: content
     settings: {  }
     third_party_settings: {  }
