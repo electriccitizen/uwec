@@ -52,7 +52,7 @@ mode: default
 content:
   body:
     type: text_textarea_with_summary
-    weight: 2
+    weight: 5
     region: content
     settings:
       rows: 9
@@ -62,13 +62,13 @@ content:
     third_party_settings: {  }
   field_apply_by:
     type: datetime_default
-    weight: 5
+    weight: 8
     region: content
     settings: {  }
     third_party_settings: {  }
   field_campus:
     type: options_buttons
-    weight: 6
+    weight: 1
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -109,26 +109,26 @@ content:
     third_party_settings: {  }
   field_employment_category:
     type: options_select
-    weight: 7
+    weight: 3
     region: content
     settings: {  }
     third_party_settings: {  }
   field_employment_type:
     type: options_select
-    weight: 8
+    weight: 2
     region: content
     settings: {  }
     third_party_settings: {  }
   field_job_id:
     type: number
-    weight: 3
+    weight: 6
     region: content
     settings:
       placeholder: ''
     third_party_settings: {  }
   field_official_title:
     type: string_textfield
-    weight: 1
+    weight: 4
     region: content
     settings:
       size: 60
@@ -146,7 +146,7 @@ content:
     third_party_settings: {  }
   field_posted_on:
     type: datetime_default
-    weight: 4
+    weight: 7
     region: content
     settings: {  }
     third_party_settings: {  }
