@@ -10,6 +10,7 @@
       @include auto;
       .select-item {
          background-color: $navy;
+         padding: $spaceLg;
          &:nth-child(even) {
             background-color: rgba(6, 35, 61, .93);
          }
