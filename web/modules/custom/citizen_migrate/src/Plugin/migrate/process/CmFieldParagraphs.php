@@ -15,7 +15,7 @@ class CmFieldParagraphs extends \Drupal\citizen_migrate\Plugin\migrate\CMProcess
 
   protected array $migrate_rows = [
     '1' => 'standard_rte',
-    '3' => 'accordion',
+//    '3' => 'accordion',
     '20' => 'links_files',
     '21' => 'tabular_rte',
     '22' => 'content_2col',
@@ -25,13 +25,13 @@ class CmFieldParagraphs extends \Drupal\citizen_migrate\Plugin\migrate\CMProcess
 //    '41' => 'social_icons',
     '47' => 'gallery',
     '54' => 'featured_copy',
-    '55' => 'faux_profile',
+    '55' => 'fauxfile',
   ];
 
   public function transform($value, MigrateExecutableInterface $migrate_executable, Row $row, $destination_property) {
 //    $this->cmTools->logToConsole($value);
     $rows = [];
-    $migrate_rows = [1, 21, 54, 22, 23, 3, 47, 41, 25, 20, 26, 55, ];
+    $migrate_rows = [1, 21, 54, 22, 23, 47, 41, 25, 20, 26, 55, ]; // Rows not migrating: 3,
     foreach ($value as $key => $data_row) {
       if (!in_array($data_row['row_id'], array_keys($this->migrate_rows))) {
         continue;
@@ -48,7 +48,7 @@ class CmFieldParagraphs extends \Drupal\citizen_migrate\Plugin\migrate\CMProcess
 //      $rows[$key] = $data_row_ids;
       $rows[] = isset($para_id[0]) ? $para_id[0] : [];
     }
-    $this->cmTools->logToConsole($rows);
+//    $this->cmTools->logToConsole($rows);
     return $rows;
   }
 
