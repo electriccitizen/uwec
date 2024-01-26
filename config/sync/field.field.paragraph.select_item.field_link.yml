@@ -11,7 +11,7 @@ id: paragraph.select_item.field_link
 field_name: field_link
 entity_type: paragraph
 bundle: select_item
-label: Button
+label: Link
 description: ''
 required: true
 translatable: false
