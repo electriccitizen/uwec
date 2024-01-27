@@ -20,6 +20,7 @@
          }
       }
       .step-details {
+         max-width: calc(100% - 110px);
          .field-headline {
             font-family: $header;
             font-size: 2.625rem;
