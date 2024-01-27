@@ -5,5 +5,25 @@
 @use '../../../00-base/base' as *;
 
 .paragraph--type--steps{
-
+   .step {
+      @include safeFlex(row,wrap,start,start);
+      @include bleed('padding', $spaceLg);
+      border-bottom: 1px solid $warmGrey;
+      padding: 6.25rem 0;
+      .step-number {
+         font-family: $header;
+         font-size: 4.5rem;
+         text-align: center;
+         .step-icon svg {
+            width: 31px;
+            height: auto;
+         }
+      }
+      .step-details {
+         .field-headline {
+            font-family: $header;
+            font-size: 2.625rem;
+         }
+      }
+   }
 }//end steps widget

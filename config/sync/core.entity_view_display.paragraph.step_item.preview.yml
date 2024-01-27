@@ -4,7 +4,10 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.paragraph.preview
+    - field.field.paragraph.step_item.field_headline
     - field.field.paragraph.step_item.field_icon
+    - field.field.paragraph.step_item.field_link
+    - field.field.paragraph.step_item.field_long_text
     - paragraphs.paragraphs_type.step_item
   module:
     - layout_builder
@@ -16,7 +19,17 @@ id: paragraph.step_item.preview
 targetEntityType: paragraph
 bundle: step_item
 mode: preview
-content: {  }
+content:
+  field_headline:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
 hidden:
   field_icon: true
+  field_link: true
+  field_long_text: true
   search_api_excerpt: true

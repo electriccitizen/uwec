@@ -5,6 +5,7 @@ dependencies:
   config:
     - core.entity_view_mode.paragraph.preview
     - field.field.paragraph.steps.field_step_items
+    - field.field.paragraph.steps.field_use_icon
     - paragraphs.paragraphs_type.steps
   module:
     - entity_reference_revisions
@@ -26,6 +27,16 @@ content:
       link: ''
     third_party_settings: {  }
     weight: 0
+    region: content
+  field_use_icon:
+    type: boolean
+    label: inline
+    settings:
+      format: yes-no
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 1
     region: content
 hidden:
   search_api_excerpt: true
