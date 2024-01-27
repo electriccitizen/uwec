@@ -5,15 +5,56 @@
 
 ul {
 	list-style-type: disc;
+	li {
+		padding: 0 0 $spaceXxs 0;
+	}
 }
 
 ol {
-	list-style-type: decimal;
+	list-style-type: none;
+	list-style-position: inside;
 	&[type="A"]{
 		list-style-type: lower-alpha;
 	}
 	&[type="I"]{
 		list-style-type: upper-roman;
+	}
+	&:not([type]){
+		.text-long &,.text-with-summary &{
+			counter-reset: number;
+			& > li {
+				counter-increment: number;
+				padding: 0 0 $spaceXxs $spaceXs;
+				text-indent: -$spaceXs;
+				list-style-type:none;
+				&:before {
+					content: counter(number) '. ';
+					font-style: italic;
+					font-family: $displayHeader;
+					display: inline-block;
+					width: $spaceXxs;
+					padding-right: $spaceXxs;
+					text-align: left;
+				}
+				ol {
+					margin-top: $spaceXxs;
+					margin-bottom: $spaceXxs;
+					li {
+						list-style-type: disc;
+						list-style-position: outside;
+						text-indent: 0;
+						padding: 0 0 $spaceXxs 0;
+						&:before {
+							content: unset;
+							display: inline;
+							width: unset;
+							padding: unset;
+							text-align: unset;
+						}
+					}
+				}
+			}
+		}
 	}
 }
 
