@@ -1,0 +1,23 @@
+uuid: ae46cc97-d8a6-4b64-a166-f062a3506054
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_link
+    - paragraphs.paragraphs_type.step_item
+  module:
+    - link
+id: paragraph.step_item.field_link
+field_name: field_link
+entity_type: paragraph
+bundle: step_item
+label: Button
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 2
+  link_type: 17
+field_type: link
