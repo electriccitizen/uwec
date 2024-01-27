@@ -140,6 +140,10 @@
       },
       "drupal/superfish": {
       	"D10 compatibility patch": "https://www.drupal.org/files/issues/2023-01-18/3299991-drupal-10-compatibility-fixes-7.patch"
+      },
+      
+      "drupal/entity_usage": {
+      	"Undefined array key bug": "https://www.drupal.org/files/issues/2023-11-29/3383042-3-re-rolling-undefined-array-key.patch"
       }
     },
     "composer-exit-on-patch-failure": true,
