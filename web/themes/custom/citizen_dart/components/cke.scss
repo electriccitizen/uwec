@@ -22,20 +22,20 @@
 
 	h2{
 		@include heading2;
-		font-size: 25px;
-		margin: 0 0 30px;
+		font-size: 24px;
+		margin: 0 0 24px;
 	}
 
 	h3{
 		@include heading3;
-		font-size: 22px;
-		margin: 0 0 24px;
+		font-size: 18px;
+		margin: 0 0 8px;
 	}
 
 	h4{
 		@include heading4;
-		font-size: 18px;
-		margin: 0 0 22px;
+		font-size: 20px;
+		margin: 0 0 16px;
 	}
 
 	h5{
@@ -54,6 +54,50 @@
 		margin-bottom: 26px;
 	}
 
+	ul {
+		li {
+			padding: 0 0 $spaceXxs 0;
+		}
+	}
+
+	ol:not([type]){
+		counter-reset: number;
+		margin-left: 0.5rem;
+		& > li {
+			counter-increment: number;
+			padding: 0 0 $spaceXxs $spaceXs;
+			text-indent: -$spaceXs;
+			list-style-type:none;
+			&:before {
+				content: counter(number) '. ';
+				font-style: italic;
+				font-family: $displayHeader;
+				display: inline;
+				width: $spaceXxs;
+				padding-right: $spaceXxs;
+				text-align: left;
+			}
+			.ck-list-bogus-paragraph { display: inline;}
+			ol {
+				margin-top: $spaceXxs;
+				margin-bottom: 0;
+				li {
+					list-style-type: disc;
+					list-style-position: outside;
+					text-indent: 0;
+					padding: 0 0 $spaceXxs 0;
+					&:before {
+						content: unset;
+						display: inline;
+						width: unset;
+						padding: unset;
+						text-align: unset;
+					}
+				}
+			}
+		}
+	}
+
 	.ck-content blockquote{
 		border-top: 1px solid $brightBlue !important;
 		border-bottom: 1px solid $brightBlue !important;
@@ -65,6 +109,7 @@
 		padding-left: 0;
 		padding-right: 0;
 		padding-bottom: 0;
+		text-align: center;
 		&:before{
 			content: '';
 			display: block;
@@ -77,7 +122,7 @@
 
 	.ck-content hr{
 		height: 1px;
-		background: $borderRule;
+		background: currentColor;
 		margin-bottom: 26px;
 	}
 
