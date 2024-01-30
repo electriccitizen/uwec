@@ -10,6 +10,15 @@
 	.links-files {
 		@include safeFlex(row,wrap,start,stretch);
 		@include bleed(padding,20px);
+		.widget-section > .layout--twocol-section &{
+			@include smallTab{
+				@include safeFlex(row,wrap,center,stretch);
+				.lf-item{
+					width: 100% !important;
+					max-width: 335px;
+				}
+			}
+		}
 		.lf-item{
 			width: 100%;
 			@include smallTab{
