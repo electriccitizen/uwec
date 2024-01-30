@@ -92,6 +92,9 @@
 			@include bleed(padding,20px);
 			& > *{
 					width: 50%;
+					.widget-section > .layout--threecol-section &{
+						width: 100%;
+					}
 				}
 			}
 	}//end contact wrapper
