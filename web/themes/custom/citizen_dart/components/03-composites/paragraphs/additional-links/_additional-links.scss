@@ -5,24 +5,55 @@
 @use '../../../00-base/base' as *;
 
 .paragraph--type--links-files {
-	@include textConstrain;
-
-	//set margins for links and files lists
+	max-width: $contentStopMargin;
+	@include auto;
 	.links-files {
-		margin-top: 2.5rem;
-		&.multi-col {
-			@include smallTab {
-				.node-section>.layout.one-column &,
-				.widget-section>.layout--onecol &,
-				.node-support-book & {
-					@include cssColumns(2, 4rem, nobreak);
-				}
+		@include safeFlex(row,wrap,start,stretch);
+		@include bleed(padding,20px);
+		.lf-item{
+			width: 100%;
+			@include smallTab{
+				width: 50%;
+			}
+			@include desk{
+				width: 25%;
 			}
 		}
-		&>div {
-			margin-bottom: 1rem;
-		}
-	}
-}
-
-//end links-files widget
+		.lf-inner{
+			border-top: 1px solid $borderRule;
+			padding: 10px 50px 12px 0;
+			min-height: 83px;
+			position: relative;
+			a{
+				@include heading2;
+				font-size: 2.25rem;
+				line-height: 24px;
+				padding-bottom: 3px;
+				&:after{
+					content: '';
+					display: block;
+					position: absolute;
+					top: 10px;
+					right: 0;
+					@include rightArrow(navy,transparent,$navy,sm);
+				}
+				&:hover,&:focus{
+					text-decoration: none;
+					@include dottedLink($sky);
+					&:after{
+						@include rightArrow(white,$navy,$navy,sm);
+					}
+				}
+			}//end a
+			.file a{
+				position: static;
+				padding-left: 0;
+				&:before{
+					position: relative;
+					top: 2px;
+					display: inline-block;
+				}
+			}
+		}//end lf inner
+	}//end links-files
+}//end paragraph type links-files
