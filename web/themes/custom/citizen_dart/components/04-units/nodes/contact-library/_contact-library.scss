@@ -5,11 +5,60 @@
 @use '../../../00-base/base' as *;
 
 @mixin contactHolder{
-	max-width: 914px;
+	max-width: 894px;
 	@include auto;
 	& > *:first-child{
 		background: $ice;
-		padding: 60px 124px 76px;
+		padding: 40px 20px 30px;
+		@include tab{
+			padding: 60px 112px 45px;
+		}
+	}
+}
+
+@mixin contactTitle{
+	@include heading4;
+	font-size: 3.5rem;
+	line-height: 1.28;
+}
+
+@mixin contactContent{
+	color: $brightBlue;
+	font-size: 1.75rem;
+	line-height: 1.42;
+	.field{
+		@include safeFlex(row,nowrap,start,start);
+		&:not(:last-child){
+			margin-bottom: $spaceXxs;
+			.address{
+				margin-bottom: 0;
+			}
+		}
+		.icon-wrapper{
+			width: 16px;
+			margin-right: 12px;
+		}
+		.field-content{
+			width: calc(100% - 28px);
+		}
+	}
+	.field-address{
+		svg{
+			max-height: 17px;
+			margin-top: 4px;
+		}
+	}
+	.field-email{
+		svg{
+			max-height: 16px;
+			margin-top: 1px;
+		}
+	}
+	.field-phone{
+		svg{
+			max-height: 15px;
+			margin-top: 2px;
+		}
 	}
 }
 
@@ -20,8 +69,12 @@
 	}
 	#node-section-1{
 		margin-bottom: $elementSpace;
+		h1.page-title{
+			color: $brightBlue;
+		}
 		.block-field:not(.block-title){
 			margin-bottom: $spaceXxs;
+			@include contactContent;
 		}
 	}//end node section 1
 	#node-section-2{
@@ -34,12 +87,22 @@
 .node-widget-contact{
 	@include contactHolder;
 	.contact-wrapper{
-		@include safeFlex(row,wrap,start,start);
-		@include bleed(padding,20px);
-		& > *{
-			@include tab{
-				width: 50%;
+		@include tab{
+			@include safeFlex(row,wrap,start,start);
+			@include bleed(padding,20px);
+			& > *{
+					width: 50%;
+				}
 			}
+	}//end contact wrapper
+	.contact-title{
+		@include contactTitle;
+		padding-bottom: 32px;
+		@include tab{
+			padding-left: 20px;
 		}
+	}
+	.contact-content{
+		@include contactContent;
 	}
 }//end contact widget
