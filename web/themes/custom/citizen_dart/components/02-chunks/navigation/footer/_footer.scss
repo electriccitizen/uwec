@@ -28,14 +28,16 @@
 				&.menu-button{
 					border: 1px solid $prefooterLink;
 					border-radius: 25px;
-					line-height: 1.15;
-					padding: $buttonPadding;
+					padding: 13px 20px 10px;
+					min-width: 116px;
 					display: inline-block;
 					text-align: center;
 					text-transform: uppercase;
 					font-family: $header;
 					font-weight: $heavy;
 					font-size: $button;
+					line-height: 16.8px;
+					letter-spacing: .1em;
 					&:hover,&:focus{
 						text-decoration: none;
 					}
@@ -49,8 +51,13 @@
 .block-footer-for-menu{
 	ul:not(.contextual-links){
 		@include listReset;
+		li{
+			padding-bottom: 0;
+		}
 		a{
 			color: $prefooterLink;
+			line-height: 29px;
+			font-size: 14px;
 			&:hover,&:focus{
 				color: $prefooterLinkHover;
 			}
@@ -60,20 +67,24 @@
 		.link-label{
 			font-family: $displayHeader;
 			font-style: italic;
+			font-size: 13.34px;
 		}
 		a{
 			font-family: $header;
 			font-weight: $xHeavy;
 			text-transform: uppercase;
+			letter-spacing: .05em;
 		}
-	}
+	}//end audience menu
 	.additional-audience-menu{
 		ul:not(.contextual-links){
-			margin-top: $spaceMd;
+			margin-top: 14px;
 			border-top: 1px solid rgba(255,255,255,.12);
-			padding-top: $spaceMd;
-			margin-bottom: $spaceMd;
+			padding-top: 14px;
+			margin-bottom: 7rem;
 			a{
+				font-size: 12px;
+				padding-bottom: 2px;
 				@include dottedLink($prefooterLink);
 				&:hover,&:focus{
 					background: none;
@@ -81,13 +92,16 @@
 				}
 			}
 		}
-	}
+	}//end additional audience
 }//end footer-for menu
 
 //Footer ancillary left
 .block-footer-ancillary-left-menu{
 	ul:not(.contextual-links){
 		@include listReset;
+		li{
+			padding-bottom: $spaceXxs;
+		}
 		@include tab{
 			@include safeFlex(row,wrap,start,end);
 			@include bleed(padding,10px);
@@ -98,6 +112,9 @@
 		a{
 			color: $footerLink;
 			font-size: 1.5rem;
+			line-height: 3rem;
+			padding-bottom: 2px;
+			@include dottedLink($footerLink);
 			&:hover,&:focus{
 				color: $footerLinkHover;
 			}
