@@ -1,0 +1,19 @@
+uuid: 85e11198-0413-4faf-8404-3b1de8ef2442
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_headline
+    - paragraphs.paragraphs_type.step_item
+id: paragraph.step_item.field_headline
+field_name: field_headline
+entity_type: paragraph
+bundle: step_item
+label: Headline
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

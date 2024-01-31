@@ -9,6 +9,7 @@ $em-base: 8px;
 $smallTab: 520px;
 $tab: 800px;
 $desk: 984px;
+$contentStopMargin: 1320px;
 $contentStop: 1440px;
 $largeScreen: 1600px;
 $textMax: 650px;
@@ -35,7 +36,7 @@ $formElementSpace: $spaceXs;
 $elementSpace: $spaceLg;
 $siteBottomSpace: 12rem;
 
-$buttonPadding: 2rem 3.5rem;
+$buttonPadding: 1.625rem 3rem 1.35rem;
 $submitPadding: 0 2rem;
 
 $sideBar: 300px;
@@ -60,6 +61,13 @@ $sectionGutter: 40px;
 		@content;
 	}
 }
+
+@mixin contentStopMargin {
+	@media screen and (min-width: $contentStopMargin) {
+		@content;
+	}
+}
+
 
 @mixin contentStop {
 	@media screen and (min-width: $contentStop) {

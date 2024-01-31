@@ -80,18 +80,20 @@
 					<div class="cta-image">
 						{{ drupal_entity('media', content.field_cta_bar.0['#paragraph'].field_image.0.target_id, '1920x1445') }}
 					</div>
-					<div class="cta-text">
-						<div class="cta-headline">
-							{{- content.field_cta_bar.0['#paragraph'].field_headline.0.value -}}
-						</div>
-						{% if content.field_cta_bar.0['#paragraph'].field_additional_text.0.value %}
-							<div class="cta-text">
-								{{- content.field_cta_bar.0['#paragraph'].field_additional_text.0.value -}}
+					<div class="cta-text-wrapper">
+						<div class="cta-text-left">
+							<div class="cta-headline">
+								{{- content.field_cta_bar.0['#paragraph'].field_headline.0.value -}}
 							</div>
-						{% endif %}
-					</div>
-					<div class="cta-button">
-						<a href="{{ content.field_cta_bar.0['#paragraph'].field_link.0.url }}">{{ content.field_cta_bar.0['#paragraph'].field_link.0.title }}</a> 
+							{% if content.field_cta_bar.0['#paragraph'].field_additional_text.0.value %}
+								<div class="cta-text">
+									{{- content.field_cta_bar.0['#paragraph'].field_additional_text.0.value -}}
+								</div>
+							{% endif %}
+						</div>
+						<div class="cta-text-right">
+							<a href="{{ content.field_cta_bar.0['#paragraph'].field_link.0.url }}">{{ content.field_cta_bar.0['#paragraph'].field_link.0.title }}</a> 
+						</div>
 					</div>
 				</div>
 			</div>

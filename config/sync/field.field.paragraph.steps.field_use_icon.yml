@@ -1,0 +1,21 @@
+uuid: fa9dcf63-e906-4cf1-8f75-f5259ed1b8fb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_use_icon
+    - paragraphs.paragraphs_type.steps
+id: paragraph.steps.field_use_icon
+field_name: field_use_icon
+entity_type: paragraph
+bundle: steps
+label: 'Icons?'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

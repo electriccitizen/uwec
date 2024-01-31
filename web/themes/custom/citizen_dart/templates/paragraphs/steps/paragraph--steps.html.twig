@@ -38,49 +38,23 @@
 #}
 
 {% extends 'paragraph.html.twig' %}
-	
+
 {% block widgetContent %}
-	{% set links = content.field_link_multi %}
-	{% set files = content.field_file_multi['#items'] %}
-
-	{%- if links or files -%}
-		<div class="field links-files">
-			{% set listCount = 0 %}
-			{%- for key, link in links -%}
-				{% if key|first != '#' %}
-					{% set listCount = listCount + 1 %}
-					<div class="lf-item link" data-item="{{ listCount }}">
-						<div class="lf-inner">
-							{% block link %}
-								<a href="{{ link['#url'] }}">
-									<span>{{- link['#title'] -}}</span>
-								</a>
-							{% endblock %}
-						</div>
-					</div>
-				{% endif %}
-			{%- endfor -%}
-			{%- for key, file in files -%}
-				{% if key|first != '#' %}
-					{% set listCount = listCount + 1 %}
-					<div class="lf-item file" data-item="{{ listCount }}">
-						<div class="lf-inner">
-              {% set fileLink = file_url(file.entity.field_media_file.entity.fileuri) %}
-              {% if file.entity.field_media_file.0.description %}
-                {% set fileName = file.entity.field_media_file.0.description %}
-              {% else %}
-                {% set fileName = file.entity.field_media_file.entity.filename.0.value %}
-              {% endif %}
-							{% block file %}
-                <a href="{{ fileLink }}" class="lf-file-link">
-                  <span>{{ fileName }}</span>
-                </a>
-							{% endblock %}
-						</div>
-					</div>
-				{% endif %}
-			{%- endfor -%}
-		</div>
-	{%- endif -%}
+	{# Check if the 'Use Icon' field is true #}
+		{# Render 'Step Item' paragraphs with icons #}
+		{% for item in paragraph.field_step_items %}
+      <div class="step">
+        <div class="step-number">
+          {{ loop.index > 9 ? loop.index : '0' ~ loop.index }}
+          {% if paragraph.field_use_icon.value %}
+            <div class="step-icon">{{ drupal_field('field_icon', 'paragraph', item.target_id) }}</div>
+          {% endif %}
+        </div>
+        <div class="step-details">
+          {{ drupal_field('field_headline', 'paragraph', item.target_id) }}
+          {{ drupal_field('field_long_text', 'paragraph', item.target_id) }}
+          {{ drupal_field('field_link', 'paragraph', item.target_id) }}
+        </div>
+      </div>
+		{% endfor %}
 {% endblock %}
-

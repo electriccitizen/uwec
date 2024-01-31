@@ -18,7 +18,7 @@ third_party_settings:
     unpublish_enable: false
     unpublish_required: false
     unpublish_revision: false
-name: 'Slate script tag types'
+name: 'Slate Form Types'
 vid: slate_script_tag_types
 description: 'Select either simple or dynamic Slate script tag'
 weight: 0

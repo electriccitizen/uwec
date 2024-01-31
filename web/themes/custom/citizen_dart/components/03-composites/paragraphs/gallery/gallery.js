@@ -13,7 +13,6 @@
 						galleryFadeIn: 300,
 						openSpeed: 300
 					});
-					$('.')
 				});
 			});
 			//Slider

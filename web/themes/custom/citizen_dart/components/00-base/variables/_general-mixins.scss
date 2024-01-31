@@ -545,6 +545,18 @@
 	}
 }
 
+@include keyframes(breathe){
+	from{
+		scale: 1;
+	}
+	50%{
+		scale: 1.075;
+	}
+	100%{
+		scale: 1;
+	}
+}
+
 .fadeIn {
 	@include animation('fadeIn 1.5s 1');
 }

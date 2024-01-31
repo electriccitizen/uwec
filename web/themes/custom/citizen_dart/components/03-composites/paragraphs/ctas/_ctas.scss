@@ -6,7 +6,11 @@
 @use '../../../01-parts/buttons/button-mixins' as *;
 
 .paragraph--type--ctas{
-
+	.dialog-off-canvas-main-canvas .node-support-book &{
+		*{
+			transform-style: unset;
+		}
+	}
 	.cta-trio{
 		max-width: 1045px;
 		@include auto;
@@ -38,18 +42,14 @@
 			@include safeFlex(row,wrap,start,center);
 			&:after{
 				@include fullBack($brightBlue);
-				z-index: -2;
-			}
-			.cta-text{
-				width: 60%;
-				padding-right: 20px;
+				z-index: -4;
 			}
 			article{
 				position: absolute;
 				top: 0;
 				left: 0;
 				width: 100%;
-				height: 100%;
+				height: 200%;
 				z-index: -1;
 				mix-blend-mode: multiply;
 				.field-media-image{
@@ -57,14 +57,29 @@
 					height: 100%;
 					position: relative;
 					overflow: hidden;
+					z-index: -2;
 					img{
 						width: 100%;
 				    height: 100%; 
-				    object-fit: cover;
 				    filter: grayscale(100%);
+						position: relative;
+						z-index: -3;
+						object-fit: cover;
 					}
 				}
 			}//end article
+			.cta-text-wrapper{
+				@include safeFlex(row,wrap,start,center);
+				.cta-text-left{
+					width: 60%;
+					padding-right: 20px;
+				}
+				.cta-text-right{
+					a{
+						@include outlineButton($white);
+					}
+				}
+			}
 		}//end cita item inner
 	}//end is bar
 

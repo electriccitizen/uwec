@@ -1364,6 +1364,7 @@ display:
     display_plugin: page
     position: 2
     display_options:
+      title: 'Testimonial Review'
       fields:
         title:
           id: title
@@ -1779,6 +1780,7 @@ display:
           view_mode: teaser
       defaults:
         access: false
+        title: false
         style: false
         row: false
         fields: false
