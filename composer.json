@@ -138,6 +138,9 @@
       "drupal/focal_point": {
         "Preview modal closes media library": "https://www.drupal.org/files/issues/2020-10-06/3162210-17.patch",
         "Require jquery_ui_draggable": "https://www.drupal.org/files/issues/2023-04-03/3351521-2.patch"
+      },
+      "drupal/migrate_source_csv": {
+        "#3406342: Support League/CSV": "https://www.drupal.org/files/issues/2023-12-05/migrate_source_csv-3406342-7.patch"
       }
     },
     "composer-exit-on-patch-failure": true,
