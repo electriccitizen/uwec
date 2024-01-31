@@ -1,8 +1,8 @@
 <?php
 
-namespace Drupal\city_migration\Plugin\migrate\process;
+namespace Drupal\citizen_migrate\Plugin\migrate\process;
 
-use Drupal\citizen_migrate\CMProcess;
+use Drupal\citizen_migrate\Plugin\migrate\CMProcess;
 use Drupal\citizen_migrate\Anchor;
 use Drupal\citizen_migrate\Image;
 use Drupal\migrate\MigrateException;
@@ -89,7 +89,7 @@ class CmTextProcessor extends CMProcess {
     }
 
     // Get the storage service to hold all the processed tag data.
-    $storage = \Drupal::service('tempstore.private')->get('city_migration');
+    $storage = \Drupal::service('tempstore.private')->get('citizen_migrate');
     // Clear any data from the preceding row.
     $this->all_tag_data = [];
 
