@@ -62,6 +62,13 @@ $sectionGutter: 40px;
 	}
 }
 
+@mixin contentStopMargin {
+	@media screen and (min-width: $contentStopMargin) {
+		@content;
+	}
+}
+
+
 @mixin contentStop {
 	@media screen and (min-width: $contentStop) {
 		@content;

@@ -61,7 +61,6 @@
 			li{
 				margin: 0 3px;
 				a{
-					color: $footerLink;
 					*{
 						transform-style: unset;
 					}
@@ -73,10 +72,9 @@
 						fill: $footerLink;
 					}
 					&:hover,&:focus{
-						color: $footerLinkHover;
 						svg,.cls-1{
+              transition: fill .3s ease;
 							fill: $footerLinkHover;
-							color: $footerLinkHover;
 						}
 					}
 				}
