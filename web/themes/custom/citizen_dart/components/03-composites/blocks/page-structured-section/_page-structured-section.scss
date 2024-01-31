@@ -5,7 +5,7 @@
 @use '../../../01-parts/buttons/button-mixins' as *;
 
 .block-structured-section {
-	padding-top: $elementSpace;
+  padding-top: $elementSpace;
 	position: relative;
 	padding-bottom: 300px;
 	&:before{
@@ -60,18 +60,6 @@
       position: relative;
       color: $white;
       padding-bottom: 100px;
-      &:after{
-      	content: '';
-			 	display: block;
-			 	width: 5000px;
-			 	height: 600px;
-			 	@include rotate(-16);
-			 	background: $white;
-			 	position: absolute;
-			 	bottom: -400px;
-			 	left: -800px;
-			 	z-index: -2;
-      }
       .cta-section-inner {
          @include safeFlex(row,wrap,start,start);
          @include bleed(padding, $spaceLg);
@@ -133,5 +121,15 @@
          }//end first last
       }//end CTA section inner
    }//end CTA section
+  .angle-cut{
+    position: absolute;
+    bottom: 0;
+    right: -$siteMarginMobile;
+    width: 100vw;
+    height: 29vw;
+    clip-path: polygon(100% 0%, 0% 100%, 100% 100%);
+    background: $siteBack;    
+    z-index: 1;
+  }
 }//end block page-structured-section
 

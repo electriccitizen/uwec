@@ -39,17 +39,6 @@
 		width: 100%;
 		max-width: $contentStop;
 		position: relative;
-		&:before{
-			content: '';
-			display: block;
-			position: absolute;
-			z-index: -1;
-			top: 50%;
-			left: 50%;
-			width: 100vw;
-			height: 400px;
-			background: $prefooterBack;
-		}
 	}
 	p{
 		margin-bottom: $spaceXxs;

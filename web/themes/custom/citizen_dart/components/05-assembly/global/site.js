@@ -25,8 +25,8 @@ Drupal.behaviors.backToTop = {
       //scroll to toc
       $('.back-anchor a').click(function(e){
         e.preventDefault();
-        $('html, body').animate({
-          scrollTop: $('body').offset().top - 10
+        $('.overflow-guard .dialog-off-canvas-main-canvas').animate({
+          scrollTop: $('.layout-container').offset().top - 10
         });
       });
     });
