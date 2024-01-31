@@ -22,8 +22,7 @@
 // FOOTER ADDRESS
 .block-2{
 	color: $gold;
-	position: relative;
-	@include onlySmall{
+	@include onlyMobile{
 		padding-top: 150px;
 		margin-top: 20px;
 		max-width: 282px;
@@ -33,9 +32,24 @@
 		background-size: 63px 92px;
 		background-position: top center;
 	}
-	@include tab{
+	@include desk{
 		color: $black;
 		background: $gold;
+		padding: 45px 40px 200px;
+		width: 100%;
+		max-width: $contentStop;
+		position: relative;
+		&:before{
+			content: '';
+			display: block;
+			position: absolute;
+			z-index: -1;
+			top: 50%;
+			left: 50%;
+			width: 100vw;
+			height: 400px;
+			background: $prefooterBack;
+		}
 	}
 	p{
 		margin-bottom: $spaceXxs;
