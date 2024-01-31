@@ -15,7 +15,7 @@ migration_group: ecm
 # Example: files, media, taxonomy, etc.
 # @Drush: fin drush migrate:import --tag=files
 migration_tags:
-  - default
+  - nodes
 
 # Adding dependencies allows migrations to be run in the proper
 # order when run as part of the ECM Group or in a tag.
@@ -43,6 +43,8 @@ include:
 source:
   plugin: uwec_url
   urls: 'https://athena.apps.uwec.edu/api/testimonials.json'
+  constants:
+    isactive: 1
   fields:
     - name: id
       label: 'ID'

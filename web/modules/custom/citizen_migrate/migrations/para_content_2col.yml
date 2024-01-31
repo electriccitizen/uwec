@@ -49,6 +49,8 @@ include:
 source:
   plugin: uwec_url_paragraphs
   urls: 'https://athena.apps.uwec.edu/api/pages.json'
+  constants:
+    ispublished: 1
   row_id: 22
   fields:
     - name: parentId

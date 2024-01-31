@@ -43,6 +43,9 @@ include:
 source:
   plugin: uwec_url
   urls: 'https://athena.apps.uwec.edu/api/programs.json'
+  constants:
+    ispublished: 1
+    isactive: 1
   fields:
     - name: id
       label: 'ID'

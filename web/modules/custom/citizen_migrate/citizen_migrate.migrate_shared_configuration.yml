@@ -21,6 +21,7 @@ json_defaults:
       limit: null
       unit_id: null
       isactive: null
+      ispublished: null
     data_fetcher_options:
       iterator:
         limit: '@constants/limit'

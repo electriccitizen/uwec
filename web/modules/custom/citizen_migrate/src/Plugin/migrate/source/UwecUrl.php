@@ -26,6 +26,7 @@ class UwecUrl extends Url {
     $configuration['urls'] = $url . '?apikey=' . getenv('API_KEY') . '&limit=' . $configuration['constants']['limit'];
     $configuration['urls'] = $configuration['urls'] . '&unit_id=' . $configuration['constants']['unit_id'];
     $configuration['urls'] = $configuration['urls'] . '&isactive=' . $configuration['constants']['isactive'];
+    $configuration['urls'] = $configuration['urls'] . '&ispublished=' . $configuration['constants']['ispublished'];
     parent::__construct($configuration, $plugin_id, $plugin_definition, $migration);
   }
 
