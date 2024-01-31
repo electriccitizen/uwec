@@ -5,6 +5,22 @@
 
 // visit apply etc
 .block-footer-menu{
+	@include desk{
+		position: relative;
+		&:before{
+			content: '';
+			display: block;
+			position: absolute;
+			bottom: calc(100% + 97px);
+			left: calc(50% - 32px);
+			width: 62px;
+			height: 92px;
+			background-image: url(../images/logos-badges/uwec-stacked-gold.svg);
+			background-repeat: no-repeat;
+			background-size: contain;
+			background-position: top center;
+		}
+	}
 	ul:not(.contextual-links){
 		@include listReset;
 		@include safeFlex(row,wrap,center,center);
