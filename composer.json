@@ -141,6 +141,9 @@
       },
       "drupal/migrate_source_csv": {
         "#3406342: Support League/CSV": "https://www.drupal.org/files/issues/2023-12-05/migrate_source_csv-3406342-7.patch"
+      },
+      "drupal/superfish": {
+        "D10 compatibility patch": "https://www.drupal.org/files/issues/2023-01-18/3299991-drupal-10-compatibility-fixes-7.patch"
       }
     },
     "composer-exit-on-patch-failure": true,
