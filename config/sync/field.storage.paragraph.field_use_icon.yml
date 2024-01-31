@@ -1,0 +1,18 @@
+uuid: db8fdda5-cd92-4660-847a-3219c3a7cb1c
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+id: paragraph.field_use_icon
+field_name: field_use_icon
+entity_type: paragraph
+type: boolean
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

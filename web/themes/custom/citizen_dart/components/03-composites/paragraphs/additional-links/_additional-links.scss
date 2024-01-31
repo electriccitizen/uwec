@@ -3,21 +3,65 @@
 ================== */
 
 @use '../../../00-base/base' as *;
+@use '../../../02-chunks/media/media-mixins' as *;
 
-.paragraph--type--links-files{
-	@include textConstrain;
-	//set margins for links and files lists
-	.links-files{
-		margin-top: 2.5rem;
-		&.multi-col{
+.paragraph--type--links-files {
+	max-width: $contentStopMargin;
+	@include auto;
+	.links-files {
+		@include safeFlex(row,wrap,start,stretch);
+		@include bleed(padding,20px);
+		.widget-section > .layout--twocol-section &{
 			@include smallTab{
-				.node-section > .layout.one-column &,.widget-section > .layout--onecol &{
-					@include cssColumns(2,4rem,nobreak);
+				@include safeFlex(row,wrap,center,stretch);
+				.lf-item{
+					width: 100% !important;
+					max-width: 335px;
 				}
 			}
 		}
-		& > div{
-			margin-bottom: 1rem;
+		.lf-item{
+			width: 100%;
+			@include smallTab{
+				width: 50%;
+			}
+			@include desk{
+				width: 25%;
+			}
 		}
-	}
-}//end links-files widget
+		.lf-inner{
+			border-top: 1px solid $borderRule;
+			padding: 10px 0px 12px;
+			min-height: 83px;
+			a{
+				@include heading2;
+				font-size: 2.25rem;
+				line-height: 24px;
+				padding-bottom: 3px;
+        display: block;
+        padding-right: 50px;
+        position: relative;
+				&:after{
+					content: '';
+					display: block;
+					position: absolute;
+					top: 2px;
+					right: 2px;
+					@include rightArrow(navy,transparent,$navy,sm);
+				}
+				&:hover,&:focus{
+					text-decoration: none;
+          span{
+					  @include dottedLink($sky);
+          }
+					&:after{
+						@include rightArrow(white,$navy,$navy,sm);
+					}
+				}
+        &.lf-file-link{
+          @include docIcon;
+        }
+			}//end a
+		}//end lf inner
+	}//end links-files
+}//end paragraph type links-files

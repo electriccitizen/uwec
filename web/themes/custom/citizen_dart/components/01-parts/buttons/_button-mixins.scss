@@ -34,7 +34,7 @@
 	border: 1px solid $buttonText;
 	border-radius: 25px;
 	color: $buttonText;
-	line-height: 1.15;
+	line-height: 1.2;
 	padding: $buttonPadding;
 	display: inline-block;
 	vertical-align: top;
@@ -42,9 +42,10 @@
 	text-align: center;
 	text-transform: uppercase;
 	font-family: $header;
-	font-weight: $heavy;
+	font-weight: $xHeavy;
 	font-size: $button;
 	margin-bottom: $spaceMd;
+	letter-spacing: .1em;
 	&:hover,&:focus {
 		color: $buttonTextHover;
 		background-color: $buttonBackHover;
@@ -52,6 +53,7 @@
 		@include transAll(.3s);
 		text-decoration: none;
 		outline: 0;
+		@include animation('breathe .75s 1');
 	}
 	&:active{
 		color: $buttonTextActive;

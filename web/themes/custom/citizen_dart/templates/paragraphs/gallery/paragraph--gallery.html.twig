@@ -70,7 +70,30 @@
 	    {% elseif 'slider' in galleryStyle %}
 	      {% block sliderContent %}
 	        {{ attach_library('citizen_dart/slick') }}
-  	 			{{- content.field_gallery_items -}}
+					<div class="field-gallery-items">
+						{%- for key, item in content.field_gallery_items -%}
+							{%- if key|first != '#' and item['#paragraph'].field_image.0.target_id > 0 -%}
+								<div class="slider-wrapper">
+									<div class="slider-image">
+										{{ drupal_entity('media', item['#paragraph'].field_image.0.target_id, '1096x619') }}
+									</div>
+									<div class="slide-meta">
+										<div class="slide-counter">{{key + 1}}/{{content.field_gallery_items['#items']|length}}</div>
+										{% if item['#paragraph'].field_caption_headline.0.value or item['#paragraph'].field_caption.0.value %}
+											<div class="slide-caption">
+												{% if item['#paragraph'].field_caption_headline.0.value %}
+													<div class="field field-caption-headline string">{{ item['#paragraph'].field_caption_headline.0.value }}</div>
+												{% endif %}
+												{% if item['#paragraph'].field_caption.0.value %}
+													<div class="field field-caption string-long">{{ item['#paragraph'].field_caption.0.value }}</div>
+												{% endif %}
+											</div>
+										{% endif %}
+									</div>
+								</div>
+							{% endif %}
+						{% endfor %}
+					</div>	
 	      {% endblock %}
       {% elseif 'masonry' in galleryStyle %}
 				{% block masonryContent %}

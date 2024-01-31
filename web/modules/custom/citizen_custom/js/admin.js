@@ -189,6 +189,41 @@
     }
   };//end slate
 
+  Drupal.behaviors.stepWidget = {
+    attach: function (context, settings) {
+
+      function toggleFields(fields, display){
+        for(var i = 0; i < fields.length; i++){
+          fields[i].style.display = display; 
+        }
+      }
+      // Select all the checkbox elements with the class 'js-form-type-checkbox' under '.field--name-field-use-icon'
+      $(once('isStepForm', '.field--name-field-use-icon .js-form-type-checkbox', context)).each(function () {
+        // Select the checkbox element with the class 'form-boolean--type-checkbox' within the current iteration
+        let checkbox = $(this).find('.form-boolean--type-checkbox');
+       
+        $(document).ajaxComplete(function () {
+          let iconFields = document.querySelectorAll('.paragraph-type--step-item .field--name-field-icon');
+          if(checkbox.is(':checked')){
+            toggleFields(iconFields, "block");
+          } else {
+            toggleFields(iconFields, "none");
+          }
+          // Attach a change event handler to the checkbox
+          checkbox.change(function () {
+            // Toggle the display of iconFields based on the checkbox state
+            if($(this).is(':checked')){
+              toggleFields(iconFields, "block");
+            } else {
+              toggleFields(iconFields, "none");
+            }
+          });
+        });
+      });
+    }
+  }; //end step
+  
+
   /* Add paragraph preview labels
   ----------------------- */
   Drupal.behaviors.previewLabel = {

@@ -49,8 +49,10 @@
 .widget{
 	width: 100%;
 	padding: 0 $siteMarginMobile;
-	padding: 0 $siteMarginMobile;
 	position: relative;
+	@include contentStop{
+		padding: 0 $siteMarginDesk;
+	}
 	//regular widgets not in layout sections
 	&:not(.layout-section){
 		margin-bottom: $elementSpace;

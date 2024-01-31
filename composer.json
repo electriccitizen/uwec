@@ -82,7 +82,7 @@
     "drupal/smart_date": "^4.0",
     "drupal/stable": "^2.0",
     "drupal/stage_file_proxy": "^2.0",
-    "drupal/superfish": "^1.7",
+    "drupal/superfish": "1.x-dev@dev",
     "drupal/svg_image": "^3.0",
     "drupal/token": "^1.7",
     "drupal/twig_tweak": "^3.1",
@@ -144,6 +144,16 @@
       },
       "drupal/entity_usage": {
         "Undefined array key bug": "https://www.drupal.org/files/issues/2023-11-29/3383042-3-re-rolling-undefined-array-key.patch"
+      },
+      "drupal/token": {
+        "Responsive Preview Integration": "https://www.drupal.org/files/issues/2021-08-13/responsive_preview_support_3218969-6.patch"
+      },
+      "drupal/superfish": {
+      	"D10 compatibility patch": "https://www.drupal.org/files/issues/2023-01-18/3299991-drupal-10-compatibility-fixes-7.patch"
+      },
+
+      "drupal/entity_usage": {
+      	"Undefined array key bug": "https://www.drupal.org/files/issues/2023-11-29/3383042-3-re-rolling-undefined-array-key.patch"
       }
     },
     "composer-exit-on-patch-failure": true,
