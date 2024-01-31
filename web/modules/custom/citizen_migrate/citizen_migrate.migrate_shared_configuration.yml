@@ -19,6 +19,8 @@ json_defaults:
     item_selector: /
     constants:
       limit: null
+      unit_id: null
+      isactive: null
     data_fetcher_options:
       iterator:
         limit: '@constants/limit'
@@ -92,12 +94,15 @@ paragraph_defaults:
 
 # Node defaults for common settings across all Node migrations.
 node_defaults:
-  source:
-    cm_type: node
+#  source:
+#    cm_type: node
   process:
-    created: created
-    changed: changed
-    langcode: language
+#    created: created
+#    changed: changed
+    status: isactive
+    langcode:
+      plugin: default_value
+      default_value: en
     uid:
       plugin: default_value
       default_value: 1

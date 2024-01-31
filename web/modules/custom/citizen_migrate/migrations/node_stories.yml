@@ -31,6 +31,7 @@ migration_dependencies:
 include:
   - cm_defaults
   - json_defaults
+  - node_defaults
 
 # Keys set here for source, process and destination will override
 # any keys with the same name set in the shared configuration.
@@ -40,11 +41,129 @@ include:
 # @ATTN: EMPTY KEYS WILL THROW AN EXCEPTION.
 # If you uncomment any of the source, process or destination keys,
 # you must put a field with a value.
-source: { }
+source:
+  plugin: uwec_url
+  urls: 'https://athena.apps.uwec.edu/api/stories.json'
+  constants:
+    unit_id: 35
+    isactive: 1
+  fields:
+    - name: id
+      label: 'ID'
+      selector: id
+    - name: image_id
+      label: 'Image ID'
+      selector: image_id
+    - name: title
+      label: 'Title'
+      selector: title
+    - name: article
+      label: 'Article'
+      selector: article
+    - name: excerpt
+      label: 'Excerpt'
+      selector: excerpt
+    - name: featuredheadline
+      label: 'Featured Headline'
+      selector: featuredheadline
+    - name: pub_date
+      label: 'Publication Date'
+      selector: pub_date
+    - name: exp_date
+      label: 'Expiration Date'
+      selector: exp_date
+    - name: updated_at
+      label: 'Updated Date'
+      selector: updated_at
+    - name: isactive
+      label: 'Is Active'
+      selector: isactive
+    - name: units
+      label: 'Units'
+      selector: unit_ids
+
+  ids:
+    id:
+      type: integer
 
 # Add processing for fields specific to this content type.
-process: { }
-
+process:
+  article:
+    plugin: skip_on_empty
+    method: row
+    source: article
+  title:
+    plugin: default_value
+    default_value: '(no title)'
+    source: title
+  created:
+    plugin: format_date
+    source: pub_date
+    from_format: 'Y-m-d H:i:s'
+    to_format: 'U'
+  changed:
+    plugin: format_date
+    source: updated_at
+    from_format: 'Y-m-d H:i:s'
+    to_format: 'U'
+  'field_intro_text/value': excerpt
+  'field_intro_text/format':
+    plugin: default_value
+    default_value: limited_html
+  images:
+    - plugin: dom
+      method: import
+      source: article
+    -
+      plugin: cm_content_logger
+      log_data: false
+      tag: figure
+  text:
+    - plugin: dom
+      method: import
+      source: article
+    -
+      plugin: dom_remove
+      selector: //figure
+    -
+      plugin: cm_content_logger
+      log_data: false
+      tag: p
+  paragraphs:
+    plugin: cm_array_merge
+    source:
+      - '@images'
+      - '@text'
+  field_paragraphs:
+    plugin: sub_process
+    source: '@paragraphs'
+    process:
+      new_id:
+        -
+          plugin: migration_lookup
+          migration:
+            - stories_images
+            - stories_text
+          source:
+            - legacy_id
+            - index
+            - tag
+      target_id:
+        -
+          plugin: single_value
+          source: '@new_id'
+        -
+          plugin: extract
+          index:
+            - 0
+      target_revision_id:
+        -
+          plugin: single_value
+          source: '@new_id'
+        -
+          plugin: extract
+          index:
+            - 1
 
 destination:
   plugin: entity:node
