@@ -31,6 +31,7 @@ migration_dependencies:
 include:
   - cm_defaults
   - json_defaults
+  - node_defaults
 
 # Keys set here for source, process and destination will override
 # any keys with the same name set in the shared configuration.
@@ -67,7 +68,7 @@ source:
 process:
   title: title
   field_formatted_title: title
-
+  status: ispublished
   field_paragraphs:
     -
       plugin: single_value

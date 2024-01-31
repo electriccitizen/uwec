@@ -101,11 +101,11 @@ process:
     source: pub_date
     from_format: 'Y-m-d H:i:s'
     to_format: 'U'
-  changed:
-    plugin: format_date
-    source: updated_at
-    from_format: 'Y-m-d H:i:s'
-    to_format: 'U'
+#  changed:
+#    plugin: format_date
+#    source: updated_at
+#    from_format: 'Y-m-d H:i:s'
+#    to_format: 'U'
   'field_intro_text/value': excerpt
   'field_intro_text/format':
     plugin: default_value

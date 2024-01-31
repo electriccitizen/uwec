@@ -99,7 +99,11 @@ node_defaults:
 #    cm_type: node
   process:
 #    created: created
-#    changed: changed
+  changed:
+    plugin: format_date
+    source: updated_at
+    from_format: 'Y-m-d H:i:s'
+    to_format: 'U'
     status: isactive
     langcode:
       plugin: default_value
