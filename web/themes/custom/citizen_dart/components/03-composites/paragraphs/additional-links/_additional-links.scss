@@ -3,6 +3,7 @@
 ================== */
 
 @use '../../../00-base/base' as *;
+@use '../../../02-chunks/media/media-mixins' as *;
 
 .paragraph--type--links-files {
 	max-width: $contentStopMargin;
@@ -30,39 +31,37 @@
 		}
 		.lf-inner{
 			border-top: 1px solid $borderRule;
-			padding: 10px 50px 12px 0;
+			padding: 10px 0px 12px;
 			min-height: 83px;
-			position: relative;
 			a{
 				@include heading2;
 				font-size: 2.25rem;
 				line-height: 24px;
 				padding-bottom: 3px;
+        display: block;
+        padding-right: 50px;
+        position: relative;
 				&:after{
 					content: '';
 					display: block;
 					position: absolute;
-					top: 10px;
-					right: 0;
+					top: 2px;
+					right: 2px;
 					@include rightArrow(navy,transparent,$navy,sm);
 				}
 				&:hover,&:focus{
 					text-decoration: none;
-					@include dottedLink($sky);
+          span{
+					  @include dottedLink($sky);
+          }
 					&:after{
 						@include rightArrow(white,$navy,$navy,sm);
 					}
 				}
+        &.lf-file-link{
+          @include docIcon;
+        }
 			}//end a
-			.file a{
-				position: static;
-				padding-left: 0;
-				&:before{
-					position: relative;
-					top: 2px;
-					display: inline-block;
-				}
-			}
 		}//end lf inner
 	}//end links-files
 }//end paragraph type links-files

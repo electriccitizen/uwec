@@ -26,12 +26,19 @@
 			background: $accordHeaderBack;
 			min-height: 84px;
 			@include safeFlex(column,nowrap,center,start);
+      @include desk{
+        font-size: 2.5rem;
+        line-height: 32px;
+      }
 			.accordion-chevron{
 				position: absolute;
 				top: calc(50% - 12px);
 				right: 10px;
 				display: block;
 				transition: transform .3s ease-in-out;
+        @include desk{
+          top: calc(50% - 15px);
+        }
 				svg{
 					fill: none;
 				}
@@ -52,6 +59,9 @@
 		background: $accordContentBack;
 		border-left: 1px solid $accordContentBorder;
 		border-right: 1px solid $accordContentBorder;
+    @include desk{
+      padding: 0 20px 60px;
+    }
 	}
 
 	//active accordion

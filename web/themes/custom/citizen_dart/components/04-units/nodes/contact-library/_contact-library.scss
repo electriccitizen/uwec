@@ -20,6 +20,10 @@
 	@include heading4;
 	font-size: 3.5rem;
 	line-height: 1.28;
+  @include tab{
+    font-size: 4rem;
+    line-height: 1.25;
+  }
 }
 
 @mixin contactContent{

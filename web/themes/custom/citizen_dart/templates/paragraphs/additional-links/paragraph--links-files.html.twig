@@ -53,7 +53,7 @@
 						<div class="lf-inner">
 							{% block link %}
 								<a href="{{ link['#url'] }}">
-									{{- link['#title'] -}}
+									<span>{{- link['#title'] -}}</span>
 								</a>
 							{% endblock %}
 						</div>
@@ -65,8 +65,16 @@
 					{% set listCount = listCount + 1 %}
 					<div class="lf-item file" data-item="{{ listCount }}">
 						<div class="lf-inner">
+              {% set fileLink = file_url(file.entity.field_media_file.entity.fileuri) %}
+              {% if file.entity.field_media_file.0.description %}
+                {% set fileName = file.entity.field_media_file.0.description %}
+              {% else %}
+                {% set fileName = file.entity.field_media_file.entity.filename.0.value %}
+              {% endif %}
 							{% block file %}
-								{{ drupal_entity('media', file.entity.id, 'default') }}
+                <a href="{{ fileLink }}" class="lf-file-link">
+                  <span>{{ fileName }}</span>
+                </a>
 							{% endblock %}
 						</div>
 					</div>
