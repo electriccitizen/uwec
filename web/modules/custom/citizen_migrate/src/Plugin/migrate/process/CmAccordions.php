@@ -20,7 +20,6 @@ class CmAccordions extends \Drupal\citizen_migrate\Plugin\migrate\CMProcess {
     $migration = $this->configuration['migration'];
 
     $accordion_item = $lookup->lookup($migration, [$value[0], $value[1]]);
-    $this->cmTools->logToConsole($accordion_item);
     return $accordion_item;
   }
 
