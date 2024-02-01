@@ -57,9 +57,6 @@ if (isset($_ENV['PANTHEON_ENVIRONMENT'])) {
 
     default:
       $config['config_split.config_split.dev']['status'] = TRUE;
-//      $secretsFile = $_SERVER['HOME'] . '/files/private/secrets.json';
-//      $secrets = json_decode(file_get_contents($secretsFile),  1);
-//      $settings['uwec_api_key'] = $secrets['uwec_api_key'];
       break;
 
   }
