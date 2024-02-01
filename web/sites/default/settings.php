@@ -38,7 +38,7 @@ if (file_exists($secretsFile)) {
   $secrets = json_decode(file_get_contents($secretsFile), 1);
   $settings['uwec_api_key'] = $secrets['uwec_api_key'];
 }
-
+$settings['uwec_api_key'] = 'banana';
 /**
  * Set up config splits
  */
