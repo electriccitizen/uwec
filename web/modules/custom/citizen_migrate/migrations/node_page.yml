@@ -1,0 +1,86 @@
+id: page
+label: 'Page Nodes'
+
+# This migration will be run with all the other migrations in
+# the ECM group when using the --group tag in Drush.
+#
+# Example: fin drush migrate:import --group=ecm
+migration_group: ecm
+
+# This migration will be run with the other migrations when
+# this tag is called in Drush with any migrate command. Tags
+# allow you to create and run smaller migration clusters
+# of similar items.
+#
+# Example: files, media, taxonomy, etc.
+# @Drush: fin drush migrate:import --tag=files
+migration_tags:
+  - nodes
+
+# Adding dependencies allows migrations to be run in the proper
+# order when run as part of the ECM Group or in a tag.
+migration_dependencies:
+  required: { }
+  optional: { }
+
+# These keys hold the shared configuration used by this and other
+# migrations of this type. You can add or modify the keys in the
+# shared config file.
+#
+# @See citizen_migrate.migrate_shared_configuration.yml.
+include:
+  - cm_defaults
+  - json_defaults
+  - node_defaults
+
+# Keys set here for source, process and destination will override
+# any keys with the same name set in the shared configuration.
+#
+# @See citizen_migrate.migrate_shared_configuration.yml.
+#
+# @ATTN: EMPTY KEYS WILL THROW AN EXCEPTION.
+# If you uncomment any of the source, process or destination keys,
+# you must put a field with a value.
+source:
+  plugin: uwec_url
+  urls: 'https://athena.apps.uwec.edu/api/pages.json'
+  constants:
+    ispublished: 1
+  get_page_rows: true
+  fields:
+    - name: id
+      label: 'ID'
+      selector: id
+    - name: title
+      label: 'Title'
+      selector: title
+    - name: url
+      label: 'URL'
+      selector: url
+    - name: data
+      label: 'Data'
+      selector: data
+  ids:
+    id:
+      type: integer
+
+# Add processing for fields specific to this content type.
+process:
+  title: title
+  field_formatted_title: title
+  status: ispublished
+  field_paragraphs:
+    -
+      plugin: single_value
+      source: data
+    -
+      plugin: cm_field_paragraphs
+    -
+      plugin: sub_process
+      process:
+        target_id: id
+        target_revision_id: revision_id
+
+destination:
+  plugin: entity:node
+  default_bundle: page
