@@ -60,6 +60,9 @@ source:
     - name: data
       label: 'Data'
       selector: data
+    - name: ispublished
+      label: 'Is Published'
+      selector: ispublished
   ids:
     id:
       type: integer
@@ -68,7 +71,10 @@ source:
 process:
   title: title
   field_formatted_title: title
-  status: ispublished
+  status:
+    plugin: default_value
+    default_value: 1
+    source: ispublished
   field_paragraphs:
     -
       plugin: single_value

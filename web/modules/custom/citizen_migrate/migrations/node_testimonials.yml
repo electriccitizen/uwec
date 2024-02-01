@@ -65,6 +65,9 @@ source:
     - name: updated_at
       label: 'Updated'
       selector: updated_at
+    - name: isactive
+      label: 'Is Active'
+      selector: isactive
   ids:
     id:
       type: integer
