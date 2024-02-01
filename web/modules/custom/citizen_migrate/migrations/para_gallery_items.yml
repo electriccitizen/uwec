@@ -1,0 +1,105 @@
+id: gallery_items
+label: 'Gallery Items'
+
+# This migration will be run with all the other migrations in
+# the ECM group when using the --group tag in Drush.
+#
+# Example: fin drush migrate:import --group=ecm
+migration_group: ecm
+
+# This migration will be run with the other migrations when
+# this tag is called in Drush with any migrate command. Tags
+# allow you to create and run smaller migration clusters
+# of similar items.
+#
+# Example: files, media, taxonomy, etc.
+# @Drush: fin drush migrate:import --tag=files
+migration_tags:
+  - para
+  - para_gallery
+
+# Adding dependencies allows migrations to be run in the proper
+# order when run as part of the ECM Group or in a tag.
+migration_dependencies:
+  required: { }
+#    - files_doc
+#    - files_img
+#    - media_doc
+#    - media_img
+#    - media_video
+  optional: { }
+
+# These keys hold the shared configuration used by this and other
+# migrations of this type. You can add or modify the keys in the
+# shared config file.
+#
+# @See citizen_migrate.migrate_shared_configuration.yml.
+include:
+  - cm_defaults
+  - json_defaults
+
+# Keys set here for source, process and destination will override
+# any keys with the same name set in the shared configuration.
+#
+# @See citizen_migrate.migrate_shared_configuration.yml.
+#
+# @ATTN: EMPTY KEYS WILL THROW AN EXCEPTION.
+# If you uncomment any of the source, process or destination keys,
+# you must put a field with a value.
+source:
+  plugin: uwec_url_paragraphs
+  urls: 'https://athena.apps.uwec.edu/api/pages.json'
+  constants:
+    ispublished: 1
+  row_id: 47
+  get_photos: true
+  source_log: 'gallery_items.csv'
+  fields:
+    - name: parentId
+      label: 'Parent ID'
+      selector: parentId
+    - name: rowIndex
+      label: 'Row Index'
+      selector: rowIndex
+    - name: imageIndex
+      label: 'Image Index'
+      selector: imageIndex
+    - name: image_id
+      label: 'Image ID'
+      selector: image_id
+    - name: image_title
+      label: 'Image Title'
+      selector: image_title
+    - name: image_caption
+      label: 'Image Caption'
+      selector: image_caption
+  ids:
+    parentId:
+      type: integer
+    rowIndex:
+      type: integer
+    imageIndex:
+      type: integer
+
+# Add processing for fields specific to this content type.
+process:
+  type:
+    plugin: default_value
+    default_value: 'gallery_item'
+  parent_type:
+    plugin: default_value
+    default_value: paragraph
+  parent_field_name:
+    plugin: default_value
+    default_value: field_gallery_items
+
+  'field_image/target_id':
+    plugin: migration_lookup
+    migration: media_img
+    source: image_id
+  field_caption_headline: image_title
+  field_caption: image_caption
+
+destination:
+  plugin: entity_reference_revisions:paragraph
+  default_bundle: gallery_item

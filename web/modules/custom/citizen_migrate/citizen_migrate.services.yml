@@ -1,0 +1,22 @@
+services:
+  citizen_migrate.event_subscriber:
+    class: Drupal\citizen_migrate\EventSubscriber\CmDataLogger
+    arguments: ['@messenger', '@cm.tools', '@tempstore.private']
+    tags:
+      - { name: event_subscriber }
+  citizen_migrate.post_migrate_event_subscriber:
+    class: Drupal\citizen_migrate\EventSubscriber\CmPostMigrationLogger
+    arguments: [ '@messenger', '@cm.tools', '@tempstore.private' ]
+    tags:
+      - { name: event_subscriber }
+  cm.tools:
+    class: Drupal\citizen_migrate\Services\CmTools
+    arguments: ['@database', '@file_system', '@logger.factory']
+  citizen_migrate.fetch_active_files:
+    class: Drupal\citizen_migrate\Commands\CmFetchActiveFiles
+    tags:
+      - { name: drush.command }
+  citizen_migrate.text_row_processing:
+    class: Drupal\citizen_migrate\Commands\CmTextFieldSplit
+    tags:
+      - { name: drush.command }

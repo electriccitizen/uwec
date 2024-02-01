@@ -30,6 +30,7 @@ include __DIR__ . "/settings.pantheon.php";
  */
 $settings['config_sync_directory'] = "../config/sync";
 
+
 /**
  * Set up config splits
  */

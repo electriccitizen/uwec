@@ -7,6 +7,13 @@ $databases['default']['default'] = array (
   'host' => 'db',
   'driver' => 'mysql',
 );
+$databases['migrate']['default'] = array (
+  'database' => 'migrate',
+  'username' => 'user',
+  'password' => 'user',
+  'host' => 'db',
+  'driver' => 'mysql',
+);
 
 $settings['hash_salt'] = 'I wish i were a boy in France.';
 

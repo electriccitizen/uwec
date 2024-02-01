@@ -1,0 +1,102 @@
+id: hours
+label: 'Hours Library'
+
+# This migration will be run with all the other migrations in
+# the ECM group when using the --group tag in Drush.
+#
+# Example: fin drush migrate:import --group=ecm
+migration_group: ecm
+
+# This migration will be run with the other migrations when
+# this tag is called in Drush with any migrate command. Tags
+# allow you to create and run smaller migration clusters
+# of similar items.
+#
+# Example: files, media, taxonomy, etc.
+# @Drush: fin drush migrate:import --tag=files
+migration_tags:
+  - nodes
+
+# Adding dependencies allows migrations to be run in the proper
+# order when run as part of the ECM Group or in a tag.
+migration_dependencies:
+  required: { }
+  optional: { }
+
+# These keys hold the shared configuration used by this and other
+# migrations of this type. You can add or modify the keys in the
+# shared config file.
+#
+# @See citizen_migrate.migrate_shared_configuration.yml.
+include:
+  - cm_defaults
+  - json_defaults
+  - node_defaults
+
+# Keys set here for source, process and destination will override
+# any keys with the same name set in the shared configuration.
+#
+# @See citizen_migrate.migrate_shared_configuration.yml.
+#
+# @ATTN: EMPTY KEYS WILL THROW AN EXCEPTION.
+# If you uncomment any of the source, process or destination keys,
+# you must put a field with a value.
+source:
+  plugin: uwec_url
+  urls: 'https://athena.apps.uwec.edu/api/hours.json'
+  constants:
+    isactive: 1
+  fields:
+    - name: id
+      label: 'ID'
+      selector: id
+    - name: name
+      label: 'Name'
+      selector: name
+    - name: location_id
+      label: 'Location ID'
+      selector: location_id
+    - name: isactive
+      label: 'isActive'
+      selector: isactive
+    - name: schedules
+      label: 'Schedules'
+      selector: schedules
+  ids:
+    id:
+      type: integer
+
+# Add processing for fields specific to this content type.
+process:
+  title: name
+
+  field_hours:
+    plugin: sub_process
+    source: schedules
+    include_source: true
+    source_key: source_node
+    process:
+      lookup_val:
+        plugin: migration_lookup
+        migration: para_schedules
+        source:
+          - source_node/id
+          - name
+      target_id:
+        - plugin: single_value
+          source: '@lookup_val'
+        - plugin: extract
+          source: '@lookup_val'
+          index:
+            - 0
+      target_revision_id:
+        - plugin: single_value
+          source: '@lookup_val'
+        - plugin: extract
+          source: '@lookup_val'
+          index:
+            - 1
+
+destination:
+  plugin: entity:node
+  default_bundle: hours
