@@ -30,15 +30,6 @@ include __DIR__ . "/settings.pantheon.php";
  */
 $settings['config_sync_directory'] = "../config/sync";
 
-/**
- * Get api key.
- */
-$settings['uwec_api_key'] = 'default';
-$secretsFile = $_SERVER['HOME'] . '/files/private/secrets.json';
-if (file_exists($secretsFile)) {
-  $secrets = json_decode(file_get_contents($secretsFile), 1);
-  $settings['uwec_api_key'] = $secrets['uwec_api_key'];
-}
 
 /**
  * Set up config splits
@@ -57,9 +48,6 @@ if (isset($_ENV['PANTHEON_ENVIRONMENT'])) {
 
     default:
       $config['config_split.config_split.dev']['status'] = TRUE;
-//      $secretsFile = $_SERVER['HOME'] . '/files/private/secrets.json';
-//      $secrets = json_decode(file_get_contents($secretsFile),  1);
-//      $settings['uwec_api_key'] = $secrets['uwec_api_key'];
       break;
 
   }
