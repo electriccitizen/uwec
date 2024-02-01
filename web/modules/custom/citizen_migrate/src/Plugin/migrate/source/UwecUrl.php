@@ -23,7 +23,7 @@ class UwecUrl extends Url {
   public function __construct(array $configuration, $plugin_id, $plugin_definition, MigrationInterface $migration) {
     // Construct the parameters for the URL.
     $url = $configuration['urls'];
-    $api_key = Settings::get('uwec_api_key');
+    $api_key = Settings::get('uwec_api_key', 2);
     $configuration['urls'] = $url . '?apikey=' . $api_key . '&limit=' . $configuration['constants']['limit'];
     $configuration['urls'] = $configuration['urls'] . '&unit_id=' . $configuration['constants']['unit_id'];
     $configuration['urls'] = $configuration['urls'] . '&isactive=' . $configuration['constants']['isactive'];
