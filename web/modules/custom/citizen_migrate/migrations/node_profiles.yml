@@ -216,20 +216,16 @@ process:
 #  field_import_date: 0
   field_last_name: last_name
   field_last_override: last_name
-  'field_links/uri':
-    - website_url
-    - people_page_url
-    - google_scholar_url
-    - cv_resume_url
-    - resume_url
-    - cv_url
-  'field_links/title':
-    - website_url
-    - people_page_url
-    - google_scholar_url
-    - cv_resume_url
-    - resume_url
-    - cv_url
+  links:
+    plugin: get
+    source:
+      - website_url
+      - people_page_url
+      - google_scholar_url
+      - cv_resume_url
+      - resume_url
+      - cv_url
+  field_links: '@links'
   field_middle_name: middle_name
   field_office: hrs_room
 #  field_page_families: 0
@@ -247,13 +243,15 @@ process:
 #  field_platforms: 0
 #  field_suffixes:
   'field_interests/value':
-    - teaching_interest
-    - research_interest
+    plugin: concat
+    source:
+      - teaching_interest
+      - research_interest
   'field_interests/format':
     plugin: default_value
     default_value: limited_html
-#  'field_platforms/uri':
-
+##  'field_platforms/uri':
+#
   field_position: title
   field_position_override: title
   field_username: username
