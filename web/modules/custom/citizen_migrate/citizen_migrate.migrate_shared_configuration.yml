@@ -104,13 +104,13 @@ node_defaults:
     source: updated_at
     from_format: 'Y-m-d H:i:s'
     to_format: 'U'
-    status: isactive
-    langcode:
-      plugin: default_value
-      default_value: en
-    uid:
-      plugin: default_value
-      default_value: 1
+  status: isactive
+  langcode:
+    plugin: default_value
+    default_value: en
+  uid:
+    plugin: default_value
+    default_value: 1
 
 # Table defaults for common settings of individual table migrations.
 table_defaults:

@@ -3,6 +3,7 @@
 namespace Drupal\citizen_migrate\Plugin\migrate\source;
 
 use Drupal\citizen_migrate\migrate_plus\data_parser\CmJsonDataParser;
+use Drupal\Core\Site\Settings;
 use Drupal\migrate\Annotation\MigrateSource;
 use Drupal\migrate\Plugin\MigrationInterface;
 use Drupal\migrate_plus\DataParserPluginInterface;
@@ -23,7 +24,8 @@ class UwecUrl extends Url {
     // Construct the parameters for the URL.
     $url = $configuration['urls'];
 
-    $configuration['urls'] = $url . '?apikey=' . getenv('API_KEY') . '&limit=' . $configuration['constants']['limit'];
+    $api_key = Settings::get('uwec_api_key', 2);
+    $configuration['urls'] = $url . '?apikey=' . $api_key . '&limit=' . $configuration['constants']['limit'];
     $configuration['urls'] = $configuration['urls'] . '&unit_id=' . $configuration['constants']['unit_id'];
     $configuration['urls'] = $configuration['urls'] . '&isactive=' . $configuration['constants']['isactive'];
     $configuration['urls'] = $configuration['urls'] . '&ispublished=' . $configuration['constants']['ispublished'];
