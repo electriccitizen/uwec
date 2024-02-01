@@ -1,0 +1,263 @@
+id: profiles
+label: 'Profiles'
+
+# This migration will be run with all the other migrations in
+# the ECM group when using the --group tag in Drush.
+#
+# Example: fin drush migrate:import --group=ecm
+migration_group: ecm
+
+# This migration will be run with the other migrations when
+# this tag is called in Drush with any migrate command. Tags
+# allow you to create and run smaller migration clusters
+# of similar items.
+#
+# Example: files, media, taxonomy, etc.
+# @Drush: fin drush migrate:import --tag=files
+migration_tags:
+  - nodes
+
+# Adding dependencies allows migrations to be run in the proper
+# order when run as part of the ECM Group or in a tag.
+migration_dependencies:
+  required: { }
+  optional: { }
+
+# These keys hold the shared configuration used by this and other
+# migrations of this type. You can add or modify the keys in the
+# shared config file.
+#
+# @See citizen_migrate.migrate_shared_configuration.yml.
+include:
+  - cm_defaults
+  - json_defaults
+
+# Keys set here for source, process and destination will override
+# any keys with the same name set in the shared configuration.
+#
+# @See citizen_migrate.migrate_shared_configuration.yml.
+#
+# @ATTN: EMPTY KEYS WILL THROW AN EXCEPTION.
+# If you uncomment any of the source, process or destination keys,
+# you must put a field with a value.
+source:
+  plugin: uwec_url
+  urls: 'https://athena.apps.uwec.edu/api/profiles.json'
+  constants:
+    isactive: 1
+  fields:
+    - name: id
+      label: 'Id'
+      selector: id
+    - name: isactive
+      label: 'Is Active'
+      selector: isactive
+    - name: is_alum
+      label: 'Is Alum'
+      selector: is_alum
+    - name: biography
+      label: 'bio'
+      selector: biography
+    - name: first_name #
+      label: 'First name'
+      selector: first_name
+    - name: middle_name
+      label: 'Middle name'
+      selector: middle_name
+    - name: last_name #
+      label: 'Last name'
+      selector: last_name
+    - name: nicknames
+      label: 'Nicknames'
+      selector: nicknames
+    - name: pronouns
+      label: 'Pronouns'
+      selector: pronouns
+    - name: email #
+      label: 'Email'
+      selector: email
+    - name: username #
+      label: 'Username'
+      selector: username
+    - name: office_hours
+      label: 'Office Hours'
+      selector: office_hours
+    - name: preferred_phone #
+      label: 'Phone'
+      selector: preferred_phone
+    - name: website_url
+      label: 'Website'
+      selector: website_url
+    - name: people_page_url
+      label: 'People Page'
+      selector: people_page_url
+    - name: google_scholar_url
+      label: 'Google Scholar'
+      selector: google_scholar_url
+    - name: cv_resume_url
+      label: 'Resume/CV'
+      selector: cv_resume_url
+    - name: education_info
+      label: 'Education Info'
+      selector: education_info
+    - name: certification_info
+      label: 'Certifications'
+      selector: certification_info
+    - name: teaching_interest
+      label: 'Teaching Interest'
+      selector: teaching_interest
+    - name: research_interest
+      label: 'Research Interests'
+      selector: research_interest
+#    - name: responsibility
+    - name: short_bio
+      label: 'Short Bio'
+      selector: short_bio
+    - name: areas_of_expertise
+      label: 'Areas of Expertise'
+      selector: areas_of_expertise
+#    - name: prof_membership
+#    - name: prev_prof_experience
+    - name: honor_recognition
+      label: 'Honor/Recognition'
+      selector: honor_recognition
+    - name: pub_published_research
+      label: 'Published Research'
+      selector: pub_published_research
+    - name: resume_url
+      label: 'Resume URL'
+      selector: resume_url
+    - name: cv_url
+      label: 'CV URL'
+      selector: cv_url
+    - name: title
+      label: 'Title'
+      selector: title
+    - name: prefix_id
+      label: 'Prefix'
+      selector: prefix_id
+    - name: headshot_image_id
+      label: 'Headshot'
+      selector: headshot_image_id
+    - name: isemeritus
+      label: 'Emeritus'
+      selector: isemeritus
+    - name: campuses
+      label: 'Campuses'
+      selector: campuses
+    - name: updated_at
+      label: 'Last Updated'
+      selector: updated_at
+    - name: suffix_ids
+      label: 'Suffixes'
+      selector: suffix_ids
+    - name: social_links
+      label: 'Social Links'
+      selector: social_links
+    - name: hrs_title #
+      label: 'HRS Title'
+      selector: hrs_title
+    - name: hrs_title_formatted #
+      label: 'HRS Title formatted'
+      selector: hrs_title_formatted
+    - name: hrs_department_name #
+      label: 'HRS Dept name'
+      selector: hrs_department_name
+    - name: hrs_building #
+      label: 'HRS Building'
+      selector: hrs_building
+    - name: hrs_room #
+      label: 'HRS Rm#'
+      selector: hrs_room
+    - name: units
+      label: 'Units'
+      selector: units
+  ids:
+    id:
+      type: integer
+
+# Add processing for fields specific to this content type.
+process:
+  field_active: isactive
+  field_is_alumni: isalum
+  field_athena_id: id
+  'body/value': bio
+  'body/format':
+    plugin: default_value
+    default_value: limited_html
+  field_campus: campuses
+#  field_cv: 0
+#  field_departments: 0
+  'field_education/value': education_info
+  'field_education/format':
+    plugin: default_value
+    default_value: limited_html
+  field_email: email
+  field_emeriti_status:
+    plugin: static_map
+    source: isemeritus
+    map:
+      0: not_emeritus
+      1: teaching_emeritus
+      2: active_emeritus
+      3: inactive_emeritus
+#  field_faculty_staff: 0
+  field_first_name: first_name
+  field_first_override: first_name
+  field_image:
+    plugin: migration_lookup
+    migration: media_img
+    source: headshot_image_id
+  'field_honors/value': honor_recognition
+  'field_honors/format':
+    plugin: default_value
+    default_value: limited_html
+  'field_office_hours/value': office_hours
+#  field_import_date: 0
+  field_last_name: last_name
+  field_last_override: last_name
+  'field_links/uri':
+    - website_url
+    - people_page_url
+    - google_scholar_url
+    - cv_resume_url
+    - resume_url
+    - cv_url
+  'field_links/title':
+    - website_url
+    - people_page_url
+    - google_scholar_url
+    - cv_resume_url
+    - resume_url
+    - cv_url
+  field_middle_name: middle_name
+  field_office: hrs_room
+#  field_page_families: 0
+  field_phone: preferred_phone
+  field_prefixes: prefix_id
+#  field_programs: 0
+  'field_publications/value': pub_published_research
+  'field_publications/format':
+    plugin: default_value
+    default_value: limited_html
+  'field_short_bio/value': short_bio
+  'field_short_bio/format':
+    plugin: default_value
+    default_value: limited_html
+#  field_platforms: 0
+#  field_suffixes:
+  'field_interests/value':
+    - teaching_interest
+    - research_interest
+  'field_interests/format':
+    plugin: default_value
+    default_value: limited_html
+#  'field_platforms/uri':
+
+  field_position: title
+  field_position_override: title
+  field_username: username
+
+destination:
+  plugin: entity:node
+  default_bundle: bios
