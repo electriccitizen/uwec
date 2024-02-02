@@ -20,6 +20,7 @@ dependencies:
     - field.field.node.page.field_subtitle
     - field.field.node.page.layout_builder__layout
     - node.type.page
+    - system.menu.departments
     - system.menu.main
   module:
     - entity_reference_revisions
@@ -93,7 +94,7 @@ third_party_settings:
             region: first
             configuration:
               id: 'menu_block:main'
-              label: 'In This Section'
+              label: 'Page Section'
               label_display: visible
               provider: menu_block
               context_mapping: {  }
@@ -107,6 +108,26 @@ third_party_settings:
               parent: 'main:'
               suggestion: section_menu
             weight: 0
+            additional: {  }
+          047bf0eb-87ff-4d7a-9ef0-502f64f82eaa:
+            uuid: 047bf0eb-87ff-4d7a-9ef0-502f64f82eaa
+            region: first
+            configuration:
+              id: 'menu_block:departments'
+              label: 'Department Section'
+              label_display: visible
+              provider: menu_block
+              context_mapping: {  }
+              follow: true
+              follow_parent: active
+              label_link: true
+              label_type: root
+              level: 2
+              depth: 3
+              expand_all_items: false
+              parent: 'departments:'
+              suggestion: section_menu_department
+            weight: 1
             additional: {  }
         third_party_settings: {  }
       -
@@ -144,6 +165,8 @@ third_party_settings:
       denylisted_blocks: {  }
       allowlisted_blocks:
         Menus:
+          - 'menu_block:departments'
+          - 'system_menu_block:departments'
           - 'menu_block:main'
           - 'system_menu_block:main'
         System:
@@ -156,7 +179,6 @@ third_party_settings:
         - Help
         - 'Inline blocks'
         - 'Responsive Preview'
-        - 'Site Search'
         - 'Social Share'
         - Superfish
         - User
