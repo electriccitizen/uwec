@@ -60,21 +60,21 @@
         	{% endif %}
       	{% endfor %}
           {%- if count > 1 -%}
-          <label for="panel-select-{{ u }}" hidden>Change the visible hours.</label>
-          <select class="panel-select" id="panel-select-{{ u }}">
-            {%- for index, item in items -%}
-            	{% set currentDay = 'now'|date('U') %}
-		        	{% set displayStart = item.content['#paragraph'].field_display_range.0.value %}
-		        	{% set displayEnd = item.content['#paragraph'].field_display_range.0.end_value %}
-		        	{% if displayStart %}
-		        		{% if currentDay > displayStart and currentDay < displayEnd %}
-		        			<option value="select-panel-{{ u }}-{{ index }}">{{ item.content['#paragraph'].field_set_title.value }}</option>
-		        		{% endif %}
-		        	{% else %}
-		        		<option value="select-panel-{{ u }}-{{ index }}">{{ item.content['#paragraph'].field_set_title.value }}</option>
-		        	{% endif %}
-            {%- endfor -%}
-          </select>
+            <label for="panel-select-{{ u }}" hidden>Change the visible hours.</label>
+            <select class="panel-select" id="panel-select-{{ u }}">
+              {%- for index, item in items -%}
+                {% set currentDay = 'now'|date('U') %}
+                {% set displayStart = item.content['#paragraph'].field_display_range.0.value %}
+                {% set displayEnd = item.content['#paragraph'].field_display_range.0.end_value %}
+                {% if displayStart %}
+                  {% if currentDay > displayStart and currentDay < displayEnd %}
+                    <option value="select-panel-{{ u }}-{{ index }}">{{ item.content['#paragraph'].field_set_title.value }}</option>
+                  {% endif %}
+                {% else %}
+                  <option value="select-panel-{{ u }}-{{ index }}">{{ item.content['#paragraph'].field_set_title.value }}</option>
+                {% endif %}
+              {%- endfor -%}
+            </select>
           {%- endif -%}
         {% block fieldMultiNoItems %}
           {%- for index, item in items -%}
