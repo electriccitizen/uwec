@@ -171,6 +171,9 @@
 		}
     @include contentStopMargin{
       padding-bottom: 20px;
+      .logged-in &{
+        padding-bottom: 80px;
+      }
     }
 		& > div{
 			@include safeFlex(row,wrap,justify,end);
