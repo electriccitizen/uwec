@@ -48,6 +48,10 @@
 				background: $accordHeaderBackHover;
 				border-color: $accordHeaderBorderHover;
 				@include transAll(.3s);
+        text-decoration: none;
+        .accordion-header-text{
+          @include dottedLink($brightBlue);
+        }
 			}
 		}//end a
 	}//end accorion header
@@ -75,6 +79,10 @@
 					color: $accordActiveHover;
 					background: $accordActiveBackHover;
 					border-color: $accordActiveBorderHover;
+          text-decoration: none;
+          .accordion-header-text{
+            @include dottedLink($brightBlue);
+          }
 				}
 				.accordion-chevron{
 					@include rotate(180);
