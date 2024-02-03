@@ -78,7 +78,7 @@ process:
     process:
       lookup_val:
         plugin: migration_lookup
-        migration: para_schedules
+        migration: schedules
         source:
           - source_node/id
           - name
@@ -86,14 +86,14 @@ process:
         - plugin: single_value
           source: '@lookup_val'
         - plugin: extract
-          source: '@lookup_val'
+#          source: '@lookup_val'
           index:
             - 0
       target_revision_id:
         - plugin: single_value
           source: '@lookup_val'
         - plugin: extract
-          source: '@lookup_val'
+#          source: '@lookup_val'
           index:
             - 1
 
