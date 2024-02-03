@@ -99,18 +99,18 @@ node_defaults:
 #    cm_type: node
   process:
 #    created: created
-  changed:
-    plugin: format_date
-    source: updated_at
-    from_format: 'Y-m-d H:i:s'
-    to_format: 'U'
-  status: isactive
-  langcode:
-    plugin: default_value
-    default_value: en
-  uid:
-    plugin: default_value
-    default_value: 1
+    changed:
+      plugin: format_date
+      source: updated_at
+      from_format: 'Y-m-d H:i:s'
+      to_format: 'U'
+    status: isactive
+    langcode:
+      plugin: default_value
+      default_value: en
+    uid:
+      plugin: default_value
+      default_value: 1
 
 # Table defaults for common settings of individual table migrations.
 table_defaults:
