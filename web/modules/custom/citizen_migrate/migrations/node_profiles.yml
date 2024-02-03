@@ -30,6 +30,7 @@ migration_dependencies:
 include:
   - cm_defaults
   - json_defaults
+  - node_defaults
 
 # Keys set here for source, process and destination will override
 # any keys with the same name set in the shared configuration.
