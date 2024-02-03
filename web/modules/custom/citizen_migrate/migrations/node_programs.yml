@@ -1,5 +1,5 @@
-id: program
-label: 'Program'
+id: programs
+label: 'Programs'
 
 # This migration will be run with all the other migrations in
 # the ECM group when using the --group tag in Drush.

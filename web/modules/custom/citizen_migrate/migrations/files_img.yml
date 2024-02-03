@@ -81,6 +81,7 @@ source:
       type: integer
   constants:
     destination_uri: 'public://images/'
+    isactive: 1
 
 # Add processing for fields specific to this content type.
 process:
@@ -118,12 +119,12 @@ process:
     plugin: default_value
     default_value: 1
 
-#  file:
-#    plugin: download
-#    source:
-#      - url
-#      - '@destination'
-#    file_exists: use existing
+  file:
+    plugin: download
+    source:
+      - url
+      - '@destination'
+    file_exists: use existing
 
   uri: '@destination'
 

@@ -44,6 +44,8 @@ include:
 source:
   plugin: uwec_url
   urls: 'https://athena.apps.uwec.edu/api/documents.json'
+  constants:
+    isactive: 1
   fields:
     -
       name: id

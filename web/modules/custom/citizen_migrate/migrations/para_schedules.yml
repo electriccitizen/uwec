@@ -1,4 +1,4 @@
-id: para_schedules
+id: schedules
 label: 'Schedules'
 
 # This migration will be run with all the other migrations in
