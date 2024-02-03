@@ -182,7 +182,7 @@ process:
   field_active: isactive
   field_is_alumni: isalum
   field_athena_id: id
-  'body/value': bio
+  'body/value': biography
   'body/format':
     plugin: default_value
     default_value: limited_html
