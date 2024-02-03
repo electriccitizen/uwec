@@ -57,6 +57,9 @@ source:
     - name: ispublished
       label: 'Is Published'
       selector: ispublished
+    - name: isactive
+      label: 'Is Active'
+      selector: isactive
     - name: image_id
       label: 'Image ID'
       selector: image_id

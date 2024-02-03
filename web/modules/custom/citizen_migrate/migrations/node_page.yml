@@ -60,6 +60,9 @@ source:
     - name: data
       label: 'Data'
       selector: data
+    - name: ispublished
+      label: 'Is Published'
+      selector: ispublished
   ids:
     id:
       type: integer

@@ -178,6 +178,7 @@ source:
 
 # Add processing for fields specific to this content type.
 process:
+  status: isactive
   field_active: isactive
   field_is_alumni: isalum
   field_athena_id: id
