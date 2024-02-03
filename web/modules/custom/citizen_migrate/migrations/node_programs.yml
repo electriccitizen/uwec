@@ -223,7 +223,7 @@ process:
       source: related_program_ids
     -
       plugin: migration_lookup
-      migration: program
+      migration: programs
       no_stub: false
 
 #  field_minor_required: 0 # Need default value; no source data.
