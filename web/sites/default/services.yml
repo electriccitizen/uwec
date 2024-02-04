@@ -35,7 +35,7 @@ parameters:
     # the cookie domain should start with a dot.
     #
     # @default none
-    cookie_domain: '.profiles-uwec.pantheonsite.io'
+    cookie_domain: '.dev-uwec.pantheonsite.io'
     #
     # Set the session ID string length. The length can be between 22 to 256. The
     # PHP recommended value is 48. See
