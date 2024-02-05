@@ -8,9 +8,11 @@
   switch ($_ENV['PANTHEON_ENVIRONMENT']) {
     case 'live':
     case 'test':
+      $settings['container_yamls'][] = __DIR__ . '/test.services.yml';
+      break;
     case 'dev':
       $settings['container_yamls'][] = __DIR__ . '/services.yml';
-      break;
+      break;t
     default:
       $settings['container_yamls'][] = __DIR__ . '/multidev.services.yml';
       break;
