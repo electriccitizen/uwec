@@ -55,8 +55,13 @@ if (isset($_ENV['PANTHEON_ENVIRONMENT'])) {
       $config['config_split.config_split.test']['status'] = TRUE;
       break;
 
+    case 'dev':
+      $settings['container_yamls'][] = __DIR__ . '/services.yml';
+      break;
+
     default:
       $config['config_split.config_split.dev']['status'] = TRUE;
+      $settings['container_yamls'][] = __DIR__ . '/multidev.services.yml';
       break;
 
   }
