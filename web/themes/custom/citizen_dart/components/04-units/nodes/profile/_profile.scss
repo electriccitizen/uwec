@@ -3,6 +3,7 @@
 ================== */
 
 @use '../../../00-base/base' as *;
+@use '../node-mixins' as *;
 
 //bio node
 .node-bios{
@@ -13,11 +14,13 @@
 		}
 	}
 	#node-section-2{
-		max-width: 874px;
-		@include auto;
-		background: $ice;
-		margin-bottom: $elementSpace;
-		padding: 60px 124px 76px;
+		@include contactHolder;
+    .contact-title{
+      @include contactTitle;
+    }
+    .layout__region{
+      @include contactContent;
+    }
 	}
 
 	#node-section-3{
@@ -28,6 +31,8 @@
 	.block-field-image{
 		width: 100%;
 	}
+
+
 
 }//end bios
 

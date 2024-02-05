@@ -3,7 +3,6 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.hours.field_building
     - field.field.node.hours.field_domain_access
     - field.field.node.hours.field_domain_all_affiliates
     - field.field.node.hours.field_domain_source
@@ -46,14 +45,6 @@ targetEntityType: node
 bundle: hours
 mode: default
 content:
-  field_building:
-    type: string_textfield
-    weight: 1
-    region: content
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
   field_domain_access:
     type: options_buttons
     weight: 33

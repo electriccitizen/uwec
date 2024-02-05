@@ -215,24 +215,6 @@ third_party_settings:
                 third_party_settings: {  }
             weight: 3
             additional: {  }
-          78015817-8625-4378-a150-bce8ed98d5e5:
-            uuid: 78015817-8625-4378-a150-bce8ed98d5e5
-            region: first
-            configuration:
-              id: 'field_block:node:bios:field_active'
-              label_display: '0'
-              context_mapping:
-                entity: layout_builder.entity
-              formatter:
-                type: boolean
-                label: above
-                settings:
-                  format: default
-                  format_custom_false: ''
-                  format_custom_true: ''
-                third_party_settings: {  }
-            weight: 3
-            additional: {  }
         third_party_settings: {  }
       -
         layout_id: two_column_even

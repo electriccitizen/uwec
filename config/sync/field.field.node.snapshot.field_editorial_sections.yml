@@ -1,0 +1,29 @@
+uuid: cced12a6-569c-4999-837b-3697f7748acd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_editorial_sections
+    - node.type.snapshot
+    - taxonomy.vocabulary.editorial_sections
+id: node.snapshot.field_editorial_sections
+field_name: field_editorial_sections
+entity_type: node
+bundle: snapshot
+label: 'Editorial sections'
+description: 'Assign content to editorial sections in order to control access'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      editorial_sections: editorial_sections
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

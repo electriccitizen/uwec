@@ -6,9 +6,6 @@ dependencies:
     - core.entity_view_mode.media.media_library
     - image.style.medium
     - taxonomy.vocabulary.media_tags
-  content:
-    - 'taxonomy_term:media_tags:0d6e3822-a0fe-4123-a5df-3a343c741c2f'
-    - 'taxonomy_term:media_tags:4d5f287c-7ad8-4d3c-bc55-f28a8d748019'
   module:
     - media
     - media_library
@@ -463,9 +460,7 @@ display:
           admin_label: ''
           plugin_id: taxonomy_index_tid
           operator: or
-          value:
-            23: 23
-            24: 24
+          value: {  }
           group: 1
           exposed: true
           expose:
@@ -485,36 +480,33 @@ display:
               anonymous: '0'
               administrator: '0'
               editor: '0'
-              site_manager: '0'
               site_admin: '0'
               section_manager: '0'
               marketing_editor: '0'
-            reduce: true
+              personnel: '0'
+            reduce: false
           is_grouped: false
           group_info:
-            label: Tags
+            label: ''
             description: ''
-            identifier: field_media_tags_target_id
+            identifier: ''
             optional: true
             widget: select
-            multiple: true
+            multiple: false
             remember: false
             default_group: All
-            default_group_multiple:
-              All: 0
-            group_items:
-              1:
-                title: Tags
-                operator: or
-                value:
-                  23: '23'
-                  24: '24'
-          reduce_duplicates: false
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: true
           vid: media_tags
           type: select
-          hierarchy: true
+          hierarchy: false
           limit: true
           error_message: true
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
       style:
         type: default
         options:
@@ -554,34 +546,33 @@ display:
       tags:
         - 'config:core.entity_view_display.media.document.banner'
         - 'config:core.entity_view_display.media.document.default'
-        - 'config:core.entity_view_display.media.document.full'
-        - 'config:core.entity_view_display.media.document.large'
-        - 'config:core.entity_view_display.media.document.large_embed'
         - 'config:core.entity_view_display.media.document.media_library'
-        - 'config:core.entity_view_display.media.document.medium'
-        - 'config:core.entity_view_display.media.document.medium_embed'
-        - 'config:core.entity_view_display.media.document.small'
-        - 'config:core.entity_view_display.media.document.small_embed'
+        - 'config:core.entity_view_display.media.icon.default'
+        - 'config:core.entity_view_display.media.icon.icon'
+        - 'config:core.entity_view_display.media.icon.media_library'
+        - 'config:core.entity_view_display.media.image.1096x619'
+        - 'config:core.entity_view_display.media.image.1920x1445'
+        - 'config:core.entity_view_display.media.image.1920x1920'
+        - 'config:core.entity_view_display.media.image.200x200_non_crop'
+        - 'config:core.entity_view_display.media.image.240x240'
+        - 'config:core.entity_view_display.media.image.393x221'
+        - 'config:core.entity_view_display.media.image.426x426'
+        - 'config:core.entity_view_display.media.image.426x508'
+        - 'config:core.entity_view_display.media.image.42x42'
+        - 'config:core.entity_view_display.media.image.492x492'
+        - 'config:core.entity_view_display.media.image.539x304'
+        - 'config:core.entity_view_display.media.image.650x650'
+        - 'config:core.entity_view_display.media.image.730x840'
+        - 'config:core.entity_view_display.media.image.758x428'
+        - 'config:core.entity_view_display.media.image.874x492'
         - 'config:core.entity_view_display.media.image.banner'
         - 'config:core.entity_view_display.media.image.default'
-        - 'config:core.entity_view_display.media.image.full'
-        - 'config:core.entity_view_display.media.image.large'
-        - 'config:core.entity_view_display.media.image.large_embed'
-        - 'config:core.entity_view_display.media.image.large_thumb'
         - 'config:core.entity_view_display.media.image.media_library'
-        - 'config:core.entity_view_display.media.image.medium'
-        - 'config:core.entity_view_display.media.image.medium_embed'
-        - 'config:core.entity_view_display.media.image.small'
-        - 'config:core.entity_view_display.media.image.small_embed'
+        - 'config:core.entity_view_display.media.image.program_teaser'
+        - 'config:core.entity_view_display.media.image.social_share'
         - 'config:core.entity_view_display.media.image.square'
-        - 'config:core.entity_view_display.media.image.thumbnail_cropped'
-        - 'config:core.entity_view_display.media.image.views_card'
         - 'config:core.entity_view_display.media.remote_video.default'
-        - 'config:core.entity_view_display.media.remote_video.full'
-        - 'config:core.entity_view_display.media.remote_video.large_embed'
         - 'config:core.entity_view_display.media.remote_video.media_library'
-        - 'config:core.entity_view_display.media.remote_video.medium_embed'
-        - 'config:core.entity_view_display.media.remote_video.small_embed'
   page:
     id: page
     display_title: Page
@@ -850,34 +841,33 @@ display:
       tags:
         - 'config:core.entity_view_display.media.document.banner'
         - 'config:core.entity_view_display.media.document.default'
-        - 'config:core.entity_view_display.media.document.full'
-        - 'config:core.entity_view_display.media.document.large'
-        - 'config:core.entity_view_display.media.document.large_embed'
         - 'config:core.entity_view_display.media.document.media_library'
-        - 'config:core.entity_view_display.media.document.medium'
-        - 'config:core.entity_view_display.media.document.medium_embed'
-        - 'config:core.entity_view_display.media.document.small'
-        - 'config:core.entity_view_display.media.document.small_embed'
+        - 'config:core.entity_view_display.media.icon.default'
+        - 'config:core.entity_view_display.media.icon.icon'
+        - 'config:core.entity_view_display.media.icon.media_library'
+        - 'config:core.entity_view_display.media.image.1096x619'
+        - 'config:core.entity_view_display.media.image.1920x1445'
+        - 'config:core.entity_view_display.media.image.1920x1920'
+        - 'config:core.entity_view_display.media.image.200x200_non_crop'
+        - 'config:core.entity_view_display.media.image.240x240'
+        - 'config:core.entity_view_display.media.image.393x221'
+        - 'config:core.entity_view_display.media.image.426x426'
+        - 'config:core.entity_view_display.media.image.426x508'
+        - 'config:core.entity_view_display.media.image.42x42'
+        - 'config:core.entity_view_display.media.image.492x492'
+        - 'config:core.entity_view_display.media.image.539x304'
+        - 'config:core.entity_view_display.media.image.650x650'
+        - 'config:core.entity_view_display.media.image.730x840'
+        - 'config:core.entity_view_display.media.image.758x428'
+        - 'config:core.entity_view_display.media.image.874x492'
         - 'config:core.entity_view_display.media.image.banner'
         - 'config:core.entity_view_display.media.image.default'
-        - 'config:core.entity_view_display.media.image.full'
-        - 'config:core.entity_view_display.media.image.large'
-        - 'config:core.entity_view_display.media.image.large_embed'
-        - 'config:core.entity_view_display.media.image.large_thumb'
         - 'config:core.entity_view_display.media.image.media_library'
-        - 'config:core.entity_view_display.media.image.medium'
-        - 'config:core.entity_view_display.media.image.medium_embed'
-        - 'config:core.entity_view_display.media.image.small'
-        - 'config:core.entity_view_display.media.image.small_embed'
+        - 'config:core.entity_view_display.media.image.program_teaser'
+        - 'config:core.entity_view_display.media.image.social_share'
         - 'config:core.entity_view_display.media.image.square'
-        - 'config:core.entity_view_display.media.image.thumbnail_cropped'
-        - 'config:core.entity_view_display.media.image.views_card'
         - 'config:core.entity_view_display.media.remote_video.default'
-        - 'config:core.entity_view_display.media.remote_video.full'
-        - 'config:core.entity_view_display.media.remote_video.large_embed'
         - 'config:core.entity_view_display.media.remote_video.media_library'
-        - 'config:core.entity_view_display.media.remote_video.medium_embed'
-        - 'config:core.entity_view_display.media.remote_video.small_embed'
   widget:
     id: widget
     display_title: Widget
@@ -1185,9 +1175,7 @@ display:
           admin_label: ''
           plugin_id: taxonomy_index_tid
           operator: or
-          value:
-            23: 23
-            24: 24
+          value: {  }
           group: 1
           exposed: true
           expose:
@@ -1207,11 +1195,11 @@ display:
               anonymous: '0'
               administrator: '0'
               editor: '0'
-              site_manager: '0'
               site_admin: '0'
               section_manager: '0'
               marketing_editor: '0'
-            reduce: true
+              personnel: '0'
+            reduce: false
           is_grouped: false
           group_info:
             label: ''
@@ -1227,7 +1215,7 @@ display:
           reduce_duplicates: true
           vid: media_tags
           type: select
-          hierarchy: true
+          hierarchy: false
           limit: true
           error_message: true
       filter_groups:
@@ -1277,34 +1265,33 @@ display:
       tags:
         - 'config:core.entity_view_display.media.document.banner'
         - 'config:core.entity_view_display.media.document.default'
-        - 'config:core.entity_view_display.media.document.full'
-        - 'config:core.entity_view_display.media.document.large'
-        - 'config:core.entity_view_display.media.document.large_embed'
         - 'config:core.entity_view_display.media.document.media_library'
-        - 'config:core.entity_view_display.media.document.medium'
-        - 'config:core.entity_view_display.media.document.medium_embed'
-        - 'config:core.entity_view_display.media.document.small'
-        - 'config:core.entity_view_display.media.document.small_embed'
+        - 'config:core.entity_view_display.media.icon.default'
+        - 'config:core.entity_view_display.media.icon.icon'
+        - 'config:core.entity_view_display.media.icon.media_library'
+        - 'config:core.entity_view_display.media.image.1096x619'
+        - 'config:core.entity_view_display.media.image.1920x1445'
+        - 'config:core.entity_view_display.media.image.1920x1920'
+        - 'config:core.entity_view_display.media.image.200x200_non_crop'
+        - 'config:core.entity_view_display.media.image.240x240'
+        - 'config:core.entity_view_display.media.image.393x221'
+        - 'config:core.entity_view_display.media.image.426x426'
+        - 'config:core.entity_view_display.media.image.426x508'
+        - 'config:core.entity_view_display.media.image.42x42'
+        - 'config:core.entity_view_display.media.image.492x492'
+        - 'config:core.entity_view_display.media.image.539x304'
+        - 'config:core.entity_view_display.media.image.650x650'
+        - 'config:core.entity_view_display.media.image.730x840'
+        - 'config:core.entity_view_display.media.image.758x428'
+        - 'config:core.entity_view_display.media.image.874x492'
         - 'config:core.entity_view_display.media.image.banner'
         - 'config:core.entity_view_display.media.image.default'
-        - 'config:core.entity_view_display.media.image.full'
-        - 'config:core.entity_view_display.media.image.large'
-        - 'config:core.entity_view_display.media.image.large_embed'
-        - 'config:core.entity_view_display.media.image.large_thumb'
         - 'config:core.entity_view_display.media.image.media_library'
-        - 'config:core.entity_view_display.media.image.medium'
-        - 'config:core.entity_view_display.media.image.medium_embed'
-        - 'config:core.entity_view_display.media.image.small'
-        - 'config:core.entity_view_display.media.image.small_embed'
+        - 'config:core.entity_view_display.media.image.program_teaser'
+        - 'config:core.entity_view_display.media.image.social_share'
         - 'config:core.entity_view_display.media.image.square'
-        - 'config:core.entity_view_display.media.image.thumbnail_cropped'
-        - 'config:core.entity_view_display.media.image.views_card'
         - 'config:core.entity_view_display.media.remote_video.default'
-        - 'config:core.entity_view_display.media.remote_video.full'
-        - 'config:core.entity_view_display.media.remote_video.large_embed'
         - 'config:core.entity_view_display.media.remote_video.media_library'
-        - 'config:core.entity_view_display.media.remote_video.medium_embed'
-        - 'config:core.entity_view_display.media.remote_video.small_embed'
   widget_table:
     id: widget_table
     display_title: 'Widget (table)'
@@ -1636,9 +1623,7 @@ display:
           admin_label: ''
           plugin_id: taxonomy_index_tid
           operator: or
-          value:
-            23: 23
-            24: 24
+          value: {  }
           group: 1
           exposed: true
           expose:
@@ -1658,11 +1643,11 @@ display:
               anonymous: '0'
               administrator: '0'
               editor: '0'
-              site_manager: '0'
               site_admin: '0'
               section_manager: '0'
               marketing_editor: '0'
-            reduce: true
+              personnel: '0'
+            reduce: false
           is_grouped: false
           group_info:
             label: ''
@@ -1678,7 +1663,7 @@ display:
           reduce_duplicates: true
           vid: media_tags
           type: select
-          hierarchy: true
+          hierarchy: false
           limit: true
           error_message: true
       filter_groups:

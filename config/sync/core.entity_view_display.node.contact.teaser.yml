@@ -17,6 +17,7 @@ dependencies:
     - node.type.contact
   module:
     - address
+    - telephone
     - user
 id: node.contact.teaser
 targetEntityType: node
@@ -38,10 +39,10 @@ content:
     weight: 2
     region: content
   field_phone:
-    type: string
+    type: telephone_link
     label: hidden
     settings:
-      link_to_entity: false
+      title: ''
     third_party_settings: {  }
     weight: 1
     region: content

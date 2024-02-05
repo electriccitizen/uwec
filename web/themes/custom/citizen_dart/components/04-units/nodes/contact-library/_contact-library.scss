@@ -3,68 +3,7 @@
 ================ */
 
 @use '../../../00-base/base' as *;
-
-@mixin contactHolder{
-	max-width: 894px;
-	@include auto;
-	& > *:first-child{
-		background: $ice;
-		padding: 40px 20px 30px;
-		@include tab{
-			padding: 60px 112px 45px;
-		}
-	}
-}
-
-@mixin contactTitle{
-	@include heading4;
-	font-size: 3.5rem;
-	line-height: 1.28;
-  @include tab{
-    font-size: 4rem;
-    line-height: 1.25;
-  }
-}
-
-@mixin contactContent{
-	color: $brightBlue;
-	font-size: 1.75rem;
-	line-height: 1.42;
-	.field{
-		@include safeFlex(row,nowrap,start,start);
-		&:not(:last-child){
-			margin-bottom: $spaceXxs;
-			.address{
-				margin-bottom: 0;
-			}
-		}
-		.icon-wrapper{
-			width: 16px;
-			margin-right: 12px;
-		}
-		.field-content{
-			width: calc(100% - 28px);
-		}
-	}
-	.field-address{
-		svg{
-			max-height: 17px;
-			margin-top: 4px;
-		}
-	}
-	.field-email{
-		svg{
-			max-height: 16px;
-			margin-top: 1px;
-		}
-	}
-	.field-phone{
-		svg{
-			max-height: 15px;
-			margin-top: 2px;
-		}
-	}
-}
+@use '../node-mixins' as *;
 
 .node-contact{
 	padding-top: $elementSpace;

@@ -10,7 +10,7 @@ field_name: field_office
 entity_type: node
 bundle: bios
 label: Office
-description: "<strong>Example:</strong></br>\r\nHibbard Humanities Hall 717</br>\r\n124 Garfield Ave </br>\r\nEau Claire, WI 54701"
+description: "<strong>Example:</strong><br>\r\nHibbard Humanities Hall 717<br>\r\n124 Garfield Ave <br>\r\nEau Claire, WI 54701"
 required: false
 translatable: false
 default_value: {  }

@@ -4,7 +4,6 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.widget
-    - field.field.node.hours.field_building
     - field.field.node.hours.field_domain_access
     - field.field.node.hours.field_domain_all_affiliates
     - field.field.node.hours.field_domain_source
@@ -35,14 +34,6 @@ targetEntityType: node
 bundle: hours
 mode: widget
 content:
-  field_building:
-    type: string
-    label: hidden
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    weight: 0
-    region: content
   field_domain_record:
     type: entity_reference_label
     label: above

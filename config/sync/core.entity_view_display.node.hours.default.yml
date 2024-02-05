@@ -3,7 +3,6 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.hours.field_building
     - field.field.node.hours.field_domain_access
     - field.field.node.hours.field_domain_all_affiliates
     - field.field.node.hours.field_domain_source
@@ -50,25 +49,6 @@ third_party_settings:
                   link_to_entity: false
                 third_party_settings: {  }
             weight: 0
-            additional: {  }
-          507eefe4-62bf-4e03-8e69-618d47eb535d:
-            uuid: 507eefe4-62bf-4e03-8e69-618d47eb535d
-            region: first
-            configuration:
-              id: 'field_block:node:hours:field_building'
-              label: 'Building Info'
-              label_display: '0'
-              provider: layout_builder
-              context_mapping:
-                entity: layout_builder.entity
-                view_mode: view_mode
-              formatter:
-                type: string
-                label: inline
-                settings:
-                  link_to_entity: false
-                third_party_settings: {  }
-            weight: 1
             additional: {  }
           66b2cfd0-3c5d-4ff8-be80-53b4843a302f:
             uuid: 66b2cfd0-3c5d-4ff8-be80-53b4843a302f
@@ -131,14 +111,6 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: -20
-    region: content
-  field_building:
-    type: string
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    weight: 105
     region: content
   field_domain_record:
     type: entity_reference_label
