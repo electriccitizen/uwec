@@ -134,7 +134,7 @@ settings:
         - '<iframe src title frameborder aria-describedby tabindex allowtransparency width height class>'
         - '<drupal-entity data-* alt title>'
         - '<article data-* class>'
-        - '<a hreflang target id title class>'
+        - '<a hreflang target id title class name>'
         - '<ul type class>'
         - '<ol type class>'
         - '<h2 id class>'
@@ -142,7 +142,7 @@ settings:
         - '<h4 id class>'
         - '<h5 id class>'
         - '<h6 id class>'
-        - '<p class>'
+        - '<p id class>'
         - '<drupal-media data-caption title>'
     linkit_extension:
       linkit_enabled: true
