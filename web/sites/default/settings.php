@@ -49,10 +49,12 @@ if (isset($_ENV['PANTHEON_ENVIRONMENT'])) {
   switch ($_ENV['PANTHEON_ENVIRONMENT']) {
     case 'live':
       $config['config_split.config_split.live']['status'] = TRUE;
+      $settings['container_yamls'][] = __DIR__ . '/multidev.services.yml';
       break;
 
     case 'test':
       $config['config_split.config_split.test']['status'] = TRUE;
+      $settings['container_yamls'][] = __DIR__ . '/multidev.services.yml';
       break;
 
     case 'dev':
