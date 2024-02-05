@@ -62,7 +62,7 @@
 	.user-actions{
 		margin-bottom: $elementSpace;
 		@include safeFlex(row,wrap,start,start);
-		@include bleed(padding,16px);
+		@include bleed(padding,32px);
 		div{
 			display: inline-block;
 			&:not(:last-child){
@@ -73,6 +73,11 @@
 			}
 		}
 	}
+  .action-buttons{
+    a{
+      margin-right: 2rem;
+    }
+  }
 	.layout--tabs .layout__region--tabs{
 		.tab-item{
 			padding-top: 0;
