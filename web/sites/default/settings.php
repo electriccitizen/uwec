@@ -3,7 +3,19 @@
 /**
  * Load services definition file.
  */
-$settings['container_yamls'][] = __DIR__ . '/services.yml';
+
+ if (isset($_ENV['PANTHEON_ENVIRONMENT'])) {
+  switch ($_ENV['PANTHEON_ENVIRONMENT']) {
+    case 'live':
+    case 'test':
+    case 'dev':
+      $settings['container_yamls'][] = __DIR__ . '/services.yml';
+      break;
+    default:
+      $settings['container_yamls'][] = __DIR__ . '/multidev.services.yml';
+      break;
+  }
+}
 
 /**
  * Include the Pantheon-specific settings file.
@@ -49,21 +61,14 @@ if (isset($_ENV['PANTHEON_ENVIRONMENT'])) {
   switch ($_ENV['PANTHEON_ENVIRONMENT']) {
     case 'live':
       $config['config_split.config_split.live']['status'] = TRUE;
-      $settings['container_yamls'][] = __DIR__ . '/multidev.services.yml';
       break;
 
     case 'test':
       $config['config_split.config_split.test']['status'] = TRUE;
-      $settings['container_yamls'][] = __DIR__ . '/multidev.services.yml';
-      break;
-
-    case 'dev':
-      $settings['container_yamls'][] = __DIR__ . '/services.yml';
       break;
 
     default:
       $config['config_split.config_split.dev']['status'] = TRUE;
-      $settings['container_yamls'][] = __DIR__ . '/multidev.services.yml';
       break;
 
   }
