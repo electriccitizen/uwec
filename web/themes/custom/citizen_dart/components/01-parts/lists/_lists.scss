@@ -4,11 +4,23 @@
 @use '../../00-base/base' as *;
 
 ul {
-	list-style-type: disc;
-	li {
-		padding: 0 0 $spaceXxs 0;
-	}
-}
+	list-style-type: none;
+	list-style-position: inside;
+  .text-long &,.text-with-summary &{
+    & > li {
+      padding: 0 0 $spaceXxs 2.25rem;
+      text-indent: -2rem;
+      &:before {
+        content: '•';
+        display: inline-block;
+        font-size: 12px;
+      }
+    }//end li
+  }//end text long
+  ol,ul {
+    margin: $spaceXxs 0 0 $spaceSm;
+  }
+}//end ul
 
 ol {
 	list-style-type: none;
@@ -19,44 +31,27 @@ ol {
 	&[type="I"]{
 		list-style-type: upper-roman;
 	}
-	&:not([type]){
-		.text-long &,.text-with-summary &{
-			counter-reset: number;
-			& > li {
-				counter-increment: number;
-				padding: 0 0 $spaceXxs $spaceXs;
-				text-indent: -$spaceXs;
-				list-style-type:none;
-				&:before {
-					content: counter(number) '. ';
-					font-style: italic;
-					font-family: $displayHeader;
-					display: inline-block;
-					width: $spaceXxs;
-					padding-right: $spaceXxs;
-					text-align: left;
-				}
-				ol {
-					margin-top: $spaceXxs;
-					margin-bottom: $spaceXxs;
-					li {
-						list-style-type: disc;
-						list-style-position: outside;
-						text-indent: 0;
-						padding: 0 0 $spaceXxs 0;
-						&:before {
-							content: unset;
-							display: inline;
-							width: unset;
-							padding: unset;
-							text-align: unset;
-						}
-					}
-				}
-			}
-		}
-	}
-}
+  .text-long &,.text-with-summary &{
+    counter-reset: number;
+    & > li {
+      counter-increment: number;
+      padding: 0 0 $spaceXxs 1.5rem;
+      text-indent: -1.75rem;
+      list-style-type:none;
+      &:before {
+        content: counter(number) '. ';
+        font-style: italic;
+        font-family: $displayHeader;
+        display: inline-block;
+        width: 1.5rem;
+        text-align: left;
+      }
+      ol,ul {
+        margin: $spaceXxs 0 0 $spaceSm;
+      }
+    }//end li
+  }//end text-long, text-with-summary
+}//ol 
 
 //set list spacing in WYSGIWYG
 .text-with-summary,.text-long{
