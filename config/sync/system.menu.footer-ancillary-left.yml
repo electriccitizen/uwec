@@ -1,8 +1,0 @@
-uuid: 5adf9a7f-7857-4883-b0d6-54a9aad6e6ef
-langcode: en
-status: true
-dependencies: {  }
-id: footer-ancillary-left
-label: 'Footer Ancillary Left'
-description: 'Ancillary links for the bottom of the footer.'
-locked: false
