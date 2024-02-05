@@ -12,7 +12,7 @@
       break;
     case 'dev':
       $settings['container_yamls'][] = __DIR__ . '/services.yml';
-      break;t
+      break;
     default:
       $settings['container_yamls'][] = __DIR__ . '/multidev.services.yml';
       break;
