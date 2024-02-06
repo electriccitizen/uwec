@@ -88,6 +88,10 @@ source:
 
 # Add processing for fields specific to this content type.
 process:
+  'field_image/target_id':
+    plugin: migration_lookup
+    migration: media_img
+    source: image_id
   article:
     plugin: skip_on_empty
     method: row
