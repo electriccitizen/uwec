@@ -110,7 +110,10 @@ process:
 #    source: updated_at
 #    from_format: 'Y-m-d H:i:s'
 #    to_format: 'U'
-  'field_intro_text/value': excerpt
+  'field_intro_text/summary': excerpt
+  'field_intro_text/value':
+    plugin: default_value
+    default_value: ''
   'field_intro_text/format':
     plugin: default_value
     default_value: limited_html
