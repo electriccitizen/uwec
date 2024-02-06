@@ -77,6 +77,7 @@ process:
   type:
     plugin: default_value
     default_value: testimonial
+
   'field_image/target_id':
     plugin: migration_lookup
     migration: media_img
