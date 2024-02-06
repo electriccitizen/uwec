@@ -54,7 +54,7 @@ class CmPostMigrationLogger implements \Symfony\Component\EventDispatcher\EventS
         return count($b) - count($a);
       });
       array_walk($uwecLogs[$row_name], function ($row) {
-        $log_file = isset($row['log_file']) ? "public://migration-logs/{$row['log_file']}" : "public://migration-logs/unprocessed.csv";
+        $log_file = isset($row['log_file']) ? "public://migration__logs/{$row['log_file']}" : "public://migration__logs/unprocessed.csv";
         $this->cmTools->logToFile($row, $log_file, '');
       });
     }

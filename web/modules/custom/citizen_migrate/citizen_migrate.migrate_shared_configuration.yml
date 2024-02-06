@@ -111,6 +111,12 @@ node_defaults:
     uid:
       plugin: default_value
       default_value: 1
+    field_domain_access:
+      plugin: default_value
+      default_value: uwec_docksal_site
+    field_domain_source:
+      plugin: default_value
+      default_value: uwec_docksal_site
 
 # Table defaults for common settings of individual table migrations.
 table_defaults:

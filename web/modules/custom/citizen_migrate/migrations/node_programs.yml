@@ -155,7 +155,9 @@ process:
       rice-lake: 13
 #  field_college: 0 # References a content page which have yet to be built; source is not an ID.
 #  field_content_carousel: 0 # Not migrating??
-  field_courseleaf_slug: slug
+  field_courseleaf_slug:
+    plugin: default_value
+    default_value: ''
 #  field_courses: 0 # Not migrating?
   'field_courses_text/value': curriculum_content
   'field_courses_text/format':
@@ -210,10 +212,14 @@ process:
 #    plugin: default_value
 #    default_value: 32
   'field_image/target_id': #Required
-    plugin: migration_lookup
-    migration: media_img
-    source: image_id
-    no_stub: false
+    -
+      plugin: migration_lookup
+      migration: media_img
+      source: image_id
+      no_stub: false
+#    -
+#      plugin: callback
+#      callable: var_dump
 #  field_program_length: 0
 #  field_grads: 0
   field_related_programs:
@@ -229,7 +235,7 @@ process:
 #  field_minor_required: 0 # Need default value; no source data.
 #  field_keywords: 0
 #  field_domain_all_affiliates: 0
-  field_slate_slug: slug
+#  field_slate_slug: slug
 #  field_tuition_link: 0 # Needs a default value for a generic tuition page.
 #  field_whats_next: 0
   'field_outcome_text/value': outcomes_content
