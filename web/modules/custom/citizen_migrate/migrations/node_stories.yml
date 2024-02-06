@@ -133,6 +133,16 @@ process:
       plugin: dom_remove
       selector: //figure
     -
+      plugin: dom_remove
+      mode: attribute
+      selector: //*[@class]
+      attribute: class
+    -
+      plugin: dom_remove
+      mode: attribute
+      selector: //*[@style]
+      attribute: style
+    -
       plugin: cm_content_logger
       log_data: false
       tag: p

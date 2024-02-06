@@ -77,11 +77,16 @@ process:
   type:
     plugin: default_value
     default_value: testimonial
-
   'field_image/target_id':
-    plugin: migration_lookup
-    migration: media_img
-    source: image_id
+    -
+      plugin: skip_on_value
+      source: image_id
+      method: process
+      value: 0
+    -
+      plugin: migration_lookup
+      migration: media_img
+      source: image_id
   field_major: major
   'body/value': quote
   'body/format':
