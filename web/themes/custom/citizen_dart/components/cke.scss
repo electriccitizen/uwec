@@ -55,48 +55,57 @@
 	}
 
 	ul {
-		li {
-			padding: 0 0 $spaceXxs 0;
-		}
-	}
+    list-style-type: none !important;
+	  list-style-position: inside;
+		& > li {
+      padding: 0 0 $spaceXxs 1.5rem;
+      text-indent: -.75rem;
+      &:before {
+        content: '•';
+        display: inline-block;
+        font-size: 12px;
+        width: .75rem
+      }
+      ol,ul {
+        margin: $spaceXxs 0 0 $spaceXs;
+      }
+    }//end li
+    .ck-list-bogus-paragraph { 
+      display: inline;
+    }
+	}//end ul
 
 	ol:not([type]){
-		counter-reset: number;
-		margin-left: 0.5rem;
+		list-style-type: none;
+    list-style-position: inside;
+    counter-reset: number;
+    &[type="A"]{
+      list-style-type: lower-alpha;
+    }
+    &[type="I"]{
+      list-style-type: upper-roman;
+    }
 		& > li {
-			counter-increment: number;
-			padding: 0 0 $spaceXxs $spaceXs;
-			text-indent: -$spaceXs;
-			list-style-type:none;
-			&:before {
-				content: counter(number) '. ';
-				font-style: italic;
-				font-family: $displayHeader;
-				display: inline;
-				width: $spaceXxs;
-				padding-right: $spaceXxs;
-				text-align: left;
-			}
-			.ck-list-bogus-paragraph { display: inline;}
-			ol {
-				margin-top: $spaceXxs;
-				margin-bottom: 0;
-				li {
-					list-style-type: disc;
-					list-style-position: outside;
-					text-indent: 0;
-					padding: 0 0 $spaceXxs 0;
-					&:before {
-						content: unset;
-						display: inline;
-						width: unset;
-						padding: unset;
-						text-align: unset;
-					}
-				}
-			}
-		}
-	}
+      counter-increment: number;
+      padding: 0 0 $spaceXxs 1.5rem;
+      text-indent: -1rem;
+      list-style-type:none;
+      &:before {
+        content: counter(number) '. ';
+        font-style: italic;
+        font-family: $displayHeader;
+        display: inline-block;
+        width: .75rem;
+        text-align: left;
+      }
+			ol,ul {
+        margin: $spaceXxs 0 0 $spaceXs;
+      }
+		}// end > li
+    .ck-list-bogus-paragraph { 
+      display: inline;
+    }
+	}//end ol
 
 	.ck-content blockquote{
 		border-top: 1px solid $brightBlue !important;
