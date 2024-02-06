@@ -4,8 +4,8 @@ status: true
 dependencies: {  }
 id: uwec_docksal_site
 domain_id: 3438991
-hostname: dev-uwec.pantheonsite.io
+hostname: test-uwec.pantheonsite.io
 name: UWEC
 scheme: variable
 weight: 1
-is_default: false
+is_default: true

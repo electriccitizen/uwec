@@ -1,5 +1,5 @@
 hotlink: false
-origin: 'https://dev-uwec.pantheonsite.io'
+origin: 'https://test-uwec.pantheonsite.io'
 origin_dir: sites/default/files
 use_imagecache_root: false
 verify: false
