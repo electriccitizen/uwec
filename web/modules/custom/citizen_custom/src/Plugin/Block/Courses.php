@@ -73,15 +73,17 @@ class Courses extends BlockBase{
 
 		// anything but a 200 is bunk
 		if($response->getStatusCode() != 200){
+			\Drupal::logger('citizen_custom')->error('Catalog API returned response code ('.$response->getStatusCode().') with body: ('.$response->getBody().')');
 			return [];
 		}
 
 		$xml = new \SimpleXMLElement($response->getBody()->getContents());
 
-		// pick 3 random courses to parse
-		//$random_indices = $this->getRandomIndices($xml->course->count());
-
-		//foreach($random_indices as $course_idx){
+		// make sure we have at least one course in the response
+		if(empty($xml->course->count())){
+			\Drupal::logger('citizen_custom')->error('Catalog API returned a response code of 200 but there are no courses after parsing the body with SimpleXMLElement. Body: ('.$response->getBody().')');
+			return [];
+		}
 
 		// gather all courses in an array, indexed by lowercase course number
 		$allCourses = [];
@@ -105,6 +107,12 @@ class Courses extends BlockBase{
 				}
 			}
 			$allCourses[strtolower($courseData['number'])] = $courseData;
+		}
+
+		// make sure we at least grabbed one course to use
+		if(empty($allCourses)){
+			\Drupal::logger('citizen_custom')->error('There were courses in the Catalog API response, but after gathering courses into $allCourses, there are none.');
+			return [];
 		}
 
 		// ok now we try to pick the right 3 courses to show.
