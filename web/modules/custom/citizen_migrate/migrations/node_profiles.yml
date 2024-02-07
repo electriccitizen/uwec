@@ -180,7 +180,7 @@ source:
 process:
   status: isactive
   field_active: isactive
-  field_is_alumni: isalum
+  field_is_alumni: is_alum
   field_athena_id: id
   'body/value': biography
   'body/format':
