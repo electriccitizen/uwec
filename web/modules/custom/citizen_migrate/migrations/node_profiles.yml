@@ -205,10 +205,19 @@ process:
 #  field_faculty_staff: 0
   field_first_name: first_name
   field_first_override: first_name
-  field_image:
-    plugin: migration_lookup
-    migration: media_img
-    source: headshot_image_id
+  'field_image/target_id':
+    -
+      plugin: skip_on_value
+      method: process
+      value: 0
+      source: headshot_image_id
+    -
+      plugin: migration_lookup
+      migration: media_img
+      no_stub: true
+    -
+      plugin: skip_on_empty
+      method: process
   'field_honors/value': honor_recognition
   'field_honors/format':
     plugin: default_value
@@ -231,7 +240,7 @@ process:
   field_office: hrs_room
 #  field_page_families: 0
   field_phone: preferred_phone
-  field_prefixes: prefix_id
+#  field_prefixes: prefix_id
 #  field_programs: 0
   'field_publications/value': pub_published_research
   'field_publications/format':
