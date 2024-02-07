@@ -60,6 +60,9 @@
 				}
         &.lf-file-link{
           @include docIcon;
+          span{
+            word-break: break-word;
+          }
         }
 			}//end a
 		}//end lf inner

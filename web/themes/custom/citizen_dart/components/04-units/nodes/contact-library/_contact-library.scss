@@ -13,7 +13,7 @@
 	#node-section-1{
 		margin-bottom: $elementSpace;
 		h1.page-title{
-			color: $brightBlue;
+			@include contactTitle;
 		}
 		.block-field:not(.block-title){
 			margin-bottom: $spaceXxs;

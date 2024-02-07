@@ -3,6 +3,7 @@
 ================ */
 
 @use '../../../00-base/base' as *;
+@use '../node-mixins' as *;
 
 @mixin hoursHolder{
 	max-width: 914px;
@@ -22,6 +23,9 @@
 		margin-bottom: $elementSpace;
 		.block-field:not(.block-title){
 			margin-bottom: $spaceXxs;
+		}
+    h1.page-title{
+			@include contactTitle;
 		}
 	}//end node section 1
 	#node-section-2{
