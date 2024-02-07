@@ -58,6 +58,35 @@ Drupal.behaviors.backToTop = {
   }
 }
 
+/* SMOOTH SCROLL TO ANCHOR LINKS
+------------------ */
+Drupal.behaviors.smoothAnchorator = {
+  attach: function (context, settings) {
+  	$(once('smoothAnchors', '#block-citizen-dart-content', context)).each(function(){
+      //find links in fields on the page
+      const links = document.querySelectorAll('.field a');
+
+      links.forEach(function(link) {
+        if (link.getAttribute('href').match(/^#[a-zA-Z]/)) {
+          link.addEventListener('click', function(event) {
+          event.preventDefault();
+
+          const targetId = link.getAttribute('href').substring(1);
+          const targetElement = document.getElementById(targetId);
+      
+          if (targetElement) {
+            targetElement.scrollIntoView({
+                behavior: 'smooth',
+                block: 'center',
+            });
+          }
+        });
+        }
+      });
+    });
+  }
+}
+
 Drupal.behaviors.mobileMenu = {
 		attach: function (context, settings) {
 			$(once('insertHeaderElements', '.block-superfishmain', context)).each(function() {

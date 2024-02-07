@@ -7,6 +7,11 @@
 @use '02-chunks/media/media-mixins' as *;
 
 /*WYSIWYG for editors*/
+.ck.ck-editor__main{
+  .ck-source-editing-area textarea{
+    overflow-y: scroll;
+  }
+}
 .ck-editor__main{
 	font-size: 16px;
 	line-height: 1.4;

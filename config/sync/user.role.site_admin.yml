@@ -42,6 +42,7 @@ dependencies:
     - taxonomy.vocabulary.page_families
     - taxonomy.vocabulary.placement_tags
     - taxonomy.vocabulary.program_types
+    - taxonomy.vocabulary.slate_script_tag_types
     - taxonomy.vocabulary.snapshot_types
     - taxonomy.vocabulary.story_types
     - workflows.workflow.marketing
@@ -369,6 +370,7 @@ permissions:
   - 'edit terms in page_families'
   - 'edit terms in placement_tags'
   - 'edit terms in program_types'
+  - 'edit terms in slate_script_tag_types'
   - 'edit terms in snapshot_types'
   - 'edit terms in story_types'
   - 'make smart dates recur'

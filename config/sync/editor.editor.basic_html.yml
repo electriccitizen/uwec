@@ -19,7 +19,6 @@ settings:
       - '|'
       - heading
       - '|'
-      - blockQuote
       - subscript
       - superscript
       - insertTable
