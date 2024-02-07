@@ -17,24 +17,41 @@ Drupal.behaviors.removeEmptyRegions = {
   }
 }
 
+/* FOOTER ANIMATIONS
+------------------ */
+Drupal.behaviors.footerAnimate = {
+  attach: function (context, settings) {
+  	$(once('footerAnimations', '.prefooter-wrapper', context)).each(function(){
+      // Function to handle the intersection observer callback
+      function handleIntersection(entries, observer) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              //add class when target is visible
+              entry.target.classList.add('visible');
+              observer.unobserve(entry.target); // Stop observing once the class is added
+            }
+        });
+      }
+      // Create an intersection observer
+      const observer = new IntersectionObserver(handleIntersection, { threshold: 0.5 });
+      // Select the target element
+      const targetElement = document.querySelector('.prefooter-wrapper');
+      // Start observing the target element
+      observer.observe(targetElement);
+    });
+  }
+}
+
 /* BACK TO TOP
 ------------------ */
 Drupal.behaviors.backToTop = {
   attach: function (context, settings) {
   	$(once('backTop', 'html.js', context)).each(function(){
-      $(window).scroll(function(){
-        var back = $(window).height() * .8;
-        if ($(this).scrollTop() > back ) {
-          $('.back-anchor').fadeIn(200);
-        }else{
-          $('.back-anchor').fadeOut(200);
-        }
-      });
       //scroll to toc
       $('.back-anchor a').click(function(e){
         e.preventDefault();
-        $('html, body').animate({
-          scrollTop: $('body').offset().top - 10
+        $('.overflow-guard .dialog-off-canvas-main-canvas').animate({
+          scrollTop: $('.layout-container').offset().top - 10
         });
       });
     });

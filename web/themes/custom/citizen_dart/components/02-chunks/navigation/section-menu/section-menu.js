@@ -2,7 +2,7 @@
 
 Drupal.behaviors.sectionMenu = {
 	attach: function (context, settings) {
-		$(once('section-menu', '#block-section-menu', context)).each(function(){
+		$(once('section-menu', '#section-menu-wrapper', context)).each(function(){
 			//mobile toggle
 			$('.section-menu-toggle').click(function(e){
 				e.preventDefault();

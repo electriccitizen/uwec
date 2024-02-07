@@ -43,6 +43,79 @@ settings:
     ckeditor5_list:
       reversed: false
       startIndex: true
+    ckeditor5_paste_filter_pasteFilter:
+      enabled: true
+      filters:
+        -
+          enabled: true
+          weight: -10
+          search: '<o:p><\/o:p>'
+          replace: ''
+        -
+          enabled: true
+          weight: -9
+          search: '(<[^>]*) (style="[^"]*")'
+          replace: $1
+        -
+          enabled: true
+          weight: -8
+          search: '(<[^>]*) (face="[^"]*")'
+          replace: $1
+        -
+          enabled: true
+          weight: -7
+          search: '(<[^>]*) (class="[^"]*")'
+          replace: $1
+        -
+          enabled: true
+          weight: -6
+          search: '(<[^>]*) (valign="[^"]*")'
+          replace: $1
+        -
+          enabled: true
+          weight: -5
+          search: '<font[^>]*>'
+          replace: ''
+        -
+          enabled: true
+          weight: -4
+          search: '<\/font>'
+          replace: ''
+        -
+          enabled: true
+          weight: -3
+          search: '<span[^>]*>'
+          replace: ''
+        -
+          enabled: true
+          weight: -2
+          search: '<\/span>'
+          replace: ''
+        -
+          enabled: true
+          weight: -1
+          search: '<p>&nbsp;<\/p>'
+          replace: ''
+        -
+          enabled: true
+          weight: 0
+          search: '<p><\/p>'
+          replace: ''
+        -
+          enabled: true
+          weight: 1
+          search: '<b><\/b>'
+          replace: ''
+        -
+          enabled: true
+          weight: 2
+          search: '<i><\/i>'
+          replace: ''
+        -
+          enabled: true
+          weight: 3
+          search: '<a name="OLE_LINK[^"]*">(.*?)<\/a>'
+          replace: $1
     ckeditor5_sourceEditing:
       allowed_tags:
         - '<cite>'
@@ -61,7 +134,7 @@ settings:
         - '<iframe src title frameborder aria-describedby tabindex allowtransparency width height class>'
         - '<drupal-entity data-* alt title>'
         - '<article data-* class>'
-        - '<a hreflang target id title class>'
+        - '<a hreflang target id title class name>'
         - '<ul type class>'
         - '<ol type class>'
         - '<h2 id class>'
@@ -69,7 +142,7 @@ settings:
         - '<h4 id class>'
         - '<h5 id class>'
         - '<h6 id class>'
-        - '<p class>'
+        - '<p id class>'
         - '<drupal-media data-caption title>'
     linkit_extension:
       linkit_enabled: true

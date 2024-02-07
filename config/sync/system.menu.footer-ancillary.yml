@@ -1,0 +1,8 @@
+uuid: 695f6ea7-ae0b-4c74-982e-aafd053db2a3
+langcode: en
+status: true
+dependencies: {  }
+id: footer-ancillary
+label: 'Footer Ancillary'
+description: 'Menu for ancillary links (privacy, accessibility, etc) in the footer'
+locked: false

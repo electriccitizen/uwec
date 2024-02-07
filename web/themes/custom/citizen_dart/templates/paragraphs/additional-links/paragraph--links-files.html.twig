@@ -44,28 +44,19 @@
 	{% set files = content.field_file_multi['#items'] %}
 
 	{%- if links or files -%}
-		{% set count = 0 %}
-		{%- for key, link in links -%}
-			{% if key|first != '#' %}
-				{% set count = count + 1 %}
-			{% endif %}
-		{% endfor %}
-		{%- for key, file in files -%}
-			{% if key|first != '#' %}
-				{% set count = count + 1 %}
-			{% endif %}
-		{% endfor %}
-		<div class="field links-files{% if count > 4 %} multi-col{% endif %}">
+		<div class="field links-files">
 			{% set listCount = 0 %}
 			{%- for key, link in links -%}
 				{% if key|first != '#' %}
 					{% set listCount = listCount + 1 %}
 					<div class="lf-item link" data-item="{{ listCount }}">
-						{% block link %}
-							<a href="{{ link['#url'] }}">
-								{{- link['#title'] -}}
-							</a>
-						{% endblock %}
+						<div class="lf-inner">
+							{% block link %}
+								<a href="{{ link['#url'] }}">
+									<span>{{- link['#title'] -}}</span>
+								</a>
+							{% endblock %}
+						</div>
 					</div>
 				{% endif %}
 			{%- endfor -%}
@@ -73,9 +64,19 @@
 				{% if key|first != '#' %}
 					{% set listCount = listCount + 1 %}
 					<div class="lf-item file" data-item="{{ listCount }}">
-						{% block file %}
-							{{ drupal_entity('media', file.entity.id, 'default') }}
-						{% endblock %}
+						<div class="lf-inner">
+              {% set fileLink = file_url(file.entity.field_media_file.entity.fileuri) %}
+              {% if file.entity.field_media_file.0.description %}
+                {% set fileName = file.entity.field_media_file.0.description %}
+              {% else %}
+                {% set fileName = file.entity.field_media_file.entity.filename.0.value %}
+              {% endif %}
+							{% block file %}
+                <a href="{{ fileLink }}" class="lf-file-link">
+                  <span>{{ fileName }}</span>
+                </a>
+							{% endblock %}
+						</div>
 					</div>
 				{% endif %}
 			{%- endfor -%}

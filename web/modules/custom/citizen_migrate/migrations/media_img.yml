@@ -1,0 +1,137 @@
+id: media_img
+label: 'Media: Images'
+
+# This migration will be run with all the other migrations in
+# the ECM group when using the --group tag in Drush.
+#
+# Example: fin drush migrate:import --group=ecm
+migration_group: ecm
+
+# This migration will be run with the other migrations when
+# this tag is called in Drush with any migrate command. Tags
+# allow you to create and run smaller migration clusters
+# of similar items.
+#
+# Example: files, media, taxonomy, etc.
+# @Drush: fin drush migrate:import --tag=files
+migration_tags:
+  - media
+
+# Adding dependencies allows migrations to be run in the proper
+# order when run as part of the ECM Group or in a tag.
+migration_dependencies:
+  required: { }
+#    - files_img
+  optional: { }
+
+# These keys hold the shared configuration used by this and other
+# migrations of this type. You can add or modify the keys in the
+# shared config file.
+#
+# @See citizen_migrate.migrate_shared_configuration.yml.
+include:
+  - cm_defaults
+  - json_defaults
+
+# Keys set here for source, process and destination will override
+# any keys with the same name set in the shared configuration.
+#
+# @See citizen_migrate.migrate_shared_configuration.yml.
+#
+# @ATTN: EMPTY KEYS WILL THROW AN EXCEPTION.
+# If you uncomment any of the source, process or destination keys,
+# you must put a field with a value.
+source:
+  plugin: uwec_url
+  urls: 'https://athena.apps.uwec.edu/api/images.json'
+  constants:
+    isactive: 1
+  fields:
+    -
+      name: id
+      label: ID
+      selector: id
+    -
+      name: name
+      label: Name
+      selector: name
+    -
+      name: alt
+      label: Alt
+      selector: alt
+    -
+      name: caption
+      label: Caption
+      selector: caption
+    -
+      name: url
+      label: URL
+      selector: url
+    -
+      name: isactive
+      label: isActive
+      selector: isactive
+    -
+      name: title
+      label: Title
+      selector: title
+    -
+      name: updated_at
+      label: Updated
+      selector: updated_at
+    -
+      name: unit_ids
+      label: Unit IDs
+      selector: unit_ids
+    -
+      name: keyword_ids
+      label: Keywords
+      selector: keyword_ids
+    -
+      name: category_ids
+      label: Categories
+      selector: category_ids
+    -
+      name: tag_ids
+      label: Tags
+      selector: tag_ids
+  ids:
+    id:
+      type: integer
+
+# Add processing for fields specific to this content type.
+process:
+  active:
+    plugin: skip_on_value
+    value: 0
+    method: row
+    source: isactive
+  'field_media_image/target_id':
+    plugin: migration_lookup
+    migration: files_img
+    source: id
+  'field_media_image/display':
+    plugin: default_value
+    default_value: 1
+  'field_media_image/alt': alt
+  'field_media_image/title': title
+  'thumbnail/target_id':
+    plugin: migration_lookup
+    migration: files_img
+    source: id
+  'thumbnail/alt': alt
+  'thumbnail/title': title
+  status: isactive
+  created: timestamp
+  changed:
+    plugin: format_date
+    from_format: 'Y-m-d H:i:s'
+    to_format: 'U'
+    source: updated_at
+  uid:
+    plugin: default_value
+    default_value: 1
+
+destination:
+  plugin: 'entity:media'
+  default_bundle: image

@@ -3,7 +3,21 @@
 /**
  * Load services definition file.
  */
-$settings['container_yamls'][] = __DIR__ . '/services.yml';
+
+ if (isset($_ENV['PANTHEON_ENVIRONMENT'])) {
+  switch ($_ENV['PANTHEON_ENVIRONMENT']) {
+    case 'live':
+    case 'test':
+      $settings['container_yamls'][] = __DIR__ . '/test.services.yml';
+      break;
+    case 'dev':
+      $settings['container_yamls'][] = __DIR__ . '/services.yml';
+      break;
+    default:
+      $settings['container_yamls'][] = __DIR__ . '/multidev.services.yml';
+      break;
+  }
+}
 
 /**
  * Include the Pantheon-specific settings file.
@@ -29,6 +43,16 @@ include __DIR__ . "/settings.pantheon.php";
  * Place the config directory outside of the Drupal root.
  */
 $settings['config_sync_directory'] = "../config/sync";
+
+/**
+ * Get api key.
+ */
+$settings['uwec_api_key'] = 'default';
+$secretsFile = $_SERVER['HOME'] . '/files/private/secrets.json';
+if (file_exists($secretsFile)) {
+  $secrets = json_decode(file_get_contents($secretsFile), 1);
+  $settings['uwec_api_key'] = $secrets['uwec_api_key'];
+}
 
 /**
  * Set up config splits

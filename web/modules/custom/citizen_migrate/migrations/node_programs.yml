@@ -1,0 +1,253 @@
+id: programs
+label: 'Programs'
+
+# This migration will be run with all the other migrations in
+# the ECM group when using the --group tag in Drush.
+#
+# Example: fin drush migrate:import --group=ecm
+migration_group: ecm
+
+# This migration will be run with the other migrations when
+# this tag is called in Drush with any migrate command. Tags
+# allow you to create and run smaller migration clusters
+# of similar items.
+#
+# Example: files, media, taxonomy, etc.
+# @Drush: fin drush migrate:import --tag=files
+migration_tags:
+  - nodes
+
+# Adding dependencies allows migrations to be run in the proper
+# order when run as part of the ECM Group or in a tag.
+migration_dependencies:
+  required: { }
+  optional: { }
+
+# These keys hold the shared configuration used by this and other
+# migrations of this type. You can add or modify the keys in the
+# shared config file.
+#
+# @See citizen_migrate.migrate_shared_configuration.yml.
+include:
+  - cm_defaults
+  - json_defaults
+  - node_defaults
+
+# Keys set here for source, process and destination will override
+# any keys with the same name set in the shared configuration.
+#
+# @See citizen_migrate.migrate_shared_configuration.yml.
+#
+# @ATTN: EMPTY KEYS WILL THROW AN EXCEPTION.
+# If you uncomment any of the source, process or destination keys,
+# you must put a field with a value.
+source:
+  plugin: uwec_url
+  urls: 'https://athena.apps.uwec.edu/api/programs.json'
+  constants:
+    ispublished: 1
+    isactive: 1
+  fields:
+    - name: id
+      label: 'ID'
+      selector: id
+    - name: name
+      label: 'Name/Tite'
+      selector: name
+    - name: ispublished
+      label: 'Is Published'
+      selector: ispublished
+    - name: isactive
+      label: 'Is Active'
+      selector: isactive
+    - name: image_id
+      label: 'Image ID'
+      selector: image_id
+    - name: is_grad
+      label: 'Is Graduate?'
+      selector: is_grad
+    - name: slug
+      lable: 'Course-Leaf Slug'
+      selector: slug
+    - name: related_program_ids
+      label: 'Related Programs'
+      selector: related_program_ids
+    - name: meta_description
+      label: 'Meta Description'
+      selector: meta_description
+    - name: curriculum_content
+      label: 'Curriculum Content'
+      selector: curriculum_content
+    - name: outcomes_content
+      label: 'Outcomes Content'
+      selector: outcomes_content
+    - name: programtype
+      label: 'Program Type'
+      selector: programtype
+    - name: campuses
+      label: 'Campuses'
+      selector: campuses
+    - name: outcomes_list
+      label: 'Potential Careers'
+      selector: outcomes_list
+    - name: deliverytype
+      label: 'Delivery Type'
+      selector: delivierytype
+    - name: licensure_info
+      label: 'Licensure Info'
+      selector: licensure_info
+    - name: url
+      label: 'URL'
+      selector: url
+    - name: data
+      label: 'Data'
+      selector: data
+  ids:
+    id:
+      type: integer
+
+# Add processing for fields specific to this content type.
+process:
+#  test:
+#    -
+#      plugin: skip_on_empty
+#      method: process
+#    -
+#      plugin: migration_lookup
+#      migration: program
+#      source: related_program_ids
+#      no_stub: false
+#    -
+#      plugin: callback
+#      callable: var_dump
+
+  title: name #Required
+  field_formatted_title: name
+  status:
+    plugin: default_value
+    default_value: 1
+    source: ispublished
+  uid:
+    plugin: default_value
+    default_value: 1
+  field_meta_description: meta_description  #Required
+#  field_accreditation: { }
+#  field_accreditation_logo: { }
+#  field_admissions_requirements: 0 # Needs a default value to admissions reqs page.
+  field_program_type:
+    plugin: static_map
+    source: programtype
+    bypass: true
+    map:
+      major: 16
+      minor: 17
+      certificate: 40
+      associate: 42
+      grad: 43
+      pre-professional: 41
+  field_campus: #Required
+    plugin: static_map
+    source: campuses
+    default_value: 12
+    map:
+      eau-claire: 12
+      marshfield: 38
+      rice-lake: 13
+#  field_college: 0 # References a content page which have yet to be built; source is not an ID.
+#  field_content_carousel: 0 # Not migrating??
+  field_courseleaf_slug:
+    plugin: default_value
+    default_value: ''
+#  field_courses: 0 # Not migrating?
+  'field_courses_text/value': curriculum_content
+  'field_courses_text/format':
+    plugin: default_value
+    default_value: limited_html
+  field_degree_level: #Required
+    plugin: static_map
+    source: is_grad
+    default_value: undergraduate
+    map:
+      0: undergraduate
+      1: graduate
+  field_degree_types:  #Required; Degree type ids don't exist in source; field is empty on all.
+    plugin: default_value
+    default_value: 53
+#  field_departments: 0
+#  body: 0 # Get mapping from Adam.
+#  field_domain_access: 0 # Need default value.
+#  field_domain_source: 0 # Need default value.
+#  field_editorial_sections: 0 # Need default value.
+  field_example_careers: outcomes_list
+#    -
+#      plugin: single_value
+#      source: outcomes_list
+#    -
+#      plugin: cm_implode
+#  field_facts_list: 0
+#  field_faulty_link: 0
+#  field_paragraphs: 0
+#  field_request_for_info: # Need default value.
+#  field_hallmarks: 0
+  field_delivery_mode: #Required
+    plugin:  static_map
+    source: deliverytype
+    default_value: 15
+    map:
+      on-campus: 15
+      online: 14
+      hybrid: 39
+  'field_intro_text/value': meta_description  #Required
+  'field_intro_text/format':
+    plugin: default_value
+    default_value: limited_html
+  'field_licensure/value': licensure_info
+  'field_licensure/format':
+    plugin: default_value
+    default_value: limited_html
+#  field_list_widget: 0
+#  field_outcomes_image: 0
+#  field_page_families: 0
+#  field_placement_tags: #Required
+#    plugin: default_value
+#    default_value: 32
+  'field_image/target_id': #Required
+    -
+      plugin: migration_lookup
+      migration: media_img
+      source: image_id
+      no_stub: false
+#    -
+#      plugin: callback
+#      callable: var_dump
+#  field_program_length: 0
+#  field_grads: 0
+  field_related_programs:
+    -
+      plugin: skip_on_empty
+      method: process
+      source: related_program_ids
+    -
+      plugin: migration_lookup
+      migration: programs
+      no_stub: false
+
+#  field_minor_required: 0 # Need default value; no source data.
+#  field_keywords: 0
+#  field_domain_all_affiliates: 0
+#  field_slate_slug: slug
+#  field_tuition_link: 0 # Needs a default value for a generic tuition page.
+#  field_whats_next: 0
+  'field_outcome_text/value': outcomes_content
+  'field_outcome_text/format':
+    plugin: default_value
+    default_value: limited_html
+
+#  data_val:
+#    - plugin: single_value
+#      source: data
+#    - plugin: cm_rows
+
+destination:
+  plugin: entity:node
+  default_bundle: academic_program

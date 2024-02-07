@@ -1,0 +1,8 @@
+id: ecm
+label: EC Migration
+description: Migration group for this EC project.
+source_type: JSON feed
+dependencies:
+  enforced:
+    module:
+      - citizen_migrate

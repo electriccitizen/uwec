@@ -34,12 +34,21 @@
 	.slider {
 		@include textConstrain;
 		//slider container overrides layout padding on mobile
-		.field-image-multi {
+		.field-gallery-items {
 			@include edgeToEdge;
 			width: calc(100% + 40px);
 			@include tab {
 				@include edgeReset;
 				width: 100%;
+			}
+			.slide-meta{
+				@include safeFlex(row,nowrap,justify,start);
+				.slide-caption{
+					width: 70%;
+					@include tab{
+						width: 50%;
+					}
+				}
 			}
 			img {
 				width: 100%;

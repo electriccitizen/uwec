@@ -6,11 +6,20 @@
 
 .paragraph--type--select-type{
    .select-items-wrapper {
-      @include safeFlex(row,nowrap,start,start);
+      @include safeFlex(row,nowrap,start,stretch);
       @include auto;
       .select-item {
          background-color: $navy;
          padding: $spaceLg;
+         transform: scale3d(1, 1, 1);
+         transition: transform .3s ease-in-out;
+         position: relative;
+         overflow: hidden;
+         z-index: 1;
+         &:hover{
+           transform: scale3d(1.1, 1.1, 1.25);
+           z-index: 10;
+         }
          &:nth-child(even) {
             background-color: rgba(6, 35, 61, .93);
          }

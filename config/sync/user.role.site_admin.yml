@@ -8,6 +8,7 @@ dependencies:
     - block_content.type.reusable_widgets
     - block_content.type.social_media_links
     - block_content.type.structured_section
+    - core.entity_view_display.node.page.default
     - filter.format.full_html
     - filter.format.short_text_formatted_html
     - media.type.document
@@ -50,11 +51,13 @@ dependencies:
     - block_content
     - citizen_custom
     - content_moderation
+    - contextual
     - domain
     - domain_access
     - domain_alias
     - entity_usage
     - filter
+    - layout_builder
     - media
     - menu_admin_per_menu
     - menu_link_attributes
@@ -78,6 +81,7 @@ permissions:
   - 'access administration pages'
   - 'access block library'
   - 'access content overview'
+  - 'access contextual links'
   - 'access entity usage statistics'
   - 'access media overview'
   - 'access responsive preview'
@@ -88,6 +92,8 @@ permissions:
   - 'administer departments menu items'
   - 'administer example-site-main-menu menu items'
   - 'administer footer menu items'
+  - 'administer footer-ancillary menu items'
+  - 'administer footer-audience-additional menu items'
   - 'administer footer-for menu items'
   - 'administer main menu items'
   - 'administer menu'
@@ -113,6 +119,7 @@ permissions:
   - 'cancel account'
   - 'cancel smart date recur instances'
   - 'change own username'
+  - 'configure editable page node layout overrides'
   - 'create academic_program content'
   - 'create academic_program content on assigned domains'
   - 'create announcement content'

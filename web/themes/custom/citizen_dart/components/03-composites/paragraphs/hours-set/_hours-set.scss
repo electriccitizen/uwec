@@ -4,7 +4,8 @@
 
 @use '../../../00-base/base' as *;
 
-.block-field-hours{
+//hours field on the set paragraph
+.field-hours.entity-reference-revisions{
 	.select-panel{
 		&:not(.show-panel){
 			@include visuallyHidden;

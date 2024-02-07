@@ -2,7 +2,7 @@
 	 SECTION MENU
 ===================== */
 @use '../../../00-base/base' as *;
-#block-section-menu{
+#block-section-menu,#block-section-menu-deparment{
 	width: 300px;
 	//move menu up into top page fold on general pages when not in layout builder
 	&:not(.js-layout-builder-block){

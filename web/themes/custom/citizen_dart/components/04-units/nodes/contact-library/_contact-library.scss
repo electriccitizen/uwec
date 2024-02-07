@@ -3,15 +3,7 @@
 ================ */
 
 @use '../../../00-base/base' as *;
-
-@mixin contactHolder{
-	max-width: 914px;
-	@include auto;
-	& > *:first-child{
-		background: $ice;
-		padding: 60px 124px 76px;
-	}
-}
+@use '../node-mixins' as *;
 
 .node-contact{
 	padding-top: $elementSpace;
@@ -20,8 +12,12 @@
 	}
 	#node-section-1{
 		margin-bottom: $elementSpace;
+		h1.page-title{
+			color: $brightBlue;
+		}
 		.block-field:not(.block-title){
 			margin-bottom: $spaceXxs;
+			@include contactContent;
 		}
 	}//end node section 1
 	#node-section-2{
@@ -34,12 +30,25 @@
 .node-widget-contact{
 	@include contactHolder;
 	.contact-wrapper{
-		@include safeFlex(row,wrap,start,start);
-		@include bleed(padding,20px);
-		& > *{
-			@include tab{
-				width: 50%;
+		@include tab{
+			@include safeFlex(row,wrap,start,start);
+			@include bleed(padding,20px);
+			& > *{
+					width: 50%;
+					.widget-section > .layout--threecol-section &{
+						width: 100%;
+					}
+				}
 			}
+	}//end contact wrapper
+	.contact-title{
+		@include contactTitle;
+		padding-bottom: 32px;
+		@include tab{
+			padding-left: 20px;
 		}
+	}
+	.contact-content{
+		@include contactContent;
 	}
 }//end contact widget

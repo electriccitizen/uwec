@@ -54,7 +54,16 @@
 				 } %}
 				<div class="accordion-item">
 					<div class="accordion-header">
-						<a href="#" role="button" aria-controls="{{ controlParent }}" aria-expanded="false">{{ accordion['#paragraph'].field_accordion_header.0.value }}</a>
+						<a href="#" role="button" aria-controls="{{ controlParent }}" aria-expanded="false">
+              <span class="accordion-header-text">
+							  {{- accordion['#paragraph'].field_accordion_header.0.value -}}
+              </span>
+							<span class="accordion-chevron">
+								<svg width="12" height="7" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M1 1L6.00145 6.00145L11 1" stroke="#06233D" stroke-miterlimit="10"/>
+								</svg>	
+							</span>
+						</a>
 					</div>
 					<div class="field field-long-text text-long" id="{{ controlParent }}" aria-hidden="true">
 						{{ text }}

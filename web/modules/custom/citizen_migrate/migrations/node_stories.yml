@@ -1,0 +1,187 @@
+id: stories
+label: 'Stories'
+
+# This migration will be run with all the other migrations in
+# the ECM group when using the --group tag in Drush.
+#
+# Example: fin drush migrate:import --group=ecm
+migration_group: ecm
+
+# This migration will be run with the other migrations when
+# this tag is called in Drush with any migrate command. Tags
+# allow you to create and run smaller migration clusters
+# of similar items.
+#
+# Example: files, media, taxonomy, etc.
+# @Drush: fin drush migrate:import --tag=files
+migration_tags:
+  - nodes
+
+# Adding dependencies allows migrations to be run in the proper
+# order when run as part of the ECM Group or in a tag.
+migration_dependencies:
+  required: { }
+  optional: { }
+
+# These keys hold the shared configuration used by this and other
+# migrations of this type. You can add or modify the keys in the
+# shared config file.
+#
+# @See citizen_migrate.migrate_shared_configuration.yml.
+include:
+  - cm_defaults
+  - json_defaults
+  - node_defaults
+
+# Keys set here for source, process and destination will override
+# any keys with the same name set in the shared configuration.
+#
+# @See citizen_migrate.migrate_shared_configuration.yml.
+#
+# @ATTN: EMPTY KEYS WILL THROW AN EXCEPTION.
+# If you uncomment any of the source, process or destination keys,
+# you must put a field with a value.
+source:
+  plugin: uwec_url
+  urls: 'https://athena.apps.uwec.edu/api/stories.json'
+  constants:
+    unit_id: 35
+    isactive: 1
+  fields:
+    - name: id
+      label: 'ID'
+      selector: id
+    - name: image_id
+      label: 'Image ID'
+      selector: image_id
+    - name: title
+      label: 'Title'
+      selector: title
+    - name: article
+      label: 'Article'
+      selector: article
+    - name: excerpt
+      label: 'Excerpt'
+      selector: excerpt
+    - name: featuredheadline
+      label: 'Featured Headline'
+      selector: featuredheadline
+    - name: pub_date
+      label: 'Publication Date'
+      selector: pub_date
+    - name: exp_date
+      label: 'Expiration Date'
+      selector: exp_date
+    - name: updated_at
+      label: 'Updated Date'
+      selector: updated_at
+    - name: isactive
+      label: 'Is Active'
+      selector: isactive
+    - name: units
+      label: 'Units'
+      selector: unit_ids
+
+  ids:
+    id:
+      type: integer
+
+# Add processing for fields specific to this content type.
+process:
+  'field_image/target_id':
+    plugin: migration_lookup
+    migration: media_img
+    source: image_id
+  article:
+    plugin: skip_on_empty
+    method: row
+    source: article
+  title:
+    plugin: default_value
+    default_value: '(no title)'
+    source: title
+  created:
+    plugin: format_date
+    source: pub_date
+    from_format: 'Y-m-d H:i:s'
+    to_format: 'U'
+#  changed:
+#    plugin: format_date
+#    source: updated_at
+#    from_format: 'Y-m-d H:i:s'
+#    to_format: 'U'
+  'field_intro_text/summary': excerpt
+  'field_intro_text/value':
+    plugin: default_value
+    default_value: ''
+  'field_intro_text/format':
+    plugin: default_value
+    default_value: limited_html
+  images:
+    - plugin: dom
+      method: import
+      source: article
+    -
+      plugin: cm_content_logger
+      log_data: false
+      tag: figure
+  text:
+    - plugin: dom
+      method: import
+      source: article
+    -
+      plugin: dom_remove
+      selector: //figure
+    -
+      plugin: dom_remove
+      mode: attribute
+      selector: //*[@class]
+      attribute: class
+    -
+      plugin: dom_remove
+      mode: attribute
+      selector: //*[@style]
+      attribute: style
+    -
+      plugin: cm_content_logger
+      log_data: false
+      tag: p
+  paragraphs:
+    plugin: cm_array_merge
+    source:
+      - '@images'
+      - '@text'
+  field_paragraphs:
+    plugin: sub_process
+    source: '@paragraphs'
+    process:
+      new_id:
+        -
+          plugin: migration_lookup
+          migration:
+            - stories_images
+            - stories_text
+          source:
+            - legacy_id
+            - index
+            - tag
+      target_id:
+        -
+          plugin: single_value
+          source: '@new_id'
+        -
+          plugin: extract
+          index:
+            - 0
+      target_revision_id:
+        -
+          plugin: single_value
+          source: '@new_id'
+        -
+          plugin: extract
+          index:
+            - 1
+
+destination:
+  plugin: entity:node
+  default_bundle: news

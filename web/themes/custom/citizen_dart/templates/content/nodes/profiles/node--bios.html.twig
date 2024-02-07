@@ -75,10 +75,15 @@
 
 {% block layoutSectionContent %}
   <section id="node-section-{{ loop.index }}" class="node-section">
+    
   	{% if loop.index == 2 %}
-      <h2 class="contact-title">Contact Information</h2>
+      <div class="contact-wrapper">
+        <h2 class="contact-title">Contact Information</h2>
+        {{- layoutSection -}}
+      </div>
+    {% else %}
+      {{- layoutSection -}}
     {% endif %}
-    {{- layoutSection -}}
   </section>
 {% endblock %}
 			      

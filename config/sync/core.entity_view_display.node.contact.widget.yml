@@ -19,6 +19,7 @@ dependencies:
     - address
     - layout_builder
     - layout_builder_restrictions
+    - telephone
     - user
 third_party_settings:
   layout_builder:
@@ -48,15 +49,15 @@ content:
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 1
+    weight: 2
     region: content
   field_phone:
-    type: string
+    type: telephone_link
     label: hidden
     settings:
-      link_to_entity: false
+      title: ''
     third_party_settings: {  }
-    weight: 2
+    weight: 1
     region: content
 hidden:
   body: true

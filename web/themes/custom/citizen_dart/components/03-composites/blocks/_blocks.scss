@@ -22,13 +22,28 @@
 // FOOTER ADDRESS
 .block-2{
 	color: $gold;
-	position: relative;
-	@include tab{
+	@include onlyMobile{
+		padding-top: 150px;
+		margin-top: 20px;
+		max-width: 282px;
+		@include auto;
+		background-image: url(../images/logos-badges/uwec-stacked-gold.svg);
+		background-repeat: no-repeat;
+		background-size: 63px 92px;
+		background-position: top center;
+	}
+	@include desk{
 		color: $black;
 		background: $gold;
+		padding: 45px 40px 200px;
+		width: 100%;
+		max-width: $contentStop;
+		position: relative;
 	}
 	p{
 		margin-bottom: $spaceXxs;
+		font-size: 14px;
+		line-height: 22px;
 		&:first-child{
 			font-family: $header;
 			font-weight: $xHeavy;
@@ -36,7 +51,7 @@
 	}
 }//end block 2
 
-//COPYRIGHT
+//SOCIAL MEDIA & COPYRIGHT
 .block-1{
 	.block-social-media{
 		.field-platforms{
@@ -44,19 +59,22 @@
 				justify-content: center;
 			}
 			li{
+				margin: 0 3px;
 				a{
-					color: $footerLink;
 					*{
 						transform-style: unset;
+					}
+					svg{
+						width: 22px;
+						height: 22px;
 					}
 					svg,.cls-1{
 						fill: $footerLink;
 					}
 					&:hover,&:focus{
-						color: $footerLinkHover;
 						svg,.cls-1{
+              transition: fill .3s ease;
 							fill: $footerLinkHover;
-							color: $footerLinkHover;
 						}
 					}
 				}
@@ -66,6 +84,8 @@
 	.copyright{
 		text-align: center;
 		font-size: 1.5rem;
+		line-height: 24px;
+		text-transform: uppercase;
 		& > span:first-child{
 			padding-right: .25em;
 			& + *{

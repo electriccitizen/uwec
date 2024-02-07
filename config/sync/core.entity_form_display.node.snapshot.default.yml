@@ -8,6 +8,7 @@ dependencies:
     - field.field.node.snapshot.field_domain_access
     - field.field.node.snapshot.field_domain_all_affiliates
     - field.field.node.snapshot.field_domain_source
+    - field.field.node.snapshot.field_editorial_sections
     - field.field.node.snapshot.field_entry_year
     - field.field.node.snapshot.field_eyebrow
     - field.field.node.snapshot.field_image
@@ -34,13 +35,14 @@ third_party_settings:
   field_group:
     group_access:
       children:
+        - field_editorial_sections
         - field_domain_access
         - field_domain_source
         - field_domain_all_affiliates
       label: Access
       region: content
       parent_name: ''
-      weight: 15
+      weight: 16
       format_type: details_sidebar
       format_settings:
         classes: ''
@@ -77,20 +79,26 @@ content:
     third_party_settings: {  }
   field_domain_access:
     type: options_buttons
-    weight: 20
+    weight: 13
     region: content
     settings: {  }
     third_party_settings: {  }
   field_domain_all_affiliates:
     type: boolean_checkbox
-    weight: 22
+    weight: 15
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   field_domain_source:
     type: options_select
-    weight: 21
+    weight: 14
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_editorial_sections:
+    type: options_buttons
+    weight: 12
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -123,7 +131,7 @@ content:
     third_party_settings: {  }
   field_metatags:
     type: metatag_firehose
-    weight: 12
+    weight: 13
     region: content
     settings:
       sidebar: true
@@ -175,19 +183,19 @@ content:
     third_party_settings: {  }
   moderation_state:
     type: moderation_state_default
-    weight: 16
+    weight: 17
     region: content
     settings: {  }
     third_party_settings: {  }
   path:
     type: path
-    weight: 13
+    weight: 14
     region: content
     settings: {  }
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 14
+    weight: 15
     region: content
     settings:
       display_label: true

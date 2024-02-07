@@ -84,10 +84,10 @@ third_party_settings:
                 entity: layout_builder.entity
                 view_mode: view_mode
               formatter:
-                type: string
+                type: telephone_link
                 label: hidden
                 settings:
-                  link_to_entity: false
+                  title: ''
                 third_party_settings: {  }
             weight: 1
             additional: {  }
