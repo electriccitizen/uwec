@@ -22,6 +22,7 @@
 				font-family: $bodyText;
 				font-size: 1.5rem;
 				text-transform: uppercase;
+				letter-spacing: 1px;
 				&:hover,&:focus{
 					color: $secondMenuLinkHover;
 					@include transAll(.3s);
