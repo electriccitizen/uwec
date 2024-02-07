@@ -227,15 +227,25 @@ process:
   field_last_name: last_name
   field_last_override: last_name
   links:
-    plugin: get
-    source:
-      - website_url
-      - people_page_url
-      - google_scholar_url
-      - cv_resume_url
-      - resume_url
-      - cv_url
-  field_links: '@links'
+    -
+      plugin: get
+      source:
+        - website_url
+        - people_page_url
+        - google_scholar_url
+        - cv_resume_url
+        - resume_url
+        - cv_url
+    -
+      plugin: cm_profile_links
+
+  field_links:
+    -
+      plugin: sub_process
+      source: '@links'
+      process:
+        title: title
+        uri: uri
   field_middle_name: middle_name
   field_office: hrs_room
 #  field_page_families: 0
@@ -260,8 +270,21 @@ process:
   'field_interests/format':
     plugin: default_value
     default_value: limited_html
-##  'field_platforms/uri':
-#
+  social_links:
+    - plugin: single_value
+      source: social_links
+    - plugin: cm_social_links
+#    - plugin: callback
+#      callable: var_dump
+  field_platforms:
+    - plugin: sub_process
+      source: '@social_links'
+      process:
+        uri: uri
+        title: platform
+
+
+
   field_position: title
   field_position_override: title
   field_username: username
