@@ -55,7 +55,6 @@ class CmFetchActiveFiles extends DrushCommands {
     $apiKey = getenv('API_KEY');
     $endpoints = ['pages.json', 'profiles.json', 'programs.json', 'stories.json', 'testimonials.json'];
     $this->outputFile = "public://source-data/active_image_ids.csv";
-//    $this->image_ids = [];
 
     /** @var \Drupal\citizen_migrate\Services\CmTools $cmTools */
     $cmTools = \Drupal::service('cm.tools');
@@ -82,11 +81,6 @@ class CmFetchActiveFiles extends DrushCommands {
         foreach ($data as $item) {
           $this->image_ids['ent_id'] = $item['id'];
           $this->image_ids['rowIndex'] = 'n/a';
-//          $this->image_ids['image_id'] = '';
-//          $this->image_ids['url'] = '';
-//          $this->image_ids['alt'] = '';
-//          $this->image_ids['title'] = '';
-//          $this->image_ids['updated_at'] = '';
           $this->doc_links['ent_id'] = $item['id'];
           $this->doc_links['rowIndex'] = 'n/a';
           $this->vid_links['ent_id'] = $item['id'];
@@ -97,24 +91,10 @@ class CmFetchActiveFiles extends DrushCommands {
             case 'pages.json': // Adjusted to .json
               // Log the value of the image_id and the banner/image_id fields.
               if (isset($item['banner']['image_id']) && $item['banner']['image_id'] > 0) {
-                $data_retrieved = $this->getImageData($item['banner']['image_id'], $this->image_ids);
-//                $image_id = $item['banner']['image_id'];
-//                $this->image_ids['image_id'] = $image_id;
-//                $imageData = $this->getImageData($image_id, $this->image_ids);
-//                $this->image_ids['url'] = $imageData['url'];
-//                $this->image_ids['alt'] = $imageData['alt'];
-//                $this->image_ids['title'] = $imageData['title'];
-//                $this->image_ids['updated_at'] = $imageData['updated_at'];
-                if ($data_retrieved) {
-                  $cmTools->logToFile($this->image_ids, $this->outputFile, '');
-                }
+                $this->logImageData($item['banner']['image_id'], $this->image_ids, $this->outputFile);
               }
               if (isset($item['image_id']) && $item['image_id'] > 0) {
-//                $this->image_ids['image_id'] = $item['image_id'];
-                $data_retrieved = $this->getImageData($item['image_id'], $this->image_ids);
-                if ($data_retrieved) {
-                  $cmTools->logToFile($this->image_ids, $this->outputFile, '');
-                }
+                $this->logImageData($item['image_id'], $this->image_ids, $this->outputFile);
               }
               // Iterate through the text rows to log image_ids embedded in text content.
               $this->processRows($item['data']);
@@ -122,35 +102,33 @@ class CmFetchActiveFiles extends DrushCommands {
 
             case 'profiles.json': // Adjusted to .json
               if (isset($item['headshot_image_id']) && $item['headshot_image_id'] > 0) {
-//                $this->image_ids['image_id'] = $item['headshot_image_id'];
-                $data_retrieved = $this->getImageData($item['headshot_image_id'], $this->image_ids);
-                if ($data_retrieved) {
-                  $cmTools->logToFile($this->image_ids, $this->outputFile, '');
-                }
+                $this->logImageData($item['headshot_image_id'], $this->image_ids, $this->outputFile);
               }
               break;
 
             default:
               if (isset($item['image_id']) && $item['image_id'] > 0) {
-//                $this->image_ids['image_id'] = $item['image_id'];
-                $data_retrieved = $this->getImageData($item['image_id'], $this->image_ids);
-                if ($data_retrieved) {
-                  $cmTools->logToFile($this->image_ids, $this->outputFile, '');
-                }
+                $this->logImageData($item['image_id'], $this->image_ids, $this->outputFile);
               }
               if (isset($item['article'])) {
                 $this->logImageIdsInHtml($item['article'], 0);
               }
               break;
           }
-//          $cmTools->logToFile($this->image_ids, $this->outputFile, '');
         }
       }
     }
     $this->removeDuplicates($this->outputFile);
   }
 
-  // Function to fetch data from the API
+  /**
+   * Fetches JSON data from the API endpoint.
+   *
+   * @param $url
+   *
+   * @return mixed|null
+   * @throws \GuzzleHttp\Exception\GuzzleException
+   */
   function fetch_data($url) {
     try {
       // Get the HTTP client service
@@ -173,19 +151,33 @@ class CmFetchActiveFiles extends DrushCommands {
     }
   }
 
-  // Function to fetch the image URL from the API.
-  function getImageData($image_id, &$image_data_array) {
+  /**
+   * Gathers additional image data from the API and logs it to a CSV file.
+   *
+   * @param $image_id
+   * @param $image_data
+   * @param $output_file
+   *
+   * @return bool
+   * @throws \Drupal\migrate\MigrateException
+   */
+  function logImageData($image_id, $image_data, $output_file) {
     $baseURL = 'https://athena.apps.uwec.edu/api/images.json';
     $apiKey = getenv('API_KEY');
     $url = "$baseURL?apikey=$apiKey&id=$image_id";
 
+    /** @var \Drupal\citizen_migrate\Services\CmTools $cmTools */
+    $cmTools = \Drupal::service('cm.tools');
+
     $data = $this->fetch_data($url);
     if (is_array($data) && !empty($data)) {
-      $image_data_array['image_id'] = $image_id;
-      $image_data_array['alt'] = $data[$image_id]['alt'];
-      $image_data_array['title'] = $data[$image_id]['title'];
-      $image_data_array['url'] = $data[$image_id]['url'];
-      $image_data_array['updated_at'] = $data[$image_id]['updated_at'];
+      $image_data['image_id'] = $image_id;
+      $image_data['alt'] = $data[$image_id]['alt'];
+      $image_data['title'] = $data[$image_id]['title'];
+      $image_data['url'] = $data[$image_id]['url'];
+      $image_data['updated_at'] = $data[$image_id]['updated_at'];
+
+      $cmTools->logToFile($image_data, $output_file, '');
       return TRUE;
     }
     return FALSE;
@@ -263,10 +255,6 @@ class CmFetchActiveFiles extends DrushCommands {
           $this->logImageIdsInHtml($row['standard_rte']['content'], $index);
           break;
 
-//        case "3":
-//          $this->logImageIdsInHtml($row['accordion']['content'], $index);
-//          break;
-
         case "21":
           $this->logImageIdsInHtml($row['tabular_rte']['content'], $index);
           break;
@@ -280,21 +268,9 @@ class CmFetchActiveFiles extends DrushCommands {
           }
           break;
 
-//        case "46":
-//          $this->image_ids['image_id'] = $row['wildcard']['image_id'];
-////          $this->image_ids['rowIndex'] = $row['wid'];
-//          $cmTools->logToFile($this->image_ids, $this->outputFile, '');
-//          $this->images_from_text++;
-//          $this->logImageIdsInHtml($row['wildcard']['content'], $index);
-//          break;
-
         case "47":
           foreach ($row['gallery']['photos'] as $i => $photo) {
-//            $this->image_ids['image_id'] = $photo['val']['image_id'];
-            $data_retrieved = $this->getImageData($photo['val']['image_id'], $this->image_ids);
-            if ($data_retrieved) {
-              $cmTools->logToFile($this->image_ids, $this->outputFile, '');
-            }
+            $this->logImageData($photo['val']['image_id'], $this->image_ids, $this->outputFile);
           }
           break;
 
@@ -334,15 +310,12 @@ class CmFetchActiveFiles extends DrushCommands {
     foreach ($images as $img) {
       // Check if the image tag has the 'data-image_id' attribute
       if ($img->hasAttribute('data-image_id')) {
-        $this->image_ids['image_id'] = $img->getAttribute('data-image_id');
+        $image_id = $img->getAttribute('data-image_id');
 
         // Append the image ID to the file
         $this->image_ids['rowIndex'] = $rowIndex;
-        $data_retrieved = $this->getImageData($this->image_ids['image_id'], $this->image_ids);
-        if ($data_retrieved) {
-          $cmTools->logToFile($this->image_ids, $this->outputFile, '');
-          $this->images_from_text++;
-        }
+        $this->logImageData($image_id, $this->image_ids, $this->outputFile);
+        $this->images_from_text++;
       }
     }
 

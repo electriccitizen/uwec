@@ -188,8 +188,12 @@ process:
     default_value: limited_html
   field_campus: campuses
 #  field_cv: 0
-#  field_departments: 0
-  'field_education/value': education_info
+  'field_education/value':
+    -
+      plugin: concat
+      source:
+        - education_info
+        - certification_info
   'field_education/format':
     plugin: default_value
     default_value: limited_html
@@ -202,7 +206,6 @@ process:
       1: teaching_emeritus
       2: active_emeritus
       3: inactive_emeritus
-#  field_faculty_staff: 0
   field_first_name: first_name
   field_first_override: first_name
   'field_image/target_id':
@@ -250,7 +253,15 @@ process:
   field_office: hrs_room
 #  field_page_families: 0
   field_phone: preferred_phone
-#  field_prefixes: prefix_id
+  field_pronouns: pronouns
+  field_prefixes:
+    -
+      plugin: static_map
+      source: prefix_id
+      map:
+        1: 'Dr.'
+        2: 'M.Ed'
+      default_value: ''
 #  field_programs: 0
   'field_publications/value': pub_published_research
   'field_publications/format':
@@ -261,7 +272,13 @@ process:
     plugin: default_value
     default_value: limited_html
 #  field_platforms: 0
-#  field_suffixes:
+  field_suffixes:
+    -
+      plugin: single_value
+      source: suffix_ids
+    -
+      plugin: cm_api_lookup
+
   'field_interests/value':
     plugin: concat
     source:
@@ -282,11 +299,16 @@ process:
       process:
         uri: uri
         title: platform
-
-
-
-  field_position: title
-  field_position_override: title
+  field_position:
+    -
+      plugin: explode
+      source: title
+      delimiter: "\n"
+  field_position_override:
+    -
+      plugin: explode
+      source: title
+      delimiter: "\n"
   field_username: username
 
 destination:

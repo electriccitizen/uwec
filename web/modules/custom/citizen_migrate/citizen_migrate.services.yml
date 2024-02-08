@@ -20,3 +20,8 @@ services:
     class: Drupal\citizen_migrate\Commands\CmTextFieldSplit
     tags:
       - { name: drush.command }
+  citizen_migrate.delete_unused_media:
+    class: Drupal\citizen_migrate\Commands\CmDeleteUnreferencedEntities
+    arguments: ['@entity_type.manager', '@file_system']
+    tags:
+      - { name: drush.command }
