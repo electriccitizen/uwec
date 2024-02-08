@@ -1,0 +1,202 @@
+/* =============
+	 FOOTER MENUS
+------------------- */
+@use '../../../00-base/base' as *;
+
+// visit apply etc
+.block-footer-menu{
+	@include desk{
+		position: relative;
+		&:before{
+			content: '';
+			display: block;
+			position: absolute;
+			bottom: calc(100% + 87px);
+			left: calc(50% - 31px); // 50% of container, minus half this width
+			width: 62px;
+			height: 92px;
+			background-image: url(../images/logos-badges/uwec-stacked-gold.svg);
+			background-repeat: no-repeat;
+			background-size: contain;
+			background-position: top center;
+		}
+	}
+
+	.menu-container{
+		display:flex;
+		justify-content: center;
+		text-align: center;
+		flex-wrap:wrap;
+
+		ul{
+			flex:1;
+		}
+		ul:first-child{
+			justify-content: right;
+		}
+		ul.button-container{
+			justify-content: center;
+			@include desk{
+				li{
+					flex:1;
+				}
+			}
+			@include onlyMobile{
+				order:-1;
+				flex-basis:100%;
+			}
+		}
+		// n+3 means the third, forth, fifth, etc.
+		ul:nth-child(n+3){
+			justify-content: left;
+		}
+	}
+
+	ul:not(.contextual-links){
+		@include listReset;
+		@include safeFlex(row,wrap,center,center);
+		margin-bottom: $spaceMd;
+		@include desk{
+			margin-bottom: 0;
+		}
+		li{
+			margin-left: 10px;
+			margin-right: 10px;
+			a{
+				display: block;
+				color: $prefooterLink;
+				text-transform: uppercase;
+				font-family: $header;
+				font-weight: $heavy;
+				font-size: $button;
+				line-height: 16.8px;
+				letter-spacing: .1em;
+				&:not(.menu-button){
+					&:hover,&:focus{
+						@include dottedLink($white);
+					}
+				}
+				&:hover,&:focus{
+					color: $prefooterLinkHover;
+					text-decoration: none;
+				}
+				&.menu-button{
+					border: 1px solid $prefooterLink;
+					border-radius: 25px;
+					padding: 13px 20px 10px;
+					text-align: center;
+					@include transAll(.3s);
+					&:hover,&:focus{
+						background-color: $white;
+						color: $prefooterBack;
+						@include animation('breathe .75s 1');
+					}
+				}//end menu button
+			}//end a
+		}//end li
+	}//end ul
+}//end footer-menu
+
+//for audience links
+.block-footer-for-menu{
+	ul:not(.contextual-links){
+		@include listReset;
+		li{
+			padding-bottom: 0;
+		}
+		a{
+			color: $prefooterLink;
+			line-height: 29px;
+			font-size: 14px;
+			&:hover,&:focus{
+        text-decoration: none;
+			}
+		}
+	}//end ul
+	.audience-menu{
+    li:not(:last-child){
+      margin-bottom: -2px;
+    }
+		.link-label{
+			font-family: $displayHeader;
+			font-style: italic;
+			font-size: 13.34px;
+		}
+		a{
+			font-family: $header;
+			font-weight: $xHeavy;
+			text-transform: uppercase;
+			letter-spacing: .05em;
+      padding-bottom: 2px;
+      &:hover,&:focus{
+        @include dottedLink($prefooterLink);
+      }
+		}
+	}//end audience menu
+	.additional-audience-menu{
+		ul:not(.contextual-links){
+			margin-top: 14px;
+			border-top: 1px solid rgba(255,255,255,.12);
+			padding-top: 14px;
+			margin-bottom: 7rem;
+			a{
+				font-size: 12px;
+				padding-bottom: 3px;
+				@include dottedLink($prefooterLink);
+				&:hover,&:focus{
+					background: none;
+					text-decoration: none;
+				}
+			}
+		}
+	}//end additional audience
+}//end footer-for menu
+
+//Footer ancillary left
+.block-footer-ancillary-menu{
+  width: 100%;
+	ul:not(.contextual-links){
+		@include listReset;
+    @include safeFlex(row,wrap,center,center);
+		@include bleed(padding,30px);
+		li{
+			padding-bottom: $spaceXxs;
+      position: relative;
+      width: 50%;
+      max-width: 185px;
+      @include smallTab{
+        width: auto;
+        max-width: auto;
+      }
+      @include desk{
+        &:not(:last-child){
+          &:after{
+            content: '';
+            display: block;
+            width: 1px;
+            height: 30%;
+            background: $sky;
+            position: absolute;
+            right: 0;
+            top: 30%;
+          }
+        }
+      }//end desk
+    }//end li
+		
+		a{
+			color: $footerLink;
+			font-size: 1.5rem;
+			line-height: 3rem;
+			padding-bottom: 3px;
+			@include dottedLink($footerLink);
+      transition: color .3s ease;
+			&:hover,&:focus{
+				color: $footerLinkHover;
+        background: none;
+        text-decoration: none;
+			}
+		}
+	}
+}//end ancillary 
+
