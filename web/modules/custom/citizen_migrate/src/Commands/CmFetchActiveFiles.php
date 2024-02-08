@@ -61,7 +61,13 @@ class CmFetchActiveFiles extends DrushCommands {
     $cmTools = \Drupal::service('cm.tools');
 
     foreach ($endpoints as $endpoint) {
-      $url = "$baseURL/$endpoint?apikey=$apiKey";
+      $url = "$baseURL/$endpoint?apikey=$apiKey&isactive=1&ispublished=1";
+
+      // Further filter Story nodes to those from unit_id 35.
+      if ($endpoint === 'stories.json') {
+        $url .= '&unit_id=35';
+      }
+
       $data = $this->fetch_data($url);
       $this->image_ids['rowIndex'] = 'n/a';
       $this->doc_links['rowIndex'] = 'n/a';
@@ -76,6 +82,11 @@ class CmFetchActiveFiles extends DrushCommands {
         foreach ($data as $item) {
           $this->image_ids['ent_id'] = $item['id'];
           $this->image_ids['rowIndex'] = 'n/a';
+//          $this->image_ids['image_id'] = '';
+//          $this->image_ids['url'] = '';
+//          $this->image_ids['alt'] = '';
+//          $this->image_ids['title'] = '';
+//          $this->image_ids['updated_at'] = '';
           $this->doc_links['ent_id'] = $item['id'];
           $this->doc_links['rowIndex'] = 'n/a';
           $this->vid_links['ent_id'] = $item['id'];
@@ -86,12 +97,24 @@ class CmFetchActiveFiles extends DrushCommands {
             case 'pages.json': // Adjusted to .json
               // Log the value of the image_id and the banner/image_id fields.
               if (isset($item['banner']['image_id']) && $item['banner']['image_id'] > 0) {
-                $this->image_ids['image_id'] = $item['banner']['image_id'];
-                $cmTools->logToFile($this->image_ids, $this->outputFile, '');
+                $data_retrieved = $this->getImageData($item['banner']['image_id'], $this->image_ids);
+//                $image_id = $item['banner']['image_id'];
+//                $this->image_ids['image_id'] = $image_id;
+//                $imageData = $this->getImageData($image_id, $this->image_ids);
+//                $this->image_ids['url'] = $imageData['url'];
+//                $this->image_ids['alt'] = $imageData['alt'];
+//                $this->image_ids['title'] = $imageData['title'];
+//                $this->image_ids['updated_at'] = $imageData['updated_at'];
+                if ($data_retrieved) {
+                  $cmTools->logToFile($this->image_ids, $this->outputFile, '');
+                }
               }
               if (isset($item['image_id']) && $item['image_id'] > 0) {
-                $this->image_ids['image_id'] = $item['image_id'];
-                $cmTools->logToFile($this->image_ids, $this->outputFile, '');
+//                $this->image_ids['image_id'] = $item['image_id'];
+                $data_retrieved = $this->getImageData($item['image_id'], $this->image_ids);
+                if ($data_retrieved) {
+                  $cmTools->logToFile($this->image_ids, $this->outputFile, '');
+                }
               }
               // Iterate through the text rows to log image_ids embedded in text content.
               $this->processRows($item['data']);
@@ -99,19 +122,21 @@ class CmFetchActiveFiles extends DrushCommands {
 
             case 'profiles.json': // Adjusted to .json
               if (isset($item['headshot_image_id']) && $item['headshot_image_id'] > 0) {
-                $this->image_ids['image_id'] = $item['headshot_image_id'];
-                $cmTools->logToFile($this->image_ids, $this->outputFile, '');
+//                $this->image_ids['image_id'] = $item['headshot_image_id'];
+                $data_retrieved = $this->getImageData($item['headshot_image_id'], $this->image_ids);
+                if ($data_retrieved) {
+                  $cmTools->logToFile($this->image_ids, $this->outputFile, '');
+                }
               }
               break;
 
-//            case 'stories.json':
-//              if (isset($item['article']))
-//              break;
-
             default:
               if (isset($item['image_id']) && $item['image_id'] > 0) {
-                $this->image_ids['image_id'] = $item['image_id'];
-                $cmTools->logToFile($this->image_ids, $this->outputFile, '');
+//                $this->image_ids['image_id'] = $item['image_id'];
+                $data_retrieved = $this->getImageData($item['image_id'], $this->image_ids);
+                if ($data_retrieved) {
+                  $cmTools->logToFile($this->image_ids, $this->outputFile, '');
+                }
               }
               if (isset($item['article'])) {
                 $this->logImageIdsInHtml($item['article'], 0);
@@ -146,6 +171,24 @@ class CmFetchActiveFiles extends DrushCommands {
       \Drupal::logger('citizen_migrate')->log(RfcLogLevel::ERROR, 'Request failed: @message', ['@message' => $e->getMessage()]);
       return NULL;
     }
+  }
+
+  // Function to fetch the image URL from the API.
+  function getImageData($image_id, &$image_data_array) {
+    $baseURL = 'https://athena.apps.uwec.edu/api/images.json';
+    $apiKey = getenv('API_KEY');
+    $url = "$baseURL?apikey=$apiKey&id=$image_id";
+
+    $data = $this->fetch_data($url);
+    if (is_array($data) && !empty($data)) {
+      $image_data_array['image_id'] = $image_id;
+      $image_data_array['alt'] = $data[$image_id]['alt'];
+      $image_data_array['title'] = $data[$image_id]['title'];
+      $image_data_array['url'] = $data[$image_id]['url'];
+      $image_data_array['updated_at'] = $data[$image_id]['updated_at'];
+      return TRUE;
+    }
+    return FALSE;
   }
 
   /**
@@ -200,7 +243,7 @@ class CmFetchActiveFiles extends DrushCommands {
   }
 
   public function processRows($rows) {
-    $text_row_ids = [1, 3, 21, 22, 23, 46, 54];
+    $text_row_ids = [1, 21, 22, 23, 47, 54];
     /** @var \Drupal\citizen_migrate\Services\CmTools $cmTools */
     $cmTools = \Drupal::service('cm.tools');
 
@@ -220,9 +263,9 @@ class CmFetchActiveFiles extends DrushCommands {
           $this->logImageIdsInHtml($row['standard_rte']['content'], $index);
           break;
 
-        case "3":
-          $this->logImageIdsInHtml($row['accordion']['content'], $index);
-          break;
+//        case "3":
+//          $this->logImageIdsInHtml($row['accordion']['content'], $index);
+//          break;
 
         case "21":
           $this->logImageIdsInHtml($row['tabular_rte']['content'], $index);
@@ -237,12 +280,22 @@ class CmFetchActiveFiles extends DrushCommands {
           }
           break;
 
-        case "46":
-          $this->image_ids['image_id'] = $row['wildcard']['image_id'];
-//          $this->image_ids['rowIndex'] = $row['wid'];
-          $cmTools->logToFile($this->image_ids, $this->outputFile, '');
-          $this->images_from_text++;
-          $this->logImageIdsInHtml($row['wildcard']['content'], $index);
+//        case "46":
+//          $this->image_ids['image_id'] = $row['wildcard']['image_id'];
+////          $this->image_ids['rowIndex'] = $row['wid'];
+//          $cmTools->logToFile($this->image_ids, $this->outputFile, '');
+//          $this->images_from_text++;
+//          $this->logImageIdsInHtml($row['wildcard']['content'], $index);
+//          break;
+
+        case "47":
+          foreach ($row['gallery']['photos'] as $i => $photo) {
+//            $this->image_ids['image_id'] = $photo['val']['image_id'];
+            $data_retrieved = $this->getImageData($photo['val']['image_id'], $this->image_ids);
+            if ($data_retrieved) {
+              $cmTools->logToFile($this->image_ids, $this->outputFile, '');
+            }
+          }
           break;
 
         case "54":
@@ -285,8 +338,11 @@ class CmFetchActiveFiles extends DrushCommands {
 
         // Append the image ID to the file
         $this->image_ids['rowIndex'] = $rowIndex;
-        $cmTools->logToFile($this->image_ids, $this->outputFile, '');
-        $this->images_from_text++;
+        $data_retrieved = $this->getImageData($this->image_ids['image_id'], $this->image_ids);
+        if ($data_retrieved) {
+          $cmTools->logToFile($this->image_ids, $this->outputFile, '');
+          $this->images_from_text++;
+        }
       }
     }
 

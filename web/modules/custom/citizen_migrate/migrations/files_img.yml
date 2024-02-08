@@ -41,56 +41,88 @@ include:
 # If you uncomment any of the source, process or destination keys,
 # you must put a field with a value.
 source:
-  plugin: uwec_url
-  urls: 'https://athena.apps.uwec.edu/api/images.json'
+#  plugin: uwec_url
+#  urls: 'https://athena.apps.uwec.edu/api/images.json'
+#  fields:
+#    -
+#      name: id
+#      label: ID
+#      selector: id
+#    -
+#      name: url
+#      label: URL
+#      selector: url
+#    -
+#      name: title
+#      label: Title
+#      selector: title
+#    -
+#      name: isactive
+#      label: isActive
+#      selector: isactive
+#    -
+#      name: created_at
+#      label: Created
+#      selector: created_at
+#    -
+#      name: unit_ids
+#      label: unitIds
+#      selector: unit_ids
+#    -
+#      name: keyword_ids
+#      label: Keywords
+#      selector: keyword_ids
+#    -
+#      name: category_ids
+#      label: Categories
+#      selector: category_ids
+#  ids:
+#    id:
+#      type: integer
+  plugin: csv
+  path: 'public://source-data/active_image_ids.csv'
   fields:
     -
-      name: id
-      label: ID
-      selector: id
+      name: endpoint
+      label: 'Endpoint'
     -
-      name: url
-      label: URL
-      selector: url
+      name: ent_id
+      label: 'Entity ID'
+    -
+      name: row_id
+      label: 'Row ID'
+    -
+      name: rowIndex
+      label: 'Row Index'
+    -
+      name: image_id
+      label: 'Image ID'
+    -
+      name: alt
+      label: 'Alt text'
     -
       name: title
-      label: Title
-      selector: title
+      label: 'Title'
     -
-      name: isactive
-      label: isActive
-      selector: isactive
+      name: url
+      label: 'URL'
     -
-      name: created_at
-      label: Created
-      selector: created_at
-    -
-      name: unit_ids
-      label: unitIds
-      selector: unit_ids
-    -
-      name: keyword_ids
-      label: Keywords
-      selector: keyword_ids
-    -
-      name: category_ids
-      label: Categories
-      selector: category_ids
+      name: updated_at
+      label: 'Updated At'
   ids:
-    id:
-      type: integer
+    - image_id
   constants:
     destination_uri: 'public://images/'
-    isactive: 1
+#    isactive: 1
 
 # Add processing for fields specific to this content type.
 process:
-  active:
-    -
-      plugin: skip_on_value
-      value: 0
-      method: row
-      source: isactive
+#  active:
+#    -
+#      plugin: skip_on_value
+#      value: 0
+#      method: row
+#      source: isactive
 
 #  validate_path:
 #    - plugin: cm_uri_validate

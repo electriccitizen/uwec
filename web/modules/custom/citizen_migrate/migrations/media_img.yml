@@ -42,74 +42,106 @@ include:
 # If you uncomment any of the source, process or destination keys,
 # you must put a field with a value.
 source:
-  plugin: uwec_url
-  urls: 'https://athena.apps.uwec.edu/api/images.json'
-  constants:
-    isactive: 1
+#  plugin: uwec_url
+#  urls: 'https://athena.apps.uwec.edu/api/images.json'
+#  constants:
+#    isactive: 1
+#  fields:
+#    -
+#      name: id
+#      label: ID
+#      selector: id
+#    -
+#      name: name
+#      label: Name
+#      selector: name
+#    -
+#      name: alt
+#      label: Alt
+#      selector: alt
+#    -
+#      name: caption
+#      label: Caption
+#      selector: caption
+#    -
+#      name: url
+#      label: URL
+#      selector: url
+#    -
+#      name: isactive
+#      label: isActive
+#      selector: isactive
+#    -
+#      name: title
+#      label: Title
+#      selector: title
+#    -
+#      name: updated_at
+#      label: Updated
+#      selector: updated_at
+#    -
+#      name: unit_ids
+#      label: Unit IDs
+#      selector: unit_ids
+#    -
+#      name: keyword_ids
+#      label: Keywords
+#      selector: keyword_ids
+#    -
+#      name: category_ids
+#      label: Categories
+#      selector: category_ids
+#    -
+#      name: tag_ids
+#      label: Tags
+#      selector: tag_ids
+#  ids:
+#    id:
+#      type: integer
+  plugin: csv
+  path: 'public://source-data/active_image_ids.csv'
   fields:
     -
-      name: id
-      label: ID
-      selector: id
+      name: endpoint
+      label: 'Endpoint'
     -
-      name: name
-      label: Name
-      selector: name
+      name: ent_id
+      label: 'Entity ID'
+    -
+      name: row_id
+      label: 'Row ID'
+    -
+      name: rowIndex
+      label: 'Row Index'
+    -
+      name: image_id
+      label: 'Image ID'
     -
       name: alt
-      label: Alt
-      selector: alt
-    -
-      name: caption
-      label: Caption
-      selector: caption
-    -
-      name: url
-      label: URL
-      selector: url
-    -
-      name: isactive
-      label: isActive
-      selector: isactive
+      label: 'Alt text'
     -
       name: title
-      label: Title
-      selector: title
+      label: 'Title'
+    -
+      name: url
+      label: 'URL'
     -
       name: updated_at
-      label: Updated
-      selector: updated_at
-    -
-      name: unit_ids
-      label: Unit IDs
-      selector: unit_ids
-    -
-      name: keyword_ids
-      label: Keywords
-      selector: keyword_ids
-    -
-      name: category_ids
-      label: Categories
-      selector: category_ids
-    -
-      name: tag_ids
-      label: Tags
-      selector: tag_ids
+      label: 'Updated At'
   ids:
-    id:
-      type: integer
+    - image_id
 
 # Add processing for fields specific to this content type.
 process:
-  active:
-    plugin: skip_on_value
-    value: 0
-    method: row
-    source: isactive
+#  active:
+#    plugin: skip_on_value
+#    value: 0
+#    method: row
+#    source: isactive
   'field_media_image/target_id':
     plugin: migration_lookup
     migration: files_img
-    source: id
+    source: image_id
   'field_media_image/display':
     plugin: default_value
     default_value: 1
@@ -118,10 +150,13 @@ process:
   'thumbnail/target_id':
     plugin: migration_lookup
     migration: files_img
-    source: id
+    source: image_id
   'thumbnail/alt': alt
   'thumbnail/title': title
-  status: isactive
+#  status: isactive
+  status:
+    plugin: default_value
+    default_value: 1
   created: timestamp
   changed:
     plugin: format_date
