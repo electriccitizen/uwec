@@ -12,7 +12,7 @@
 			display: block;
 			position: absolute;
 			bottom: calc(100% + 87px);
-			left: 50%;
+			left: calc(50% - 31px); // 50% of container, minus half this width
 			width: 62px;
 			height: 92px;
 			background-image: url(../images/logos-badges/uwec-stacked-gold.svg);
@@ -21,59 +21,75 @@
 			background-position: top center;
 		}
 	}
+
+	.menu-container{
+		display:flex;
+		justify-content: center;
+		text-align: center;
+		flex-wrap:wrap;
+
+		ul{
+			flex:1;
+		}
+		ul:first-child{
+			justify-content: right;
+		}
+		ul.button-container{
+			justify-content: center;
+			@include desk{
+				li{
+					flex:1;
+				}
+			}
+			@include onlyMobile{
+				order:-1;
+				flex-basis:100%;
+			}
+		}
+		// n+3 means the third, forth, fifth, etc.
+		ul:nth-child(n+3){
+			justify-content: left;
+		}
+	}
+
 	ul:not(.contextual-links){
 		@include listReset;
 		@include safeFlex(row,wrap,center,center);
 		margin-bottom: $spaceMd;
-    @include desk{
-      margin-bottom: 0;
-    }
+		@include desk{
+			margin-bottom: 0;
+		}
 		li{
 			margin-left: 10px;
 			margin-right: 10px;
-      @include desk{
-        &:first-child{
-          margin-right: 30px;
-        }
-        &:last-child{
-          margin-left: 30px;
-        }
-      }
 			a{
 				display: block;
 				color: $prefooterLink;
-        text-transform: uppercase;
-        font-family: $header;
-        font-weight: $heavy;
-        font-size: $button;
-        line-height: 16.8px;
-        letter-spacing: .1em;
-        //padding-bottom: 1px;
+				text-transform: uppercase;
+				font-family: $header;
+				font-weight: $heavy;
+				font-size: $button;
+				line-height: 16.8px;
+				letter-spacing: .1em;
 				&:not(.menu-button){
-					@include onlyMobile{
-						display: none;
+					&:hover,&:focus{
+						@include dottedLink($white);
 					}
-          &:hover,&:focus{
-            @include dottedLink($white);
-          }
 				}
 				&:hover,&:focus{
 					color: $prefooterLinkHover;
-          text-decoration: none;
-					
+					text-decoration: none;
 				}
 				&.menu-button{
 					border: 1px solid $prefooterLink;
 					border-radius: 25px;
 					padding: 13px 20px 10px;
-					min-width: 116px;
-					display: inline-block;
 					text-align: center;
-          @include transAll(.3s);
+					@include transAll(.3s);
 					&:hover,&:focus{
 						background-color: $white;
-            color: $prefooterBack;
-            @include animation('breathe .75s 1');
+						color: $prefooterBack;
+						@include animation('breathe .75s 1');
 					}
 				}//end menu button
 			}//end a
