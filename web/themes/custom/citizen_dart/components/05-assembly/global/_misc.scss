@@ -7,12 +7,28 @@
 /* NET PRICE CALCULATOR
 ---------------------------- */
 .net-price-wrapper{
-	max-width: $textMax;
-	@include auto;
-	iframe{
-		min-height: 900px;
-		@include tab{
-			min-height: 616px;
-		}
-	}
+  max-width: 984px;
+  @include auto;
+}
+iframe.npc-frame{
+	width: 100%;
+	background: $ice;
+  padding: 60px 20px 0;
+  border: 0;
+  height: calc(900px + 29vw);
+  @include smallTab{
+    height: calc(700px + 29vw);
+  }
+  @include tab{
+    height: calc(500px + 29vw);
+  }
+  @include desk{
+    padding-left: 60px;
+    padding-right: 60px;
+    height: 760px;
+  }
+  @include contentStop{
+    padding-left: 120px; 
+    height: 680px;
+  }
 }//end net price calculator
