@@ -6,6 +6,24 @@
 @use '../../../01-parts/buttons/button-mixins' as *;
 
 .paragraph--type--ctas{
+  &.cta-visible{
+    .cta-trio .cta-item .cta-item-inner .cta-image{
+      @include tab{
+        opacity: 1;
+        transition: opacity 0.5s ease-in;
+      }
+    }
+    .cta-bar{
+      .gold-stripes{
+        right: -20px;
+        transition: right 1s ease-out;
+      }
+      .cta-item-inner article .field-media-image img{
+        opacity: .3;
+        transition: opacity 0.75s ease-in;
+      }
+    }
+  }
 	.dialog-off-canvas-main-canvas .node-support-book &{
 		*{
 			transform-style: unset;
@@ -42,6 +60,7 @@
           @include tab{
             display: block;
             margin-bottom: 20px;
+            opacity: 0;
           }
         }
         .cta-headline{
@@ -77,7 +96,7 @@
     .gold-stripes{
       position: absolute;
       top: -128px;
-      right: -20px;
+      right: -100vw;
       z-index: 1;
       width: 263px;
       height: 171px;
@@ -119,7 +138,7 @@
 						position: relative;
 						z-index: -3;
 						object-fit: cover;
-            opacity: .3;
+            opacity: 0;
 					}
 				}
 			}//end article
