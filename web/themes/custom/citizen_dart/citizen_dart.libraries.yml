@@ -30,10 +30,10 @@ content-carousel:
     components/03-composites/paragraphs/content-carousel/content-carousel.js: {}
   dependencies:
     - citizen_dart/slick
-omnilert:
+ctas:
   version: 1.0
   js:
-    components/03-composites/blocks/omnilert/omnilert.js: {}
+    components/03-composites/paragraphs/ctas/ctas.js: {}
 drawers:
   version: 1.0
   js:
@@ -79,6 +79,10 @@ modal:
   version: 1.0
   js:
     components/02-chunks/modals/modals.js: {}
+omnilert:
+  version: 1.0
+  js:
+    components/03-composites/blocks/omnilert/omnilert.js: {}
 search-block:
   version: 1.0
   js:

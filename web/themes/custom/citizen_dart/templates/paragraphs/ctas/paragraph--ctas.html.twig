@@ -42,6 +42,7 @@
 {% extends 'paragraph.html.twig' %}
 
 {% block widgetContent %}
+  {{ attach_library('citizen_dart/ctas') }}
 	{% set ctaType = paragraph.field_is_trio.0.value %}
 
 	{% if ctaType == '1' %}
