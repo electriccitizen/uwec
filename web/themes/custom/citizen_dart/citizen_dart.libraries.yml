@@ -59,6 +59,10 @@ galleries:
   version: 1.0
   js:
     components/03-composites/paragraphs/gallery/gallery.js: {}
+hallmark:
+  version: 1.0
+  js:
+    components/03-composites/paragraphs/hallmark/hallmark.js: {}
 hours:
   version: 1.0
   js:

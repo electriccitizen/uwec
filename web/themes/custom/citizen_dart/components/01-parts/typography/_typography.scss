@@ -99,7 +99,7 @@ a {
 	text-decoration: none;
 	&:hover,&:focus {
 		color: $hoverLink;
-		text-decoration: underline;
+		text-decoration: none;
 		.text-with-summary &,.text-long &{
 			@include transAll(.3s);
 		}

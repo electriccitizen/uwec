@@ -353,8 +353,8 @@
 	position: absolute;
 	bottom: -50px;
 	left: -100px;
-	width: 200px;
-	height: 100px;
+	width: 263px;
+	height: 171px;
 	z-index: -1;
 	background: repeating-linear-gradient(
 	  -16deg,
@@ -400,6 +400,15 @@
 	background-repeat: no-repeat;
 	background-size: 50%;
 	background-position: 50% 50%;
+}
+
+@mixin arrowLinkBefore($arrowLinkColor){
+  font-family: vinila-extended, sans-serif;
+  font-size: 18px;
+  line-height: 1.44;
+  color: #{$arrowLinkColor};
+  position: relative;
+  padding-left: 52px;
 }
 
 @mixin dottedLink($dotColor){
