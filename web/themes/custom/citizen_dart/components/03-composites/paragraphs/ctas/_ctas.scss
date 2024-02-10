@@ -20,26 +20,80 @@
 		}
 		.cta-item{
 			width: 100%;
+      &:not(:last-child){
+        margin-bottom: $spaceSm;
+        @include tab{
+          margin-bottom: 0;
+        }
+      }
 			@include tab{
 				width: 33.33%;
 			}
 			.cta-item-inner{
 				height: 100%;
 				background: $brightBlue;
-				padding: 20px;
-			}
-		}
+				padding: 38px 20px 50px;
+        @include tab{
+          padding: 30px 30px 80px;
+          position: relative;
+        }
+        .cta-image{
+          display: none;
+          @include tab{
+            display: block;
+            margin-bottom: 20px;
+          }
+        }
+        .cta-headline{
+          @include tab{
+            line-height: 1.583;
+            &:not(:only-child){
+              margin-bottom: 2.5rem;
+            }
+          }
+        }
+        .cta-text{
+          line-height: 1.5;
+          @include tab{
+            margin-bottom: $spaceSm;
+          }
+        }
+        .cta-button{
+          @include tab{
+            position: absolute;
+            bottom: 30px;
+            left: 30px;
+            width: calc(100% - 60px);
+          }
+        }
+			}//end cta item inner
+		}//end CTA item
 	}//end is trio
 
 	.cta-bar{
 		max-width: 1094px;
 		@include auto; 
+    position: relative;
+    .gold-stripes{
+      position: absolute;
+      top: -128px;
+      right: -20px;
+      z-index: 1;
+      width: 263px;
+      height: 171px;
+      @include tab{
+        top: -65px;
+      }
+    }
 		.cta-item-inner{
 			position: relative;
 			overflow: hidden;
 			width: 100%;
-			padding: 60px;
-			@include safeFlex(row,wrap,start,center);
+			padding: 86px 20px 50px;
+      @include tab{
+			  @include safeFlex(row,wrap,start,center);
+        padding: 80px 109px 90px;
+      }
 			&:after{
 				@include fullBack($brightBlue);
 				z-index: -4;
@@ -49,7 +103,7 @@
 				top: 0;
 				left: 0;
 				width: 100%;
-				height: 200%;
+				height: 100%;
 				z-index: -1;
 				mix-blend-mode: multiply;
 				.field-media-image{
@@ -65,21 +119,42 @@
 						position: relative;
 						z-index: -3;
 						object-fit: cover;
+            opacity: .3;
 					}
 				}
 			}//end article
 			.cta-text-wrapper{
-				@include safeFlex(row,wrap,start,center);
-				.cta-text-left{
-					width: 60%;
-					padding-right: 20px;
-				}
+        .cta-headline{
+          &:not(:only-child){
+            margin-bottom: $spaceMd;
+          }
+        }
+        .cta-text{
+          line-height: 2;
+        }
+        @include tab{
+          @include safeFlex(row,wrap,start,center);
+          .cta-text-left{
+            width: 60%;
+            padding-right: 20px;
+            .cta-text{
+              margin-bottom: 0;
+              line-height: 1.875;
+            }
+          }
+          .cta-text-right{
+            width: 40%;
+          }
+        }
 				.cta-text-right{
 					a{
 						@include outlineButton($white);
+            @include tab{
+              padding: 2.1rem 3.25rem 1.85rem;
+            }
 					}
 				}
-			}
+			}//end cta text wrapper
 		}//end cita item inner
 	}//end is bar
 
@@ -88,10 +163,18 @@
 		.cta-headline{
 			@include heading2;
 			color: $white;
+      &:not(:only-child){
+        margin-bottom: $spaceXxs;
+      }
 		}
-		.cta-button{
+    .cta-text{
+      margin-bottom: $spaceLg;
+    }
+		.cta-button,.cta-text-right{
+      text-align: center;
 			a{
 				@include outlineButton($white);
+        margin-bottom: 0 !important;
 			}
 		}
 	}//end cta item
