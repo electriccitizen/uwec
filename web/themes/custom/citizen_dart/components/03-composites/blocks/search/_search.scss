@@ -242,6 +242,25 @@
 	}//end completion container
 }//end autocomplete suggestions table
 
+.search-box-wrapper.mobile-search {
+	padding: 0 2.5rem;
+	margin-bottom: 8rem;
+	.gsc-search-box {
+		label {
+			margin-bottom: $spaceSm;
+		}
+		.gsc-input-box {
+			.gsst_a {
+				padding: 0;
+			}
+		}
+		.gsc-search-button .gsc-search-button-v2 {
+			border: unset !important;
+			height: 35px;
+			padding-top: 0;
+		}
+	}
+}
 
 //search results
 .gsc-results-wrapper-visible{

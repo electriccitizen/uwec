@@ -58,7 +58,7 @@ ul.sf-menu.sf-horizontal{
 		margin-left: $spaceXxs !important;
 		margin-right: $spaceXxs !important;
 		margin-top: 30px !important;
-		@media only screen and (min-width: 1300px) {
+		@media only screen and (min-width: 1305px) {
 			margin-left: $spaceSm !important;
 			margin-right: $spaceSm !important;
 		}
@@ -211,13 +211,41 @@ ul.sf-menu.sf-accordion{
 		.site-header &{
 			position: absolute !important;
 			left: -$siteMarginMobile !important;
-			top: -20px !important;
+			top: -30px !important;
 			text-align: left;
 			width: calc(100% + $siteMarginMobile*2);
 			overflow: hidden;
-			background: $sfMobileDrop;
+			background-color: $sfMobileDrop;
 			padding-top: 100px;
 			z-index: 8;
+			&:before {
+				content: '';
+				display: block;
+				top: 0;
+				left: calc(50% - 119px);
+				opacity: 8%;
+				position: absolute;
+				width: 238px;
+				height: 238px;
+				background-image: url(../images/logos-badges/seal.svg);
+				background-position: center -112px;
+				background-repeat: no-repeat;
+				background-size: 238px 238px;
+			}
+			&:after {
+				content: '';
+				display: block;
+				bottom: 0;
+				left: calc(50% - 119px);
+				opacity: 8%;
+				position: absolute;
+				width: 238px;
+				height: 238px;
+				background-image: url(../images/logos-badges/seal.svg);
+				background-position: center 112px;
+				background-repeat: no-repeat;
+				background-size: 238px 238px;
+			}
 		}
 	}
 
@@ -253,7 +281,13 @@ ul.sf-menu.sf-accordion{
 			}
 		}//end accordion button
 
-		&.menuparent{;
+		&.sf-expanded {
+			& > .sf-accordion-button:after{
+				content: "\e5cf" !important;
+			}
+		}
+		
+		&.menuparent{
 			a{
 				display: block;
 				&:not(.sf-accordion-button){
@@ -284,6 +318,9 @@ ul.sf-menu.sf-accordion{
 	// top level
 	li.sf-depth-1{
 		& > a{
+			font-family: $header;
+			text-transform: uppercase;
+			font-size: 3rem;
 			color: $sfMobileTop;
 			background: $sfMobileTopBack;
 		}
