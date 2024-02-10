@@ -40,14 +40,21 @@
 {% extends 'paragraph.html.twig' %}
 
 {% block widgetContent %}
+  {{ attach_library('citizen_dart/hallmark') }}
 	<div class="content {{ content.field_text_placement[0]['#markup'] }}">
-		<div>
+    <div class="hallmark-image">
+			{{ content.field_image }}
+		</div>
+		<div class="hallmark-text">
 			{{ content.field_headline }}
 			{{ content.field_long_text }}
-			{{ content.field_link }}
-		</div>
-		<div>
-			{{ content.field_image }}
+      {% if content.field_link.0 %}
+        <div class="field-link">
+          <a href="{{ content.field_link.0['#url'] }}">
+            <span>{{ content.field_link.0['#title']}}</span>
+          </a>
+        </div>
+      {% endif %}
 		</div>
 	</div>
 {% endblock %}

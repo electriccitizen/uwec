@@ -2,15 +2,15 @@
 
 /* CTA ANIMATIONS
 ------------------ */
-Drupal.behaviors.ctaAnimate = {
+Drupal.behaviors.hallmarkAnimate = {
   attach: function (context, settings) {
-  	$(once('ctaAnimations', '.paragraph--type--ctas', context)).each(function(){
+  	$(once('hallmarkAnimations', '.paragraph--type--hallmark', context)).each(function(){
       // Function to handle the intersection observer callback
       function handleIntersection(entries, observer) {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
               //add class when target is visible
-              entry.target.classList.add('cta-visible');
+              entry.target.classList.add('hallmark-visible');
               observer.unobserve(entry.target); // Stop observing once the class is added
             }
         });

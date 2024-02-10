@@ -4,18 +4,204 @@
 
 @use '../../../00-base/base' as *;
 
-.paragraph--type--hallmark{
-	.content{
-		display:flex;
-		& > div:last-child{
-			flex: 1 0 70%;
-		}
+@include keyframes(hallmarkMobile){
+	from{
+		top: 0;
+    z-index: -2;
 	}
+	50%{
+		top: -200px;
+    z-index: 1;
+	}
+	100%{
+		top: -100px;
+    z-index: 2;
+	}
+}
+@include keyframes(hallmarkDeskLeft){
+	from{
+		right: 0;
+    z-index: -2;
+	}
+	50%{
+		right: -65%;
+    z-index: 1;
+	}
+	100%{
+		right: -60px;
+    z-index: 2;
+	}
+}
+@include keyframes(hallmarkDeskRight){
+	from{
+		left: 0;
+    z-index: -2;
+	}
+	50%{
+		left: -65%;
+    z-index: 1;
+	}
+	100%{
+		left: -60px;
+    z-index: 2;
+	}
+}
 
-	.content.left{
-		flex-direction:row;
-	}
-	.content.right{
-		flex-direction:row-reverse;
-	}
+.field-hallmarks{
+  padding-top: 100px;
+  & > div{
+    &:not(:last-child){
+      margin-bottom: 188px;
+    }
+  }
+}
+
+.paragraph--type--hallmark{
+  &.hallmark-visible .content{
+    .hallmark-image:before{
+      opacity: 1;
+      transition: opacity .5s ease-in;
+      transition-delay: 1.5s;
+    }
+    @include onlySmall{
+      .hallmark-image{
+        @include animation('hallmarkMobile 1.5s 1 forwards');
+      }
+    }//end onlysmall
+    &.left{
+      @include tab{
+        .hallmark-image{
+          @include animation('hallmarkDeskLeft 1.5s 1 forwards');
+        }
+      }
+    }//end left
+    &.right{
+      @include tab{
+        .hallmark-image{
+          @include animation('hallmarkDeskRight 1.5s 1 forwards');
+        }
+      }
+    }//end right
+  }//end visible hallmark content
+	.content{
+    position: relative;
+    @include edgeToEdge;
+    &.left{
+      @include tab{
+        padding-right: 60px;
+        .hallmark-image{
+          left: auto;
+          right: 60px;
+          &:before{
+            left: -30px;
+          }
+        }
+        .hallmark-text{
+          padding-right: 60%;
+          padding-left: 60px;
+        }
+      }//end 
+      @include contentStopMargin{
+        .hallmark-text{
+          padding-left: 152px;
+        }
+      }
+    }//end left
+    &.right{
+      @include tab{
+        padding-left: 60px;
+        .hallmark-image{
+          right: auto;
+          left: 60px;
+          &:before{
+            left: auto;
+            right: -30px;
+          }
+        }
+        .hallmark-text{
+          padding-left: 60%;
+          padding-right: 60px;
+        }
+      }//end 
+      @include contentStopMargin{
+        .hallmark-text{
+          padding-right: 152px;
+        }
+      }
+    }
+    .hallmark-image{
+      position: absolute;
+      left: 20px;
+      width: calc(100% - 40px);
+      top: 0;
+      z-index: -2;
+      &:before{
+        @include narrowStripes($sky);
+        left: -$siteMarginMobile;
+        bottom: -50px;
+        height: 150px;
+        opacity: 0;
+      }//end ebfore
+      @include tab{
+        top: 70px;
+        width: 60%;
+        height: calc(100% - 160px);
+        &:before{
+          bottom: auto;
+          top: -30px;
+        }
+      }
+    }//end hallmark image
+    .hallmark-text{
+      padding: 46vw 20px 65px;
+      background: $navy;
+      color: $white;
+      @include smallTab{
+        padding-top: 52vw;
+      }
+      @include tab{
+        padding-top: 80px;
+        padding-bottom: 90px;
+        min-height: 50vw;
+      }
+      @include contentStop{
+        min-height: 632px;
+      }
+      .field-headline{
+        @include heading2;
+        color: $white;
+        margin-bottom: $spaceSm;
+      }
+      .field-long-text{
+        &:not(:last-child){
+          margin-bottom: 38px;
+        }
+      }
+      .field-link{
+        padding-top: 14px;
+        a{
+          @include arrowLinkBefore($gold);
+          &:before{
+            content: '';
+            display: block;
+            position: absolute;
+            top: -14px;
+            left: 0;
+            width: 40px;
+            height: 40px;
+            @include rightArrow(gold,transparent,$gold,lg);
+          }
+          &:hover,&:focus{
+            &:before{
+              @include rightArrow(navy,white,$white,lg);
+            }
+            span{
+              @include dottedLink($white);
+              padding-bottom: 2px;
+            }
+          }
+        }//end a
+      }//end field link
+    }//end hallmark text
+	}//end content
 }//end hallmark widget
