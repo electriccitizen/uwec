@@ -6,19 +6,26 @@
 .breadcrumb{
 	max-width: $contentStop;
 	@include auto;
-	padding: $spaceMd 0 0;
+	padding: $spaceMd 0 8rem;
 	ol {
 		@include listReset;
 	}
 
 	li{
 		display: inline-block;
-		color: $breadCurrent;
-		font-size: 2rem;
+		color: $white;
+		font-family: $bodyText;
+		font-size: 1.5rem;
+		letter-spacing: 1px;
+		text-transform: uppercase;
 		&:not(:last-of-type){
 			padding-right: .25rem;
 			&:after{
 				content: " /";
+				font-family: $bodyText;
+				font-size: 1.5rem;
+				letter-spacing: 1px;
+				text-transform: uppercase;
 			}
 		}
 		a{
