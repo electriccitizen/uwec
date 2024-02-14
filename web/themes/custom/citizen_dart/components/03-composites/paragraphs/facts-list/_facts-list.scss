@@ -46,6 +46,9 @@
 	  	grid-gap: 65px;
 	  	@include factsGrid;
     }//end tab
+    @include desk{
+      grid-gap: 85px;
+    }
     & > div{
       &:not(:last-child){
         margin-bottom: $spaceMd;
@@ -65,8 +68,6 @@
     }
   }//edn facts wrapper
   .facts-title{
-    position: relative;
-    @include styledHeader;
     margin-bottom: 60px;
     @include tab{
       grid-column-start: 2;
@@ -75,21 +76,34 @@
 	    grid-row-end: 2;
       margin-bottom: 0;
     }
+    .facts-title-inner{
+      @include styledHeader;
+      position: relative;
+      display: block;
+      width: 300px;
+      @include auto;
+    }
     .fact-stripes{
-      @include rotate(180);
       position: absolute;
-      bottom: -26px;
-      left: 15px;
+      bottom: -32px;
+      left: -18px;
       z-index: -1;
       width: 196px;
       height: 128px;
       @include tab{
         bottom: auto;
-        top: 111px;
+        top: 120px;
         left: -32px;
       }
       @include desk{
-        top: 129px;
+        top: 117px;
+        left: -40px;
+        width: 264px;
+        height: 172px;
+        svg{
+          width: 264px;
+          height: 172px;
+        }
       }
     }//end fact stripes
   }//end facts title
