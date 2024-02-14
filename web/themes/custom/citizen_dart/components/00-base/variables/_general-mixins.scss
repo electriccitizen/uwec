@@ -525,36 +525,31 @@
 }
 
 @mixin styledHeader{
-	line-height: 1.1;
-	font-weight: 400;
-	font-family: grad, serif;
-	color: #06233d;
-	margin: 0;
-	font-feature-settings: "liga", "dlig";
-	font-size: 64px;
-	line-height: 64px;
-	text-align: center;
-	font-style: italic;
-	text-transform: uppercase;
-	letter-spacing: .05em;
-  @include u.desk{
-    font-size: 73px;
-	  line-height: 73px;
-    letter-spacing: 3.65px;
+  display: block;
+  text-align: center;
+  text-transform: uppercase;
+  line-height: 1;
+  span{
+    font-weight: 400;
+    font-family: grad, serif;
+    color: #06233d;
+    font-feature-settings: "liga", "dlig";
+    font-size: 64px;
+    font-style: italic;
+    letter-spacing: .05em;
+    @include u.desk{
+      font-size: 73px;
+    }
   }
 	strong{
-		font-size: 70.4px;
-		line-height: 84.48px;
-		font-style: normal;
+		font-size: 70px;
+		line-height: 1;
 		font-family: vinila-extended, sans-serif;
 		font-weight: 800;
-		letter-spacing: normal;
-		display: block;
-    margin-top: -6px;
+    display: block;
     @include u.desk{
-      font-size: 78.731px;
-		  line-height: normal;
-      margin-top: -13px;
+      line-height: 1;
+      font-size: 79px;
     }
 	}
 }
