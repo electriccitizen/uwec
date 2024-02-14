@@ -38,6 +38,10 @@ drawers:
   version: 1.0
   js:
     components/02-chunks/drawers/drawers.js: {}
+facts-list:
+  version: 1.0
+  js:
+    components/03-composites/paragraphs/facts-list/facts-list.js: {}
 featherlight:
   version: 1.7.13
   css:
