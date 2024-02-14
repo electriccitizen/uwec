@@ -52,7 +52,7 @@
       grid-column-gap: 85px;
     }
     & > div{
-      &:not(:last-child){
+      &:not(:first-child):not(:last-child){
         margin-bottom: $spaceMd;
         @include tab{
           margin-bottom: 0;
@@ -71,7 +71,7 @@
     }
   }//edn facts wrapper
   .facts-title{
-    margin-bottom: 60px;
+    margin-bottom: 7rem;
     @include tab{
       grid-column-start: 2;
 	    grid-column-end: 3;
@@ -88,7 +88,7 @@
     }
     .fact-stripes{
       position: absolute;
-      bottom: -32px;
+      bottom: -39px;
       left: -18px;
       z-index: -1;
       width: 196px;
