@@ -1,16 +1,16 @@
 (function($, Drupal, once) {
 
-/* HALLMARK ANIMATIONS
+/* FACTS ANIMATIONS
 ------------------ */
-Drupal.behaviors.hallmarkAnimate = {
+Drupal.behaviors.factsAnimate = {
   attach: function (context, settings) {
-  	$(once('hallmarkAnimations', '.paragraph--type--hallmark', context)).each(function(){
+  	$(once('factsAnimations', '.paragraph--type--facts-list', context)).each(function(){
       // Function to handle the intersection observer callback
       function handleIntersection(entries, observer) {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
               //add class when target is visible
-              entry.target.classList.add('hallmark-visible');
+              entry.target.classList.add('facts-visible');
               observer.unobserve(entry.target); // Stop observing once the class is added
             }
         });

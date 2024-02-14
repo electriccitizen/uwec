@@ -5,7 +5,7 @@
 @use 'colors';
 @use 'component-colors';
 @use 'fonts';
-@use 'units';
+@use 'units' as u;
 @use 'sass:math';
 
 /* TRANSFORM & TRANSITION MIXINS
@@ -424,12 +424,23 @@
     grid-column-end: 4;
     grid-row-start: 1;
     grid-row-end: 2;
+    .field-plain-text,.field-source{
+      @include u.desk{
+        padding-right: 34%;
+      }
+    }
 	}
 	.fact-2{
 		grid-column-start: 1;
     grid-column-end: 2;
     grid-row-start: 1;
     grid-row-end: 2;
+    text-align: right;
+    .field-plain-text,.field-source{
+      @include u.desk{
+        padding-left: 34%;
+      }
+    }
 	}
 	&.facts-count-3,&.facts-count-5{
 		.fact-1{
@@ -445,6 +456,13 @@
 	    grid-column-end: 3;
 	    grid-row-start: 2;
 	    grid-row-end: 3;
+      text-align: center;
+      .field-plain-text,.field-source{
+        @include u.desk{
+          padding-left: 17%;
+          padding-right: 17%;
+        }
+      }
 		}
 	}//end facts count 3
 	&.facts-count-4{
@@ -453,12 +471,23 @@
 	    grid-column-end: 4;
 	    grid-row-start: 2;
 	    grid-row-end: 3;
+      .field-plain-text,.field-source{
+        @include u.desk{
+          padding-right: 34%;
+        }
+      }
 		}
 		.fact-4{
 			grid-column-start: 1;
 	    grid-column-end: 2;
 	    grid-row-start: 2;
 	    grid-row-end: 3;
+      text-align: right;
+      .field-plain-text,.field-source{
+        @include u.desk{
+          padding-left: 34%;
+        }
+      }
 		}
 	}//end facts count 4
 	&.facts-count-5{
@@ -467,12 +496,23 @@
 	    grid-column-end: 2;
 	    grid-row-start: 1;
 	    grid-row-end: 2;
+      text-align: right;
+      .field-plain-text,.field-source{
+        @include u.desk{
+          padding-left: 34%;
+        }
+      }
 		}
 		.fact-5{
 			grid-column-start: 3;
 	    grid-column-end: 4;
 	    grid-row-start: 1;
 	    grid-row-end: 2;
+      .field-plain-text,.field-source{
+        @include u.desk{
+          padding-right: 34%;
+        }
+      }
 		}
 	}//end facts count 5
 }//end facts grid
@@ -486,26 +526,35 @@
 
 @mixin styledHeader{
 	line-height: 1.1;
-	font-weight: 500;
+	font-weight: 400;
 	font-family: grad, serif;
 	color: #06233d;
 	margin: 0;
 	font-feature-settings: "liga", "dlig";
-	font-size: 73px;
-	line-height: 73px;
+	font-size: 64px;
+	line-height: 64px;
 	text-align: center;
 	font-style: italic;
 	text-transform: uppercase;
-	letter-spacing: 3.65px;
+	letter-spacing: .05em;
 	strong{
-		font-size: 78.731px;
-		line-height: normal;
+		font-size: 70.4px;
+		line-height: 84.48px;
 		font-style: normal;
 		font-family: vinila-extended, sans-serif;
 		font-weight: 800;
 		letter-spacing: normal;
 		display: block;
 	}
+  @include u.desk{
+    font-size: 73px;
+	  line-height: 73px;
+    letter-spacing: 3.65px;
+    strong{
+      font-size: 78.731px;
+		  line-height: normal;
+    }
+  }
 }
 
 /* ANIMATION MIXINS

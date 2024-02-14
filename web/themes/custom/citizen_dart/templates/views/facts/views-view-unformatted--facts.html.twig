@@ -19,7 +19,26 @@
 
 {% set count = rows|length %}
 <div class="facts-wrapper facts-count-{{ count }}">
-	<h2 class="facts-title">Just</br>the</br><strong>facts</strong></h2>
+	<h2 class="facts-title">
+    Just</br>the</br><strong>facts</strong>
+    <div class="fact-stripes">
+      <svg width="196" height="128" viewBox="0 0 264 172" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <mask id="mask0_2283_54005" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="264" height="172">
+        <path d="M263.747 0H0V171.284H263.747V0Z" fill="white"/>
+        </mask>
+        <g mask="url(#mask0_2283_54005)">
+        <path d="M21.1562 105.202L555.971 -48.1504" stroke="#EDAC1A" stroke-width="1.07503" stroke-miterlimit="10"/>
+        <path d="M21.1562 123.134L555.971 -30.2188" stroke="#EDAC1A" stroke-width="1.07503" stroke-miterlimit="10"/>
+        <path d="M21.1562 141.065L555.971 -12.2876" stroke="#EDAC1A" stroke-width="1.07503" stroke-miterlimit="10"/>
+        <path d="M21.1562 158.997L555.971 5.64404" stroke="#EDAC1A" stroke-width="1.07503" stroke-miterlimit="10"/>
+        <path d="M21.1562 176.928L555.971 23.5752" stroke="#EDAC1A" stroke-width="1.07503" stroke-miterlimit="10"/>
+        <path d="M21.1562 194.859L555.971 41.5068" stroke="#EDAC1A" stroke-width="1.07503" stroke-miterlimit="10"/>
+        <path d="M21.1562 212.791L555.971 59.4385" stroke="#EDAC1A" stroke-width="1.07503" stroke-miterlimit="10"/>
+        <path d="M21.1562 230.722L555.971 77.3696" stroke="#EDAC1A" stroke-width="1.07503" stroke-miterlimit="10"/>
+        </g>
+      </svg> 
+    </div> 
+  </h2>
 	{% set rowCount = 0 %}
 	{% for row in rows %}
 		{% set rowCount = rowCount + 1 %}

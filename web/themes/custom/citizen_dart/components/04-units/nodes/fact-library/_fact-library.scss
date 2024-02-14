@@ -25,5 +25,20 @@
 .node-teaser-fact{
 	.teaser-title{
 		@include heading2;
+    font-size: 2.25rem;
+    line-height: 1.5;
+    margin-bottom: .85rem;
+    @include desk{
+      font-size: 3rem;
+      line-height: 1.33;
+    }
 	}
+  .field-plain-text{
+    margin-bottom: 10px;
+  }
+  .field-source{
+    font-style: italic;
+    font-size: 1.5rem;
+    line-height: 1.5;
+  }
 }
