@@ -43,11 +43,13 @@
       width: 100%;
   		display: grid;
 			grid-template-columns: 1fr 1fr 1fr;
-	  	grid-gap: 65px;
+	  	grid-row-gap: 40px;
+      grid-column-gap: 65px;
 	  	@include factsGrid;
     }//end tab
     @include desk{
-      grid-gap: 85px;
+      grid-row-gap: 60px;
+      grid-column-gap: 85px;
     }
     & > div{
       &:not(:last-child){
@@ -60,7 +62,8 @@
     &:not(.facts-count-3){
       @include tab{
         padding-top: 40px;
-        .facts-title{
+        padding-bottom: 40px;
+        .facts-title-inner{
           top: -40px;
           margin-bottom: -40px;
         }
