@@ -40,6 +40,7 @@
 {% extends 'paragraph.html.twig' %}
 
 {% block widgetContent %}
+  {{ attach_library('citizen_dart/slate-form') }}
 	{% if content.field_formatted_headline.0 or content.field_additional_text.0 %}
 		<div class="slate-left">
 			{{ content.field_formatted_headline }}

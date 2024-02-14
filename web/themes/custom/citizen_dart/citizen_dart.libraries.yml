@@ -111,6 +111,10 @@ select:
   js:
     components-addons/select2/select2.min.js: { minified: true }
     components/01-parts/forms/forms.js: {}
+slate-form:
+  version: 1.0
+  js:
+    components/03-composites/paragraphs/slate-form/slate-form.js: {}
 slick:
   version: 1.8.1
   css:

@@ -162,14 +162,83 @@
 			}
 		}
 	}//end course-information
-	.more-info {
-		background-color: $ice;
-		@include safeFlex(row,wrap,justify,start);
-		max-width: $contentStop;
-		@include auto;
-		margin-bottom: 8.75rem;
-
-	}
+  .field-request-for-info{
+    max-width: 1138px;
+    @include auto;
+    background: $ice;
+    color: $brightBlue;
+    padding: 40px 20px 30px;
+    @include tab{
+      padding: 60px 112px 45px;
+    }
+    .more-info {
+      @include safeFlex(row,wrap,start,start);
+      @include bleed(padding,60px);
+      .slate-left{
+        width: 100%;
+        @include desk{
+          width: 50%;
+          padding-top: 35px;
+        }
+        &.slate-visible{
+          h2 strong{
+            @include animation('breatheFadeIn 1.5s 1 forwards');
+          }
+        }
+        h2{
+          @include styledHeader;
+          text-align: left;
+          margin-bottom: $spaceSm;
+          color: $brightBlue;
+          strong{
+            opacity: 0;
+            scale: 1;
+            position: relative;
+            bottom: -2px;
+          }
+        }//end h2
+        p{
+          margin-bottom: 2.5rem;
+        }
+      }//end slate left
+      .slate-right{
+        width: 100%;
+        @include desk{
+          width: 50%;
+        }
+        form{
+          @include slateForm;
+          #form_page_1{
+            margin-bottom: 3rem;
+            .form_label{
+              & > div{
+                margin-left: -20px;
+                font-family: $bodyText;
+                font-size: 16px;
+                line-height: 1.875;
+                font-weight: $regular;
+                letter-spacing: normal;
+                text-transform: none;
+              }
+            }
+          }//end form page one
+        }//end form
+        #form_page_2,#form_page_3{
+          @include safeFlex(row,wrap,start,end);
+          @include bleed(padding,20px);
+          .form_question{
+            float: none !important;
+            width: 100% !important;
+            @include tab{
+              &[data-export="sys:first"],&[data-export="sys:last"],&[data-export="sys:field:student_type"],&[data-export="sys:mobile"]{
+                width: 50% !important;
+              }
+            }//end tab
+          }//end form question
+        }//end form page two
+      }//end slate right
+    }//end more info
+  }//end field request for info
 	.block-field-related-programs{
 		max-width: 1136px;
 		@include auto;
