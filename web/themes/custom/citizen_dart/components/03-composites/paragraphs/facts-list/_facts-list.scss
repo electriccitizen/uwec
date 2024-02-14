@@ -85,6 +85,9 @@
       display: block;
       width: 300px;
       @include auto;
+      span{
+        text-align: center;
+      }
     }
     .fact-stripes{
       position: absolute;

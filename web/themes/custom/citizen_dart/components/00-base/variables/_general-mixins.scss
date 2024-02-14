@@ -2,9 +2,9 @@
 	MIXINS
 ======================= */
 
-@use 'colors';
-@use 'component-colors';
-@use 'fonts';
+@use 'colors' as c;
+@use 'component-colors' as cc;
+@use 'fonts' as f;
 @use 'units' as u;
 @use 'sass:math';
 
@@ -518,7 +518,7 @@
 }//end facts grid
 
 @mixin exposedForm{
-	background: #f8f7f6;
+	background: c.$lightGrey;
 	max-width: 894px;
 	margin: 0 auto 60px;
 	padding: 30px 60px 44px;
@@ -529,30 +529,131 @@
   text-align: center;
   text-transform: uppercase;
   line-height: 1;
-  span{
-    font-weight: 400;
-    font-family: grad, serif;
-    color: #06233d;
-    font-feature-settings: "liga", "dlig";
-    font-size: 64px;
-    font-style: italic;
-    letter-spacing: .05em;
-    @include u.desk{
-      font-size: 73px;
-    }
+  font-weight: 400;
+  font-family: grad, serif;
+  color: #06233d;
+  font-feature-settings: "liga", "dlig";
+  font-size: 64px;
+  font-style: italic;
+  letter-spacing: .05em;
+  @include u.desk{
+    font-size: 73px;
   }
 	strong{
 		font-size: 70px;
 		line-height: 1;
-		font-family: vinila-extended, sans-serif;
+		font-family: f.$header;
 		font-weight: 800;
     display: block;
+    letter-spacing: 0;
     @include u.desk{
       line-height: 1;
       font-size: 79px;
     }
 	}
 }
+
+@mixin slateForm{
+  .form_question{
+    margin-bottom: 20px;
+  }
+  .form_label{
+    font-family: f.$header;
+    font-size: f.$formLabelSize;
+    font-weight: f.$formLabelWeight;
+    letter-spacing: .05em;
+    line-height: 16px;
+    text-transform: uppercase;
+    display: block;
+    margin: 0 0 5px 20px;
+  }
+  input[type='text'],input[type='email'],input[type='tel'],textarea{
+    @include browserWipe;
+    border: 0;
+    border-radius: 10px;
+    padding: 14px 22px;
+    width: 100%;
+    color: c.$navy;
+    letter-spacing: .05em;
+    font-size: 2rem;
+    line-height: 2;
+    &::placeholder{
+      color: rgba(c.$brightBlue,.6);
+    }
+  }
+  textarea{
+    min-height: 90px;
+  }
+  input[type='checkbox']{
+    @include browserWipe;
+    width: 22px;
+    height: 22px;
+    border: 1px solid c.$brightBlue;
+    background-color: c.$white;
+    &:hover,&:focus{
+      background-color: c.$cream;
+    }
+    &:checked{
+      background-image: url('../images/elements/check-black.svg');
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+  }//end checkbox
+  select{
+    @include browserWipe;
+    border: 0;
+    border-radius: 10px;
+    background: c.$white;
+    padding: 14px 32px 14px 22px;
+    background-image: url('../images/elements/caret-down-bright-blue-sm.svg');
+    background-repeat: no-repeat;
+    background-size: 12px;
+    background-position: calc(100% - 10px) 50%;
+    font-size: 2rem;
+    line-height: 2;
+    letter-spacing: .05em;
+    color: rgba(c.$brightBlue,.6);
+    &.selected{
+      color: c.$navy;
+    }
+    &:only-of-type{
+      width: 100%;
+    }
+    &:focus{
+      background-image: url('../images/elements/caret-up-bright-blue-sm.svg');
+      background-repeat: no-repeat;
+      background-size: 12px;
+      background-position: calc(100% - 10px) 50%;
+    }
+  }//end select
+  fieldset{
+    & > div:not(.form_label):not(:last-of-type){
+      margin-bottom: 2.5rem;
+    }
+  }
+  button.form_button_submit{
+    @include browserWipe;
+    border: 1px solid c.$brightBlue;
+    color: c.$brightBlue;
+    font-family: f.$header;
+    font-size: 14px;
+    line-height: 1.2;
+    letter-spacing: .1em;
+    font-weight: f.$xHeavy;
+    text-align: center;
+    text-transform: uppercase;
+    border-radius: 25px;
+    padding: 12px 21px 11px;
+    background-color: transparent;
+    margin: u.$spaceXxs 0 u.$spaceSm;
+    &:hover,&:focus{
+      @include animation('breathe .75s 1');
+      background-color: c.$brightBlue;
+      color: c.$white;
+      transition: background-color .3s ease-in-out;
+    }
+  }//end submit button
+}//end slateForm
 
 /* ANIMATION MIXINS
 --------------------- */
@@ -608,6 +709,21 @@
 		scale: 1.075;
 	}
 	100%{
+		scale: 1;
+	}
+}
+
+@include keyframes(breatheFadeIn){
+	from{
+    opacity: 0;
+		scale: 1;
+	}
+	50%{
+    opacity: .4;
+		scale: 1.075;
+	}
+	100%{
+    opacity: 1;
 		scale: 1;
 	}
 }
