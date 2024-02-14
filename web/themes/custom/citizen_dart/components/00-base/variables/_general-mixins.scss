@@ -537,6 +537,11 @@
 	font-style: italic;
 	text-transform: uppercase;
 	letter-spacing: .05em;
+  @include u.desk{
+    font-size: 73px;
+	  line-height: 73px;
+    letter-spacing: 3.65px;
+  }
 	strong{
 		font-size: 70.4px;
 		line-height: 84.48px;
@@ -545,16 +550,13 @@
 		font-weight: 800;
 		letter-spacing: normal;
 		display: block;
-	}
-  @include u.desk{
-    font-size: 73px;
-	  line-height: 73px;
-    letter-spacing: 3.65px;
-    strong{
+    margin-top: -6px;
+    @include u.desk{
       font-size: 78.731px;
 		  line-height: normal;
+      margin-top: -13px;
     }
-  }
+	}
 }
 
 /* ANIMATION MIXINS
