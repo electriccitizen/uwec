@@ -30,13 +30,12 @@
 /* PROFILES LIST
 ------------- */
 .bios.profiles-list{
-	@include profileList;
   .node-teaser-bios{
     padding: 0 10px;
   }
 }//end bios
 
-.bios.department-faculty{
+.department-faculty{
   .view-wrapper{
     @include profileList;
     padding-bottom: 40px;
@@ -85,5 +84,5 @@
 }//end department faculty
 
 .bios.program-faculty{
-	@extend .bios,.department-faculty;
+	@extend .department-faculty;
 }
