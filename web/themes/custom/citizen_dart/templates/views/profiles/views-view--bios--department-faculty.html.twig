@@ -35,6 +35,8 @@
 
 {% block viewRows %}
   {% if rows %}
+    {{ attach_library('citizen_dart/slick') }}
+    {{ attach_library('citizen_dart/profiles-list') }}
   	<h2 class="block-title">Meet the Faculty</h2>
     <div class="view-content">
       {{ rows }}
@@ -43,7 +45,7 @@
 	    {% set currentNode = drupal_entity('node',view.args.0) %}
 		    {% if currentNode['#node'].field_faculty_link.0 %}
 		    <div class="more-link">
-		    	<a href="{{ currentNode['#node'].field_faculty_link.0.url }}">Meet all the {{ currentNode['#node'].title.0.value }} {% block facultyType %}{% endblock %} faculty</a>
+		    	<a href="{{ currentNode['#node'].field_faculty_link.0.url }}"><span>Meet all the {{ currentNode['#node'].title.0.value }} {% block facultyType %}{% endblock %} faculty</span></a>
 		    </div>
 		  {% endif %}
 	  {% endif %}
