@@ -124,13 +124,23 @@
     }//end slick slider
 	}//end slider
 	.masonry {
+    max-width: 1340px;
+    @include auto;
 		.masonry-item {
-			margin-bottom: 2rem;
+      margin-bottom: 10px;
+      max-width: 100%;
+      @include onlyPhone{
+        position: static !important;
+        width: 100% !important;
+      }
+      @include tab{
+        margin-bottom: 25px;
+      }
 			&.small {
-				width: 300px;
+				width: 315px;
 			}
 			&.large {
-				width: 600px;
+				width: 630px;
 			}
 		}
 	}//ende masonry

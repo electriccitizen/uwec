@@ -43,8 +43,8 @@
 				$(this).masonry({
 					// options
 					itemSelector: '.masonry-item',
-					columnWidth: 300,
-					gutter: 16
+					columnWidth: 315,
+					gutter: 20
 				});
 			});
 		}
