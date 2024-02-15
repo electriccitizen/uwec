@@ -52,3 +52,9 @@
 		@include contactContent;
 	}
 }//end contact widget
+
+.node-teaser-contact{
+  .contact-content{
+		@include contactContent;
+	}
+}
