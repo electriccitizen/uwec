@@ -37,8 +37,13 @@
 }//end bios
 
 .bios.department-faculty{
-	@extend .bios,.profiles-list;
-  padding-bottom: 40px;
+  .view-wrapper{
+    @include profileList;
+    padding-bottom: 40px;
+    .node-teaser-bios{
+      padding: 0 10px;
+    }
+  }
   h2.block-title{
     margin-bottom: $spaceSm;
   }
@@ -59,7 +64,7 @@
         content: '';
         display: block;
         position: absolute;
-        top: -14px;
+        top: -10px;
         left: 0;
         width: 40px;
         height: 40px;

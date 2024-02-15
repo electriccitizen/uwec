@@ -167,7 +167,6 @@
         }
 				.cta-text-right{
 					a{
-						@include outlineButton($white);
             @include tab{
               padding: 2.1rem 3.25rem 1.85rem;
             }
@@ -194,6 +193,11 @@
 			a{
 				@include outlineButton($white);
         margin-bottom: 0 !important;
+        &:hover,&:focus{
+          color: $brightBlue;
+          background: $white;
+          border-color: $white;
+        }
 			}
 		}
 	}//end cta item

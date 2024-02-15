@@ -96,10 +96,14 @@ p{
 a {
 	color: $link;
 	text-decoration: none;
+  .text-with-summary &,.text-long &{
+    @include dottedLink($link);
+  }
 	&:hover,&:focus {
 		color: $hoverLink;
 		text-decoration: none;
 		.text-with-summary &,.text-long &{
+      @include dottedLink($hoverLink);
 			@include transAll(.3s);
 		}
 	}

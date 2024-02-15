@@ -51,17 +51,24 @@
   padding-top: 100px;
   & > div{
     &:not(:last-child){
-      margin-bottom: 188px;
+      margin-bottom: 130px;
+      @include desk{
+        margin-bottom: 50px;
+      }
     }
   }
 }
 
 .paragraph--type--hallmark{
   &.hallmark-visible .content{
-    .hallmark-image:before{
-      opacity: 1;
-      transition: opacity .5s ease-in;
-      transition-delay: 1.5s;
+    .hallmark-image{
+      .field-image{
+        &:before,&:after{
+          opacity: 1;
+          transition: opacity .5s ease-in;
+          transition-delay: 1.5s;
+        }
+      }
     }
     @include onlySmall{
       .hallmark-image{
@@ -92,10 +99,19 @@
         .hallmark-image{
           left: auto;
           right: 60px;
-          &:before{
-            left: -30px;
+          .field-image{
+            &:after{
+              left: -30px;
+              right: auto;
+            }
+            @include tab{
+              &:before{
+                left: auto;
+                right: 90px;
+              }
+            }
           }
-        }
+        }//end hallmark image
         .hallmark-text{
           padding-right: 60%;
           padding-left: 60px;
@@ -113,11 +129,17 @@
         .hallmark-image{
           right: auto;
           left: 60px;
-          &:before{
-            left: auto;
-            right: -30px;
+          .field-image{
+            &:after{
+              left: 90px;
+            }
+            @include tab{
+              &:before{
+                left: auto;
+              }
+            }
           }
-        }
+        }//end hallmark image
         .hallmark-text{
           padding-left: 60%;
           padding-right: 60px;
@@ -128,28 +150,36 @@
           padding-right: 152px;
         }
       }
-    }
+    }//end right
     .hallmark-image{
       position: absolute;
       left: 20px;
       width: calc(100% - 40px);
       top: 0;
       z-index: -2;
-      &:before{
-        @include narrowStripes($sky);
-        left: -$siteMarginMobile;
-        bottom: -50px;
-        height: 150px;
-        opacity: 0;
-      }//end ebfore
+      .field-image{
+        position: relative;
+        &:after{
+          @include narrowStripes($sky);
+          left: -$siteMarginMobile;
+          bottom: -50px;
+          height: 150px;
+          opacity: 0;
+        }//end after
+        @include tab{
+          &:before{
+            @include narrowStripes($sky);
+            right: -$siteMarginMobile;
+            top: -30px;
+            height: 150px;
+            opacity: 0;
+          }
+        }
+      }//field-image
       @include tab{
         top: 70px;
         width: 60%;
         height: calc(100% - 160px);
-        &:before{
-          bottom: auto;
-          top: -30px;
-        }
       }
     }//end hallmark image
     .hallmark-text{
@@ -173,6 +203,20 @@
         margin-bottom: $spaceSm;
       }
       .field-long-text{
+        a{
+          color: $gold;
+          @include dottedLink($gold);
+          &:hover,&:focus{
+            color: $oldGold;
+            @include dottedLink($white);
+          }
+        }
+        h2,h6{
+          color: $white;
+        }
+        h3,h4,h5{
+          color: $gold;
+        }
         &:not(:last-child){
           margin-bottom: 38px;
         }
@@ -185,7 +229,7 @@
             content: '';
             display: block;
             position: absolute;
-            top: -14px;
+            top: -10px;
             left: 0;
             width: 40px;
             height: 40px;
