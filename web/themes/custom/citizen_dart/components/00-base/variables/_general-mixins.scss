@@ -655,6 +655,135 @@
   }//end submit button
 }//end slateForm
 
+@mixin profileList{
+  position: relative;
+  max-width: 985px;
+  margin-left: u.$siteMarginMobile * -1;
+  margin-right: u.$siteMarginMobile * -1;
+  @include u.desk{
+    margin-left: auto;
+    margin-right: auto;
+  }
+  &:after{
+    @include fullBack(c.$gold);
+    top: 58px;
+    height: calc(100% - 58px);
+  }
+  .view-content,.field-fauxfile-items,.field-profiles{
+    & > div{
+      width: 100%;
+    }
+  }
+  .slick-slider{
+    .slick-arrow{
+      top: 35%;
+      width: 40px;
+      height: 40px;
+      @include u.desk{
+        &.slick-prev{
+          left: -10px;
+          background-image: url(../images/arrows/slider-arrow-left-lightGrey-sm.svg);
+          &:hover,&:focus{
+            background-image: url(../images/arrows/slider-arrow-left-ice-sm.svg);
+          }
+        }
+        &.slick-next{
+          right: -10px;
+          background-image: url(../images/arrows/slider-arrow-right-lightGrey-sm.svg);
+          &:hover,&:focus{
+            background-image: url(../images/arrows/slider-arrow-right-ice-sm.svg);
+          }
+        }
+      }
+    }//end slick arrow
+  }//end slick slider
+}
+
+@mixin profileTeaser{
+  padding-bottom: 40px;
+  .field-image{
+    margin-bottom: 2rem;
+  }
+  .field:not(.field-image):not(.field-name){
+    font-size: 1.75rem;
+    line-height: 1.285;
+    &:not(:last-of-type){
+      margin-bottom: 1rem;
+    }
+  }
+  .field-name,.teaser-title{
+    font-family: f.$displayHeader;
+    font-size: 3.25rem;
+    line-height: 1.23;
+    padding-right: 20px;
+    margin-bottom: 1rem;
+    a{
+      color: c.$navy;
+      @include dottedLink(c.$navy);
+      &:hover,&:focus{
+        color: c.$brightBlue;
+        @include dottedLink(c.$brightBlue);
+      }
+    }
+  }//end name
+  .field-departments{
+    font-family: f.$header;
+    font-weight: f.$xHeavy;
+    padding-right: 20px;
+    & > div{
+      display: inline-block;
+      &:not(:last-child){
+        &:after{
+          content: ' |';
+          margin-right: .25em;
+          white-space: nowrap;
+        }
+      }
+    }
+  }
+  .field-job-title,.field-position,.field-position-override{
+    @extend .field-departments;
+    font-family: f.$bodyText;
+    font-weight: f.$regular;
+  }//end job title
+  .field-email{
+    @include safeFlex(row,nowrap,start,start);
+    padding-right: 20px;
+    .icon-wrapper{
+			width: 16px;
+			margin-right: 12px;
+		}
+		.field-content{
+			width: calc(100% - 28px);
+      a{
+        color: c.$navy;
+        @include dottedLink(c.$navy);
+        display: inline-block;
+        &:hover,&:focus{
+          color: c.$brightBlue;
+          @include dottedLink(c.$brightBlue);
+        }
+      }
+		}
+		svg{
+			max-height: 16px;
+			margin-top: 3px;
+      position: relative;
+      top: -2px;
+      .cls-1{
+        fill: c.$navy;
+      }
+		}
+	}
+	.field-phone{
+    @extend .field-email;
+		svg{
+			max-height: 15px;
+      top: 1px;
+		}
+	}
+}//end profileTeaser
+
 /* ANIMATION MIXINS
 --------------------- */
 @mixin animation($animate...) {

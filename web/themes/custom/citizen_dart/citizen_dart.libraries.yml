@@ -91,6 +91,10 @@ omnilert:
   version: 1.0
   js:
     components/03-composites/blocks/omnilert/omnilert.js: {}
+profiles-list:
+  version: 1.0
+  js:
+    components/03-composites/paragraphs/profiles-list/profiles-list.js: {}
 search-block:
   version: 1.0
   js:

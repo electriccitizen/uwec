@@ -30,44 +30,51 @@
 /* PROFILES LIST
 ------------- */
 .bios.profiles-list{
-	max-width: 945px;
-	@include auto;
-	.view-content{
-		@include bleed(padding,20px);
-		justify-content: center;
-	}
-	.views-row{
-		&:not(:last-child){
-			margin-bottom: $spaceMd;
-		}
-		@include smallTab{
-			width: 50%;
-		}
-		@include tab{
-			width: 33.33%;
-		}
-	}
+	@include profileList;
+  .node-teaser-bios{
+    padding: 0 10px;
+  }
 }//end bios
 
 .bios.department-faculty{
 	@extend .bios,.profiles-list;
+  padding-bottom: 40px;
+  h2.block-title{
+    margin-bottom: $spaceSm;
+  }
 	.more-link{
-		text-align: center;
+    padding-top: 40px;
+		text-align: left;
+    margin-left: $siteMarginMobile;
+    margin-right: $siteMarginMobile;
+    @include tab{
+      text-align: center;
+    }
 		a{
-			@include heading2;
-			&:before{
-				content: '';
-				display: inline-block;
-				margin-right: 2rem;
-				position: relative;
-				top: 10px;
-				@include rightArrow(navy,transparent,$navy,lg);
-			}
-			&:hover,&:focus{
-				&:before{
-					@include rightArrow(white,$navy,$navy,lg);
-				}
-			}
+			@include arrowLinkBefore($navy);
+      display: inline-block;
+      max-width: $textMax;
+      @include auto;
+      &:before{
+        content: '';
+        display: block;
+        position: absolute;
+        top: -14px;
+        left: 0;
+        width: 40px;
+        height: 40px;
+        @include rightArrow(navy,transparent,$navy,lg);
+      }
+      &:hover,&:focus{
+        color: $brightBlue;
+        &:before{
+          @include rightArrow(blue,white,$white,lg);
+        }
+        span{
+          @include dottedLink($brightBlue);
+          padding-bottom: 2px;
+        }
+      }
 		}//end a
 	}//end more link
 }//end department faculty

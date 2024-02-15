@@ -4,8 +4,22 @@
 
 @use '../../00-base/base' as *;
 
+@mixin sliderPrevSm{
+	background-image: url(../images/arrows/slider-arrow-left-ltgrey-sm.svg);
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: center;
+}
+
 @mixin sliderPrev{
 	background-image: url(../images/arrows/slider-arrow-left-ltgrey.svg);
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: center;
+}
+
+@mixin sliderNextSm{
+	background-image: url(../images/arrows/slider-arrow-right-ltgrey-sm.svg);
 	background-repeat: no-repeat;
 	background-size: contain;
 	background-position: center;
@@ -44,11 +58,17 @@
 			left: 100px;
 			bottom: auto;
 			right: auto;
-			@include sliderPrev;
+			@include sliderPrevSm;
+        @include desk{
+          @include sliderPrev;
+        }
 			&:hover,&:focus {
-				background-image: url(../images/arrows/slider-arrow-left-ice.svg);
+				background-image: url(../images/arrows/slider-arrow-left-ice-sm.svg);
 				background-color: transparent;
 				@include transition(background-image, 0.3s, ease);
+        @include desk{
+          background-image: url(../images/arrows/slider-arrow-left-ice.svg);
+        }
 			}
 			span {
 				display: block;
@@ -64,11 +84,17 @@
 			right: 100px;
 			bottom: auto;
 			left: auto;
-			@include sliderNext;
+			@include sliderNextSm;
+        @include desk{
+          @include sliderNext;
+        }
 			&:hover,&:focus {
-				background-image: url(../images/arrows/slider-arrow-right-ice.svg);
+				background-image: url(../images/arrows/slider-arrow-right-ice-sm.svg);
 				background-color: transparent;
 				@include transition(background-image, 0.3s, ease);
+        @include desk{
+          background-image: url(../images/arrows/slider-arrow-right-ice.svg);
+        }
 			}
 			span {
 				display: block;
@@ -112,8 +138,12 @@
 	}
 	.slick-arrow {
 		z-index: 1;
-		width: 96px;
-		height: 96px;
+    width: 40px;
+    height: 40px;
+    @include desk{
+      width: 96px;
+		  height: 96px;
+    }
 		&:before {
 			content: '';
 			display: block;
@@ -122,26 +152,44 @@
 			opacity: 1;
 		}
 		&.slick-prev {
-			left: -48px;
+      left: 20px;
+      @include desk{
+			  left: -48px;
+      }
 			&:before{
-				@include sliderPrev;
+				@include sliderPrevSm;
+        @include desk{
+          @include sliderPrev;
+        }
 			}
 			&:hover,&:focus{
 				&:before{
-					background-image: url(../images/arrows/slider-arrow-left-ice.svg);
+					background-image: url(../images/arrows/slider-arrow-left-ice-sm.svg);
 					@include transition(background-image, 0.3s, ease);
+          @include desk{
+            background-image: url(../images/arrows/slider-arrow-left-ice.svg);
+          }
 				}
 			}
 		}
 		&.slick-next {
-			right: -48px;
+      right: 20px;
+      @include desk{
+			  right: -48px;
+      }
 			&:before{
-				@include sliderNext;
+				@include sliderNextSm;
+        @include desk{
+          @include sliderNext;
+        }
 			}
 			&:hover,&:focus{
 				&:before{
-					background-image: url(../images/arrows/slider-arrow-right-ice.svg);
+					background-image: url(../images/arrows/slider-arrow-right-ice-sm.svg);
 					@include transition(background-image, 0.3s, ease);
+          @include desk{
+            background-image: url(../images/arrows/slider-arrow-right-ice.svg);
+          }
 				}
 			}
 		}

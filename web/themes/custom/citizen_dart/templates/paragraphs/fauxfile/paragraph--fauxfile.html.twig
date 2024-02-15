@@ -37,24 +37,12 @@
  */
 #}
 
-{# check for a paragraph id #}
-{% if paragraph.id.value %}
-	{% if (content.field_list_type.0['#markup'] == 'manual') or (drupal_view('bios','profiles_list', paragraph.id.value)|render|striptags|trim|length > 0) %} 
-    {{ attach_library('citizen_dart/slick') }}
-    {{ attach_library('citizen_dart/profiles-list') }}
-		<div class="paragraph paragraph--type--profiles-list custom-views-list profile-list-{{ content.field_list_type.0['#markup'] }}" data-quickedit-entity-id="paragraph/{{ paragraph.id.value }}">
-				{{ content.field_widget_title }}
-        <div class="widget-inner">
-          {% if content.field_list_type.0['#markup'] == 'auto' %}
-            {{ drupal_view('bios','profiles_list', paragraph.id.value) }}
-          {% else %}
-            {{ content.field_profiles }}
-          {% endif %}
-        </div>
-		</div>
-	{% endif %}
-{# if no id because the node has not yet been saved, spit out a preview message #}
-{% else %}
-	<p><strong>The profiles list widget is not available in preview until the node is saved after it has have been added.</strong></p>
-{% endif %}
+{% extends 'paragraph.html.twig' %}
+
+{% block widgetContent %}
+  {{ attach_library('citizen_dart/slick') }}
+  {{ attach_library('citizen_dart/profiles-list') }}
+  {{ parent() }}
+{% endblock %}
+
 

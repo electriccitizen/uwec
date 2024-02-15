@@ -9,13 +9,15 @@ dependencies:
     - field.field.paragraph.fauxfile_item.field_name
     - field.field.paragraph.fauxfile_item.field_phone
     - paragraphs.paragraphs_type.fauxfile_item
+  module:
+    - telephone
 id: paragraph.fauxfile_item.default
 targetEntityType: paragraph
 bundle: fauxfile_item
 mode: default
 content:
   field_email:
-    type: basic_string
+    type: email_mailto
     label: hidden
     settings: {  }
     third_party_settings: {  }
@@ -47,10 +49,10 @@ content:
     weight: 1
     region: content
   field_phone:
-    type: string
+    type: telephone_link
     label: hidden
     settings:
-      link_to_entity: false
+      title: ''
     third_party_settings: {  }
     weight: 4
     region: content

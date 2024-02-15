@@ -64,9 +64,8 @@ h2.section-title{
 }
 .widget-title,.field-widget-title{
 	@include blockTitle;
-	letter-spacing: 0;
-	text-transform: none;
-	margin-bottom: 1.5rem;
+	letter-spacing: .05em;
+	margin-bottom: $spaceSm;
 }
 
 /* TEXT STYLES
