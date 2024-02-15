@@ -7,10 +7,50 @@
 
 //bio node
 .node-bios{
-
 	#node-section-1{
+		& > .layout--twocol-even {
+			max-width: $contentStop;
+			@include auto;
+		}
+		position: relative;
+		padding-top: 8.75rem;
+		&:after {
+			@include fullBack($navy);
+		}
 		.layout__region--first{
 			@include safeFlex(row,wrap,end,start);
+			max-width: 426px;
+		}
+		.layout__region--content {
+			max-width: calc(100% - 426px);
+			* {
+				color: $white;
+			}
+			.block-title {
+				margin-bottom: 0;
+			}
+			.block-field-pronouns {
+				text-transform: uppercase
+			}
+			.block-field-positions {
+				font-family: $header;
+			}
+			.block-field-departments {
+				h2 {
+					font-family: $bodyText;
+					font-size: 1.75rem;
+					text-align: left;
+					font-weight: normal;
+					text-transform: capitalize;
+					letter-spacing: unset;
+				}
+				.field-departments {
+					a {
+						color: $gold;
+						font-weight: $heavy;
+					}
+				}
+			}
 		}
 	}
 	#node-section-2{
