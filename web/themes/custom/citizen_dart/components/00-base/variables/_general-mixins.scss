@@ -677,9 +677,9 @@
   .slick-slider{
     .slick-arrow{
       top: 35%;
-      width: 40px;
-      height: 40px;
       @include u.desk{
+        width: 40px;
+        height: 40px;
         &.slick-prev{
           left: -10px;
           background-image: url(../images/arrows/slider-arrow-left-lightGrey-sm.svg);

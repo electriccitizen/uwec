@@ -6,12 +6,16 @@
 @use '../../../02-chunks/media/media-mixins' as *;
 
 .paragraph--type--gallery{
-	max-width: 100%;
 	.tiles{
+    @include edgeToEdge;
+    @include contentStopMargin{
+      @include auto;
+      max-width: 1340px;
+    }
 		.gallery-wrapper{
-			@include safeFlex(row,wrap,center,start);
-			@include bleed(padding,32px);
-			margin-bottom: -$spaceMd;
+			@include safeFlex(row,wrap,start,start);
+			@include bleed(padding,20px);
+			margin-bottom: 20px;
 			//hide the content before tiles
 			.featherlight-hidden {
 				display: none;
@@ -21,8 +25,14 @@
 				margin-bottom: $spaceMd;
 				overflow: hidden;
 				cursor: pointer;
-				width: 100%;
-				max-width: 308px;
+				width: 50%;
+				max-width: 335px;
+        @include tab{
+          width: 33%.3;
+        }
+        @include desk{
+          width: 25%;
+        }
 				img {
 					width: 100%;
 					@include imageHover;
@@ -31,52 +41,107 @@
 			}//end image tiles
 		}//end gallery-wrapper
 	}//end tiles
+
 	.slider {
-		@include textConstrain;
+    @include edgeToEdge;
+    width: calc(100% + 40px);
+    @include desk{
+      max-width: 1096px;
+      width: 100%;
+      @include auto;
+    }
 		//slider container overrides layout padding on mobile
 		.field-gallery-items {
-			@include edgeToEdge;
-			width: calc(100% + 40px);
-			@include tab {
-				@include edgeReset;
-				width: 100%;
-			}
+      .slide-inner-wrapper{
+        @include onlyMobile{
+          padding: 0 4px;
+        }
+      }
 			.slide-meta{
-				@include safeFlex(row,nowrap,justify,start);
+				@include safeFlex(row,wrap,justify,start);
+        padding: 2rem 2.5rem 0;
+        color: $brightBlue;
+        line-height: 1.5;
+        .slide-counter{
+          width: 100%;
+          margin-bottom: $spaceXxs;
+          @include tab{
+            width: 50%;
+          }
+        }
 				.slide-caption{
-					width: 70%;
+					width: 100%;
 					@include tab{
 						width: 50%;
 					}
-				}
-			}
+          .field-caption-headline{
+            font-family: $header;
+            font-size: 2.25rem;
+            margin-bottom: $spaceXxs;
+          }
+				}//end slide caption
+			}//end slide meta
 			img {
 				width: 100%;
 			}
-		}
+		}//end field gallery items
+    .slick-slider{
+      .slick-arrow{
+        top: calc(90px + 4vw);
+        &.slick-prev{
+          left: 10px;
+        }
+        &.slick-next{
+          right: 10px;
+        }
+        @include smallTab{
+          top: calc(100px + 10vw);
+        }
+        @include tab{
+          top: calc(120px + 14vw);
+        }
+        @include desk{
+          top: calc(130px + 16vw);
+        }
+        @include desk{
+          &.slick-prev{
+            left: -10px;
+          }
+          &.slick-next{
+            right: -10px;
+          }
+        }
+        @media screen and (min-width: 1192px){
+          top: 316px;
+          &.slick-prev{
+            left: -48px;
+          }
+          &.slick-next{
+            right: -48px;
+          }
+        }
+      }//end slick arrow
+    }//end slick slider
 	}//end slider
 	.masonry {
+    max-width: 1340px;
+    @include auto;
 		.masonry-item {
-			margin-bottom: 2rem;
+      margin-bottom: 10px;
+      max-width: 100%;
+      @include onlyPhone{
+        position: static !important;
+        width: 100% !important;
+      }
+      @include tab{
+        margin-bottom: 25px;
+      }
 			&.small {
-				width: 300px;
+				width: 315px;
 			}
 			&.large {
-				width: 600px;
+				width: 630px;
 			}
 		}
-	}
+	}//ende masonry
 }//end gallery paragraph
-
-.featherlight-content {
-	position: static !important;
-	.featherlight-counter {
-		position: absolute;
-		top: 0;
-		left: 0;
-		z-index: 9999;
-		width: 100%;
-		text-align: center;
-		color: $white;
-	}
-}
