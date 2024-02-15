@@ -52,15 +52,17 @@
 		          <div class="featherlight-gal image-gal" href="#item{{ item['#paragraph'].field_image.0.target_id }}" rel="gallery-{{ paragraph.id.value }}">
                 {{ drupal_entity('media', item['#paragraph'].field_image.0.target_id, 'square') }}
 		            <div class="featherlight-hidden" id="item{{ item['#paragraph'].field_image.0.target_id }}">
-									<span class="featherlight-counter">{{key + 1}}/{{content.field_gallery_items['#items']|length}}</span>
-		              {{ drupal_entity('media', item['#paragraph'].field_image.0.target_id, '650x650') }}
-                  <div class="featherlight-caption">
-                    {% if item['#paragraph'].field_caption_headline.0.value %}
-                      <div class="field field-caption-headline string">{{ item['#paragraph'].field_caption_headline.0.value }}</div>
-                    {% endif %}
-                    {% if item['#paragraph'].field_caption.0.value %}
-                      <div class="field field-caption string-long">{{ item['#paragraph'].field_caption.0.value }}</div>
-                    {% endif %}
+                  <div class="featherlight-slide">
+                    <div class="featherlight-counter">{{key + 1}}<span>/</span>{{content.field_gallery_items['#items']|length}}</div>
+                    {{ drupal_entity('media', item['#paragraph'].field_image.0.target_id, '650x650') }}
+                    <div class="featherlight-caption">
+                      {% if item['#paragraph'].field_caption_headline.0.value %}
+                        <div class="field field-caption-headline string">{{ item['#paragraph'].field_caption_headline.0.value }}</div>
+                      {% endif %}
+                      {% if item['#paragraph'].field_caption.0.value %}
+                        <div class="field field-caption string-long">{{ item['#paragraph'].field_caption.0.value }}</div>
+                      {% endif %}
+                    </div>
                   </div>
 		            </div>
 		          </div>

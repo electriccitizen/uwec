@@ -11,7 +11,8 @@
 						previousIcon: 'Prev',
 						nextIcon: 'Next',
 						galleryFadeIn: 300,
-						openSpeed: 300
+						openSpeed: 300,
+            closeIcon: 'Close'
 					});
 				});
 			});

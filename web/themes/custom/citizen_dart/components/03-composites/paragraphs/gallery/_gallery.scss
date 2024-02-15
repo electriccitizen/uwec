@@ -6,12 +6,16 @@
 @use '../../../02-chunks/media/media-mixins' as *;
 
 .paragraph--type--gallery{
-	max-width: 100%;
 	.tiles{
+    @include edgeToEdge;
+    @include contentStopMargin{
+      @include auto;
+      max-width: 1340px;
+    }
 		.gallery-wrapper{
-			@include safeFlex(row,wrap,center,start);
-			@include bleed(padding,32px);
-			margin-bottom: -$spaceMd;
+			@include safeFlex(row,wrap,start,start);
+			@include bleed(padding,20px);
+			margin-bottom: 20px;
 			//hide the content before tiles
 			.featherlight-hidden {
 				display: none;
@@ -21,8 +25,14 @@
 				margin-bottom: $spaceMd;
 				overflow: hidden;
 				cursor: pointer;
-				width: 100%;
-				max-width: 308px;
+				width: 50%;
+				max-width: 335px;
+        @include tab{
+          width: 33%.3;
+        }
+        @include desk{
+          width: 25%;
+        }
 				img {
 					width: 100%;
 					@include imageHover;
@@ -31,6 +41,7 @@
 			}//end image tiles
 		}//end gallery-wrapper
 	}//end tiles
+
 	.slider {
     @include edgeToEdge;
     width: calc(100% + 40px);
@@ -122,18 +133,5 @@
 				width: 600px;
 			}
 		}
-	}
+	}//ende masonry
 }//end gallery paragraph
-
-.featherlight-content {
-	position: static !important;
-	.featherlight-counter {
-		position: absolute;
-		top: 0;
-		left: 0;
-		z-index: 9999;
-		width: 100%;
-		text-align: center;
-		color: $white;
-	}
-}
