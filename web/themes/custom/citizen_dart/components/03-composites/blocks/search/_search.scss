@@ -143,9 +143,10 @@
 		td.gsc-input{
 			padding-right: 0;
 			.gsc-input-box{
-				padding: 4px 50px 5px 20px;
+				padding: 11px 50px 11px 20px;
 				border-radius: 25px;
 				border: 0;
+				background: $ice;
 				@include desk{
 					padding: 4px 20px 5px;
 					margin-right: 12px;
@@ -244,10 +245,12 @@
 
 .search-box-wrapper.mobile-search {
 	padding: 0 2.5rem;
-	margin-bottom: 8rem;
+	margin-bottom: 6rem;
 	.gsc-search-box {
 		label {
-			margin-bottom: $spaceSm;
+			display: block;
+			margin-bottom: $spaceXxs;
+			padding-left: 3rem;
 		}
 		.gsc-input-box {
 			.gsst_a {

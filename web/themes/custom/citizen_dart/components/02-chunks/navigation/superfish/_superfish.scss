@@ -227,7 +227,7 @@ ul.sf-menu.sf-accordion{
 				position: absolute;
 				width: 238px;
 				height: 238px;
-				background-image: url(../images/logos-badges/seal.svg);
+				background-image: url(../images/logos-badges/uwec-seal-white.svg);
 				background-position: center -112px;
 				background-repeat: no-repeat;
 				background-size: 238px 238px;
@@ -241,7 +241,7 @@ ul.sf-menu.sf-accordion{
 				position: absolute;
 				width: 238px;
 				height: 238px;
-				background-image: url(../images/logos-badges/seal.svg);
+				background-image: url(../images/logos-badges/uwec-seal-white.svg);
 				background-position: center 112px;
 				background-repeat: no-repeat;
 				background-size: 238px 238px;
@@ -317,15 +317,19 @@ ul.sf-menu.sf-accordion{
 
 	// top level
 	li.sf-depth-1{
+		margin: 0 40px;
+		width: calc(100% - 80px);
 		& > a{
 			font-family: $header;
 			text-transform: uppercase;
 			font-size: 3rem;
 			color: $sfMobileTop;
 			background: $sfMobileTopBack;
+			letter-spacing: 3px;
+			padding-left: 0;
 		}
-		&:not(:last-child){
-			border-bottom: 1px solid $sfMobileItemBorder
+		&:not(:nth-child(2)){
+			border-top: 1px solid $sfMobileItemBorder;
 		}
 		&.sf-expanded{
 			& > a{

@@ -23,6 +23,16 @@
 				font-size: 1.5rem;
 				text-transform: uppercase;
 				letter-spacing: 1px;
+				&[href^="http://"]:after,&[href^="https://"]:after {
+					background-image: url(../images/elements/external-link-white.svg);
+					background-repeat: no-repeat;
+					display: inline-block;
+					content: '';
+					width: 10px;
+					height: 10px;
+					background-size: cover;
+					margin-left: 1rem;
+				}
 				&:hover,&:focus{
 					color: $secondMenuLinkHover;
 					@include transAll(.3s);
