@@ -148,6 +148,9 @@
       position: relative;
       width: 50%;
       max-width: 185px;
+      &:nth-child(odd){
+        text-align: right;
+      }
       @include smallTab{
         width: auto;
         max-width: auto;

@@ -8,12 +8,13 @@ dependencies:
 third_party_settings:
   menu_ui:
     available_menus:
-      - footer-ancillary-left
-      - footer-ancillary-right
+      - departments
+      - footer-ancillary
       - footer-for
       - footer-audience-additional
       - footer
       - main
+      - offices-services
       - secondary
     parent: 'main:'
   scheduler:

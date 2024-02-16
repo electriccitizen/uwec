@@ -164,6 +164,9 @@
 		padding: 0 $siteMarginMobile 115px;
 		@include auto;
 		position: relative;
+    @include smallTab{
+			padding-top: 20px;
+		}
 		@include tab{
 			padding-bottom: 100px;
 		}
@@ -180,10 +183,17 @@
 				align-items: flex-end;
 			}
 		}
+    //social
+    .block-3{
+      margin-bottom: $spaceSm;
+      @include smallTab{
+        margin-bottom: $spaceXxs;
+      }
+    }
 		.footer-ancillary{
-			margin-bottom: 8rem;
-      @media screen and (min-width: 1024px){
-        margin-bottom: $spaceLg;
+			margin-bottom: $spaceMd;
+      @include smallTab{
+        margin-bottom: $spaceXxs;
       }
 		}
 		//copy right

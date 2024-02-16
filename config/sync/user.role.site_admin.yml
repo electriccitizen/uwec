@@ -99,6 +99,7 @@ permissions:
   - 'administer main menu items'
   - 'administer menu'
   - 'administer nodes'
+  - 'administer offices-services menu items'
   - 'administer redirects'
   - 'administer secondary menu items'
   - 'administer support-book menu items'

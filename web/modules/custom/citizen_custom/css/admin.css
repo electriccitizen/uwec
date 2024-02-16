@@ -242,9 +242,13 @@ button[disabled]:hover,button.disabled:hover{
 /* INDIVIDUAL PARAGRAPH PREVIEW TWEAKS
 ------------------------------- */
 .paragraph--type--form-placer.paragraph--view-mode--preview .field--name-field-form a,
-.paragraph--type--button.paragraph--view-mode--preview .field--name-field-link a{
+.paragraph--view-mode--preview .field--name-field-link a,
+.paragraph--view-mode--preview .field--name-field-link-multi a,
+.paragraph--view-mode--preview .field--name-field-file-multi a,
+.paragraph--view-mode--preview .field--name-field-long-text a{
 	pointer-events: none;
 	color: #444;
+  text-decoration: underline;
 }
 
 
