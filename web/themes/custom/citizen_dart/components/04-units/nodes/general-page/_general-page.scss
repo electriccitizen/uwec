@@ -59,12 +59,6 @@
 	}//end intro simple
 	.layout--twocol-sideleft{
 		max-width: 100%;
-		.layout__region--content{
-			transform-style: unset;
-			*{
-				transform-style: unset;
-			}
-		}
 	}
 	//page header section
 	#node-section-1{
@@ -72,9 +66,9 @@
 		.hero-video &,.hero-full_image &,.hero-background &{
 			position: static;
 		}
-		*{
-			transform-style: unset;
-		}
+		// *{
+		// 	transform-style: unset;
+		// }
 	}
 	//hero setups
 	.page-header-wrapper{
@@ -249,12 +243,6 @@
 	.node-section:not(#node-section-1){
 		position: static;
 	}
-	.node-section:not(#node-section-2){
-		*{
-			transform-style: unset;
-		}
-	}
-	
 	.block-field-page-family{
 		max-width: 914px;
 		@include auto;
