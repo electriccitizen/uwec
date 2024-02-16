@@ -37,20 +37,9 @@
  */
 #}
 
-<div{{ attributes|without('class') }} class="paragraph paragraph--type--{{ paragraph.bundle|clean_class  }}{% if id %} paragraphs-item-{{ paragraph.id.value }}{% endif %}">
-	{% block widget %}
-		{% block widgetTitle %}
-			{% if content.field_widget_title.0 %}
-				<div class="widget-title">{{- content.field_widget_title.0['#context'].value -}}</div>
-			{% endif %}
-		{% endblock %}
-		{% block widgetInner %}
-			<div class="widget-wrapper">
-				{% block widgetContent %}
-					{{- content|without('field_widget_title') -}}
-				{% endblock %}
-			</div>
-		{% endblock %}
-	{% endblock %}
-</div>
+{% extends 'paragraph.html.twig' %}
 
+{% block widgetContent %}
+	{# this is just the livewhale widget code snippet pasted, with the addition of the group filter #}
+	<div class="lwcw" data-options="id=6&format=html&group={{ content.field_livewhale_group[0]['#markup'] }}"></div> <script type="text/javascript" id="lw_lwcw" src="//calendar.uwec.edu/livewhale/theme/core/scripts/lwcw.js"></script>
+{% endblock %}
