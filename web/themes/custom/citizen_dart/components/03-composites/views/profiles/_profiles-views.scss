@@ -27,17 +27,17 @@
 	}
 }//end directory
 
-/* PROFILES LIST
-------------- */
-.bios.profiles-list{
+.profiles-list{
   .node-teaser-bios{
-    padding: 0 10px;
+    padding: 0 10px 40px;
   }
-}//end bios
+}
 
+/* FACULTY VIEWS
+------------- */
 .department-faculty{
   .view-wrapper{
-    @include profileList;
+    @include profileSlider;
     padding-bottom: 40px;
     .node-teaser-bios{
       padding: 0 10px;
@@ -70,12 +70,11 @@
         @include rightArrow(navy,transparent,$navy,lg);
       }
       &:hover,&:focus{
-        color: $brightBlue;
         &:before{
-          @include rightArrow(blue,white,$white,lg);
+          @include rightArrow(navy,white,$white,lg);
         }
         span{
-          @include dottedLink($brightBlue);
+          @include dottedLink($navy);
           padding-bottom: 2px;
         }
       }

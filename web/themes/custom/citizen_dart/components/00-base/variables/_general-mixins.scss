@@ -706,7 +706,7 @@
   }//end submit button
 }//end slateForm
 
-@mixin profileList{
+@mixin profileSlider{
   position: relative;
   max-width: 985px;
   margin-left: u.$siteMarginMobile * -1;
@@ -720,7 +720,7 @@
     top: 58px;
     height: calc(100% - 58px);
   }
-  .view-content,.field-fauxfile-items,.field-profiles{
+  .view-content{
     & > div{
       width: 100%;
     }
@@ -748,7 +748,30 @@
       }
     }//end slick arrow
   }//end slick slider
-}
+}//end profile slider
+
+@mixin profileGrid{
+  position: relative;
+  max-width: 1005px;
+  margin: 0 auto;
+  &:after{
+    @include fullBack(c.$gold);
+    top: 58px;
+    height: calc(100% - 58px);
+  }
+  .field-fauxfile-items,.field-profiles,.view-content{
+    @include safeFlex(row,wrap,start,start);
+    & > div{
+      width: 100%;
+      @include u.smallTab{
+        width: 50%;
+      }
+      @include u.tab{
+        width: 33.33%;
+      }
+    }
+  }
+}//end profile grid
 
 @mixin profileTeaser{
   padding-bottom: 40px;
@@ -772,8 +795,8 @@
       color: c.$navy;
       @include dottedLink(c.$navy);
       &:hover,&:focus{
-        color: c.$brightBlue;
-        @include dottedLink(c.$brightBlue);
+        color: c.$royal;
+        background-image: none;
       }
     }
   }//end name
@@ -792,7 +815,7 @@
       }
     }
   }
-  .field-job-title,.field-position,.field-position-override{
+  .field-job-title,.field-long-text,.field-position,.field-position-override{
     @extend .field-departments;
     font-family: f.$bodyText;
     font-weight: f.$regular;
@@ -811,8 +834,8 @@
         @include dottedLink(c.$navy);
         display: inline-block;
         &:hover,&:focus{
-          color: c.$brightBlue;
-          @include dottedLink(c.$brightBlue);
+          color: c.$royal;
+          background-image: none;
         }
       }
 		}

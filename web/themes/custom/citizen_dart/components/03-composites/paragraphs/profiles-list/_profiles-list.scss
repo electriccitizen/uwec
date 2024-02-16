@@ -7,11 +7,11 @@
 .paragraph--type--profiles-list{
   &.profile-list-manual{
     .node-teaser-bios{
-      padding: 0 10px;
+      padding: 0 10px 40px;
     }
   }
   .widget-inner{
-	  @include profileList;
+	  @include profileGrid;
     padding-bottom: 40px;	
   }
   

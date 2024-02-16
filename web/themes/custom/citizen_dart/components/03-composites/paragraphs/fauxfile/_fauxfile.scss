@@ -6,7 +6,7 @@
 
 .paragraph--type--fauxfile{
   & > .widget-wrapper{
-	  @include profileList;
+	  @include profileGrid;
   }
 }//end fauxfile widget
 

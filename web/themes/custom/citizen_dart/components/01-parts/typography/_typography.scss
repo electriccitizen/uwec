@@ -103,8 +103,8 @@ a {
 		color: $hoverLink;
 		text-decoration: none;
 		.text-with-summary &,.text-long &{
-      @include dottedLink($hoverLink);
-			@include transAll(.3s);
+      background-image: none;
+			transition: color .3s ease-in;
 		}
 	}
 }
