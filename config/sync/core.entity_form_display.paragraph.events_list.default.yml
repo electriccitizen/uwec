@@ -1,23 +1,21 @@
-uuid: e255ed11-0c6a-436b-bbe6-13a6b76b2bd3
+uuid: fe4c0177-ffe9-48bd-ab17-941b53b64294
 langcode: en
 status: true
 dependencies:
   config:
     - field.field.paragraph.events_list.field_livewhale_group
     - paragraphs.paragraphs_type.events_list
-  module:
-    - options
 id: paragraph.events_list.default
 targetEntityType: paragraph
 bundle: events_list
 mode: default
 content:
   field_livewhale_group:
-    type: list_default
-    label: above
-    settings: {  }
-    third_party_settings: {  }
+    type: options_select
     weight: 0
     region: content
+    settings: {  }
+    third_party_settings: {  }
 hidden:
-  search_api_excerpt: true
+  created: true
+  status: true

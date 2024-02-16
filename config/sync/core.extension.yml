@@ -63,6 +63,7 @@ module:
   lazy: 0
   link: 0
   linkit: 0
+  livewhale: 0
   media: 0
   media_entity_file_replace: 0
   media_library: 0
