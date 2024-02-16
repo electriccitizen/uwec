@@ -17,7 +17,7 @@
     }
 	}
 	100%{
-		right: 0;
+		right: -60px;
     z-index: 2;
 	}
 }
@@ -27,11 +27,11 @@
     z-index: -2;
 	}
 	50%{
-		right: -60%;
+		right: -65%;
     z-index: 1;
 	}
 	100%{
-		right: 0;
+		right: -60px;
     z-index: 2;
 	}
 }
@@ -45,7 +45,7 @@
     z-index: 1;
 	}
 	100%{
-		left: 0;
+		left: -60px;
     z-index: 2;
 	}
 }
@@ -55,26 +55,25 @@
     z-index: -2;
 	}
 	50%{
-		left: -60%;
+		left: -65%;
     z-index: 1;
 	}
 	100%{
-		left: 0;
+		left: -60px;
     z-index: 2;
 	}
 }
 
 .field-hallmarks{
-  padding-top: 100px;
   & > div{
     &:not(:last-child){
-      margin-bottom: 130px;
+      margin-bottom: 90px;
       @include desk{
         margin-bottom: 50px;
       }
     }
   }
-}
+}//end hallmarks field
 
 .paragraph--type--hallmark{
   max-width: 1400px;
@@ -84,12 +83,10 @@
   }
   &.hallmark-visible .content{
     .hallmark-image{
-      .field-image{
-        &:before,&:after{
-          opacity: 1;
-          transition: opacity .5s ease-in;
-          transition-delay: 1.5s;
-        }
+      .stripes-before,.stripes-after{
+        opacity: 1;
+        transition: opacity .5s ease-in;
+        transition-delay: 1.5s;
       }
     }
     &.left{
@@ -122,73 +119,68 @@
     @include edgeToEdge;
     width: calc(100% + 40px);
     @include onlySmall{
-      @include fullBack($navy);
-      top: 100px;
-      height: calc(100% - 100px);
+      &:after{
+        @include fullBack($navy);
+        top: 100px;
+        height: calc(100% - 100px);
+      }
+    }
+    @include tab{
+      width: calc(100% - 20px);
+      background: $navy;
+      padding-top: 70px;
+      padding-bottom: 70px;
+      @include safeFlex(row,nowrap,justify,start);
     }
     &.left{
       @include tab{
-        padding-right: 60px;
+        margin-right: 60px;
         .hallmark-image{
           left: auto;
           right: 0;
-          .field-image{
-            &:after{
-              left: -30px;
-              right: auto;
-            }
-            @include tab{
-              &:before{
-                left: -35px;
-              }
-              &:after{
-                left: auto;
-                right: -35px;
-              }
-            }//end tab
-          }//end field image
+          order: 2;
+          .stripes-before{
+            display: block;
+            left: -35px;
+          }
+          .stripes-after{
+            left: auto;
+            right: -35px;
+          }
         }//end hallmark image
         .hallmark-text{
-          padding-right: 60%;
+          padding-right: 20px;
           padding-left: 60px;
         }
       }//end 
       @include contentStopMargin{
         .hallmark-text{
-          padding-right: calc(61% + 60px);
           padding-left: 152px;
         }
       }
     }//end left
     &.right{
       @include tab{
-        padding-left: 60px;
+        margin-left: 60px;
         .hallmark-image{
           right: auto;
           left: 0;
-          .field-image{
-            &:after{
-              left: 90px;
-            }
-            @include tab{
-              &:before{
-                left: auto;
-                right: -35px;
-              }
-              &:after{
-                left: 30px;
-              }
-            }//end tab
-          }//end field image
+          .stripes-before{
+            display: block;
+            left: auto;
+            right: -60px;
+          }
+          .stripes-after{
+            left: 30px;
+          }
         }//end hallmark image
         .hallmark-text{
-          padding-left: 60%;
+          padding-left: 20px;
           padding-right: 60px;
         }
-      }//end 
+      }//end tab
       @include contentStopMargin{
         .hallmark-text{
-          padding-left: calc(61% + 60px);
           padding-right: 152px;
         }
       }
@@ -200,48 +192,43 @@
       width: calc(100% - 40px);
       left: 20px;
       @include tab{
-        top: 70px;
-        width: 55%;
-        height: calc(100% - 160px);
+        flex: 0 0 58%;
         z-index: -2;
       }
       @include contentStopMargin{
-        width: 61%;
+        flex: 0 0 65%;
       }
-      .field-image{
-        position: relative;
-        &:after{
-          @include narrowStripes($sky);
-          left: -$siteMarginMobile;
-          bottom: -50px;
-          height: 150px;
-          opacity: 0;
-        }//end after
+      .stripes-before{
+        display: none;
+        position: absolute;
+        right: 0;
+        top: -30px;
+        opacity: 0;
+        z-index: -1;
+      }
+      .stripes-after{
+        display: block;
+        position: absolute;
+        left: -30px;
+        bottom: -118px;
+        opacity: 0;
+        z-index: -1;
         @include tab{
-          &:before{
-            @include narrowStripes($sky);
-            right: -$siteMarginMobile;
-            top: -30px;
-            height: 150px;
-            opacity: 0;
-          }
+          bottom: -90px;
         }
-      }//field-image
+      }
     }//end hallmark image
     .hallmark-text{
-      padding: 46vw 20px 65px;
+      padding: 70px 20px 65px;
       background: $navy;
       color: $white;
-      @include smallTab{
-        padding-top: 52vw;
-      }
       @include tab{
-        padding-top: 80px;
-        padding-bottom: 90px;
-        min-height: 50vw;
+        padding-top: 10px;
+        padding-bottom: 0;
+        flex: 0 0 52%;
       }
-      @include contentStop{
-        min-height: 632px;
+      @include contentStopMargin{
+        flex: 0 0 35%;
       }
       .field-headline{
         @include heading2;
