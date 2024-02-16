@@ -54,14 +54,14 @@
   height: 100%;
   overflow-x: hidden;
   overflow-y: scroll;
-  -webkit-perspective: 8px;
-  perspective: 8px;
-  perspective-origin: 0 0;
-  -webkit-perspective-origin: 0 0;
-  *{
-  	-webkit-transform-style: preserve-3d;
-  	transform-style: preserve-3d;
-  }
+  // -webkit-perspective: 8px;
+  // perspective: 8px;
+  // perspective-origin: 0 0;
+  // -webkit-perspective-origin: 0 0;
+  // *{
+  // 	-webkit-transform-style: preserve-3d;
+  // 	transform-style: preserve-3d;
+  // }
   .gin--vertical-toolbar &{
   	padding-left: 58px;
   }

@@ -79,6 +79,9 @@
 .paragraph--type--hallmark{
   max-width: 1400px;
   @include auto;
+  * {
+    transform-style: unset;
+  }
   &.hallmark-visible .content{
     .hallmark-image{
       .field-image{
@@ -118,6 +121,11 @@
     position: relative;
     @include edgeToEdge;
     width: calc(100% + 40px);
+    @include onlySmall{
+      @include fullBack($navy);
+      top: 100px;
+      height: calc(100% - 100px);
+    }
     &.left{
       @include tab{
         padding-right: 60px;
@@ -186,12 +194,11 @@
       }
     }//end right
     .hallmark-image{
-      position: absolute;
-      left: 20px;
-      width: calc(100% - 40px);
-      top: -100px;
+      position: relative;
       max-width: 874px;
       z-index: 1;
+      width: calc(100% - 40px);
+      left: 20px;
       @include tab{
         top: 70px;
         width: 55%;

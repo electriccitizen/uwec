@@ -78,7 +78,10 @@
 	    grid-row-start: 1;
 	    grid-row-end: 2;
       margin-bottom: 0;
-      
+      // body:not(.logged-in) &{
+      //   transform-origin: 0;
+      //   transform: translateZ(2px) scale(0.75);
+      // }
     }
     .facts-title-inner{
       @include styledHeader;
