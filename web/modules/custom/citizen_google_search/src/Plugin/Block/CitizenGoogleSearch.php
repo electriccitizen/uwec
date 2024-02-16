@@ -32,21 +32,19 @@ class CitizenGoogleSearch extends BlockBase {
       case 'example':
         $results_page = '/search-fancy-example';
         $site = 'Fancy Example';
-        //$js_sha = '6657d6eee9af349d2';
         break;
 
       default:
         $results_page = '/search';
         $site = 'UWEC';
-        $js_sha = '004626211687516433429:aex2tyveipy';
+        $js_sha = '559b459c6af5e4072';
     }
     return [
       '#theme' => 'citizen_google_search_block',
       '#domain' => $domain,
       '#results_page' => $results_page,
       '#site' => $site,
-      '#js_sha' => '004626211687516433429:aex2tyveipy',
-      //'#js_sha' => '9446cf1add44a49ab', // for development URLs.
+      '#js_sha' => '559b459c6af5e4072',
     ];
   }
 
