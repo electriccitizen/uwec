@@ -4,31 +4,34 @@
 
 @use '../../../00-base/base' as *;
 
-@include keyframes(hallmarkMobile){
-	from{
-		top: 0;
-    z-index: -2;
-	}
-	50%{
-		top: -200px;
-    z-index: 1;
-	}
-	100%{
-		top: -100px;
-    z-index: 2;
-	}
-}
 @include keyframes(hallmarkDeskLeft){
 	from{
 		right: 0;
     z-index: -2;
 	}
 	50%{
-		right: -65%;
+		right: -52%;
+    z-index: 1;
+    @include contentStopMargin{
+      right: -52%;
+    }
+	}
+	100%{
+		right: 0;
+    z-index: 2;
+	}
+}
+@include keyframes(hallmarkDeskLeftMax){
+	from{
+		right: 0;
+    z-index: -2;
+	}
+	50%{
+		right: -60%;
     z-index: 1;
 	}
 	100%{
-		right: -60px;
+		right: 0;
     z-index: 2;
 	}
 }
@@ -38,11 +41,25 @@
     z-index: -2;
 	}
 	50%{
-		left: -65%;
+		left: -52%;
     z-index: 1;
 	}
 	100%{
-		left: -60px;
+		left: 0;
+    z-index: 2;
+	}
+}
+@include keyframes(hallmarkDeskRightMax){
+	from{
+		left: 0;
+    z-index: -2;
+	}
+	50%{
+		left: -60%;
+    z-index: 1;
+	}
+	100%{
+		left: 0;
     z-index: 2;
 	}
 }
@@ -60,6 +77,8 @@
 }
 
 .paragraph--type--hallmark{
+  max-width: 1400px;
+  @include auto;
   &.hallmark-visible .content{
     .hallmark-image{
       .field-image{
@@ -70,15 +89,15 @@
         }
       }
     }
-    @include onlySmall{
-      .hallmark-image{
-        @include animation('hallmarkMobile 1.5s 1 forwards');
-      }
-    }//end onlysmall
     &.left{
       @include tab{
         .hallmark-image{
           @include animation('hallmarkDeskLeft 1.5s 1 forwards');
+        }
+      }
+      @include contentStopMargin{
+        .hallmark-image{
+          @include animation('hallmarkDeskLeftMax 1.5s 1 forwards');
         }
       }
     }//end left
@@ -88,17 +107,23 @@
           @include animation('hallmarkDeskRight 1.5s 1 forwards');
         }
       }
+      @include contentStopMargin{
+        .hallmark-image{
+          @include animation('hallmarkDeskRightMax 1.5s 1 forwards');
+        }
+      }
     }//end right
   }//end visible hallmark content
 	.content{
     position: relative;
     @include edgeToEdge;
+    width: calc(100% + 40px);
     &.left{
       @include tab{
         padding-right: 60px;
         .hallmark-image{
           left: auto;
-          right: 60px;
+          right: 0;
           .field-image{
             &:after{
               left: -30px;
@@ -106,11 +131,14 @@
             }
             @include tab{
               &:before{
-                left: auto;
-                right: 90px;
+                left: -35px;
               }
-            }
-          }
+              &:after{
+                left: auto;
+                right: -35px;
+              }
+            }//end tab
+          }//end field image
         }//end hallmark image
         .hallmark-text{
           padding-right: 60%;
@@ -119,6 +147,7 @@
       }//end 
       @include contentStopMargin{
         .hallmark-text{
+          padding-right: calc(61% + 60px);
           padding-left: 152px;
         }
       }
@@ -128,7 +157,7 @@
         padding-left: 60px;
         .hallmark-image{
           right: auto;
-          left: 60px;
+          left: 0;
           .field-image{
             &:after{
               left: 90px;
@@ -136,9 +165,13 @@
             @include tab{
               &:before{
                 left: auto;
+                right: -35px;
               }
-            }
-          }
+              &:after{
+                left: 30px;
+              }
+            }//end tab
+          }//end field image
         }//end hallmark image
         .hallmark-text{
           padding-left: 60%;
@@ -147,6 +180,7 @@
       }//end 
       @include contentStopMargin{
         .hallmark-text{
+          padding-left: calc(61% + 60px);
           padding-right: 152px;
         }
       }
@@ -155,8 +189,18 @@
       position: absolute;
       left: 20px;
       width: calc(100% - 40px);
-      top: 0;
-      z-index: -2;
+      top: -100px;
+      max-width: 874px;
+      z-index: 1;
+      @include tab{
+        top: 70px;
+        width: 55%;
+        height: calc(100% - 160px);
+        z-index: -2;
+      }
+      @include contentStopMargin{
+        width: 61%;
+      }
       .field-image{
         position: relative;
         &:after{
@@ -176,11 +220,6 @@
           }
         }
       }//field-image
-      @include tab{
-        top: 70px;
-        width: 60%;
-        height: calc(100% - 160px);
-      }
     }//end hallmark image
     .hallmark-text{
       padding: 46vw 20px 65px;
