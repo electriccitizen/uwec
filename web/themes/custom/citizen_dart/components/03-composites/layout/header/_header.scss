@@ -42,7 +42,7 @@
 
 	a{
 		img{
-			max-width: 106px !important;
+			max-width: 106px;
 			margin-right: 4px;
 			@include desk{
 				max-width: 100%;
@@ -60,7 +60,7 @@
 	top: -5px;
 	right: 1rem;
 	z-index: 2;
-	@include desk{
+	@media screen and (min-width: 1201px){
 		display: block;
 	}
 	.contextual{
@@ -71,7 +71,7 @@
 /* SECONDARY MENU BLOCK
 --------------------- */
 .block-secondary-menu{
-	@include desk{
+	@media screen and (min-width: 1201px){
 		position: absolute !important;
 		right: 60px;
 		top: -8px;
@@ -83,7 +83,7 @@
 /* MAIN NAVIGATION BLOCK
 ------------------------ */
 .block-superfishmain{
-	@include onlyMobile{
+	@media screen and (max-width: 1200px){
 		&.contextual-region{
 			position: static !important;
 		}
@@ -97,7 +97,7 @@
 		}
 	}
 	//desktop position
-	@include desk{
+	@media screen and (min-width: 1201px){
 		position: absolute !important;
 		right: 0;
 		bottom: -30px;
@@ -107,8 +107,5 @@
 		padding-right: 40px;
 		margin-top: 30px;
 	}//end desk
-	@media screen and (min-width: 1300px) {
-		padding-left: 191px;
-	}
 }//end main nav
 
