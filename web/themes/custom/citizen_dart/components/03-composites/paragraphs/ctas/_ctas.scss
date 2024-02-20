@@ -8,9 +8,13 @@
 .paragraph--type--ctas{
   &.cta-visible{
     .cta-trio .cta-item .cta-item-inner .cta-image{
-      @include tab{
-        opacity: 1;
-        transition: opacity 0.5s ease-in;
+      .widget-section > .layout--onecol &,
+      .widget-section > .layout--twocol-section--75-25 > .layout__region--first &,
+      .widget-section > .layout--twocol-section--25-75 > .layout__region--second &{
+        @include tab{
+          opacity: 1;
+          transition: opacity 0.5s ease-in;
+        }
       }
     }
     .cta-bar{
@@ -40,13 +44,17 @@
 			width: 100%;
       &:not(:last-child){
         margin-bottom: $spaceSm;
-        .widget-section > .layout--onecol &{
+        .widget-section > .layout--onecol &,
+        .widget-section > .layout--twocol-section--75-25 > .layout__region--first &,
+        .widget-section > .layout--twocol-section--25-75 > .layout__region--second &{
           @include tab{
             margin-bottom: 0;
           }
         }
       }
-      .widget-section > .layout--onecol &{
+      .widget-section > .layout--onecol &,
+      .widget-section > .layout--twocol-section--75-25 > .layout__region--first &,
+      .widget-section > .layout--twocol-section--25-75 > .layout__region--second &{
         @include tab{
           width: 33.33%;
         }
@@ -55,7 +63,9 @@
 				height: 100%;
 				background: $brightBlue;
 				padding: 38px 20px 50px;
-        .widget-section > .layout--onecol &{
+        .widget-section > .layout--onecol &,
+        .widget-section > .layout--twocol-section--75-25 > .layout__region--first &,
+        .widget-section > .layout--twocol-section--25-75 > .layout__region--second &{
           @include tab{
             padding: 30px 30px 80px;
             position: relative;
@@ -63,7 +73,9 @@
         }
         .cta-image{
           display: none;
-          .widget-section > .layout--onecol &{
+          .widget-section > .layout--onecol &,
+          .widget-section > .layout--twocol-section--75-25 > .layout__region--first &,
+          .widget-section > .layout--twocol-section--25-75 > .layout__region--second &{
             @include tab{
               display: block;
               margin-bottom: 20px;
@@ -72,7 +84,9 @@
           }
         }//end cta image
         .cta-headline{
-          .widget-section > .layout--onecol &{
+          .widget-section > .layout--onecol &,
+          .widget-section > .layout--twocol-section--75-25 > .layout__region--first &,
+          .widget-section > .layout--twocol-section--25-75 > .layout__region--second &{
             @include tab{
               line-height: 1.583;
               &:not(:only-child){
@@ -83,14 +97,18 @@
         }//end cta headline
         .cta-text{
           line-height: 1.5;
-          .widget-section > .layout--onecol &{
+          .widget-section > .layout--onecol &,
+          .widget-section > .layout--twocol-section--75-25 > .layout__region--first &,
+          .widget-section > .layout--twocol-section--25-75 > .layout__region--second &{
             @include tab{
               margin-bottom: $spaceSm;
             }
           }
         }//end cta text
         .cta-button{
-          .widget-section > .layout--onecol &{
+          .widget-section > .layout--onecol &,
+          .widget-section > .layout--twocol-section--75-25 > .layout__region--first &,
+          .widget-section > .layout--twocol-section--25-75 > .layout__region--second &{
             @include tab{
               position: absolute;
               bottom: 30px;
