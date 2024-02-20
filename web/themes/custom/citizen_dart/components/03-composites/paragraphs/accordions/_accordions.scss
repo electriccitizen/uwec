@@ -5,7 +5,25 @@
 
 .paragraph--type--accordions{
 	@include textConstrain;
-}
+  //and background for the accordions depending on layout section
+  position: relative;
+  padding: 35px 0;
+  &:after{
+    @include fullBack($lightGrey);
+  }
+  .widget-section > .layout:not(.layout--onecol) &{
+    @include tab{
+      background: $lightGrey;
+      margin-left: -20px;
+      margin-right: -20px;
+      padding-left: 20px;
+      padding-right: 20px;
+      &:after{
+        content: none;
+      }
+    }
+  }//end multicolumn layouts
+}//end paragraph type accordions
 
 /* ITEM STYLING
 ------------------- */
