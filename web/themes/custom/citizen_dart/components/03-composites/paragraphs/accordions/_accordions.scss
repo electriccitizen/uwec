@@ -11,6 +11,12 @@
   &:after{
     @include fullBack($lightGrey);
   }
+  .widget-section > .layout--onecol &{
+    @include desk{
+      padding-top: 92px;
+      padding-bottom: 105px;
+    }
+  }
   .widget-section > .layout:not(.layout--onecol) &{
     @include tab{
       background: $lightGrey;
@@ -22,7 +28,21 @@
         content: none;
       }
     }
+    @include desk{
+      padding-top: 46px;
+      padding-bottom: 52px;
+    }
   }//end multicolumn layouts
+  .widget-section > .layout--twocol-section--50-50 &,
+    .widget-section > .layout--twocol-section--67-33 > .layout__region--first &,
+    .widget-section > .layout--twocol-section--75-25 > .layout__region--first &,
+    .widget-section > .layout--twocol-section--33-67 > .layout__region--second &,
+    .widget-section > .layout--twocol-section--25-75 > .layout__region--second &{
+      @include desk{
+        padding-top: 60px;
+        padding-bottom: 70px;
+      }
+  }
 }//end paragraph type accordions
 
 /* ITEM STYLING
