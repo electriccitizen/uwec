@@ -5,12 +5,32 @@
 @use '../../../00-base/base' as *;
 @use '../../../02-chunks/media/media-mixins' as *;
 
+@mixin sliderPrevSm{
+	background-image: url(../images/arrows/slider-arrow-left-ltgrey-sm.svg);
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: center;
+}
+
+@mixin sliderNextSm{
+	background-image: url(../images/arrows/slider-arrow-right-ltgrey-sm.svg);
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: center;
+}
+
 .paragraph--type--gallery{
 	.tiles{
     @include edgeToEdge;
     @include contentStopMargin{
       @include auto;
       max-width: 1340px;
+    }
+    //add back margins for tiles in multi column layouts to preserve gutters
+    .widget-section > .layout:not(.layout--onecol) &{
+      @include tab{
+        @include auto;
+      }
     }
 		.gallery-wrapper{
 			@include safeFlex(row,wrap,start,start);
@@ -27,17 +47,20 @@
 				cursor: pointer;
 				width: 50%;
 				max-width: 335px;
-        @include tab{
-          width: 33%.3;
-        }
-        @include desk{
-          width: 25%;
-        }
+        .widget-section > .layout--onecol &,
+        .widget-section > .layout--twocol-section--75-25 > .layout__region--first &,
+        .widget-section > .layout--twocol-section--25-75 > .layout__region--second &{
+          @include tab{
+            width: 33%.3;
+          }
+          @include desk{
+            width: 25%;
+          }
+        }//end layout checks
 				img {
 					width: 100%;
 					@include imageHover;
 				}
-
 			}//end image tiles
 		}//end gallery-wrapper
 	}//end tiles
@@ -71,9 +94,16 @@
         }
 				.slide-caption{
 					width: 100%;
-					@include tab{
-						width: 50%;
-					}
+          .widget-section > .layout--onecol &,
+          .widget-section > .layout--twocol-section--50-50 &,
+          .widget-section > .layout--twocol-section--67-33 > .layout__region--first &,
+          .widget-section > .layout--twocol-section--75-25 > .layout__region--first &,
+          .widget-section > .layout--twocol-section--33-67 > .layout__region--second &,
+          .widget-section > .layout--twocol-section--25-75 > .layout__region--second &{
+            @include tab{
+              width: 50%;
+            }
+          }//end layout checks
           .field-caption-headline{
             font-family: $header;
             font-size: 2.25rem;
@@ -95,31 +125,78 @@
           right: 10px;
         }
         @include smallTab{
-          top: calc(100px + 10vw);
+          top: calc(120px + 6%);
         }
-        @include tab{
-          top: calc(120px + 14vw);
-        }
-        @include desk{
-          top: calc(130px + 16vw);
-        }
-        @include desk{
+        //for wider layout regions adjust arrows lower
+        .widget-section > .layout--onecol &,
+        .widget-section > .layout--twocol-section--67-33 > .layout__region--first &,
+        .widget-section > .layout--twocol-section--75-25 > .layout__region--first &,
+        .widget-section > .layout--twocol-section--33-67 > .layout__region--second &,
+        .widget-section > .layout--twocol-section--25-75 > .layout__region--second &{
+          @include tab{
+            top: calc(120px + 14%);
+          }
+          @include desk{
+            top: calc(130px + 16%);
+            &.slick-prev{
+              left: -10px;
+            }
+            &.slick-next{
+              right: -10px;
+            }
+          }
+        }//end layout checks
+        //when there is no gutter, move the slider arrows outside and fix height
+        .widget-section > .layout--onecol &{
+          @media screen and (min-width: 1192px){
+            top: 316px;
+            &.slick-prev{
+              left: -48px;
+            }
+            &.slick-next{
+              right: -48px;
+            }
+          }
+        }//end when on one column only
+        // keep slider arrows small when there is no room
+        .widget-section > .layout--twocol-section--50-50 &,
+        .widget-section > .layout--threecol-section--33-34-33 &,
+        .widget-section > .layout--threecol-section--25-50-25 &,
+        .widget-section > .layout--threecol-section--25-25-50 &,
+        .widget-section > .layout--threecol-section--50-25-25 &,
+        .widget-section > .layout--twocol-section--67-33 > .layout__region--second &,
+        .widget-section > .layout--twocol-section--75-25 > .layout__region--second &,
+        .widget-section > .layout--twocol-section--33-67 > .layout__region--first &,
+        .widget-section > .layout--twocol-section--25-75 > .layout__region--first &{
           &.slick-prev{
             left: -10px;
-          }
+            width: 40px;
+            height: 40px;
+            &:before{
+              @include sliderPrevSm;
+            }
+            &:hover,&:focus{
+              &:before{
+                background-image: url(../images/arrows/slider-arrow-left-ice-sm.svg);
+                @include transition(background-image, 0.3s, ease);
+              }
+            }
+          }//end slick prev
           &.slick-next{
             right: -10px;
-          }
-        }
-        @media screen and (min-width: 1192px){
-          top: 316px;
-          &.slick-prev{
-            left: -48px;
-          }
-          &.slick-next{
-            right: -48px;
-          }
-        }
+            width: 40px;
+            height: 40px;
+            &:before{
+              @include sliderNextSm;
+            }
+            &:hover,&:focus{
+              &:before{
+                background-image: url(../images/arrows/slider-arrow-right-ice-sm.svg);
+                @include transition(background-image, 0.3s, ease);
+              }
+            }
+          }//end slick next
+        }//end 50 50 layout
       }//end slick arrow
     }//end slick slider
 	}//end slider
@@ -129,9 +206,24 @@
 		.masonry-item {
       margin-bottom: 10px;
       max-width: 100%;
+      //when on mobile or in a layout region with little room ,force masonry full width
       @include onlyPhone{
         position: static !important;
         width: 100% !important;
+      }
+      .widget-section > .layout--twocol-section--67-33 > .layout__region--second &,
+      .widget-section > .layout--twocol-section--75-25 > .layout__region--second &,
+      .widget-section > .layout--twocol-section--33-67 > .layout__region--first &,
+      .widget-section > .layout--twocol-section--25-75 > .layout__region--first &,
+      .widget-section > .layout--threecol-section--33-34-33 &,
+      .widget-section > .layout--threecol-section--25-50-25 &,
+      .widget-section > .layout--threecol-section--25-25-50 &,
+      .widget-section > .layout--threecol-section--50-25-25 &,{
+        position: static !important;
+        width: 100% !important;
+        @include tab{
+          margin-bottom: 10px;
+        }
       }
       @include tab{
         margin-bottom: 25px;
@@ -142,6 +234,6 @@
 			&.large {
 				width: 630px;
 			}
-		}
+		}//end masonry item
 	}//ende masonry
 }//end gallery paragraph
