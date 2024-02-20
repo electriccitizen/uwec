@@ -14,7 +14,7 @@ settings:
     -
       value: placeholder
       label: Placeholder
-  allowed_values_function: 'callback_livewhale_allowed_group_options'
+  allowed_values_function: callback_livewhale_allowed_group_options
 module: options
 locked: false
 cardinality: 1

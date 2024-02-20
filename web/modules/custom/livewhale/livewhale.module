@@ -11,10 +11,7 @@ function callback_livewhale_allowed_group_options(FieldStorageDefinitionInterfac
 		
 		$values = [];
 		foreach($groups as $g){
-			// Unfortunately, the livewhale api takes the "fullname" as the identifier for the group in the widget filter.
-			// I really wish they used the ID, but lo, this is what we have.
-			// The ID is right there, as $g['id'], it exists, they just don't use it.
-			$values[$g['fullname']] = $g['fullname'];
+			$values[$g['id']] = $g['fullname'];
 		}
 		return $values;
 	}
