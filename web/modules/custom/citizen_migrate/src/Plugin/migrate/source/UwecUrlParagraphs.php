@@ -27,6 +27,8 @@ class UwecUrlParagraphs extends Url {
     $api_key = Settings::get('uwec_api_key', 3);
     $configuration['urls'] = $url . '?apikey=' . $api_key . '&limit=' . $configuration['constants']['limit'];
     $configuration['urls'] = $configuration['urls'] . '&ispublished=' . $configuration['constants']['ispublished'];
+    $configuration['urls'] = $configuration['urls'] . '&system_id=' . $configuration['constants']['system_id'];
+    $configuration['urls'] = $configuration['urls'] . '&migrating_to_drupal=' . $configuration['constants']['migrating_to_drupal'];
     parent::__construct($configuration, $plugin_id, $plugin_definition, $migration);
   }
 
