@@ -66,6 +66,9 @@ class CmFetchActiveFiles extends DrushCommands {
       if ($endpoint === 'stories.json') {
         $url .= '&unit_id=35';
       }
+      if ($endpoint === 'pages.json') {
+        $url .= '&system_id=1&migrating_to_drupal=1';
+      }
 
       $data = $this->fetch_data($url);
       $this->image_ids['rowIndex'] = 'n/a';
