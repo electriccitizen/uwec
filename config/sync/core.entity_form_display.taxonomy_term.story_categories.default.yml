@@ -1,0 +1,27 @@
+uuid: 77862db2-ebe2-463f-b6c3-dfe9a26970e7
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.story_categories
+id: taxonomy_term.story_categories.default
+targetEntityType: taxonomy_term
+bundle: story_categories
+mode: default
+content:
+  name:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  description: true
+  path: true
+  publish_on: true
+  publish_state: true
+  status: true
+  unpublish_on: true
+  unpublish_state: true

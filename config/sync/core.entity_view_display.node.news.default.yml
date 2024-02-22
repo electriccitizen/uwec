@@ -20,6 +20,7 @@ dependencies:
     - field.field.node.news.field_paragraphs
     - field.field.node.news.field_placement_tags
     - field.field.node.news.field_programs
+    - field.field.node.news.field_story_categories
     - field.field.node.news.field_story_type
     - field.field.node.news.layout_builder__layout
     - node.type.news
@@ -100,12 +101,12 @@ third_party_settings:
               context_mapping: {  }
             weight: 0
             additional: {  }
-          60eb20ec-c9c2-4abf-b006-08fe547bfac6:
-            uuid: 60eb20ec-c9c2-4abf-b006-08fe547bfac6
+          3d9780e8-1f0b-4d75-8c7a-fe8480654b6c:
+            uuid: 3d9780e8-1f0b-4d75-8c7a-fe8480654b6c
             region: content
             configuration:
-              id: 'field_block:node:news:field_story_type'
-              label: 'Story Type'
+              id: 'field_block:node:news:field_story_categories'
+              label: 'Story Categories'
               label_display: '0'
               provider: layout_builder
               context_mapping:
@@ -262,7 +263,6 @@ third_party_settings:
         - 'Inline blocks'
         - Menus
         - 'Responsive Preview'
-        - 'Site Search'
         - Superfish
         - User
         - core
@@ -377,6 +377,14 @@ content:
       link: true
     third_party_settings: {  }
     weight: 120
+    region: content
+  field_story_categories:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 123
     region: content
   field_story_type:
     type: entity_reference_label

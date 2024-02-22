@@ -1,0 +1,20 @@
+uuid: f11b3ff7-ad6c-4681-80c1-87b0c3f9e526
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - taxonomy
+id: node.field_story_categories
+field_name: field_story_categories
+entity_type: node
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
