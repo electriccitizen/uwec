@@ -1,0 +1,21 @@
+uuid: c4735101-a407-4ecc-b963-7400c19c12a4
+langcode: en
+status: true
+dependencies: {  }
+name: 400x400_non_crop
+label: '400x400 non-crop'
+effects:
+  b803d411-38ad-4147-9786-a546767aaedf:
+    uuid: b803d411-38ad-4147-9786-a546767aaedf
+    id: image_scale
+    weight: 1
+    data:
+      width: 400
+      height: 400
+      upscale: false
+  ad254650-711f-4d87-91fc-5d55159d25dc:
+    uuid: ad254650-711f-4d87-91fc-5d55159d25dc
+    id: image_convert
+    weight: 2
+    data:
+      extension: webp
