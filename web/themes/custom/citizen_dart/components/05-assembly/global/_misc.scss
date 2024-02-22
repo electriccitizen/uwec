@@ -32,3 +32,12 @@ iframe.npc-frame{
     height: 680px;
   }
 }//end net price calculator
+
+
+/* GDPR
+-------------------- */
+#sliding-popup{
+  .role-super-user &{
+    display: none !important;
+  }
+}
