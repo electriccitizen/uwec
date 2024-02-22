@@ -5,15 +5,6 @@
 @use '../../../00-base/base' as *;
 @use '../node-mixins' as *;
 
-@mixin hoursHolder{
-	max-width: 914px;
-	@include auto;
-	& > *:first-child{
-		background: $ice;
-		padding: 60px 124px 76px;
-	}
-}
-
 .node-hours{
 	padding-top: $elementSpace;
 	.main-node-content{
@@ -37,13 +28,48 @@
 
 .node-widget-hours{
 	@include hoursHolder;
+  .widget-section > .layout:not(.layout--onecol) &{
+    & > *:first-child{
+      @include tab{
+        padding: 40px 20px 30px;
+      }
+    }
+  }
 	.hours-wrapper{
-		@include safeFlex(row,wrap,start,start);
-		@include bleed(padding,20px);
-		& > *{
-			@include tab{
-				width: 50%;
-			}
-		}
-	}
+		//only go to two columns if there is room
+    .widget-section > .layout--onecol &,
+    .widget-section > .layout--twocol-section--50-50 &,
+    .widget-section > .layout--twocol-section--67-33 > .layout__region--first &,
+    .widget-section > .layout--twocol-section--75-25 > .layout__region--first &,
+    .widget-section > .layout--twocol-section--33-67 > .layout__region--second &,
+    .widget-section > .layout--twocol-section--25-75 > .layout__region--second &{
+      @include tab{
+        @include safeFlex(row,wrap,start,start);
+        @include bleed(padding,20px);
+        & > *{
+          width: 50%;
+          .widget-section > .layout--threecol-section &{
+            width: 100%;
+          }
+        }
+      }//end tab
+    }//end layout checks
+    .hours-title{
+      @include contactTitle;
+      padding-bottom: 32px;
+      .widget-section > .layout--onecol &,
+      .widget-section > .layout--twocol-section--50-50 &,
+      .widget-section > .layout--twocol-section--67-33 > .layout__region--first &,
+      .widget-section > .layout--twocol-section--75-25 > .layout__region--first &,
+      .widget-section > .layout--twocol-section--33-67 > .layout__region--second &,
+      .widget-section > .layout--twocol-section--25-75 > .layout__region--second &{
+        @include tab{
+          padding-left: 20px;
+        }
+      }
+    }//end hours title
+    .hours-content{
+      @include hoursContent;
+    }
+	}//end hours wrapper
 }//end hours widget
