@@ -129,6 +129,10 @@ function citizen_dart_preprocess_responsive_image(&$variables) {
       $img_width = 393;
       $img_height = 221;
       break;
+    case '400x400_non_crop':
+      $img_width = 400;
+      $img_height = 400;
+      break;
     case '426x426':
       $img_width = 426;
       $img_height = 426;
@@ -144,6 +148,10 @@ function citizen_dart_preprocess_responsive_image(&$variables) {
     case '539x304':
       $img_width = 539;
       $img_height = 304;
+      break;
+    case '600x600_non_crop':
+      $img_width = 600;
+      $img_height = 600;
       break;
     case '650x650':
       $img_width = 650;

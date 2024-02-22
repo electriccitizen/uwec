@@ -1,0 +1,23 @@
+uuid: c41b4702-ae87-444d-b211-7106aa8ecc49
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_size
+    - paragraphs.paragraphs_type.image
+  module:
+    - options
+id: paragraph.image.field_size
+field_name: field_size
+entity_type: paragraph
+bundle: image
+label: Size
+description: 'Choose the display size for this image. The full cropped option will render the largest size and will crop the image to 874x492 on large screen. Small, medium and large will not crop the image but will scale it to fit in a 200px, 400px or 600px box respectively. Non-cropped sizes will not be upscaled so upload the largest version of the image you have in order to ensure the best rendering.'
+required: true
+translatable: false
+default_value:
+  -
+    value: full
+default_value_callback: ''
+settings: {  }
+field_type: list_string
