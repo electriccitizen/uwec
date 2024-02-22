@@ -400,6 +400,7 @@
 	background-repeat: no-repeat;
 	background-size: 50%;
 	background-position: 50% 50%;
+  box-sizing: border-box;
 }
 
 @mixin arrowLinkBefore($arrowLinkColor){
@@ -408,7 +409,7 @@
   line-height: 1.44;
   color: #{$arrowLinkColor};
   position: relative;
-  padding-left: 52px;
+  padding-left: 56px;
 }
 
 @mixin dottedLink($dotColor){
