@@ -40,6 +40,7 @@
 {% extends 'paragraph.html.twig' %}
 
 {% block widgetContent %}
+  {{ attach_library('citizen_dart/image') }}
   {%- set alignment = paragraph.field_alignment.value -%}
   {%- set size = paragraph.field_size.value -%}
   {%- set imageId = paragraph.field_image.0.target_id -%}

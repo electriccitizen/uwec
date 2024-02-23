@@ -71,6 +71,10 @@ hours:
   version: 1.0
   js:
     components/03-composites/paragraphs/hours-set/hours-set.js: {}
+image:
+  version: 1.0
+  js:
+    components/03-composites/paragraphs/image/image.js: {}
 layout:
   version: 1.0
   js:
