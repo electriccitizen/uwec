@@ -17,12 +17,12 @@
   function mobileSuperfish() {
     var wwidth = $(window).outerWidth();
     if (wwidth < 1200) {
-      var menuToggle = $('#superfish-main-toggle');
+      var menuButton = $('#superfish-main-toggle');
 
       // if image is not already inside menuToggle, add it
-      if (!menuToggle.find('.open-menu-icon').length) {
-        menuToggle.append('<img src="/themes/custom/citizen_dart/images/elements/menu-open-white.svg" alt="Open Menu" class="open-menu-icon" />');
-        menuToggle.append('<img src="/themes/custom/citizen_dart/images/elements/menu-close-white.svg" alt="Close Menu" class="close-menu-icon" />');
+      if (!menuButton.find('.open-menu-icon').length) {
+        menuButton.append('<img src="/themes/custom/citizen_dart/images/elements/menu-open-white.svg" alt="Open Menu" class="open-menu-icon" />');
+        menuButton.append('<img src="/themes/custom/citizen_dart/images/elements/menu-close-white.svg" alt="Close Menu" class="close-menu-icon" />');
       }
     }
   };
