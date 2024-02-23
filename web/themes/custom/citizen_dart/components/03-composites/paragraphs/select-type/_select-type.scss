@@ -5,55 +5,104 @@
 @use '../../../00-base/base' as *;
 
 .paragraph--type--select-type{
-   .select-items-wrapper {
-      @include safeFlex(row,nowrap,start,stretch);
-      @include auto;
-      .select-item {
-         background-color: $navy;
-         padding: $spaceLg;
-         transform: scale3d(1, 1, 1);
-         transition: transform .3s ease-in-out;
-         position: relative;
-         overflow: hidden;
-         z-index: 1;
-         &:hover{
-           transform: scale3d(1.1, 1.1, 1.25);
-           z-index: 10;
-         }
-         &:nth-child(even) {
-            background-color: rgba(6, 35, 61, .93);
-         }
-         .field-headline h2 {
-            color: $white;
-         }
-         .field-additional-text {
-            color: $white;
-         }
-         .field-link a {
-            color: $gold;
-         }
-      }
-      &.items-2 {
-         max-width: 660px;
-         .select-item {
-            width: 50%;
-         }
-      }
-      &.items-3 {
-         max-width: 990px;
-         .select-item {
-            width: 33%;
-         }
-      }
-      &.items-4 {
-         .select-item {
+  .select-items-wrapper {
+    max-width: $contentStopMargin;
+    @include auto;
+    .widget-section > .layout--onecol &{
+      @media screen and (min-width: 1104px){
+        @include safeFlex(row,nowrap,center,stretch);
+        .select-item{
+          width: 33.33%;
+          max-width: 330px;
+        }
+        &.items-4{
+          .select-item{
             width: 25%;
-         }
-      }
-      &.items-5 {
-         .select-item {
+          }
+        }
+        &.items-5{
+          select-item{
             width: 20%;
-         }
+          }
+        }
+      }//end media query
+    }//end one column selects
+    .select-item {
+      background-color: $navy;
+      padding: $spaceLg;
+      padding: 40px;
+      transition: transform .3s ease-in-out;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+      &:nth-child(even) {
+        background-color: rgba(6, 35, 61, .93);
       }
-   }
+      @include desk{
+        padding-top: 150px;
+        padding-bottom: 56px;
+        transform: scale(1);
+        z-index: 0;
+        &:hover{
+          transform: scale(1.05);
+          transition: scale .75s ease-in-out;
+          position: relative;
+          z-index: 9;
+        }
+      }
+      .select-item-inner{
+        height: 100%;
+        color: $white;
+        @include safeFlex(column,nowrap,justify,start);
+        .field-headline{
+          font-family: $displayHeader;
+          font-size: 4rem;
+          line-height: 1.25;
+          margin-bottom: 40px;
+          @include desk{
+            margin-bottom: 45px;
+          }
+        }
+        .field-additional-text {
+          line-height: 1.5;
+          display: none;
+          @include tab{
+            display: block;
+            margin-bottom: 40px;
+          }
+          @include desk{
+            margin-bottom: 82px;
+          }
+        }
+        .field-link{
+          a{
+            display: inline-block;
+            @include arrowLinkBefore($gold);
+            padding-left: 32px;
+            font-size: 16px;
+            line-height: 1.2;
+            &:before{
+              content: '';
+              display: block;
+              position: absolute;
+              top: -2px;
+              left: 0;
+              width: 20px;
+              height: 20px;
+              @include rightArrow(gold,transparent,$gold,sm);
+            }//end before
+            &:hover,&:focus{
+              &:before{
+                @include rightArrow(navy,$white,$white,sm);
+              }
+              span{
+                @include dottedLink($white);
+                padding-bottom: 1px;
+              }
+            }//end hover, focus
+          }//end a
+        }//end field link
+      }//end paragraph select item
+    }//end select item
+  }//end select items wrapper
 }//end select-type widget
