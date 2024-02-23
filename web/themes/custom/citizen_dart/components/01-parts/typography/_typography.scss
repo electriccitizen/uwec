@@ -64,9 +64,8 @@ h2.section-title{
 }
 .widget-title,.field-widget-title{
 	@include blockTitle;
-	letter-spacing: 0;
-	text-transform: none;
-	margin-bottom: 1.5rem;
+	letter-spacing: .05em;
+	margin-bottom: $spaceSm;
 }
 
 /* TEXT STYLES
@@ -97,11 +96,15 @@ p{
 a {
 	color: $link;
 	text-decoration: none;
+  .text-with-summary &,.text-long &{
+    @include dottedLink($link);
+  }
 	&:hover,&:focus {
 		color: $hoverLink;
 		text-decoration: none;
 		.text-with-summary &,.text-long &{
-			@include transAll(.3s);
+      background-image: none;
+			transition: color .3s ease-in;
 		}
 	}
 }

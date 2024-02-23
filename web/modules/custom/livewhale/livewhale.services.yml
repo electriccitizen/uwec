@@ -1,0 +1,3 @@
+services:
+  livewhale.api:
+    class: Drupal\livewhale\API

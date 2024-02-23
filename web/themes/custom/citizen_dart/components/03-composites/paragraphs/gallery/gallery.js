@@ -11,7 +11,8 @@
 						previousIcon: 'Prev',
 						nextIcon: 'Next',
 						galleryFadeIn: 300,
-						openSpeed: 300
+						openSpeed: 300,
+            closeIcon: 'Close'
 					});
 				});
 			});
@@ -21,7 +22,19 @@
 					$('.field-gallery-items', this).slick({
 						adaptiveHeight: false,
 						autoplay: true,
-						autoplaySpeed: 5000
+						autoplaySpeed: 5000,
+            centerMode: false,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            responsive: [
+              {
+                breakpoint: 984,
+                settings: {
+                  centerMode: true,
+                  centerPadding: '20px',
+                }
+              }
+            ]
 					});
 				});
 			});
@@ -30,8 +43,8 @@
 				$(this).masonry({
 					// options
 					itemSelector: '.masonry-item',
-					columnWidth: 300,
-					gutter: 16
+					columnWidth: 315,
+					gutter: 20
 				});
 			});
 		}

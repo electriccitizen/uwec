@@ -100,14 +100,44 @@
 			max-height: 16px;
 			margin-top: 1px;
 		}
-	}
+    a{
+      @include dottedLink($brightBlue);
+      padding-bottom: 1px;
+      &:hover,&:focus{
+        @include dottedLink($navy);
+      }
+    }
+	}//end field email
 	.field-phone{
 		svg{
 			max-height: 15px;
 			margin-top: 2px;
 		}
+    a{
+      @include dottedLink($brightBlue);
+      padding-bottom: 1px;
+      &:hover,&:focus{
+        @include dottedLink($navy);
+      }
+    }
+	}//end field phone
+}//end contact contnet
+
+@mixin hoursHolder{
+	max-width: 914px;
+	@include auto;
+	& > *:first-child{
+		background: $ice;
+    padding: 40px 20px 30px;
+    @include tab{
+		  padding: 60px 124px 76px;
+    }
 	}
 }
+
+@mixin hoursContent{
+  
+}//end hours content
 
 @mixin heroBackground {
 	position: relative;

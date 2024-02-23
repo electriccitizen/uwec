@@ -10,22 +10,30 @@
 	background: $ice;
   color: $brightBlue;
   padding: 40px 20px 30px;
-  @include tab{
-    padding: 60px 112px 45px;
+  .widget-section > .layout--onecol &,
+  .widget-section > .layout--twocol-section--75-25 > .layout__region--first &,
+  .widget-section > .layout--twocol-section--25-75 > .layout__region--second &{
+    @include tab{
+      padding: 60px 112px 45px;
+    }
   }
 	.widget-wrapper{
 		@include safeFlex(row,wrap,start,start);
 		@include bleed(padding,60px);
 		.slate-left,.slate-right{
 			width: 100%;
-			@include desk{
-				&:not(:only-child){
-					width: 50%;
-          &:first-child{
-            padding-top: 35px;
+      .widget-section > .layout--onecol &,
+      .widget-section > .layout--twocol-section--75-25 > .layout__region--first &,
+      .widget-section > .layout--twocol-section--25-75 > .layout__region--second &{
+			  @include desk{
+          &:not(:only-child){
+            width: 50%;
+            &:first-child{
+              padding-top: 35px;
+            }
           }
-				}
-			}
+        }
+			}//end desk
 		}//end slate-left,slate-right
 	}//end widget wrapper
   .slate-left.slate-visible{

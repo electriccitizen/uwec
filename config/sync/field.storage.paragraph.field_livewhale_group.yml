@@ -1,0 +1,24 @@
+uuid: 6c6bf32b-8f7f-429b-afa9-0a20a758ff22
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - paragraphs
+id: paragraph.field_livewhale_group
+field_name: field_livewhale_group
+entity_type: paragraph
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: placeholder
+      label: Placeholder
+  allowed_values_function: callback_livewhale_allowed_group_options
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

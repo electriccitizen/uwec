@@ -1,0 +1,8 @@
+uuid: f539297b-1289-4cca-951c-669152427941
+langcode: en
+status: true
+dependencies: {  }
+id: offices-services
+label: 'Offices & Services'
+description: 'Offices & Services for the main UWEC site'
+locked: false

@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.paragraph.preview
+    - field.field.paragraph.events_list.field_livewhale_group
     - paragraphs.paragraphs_type.events_list
   module:
     - layout_builder
@@ -17,4 +18,5 @@ bundle: events_list
 mode: preview
 content: {  }
 hidden:
+  field_livewhale_group: true
   search_api_excerpt: true

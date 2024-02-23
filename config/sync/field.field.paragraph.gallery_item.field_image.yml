@@ -11,7 +11,7 @@ field_name: field_image
 entity_type: paragraph
 bundle: gallery_item
 label: Image
-description: '<strong>Optimal image size:</strong> is 1516x856px for masonry and slideshows, 1300x1300 for lightobx galleries.'
+description: '<strong>Optimal image size:</strong> is 1516x856px for masonry and slideshows, 1300x1300 for lightbox galleries.'
 required: true
 translatable: false
 default_value: {  }

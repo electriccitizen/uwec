@@ -3,11 +3,21 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.paragraph.events_list.field_livewhale_group
     - paragraphs.paragraphs_type.events_list
+  module:
+    - options
 id: paragraph.events_list.default
 targetEntityType: paragraph
 bundle: events_list
 mode: default
-content: {  }
+content:
+  field_livewhale_group:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
 hidden:
   search_api_excerpt: true

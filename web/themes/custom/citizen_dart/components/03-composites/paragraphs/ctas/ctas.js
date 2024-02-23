@@ -16,7 +16,7 @@ Drupal.behaviors.ctaAnimate = {
         });
       }
       // Create an intersection observer
-      const observer = new IntersectionObserver(handleIntersection, { threshold: 0.5 });
+      const observer = new IntersectionObserver(handleIntersection, { threshold: 0.15 });
       // Select the target element
       // Start observing the target element
       observer.observe(this);

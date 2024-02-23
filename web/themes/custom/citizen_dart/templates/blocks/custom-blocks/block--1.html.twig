@@ -29,11 +29,6 @@
 {% extends 'block.html.twig' %}
 
 {% block blockContent %}
-	{% if drupal_entity('block_content', '3')|render|striptags|trim|length > 0 %}
-		<div class="block-3 block-social-media" data-quickedit-entity-id="block_content/3">
-			{{ drupal_entity('block_content', '3') }}
-		</div>
-	{% endif %}
 	{% if content.body.0 %}
 		{% set copyright = {
 			'#type': 'processed_text',

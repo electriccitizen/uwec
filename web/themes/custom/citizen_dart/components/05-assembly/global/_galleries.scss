@@ -4,8 +4,22 @@
 
 @use '../../00-base/base' as *;
 
+@mixin sliderPrevSm{
+	background-image: url(../images/arrows/slider-arrow-left-ltgrey-sm.svg);
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: center;
+}
+
 @mixin sliderPrev{
 	background-image: url(../images/arrows/slider-arrow-left-ltgrey.svg);
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: center;
+}
+
+@mixin sliderNextSm{
+	background-image: url(../images/arrows/slider-arrow-right-ltgrey-sm.svg);
 	background-repeat: no-repeat;
 	background-size: contain;
 	background-position: center;
@@ -20,89 +34,141 @@
 
 /* FEATHERLIGHT
 ------------------- */
-.featherlight{
-	background: $modalBack;
-	.featherlight-content {
-		background: $siteBack;
-		padding: 0px !important;
-		border-bottom: 0px !important;
-		overflow: visible !important;
-		margin-left: 5%;
-		margin-right: 5%;
-		//controls
-		.featherlight-close-icon {
-			display: none;
-			&:hover,&:focus{
-				color: $modalGalButtonHover;
-				background: $modalGalButtonBackHover;
-			}
-		}
-		.featherlight-previous {
-			width: 96px;
-			height: 96px;
-			top: calc(50% - 48px);
-			left: 100px;
-			bottom: auto;
-			right: auto;
-			@include sliderPrev;
-			&:hover,&:focus {
-				background-image: url(../images/arrows/slider-arrow-left-ice.svg);
-				background-color: transparent;
-				@include transition(background-image, 0.3s, ease);
-			}
-			span {
-				display: block;
-		    font-size: 0;
-		    width: 0;
-			}
-		}
-		//end previous
-		.featherlight-next {
-			width: 96px;
-			height: 96px;
-			top: calc(50% - 48px);
-			right: 100px;
-			bottom: auto;
-			left: auto;
-			@include sliderNext;
-			&:hover,&:focus {
-				background-image: url(../images/arrows/slider-arrow-right-ice.svg);
-				background-color: transparent;
-				@include transition(background-image, 0.3s, ease);
-			}
-			span {
-				display: block;
-		    font-size: 0;
-		    width: 0;
-			}
-		}
-		//end next
-		img {
-			display: block;
-		}
-		.featherlight-caption {
-			position: absolute;
-			bottom: 0;
-			left: 0;
-			background: rgba(35,35,35,0.6);
-			color: $white;
-			padding: 1rem 2rem;
-			.field-caption-headline {
-				text-align: center;
-				margin-bottom: 1rem;
-			}
-		}
-		.field-caption {
-			width: 100%;
-			z-index: 30;
-			color: $white;
-		}
-		.gallery-text {
-			max-width: $textMax;
-			padding: 4rem 6rem;
-		}
-	}//end featherlight content
-}//end featherlight
+body{
+  .featherlight{
+    background: $navy !important;
+    .featherlight-content {
+      background: $navy;
+      padding: 0px;
+      border-bottom: 0px;
+      overflow: visible;
+      width: 100%;
+      height: 100%;
+      padding-top: 70px;
+      @include auto;
+      max-width: 1166px;
+      .featherlight-slide{
+        @include safeFlex(column,nowrap,center,center);
+        height: 100%;
+        width: 100%;
+        max-height: 100vh;
+        overflow-y: scroll;
+      }
+      .featherlight-counter{
+        font-family: $header;
+        font-size: 2.25rem;
+        line-height: 1.667;
+        color: $white;
+        text-align: left;
+        padding: 20px;
+        width: 100px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 3;
+        @include desk{
+          left: calc(50% - 50px);
+          text-align: center;
+        }
+        span{
+          margin: 0 .2em;
+        }
+      }//end featherlight counter
+      //controls
+      .featherlight-close-icon {
+        background: none;
+        top: 20px;
+        right: 20px;
+        color: $oldGold;
+        @include dottedLink($oldGold);
+        font-family: $bodyText;
+        font-size: 2rem;
+        line-height: 1.875;
+        width: auto;
+        height: auto;
+        &:hover,&:focus{
+          color: $white;
+          @include dottedLink($white);
+        }
+        @include desk{
+          right: 40px;
+        }
+      }//end close icon
+      .featherlight-previous {
+        width: 40px;
+        height: 40px;
+        top: calc(40% - 20px);
+        left: 10px;
+        bottom: auto;
+        right: auto;
+        @include sliderPrevSm;
+          @include desk{
+            width: 96px;
+            height: 96px;
+            top: calc(40% - 48px);
+            @include sliderPrev;
+          }
+        &:hover,&:focus {
+          background-image: url(../images/arrows/slider-arrow-left-ice-sm.svg);
+          background-color: transparent;
+          @include transition(background-image, 0.3s, ease);
+          @include desk{
+            background-image: url(../images/arrows/slider-arrow-left-ice.svg);
+          }
+        }
+        span {
+          display: block;
+          font-size: 0;
+          width: 0;
+        }
+      }
+      //end previous
+      .featherlight-next {
+        width: 40px;
+        height: 40px;
+        top: calc(40% - 20px);
+        right: 10px;
+        bottom: auto;
+        left: auto;
+        @include sliderNextSm;
+          @include desk{
+            width: 96px;
+            height: 96px;
+            top: calc(40% - 48px);
+            @include sliderNext;
+          }
+        &:hover,&:focus {
+          background-image: url(../images/arrows/slider-arrow-right-ice-sm.svg);
+          background-color: transparent;
+          @include transition(background-image, 0.3s, ease);
+          @include desk{
+            background-image: url(../images/arrows/slider-arrow-right-ice.svg);
+          }
+        }
+        span {
+          display: block;
+          font-size: 0;
+          width: 0;
+        }
+      }
+      //end next
+      article.image{
+        width: 80%;
+        max-width: 450px;
+      }
+      .featherlight-caption {
+        color: $white;
+        padding: 40px;
+        max-width: 872px;
+        .field-caption-headline {
+          font-family: $header;
+          font-size: 2.25rem;
+          margin-bottom: $spaceXxs;
+        }
+      }//end featherlight caption
+    }//end featherlight content
+  }//end featherlight
+}//end body
 
 /* SLIDER STYLING
 -------------- */
@@ -112,8 +178,12 @@
 	}
 	.slick-arrow {
 		z-index: 1;
-		width: 96px;
-		height: 96px;
+    width: 40px;
+    height: 40px;
+    @include desk{
+      width: 96px;
+		  height: 96px;
+    }
 		&:before {
 			content: '';
 			display: block;
@@ -122,26 +192,44 @@
 			opacity: 1;
 		}
 		&.slick-prev {
-			left: -48px;
+      left: 20px;
+      @include desk{
+			  left: -48px;
+      }
 			&:before{
-				@include sliderPrev;
+				@include sliderPrevSm;
+        @include desk{
+          @include sliderPrev;
+        }
 			}
 			&:hover,&:focus{
 				&:before{
-					background-image: url(../images/arrows/slider-arrow-left-ice.svg);
+					background-image: url(../images/arrows/slider-arrow-left-ice-sm.svg);
 					@include transition(background-image, 0.3s, ease);
+          @include desk{
+            background-image: url(../images/arrows/slider-arrow-left-ice.svg);
+          }
 				}
 			}
 		}
 		&.slick-next {
-			right: -48px;
+      right: 20px;
+      @include desk{
+			  right: -48px;
+      }
 			&:before{
-				@include sliderNext;
+				@include sliderNextSm;
+        @include desk{
+          @include sliderNext;
+        }
 			}
 			&:hover,&:focus{
 				&:before{
-					background-image: url(../images/arrows/slider-arrow-right-ice.svg);
+					background-image: url(../images/arrows/slider-arrow-right-ice-sm.svg);
 					@include transition(background-image, 0.3s, ease);
+          @include desk{
+            background-image: url(../images/arrows/slider-arrow-right-ice.svg);
+          }
 				}
 			}
 		}

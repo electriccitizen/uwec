@@ -6,20 +6,24 @@ dependencies:
     - field.field.paragraph.fauxfile_item.field_email
     - field.field.paragraph.fauxfile_item.field_image
     - field.field.paragraph.fauxfile_item.field_job_title
+    - field.field.paragraph.fauxfile_item.field_long_text
     - field.field.paragraph.fauxfile_item.field_name
     - field.field.paragraph.fauxfile_item.field_phone
     - paragraphs.paragraphs_type.fauxfile_item
+  module:
+    - telephone
+    - text
 id: paragraph.fauxfile_item.default
 targetEntityType: paragraph
 bundle: fauxfile_item
 mode: default
 content:
   field_email:
-    type: basic_string
+    type: email_mailto
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 3
+    weight: 4
     region: content
   field_image:
     type: entity_reference_entity_view
@@ -38,6 +42,13 @@ content:
     third_party_settings: {  }
     weight: 2
     region: content
+  field_long_text:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 3
+    region: content
   field_name:
     type: string
     label: hidden
@@ -47,12 +58,12 @@ content:
     weight: 1
     region: content
   field_phone:
-    type: string
+    type: telephone_link
     label: hidden
     settings:
-      link_to_entity: false
+      title: ''
     third_party_settings: {  }
-    weight: 4
+    weight: 5
     region: content
 hidden:
   search_api_excerpt: true

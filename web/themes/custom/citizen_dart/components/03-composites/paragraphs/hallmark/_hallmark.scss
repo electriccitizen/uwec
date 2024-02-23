@@ -4,21 +4,24 @@
 
 @use '../../../00-base/base' as *;
 
-@include keyframes(hallmarkMobile){
+@include keyframes(hallmarkDeskLeft){
 	from{
-		top: 0;
+		right: 0;
     z-index: -2;
 	}
 	50%{
-		top: -200px;
+		right: -52%;
     z-index: 1;
+    @include contentStopMargin{
+      right: -52%;
+    }
 	}
 	100%{
-		top: -100px;
+		right: -60px;
     z-index: 2;
 	}
 }
-@include keyframes(hallmarkDeskLeft){
+@include keyframes(hallmarkDeskLeftMax){
 	from{
 		right: 0;
     z-index: -2;
@@ -38,6 +41,20 @@
     z-index: -2;
 	}
 	50%{
+		left: -52%;
+    z-index: 1;
+	}
+	100%{
+		left: -60px;
+    z-index: 2;
+	}
+}
+@include keyframes(hallmarkDeskRightMax){
+	from{
+		left: 0;
+    z-index: -2;
+	}
+	50%{
 		left: -65%;
     z-index: 1;
 	}
@@ -48,30 +65,39 @@
 }
 
 .field-hallmarks{
-  padding-top: 100px;
   & > div{
     &:not(:last-child){
-      margin-bottom: 188px;
+      margin-bottom: 90px;
+      @include desk{
+        margin-bottom: 50px;
+      }
     }
   }
-}
+}//end hallmarks field
 
 .paragraph--type--hallmark{
+  max-width: 1400px;
+  @include auto;
+  * {
+    transform-style: unset;
+  }
   &.hallmark-visible .content{
-    .hallmark-image:before{
-      opacity: 1;
-      transition: opacity .5s ease-in;
-      transition-delay: 1.5s;
-    }
-    @include onlySmall{
-      .hallmark-image{
-        @include animation('hallmarkMobile 1.5s 1 forwards');
+    .hallmark-image{
+      .stripes-before,.stripes-after{
+        opacity: 1;
+        transition: opacity .5s ease-in;
+        transition-delay: 1.5s;
       }
-    }//end onlysmall
+    }
     &.left{
       @include tab{
         .hallmark-image{
           @include animation('hallmarkDeskLeft 1.5s 1 forwards');
+        }
+      }
+      @include contentStopMargin{
+        .hallmark-image{
+          @include animation('hallmarkDeskLeftMax 1.5s 1 forwards');
         }
       }
     }//end left
@@ -81,23 +107,49 @@
           @include animation('hallmarkDeskRight 1.5s 1 forwards');
         }
       }
+      @include contentStopMargin{
+        .hallmark-image{
+          @include animation('hallmarkDeskRightMax 1.5s 1 forwards');
+        }
+      }
     }//end right
   }//end visible hallmark content
 	.content{
     position: relative;
     @include edgeToEdge;
+    width: calc(100% + 40px);
+    @include onlySmall{
+      &:after{
+        @include fullBack($navy);
+        top: 100px;
+        height: calc(100% - 100px);
+      }
+    }
+    @include tab{
+      width: calc(100% - 20px);
+      background: $navy;
+      padding-top: 70px;
+      padding-bottom: 70px;
+      @include safeFlex(row,nowrap,justify,start);
+    }
     &.left{
       @include tab{
-        padding-right: 60px;
+        margin-right: 60px;
         .hallmark-image{
           left: auto;
-          right: 60px;
-          &:before{
-            left: -30px;
+          right: 0;
+          order: 2;
+          .stripes-before{
+            display: block;
+            left: -35px;
           }
-        }
+          .stripes-after{
+            left: auto;
+            right: -35px;
+          }
+        }//end hallmark image
         .hallmark-text{
-          padding-right: 60%;
+          padding-right: 20px;
           padding-left: 60px;
         }
       }//end 
@@ -109,63 +161,74 @@
     }//end left
     &.right{
       @include tab{
-        padding-left: 60px;
+        margin-left: 60px;
         .hallmark-image{
           right: auto;
-          left: 60px;
-          &:before{
+          left: 0;
+          .stripes-before{
+            display: block;
             left: auto;
-            right: -30px;
+            right: -60px;
           }
-        }
+          .stripes-after{
+            left: 30px;
+          }
+        }//end hallmark image
         .hallmark-text{
-          padding-left: 60%;
+          padding-left: 20px;
           padding-right: 60px;
         }
-      }//end 
+      }//end tab
       @include contentStopMargin{
         .hallmark-text{
           padding-right: 152px;
         }
       }
-    }
+    }//end right
     .hallmark-image{
-      position: absolute;
-      left: 20px;
+      position: relative;
+      max-width: 874px;
+      z-index: 1;
       width: calc(100% - 40px);
-      top: 0;
-      z-index: -2;
-      &:before{
-        @include narrowStripes($sky);
-        left: -$siteMarginMobile;
-        bottom: -50px;
-        height: 150px;
-        opacity: 0;
-      }//end ebfore
+      left: 20px;
       @include tab{
-        top: 70px;
-        width: 60%;
-        height: calc(100% - 160px);
-        &:before{
-          bottom: auto;
-          top: -30px;
+        flex: 0 0 58%;
+        z-index: -2;
+      }
+      @include contentStopMargin{
+        flex: 0 0 65%;
+      }
+      .stripes-before{
+        display: none;
+        position: absolute;
+        right: 0;
+        top: -30px;
+        opacity: 0;
+        z-index: -1;
+      }
+      .stripes-after{
+        display: block;
+        position: absolute;
+        left: -30px;
+        bottom: -118px;
+        opacity: 0;
+        z-index: -1;
+        @include tab{
+          bottom: -90px;
         }
       }
     }//end hallmark image
     .hallmark-text{
-      padding: 46vw 20px 65px;
+      padding: 70px 20px 65px;
       background: $navy;
       color: $white;
-      @include smallTab{
-        padding-top: 52vw;
-      }
       @include tab{
-        padding-top: 80px;
-        padding-bottom: 90px;
-        min-height: 50vw;
+        padding-top: 10px;
+        padding-bottom: 0;
+        flex: 0 0 52%;
       }
-      @include contentStop{
-        min-height: 632px;
+      @include contentStopMargin{
+        flex: 0 0 35%;
       }
       .field-headline{
         @include heading2;
@@ -173,6 +236,20 @@
         margin-bottom: $spaceSm;
       }
       .field-long-text{
+        a{
+          color: $gold;
+          @include dottedLink($gold);
+          &:hover,&:focus{
+            color: $oldGold;
+            @include dottedLink($white);
+          }
+        }
+        h2,h6{
+          color: $white;
+        }
+        h3,h4,h5{
+          color: $gold;
+        }
         &:not(:last-child){
           margin-bottom: 38px;
         }
@@ -185,7 +262,7 @@
             content: '';
             display: block;
             position: absolute;
-            top: -14px;
+            top: -10px;
             left: 0;
             width: 40px;
             height: 40px;

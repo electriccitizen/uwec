@@ -12,26 +12,26 @@
   &.facts-visible{
     .node-teaser-fact{
       opacity: 1;
-      transition: opacity 1s ease-in;
+      transition: opacity .5s ease-in;
     }
     .fact-2{
       .node-teaser-fact{
-        transition-delay: .5s;
+        transition-delay: .25s;
       }
     }
     .fact-3{
       .node-teaser-fact{
-        transition-delay: .75s;
+        transition-delay: .5s;
       }
     }
     .fact-4{
       .node-teaser-fact{
-        transition-delay: 1s;
+        transition-delay: .75s;
       }
     }
     .fact-5{
       .node-teaser-fact{
-        transition-delay: 1.25s;
+        transition-delay: 1s;
       }
     }
   }
@@ -78,6 +78,10 @@
 	    grid-row-start: 1;
 	    grid-row-end: 2;
       margin-bottom: 0;
+      // body:not(.logged-in) &{
+      //   transform-origin: 0;
+      //   transform: translateZ(2px) scale(0.75);
+      // }
     }
     .facts-title-inner{
       @include styledHeader;

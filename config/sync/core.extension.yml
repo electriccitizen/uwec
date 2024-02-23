@@ -63,6 +63,7 @@ module:
   lazy: 0
   link: 0
   linkit: 0
+  livewhale: 0
   media: 0
   media_entity_file_replace: 0
   media_library: 0
@@ -129,6 +130,7 @@ module:
   views: 10
   paragraphs: 11
   citizen: 1000
+  eu_cookie_compliance: 1001
 theme:
   stable9: 0
   claro: 0

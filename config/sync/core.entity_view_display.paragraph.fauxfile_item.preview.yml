@@ -7,6 +7,7 @@ dependencies:
     - field.field.paragraph.fauxfile_item.field_email
     - field.field.paragraph.fauxfile_item.field_image
     - field.field.paragraph.fauxfile_item.field_job_title
+    - field.field.paragraph.fauxfile_item.field_long_text
     - field.field.paragraph.fauxfile_item.field_name
     - field.field.paragraph.fauxfile_item.field_phone
     - image.style.paragraph_preview
@@ -50,5 +51,6 @@ content:
 hidden:
   field_email: true
   field_job_title: true
+  field_long_text: true
   field_phone: true
   search_api_excerpt: true
