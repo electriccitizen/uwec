@@ -107,6 +107,10 @@ section-menu:
   version: 1.0
   js:
     components/02-chunks/navigation/section-menu/section-menu.js: {}
+superfish-menu:
+  version: 1.0
+  js:
+    components/02-chunks/navigation/superfish/superfish-menu.js: {}
 select:
   version: 4.0.3
   css:

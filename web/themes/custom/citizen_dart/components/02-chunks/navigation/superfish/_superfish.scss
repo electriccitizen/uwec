@@ -13,14 +13,19 @@
 ------------------------ */
 #superfish-main-toggle{
 	display: block;
-	background-image: url(../images/elements/menu-open-white.svg);
-	background-repeat: no-repeat;
-	background-size: 100%;
 	span{
 		@include visuallyHidden;
 	}
+	.close-menu-icon {
+		display: none;
+	}
 	&.sf-expanded{
-		background-image: url(../images/elements/menu-close-white.svg);
+		.close-menu-icon {
+			display: block;
+		}
+		.open-menu-icon {
+			display: none;
+		}
 	}
 }//end superfish-main-toggle
 
@@ -75,6 +80,12 @@ ul.sf-menu.sf-horizontal{
 				transform: scaleX(0);  
 				transition: transform 250ms ease-in-out;
 			}
+			&.is-active:after, &.menuparent:after {
+				border-bottom: solid 2px $gold; 
+				display: block;
+				content: '';
+				transform: scale(1);
+			}
 		}
 		&:hover{
 			& > a{
@@ -91,7 +102,9 @@ ul.sf-menu.sf-horizontal{
 			color: $sfTopLink;
 			padding: .5rem 1.5rem !important;
 			font-family: $header;
-			font-size: 2.5rem;
+			font-size: 2.125rem;
+			text-transform: uppercase;
+			letter-spacing: 2px;
 			display: block;
 			position: relative;
 			&:hover,&:focus{
@@ -131,24 +144,33 @@ ul.sf-menu.sf-horizontal{
 
 		//dropdown wrapper
 		& > ul{
-			padding: 2.5rem 0 0;
+			padding: 2.5rem 0;
 			top: 100%;
 			min-width: 280px;
 			@extend %menuDropdown;
 			& > li{
 				padding: 0;
 				&:last-of-type{
-					padding: 0 0 2.5rem;
+					border-bottom: 0px;
 				}
 			}
 		}
 
 	}//end main dropdown
 
+	li.sf-depth-2 {
+		border-bottom: 1px solid rgba(1, 96, 242, 0.12);
+		margin: 0 1rem;
+		width: calc(100% - 2rem);
+	}
+
 	//level 2 links
 	a.sf-depth-2{
 		line-height: 1;
-		padding: 1.5rem 2.5rem;
+		padding: 1.5rem;
+		&:hover, &:focus, &.is-active {
+			background: $white;
+		}
 	}
 
 	// sub menu toggles
@@ -223,11 +245,10 @@ ul.sf-menu.sf-accordion{
 				display: block;
 				top: 0;
 				left: calc(50% - 119px);
-				opacity: 8%;
 				position: absolute;
 				width: 238px;
 				height: 238px;
-				background-image: url(../images/logos-badges/seal.svg);
+				background-image: url(../images/logos-badges/uwec-seal-white.svg);
 				background-position: center -112px;
 				background-repeat: no-repeat;
 				background-size: 238px 238px;
@@ -237,11 +258,10 @@ ul.sf-menu.sf-accordion{
 				display: block;
 				bottom: 0;
 				left: calc(50% - 119px);
-				opacity: 8%;
 				position: absolute;
 				width: 238px;
 				height: 238px;
-				background-image: url(../images/logos-badges/seal.svg);
+				background-image: url(../images/logos-badges/uwec-seal-white.svg);
 				background-position: center 112px;
 				background-repeat: no-repeat;
 				background-size: 238px 238px;
@@ -270,7 +290,11 @@ ul.sf-menu.sf-accordion{
 			background: transparent;
 			//expander toggle
 			&:after{
-				@include materialIconOutline(\e5cf);
+				content: '';
+				background-image: url(../images/elements/caret-down-mobile-main-nav.svg);
+				background-position: center center;
+				background-repeat: no-repeat;				
+				background-size: 20px;
 				position: absolute;
 				right: 10px;
 				top: 0;
@@ -283,7 +307,7 @@ ul.sf-menu.sf-accordion{
 
 		&.sf-expanded {
 			& > .sf-accordion-button:after{
-				content: "\e5cf" !important;
+				content: '' !important;
 			}
 		}
 		
@@ -317,15 +341,19 @@ ul.sf-menu.sf-accordion{
 
 	// top level
 	li.sf-depth-1{
+		margin: 0 40px;
+		width: calc(100% - 80px);
 		& > a{
 			font-family: $header;
 			text-transform: uppercase;
 			font-size: 3rem;
 			color: $sfMobileTop;
 			background: $sfMobileTopBack;
+			letter-spacing: 3px;
+			padding-left: 0;
 		}
-		&:not(:last-child){
-			border-bottom: 1px solid $sfMobileItemBorder
+		&:not(:nth-child(2)){
+			border-top: 1px solid $sfMobileItemBorder;
 		}
 		&.sf-expanded{
 			& > a{
