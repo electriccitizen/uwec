@@ -13,14 +13,19 @@
 ------------------------ */
 #superfish-main-toggle{
 	display: block;
-	background-image: url(../images/elements/menu-open-white.svg);
-	background-repeat: no-repeat;
-	background-size: 100%;
 	span{
 		@include visuallyHidden;
 	}
+	.close-menu-icon {
+		display: none;
+	}
 	&.sf-expanded{
-		background-image: url(../images/elements/menu-close-white.svg);
+		.close-menu-icon {
+			display: block;
+		}
+		.open-menu-icon {
+			display: none;
+		}
 	}
 }//end superfish-main-toggle
 
@@ -240,7 +245,6 @@ ul.sf-menu.sf-accordion{
 				display: block;
 				top: 0;
 				left: calc(50% - 119px);
-				opacity: 8%;
 				position: absolute;
 				width: 238px;
 				height: 238px;
@@ -254,7 +258,6 @@ ul.sf-menu.sf-accordion{
 				display: block;
 				bottom: 0;
 				left: calc(50% - 119px);
-				opacity: 8%;
 				position: absolute;
 				width: 238px;
 				height: 238px;
@@ -287,7 +290,11 @@ ul.sf-menu.sf-accordion{
 			background: transparent;
 			//expander toggle
 			&:after{
-				@include materialIconOutline(\e5cf);
+				content: '';
+				background-image: url(../images/elements/caret-down-mobile-main-nav.svg);
+				background-position: center center;
+				background-repeat: no-repeat;				
+				background-size: 20px;
 				position: absolute;
 				right: 10px;
 				top: 0;
@@ -300,7 +307,7 @@ ul.sf-menu.sf-accordion{
 
 		&.sf-expanded {
 			& > .sf-accordion-button:after{
-				content: "\e5cf" !important;
+				content: '' !important;
 			}
 		}
 		
