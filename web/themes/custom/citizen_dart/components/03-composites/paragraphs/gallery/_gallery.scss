@@ -20,6 +20,40 @@
 }
 
 .paragraph--type--gallery{
+  &.gallery-visible{
+    .tiles .gallery-wrapper .square,.masonry .masonry-item{
+      opacity: 1;
+      transition: opacity .5s ease-in;
+    }
+    .image-gal{
+      &:nth-child(3n+1) {
+        .square{
+          transition-delay: .25s;
+        }
+      }
+      &:nth-child(3n+2){
+        .square{
+          transition-delay: .5s;
+        }
+      }
+      &:nth-child(3n+2){
+        .square{
+          transition-delay: .75s;
+        }
+      }
+    }//end image gal
+    .masonry-item{
+      &:nth-child(3n+1) {
+        transition-delay: .25s;
+      }
+      &:nth-child(3n+2){
+        transition-delay: .5s;
+      }
+      &:nth-child(3n+2){
+        transition-delay: .75s;
+      }
+    }//end masonry item
+  }//end gallery visible
 	.tiles{
     @include edgeToEdge;
     @include contentStopMargin{
@@ -36,6 +70,9 @@
 			@include safeFlex(row,wrap,start,start);
 			@include bleed(padding,20px);
 			margin-bottom: 20px;
+      .square{
+        opacity: 0;
+      }
 			//hide the content before tiles
 			.featherlight-hidden {
 				display: none;
@@ -206,6 +243,7 @@
 		.masonry-item {
       margin-bottom: 10px;
       max-width: 100%;
+      opacity: 0;
       //when on mobile or in a layout region with little room ,force masonry full width
       @include onlyPhone{
         position: static !important;

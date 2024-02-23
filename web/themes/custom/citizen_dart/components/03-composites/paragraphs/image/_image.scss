@@ -8,26 +8,192 @@
 .paragraph--type--image{
 	max-width: 1104px;
 	@include auto;
+  &.image-visible{
+    .image-wrapper{
+      @include animation('fadeIn 1.5s 1 forwards');
+    }
+  }
 	.caption-left,
 	.caption-right{
+    .image-wrapper{
+      @include edgeToEdge;
+    }
 		@include tab{
-			@include safeFlex(row,wrap,left,start);
-			@include bleed(padding,32px);
-			.caption {
-				flex: 1;
-				max-width: $textMax;
-			}
+      .widget-section > .layout--onecol &{
+        @include safeFlex(row,wrap,left,center);
+        .caption {
+          flex: 1;
+        }
+      }//end layout check
 			.image-wrapper{
-				max-width: 650px;
+				max-width: 500px;
+        margin: 0;
 			}
-		}
+		}//end tab
+    @include desk{
+      .image-wrapper{
+				max-width: 716px;
+			}
+    }//end desk
 	}//end left right
+  .caption-right{
+    @include tab{
+      .image-wrapper{
+        padding-right: 32px;
+        &:not(.size-full){
+          img{
+            margin-right: 0;
+          }
+        }
+      }//end image wrapper
+    }//end tab
+    @include desk{
+      .image-wrapper{
+        padding-right: 66px;
+      }
+    }
+  }//end caption right
 	.caption-left {
-		flex-direction: row-reverse;
-	}
-	.caption-below,.caption-none {
+    @include tab{
+      .widget-section > .layout--onecol &{
+        flex-direction: row-reverse;
+      }
+      .image-wrapper{
+          padding-left: 32px;
+          &:not(.size-full){
+          img{
+            margin-left: 0;
+          }
+        }
+      }
+    }//end tab
+    @include desk{
+      .image-wrapper{
+        padding-left: 66px;
+      }
+    }
+	}//end caption left
+	.caption-none {
 		max-width: 874px;
 		@include auto;
-	}
+    .image-wrapper{
+      margin-bottom: 0;
+      &.size-full{
+        position: relative;
+        padding: 44px 0 50px;
+        &:after{
+          @include fullBack($lightGrey);
+        }
+        @include desk{
+          padding: 50px 0 52px;
+        }
+        .widget-section > .layout:not(.layout--onecol) &{
+          @include tab{
+            background: $lightGrey;
+            padding-left: 20px !important;
+            padding-right: 20px !important;
+            &:after{
+              content: none;
+            }
+            .gold-stripes{
+              display: none;
+            }
+          }
+        }
+        .gold-stripes{
+          position: absolute;
+          top: 20px;
+          right: -20px;
+          z-index: 0;
+          width: 77px;
+          height: 136px;
+          @include desk{
+            width: 195px;
+            height: 344px;
+            right: -23px;
+            svg{
+              width: 195px;
+              height: 344px;
+            }
+          }
+        }//end gold striptes
+        .image{
+          position: relative;
+          z-index: 1;
+        }
+      }//end size full
+    }//end image wrapper
+	}//end caption below
+  .caption-below{
+    max-width: 690px;
+		@include auto;
+    .image-wrapper{
+      margin-bottom: $spaceSm;
+    }
+    .caption{
+      padding-right: 0;
+      padding-left: 40px;
+      position: relative;
+      .widget-section > .layout--onecol &,
+      .widget-section > .layout--twocol-section--50-50 &,
+      .widget-section > .layout--twocol-section--67-33 > .layout__region--first &,
+      .widget-section > .layout--twocol-section--75-25 > .layout__region--first &,
+      .widget-section > .layout--twocol-section--33-67 > .layout__region--second &,
+      .widget-section > .layout--twocol-section--25-75 > .layout__region--second &{
+        @include desk{
+          padding-left: 80px;
+        }
+        @include contentStopMargin{
+          padding-left: 110px;
+        }
+      }//end layout checks
+      &:before{
+        content: '';
+        display: block;
+        position: absolute;
+        top: -24px;
+        left: 20px;
+        height: 46px;
+        width: 1px;
+        background: $warmGrey;
+        .widget-section > .layout--onecol &,
+        .widget-section > .layout--twocol-section--50-50 &,
+        .widget-section > .layout--twocol-section--67-33 > .layout__region--first &,
+        .widget-section > .layout--twocol-section--75-25 > .layout__region--first &,
+        .widget-section > .layout--twocol-section--33-67 > .layout__region--second &,
+        .widget-section > .layout--twocol-section--25-75 > .layout__region--second &{
+          @include desk{
+            left: 60px;
+          }
+          @include contentStopMargin{
+            left: 90px;
+          }
+        }//end layout checks
+      }//end before
+    }//end caption
+  }//end caption below
+  .image-wrapper{
+    margin-bottom: $spaceMd;
+    opacity: 0;
+    &:not(.size-full){
+      img{
+        width: revert-layer;
+        @include auto;
+      }
+    }//end size not full
+  }//end image wrapper
+  .caption{
+    padding-left: 20px;
+    padding-right: 20px;
+    .field-caption-headline{
+      @include heading2;
+      color: $brightBlue;
+      margin-bottom: $spaceXxs;
+    }
+    .field-caption{
+      color: $brightBlue;
+      line-height: 1.5;
+    }
+  }//end caption
 }//end image widget
 

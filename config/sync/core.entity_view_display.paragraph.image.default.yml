@@ -7,6 +7,7 @@ dependencies:
     - field.field.paragraph.image.field_caption
     - field.field.paragraph.image.field_caption_headline
     - field.field.paragraph.image.field_image
+    - field.field.paragraph.image.field_size
     - paragraphs.paragraphs_type.image
   module:
     - layout_builder
@@ -26,7 +27,7 @@ content:
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 3
+    weight: 2
     region: content
   field_caption_headline:
     type: string
@@ -34,7 +35,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 2
+    weight: 1
     region: content
   field_image:
     type: entity_reference_entity_view
@@ -43,8 +44,9 @@ content:
       view_mode: 874x492
       link: false
     third_party_settings: {  }
-    weight: 1
+    weight: 0
     region: content
 hidden:
   field_alignment: true
+  field_size: true
   search_api_excerpt: true
