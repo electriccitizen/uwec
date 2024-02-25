@@ -442,8 +442,8 @@ third_party_settings:
             region: content
             configuration:
               id: 'field_block:node:bios:body'
-              label: Bio
-              label_display: '0'
+              label: Biography
+              label_display: visible
               provider: layout_builder
               context_mapping:
                 entity: layout_builder.entity
