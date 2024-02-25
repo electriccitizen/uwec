@@ -5,36 +5,56 @@
 @use '../../../00-base/base' as *;
 
 @mixin quote{
-	font-size: 31px;
-	line-height: 48px;
+	font-size: 21px;
+	line-height: 2;
 	font-family: $displayHeader;
 	font-style: italic;
+  max-width: 650px;
+  @include auto;
+  @include tab{
+    font-size: 32px;
+	  line-height: 1.5;
+  }
 	.quote-mark{
 		display: block;
-		width: 20px;
-		height: 19px;
-		margin: -16px auto 30px;
+		width: 16px;
+		height: 14px;
+		margin: -16px auto 36px;
+    @include tab{
+      width: 20px;
+      height: 19px;
+      margin-bottom: 42px;
+    }
 		svg,.cls-1{
 			fill: $brightBlue;
 		}
-	}
-}
+	}//quote mark
+}//end quote
 
 .paragraph--type--quote {
 	color: $brightBlue;
-	@media screen and (min-width: 690px){
-		margin-left: calc(-50vw + 345px);
-		margin-right: calc(-50vw + 345px);
+  @include edgeToEdge;
+	@media screen and (min-width: 954px){
+		@include auto;
 	}
   .quote-wrapper {
   	max-width: 914px;
   	@include auto;
     border-top: $brightBlue 1px solid;
     border-bottom: $brightBlue 1px solid;
-    padding: $spaceMd 0;
+    padding: 36px $siteMarginMobile 36px;
     text-align: center;
     .quote {
       @include quote;
     }
-  }
-}
+    .field-source{
+      margin: 14px auto 10px;
+      font-size: 16px;
+      line-height: 1.125;
+      max-width: $textMax;
+      @include tab{
+        margin: 20px auto 4px;
+      }
+    }
+  }//end quote wrapper
+}//end paragraph type quote

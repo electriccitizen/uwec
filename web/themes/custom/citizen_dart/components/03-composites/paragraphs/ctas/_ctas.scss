@@ -8,9 +8,13 @@
 .paragraph--type--ctas{
   &.cta-visible{
     .cta-trio .cta-item .cta-item-inner .cta-image{
-      @include tab{
-        opacity: 1;
-        transition: opacity 0.5s ease-in;
+      .widget-section > .layout--onecol &,
+      .widget-section > .layout--twocol-section--75-25 > .layout__region--first &,
+      .widget-section > .layout--twocol-section--25-75 > .layout__region--second &{
+        @include tab{
+          opacity: 1;
+          transition: opacity 0.5s ease-in;
+        }
       }
     }
     .cta-bar{
@@ -40,51 +44,79 @@
 			width: 100%;
       &:not(:last-child){
         margin-bottom: $spaceSm;
-        @include tab{
-          margin-bottom: 0;
+        .widget-section > .layout--onecol &,
+        .widget-section > .layout--twocol-section--75-25 > .layout__region--first &,
+        .widget-section > .layout--twocol-section--25-75 > .layout__region--second &{
+          @include tab{
+            margin-bottom: 0;
+          }
         }
       }
-			@include tab{
-				width: 33.33%;
-			}
+      .widget-section > .layout--onecol &,
+      .widget-section > .layout--twocol-section--75-25 > .layout__region--first &,
+      .widget-section > .layout--twocol-section--25-75 > .layout__region--second &{
+        @include tab{
+          width: 33.33%;
+        }
+      }
 			.cta-item-inner{
 				height: 100%;
 				background: $brightBlue;
 				padding: 38px 20px 50px;
-        @include tab{
-          padding: 30px 30px 80px;
-          position: relative;
+        .widget-section > .layout--onecol &,
+        .widget-section > .layout--twocol-section--75-25 > .layout__region--first &,
+        .widget-section > .layout--twocol-section--25-75 > .layout__region--second &{
+          @include tab{
+            padding: 30px 30px 80px;
+            position: relative;
+          }
         }
         .cta-image{
           display: none;
-          @include tab{
-            display: block;
-            margin-bottom: 20px;
-            opacity: 0;
-          }
-        }
-        .cta-headline{
-          @include tab{
-            line-height: 1.583;
-            &:not(:only-child){
-              margin-bottom: 2.5rem;
+          .widget-section > .layout--onecol &,
+          .widget-section > .layout--twocol-section--75-25 > .layout__region--first &,
+          .widget-section > .layout--twocol-section--25-75 > .layout__region--second &{
+            @include tab{
+              display: block;
+              margin-bottom: 20px;
+              opacity: 0;
             }
           }
-        }
+        }//end cta image
+        .cta-headline{
+          .widget-section > .layout--onecol &,
+          .widget-section > .layout--twocol-section--75-25 > .layout__region--first &,
+          .widget-section > .layout--twocol-section--25-75 > .layout__region--second &{
+            @include tab{
+              line-height: 1.583;
+              &:not(:only-child){
+                margin-bottom: 2.5rem;
+              }
+            }
+          }
+        }//end cta headline
         .cta-text{
           line-height: 1.5;
-          @include tab{
-            margin-bottom: $spaceSm;
+          .widget-section > .layout--onecol &,
+          .widget-section > .layout--twocol-section--75-25 > .layout__region--first &,
+          .widget-section > .layout--twocol-section--25-75 > .layout__region--second &{
+            @include tab{
+              margin-bottom: $spaceSm;
+            }
           }
-        }
+        }//end cta text
         .cta-button{
-          @include tab{
-            position: absolute;
-            bottom: 30px;
-            left: 30px;
-            width: calc(100% - 60px);
+          .widget-section > .layout--onecol &,
+          .widget-section > .layout--twocol-section--75-25 > .layout__region--first &,
+          .widget-section > .layout--twocol-section--25-75 > .layout__region--second &{
+            @include tab{
+              position: absolute;
+              bottom: 30px;
+              left: 30px;
+              width: calc(100% - 60px);
+            }
           }
-        }
+        }//end cta button
 			}//end cta item inner
 		}//end CTA item
 	}//end is trio
@@ -100,18 +132,34 @@
       z-index: 1;
       width: 263px;
       height: 171px;
-      @include tab{
-        top: -65px;
+      //move strips when in a layout wide enough on a screen large enough
+      .widget-section > .layout--onecol &,
+      .widget-section > .layout--twocol-section--50-50 &,
+      .widget-section > .layout--twocol-section--67-33 > .layout__region--first &,
+      .widget-section > .layout--twocol-section--75-25 > .layout__region--first &,
+      .widget-section > .layout--twocol-section--33-67 > .layout__region--second &,
+      .widget-section > .layout--twocol-section--25-75 > .layout__region--second &{
+        @include tab{
+          top: -65px;
+        }
       }
-    }
+    }//end gold stripes
 		.cta-item-inner{
 			position: relative;
 			overflow: hidden;
 			width: 100%;
 			padding: 86px 20px 50px;
-      @include tab{
-			  @include safeFlex(row,wrap,start,center);
-        padding: 80px 109px 90px;
+      //change layout and padding in a layout wide enough on a screen large enough
+      .widget-section > .layout--onecol &,
+      .widget-section > .layout--twocol-section--50-50 &,
+      .widget-section > .layout--twocol-section--67-33 > .layout__region--first &,
+      .widget-section > .layout--twocol-section--75-25 > .layout__region--first &,
+      .widget-section > .layout--twocol-section--33-67 > .layout__region--second &,
+      .widget-section > .layout--twocol-section--25-75 > .layout__region--second &{
+        @include tab{
+          @include safeFlex(row,wrap,start,center);
+          padding: 80px 109px 90px;
+        }
       }
 			&:after{
 				@include fullBack($brightBlue);
@@ -140,9 +188,31 @@
 						object-fit: cover;
             opacity: 0;
 					}
-				}
+				}//end field media image
 			}//end article
 			.cta-text-wrapper{
+        //change layout of elements a layout wide enough on a screen large enough
+        .widget-section > .layout--onecol &,
+        .widget-section > .layout--twocol-section--50-50 &,
+        .widget-section > .layout--twocol-section--67-33 > .layout__region--first &,
+        .widget-section > .layout--twocol-section--75-25 > .layout__region--first &,
+        .widget-section > .layout--twocol-section--33-67 > .layout__region--second &,
+        .widget-section > .layout--twocol-section--25-75 > .layout__region--second &{
+          @include tab{
+            @include safeFlex(row,wrap,start,center);
+            .cta-text-left{
+              width: 60%;
+              padding-right: 20px;
+              .cta-text{
+                margin-bottom: 0;
+                line-height: 1.875;
+              }
+            }
+            .cta-text-right{
+              width: 40%;
+            }
+          }// tab
+        }//end layout sections
         .cta-headline{
           &:not(:only-child){
             margin-bottom: $spaceMd;
@@ -151,28 +221,22 @@
         .cta-text{
           line-height: 2;
         }
-        @include tab{
-          @include safeFlex(row,wrap,start,center);
-          .cta-text-left{
-            width: 60%;
-            padding-right: 20px;
-            .cta-text{
-              margin-bottom: 0;
-              line-height: 1.875;
-            }
-          }
-          .cta-text-right{
-            width: 40%;
-          }
-        }
+        
 				.cta-text-right{
 					a{
-						@include outlineButton($white);
-            @include tab{
-              padding: 2.1rem 3.25rem 1.85rem;
-            }
-					}
-				}
+            //change button padding and padding in a layout wide enough on a screen large enough
+            .widget-section > .layout--onecol &,
+            .widget-section > .layout--twocol-section--50-50 &,
+            .widget-section > .layout--twocol-section--67-33 > .layout__region--first &,
+            .widget-section > .layout--twocol-section--75-25 > .layout__region--first &,
+            .widget-section > .layout--twocol-section--33-67 > .layout__region--second &,
+            .widget-section > .layout--twocol-section--25-75 > .layout__region--second &{
+              @include tab{
+                padding: 2.1rem 3.25rem 1.85rem;
+              }
+            }//end sections
+					}//end a
+				}//end cta text right
 			}//end cta text wrapper
 		}//end cita item inner
 	}//end is bar
@@ -194,6 +258,11 @@
 			a{
 				@include outlineButton($white);
         margin-bottom: 0 !important;
+        &:hover,&:focus{
+          color: $brightBlue;
+          background: $white;
+          border-color: $white;
+        }
 			}
 		}
 	}//end cta item

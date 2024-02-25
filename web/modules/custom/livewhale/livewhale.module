@@ -1,0 +1,21 @@
+<?php
+use \Drupal\Core\Field\FieldStorageDefinitionInterface;
+use \Drupal\Core\Entity\FieldableEntityInterface;
+
+// this callback is referenced by name in the field_livewhale_group config
+// in the "allowed_values_function" config option
+function callback_livewhale_allowed_group_options(FieldStorageDefinitionInterface $definition, FieldableEntityInterface $entity = NULL, &$cacheable = TRUE) {
+	if($definition->getName() === 'field_livewhale_group'){
+		$livewhale = \Drupal::service('livewhale.api');
+		$groups = $livewhale->getGroups();
+		
+		$values = [];
+		foreach($groups as $g){
+			// Unfortunately, the livewhale api takes the "fullname" as the identifier for the group in the widget filter.
+			// I really wish they used the ID, but lo, this is what we have.
+			// The ID is right there, as $g['id'], it exists, they just don't use it.
+			$values[$g['fullname']] = $g['fullname'];
+		}
+		return $values;
+	}
+}

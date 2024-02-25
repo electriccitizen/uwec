@@ -1,0 +1,21 @@
+uuid: 3c1fb5fc-830a-4f16-8287-545e148b2ec2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_livewhale_group
+    - paragraphs.paragraphs_type.events_list
+  module:
+    - options
+id: paragraph.events_list.field_livewhale_group
+field_name: field_livewhale_group
+entity_type: paragraph
+bundle: events_list
+label: 'Livewhale Group'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

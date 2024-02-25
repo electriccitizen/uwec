@@ -78,9 +78,9 @@
 
 //bio teaser
 .node-teaser-bios{
-	.teaser-title{
-		@include heading4;
-		font-size: 3.25rem;
-		line-height: 4rem;
-	}
+	@include profileTeaser;
+  .teaser-title{
+    margin-bottom: 1.5rem;
+  }
 }//end node teaser bios
+

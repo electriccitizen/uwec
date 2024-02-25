@@ -5,7 +5,7 @@
 @use '../../../00-base/base' as *;
 @use '../views-mixins' as *;
 
-/* FACTS LIST
+/* PROGRAMS LIST
 ------------- */
 .programs.list {
 	max-width: 984px;
@@ -18,7 +18,7 @@
 	  	grid-gap: 65px;
   	}// end programs-wrapper
 	}//end tab
-}//end facts list
+}//end programs list
 
 .programs.by-department{
   @include tab{
@@ -37,4 +37,4 @@
       grid-gap: 65px;
     }// end programs-wrapper
   }//end tab
-}
+}//end programs by department

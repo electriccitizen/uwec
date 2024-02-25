@@ -51,36 +51,38 @@
 	}
 }//end block 2
 
-//SOCIAL MEDIA & COPYRIGHT
+// SOCIAL MEDIA
+.block-3{
+  .field-platforms{
+    .platform-links{
+      justify-content: center;
+    }
+    li{
+      margin: 0 3px;
+      a{
+        *{
+          transform-style: unset;
+        }
+        svg{
+          width: 22px;
+          height: 22px;
+        }
+        svg,.cls-1{
+          fill: $footerLink;
+        }
+        &:hover,&:focus{
+          svg,.cls-1{
+            transition: fill .3s ease;
+            fill: $footerLinkHover;
+          }
+        }
+      }//end a
+    }//end li
+  }//end field platforms
+}//end block social media
+
+//COPYRIGHT
 .block-1{
-	.block-social-media{
-		.field-platforms{
-			.platform-links{
-				justify-content: center;
-			}
-			li{
-				margin: 0 3px;
-				a{
-					*{
-						transform-style: unset;
-					}
-					svg{
-						width: 22px;
-						height: 22px;
-					}
-					svg,.cls-1{
-						fill: $footerLink;
-					}
-					&:hover,&:focus{
-						svg,.cls-1{
-              transition: fill .3s ease;
-							fill: $footerLinkHover;
-						}
-					}
-				}
-			}
-		}//end field platforms
-	}//end block social media
 	.copyright{
 		text-align: center;
 		font-size: 1.5rem;

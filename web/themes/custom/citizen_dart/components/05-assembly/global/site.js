@@ -100,7 +100,7 @@ Drupal.behaviors.mobileMenu = {
 //function to move blocks to mobile menu
 function mobileMenuInsert() {
 	var wwidth = $(window).outerWidth();
-	if (wwidth < 984) {
+	if (wwidth < 1200) {
 		//if not in desktop or higher, clone the search and secondary menu and move them to the mobile menu
 		if(!$('.sf-accordion > li.mobile-search-container').length){
 			var $searchContainer = $('.site-header .search-box-wrapper');

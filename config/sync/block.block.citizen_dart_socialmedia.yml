@@ -1,6 +1,6 @@
 uuid: 31608170-a355-4f1d-a78b-2169482cdccf
 langcode: en
-status: false
+status: true
 dependencies:
   content:
     - 'block_content:social_media_links:aac28652-c2fd-482d-955c-d453922ef049'
@@ -11,7 +11,7 @@ dependencies:
 id: citizen_dart_socialmedia
 theme: citizen_dart
 region: footer
-weight: -6
+weight: -8
 provider: null
 plugin: 'block_content:aac28652-c2fd-482d-955c-d453922ef049'
 settings:

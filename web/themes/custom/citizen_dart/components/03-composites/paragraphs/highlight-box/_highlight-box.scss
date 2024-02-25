@@ -5,24 +5,61 @@
 @use '../../../00-base/base' as *;
 
 .paragraph--type--highlight-box{
-   background-color: $lightGrey;
-   border: 6px solid $oldGold;
-   padding: $spaceLg 0;
-   .widget-wrapper {
-      max-width: $textMax;
-      @include auto;
-      .field-headline {
-         color: $navy;
-         font-family: $displayHeader;
-         font-size: 4rem;;
-      }
-      .field-additional-text {
-         color: $navy;
-      }
-      .field-link {
-         a {
-            color: $navy;
-         }
-      }
-   }
+  background-color: $lightGrey;
+  border: 6px solid $oldGold;
+  padding: 44px 20px 60px 72px;
+  position: relative;
+  max-width: 874px;
+  @include auto;
+  .widget-section > .layout--onecol &,
+  .widget-section > .layout--twocol-section--67-33 > .layout__region--first &,
+  .widget-section > .layout--twocol-section--75-25 > .layout__region--first &,
+  .widget-section > .layout--twocol-section--33-67 > .layout__region--second &,
+  .widget-section > .layout--twocol-section--25-75 > .layout__region--second &{
+    @include desk{
+      padding: 70px 92px 70px 112px;
+    }
+  }//end layout checks
+  .navy-stripes{
+    position: absolute;
+    top: -34px;
+    left: -6px;
+    z-index: 1;
+    width: 53px;
+    height: 207px;
+  }
+  .widget-wrapper {
+    .field-headline {
+      color: $navy;
+      font-family: $displayHeader;
+      font-size: 4rem;
+      line-height: 1.25;
+    }
+    .field-link {
+      margin-top: 40px;
+      a{
+        @include arrowLinkBefore($navy);
+        display: inline-block;
+        &:before{
+          content: '';
+          display: block;
+          position: absolute;
+          top: -10px;
+          left: 0;
+          width: 40px;
+          height: 40px;
+          @include rightArrow(navy,transparent,$navy,lg);
+        }
+        &:hover,&:focus{
+          &:before{
+            @include rightArrow(white,$navy,$navy,lg);
+          }
+          span{
+            @include dottedLink($link);
+            padding-bottom: 2px;
+          }
+        }
+      }//end a
+    }//end field link
+  }//end widget wrapper
 }//end highlight-box widget

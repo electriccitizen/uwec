@@ -53,8 +53,19 @@
 		background-image: url('../images/elements/search-open-white.svg');
 		background-repeat: no-repeat;
 		background-size: 100%;
+		position: absolute;
+		z-index: 10;
+		top: -2px;
+		right: 0;
 		&:hover,&:focus{
 			background-image: url('../images/elements/search-open-hover.svg');
+		}
+		&.close-search {
+			background-image: url('../images/elements/search-close-white.svg');
+			&:hover,&:focus{
+				background-image: url('../images/elements/search-close-hover.svg');
+			}
+
 		}
 	}
 	.google-search-container {
@@ -66,6 +77,32 @@
 		width: 100%;
 		height: 100vh;
 		background: $navy;
+		&:before {
+			content: '';
+			display: block;
+			top: 0;
+			left: calc(50% - 203px);
+			position: absolute;
+			width: 405px;
+			height: 405px;
+			background-image: url(../images/logos-badges/uwec-seal-white.svg);
+			background-position: center -203px;
+			background-repeat: no-repeat;
+			background-size: 405px 405px;
+		}
+		&:after {
+			content: '';
+			display: block;
+			bottom: 0;
+			left: calc(50% - 203px);
+			position: absolute;
+			width: 405px;
+			height: 405px;
+			background-image: url(../images/logos-badges/uwec-seal-white.svg);
+			background-position: center 203px;
+			background-repeat: no-repeat;
+			background-size: 405px 405px;
+		}
 		.logged-in &{
 			top: 56px;
 		}
@@ -77,19 +114,6 @@
 			@include auto;
 			padding: 0 20px;
 			@include safeFlex(column,nowrap,center,center);
-			.close-search{
-				position: absolute;
-				top: 17px;
-				right: 28px;
-				width: 40px;
-				height: 40px;
-				background-image: url('../images/elements/search-close-white.svg');
-				background-repeat: no-repeat;
-				background-size: 100%;
-				&:hover,&:focus{
-					background-image: url('../images/elements/search-close-hover.svg');
-				}
-			}
 			.gsc-control-searchbox-only{
 				width: 820px;
 				max-width: 100%;
@@ -135,6 +159,7 @@
 			@include heading3;
 			margin-bottom: $spaceXxs;
 			color: $navy;
+			margin-left: 3rem;
 			header &{
 				color: $white;
 			}
@@ -143,9 +168,10 @@
 		td.gsc-input{
 			padding-right: 0;
 			.gsc-input-box{
-				padding: 4px 50px 5px 20px;
+				padding: 11px 50px 11px 20px;
 				border-radius: 25px;
 				border: 0;
+				background: $ice;
 				@include desk{
 					padding: 4px 20px 5px;
 					margin-right: 12px;
@@ -244,10 +270,12 @@
 
 .search-box-wrapper.mobile-search {
 	padding: 0 2.5rem;
-	margin-bottom: 8rem;
+	margin-bottom: 6rem;
 	.gsc-search-box {
 		label {
-			margin-bottom: $spaceSm;
+			display: block;
+			margin-bottom: $spaceXxs;
+			padding-left: 3rem;
 		}
 		.gsc-input-box {
 			.gsst_a {

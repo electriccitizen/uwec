@@ -1,0 +1,24 @@
+uuid: f09a1daa-57cb-4ab2-8b9f-3e2b3c07c9c4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_long_text
+    - filter.format.plain_text
+    - paragraphs.paragraphs_type.fauxfile_item
+  module:
+    - text
+id: paragraph.fauxfile_item.field_long_text
+field_name: field_long_text
+entity_type: paragraph
+bundle: fauxfile_item
+label: Description
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - plain_text
+field_type: text_long

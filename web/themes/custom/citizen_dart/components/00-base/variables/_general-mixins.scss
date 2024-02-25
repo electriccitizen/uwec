@@ -400,6 +400,7 @@
 	background-repeat: no-repeat;
 	background-size: 50%;
 	background-position: 50% 50%;
+  box-sizing: border-box;
 }
 
 @mixin arrowLinkBefore($arrowLinkColor){
@@ -408,7 +409,7 @@
   line-height: 1.44;
   color: #{$arrowLinkColor};
   position: relative;
-  padding-left: 52px;
+  padding-left: 56px;
 }
 
 @mixin dottedLink($dotColor){
@@ -556,6 +557,16 @@
 @mixin slateForm{
   .form_question{
     margin-bottom: 20px;
+    &[data-required='1']{
+      & > .form_label{
+        &:after{
+          content: '*';
+          position: relative;
+          top: -1px;
+          left: 2px;
+        }
+      }
+    }
   }
   .form_label{
     font-family: f.$header;
@@ -567,7 +578,7 @@
     display: block;
     margin: 0 0 5px 20px;
   }
-  input[type='text'],input[type='email'],input[type='tel'],textarea{
+  input[type='text'],input[type='email'],input[type='tel'],textarea,input[type='number']{
     @include browserWipe;
     border: 0;
     border-radius: 10px;
@@ -584,21 +595,62 @@
   textarea{
     min-height: 90px;
   }
-  input[type='checkbox']{
-    @include browserWipe;
-    width: 22px;
-    height: 22px;
-    border: 1px solid c.$brightBlue;
-    background-color: c.$white;
-    &:hover,&:focus{
-      background-color: c.$cream;
+  .form_checkbox{
+    .form_response{
+      position: relative;
+      padding-left: 40px;
     }
-    &:checked{
-      background-image: url('../images/elements/check-black.svg');
-      background-repeat: no-repeat;
-      background-size: contain;
+    input[type='checkbox']{
+      @include browserWipe;
+      width: 22px;
+      height: 22px;
+      border: 1px solid c.$brightBlue;
+      background-color: c.$white;
+      position: absolute;
+      top: 2px;
+      left: 0;
+      &:hover,&:focus{
+        background-color: c.$cream;
+      }
+      &:checked{
+        background-image: url('../images/elements/check-black.svg');
+        background-repeat: no-repeat;
+        background-size: contain;
+      }
+      & + label{
+        margin-left:  0;
+      }
+    }//end checkbox inputs
+  }//end form checkbox
+  .form_radio{
+    .form_response{
+      position: relative;
+      padding-left: 40px;
     }
-  }//end checkbox
+    input[type='radio']{
+      @include browserWipe;
+      width: 22px;
+      height: 22px;
+      border: 1px solid c.$brightBlue;
+      background-color: c.$white;
+      border-radius: 50%;
+      position: absolute;
+      top: 4px;
+      left: 0;
+      &:hover,&:focus{
+        background-color: c.$cream;
+      }
+      &:checked{
+        background-image: url('../images/elements/radio-dot.svg');
+        background-repeat: no-repeat;
+        background-size: 40%;
+        background-position: center;
+      }
+      & + label{
+        margin-left:  0;
+      }
+    }//end radio input
+  }//end form radio
   select{
     @include browserWipe;
     border: 0;
@@ -654,6 +706,158 @@
     }
   }//end submit button
 }//end slateForm
+
+@mixin profileSlider{
+  position: relative;
+  max-width: 985px;
+  margin-left: u.$siteMarginMobile * -1;
+  margin-right: u.$siteMarginMobile * -1;
+  @include u.desk{
+    margin-left: auto;
+    margin-right: auto;
+  }
+  &:after{
+    @include fullBack(c.$gold);
+    top: 58px;
+    height: calc(100% - 58px);
+  }
+  .view-content{
+    & > div{
+      width: 100%;
+    }
+  }
+  .slick-slider{
+    .slick-arrow{
+      top: 35%;
+      @include u.desk{
+        width: 40px;
+        height: 40px;
+        &.slick-prev{
+          left: -10px;
+          background-image: url(../images/arrows/slider-arrow-left-lightGrey-sm.svg);
+          &:hover,&:focus{
+            background-image: url(../images/arrows/slider-arrow-left-ice-sm.svg);
+          }
+        }
+        &.slick-next{
+          right: -10px;
+          background-image: url(../images/arrows/slider-arrow-right-lightGrey-sm.svg);
+          &:hover,&:focus{
+            background-image: url(../images/arrows/slider-arrow-right-ice-sm.svg);
+          }
+        }
+      }
+    }//end slick arrow
+  }//end slick slider
+}//end profile slider
+
+@mixin profileGrid{
+  position: relative;
+  max-width: 1005px;
+  margin: 0 auto;
+  &:after{
+    @include fullBack(c.$gold);
+    top: 58px;
+    height: calc(100% - 58px);
+  }
+  .field-fauxfile-items,.field-profiles,.view-content{
+    @include safeFlex(row,wrap,start,start);
+    & > div{
+      width: 100%;
+      @include u.smallTab{
+        width: 50%;
+      }
+      @include u.tab{
+        width: 33.33%;
+      }
+    }
+  }
+}//end profile grid
+
+@mixin profileTeaser{
+  padding-bottom: 40px;
+  .field-image{
+    margin-bottom: 2rem;
+  }
+  .field:not(.field-image):not(.field-name){
+    font-size: 1.75rem;
+    line-height: 1.285;
+    &:not(:last-of-type){
+      margin-bottom: 1rem;
+    }
+  }
+  .field-name,.teaser-title{
+    font-family: f.$displayHeader;
+    font-size: 3.25rem;
+    line-height: 1.23;
+    padding-right: 20px;
+    margin-bottom: 1rem;
+    a{
+      color: c.$navy;
+      @include dottedLink(c.$navy);
+      &:hover,&:focus{
+        color: c.$royal;
+        background-image: none;
+      }
+    }
+  }//end name
+  .field-departments{
+    font-family: f.$header;
+    font-weight: f.$xHeavy;
+    padding-right: 20px;
+    & > div{
+      display: inline-block;
+      &:not(:last-child){
+        &:after{
+          content: ' |';
+          margin-right: .25em;
+          white-space: nowrap;
+        }
+      }
+    }
+  }
+  .field-job-title,.field-long-text,.field-position,.field-position-override{
+    @extend .field-departments;
+    font-family: f.$bodyText;
+    font-weight: f.$regular;
+  }//end job title
+  .field-email{
+    @include safeFlex(row,nowrap,start,start);
+    padding-right: 20px;
+    .icon-wrapper{
+			width: 16px;
+			margin-right: 12px;
+		}
+		.field-content{
+			width: calc(100% - 28px);
+      a{
+        color: c.$navy;
+        @include dottedLink(c.$navy);
+        display: inline-block;
+        &:hover,&:focus{
+          color: c.$royal;
+          background-image: none;
+        }
+      }
+		}
+		svg{
+			max-height: 16px;
+			margin-top: 3px;
+      position: relative;
+      top: -2px;
+      .cls-1{
+        fill: c.$navy;
+      }
+		}
+	}
+	.field-phone{
+    @extend .field-email;
+		svg{
+			max-height: 15px;
+      top: 1px;
+		}
+	}
+}//end profileTeaser
 
 /* ANIMATION MIXINS
 --------------------- */

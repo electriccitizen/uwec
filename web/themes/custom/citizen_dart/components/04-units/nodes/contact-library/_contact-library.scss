@@ -29,26 +29,55 @@
 
 .node-widget-contact{
 	@include contactHolder;
+  //remove extra padding when not in a one column layout
+  .widget-section > .layout:not(.layout--onecol) &{
+    & > *:first-child{
+      @include desk{
+        padding: 40px 20px 30px;
+      }
+    }
+  }
 	.contact-wrapper{
-		@include tab{
-			@include safeFlex(row,wrap,start,start);
-			@include bleed(padding,20px);
-			& > *{
-					width: 50%;
-					.widget-section > .layout--threecol-section &{
-						width: 100%;
-					}
-				}
-			}
+    //only go to two columns if there is room
+    .widget-section > .layout--onecol &,
+    .widget-section > .layout--twocol-section--50-50 &,
+    .widget-section > .layout--twocol-section--67-33 > .layout__region--first &,
+    .widget-section > .layout--twocol-section--75-25 > .layout__region--first &,
+    .widget-section > .layout--twocol-section--33-67 > .layout__region--second &,
+    .widget-section > .layout--twocol-section--25-75 > .layout__region--second &{
+      @include desk{
+        @include safeFlex(row,wrap,start,start);
+        @include bleed(padding,20px);
+        & > *{
+          width: 50%;
+          .widget-section > .layout--threecol-section &{
+            width: 100%;
+          }
+        }
+      }//end tab
+    }//end layout checks
 	}//end contact wrapper
 	.contact-title{
 		@include contactTitle;
 		padding-bottom: 32px;
-		@include tab{
-			padding-left: 20px;
-		}
-	}
+    .widget-section > .layout--onecol &,
+    .widget-section > .layout--twocol-section--50-50 &,
+    .widget-section > .layout--twocol-section--67-33 > .layout__region--first &,
+    .widget-section > .layout--twocol-section--75-25 > .layout__region--first &,
+    .widget-section > .layout--twocol-section--33-67 > .layout__region--second &,
+    .widget-section > .layout--twocol-section--25-75 > .layout__region--second &{
+      @include desk{
+        padding-left: 20px;
+      }
+    }
+	}//end contact title
 	.contact-content{
 		@include contactContent;
 	}
 }//end contact widget
+
+.node-teaser-contact{
+  .contact-content{
+		@include contactContent;
+	}
+}

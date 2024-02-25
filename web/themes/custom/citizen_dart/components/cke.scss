@@ -20,8 +20,10 @@
 	}
 	a{
 		color: $link;
+    @include dottedLink($link);
 		&:hover{
 			color: $hoverLink;
+      @include dottedLink($hoverLink);
 		}
 	}
 

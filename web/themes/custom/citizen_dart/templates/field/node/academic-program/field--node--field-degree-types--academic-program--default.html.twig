@@ -63,16 +63,24 @@
       {% endif %}
 
       {% if element['#object'].field_campus.0 %}
-        <div class="program-detail campus">
+        <div class="program-detail campuses">
         	<span>{% trans %}Campus{% endtrans %}</span>
-        	{{ element['#object'].field_campus.entity.label }}
+          {% for campus in element['#object'].field_campus %}
+            <div class="campus">
+              {{- campus.entity.label -}}
+            </div>
+          {% endfor %}
         </div>
       {% endif %}
 
       {% if element['#object'].field_delivery_mode.0 %}
-        <div class="program-detail delivery-mode">
+        <div class="program-detail delivery-modes">
         	<span>{% trans %}In-person or online{% endtrans %}</span>
-        	{{ element['#object'].field_delivery_mode.entity.label }}
+        	{% for mode in element['#object'].field_delivery_mode %}
+            <div class="delivery-modes">
+              {{- mode.entity.label -}}
+            </div>
+          {% endfor %}
         </div>
       {% endif %}
 

@@ -11,7 +11,8 @@
 						previousIcon: 'Prev',
 						nextIcon: 'Next',
 						galleryFadeIn: 300,
-						openSpeed: 300
+						openSpeed: 300,
+            closeIcon: 'Close'
 					});
 				});
 			});
@@ -21,7 +22,19 @@
 					$('.field-gallery-items', this).slick({
 						adaptiveHeight: false,
 						autoplay: true,
-						autoplaySpeed: 5000
+						autoplaySpeed: 5000,
+            centerMode: false,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            responsive: [
+              {
+                breakpoint: 984,
+                settings: {
+                  centerMode: true,
+                  centerPadding: '20px',
+                }
+              }
+            ]
 					});
 				});
 			});
@@ -30,11 +43,35 @@
 				$(this).masonry({
 					// options
 					itemSelector: '.masonry-item',
-					columnWidth: 300,
-					gutter: 16
+					columnWidth: 315,
+					gutter: 20
 				});
 			});
 		}
 	}
+
+  /* GALLERY ANIMATIONS
+  ------------------ */
+  Drupal.behaviors.galleryAnimate = {
+    attach: function (context, settings) {
+      $(once('galleryAnimations', '.paragraph--type--gallery', context)).each(function(){
+        // Function to handle the intersection observer callback
+        function handleIntersection(entries, observer) {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              //add class when target is visible
+              entry.target.classList.add('gallery-visible');
+              observer.unobserve(entry.target); // Stop observing once the class is added
+            }
+          });
+        }
+        // Create an intersection observer
+        const observer = new IntersectionObserver(handleIntersection, { threshold: 0.25 });
+        // Select the target element
+        // Start observing the target element
+        observer.observe(this);
+      });
+    }
+  }
 
 })(jQuery, Drupal, once);

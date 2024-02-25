@@ -83,8 +83,6 @@
 	}//end section 2
 
 	#node-section-3{
-		max-width: $textMax;
-		@include auto;
 		.field-authors{
 			@include safeFlex(row,wrap,start,start);
 		}

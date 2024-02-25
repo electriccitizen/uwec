@@ -22,6 +22,7 @@ dependencies:
     - node.type.page
     - system.menu.departments
     - system.menu.main
+    - system.menu.offices-services
   module:
     - entity_reference_revisions
     - layout_builder
@@ -129,6 +130,26 @@ third_party_settings:
               suggestion: section_menu_department
             weight: 1
             additional: {  }
+          d50fcbd2-cc39-475a-86c3-82dcf7a96218:
+            uuid: d50fcbd2-cc39-475a-86c3-82dcf7a96218
+            region: first
+            configuration:
+              id: 'menu_block:offices-services'
+              label: 'Offices & Services'
+              label_display: visible
+              provider: menu_block
+              context_mapping: {  }
+              follow: true
+              follow_parent: active
+              label_link: true
+              label_type: root
+              level: 2
+              depth: 3
+              expand_all_items: false
+              parent: 'offices-services:'
+              suggestion: section_menu_offices_services
+            weight: 2
+            additional: {  }
         third_party_settings: {  }
       -
         layout_id: layout_onecol
@@ -164,11 +185,6 @@ third_party_settings:
         - two_column_sidebar_left
       denylisted_blocks: {  }
       allowlisted_blocks:
-        Menus:
-          - 'menu_block:departments'
-          - 'system_menu_block:departments'
-          - 'menu_block:main'
-          - 'system_menu_block:main'
         System:
           - system_breadcrumb_block
       restricted_categories:
