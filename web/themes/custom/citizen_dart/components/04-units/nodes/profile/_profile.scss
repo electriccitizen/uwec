@@ -15,6 +15,9 @@
 			max-width: $contentStop;
 			@include auto;
 			position: relative;
+			@include onlySmall {
+				width: 100%;
+			}
 			&:after {
 				content: '';
 				display: block;
@@ -57,27 +60,61 @@
 		.field-departments {
 			a {
 				position: relative;
+				@include safeFlex(row,nowrap,start,center);
 				&:after {
 					content: '';
 					display: inline-block;
 					width: 20px;
-					height: 10px;
-					-webkit-mask: url(../images/arrows/right-arrow-gold-sm.svg) no-repeat 50% 50%;
-					mask: url(../images/arrows/right-arrow-gold-sm.svg) no-repeat 50% 50%;
-					-webkit-mask-size: contain;
-					mask-size: contain;
-					background-color: $gold;
+					height: 20px;
+					background: url(../images/arrows/right-arrow-gold-sm.svg) no-repeat;
+					background-position: center center;
+					background-size: 50%;
+					border: 1px solid $gold;
+					border-radius: 50%;
 					margin-left: .5em;
 				}
+				&:hover, &:focus {
+					text-decoration: underline;
+					&:after {
+						animation-name: MOVE-ARROW;
+						animation-duration: .75s;
+						animation-direction: alternate;
+						animation-timing-function: linear;
+						animation-iteration-count: 1;
+					}
+				}
 			}
+			@keyframes MOVE-ARROW {
+				0% {
+					transform: translateX(0);
+				}
+				50% { 
+					transform: translateX(20%);
+				}
+				100% { 
+					transform: translateX(0);
+				}
+		 }
 		}
 
 		.block-field-emeriti-status {
 			color: $white;
+			width: 100%;
 			font-size: 1.5rem;
 			text-transform: uppercase;
 			letter-spacing: 1px;
+			margin-bottom: 1rem;
+			margin-right: 2rem;
+			@include tab {
+				width: auto;
+				margin-left: $spaceSm;
+				margin-bottom: 0;
+				margin-right: 0;
+			}
 			@include safeFlex(row,nowrap,center,center);
+			@include onlyMobile {
+				justify-content: flex-end;;
+			}
 			.icon-wrapper {
 				width: 15px;
 				height: 18px;
@@ -90,12 +127,23 @@
 		}
 
 		.block-field-is-alumni {
-			margin-left: $spaceSm;
 			color: $white;
+			width: 100%;
 			font-size: 1.5rem;
+			margin-bottom: 1rem;
+			margin-right: 2rem;
 			text-transform: uppercase;
 			letter-spacing: 1px;
+			@include tab {
+				width: auto;
+				margin-bottom: 0;
+				margin-right: 0;
+				margin-left: $spaceSm;
+			}
 			@include safeFlex(row,nowrap,center,center);
+			@include onlyMobile {
+				justify-content: flex-end;;
+			}
 			.icon-wrapper {
 				width: 15px;
 				height: 18px;
@@ -112,10 +160,14 @@
 		}
 		.layout__region--first{
 			@include safeFlex(row,wrap,end,start);
-			max-width: 426px;
+			@include tab {
+				max-width: 426px;
+			}
 		}
 		.layout__region--content {
-			max-width: calc(100% - 426px);
+			@include tab {
+				max-width: calc(100% - 500px);
+			}
 			&:after {
 				content: url(../images/elements/swirl-vertical-blue.svg);
 				display: block;
