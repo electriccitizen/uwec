@@ -1,0 +1,64 @@
+{#
+/**
+ * @file
+ * Theme override for a field.
+ *
+ * To override output, copy the "field.html.twig" from the templates directory
+ * to your theme's directory and customize it, just like customizing other
+ * Drupal templates such as page.html.twig or node.html.twig.
+ *
+ * Instead of overriding the theming for all fields, you can also just override
+ * theming for a subset of fields using
+ * @link themeable Theme hook suggestions. @endlink For example,
+ * here are some theme hook suggestions that can be used for a field_foo field
+ * on an article node type:
+ * - field--node--field-foo--article.html.twig
+ * - field--node--field-foo.html.twig
+ * - field--node--article.html.twig
+ * - field--field-foo.html.twig
+ * - field--text-with-summary.html.twig
+ * - field.html.twig
+ *
+ * Available variables:
+ * - attributes: HTML attributes for the containing element.
+ * - label_hidden: Whether to show the field label or not.
+ * - title_attributes: HTML attributes for the title.
+ * - label: The label for the field.
+ * - multiple: TRUE if a field can contain multiple items.
+ * - items: List of all the field items. Each item contains:
+ *   - attributes: List of HTML attributes for each item.
+ *   - content: The field item's content.
+ * - entity_type: The entity type to which the field belongs.
+ * - field_name: The name of the field.
+ * - field_type: The type of the field.
+ * - label_display: The display settings for the label.
+ *
+ * @see template_preprocess_field()
+ */
+#}
+
+{% extends 'field.html.twig' %}
+
+{% block fieldSingleNo %}
+	<div class="icon-wrapper">
+		<svg id="hours-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<g clip-path="url(#clip0_3887_16262)">
+				<path d="M0.960117 5.76012C0.740117 6.45012 0.620117 7.19012 0.620117 7.96012C0.620117 12.0101 3.90012 15.2901 7.95012 15.2901C12.0001 15.2901 15.2801 12.0101 15.2801 7.96012C15.2801 3.91012 12.0001 0.620117 7.95012 0.620117C5.65012 0.620117 3.59012 1.69012 2.25012 3.35012" stroke="#0160F2" stroke-width="1.25" stroke-miterlimit="10" stroke-linecap="round"/>
+				<path d="M7.9502 4.69995V7.94995L10.8302 10.39" stroke="#0160F2" stroke-width="1.25" stroke-miterlimit="10" stroke-linecap="round"/>
+				<path d="M7.9502 0.620117V1.83012" stroke="#0160F2" stroke-width="1.25" stroke-miterlimit="10" stroke-linecap="round"/>
+				<path d="M0.620117 7.94995H1.83012" stroke="#0160F2" stroke-width="1.25" stroke-miterlimit="10" stroke-linecap="round"/>
+				<path d="M7.9502 15.2801V14.0801" stroke="#0160F2" stroke-width="1.25" stroke-miterlimit="10" stroke-linecap="round"/>
+				<path d="M15.2801 7.94995H14.0801" stroke="#0160F2" stroke-width="1.25" stroke-miterlimit="10" stroke-linecap="round"/>
+			</g>
+			<defs>
+				<clipPath id="clip0_3887_16262">
+					<rect width="15.91" height="15.91" fill="white"/>
+				</clipPath>
+			</defs>
+		</svg>
+
+	</div>
+	<div class="field-content">
+		{{ item.content }}
+	</div>
+{% endblock %}

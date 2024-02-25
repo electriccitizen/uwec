@@ -27,6 +27,84 @@
 				background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 50%, rgba(1,96,242,1) 50%, rgba(1,96,242,1) 100%);
 				position: absolute;
 			}
+			.field.title {
+				margin-bottom: 1rem;
+			}
+			.block-field-image {
+				margin-bottom: 4rem;
+				.field-image {
+					position: relative;
+					&:before {
+						background-image: url(../images/elements/fat-stripes-gold.svg);
+						content: '';
+						display: block;
+						width: 220px;
+						height: 340px;
+						position: absolute;
+						bottom: -20px;
+						background-repeat: no-repeat;
+						left: -50px;
+						background-size: 100% 100%;
+					}
+					.field-media-image {
+						position: relative;
+						z-index: 15;
+					}
+				}
+			}
+		}
+
+		.field-departments {
+			a {
+				position: relative;
+				&:after {
+					content: '';
+					display: inline-block;
+					width: 20px;
+					height: 10px;
+					-webkit-mask: url(../images/arrows/right-arrow-gold-sm.svg) no-repeat 50% 50%;
+					mask: url(../images/arrows/right-arrow-gold-sm.svg) no-repeat 50% 50%;
+					-webkit-mask-size: contain;
+					mask-size: contain;
+					background-color: $gold;
+					margin-left: .5em;
+				}
+			}
+		}
+
+		.block-field-emeriti-status {
+			color: $white;
+			font-size: 1.5rem;
+			text-transform: uppercase;
+			letter-spacing: 1px;
+			@include safeFlex(row,nowrap,center,center);
+			.icon-wrapper {
+				width: 15px;
+				height: 18px;
+				margin-top: 4px;
+				margin-right: $spaceXxs;
+				svg path {
+					fill: $white !important;
+				}
+			}
+		}
+
+		.block-field-is-alumni {
+			margin-left: $spaceSm;
+			color: $white;
+			font-size: 1.5rem;
+			text-transform: uppercase;
+			letter-spacing: 1px;
+			@include safeFlex(row,nowrap,center,center);
+			.icon-wrapper {
+				width: 15px;
+				height: 18px;
+				margin-top: 4px;
+				margin-right: $spaceXxs;
+				svg path {
+					fill: $white !important;
+				}
+			}
 		}
 
 		&:after {
@@ -38,6 +116,13 @@
 		}
 		.layout__region--content {
 			max-width: calc(100% - 426px);
+			&:after {
+				content: url(../images/elements/swirl-vertical-blue.svg);
+				display: block;
+				position: absolute;
+				top: 0;
+				right: -$siteMarginDesk;
+			}
 			* {
 				color: $white;
 			}
@@ -73,7 +158,19 @@
 		margin-top: -22rem;
     .contact-title{
       @include contactTitle;
+			margin-bottom: 5rem;
     }
+		.block-field {
+			margin-bottom: 2rem;
+		}
+		#hours-icon {
+			fill: none !important;
+		}
+		.field-cv {
+			a {
+				border-bottom: 1px dotted;
+			}
+		}
     .layout__region{
       @include contactContent;
     }
@@ -82,6 +179,7 @@
 	#node-section-3{
 		max-width: $textMax;
 		@include auto;
+		padding-top: 5rem;
 		h2.block-title {
 			text-align: left;
 			@include heading3;
