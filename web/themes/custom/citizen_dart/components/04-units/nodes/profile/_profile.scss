@@ -8,12 +8,27 @@
 //bio node
 .node-bios{
 	#node-section-1{
+		padding-bottom: 40rem;
+		position: relative;
+		padding-top: 8.75rem;
 		& > .layout--twocol-even {
 			max-width: $contentStop;
 			@include auto;
+			position: relative;
+			&:after {
+				content: '';
+				display: block;
+				bottom: -40rem;
+				right: calc($siteMarginDesk * -2);
+				height: 20vw;
+				width: calc(100vw + $siteMarginDesk);
+				clip-path: polygon(100% 0%, 0% 100%, 100% 100%);
+				background: rgb(255,255,255);
+				background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 50%, rgba(1,96,242,1) 50%, rgba(1,96,242,1) 100%);
+				position: absolute;
+			}
 		}
-		position: relative;
-		padding-top: 8.75rem;
+
 		&:after {
 			@include fullBack($navy);
 		}
@@ -55,6 +70,7 @@
 	}
 	#node-section-2{
 		@include contactHolder;
+		margin-top: -22rem;
     .contact-title{
       @include contactTitle;
     }
@@ -66,6 +82,10 @@
 	#node-section-3{
 		max-width: $textMax;
 		@include auto;
+		h2.block-title {
+			text-align: left;
+			@include heading3;
+		}
 	}
 
 	.block-field-image{
