@@ -5,8 +5,11 @@
 @use '../../../00-base/base' as *;
 
 .site-header {
-	body:not(.hero-full_image):not(.node-type-news):not(.hero-video) &{
+	body:not(.hero-full_image):not(.node-type-news):not(.hero-video):not(.node-type-bios) &{
 		background: $headerBack;
+	}
+	body.node-type-bios & {
+		background: $navy;
 	}
 	padding: 29px $siteMarginMobile;
 	.dialog-off-canvas-main-canvas &{

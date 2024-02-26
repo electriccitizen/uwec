@@ -7,17 +7,222 @@
 
 //bio node
 .node-bios{
-
 	#node-section-1{
+		padding-bottom: 40rem;
+		position: relative;
+		padding-top: 8.75rem;
+		& > .layout--twocol-even {
+			max-width: $contentStop;
+			@include auto;
+			position: relative;
+			@include onlySmall {
+				width: 100%;
+			}
+			&:after {
+				content: '';
+				display: block;
+				bottom: -40rem;
+				right: calc($siteMarginDesk * -2);
+				height: 20vw;
+				width: calc(100vw + $siteMarginDesk);
+				clip-path: polygon(100% 0%, 0% 100%, 100% 100%);
+				background: rgb(255,255,255);
+				background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 50%, rgba(1,96,242,1) 50%, rgba(1,96,242,1) 100%);
+				position: absolute;
+			}
+			.field.title {
+				margin-bottom: 1rem;
+			}
+			.block-field-image {
+				margin-bottom: 4rem;
+				.field-image {
+					position: relative;
+					&:before {
+						background-image: url(../images/elements/fat-stripes-gold.svg);
+						content: '';
+						display: block;
+						width: 220px;
+						height: 340px;
+						position: absolute;
+						bottom: -20px;
+						background-repeat: no-repeat;
+						left: -50px;
+						background-size: 100% 100%;
+					}
+					.field-media-image {
+						position: relative;
+						z-index: 15;
+					}
+				}
+			}
+		}
+
+		.field-departments {
+			a {
+				position: relative;
+				@include safeFlex(row,nowrap,start,center);
+				&:after {
+					content: '';
+					display: inline-block;
+					width: 20px;
+					height: 20px;
+					background: url(../images/arrows/right-arrow-gold-sm.svg) no-repeat;
+					background-position: center center;
+					background-size: 50%;
+					border: 1px solid $gold;
+					border-radius: 50%;
+					margin-left: .5em;
+				}
+				&:hover, &:focus {
+					text-decoration: underline;
+					&:after {
+						animation-name: MOVE-ARROW;
+						animation-duration: .75s;
+						animation-direction: alternate;
+						animation-timing-function: linear;
+						animation-iteration-count: 1;
+					}
+				}
+			}
+			@keyframes MOVE-ARROW {
+				0% {
+					transform: translateX(0);
+				}
+				50% { 
+					transform: translateX(20%);
+				}
+				100% { 
+					transform: translateX(0);
+				}
+		 }
+		}
+
+		.block-field-emeriti-status {
+			color: $white;
+			width: 100%;
+			font-size: 1.5rem;
+			text-transform: uppercase;
+			letter-spacing: 1px;
+			margin-bottom: 1rem;
+			margin-right: 2rem;
+			@include tab {
+				width: auto;
+				margin-left: $spaceSm;
+				margin-bottom: 0;
+				margin-right: 0;
+			}
+			@include safeFlex(row,nowrap,center,center);
+			@include onlyMobile {
+				justify-content: flex-end;;
+			}
+			.icon-wrapper {
+				width: 15px;
+				height: 18px;
+				margin-top: 4px;
+				margin-right: $spaceXxs;
+				svg path {
+					fill: $white !important;
+				}
+			}
+		}
+
+		.block-field-is-alumni {
+			color: $white;
+			width: 100%;
+			font-size: 1.5rem;
+			margin-bottom: 1rem;
+			margin-right: 2rem;
+			text-transform: uppercase;
+			letter-spacing: 1px;
+			@include tab {
+				width: auto;
+				margin-bottom: 0;
+				margin-right: 0;
+				margin-left: $spaceSm;
+			}
+			@include safeFlex(row,nowrap,center,center);
+			@include onlyMobile {
+				justify-content: flex-end;;
+			}
+			.icon-wrapper {
+				width: 15px;
+				height: 18px;
+				margin-top: 4px;
+				margin-right: $spaceXxs;
+				svg path {
+					fill: $white !important;
+				}
+			}
+		}
+
+		&:after {
+			@include fullBack($navy);
+		}
 		.layout__region--first{
 			@include safeFlex(row,wrap,end,start);
+			@include tab {
+				max-width: 426px;
+			}
+		}
+		.layout__region--content {
+			@include tab {
+				max-width: calc(100% - 500px);
+			}
+			&:after {
+				content: url(../images/elements/swirl-vertical-blue.svg);
+				display: block;
+				position: absolute;
+				top: 0;
+				right: -$siteMarginDesk;
+			}
+			* {
+				color: $white;
+			}
+			.block-title {
+				margin-bottom: 0;
+			}
+			.block-field-pronouns {
+				text-transform: uppercase
+			}
+			.block-field-positions {
+				font-family: $header;
+			}
+			.block-field-departments {
+				h2 {
+					font-family: $bodyText;
+					font-size: 1.75rem;
+					text-align: left;
+					font-weight: normal;
+					text-transform: capitalize;
+					letter-spacing: unset;
+				}
+				.field-departments {
+					a {
+						color: $gold;
+						font-weight: $heavy;
+					}
+				}
+			}
 		}
 	}
 	#node-section-2{
 		@include contactHolder;
+		margin-top: -22rem;
     .contact-title{
       @include contactTitle;
+			margin-bottom: 5rem;
     }
+		.block-field {
+			margin-bottom: 2rem;
+		}
+		#hours-icon {
+			fill: none !important;
+		}
+		.field-cv {
+			a {
+				border-bottom: 1px dotted;
+			}
+		}
     .layout__region{
       @include contactContent;
     }
@@ -26,6 +231,11 @@
 	#node-section-3{
 		max-width: $textMax;
 		@include auto;
+		padding-top: 5rem;
+		h2.block-title {
+			text-align: left;
+			@include heading3;
+		}
 	}
 
 	.block-field-image{
