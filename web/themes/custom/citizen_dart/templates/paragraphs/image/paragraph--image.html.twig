@@ -42,7 +42,11 @@
 {% block widgetContent %}
   {{ attach_library('citizen_dart/image') }}
   {%- set alignment = paragraph.field_alignment.value -%}
-  {%- set size = paragraph.field_size.value -%}
+  {% if paragraph.field_size.value == 'full' or not paragraph.size.value %}
+    {% set size = 'full' %}
+  {% else %}
+    {%- set size = paragraph.field_size.value -%}
+  {% endif %}
   {%- set imageId = paragraph.field_image.0.target_id -%}
   <div class="caption-{{ alignment }}">
     <div class="image-wrapper size-{{ size }}">

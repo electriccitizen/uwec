@@ -19,7 +19,7 @@
       @include edgeToEdge;
     }
 		@include tab{
-      .widget-section > .layout--onecol &{
+      .widget-section > .layout--onecol &,.node-support-book &{
         @include safeFlex(row,wrap,left,center);
         .caption {
           flex: 1;
@@ -55,7 +55,7 @@
   }//end caption right
 	.caption-left {
     @include tab{
-      .widget-section > .layout--onecol &{
+      .widget-section > .layout--onecol &,.node-support-book &{
         flex-direction: row-reverse;
       }
       .image-wrapper{

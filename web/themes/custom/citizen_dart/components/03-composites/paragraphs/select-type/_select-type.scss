@@ -7,7 +7,7 @@
 .paragraph--type--select-type{
   &.select-visible{
     .select-items-wrapper{
-      .widget-section > .layout--onecol &{
+      .widget-section > .layout--onecol &,.node-support-book &{
         @media screen and (min-width: 1104px){
           &:before{
             left: 100vw;
@@ -19,7 +19,7 @@
   .select-items-wrapper {
     max-width: $contentStopMargin;
     @include auto;
-    .widget-section > .layout--onecol &{
+    .widget-section > .layout--onecol &,.node-support-book &{
       @media screen and (min-width: 1104px){
         margin: -20px auto 0;
         padding: 20px 0;
