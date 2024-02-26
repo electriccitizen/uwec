@@ -37,7 +37,7 @@
 					content: '';
 					transform: scale(1);
 				}
-				&[href^="http://"],&[href^="https://"] {
+				&.external {
 					padding-right: 17px;
 					&:before {
 						background-image: url(../images/elements/external-link-white.svg);
@@ -83,6 +83,20 @@ ul.sf-menu.sf-accordion{
 					&.is-active{
 						color: $sfMobileChildActive;
 					}
+          &.external {
+            padding-right: 17px;
+            &:after {
+              background-image: url(../images/elements/external-link-white.svg);
+              background-repeat: no-repeat;
+              display: inline-block;
+              content: '';
+              width: 10px;
+              height: 10px;
+              background-size: cover;
+              margin-left: 1rem;
+              position: relative;
+            }
+          }
 				}
 			}
 		}//end mobile secondary
