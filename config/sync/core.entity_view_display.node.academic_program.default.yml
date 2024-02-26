@@ -10,6 +10,7 @@ dependencies:
     - field.field.node.academic_program.field_campus
     - field.field.node.academic_program.field_college
     - field.field.node.academic_program.field_content_carousel
+    - field.field.node.academic_program.field_course_links
     - field.field.node.academic_program.field_courseleaf_slug
     - field.field.node.academic_program.field_courses
     - field.field.node.academic_program.field_courses_text
@@ -90,6 +91,26 @@ third_party_settings:
                   prefix_suffix: true
                 third_party_settings: {  }
             weight: 0
+            additional: {  }
+          ca2d4c53-1613-4dda-88df-084da11f2777:
+            uuid: ca2d4c53-1613-4dda-88df-084da11f2777
+            region: content
+            configuration:
+              id: 'field_block:node:academic_program:field_course_links'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: link
+                label: above
+                settings:
+                  trim_length: 80
+                  url_only: false
+                  url_plain: false
+                  rel: ''
+                  target: ''
+                third_party_settings: {  }
+            weight: 1
             additional: {  }
         third_party_settings: {  }
       -
@@ -313,7 +334,7 @@ third_party_settings:
                   format_custom_false: ''
                   format_custom_true: ''
                 third_party_settings: {  }
-            weight: 5
+            weight: 6
             additional: {  }
           21867544-afca-44e3-a31b-67f264fe48b6:
             uuid: 21867544-afca-44e3-a31b-67f264fe48b6
@@ -332,7 +353,7 @@ third_party_settings:
                 settings:
                   view_mode: content_thumbnail
                 third_party_settings: {  }
-            weight: 7
+            weight: 8
             additional: {  }
           17201eb4-5e0f-4bd1-abdf-6ec6c9ae3b53:
             uuid: 17201eb4-5e0f-4bd1-abdf-6ec6c9ae3b53
@@ -351,7 +372,7 @@ third_party_settings:
                 settings:
                   view_mode: default
                 third_party_settings: {  }
-            weight: 8
+            weight: 9
             additional: {  }
           21988c95-5815-46c4-ac7a-d9c6d3a111f5:
             uuid: 21988c95-5815-46c4-ac7a-d9c6d3a111f5
@@ -364,7 +385,7 @@ third_party_settings:
               context_mapping: {  }
               views_label: ''
               items_per_page: none
-            weight: 6
+            weight: 7
             additional: {  }
           f09af091-db08-48be-9daf-af981683f759:
             uuid: f09af091-db08-48be-9daf-af981683f759
@@ -394,6 +415,29 @@ third_party_settings:
               provider: citizen_custom
               context_mapping: {  }
             weight: 4
+            additional: {  }
+          2d4a847e-fddd-412a-8a7d-84af7f76bd6d:
+            uuid: 2d4a847e-fddd-412a-8a7d-84af7f76bd6d
+            region: content
+            configuration:
+              id: 'field_block:node:academic_program:field_course_links'
+              label: 'Course Links'
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: link
+                label: hidden
+                settings:
+                  trim_length: 80
+                  url_only: false
+                  url_plain: false
+                  rel: '0'
+                  target: _blank
+                third_party_settings: {  }
+            weight: 5
             additional: {  }
         third_party_settings: {  }
   layout_builder_restrictions:
@@ -473,6 +517,18 @@ content:
       link: ''
     third_party_settings: {  }
     weight: 128
+    region: content
+  field_course_links:
+    type: link
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 146
     region: content
   field_courses_text:
     type: text_default
