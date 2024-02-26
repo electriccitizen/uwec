@@ -111,6 +111,10 @@ section-menu:
   version: 1.0
   js:
     components/02-chunks/navigation/section-menu/section-menu.js: {}
+select-type:
+  version: 1.0
+  js:
+    components/03-composites/paragraphs/select-type/select-type.js: {}
 superfish-menu:
   version: 1.0
   js:
