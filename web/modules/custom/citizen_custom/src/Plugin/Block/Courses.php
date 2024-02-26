@@ -96,16 +96,26 @@ class Courses extends BlockBase{
 			$courseData = [];
 			$courseData['number'] = (string)$course['code'];
 
+			// default title and description, in case the search below fails
+			$courseData['title'] = $courseData['number'];
+			$courseData['description'] = '';
+
+			// search through children nodes to try to find the title and description
 			foreach($courseDiv->childNodes as $child){
 				if($child->nodeType == XML_ELEMENT_NODE){
 					$childClass = $child->getAttribute('class');
 					if($childClass == 'courseblocktitle'){
-						$courseData['title'] = $this->sanitizeTitle($child->firstChild->firstChild->data, $courseData['number']);
+						if(!empty($child->firstChild) && !empty($child->firstChild->firstChild)){
+							$courseData['title'] = $this->sanitizeTitle($child->firstChild->firstChild->data, $courseData['number']);
+						}
 					}elseif($childClass == 'courseblockdescription'){
-						$courseData['description'] = trim($child->firstChild->data);
+						if(!empty($child->firstChild)){
+							$courseData['description'] = trim($child->firstChild->data);
+						}
 					}
 				}
 			}
+
 			$allCourses[strtolower($courseData['number'])] = $courseData;
 		}
 
