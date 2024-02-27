@@ -21,13 +21,14 @@
     background-image: url('../images/elements/caret-down-bright-blue-sm.svg');
     background-repeat: no-repeat;
     background-size: 9px;
-    background-position: 100% 50%;
+    background-position: 98% 50%;
     margin-bottom: 24px;
+    padding-left: 6px;
     &:focus{
       background-image: url('../images/elements/caret-up-bright-blue-sm.svg');
       background-repeat: no-repeat;
       background-size: 9px;
-      background-position: 100% 50%;
+      background-position: 98% 50%;
     }
   }//end select
 	.select-panel{

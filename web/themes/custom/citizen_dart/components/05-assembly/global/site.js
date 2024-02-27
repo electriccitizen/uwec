@@ -111,12 +111,12 @@ function mobileMenuInsert() {
 				.wrap('<li class="mobile-search-container"></li>')
 				.addClass('mobile-search');
 
-			$('.mobile-search-container form.gsc-search-box label').remove();
-			if(!$('.sf-accordion > li.mobile-search-container label').length){
-	      $('.mobile-search-container form.gsc-search-box').prepend('<label for="gsc-i-id1">Search</label>');
-	    }else{
-	    	$('.sf-accordion > li.mobile-search-container label').text('Search');
-	    }
+			$('.mobile-search-container form.gsc-search-box label').text('Search');
+			// if(!$('.mobile-search-label').length){
+	    //   $('.mobile-search-container form.gsc-search-box').prepend('<label class="mobile-search-label" for="gsc-i-id1">Search</label>');
+	    // }else{
+	    // 	$('.sf-accordion > li.mobile-search-container label').text('Search');
+	    // }
       $('.mobile-search-container input.gsc-input').attr('placeholder', 'What are you searching for?');
 
       var $secondaryMenu = $('.site-header #block-secondary-menu > ul');
