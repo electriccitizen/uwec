@@ -205,7 +205,7 @@
 				content: '';
 				display: block;
 				position: absolute;
-				top: -25px;
+				bottom: -410px;
 				-webkit-mask: url(../images/elements/swirl-vertical-blue.svg) no-repeat 50% 50%;
 				mask: url(../images/elements/swirl-vertical-blue.svg) no-repeat 50% 50%;
 				-webkit-mask-size: cover;
@@ -213,9 +213,13 @@
 				background-color:$royal;
 				margin-left: .5em;
 				width: 452px;
-				height: calc(100% + 24vw + 25px);
-				right: -$siteMarginDesk;
+				height: 950px;
+				right: -48rem;
 				z-index: 5;
+        @include desk{
+          bottom: -460px;
+          right: -$siteMarginDesk;
+        }
 			}
 			* {
 				color: $white;
