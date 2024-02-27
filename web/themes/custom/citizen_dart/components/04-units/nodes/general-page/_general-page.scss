@@ -40,10 +40,11 @@
 		position: absolute;
 		top: 0;
 		left: -$siteMarginMobile;
-		width: 100vw;
+		width: calc(100vw + 40px);
 		z-index: -1;
 		height: 800px;
 		overflow: hidden;
+    padding: 0 $siteMarginMobile;
 		&:after{
 			content: '';
 			display: block;

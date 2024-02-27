@@ -9,6 +9,7 @@ $em-base: 8px;
 $smallTab: 520px;
 $tab: 800px;
 $desk: 984px;
+$menuStop: 1200px;
 $contentStopMargin: 1320px;
 $contentStop: 1440px;
 $largeScreen: 1600px;
@@ -58,6 +59,12 @@ $sectionGutter: 40px;
 
 @mixin desk {
 	@media screen and (min-width: $desk) {
+		@content;
+	}
+}
+
+@mixin menuStop {
+	@media screen and (min-width: $menuStop) {
 		@content;
 	}
 }
