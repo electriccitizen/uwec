@@ -38,6 +38,10 @@
 			}
 			.field.title {
 				margin-bottom: 1rem;
+				margin-top: 2rem;
+				@include desk {
+					margin-top: 0;
+				}
 			}
 			.block-field-image {
 				margin-bottom: 4rem;
@@ -47,13 +51,17 @@
 						background-image: url(../images/elements/fat-stripes-gold.svg);
 						content: '';
 						display: block;
-						width: 220px;
-						height: 340px;
+						width: 140px;
+						height: 247px;
 						position: absolute;
 						bottom: -20px;
 						background-repeat: no-repeat;
 						left: -50px;
 						background-size: 100% 100%;
+						@include desk {
+							width: 220px;
+							height: 340px;
+						}
 					}
 					.field-media-image {
 						position: relative;
@@ -62,45 +70,42 @@
 				}
 			}
 		}
-
-		.field-departments {
-			a {
-				position: relative;
-				@include safeFlex(row,nowrap,start,center);
-				&:after {
-					content: '';
+		.block-field-departments {
+			.block-title {
+				margin-bottom: 0.5rem !important;
+			}
+			.field-departments {
+				span {
 					display: inline-block;
-					width: 20px;
-					height: 20px;
-					background: url(../images/arrows/right-arrow-gold-sm.svg) no-repeat;
-					background-position: center center;
-					background-size: 50%;
-					border: 1px solid $gold;
-					border-radius: 50%;
-					margin-left: .5em;
+					color: $gold;
+					&:hover, &:focus {
+						border-bottom: 1px dotted $gold;
+					}
 				}
-				&:hover, &:focus {
-					text-decoration: underline;
+				a {
+					position: relative;
+					@include safeFlex(row,nowrap,start,center);
 					&:after {
-						animation-name: MOVE-ARROW;
-						animation-duration: .75s;
-						animation-direction: alternate;
-						animation-timing-function: linear;
-						animation-iteration-count: 1;
+						content: '';
+						display: inline-block;
+						width: 20px;
+						height: 20px;
+						background: url(../images/arrows/right-arrow-gold-sm.svg) no-repeat;
+						background-position: center center;
+						background-size: 50%;
+						border: 1px solid $gold;
+						border-radius: 50%;
+						margin-left: .5em;
+					}
+				&:hover, &:focus {
+						&:after {
+							background-image: url(../images/arrows/right-arrow-navy-sm.svg);
+							border-color: $white;
+							background-color: $white;
+						}
 					}
 				}
 			}
-			@keyframes MOVE-ARROW {
-				0% {
-					transform: translateX(0);
-				}
-				50% { 
-					transform: translateX(20%);
-				}
-				100% { 
-					transform: translateX(0);
-				}
-		 }
 		}
 
 		.block-field-emeriti-status {
@@ -277,13 +282,26 @@
 		.block-field {
 			margin-bottom: 2rem;
 		}
+		.nid a {
+			display: block;
+			margin-bottom: 0.25rem;
+			width: fit-content;
+			border-bottom: 1px dotted;
+
+		}
+
 		#hours-icon {
 			fill: none !important;
 		}
-		.field-cv {
-			a {
-				border-bottom: 1px dotted;
-			}
+		#phone-icon {
+			fill: none !important;
+		}
+		#cv-icon {
+			fill: none !important;
+		}
+		.field-platforms .platform-links svg {
+			width: 2rem;
+			height: 2rem;
 		}
     .layout__region{
       @include contactContent;
@@ -297,6 +315,19 @@
 		h2.block-title {
 			text-align: left;
 			@include heading3;
+			text-transform: capitalize;
+			font-size: 2rem;
+			margin-bottom: 0.5rem;
+			line-height: 2;
+			@include desk {
+				font-size: 2.25rem;
+			}
+		}
+		.block-field {
+			padding: 0 2.5rem;
+			@include desk {
+				padding: 0;
+			}
 		}
 	}
 
