@@ -84,6 +84,9 @@
 		.icon-wrapper{
 			width: 16px;
 			margin-right: 12px;
+      svg{
+        fill: none;
+      }
 		}
 		.field-content{
 			width: calc(100% - 28px);
