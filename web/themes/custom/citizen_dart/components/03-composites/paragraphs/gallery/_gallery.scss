@@ -86,7 +86,8 @@
 				max-width: 335px;
         .widget-section > .layout--onecol &,
         .widget-section > .layout--twocol-section--75-25 > .layout__region--first &,
-        .widget-section > .layout--twocol-section--25-75 > .layout__region--second &{
+        .widget-section > .layout--twocol-section--25-75 > .layout__region--second &,
+        .node-support-book &{
           @include tab{
             width: 33%.3;
           }
@@ -136,7 +137,8 @@
           .widget-section > .layout--twocol-section--67-33 > .layout__region--first &,
           .widget-section > .layout--twocol-section--75-25 > .layout__region--first &,
           .widget-section > .layout--twocol-section--33-67 > .layout__region--second &,
-          .widget-section > .layout--twocol-section--25-75 > .layout__region--second &{
+          .widget-section > .layout--twocol-section--25-75 > .layout__region--second &,
+          .node-support-book &{
             @include tab{
               width: 50%;
             }
@@ -169,7 +171,8 @@
         .widget-section > .layout--twocol-section--67-33 > .layout__region--first &,
         .widget-section > .layout--twocol-section--75-25 > .layout__region--first &,
         .widget-section > .layout--twocol-section--33-67 > .layout__region--second &,
-        .widget-section > .layout--twocol-section--25-75 > .layout__region--second &{
+        .widget-section > .layout--twocol-section--25-75 > .layout__region--second &,
+        .node-support-book &{
           @include tab{
             top: calc(120px + 14%);
           }
@@ -256,7 +259,7 @@
       .widget-section > .layout--threecol-section--33-34-33 &,
       .widget-section > .layout--threecol-section--25-50-25 &,
       .widget-section > .layout--threecol-section--25-25-50 &,
-      .widget-section > .layout--threecol-section--50-25-25 &,{
+      .widget-section > .layout--threecol-section--50-25-25 &{
         position: static !important;
         width: 100% !important;
         @include tab{

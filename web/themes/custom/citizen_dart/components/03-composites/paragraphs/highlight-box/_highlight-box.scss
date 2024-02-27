@@ -15,7 +15,8 @@
   .widget-section > .layout--twocol-section--67-33 > .layout__region--first &,
   .widget-section > .layout--twocol-section--75-25 > .layout__region--first &,
   .widget-section > .layout--twocol-section--33-67 > .layout__region--second &,
-  .widget-section > .layout--twocol-section--25-75 > .layout__region--second &{
+  .widget-section > .layout--twocol-section--25-75 > .layout__region--second &,
+  .node-support-book &{
     @include desk{
       padding: 70px 92px 70px 112px;
     }

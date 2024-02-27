@@ -76,8 +76,8 @@ Drupal.behaviors.smoothAnchorator = {
       
           if (targetElement) {
             targetElement.scrollIntoView({
-                behavior: 'smooth',
-                block: 'center',
+              behavior: 'smooth',
+              block: 'center',
             });
           }
         });

@@ -269,13 +269,12 @@
 }//end autocomplete suggestions table
 
 .search-box-wrapper.mobile-search {
-	padding: 0 2.5rem;
+	padding: 40px 2.5rem 0;
 	margin-bottom: 6rem;
 	.gsc-search-box {
 		label {
 			display: block;
 			margin-bottom: $spaceXxs;
-			padding-left: 3rem;
 		}
 		.gsc-input-box {
 			.gsst_a {
@@ -284,8 +283,11 @@
 		}
 		.gsc-search-button .gsc-search-button-v2 {
 			border: unset !important;
-			height: 35px;
+			height: 52px;
 			padding-top: 0;
+      &:hover,&:focus{
+        background-color: transparent;
+      }
 		}
 	}
 }

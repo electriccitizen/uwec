@@ -255,7 +255,7 @@ ul.sf-menu.sf-accordion{
 				width: 238px;
 				height: 238px;
 				background-image: url(../images/logos-badges/uwec-seal-white.svg);
-				background-position: center -112px;
+				background-position: center -130px;
 				background-repeat: no-repeat;
 				background-size: 238px 238px;
 			}
@@ -268,7 +268,7 @@ ul.sf-menu.sf-accordion{
 				width: 238px;
 				height: 238px;
 				background-image: url(../images/logos-badges/uwec-seal-white.svg);
-				background-position: center 112px;
+				background-position: center 130px;
 				background-repeat: no-repeat;
 				background-size: 238px 238px;
 			}
@@ -277,7 +277,7 @@ ul.sf-menu.sf-accordion{
 
 	// global mobile links
 	a{
-		padding: 2.5rem 4rem;
+		padding: 1.5rem 4rem;
 		line-height: 1.15;
 	}
 
@@ -285,38 +285,24 @@ ul.sf-menu.sf-accordion{
 	&.sf-accordion-with-buttons li{
 		position: relative;
 		& > .sf-accordion-button{
-			width: 60px;
-			height: 60px;
+			width: 52px;
+			height: 52px;
 			padding: 0;
 			text-indent: 9000px;
 			position: absolute;
 			top: 0;
-			right: 0;
+			right: -18px;
 			z-index: 1;
-			background: transparent;
-			//expander toggle
-			&:after{
-				content: '';
-				background-image: url(../images/elements/caret-down-mobile-main-nav.svg);
-				background-position: center center;
-				background-repeat: no-repeat;				
-				background-size: 20px;
-				position: absolute;
-				right: 10px;
-				top: 0;
-				@include safeFlex(row,no-wrap,center,center);
-				@include setDimensions(60px,60px);
-				text-indent: 0;
-				@include transFormAnimate;
-			}
+			background-color: transparent;
+      background-image: url(../images/elements/caret-down-mobile-main-nav.svg);
+      background-position: center center;
+      background-repeat: no-repeat;				
+      @include transFormAnimate;
+      &:after{
+        content: '' !important;
+      }
 		}//end accordion button
-
-		&.sf-expanded {
-			& > .sf-accordion-button:after{
-				content: '' !important;
-			}
-		}
-		
+	
 		&.menuparent{
 			a{
 				display: block;
@@ -326,18 +312,12 @@ ul.sf-menu.sf-accordion{
 			}
 		}//end menupareny
 		&.sf-expanded > .sf-accordion-button{
-			background: transparent;
-
-			&:after{
-				@include rotate(180);
-				@include materialIconOutline(\e5cf);
-				position: absolute;
-				@include safeFlex(row,no-wrap,center,center);
-				@include setDimensions(60px,60px);
-				text-indent: 0;
-
-
-			}
+      background-color: transparent;
+      background-image: url(../images/elements/caret-down-mobile-main-nav.svg);
+      background-position: center center;
+      background-repeat: no-repeat;	
+      background-size: 12px;			
+			@include rotate(180);
 		}
 	}//end li
 
@@ -357,6 +337,9 @@ ul.sf-menu.sf-accordion{
 			background: $sfMobileTopBack;
 			letter-spacing: 3px;
 			padding-left: 0;
+      &.is-active{
+        color: $gold;
+      }
 		}
 		&:not(:nth-child(2)){
 			border-top: 1px solid $sfMobileItemBorder;
@@ -365,9 +348,12 @@ ul.sf-menu.sf-accordion{
 			& > a{
 				color: $sfMobileTopExpanded;
 				background: $sfMobileTopBackExpanded;
+        &.is-active{
+          color: $gold;
+        }
 			}
 			& > ul{
-				padding: 1.5rem 0;
+				padding: 0 0 1.5rem;
 			}
 		}
 	}//end level 1
@@ -390,7 +376,7 @@ ul.sf-menu.sf-accordion{
 				height: 40px;
 			}
 			&:not(.sf-accordion-button){
-				padding: 10px 30px 10px 40px;
+				padding: 10px 30px 10px 15px;
 			}
 		}
 	}//end level 2
