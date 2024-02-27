@@ -92,26 +92,6 @@ third_party_settings:
                 third_party_settings: {  }
             weight: 0
             additional: {  }
-          ca2d4c53-1613-4dda-88df-084da11f2777:
-            uuid: ca2d4c53-1613-4dda-88df-084da11f2777
-            region: content
-            configuration:
-              id: 'field_block:node:academic_program:field_course_links'
-              label_display: '0'
-              context_mapping:
-                entity: layout_builder.entity
-              formatter:
-                type: link
-                label: above
-                settings:
-                  trim_length: 80
-                  url_only: false
-                  url_plain: false
-                  rel: ''
-                  target: ''
-                third_party_settings: {  }
-            weight: 1
-            additional: {  }
         third_party_settings: {  }
       -
         layout_id: layout_onecol
