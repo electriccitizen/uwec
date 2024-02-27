@@ -1,0 +1,55 @@
+{#
+/**
+ * @file
+ * Theme override for the node title field.
+ *
+ * This is an override of field.html.twig for the node title field. See that
+ * template for documentation about its details and overrides.
+ *
+ * Available variables:
+ * - attributes: HTML attributes for the containing span element.
+ * - items: List of all the field items. Each item contains:
+ *   - attributes: List of HTML attributes for each item.
+ *   - content: The field item content.
+ * - entity_type: The entity type to which the field belongs.
+ * - field_name: The name of the field.
+ * - field_type: The type of the field.
+ * - label_display: The display settings for the label.
+ *
+ * @see field.html.twig
+ */
+#}
+
+{% extends 'field.html.twig' %}
+
+{% block fieldSingleNo %}
+	{% if element['#object'].field_cv.entity.uri.value or element['#object'].field_links|length > 0 %}
+		<div class="icon-wrapper">
+			<svg id="cv-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<g clip-path="url(#clip0_3887_16197)">
+					<path d="M0.959995 5.75914C0.739995 6.44914 0.619995 7.18914 0.619995 7.95914C0.619995 12.0091 3.89999 15.2891 7.95 15.2891C12 15.2891 15.28 12.0091 15.28 7.95914C15.28 3.90914 12 0.619141 7.95 0.619141C5.65 0.619141 3.59 1.68914 2.25 3.34914" stroke="#0160F2" stroke-width="1.25" stroke-miterlimit="10" stroke-linecap="round"/>
+					<path d="M6.29001 7.31055H7.95001V11.2305" stroke="#0160F2" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+					<path d="M6.29001 11.2305H9.68001" stroke="#0160F2" stroke-width="1.25" stroke-miterlimit="10" stroke-linecap="round"/>
+					<path d="M7.95001 5.89031C8.45259 5.89031 8.86001 5.48289 8.86001 4.98031C8.86001 4.47773 8.45259 4.07031 7.95001 4.07031C7.44743 4.07031 7.04001 4.47773 7.04001 4.98031C7.04001 5.48289 7.44743 5.89031 7.95001 5.89031Z" fill="#0160F2"/>
+				</g>
+				<defs>
+					<clipPath id="clip0_3887_16197">
+						<rect width="15.91" height="15.91" fill="white"/>
+					</clipPath>
+				</defs>
+			</svg>
+
+		</div>
+		<div class="field-info">
+		{% if element['#object'].field_cv.entity.uri.value %}
+			<a href="{{ file_url(element['#object'].field_cv.entity.uri.value) }}">Curriculum Vitae</a>
+		{% endif %}
+
+		{% if element['#object'].field_links|length > 0 %}
+			{% for link in  element['#object'].field_links %}
+				<a href="{{ link.uri }}">{{ link.title }}</a>
+			{% endfor %}
+		{% endif %}
+		</div>
+	{% endif %}
+{% endblock %}

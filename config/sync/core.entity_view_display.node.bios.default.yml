@@ -295,47 +295,6 @@ third_party_settings:
                 third_party_settings: {  }
             weight: 3
             additional: {  }
-          d69428a9-0cd2-47e2-bfe4-0406e572ff82:
-            uuid: d69428a9-0cd2-47e2-bfe4-0406e572ff82
-            region: content
-            configuration:
-              id: 'field_block:node:bios:field_cv'
-              label: CV
-              label_display: '0'
-              provider: layout_builder
-              context_mapping:
-                entity: layout_builder.entity
-                view_mode: view_mode
-              formatter:
-                type: file_url_plain
-                label: hidden
-                settings: {  }
-                third_party_settings: {  }
-            weight: 2
-            additional: {  }
-          3c082d9c-ebde-4927-81f4-3d554a33b087:
-            uuid: 3c082d9c-ebde-4927-81f4-3d554a33b087
-            region: content
-            configuration:
-              id: 'field_block:node:bios:field_links'
-              label: Links
-              label_display: '0'
-              provider: layout_builder
-              context_mapping:
-                entity: layout_builder.entity
-                view_mode: view_mode
-              formatter:
-                type: link
-                label: hidden
-                settings:
-                  trim_length: 80
-                  url_only: false
-                  url_plain: false
-                  rel: '0'
-                  target: '0'
-                third_party_settings: {  }
-            weight: 3
-            additional: {  }
           1a44a0ff-430a-4b12-85ce-df3e21fae96c:
             uuid: 1a44a0ff-430a-4b12-85ce-df3e21fae96c
             region: content
@@ -356,6 +315,26 @@ third_party_settings:
                   url_plain: true
                   rel: '0'
                   target: '0'
+                third_party_settings: {  }
+            weight: 5
+            additional: {  }
+          486ec615-7a16-4d24-b167-ea897ccfa801:
+            uuid: 486ec615-7a16-4d24-b167-ea897ccfa801
+            region: content
+            configuration:
+              id: 'field_block:node:bios:nid'
+              label: ID
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: number_integer
+                label: hidden
+                settings:
+                  thousand_separator: ''
+                  prefix_suffix: false
                 third_party_settings: {  }
             weight: 4
             additional: {  }

@@ -9,6 +9,9 @@
 .node-bios{
 	#node-section-1{
 		padding-bottom: 40rem;
+		@media screen and (min-width: 3200px) {
+			padding-bottom: 60rem;
+		}
 		position: relative;
 		padding-top: 8.75rem;
 		& > .layout--twocol-even {
@@ -22,16 +25,23 @@
 				content: '';
 				display: block;
 				bottom: -40rem;
-				right: calc($siteMarginDesk * -2);
+				right: calc(50% - 50vw);
 				height: 20vw;
-				width: calc(100vw + $siteMarginDesk);
+				width: 100vw;
 				clip-path: polygon(100% 0%, 0% 100%, 100% 100%);
 				background: rgb(255,255,255);
 				background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 50%, rgba(1,96,242,1) 50%, rgba(1,96,242,1) 100%);
 				position: absolute;
+				@media screen and (min-width: 3200px) {
+					bottom: -60rem;
+				}
 			}
 			.field.title {
 				margin-bottom: 1rem;
+				margin-top: 2rem;
+				@include desk {
+					margin-top: 0;
+				}
 			}
 			.block-field-image {
 				margin-bottom: 4rem;
@@ -41,13 +51,17 @@
 						background-image: url(../images/elements/fat-stripes-gold.svg);
 						content: '';
 						display: block;
-						width: 220px;
-						height: 340px;
+						width: 140px;
+						height: 247px;
 						position: absolute;
 						bottom: -20px;
 						background-repeat: no-repeat;
 						left: -50px;
 						background-size: 100% 100%;
+						@include desk {
+							width: 220px;
+							height: 340px;
+						}
 					}
 					.field-media-image {
 						position: relative;
@@ -56,45 +70,42 @@
 				}
 			}
 		}
-
-		.field-departments {
-			a {
-				position: relative;
-				@include safeFlex(row,nowrap,start,center);
-				&:after {
-					content: '';
+		.block-field-departments {
+			.block-title {
+				margin-bottom: 0.5rem !important;
+			}
+			.field-departments {
+				span {
 					display: inline-block;
-					width: 20px;
-					height: 20px;
-					background: url(../images/arrows/right-arrow-gold-sm.svg) no-repeat;
-					background-position: center center;
-					background-size: 50%;
-					border: 1px solid $gold;
-					border-radius: 50%;
-					margin-left: .5em;
+					color: $gold;
+					&:hover, &:focus {
+						border-bottom: 1px dotted $gold;
+					}
 				}
-				&:hover, &:focus {
-					text-decoration: underline;
+				a {
+					position: relative;
+					@include safeFlex(row,nowrap,start,center);
 					&:after {
-						animation-name: MOVE-ARROW;
-						animation-duration: .75s;
-						animation-direction: alternate;
-						animation-timing-function: linear;
-						animation-iteration-count: 1;
+						content: '';
+						display: inline-block;
+						width: 20px;
+						height: 20px;
+						background: url(../images/arrows/right-arrow-gold-sm.svg) no-repeat;
+						background-position: center center;
+						background-size: 50%;
+						border: 1px solid $gold;
+						border-radius: 50%;
+						margin-left: .5em;
+					}
+				&:hover, &:focus {
+						&:after {
+							background-image: url(../images/arrows/right-arrow-navy-sm.svg);
+							border-color: $white;
+							background-color: $white;
+						}
 					}
 				}
 			}
-			@keyframes MOVE-ARROW {
-				0% {
-					transform: translateX(0);
-				}
-				50% { 
-					transform: translateX(20%);
-				}
-				100% { 
-					transform: translateX(0);
-				}
-		 }
 		}
 
 		.block-field-emeriti-status {
@@ -159,35 +170,80 @@
 			@include fullBack($navy);
 		}
 		.layout__region--first{
-			@include safeFlex(row,wrap,end,start);
+			padding-left: 0;
+			padding-right: 0;
 			@include tab {
-				max-width: 426px;
+				@include safeFlex(row,wrap,end,start);
+				max-width: 556px;
+			}
+			@include desk {
+				padding-left: 65px;
+				padding-right: 65px;
+			}
+			& > * {
+				position: relative;
+				z-index: 10;
 			}
 		}
 		.layout__region--content {
+			padding-left: 0;
+			padding-right: 0;
 			@include tab {
-				max-width: calc(100% - 500px);
+				padding-top: 3rem;
+				width: 100%;
+			}
+			@include desk {
+				max-width: calc(50% + 130px);
+				padding-left: 65px;
+				padding-right: 65px;
+			}
+			& > * {
+				position: relative;
+				z-index: 10;
 			}
 			&:after {
-				content: url(../images/elements/swirl-vertical-blue.svg);
+				content: '';
 				display: block;
 				position: absolute;
-				top: 0;
+				top: -25px;
+				-webkit-mask: url(../images/elements/swirl-vertical-blue.svg) no-repeat 50% 50%;
+				mask: url(../images/elements/swirl-vertical-blue.svg) no-repeat 50% 50%;
+				-webkit-mask-size: cover;
+				mask-size: cover;
+				background-color:$royal;
+				margin-left: .5em;
+				width: 452px;
+				height: calc(100% + 24vw + 25px);
 				right: -$siteMarginDesk;
+				z-index: 5;
 			}
 			* {
 				color: $white;
 			}
 			.block-title {
 				margin-bottom: 0;
+				@include edgeReset;
+			}
+			.block-created {
+				margin-bottom: 0;
 			}
 			.block-field-pronouns {
-				text-transform: uppercase
+				text-transform: uppercase;
+				margin-bottom: 0;
+				letter-spacing: 0.05em;
+				& + .block-field-departments {
+					margin-top: 10rem;
+				}
 			}
 			.block-field-positions {
 				font-family: $header;
+				margin-top: 10rem;
+				margin-bottom: 0;
+				font-size: 2.5rem;
+				line-height: 1.5;
 			}
 			.block-field-departments {
+				margin-top: 7.5rem;
 				h2 {
 					font-family: $bodyText;
 					font-size: 1.75rem;
@@ -208,6 +264,17 @@
 	#node-section-2{
 		@include contactHolder;
 		margin-top: -22rem;
+		position: relative;
+		z-index: 10;
+		@media screen and (min-width: 1600px){
+			margin-top: -26rem;
+		}
+		@media screen and (min-width: 1700px){
+			margin-top: -29rem;
+		}
+		@media screen and (min-width: 3200px) {
+			margin-top: -42rem;
+		}
     .contact-title{
       @include contactTitle;
 			margin-bottom: 5rem;
@@ -215,13 +282,26 @@
 		.block-field {
 			margin-bottom: 2rem;
 		}
+		.nid a {
+			display: block;
+			margin-bottom: 0.25rem;
+			width: fit-content;
+			border-bottom: 1px dotted;
+
+		}
+
 		#hours-icon {
 			fill: none !important;
 		}
-		.field-cv {
-			a {
-				border-bottom: 1px dotted;
-			}
+		#phone-icon {
+			fill: none !important;
+		}
+		#cv-icon {
+			fill: none !important;
+		}
+		.field-platforms .platform-links svg {
+			width: 2rem;
+			height: 2rem;
 		}
     .layout__region{
       @include contactContent;
@@ -235,11 +315,25 @@
 		h2.block-title {
 			text-align: left;
 			@include heading3;
+			text-transform: capitalize;
+			font-size: 2rem;
+			margin-bottom: 0.5rem;
+			line-height: 2;
+			@include desk {
+				font-size: 2.25rem;
+			}
+		}
+		.block-field {
+			padding: 0 2.5rem;
+			@include desk {
+				padding: 0;
+			}
 		}
 	}
 
 	.block-field-image{
 		width: 100%;
+		max-width: 426px;
 	}
 
 
