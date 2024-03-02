@@ -5,8 +5,8 @@ global:
     theme:
       dist/style.css: {}
   js:
-    components/05-assembly/global/site.js: {}
     components-addons/debounce/debounce.js: {}
+    components/05-assembly/global/site.js: {}
   dependencies:
     - core/drupal
     - core/drupalSettings
@@ -115,10 +115,6 @@ select-type:
   version: 1.0
   js:
     components/03-composites/paragraphs/select-type/select-type.js: {}
-superfish-menu:
-  version: 1.0
-  js:
-    components/02-chunks/navigation/superfish/superfish-menu.js: {}
 select:
   version: 4.0.3
   css:

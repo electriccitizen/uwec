@@ -13,19 +13,19 @@
 ------------------------ */
 #superfish-main-toggle{
 	display: block;
+  background: url(../images/elements/menu-open-white.svg);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  &:hover,&:focus{
+    opacity: .75;
+  }
 	span{
 		@include visuallyHidden;
 	}
-	.close-menu-icon {
-		display: none;
-	}
 	&.sf-expanded{
-		.close-menu-icon {
-			display: block;
-		}
-		.open-menu-icon {
-			display: none;
-		}
+		background: url(../images/elements/menu-close-white.svg);
+    background-repeat: no-repeat;
+    background-size: 100%;
 	}
 }//end superfish-main-toggle
 
@@ -64,9 +64,13 @@ ul.sf-menu.sf-horizontal{
 		margin-right: $spaceXxs !important;
 		margin-top: 30px !important;
 		@media only screen and (min-width: 1305px) {
-			margin-left: $spaceSm !important;
-			margin-right: $spaceSm !important;
+			margin-left: $spaceXs !important;
+			margin-right: $spaceXs !important;
 		}
+    @include contentStop{
+      margin-left: 2.5rem !important;
+			margin-right: 2.5rem !important;
+    }
 		&:not(.sfHover){
 			& > ul{
 				display: none !important;
@@ -126,19 +130,24 @@ ul.sf-menu.sf-horizontal{
 				}
 				&:hover,&:focus{
 					color: $sfTopActiveHover;
+          opacity: .85;
+          &:after{
+            border-bottom-color: $white;
+          }
 				}
 			}
 		}
 		&.menuparent {		
 			position: relative;		
 			&:after {
-				@include materialIconOutline(\e5cf);
+				content: url(../images/elements/caret-down-mobile-main-nav.svg);
 				color: $white;
 				position: absolute;
-				right: -35px;
-				top: -15px;
+				right: -10px;
+				bottom: 3px;
 				@include safeFlex(row,no-wrap,center,center);
-				@include setDimensions(60px,60px);
+				width: 20px;
+        height: 20px;
 				text-indent: 0;
 				@include transFormAnimate;
 			}
@@ -177,6 +186,11 @@ ul.sf-menu.sf-horizontal{
 		&:hover, &:focus, &.is-active {
 			background: $white;
 		}
+    &.is-active{
+      &:hover,&:focus{
+        background: $lightGrey;
+      }
+    }
 	}
 
 	// sub menu toggles
@@ -189,13 +203,13 @@ ul.sf-menu.sf-horizontal{
 				padding: 0;
 				position: relative;
 				right: -7px;
-				top: 0.6rem;
+				top: 1px;
 				opacity: 1;
 				height: 18px;
 				width: 18px;
 				background-image: none;
 				@include materialIconOutline(\e5e1);
-				font-size: 18px;
+				font-size: 12px;
 				@include transFormAnimate;
 			}
 			&:hover,&:focus{

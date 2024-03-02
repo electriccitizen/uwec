@@ -162,7 +162,7 @@ third_party_settings:
                 label: hidden
                 settings: {  }
                 third_party_settings: {  }
-            weight: 1
+            weight: 2
             additional: {  }
           deca710e-6a2e-4a2b-8d8c-557e6f054cb8:
             uuid: deca710e-6a2e-4a2b-8d8c-557e6f054cb8
@@ -181,7 +181,7 @@ third_party_settings:
                 settings:
                   view_mode: default
                 third_party_settings: {  }
-            weight: 2
+            weight: 3
             additional: {  }
           a069c682-6b4f-454c-b6bd-73f71f2ad67b:
             uuid: a069c682-6b4f-454c-b6bd-73f71f2ad67b
@@ -200,7 +200,38 @@ third_party_settings:
                 settings:
                   link: true
                 third_party_settings: {  }
-            weight: 3
+            weight: 4
+            additional: {  }
+          e69b3154-d04c-4a40-9d52-63f1d1db0010:
+            uuid: e69b3154-d04c-4a40-9d52-63f1d1db0010
+            region: content
+            configuration:
+              id: 'field_block:node:news:created'
+              label: 'Authored on'
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: timestamp
+                label: hidden
+                settings:
+                  date_format: number_date_short
+                  custom_date_format: ''
+                  timezone: ''
+                  tooltip:
+                    date_format: number_date_short
+                    custom_date_format: ''
+                  time_diff:
+                    enabled: false
+                    future_format: '@interval hence'
+                    past_format: '@interval ago'
+                    granularity: 2
+                    refresh: 60
+                    description: ''
+                third_party_settings: {  }
+            weight: 1
             additional: {  }
         third_party_settings: {  }
       -

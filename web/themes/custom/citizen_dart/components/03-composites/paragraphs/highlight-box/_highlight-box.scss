@@ -38,6 +38,7 @@
     }
     .field-link {
       margin-top: 40px;
+      text-align: center;
       a{
         @include arrowLinkBefore($navy);
         display: inline-block;

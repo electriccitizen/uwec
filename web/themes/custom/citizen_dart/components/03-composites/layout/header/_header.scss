@@ -23,12 +23,15 @@
 		@include auto;
 		position: relative;
 		@include safeFlex(row,wrap,null,center);
+    @include menuStop{
+      padding-bottom: 10px;
+    }
 		.contextual-region{
 			.contextual{
 				display: none;
 			}
 		}
-	}
+	}//end > div
 }//end layout container
 
 
@@ -42,7 +45,9 @@
 	@include desk{
 		width: 151px;
 	}
-
+  @include menuStop{
+    bottom: -21px;
+  }
 	a{
 		img{
 			max-width: 106px;
@@ -51,7 +56,7 @@
 				max-width: 100%;
 			}
 		}
-	}
+	}//end a
 }//end branding block
 
 
@@ -63,7 +68,7 @@
 	top: -5px;
 	right: 1rem;
 	z-index: 2;
-	@media screen and (min-width: 1201px){
+	@include menuStop{
 		display: block;
 	}
 	.contextual{
@@ -74,7 +79,7 @@
 /* SECONDARY MENU BLOCK
 --------------------- */
 .block-secondary-menu{
-	@media screen and (min-width: 1201px){
+	@include menuStop{
 		position: absolute !important;
 		right: 60px;
 		top: 0;
@@ -86,29 +91,24 @@
 /* MAIN NAVIGATION BLOCK
 ------------------------ */
 .block-superfishmain{
-	@media screen and (max-width: 1200px){
-		&.contextual-region{
-			position: static !important;
-		}
-		#superfish-main-toggle{
-			position: absolute;
-			height: 40px;
-			width: 40px;
-			top: -8px;
-			right: 0;
-			z-index: 9;
-		}
-	}
+  #superfish-main-toggle{
+    position: absolute;
+    height: 40px;
+    width: 40px;
+    top: -8px;
+    right: 0;
+    z-index: 9;
+  }
 	//desktop position
-	@media screen and (min-width: 1201px){
-		position: absolute !important;
+	@include menuStop{
+    position: absolute !important;
 		right: 0;
-		bottom: -30px;
+    top: auto;
+		bottom: -20px;
 		z-index: 1;
 		width: 100%;
 		padding-left: 0;
 		padding-right: 40px;
-		margin-top: 30px;
 	}//end desk
 }//end main nav
 
