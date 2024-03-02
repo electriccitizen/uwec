@@ -15,7 +15,7 @@
 		position: relative;
 		padding-top: 8.75rem;
 		& > .layout--twocol-even {
-			max-width: $contentStop;
+			max-width: $contentStopMargin;
 			@include auto;
 			position: relative;
 			@include onlySmall {
@@ -29,8 +29,7 @@
 				height: 20vw;
 				width: 100vw;
 				clip-path: polygon(100% 0%, 0% 100%, 100% 100%);
-				background: rgb(255,255,255);
-				background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 50%, rgba(1,96,242,1) 50%, rgba(1,96,242,1) 100%);
+				background: $brightBlue;
 				position: absolute;
 				@media screen and (min-width: 3200px) {
 					bottom: -60rem;
@@ -193,7 +192,7 @@
 				width: 100%;
 			}
 			@include desk {
-				max-width: calc(50% + 130px);
+				max-width: calc(100% - 556px);
 				padding-left: 65px;
 				padding-right: 65px;
 			}
@@ -270,6 +269,10 @@
 		margin-top: -22rem;
 		position: relative;
 		z-index: 10;
+		margin-bottom: $spaceMd;
+		@include desk {
+			margin-bottom: 0;
+		}
 		@media screen and (min-width: 1600px){
 			margin-top: -26rem;
 		}
