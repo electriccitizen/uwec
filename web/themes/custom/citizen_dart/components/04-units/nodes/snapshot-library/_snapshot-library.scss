@@ -40,14 +40,123 @@
 
 //snapshot teasers
 .node-teaser-snapshot{
+  position: relative;
+  padding: 0 20px $spaceMd;
+  margin: 0 -20px 8rem;
+  @include desk{
+    @include edgeReset;
+    overflow: hidden;
+    .widget-section > .layout--onecol &{
+      margin-bottom: 0;
+      height: 100%;
+    }
+  }
+  &:after{
+    content: '';
+    display: block;
+    width: 100%;
+    height: calc(100% - 80px);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    background: $warmGrey;
+  }
+  &.snapshot-visible{
+    .field-image{
+      &:after{
+        right: -130px;
+        transition: right 1s ease-out;
+        @include desk{
+          right: -40px;
+          transition: right .001s ease-out;
+        }
+      }
+      article img{
+        opacity: 1;
+        transition: opacity 0.5s ease-in;
+      }
+    }//end field image
+  }//end snapshot visible
 	.field-image{
-		max-width: 240px;
-		@include auto;
-	}
+		margin-bottom: $spaceXs;
+    position: relative;
+    z-index: 1;
+    width: 240px;
+    @include auto;
+    @include desk{
+      width: 100%;
+    }
+    article{
+      max-width: 240px;
+      @include auto;
+      img{
+        opacity: 0;
+      }
+    }
+    &:after{
+      content: url(../images/elements/stripes-narrow-gold.svg);
+      width: 264px;
+      height: 172px;
+      position: absolute;
+      top: 31px;
+      z-index: -1;
+      @include rotate(180);
+      @include onlyMobile{
+        right: 100vw;
+      }
+    }//end image after
+	}//end field image
+  .snapshot-teaser-text{
+    max-width: $textMax;
+    @include auto;
+    .widget-section > .layout--onecol &{
+      @include desk{
+        height: calc(100% - 256px);
+        @include safeFlex(column,nowrap,justify,start);
+      }
+    }
+  }
 	.teaser-title{
 		@include heading2;
+    font-size: 18px;
+    line-height: 1.33;
+    margin-bottom: $spaceXxs;
 	}
-}
+  .field-plain-text{
+    line-height: 1.5;
+    margin-bottom: $spaceSm;
+  }
+  .field-link{
+    a{
+      display: inline-block;
+      @include arrowLinkBefore($navy);
+      padding-left: 32px;
+      font-size: 16px;
+      line-height: 1.2;
+      &:before{
+        content: '';
+        display: block;
+        position: absolute;
+        top: -2px;
+        left: 0;
+        width: 20px;
+        height: 20px;
+        @include rightArrow(navy,transparent,$navy,sm);
+      }//end before
+      &:hover,&:focus{
+        &:before{
+          @include rightArrow(white,$navy,$navy,sm);
+        }
+        span{
+          @include dottedLink($navy);
+          padding-bottom: 1px;
+        }
+      }//end hover, focus
+    }//end a
+  }//end field link
+
+}//end snaptshot teaser
 
 //snapshot widget (for conten carousel)
 .node-widget-snapshot{
