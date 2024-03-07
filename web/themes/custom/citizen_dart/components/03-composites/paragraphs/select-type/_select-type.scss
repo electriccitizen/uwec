@@ -90,6 +90,7 @@
           margin-bottom: 40px;
           @include desk{
             margin-bottom: 45px;
+            word-break: break-word;
           }
         }
         .field-additional-text {

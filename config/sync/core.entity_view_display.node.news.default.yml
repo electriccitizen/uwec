@@ -217,11 +217,11 @@ third_party_settings:
                 type: timestamp
                 label: hidden
                 settings:
-                  date_format: number_date_short
+                  date_format: month_dd_yyyy
                   custom_date_format: ''
                   timezone: ''
                   tooltip:
-                    date_format: number_date_short
+                    date_format: ''
                     custom_date_format: ''
                   time_diff:
                     enabled: false

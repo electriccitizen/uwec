@@ -74,6 +74,7 @@ dependencies:
     - smart_date_recur
     - system
     - taxonomy
+    - view_unpublished
     - workbench_access
 id: site_admin
 label: 'Site Admin'
@@ -459,7 +460,12 @@ permissions:
   - 'view any reusable_widgets block content history'
   - 'view any social_media_links block content history'
   - 'view any structured_section block content history'
+  - 'view any unpublished academic_program content'
+  - 'view any unpublished bios content'
   - 'view any unpublished content'
+  - 'view any unpublished department content'
+  - 'view any unpublished news content'
+  - 'view any unpublished page content'
   - 'view assigned domains'
   - 'view bios revisions'
   - 'view college revisions'
