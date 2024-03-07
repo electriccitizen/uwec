@@ -37,22 +37,31 @@
  */
 #}
 
-{# check for a paragraph id #}
-{% if paragraph.id.value %}
-	{% if (content.field_list_type.0['#markup'] == 'manual') or (drupal_view('bios','profiles_list', paragraph.id.value)|render|striptags|trim|length > 0) %} 
-		<div class="paragraph paragraph--type--profiles-list custom-views-list profile-list-{{ content.field_list_type.0['#markup'] }}" data-quickedit-entity-id="paragraph/{{ paragraph.id.value }}">
-				{{ content.field_widget_title }}
-        <div class="widget-inner">
-          {% if content.field_list_type.0['#markup'] == 'auto' %}
-            {{ drupal_view('bios','profiles_list', paragraph.id.value) }}
-          {% else %}
-            {{ content.field_profiles }}
-          {% endif %}
+{% extends 'paragraph.html.twig' %}
+
+{% block widgetContent %}
+  {% if content.field_image %}
+    <div class="stacked-intro">
+      {{ content.field_image }}
+    </div>
+  {% endif %}
+  <div class="stacked-text">
+    <div class="stacked-text-header">
+      <div class="stacked-title">
+        {{ content.field_name }}
+      </div>
+      {{ content.field_job_title }}
+    </div>
+    {% if content.field_email.0 or content.field_phone.0 %}
+      <div class="stacked-text-contact">
+        <div class="stacked-contact-left">
+          {{ content.field_email }}
+          {{ content.field_phone }}
         </div>
-		</div>
-	{% endif %}
-{# if no id because the node has not yet been saved, spit out a preview message #}
-{% else %}
-	<p><strong>The profiles list widget is not available in preview until the node is saved after it has have been added.</strong></p>
-{% endif %}
+      </div>
+    {% endif %}
+    {{ content.field_long_text }}
+  </div>
+{% endblock %}
+
 

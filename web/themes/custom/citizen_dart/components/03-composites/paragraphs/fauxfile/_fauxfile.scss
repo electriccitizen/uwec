@@ -5,14 +5,18 @@
 @use '../../../00-base/base' as *;
 
 .paragraph--type--fauxfile{
-  & > .widget-wrapper{
-	  @include profileGrid;
+  padding-left: 20px;
+  padding-right: 20px;
+  max-width: 913px;
+  @include auto;
+  .widget-title{
+    text-align: left;
+    text-transform: none;
+    font-size: 3rem;
+    line-height: 1.33;
+    margin-left: 0;
   }
-}//end fauxfile widget
-
-.paragraph--type--fauxfile-item{
-  @include profileTeaser;
-  .widget-wrapper{
-    padding: 0 10px;
-  }
+}
+.paragraph--type--fauxfile-item .widget-wrapper{
+  @include profileStacked;
 }

@@ -457,7 +457,6 @@ third_party_settings:
         - 'Lists (Views)'
         - Menus
         - 'Responsive Preview'
-        - 'Site Search'
         - Superfish
         - User
         - core

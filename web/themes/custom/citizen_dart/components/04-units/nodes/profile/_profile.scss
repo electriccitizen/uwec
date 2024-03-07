@@ -347,11 +347,20 @@
 
 }//end bios
 
-//bio teaser
+/* PROFILE TEASER
+--------------------- */
 .node-teaser-bios{
 	@include profileTeaser;
   .teaser-title{
     margin-bottom: 1.5rem;
   }
 }//end node teaser bios
+
+/* PROFILE STACKED
+--------------------- */
+.node-stacked-bios{
+  //mixin from general mixins because of fauxfile
+  @include profileStacked;
+}
+
 

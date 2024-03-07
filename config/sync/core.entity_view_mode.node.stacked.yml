@@ -1,0 +1,10 @@
+uuid: f96c542b-bc44-4ada-bb21-f1a722992a71
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.stacked
+label: Stacked
+targetEntityType: node
+cache: true
