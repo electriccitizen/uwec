@@ -792,7 +792,7 @@
     .profile-stacked-icons{
       margin-bottom: u.$spaceSm;
       .profile-stacked-icon{
-        color: c.$oldGold;
+        color: c.$oldGoldDark;
         font-size: 1.5rem;
         line-height: 2;
         @include safeFlex(row,nowrap,start,center);
