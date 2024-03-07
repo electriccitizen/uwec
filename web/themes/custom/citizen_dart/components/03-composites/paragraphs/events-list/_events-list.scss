@@ -15,22 +15,24 @@
     strong{
       font-size: 5.75rem;
     }
-    @media screen and (min-width: 784px){
-      text-align: center;
-      margin-bottom: $spaceSm;
-      strong{
-        display: inline-block;
+    .widget-section > .layout--onecol &{
+      @media screen and (min-width: 784px){
+        text-align: center;
+        margin-bottom: $spaceSm;
+        strong{
+          display: inline-block;
+        }
       }
-    }
-    @include contentStopMargin{
-      margin-bottom: $spaceLg;
-      span{
-        font-size: 6.5rem;
+      @include contentStopMargin{
+        margin-bottom: $spaceLg;
+        span{
+          font-size: 6.5rem;
+        }
+        strong{
+          font-size: 6.75rem;
+        }
       }
-      strong{
-        font-size: 6.75rem;
-      }
-    }
+    }//end layout check for title
   }//end events title
 
   .lwcw.events-list{
