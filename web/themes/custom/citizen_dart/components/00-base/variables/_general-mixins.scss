@@ -778,13 +778,17 @@
 @mixin profileStacked{
   margin-bottom: u.$spaceLg;
   @include u.tab{
-    @include safeFlex(row,nowrap,start,start);
+    .widget-section > .layout--onecol &{
+      @include safeFlex(row,nowrap,start,start);
+    }
   }
   .stacked-intro{
     max-width: 380px;
     @include u.tab{
-      max-width: 203px;
-      margin-right: 20px;
+      .widget-section > .layout--onecol &{
+        max-width: 203px;
+        margin-right: 20px;
+      }
     }
     .field-image{
       margin-bottom: 2rem;
