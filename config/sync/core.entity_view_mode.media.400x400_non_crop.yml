@@ -1,0 +1,10 @@
+uuid: 691f6d2d-dc82-4c6d-a07c-d15bcecefbee
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+id: media.400x400_non_crop
+label: '400x400 non-crop'
+targetEntityType: media
+cache: true

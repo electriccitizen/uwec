@@ -40,18 +40,48 @@
 {% extends 'paragraph.html.twig' %}
 
 {% block widgetContent %}
-	{{ content.field_set_title }}
-	{{ content.field_hours_set }}
-	{% set currentDay = 'now'|date('U') %}
-	{% set exceptionStart = content.field_exception_range.0['#value'] %}
-	{% set exceptionEnd = content.field_exception_range.0['#end_value'] %}
-	{% if exceptionStart %}
-		{% if currentDay > exceptionStart and currentDay < exceptionEnd %}
-			{{ content.field_exceptions }}
-		{% endif %}
-	{% else %}
-		{{ content.field_exceptions }}
-	{% endif %}
+  <div class="icon-wrapper">
+    <svg id="hours-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <g clip-path="url(#clip0_3887_16262)">
+        <path d="M0.960117 5.76012C0.740117 6.45012 0.620117 7.19012 0.620117 7.96012C0.620117 12.0101 3.90012 15.2901 7.95012 15.2901C12.0001 15.2901 15.2801 12.0101 15.2801 7.96012C15.2801 3.91012 12.0001 0.620117 7.95012 0.620117C5.65012 0.620117 3.59012 1.69012 2.25012 3.35012" stroke="#0160F2" stroke-width="1.25" stroke-miterlimit="10" stroke-linecap="round"/>
+        <path d="M7.9502 4.69995V7.94995L10.8302 10.39" stroke="#0160F2" stroke-width="1.25" stroke-miterlimit="10" stroke-linecap="round"/>
+        <path d="M7.9502 0.620117V1.83012" stroke="#0160F2" stroke-width="1.25" stroke-miterlimit="10" stroke-linecap="round"/>
+        <path d="M0.620117 7.94995H1.83012" stroke="#0160F2" stroke-width="1.25" stroke-miterlimit="10" stroke-linecap="round"/>
+        <path d="M7.9502 15.2801V14.0801" stroke="#0160F2" stroke-width="1.25" stroke-miterlimit="10" stroke-linecap="round"/>
+        <path d="M15.2801 7.94995H14.0801" stroke="#0160F2" stroke-width="1.25" stroke-miterlimit="10" stroke-linecap="round"/>
+      </g>
+      <defs>
+        <clipPath id="clip0_3887_16262">
+          <rect width="15.91" height="15.91" fill="white"/>
+        </clipPath>
+      </defs>
+    </svg>
+  </div>
+  <div class="hours-inner-wrapper">
+    {{ content.field_set_title }}
+    {{ content.field_hours_set }}
+    {% set currentDay = 'now'|date('U') %}
+    {% set displayStart = paragraph.field_display_range.0.value %}
+    {% set displayEnd = paragraph.field_display_range.0.end_value %}
+    {% set exceptionStart = content.field_exception_range.0['#value'] %}
+    {% set exceptionEnd = content.field_exception_range.0['#end_value'] %}
+    {% if displayStart != displayEnd  %}
+      <div class="display-notice-wrapper">
+        Effective from {{ displayStart|date('F, j Y') }} until {{ displayEnd|date('F, j Y') }}
+      </div>
+    {% endif %}
+    {% if exceptionStart %}
+      {% if currentDay > exceptionStart and currentDay < exceptionEnd %}
+        <div class="exception-wrapper">
+          <strong>Notice:</strong> {{ content.field_exceptions }}
+        </div>
+      {% endif %}
+    {% elseif content.field_exceptions.0 %}
+      <div class="exception-wrapper">
+        <strong>Notice:</strong> {{ content.field_exceptions }}
+      </div>
+    {% endif %}
+  </div>
 {% endblock %}
 
 

@@ -12,7 +12,8 @@
   padding: 40px 20px 30px;
   .widget-section > .layout--onecol &,
   .widget-section > .layout--twocol-section--75-25 > .layout__region--first &,
-  .widget-section > .layout--twocol-section--25-75 > .layout__region--second &{
+  .widget-section > .layout--twocol-section--25-75 > .layout__region--second &,
+  .node-support-book &{
     @include tab{
       padding: 60px 112px 45px;
     }
@@ -24,7 +25,8 @@
 			width: 100%;
       .widget-section > .layout--onecol &,
       .widget-section > .layout--twocol-section--75-25 > .layout__region--first &,
-      .widget-section > .layout--twocol-section--25-75 > .layout__region--second &{
+      .widget-section > .layout--twocol-section--25-75 > .layout__region--second &,
+      .node-support-book &{
 			  @include desk{
           &:not(:only-child){
             width: 50%;

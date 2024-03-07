@@ -1,0 +1,15 @@
+uuid: 623029c9-7b84-483e-91b4-8a3af72283d1
+langcode: en
+status: true
+dependencies: {  }
+name: 600x600_non_crop_non_webp
+label: '600x600 non-crop non-webp'
+effects:
+  3ca136fd-125c-417c-aaf6-23a9bbdd038b:
+    uuid: 3ca136fd-125c-417c-aaf6-23a9bbdd038b
+    id: image_scale
+    weight: 1
+    data:
+      width: 600
+      height: 600
+      upscale: false

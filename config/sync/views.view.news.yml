@@ -11,9 +11,9 @@ dependencies:
     - node.type.news
     - taxonomy.vocabulary.page_families
     - taxonomy.vocabulary.placement_tags
+    - taxonomy.vocabulary.story_categories
     - taxonomy.vocabulary.story_types
   content:
-    - 'taxonomy_term:page_families:9f5d1d79-0dde-4a9d-8942-6be310a0a391'
     - 'taxonomy_term:placement_tags:479d2dfa-0914-41c7-90c9-7897ba00491d'
     - 'taxonomy_term:story_types:6feb82a5-38c4-4a71-a13f-6329fff06de6'
   module:
@@ -708,10 +708,10 @@ display:
           fields:
             title: title
             field_intro_text: field_intro_text
-        field_story_type_target_id:
-          id: field_story_type_target_id
-          table: node__field_story_type
-          field: field_story_type_target_id
+        field_story_categories_target_id:
+          id: field_story_categories_target_id
+          table: node__field_story_categories
+          field: field_story_categories_target_id
           relationship: none
           group_type: group
           admin_label: ''
@@ -721,14 +721,14 @@ display:
           group: 1
           exposed: true
           expose:
-            operator_id: field_story_type_target_id_op
+            operator_id: field_story_categories_target_id_op
             label: Category
             description: ''
             use_operator: false
-            operator: field_story_type_target_id_op
+            operator: field_story_categories_target_id_op
             operator_limit_selection: false
             operator_list: {  }
-            identifier: field_story_type_target_id
+            identifier: field_story_categories_target_id
             required: false
             remember: false
             multiple: false
@@ -754,8 +754,8 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-          reduce_duplicates: false
-          vid: story_types
+          reduce_duplicates: true
+          vid: story_categories
           type: select
           hierarchy: false
           limit: true
@@ -1250,6 +1250,7 @@ display:
       display_extenders: {  }
       displays:
         all_news: all_news
+      inherit_exposed_filters: true
     cache_metadata:
       max-age: -1
       contexts:

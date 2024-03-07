@@ -84,6 +84,9 @@
 		.icon-wrapper{
 			width: 16px;
 			margin-right: 12px;
+      svg{
+        fill: none;
+      }
 		}
 		.field-content{
 			width: calc(100% - 28px);
@@ -122,6 +125,22 @@
     }
 	}//end field phone
 }//end contact contnet
+
+@mixin hoursHolder{
+	max-width: 914px;
+	@include auto;
+	& > *:first-child{
+		background: $ice;
+    padding: 40px 20px 30px;
+    @include tab{
+		  padding: 60px 124px 76px;
+    }
+	}
+}
+
+@mixin hoursContent{
+  
+}//end hours content
 
 @mixin heroBackground {
 	position: relative;

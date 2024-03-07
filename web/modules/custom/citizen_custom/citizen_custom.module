@@ -473,7 +473,7 @@ function citizen_custom_views_pre_view($view, $display_id, &$args) {
 		      $paragraph = Paragraph::load($paragraph_id);
 		      $parentNode = $paragraph->parent_id;
 
-		      if ($parentNode) {
+		      if ($parentNode && !empty($parentNode->value)) {
 		        $node = Node::load($parentNode->value);
 
 		        if ($node) {

@@ -76,8 +76,8 @@ Drupal.behaviors.smoothAnchorator = {
       
           if (targetElement) {
             targetElement.scrollIntoView({
-                behavior: 'smooth',
-                block: 'center',
+              behavior: 'smooth',
+              block: 'center',
             });
           }
         });
@@ -100,7 +100,7 @@ Drupal.behaviors.mobileMenu = {
 //function to move blocks to mobile menu
 function mobileMenuInsert() {
 	var wwidth = $(window).outerWidth();
-	if (wwidth < 984) {
+	if (wwidth < 1200) {
 		//if not in desktop or higher, clone the search and secondary menu and move them to the mobile menu
 		if(!$('.sf-accordion > li.mobile-search-container').length){
 			var $searchContainer = $('.site-header .search-box-wrapper');
@@ -111,13 +111,15 @@ function mobileMenuInsert() {
 				.wrap('<li class="mobile-search-container"></li>')
 				.addClass('mobile-search');
 
-			$('.mobile-search-container form.gsc-search-box label').remove();
-			if(!$('.sf-accordion > li.mobile-search-container label').length){
-	      $('.mobile-search-container form.gsc-search-box').prepend('<label for="gsc-i-id1">Search</label>');
-	    }else{
-	    	$('.sf-accordion > li.mobile-search-container label').text('Search');
-	    }
-      $('.mobile-search-container input.gsc-input').attr('placeholder', 'What are you searching for?');
+      setTimeout(function() {
+        $('.mobile-search-container form.gsc-search-box label').remove();
+        if(!$('.sf-accordion > li.mobile-search-container label').length){
+          $('.mobile-search-container form.gsc-search-box').prepend('<label for="gsc-i-id1">Search</label>');
+        }else{
+          $('.sf-accordion > li.mobile-search-container label').text('Search');
+        }
+        $('.mobile-search-container input.gsc-input').attr('placeholder', 'What are you searching for?');
+      }, 510);
 
       var $secondaryMenu = $('.site-header #block-secondary-menu > ul');
 

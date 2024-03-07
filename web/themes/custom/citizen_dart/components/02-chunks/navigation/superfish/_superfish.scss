@@ -13,14 +13,19 @@
 ------------------------ */
 #superfish-main-toggle{
 	display: block;
-	background-image: url(../images/elements/menu-open-white.svg);
-	background-repeat: no-repeat;
-	background-size: 100%;
+  background: url(../images/elements/menu-open-white.svg);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  &:hover,&:focus{
+    opacity: .75;
+  }
 	span{
 		@include visuallyHidden;
 	}
 	&.sf-expanded{
-		background-image: url(../images/elements/menu-close-white.svg);
+		background: url(../images/elements/menu-close-white.svg);
+    background-repeat: no-repeat;
+    background-size: 100%;
 	}
 }//end superfish-main-toggle
 
@@ -59,9 +64,13 @@ ul.sf-menu.sf-horizontal{
 		margin-right: $spaceXxs !important;
 		margin-top: 30px !important;
 		@media only screen and (min-width: 1305px) {
-			margin-left: $spaceSm !important;
-			margin-right: $spaceSm !important;
+			margin-left: $spaceXs !important;
+			margin-right: $spaceXs !important;
 		}
+    @include contentStop{
+      margin-left: 2.5rem !important;
+			margin-right: 2.5rem !important;
+    }
 		&:not(.sfHover){
 			& > ul{
 				display: none !important;
@@ -74,6 +83,12 @@ ul.sf-menu.sf-horizontal{
 				border-bottom: solid 2px $gold;  
 				transform: scaleX(0);  
 				transition: transform 250ms ease-in-out;
+			}
+			&.is-active:after {
+				border-bottom: solid 2px $gold; 
+				display: block;
+				content: '';
+				transform: scale(1);
 			}
 		}
 		&:hover{
@@ -91,7 +106,9 @@ ul.sf-menu.sf-horizontal{
 			color: $sfTopLink;
 			padding: .5rem 1.5rem !important;
 			font-family: $header;
-			font-size: 2.5rem;
+			font-size: 2.125rem;
+			text-transform: uppercase;
+			letter-spacing: 2px;
 			display: block;
 			position: relative;
 			&:hover,&:focus{
@@ -105,21 +122,32 @@ ul.sf-menu.sf-horizontal{
 			}
 			& > a{
 				color: $sfTopActive;
+				&:after {
+					border-bottom: solid 2px $gold; 
+					display: block;
+					content: '';
+					transform: scale(1);
+				}
 				&:hover,&:focus{
 					color: $sfTopActiveHover;
+          opacity: .85;
+          &:after{
+            border-bottom-color: $white;
+          }
 				}
 			}
 		}
 		&.menuparent {		
 			position: relative;		
 			&:after {
-				@include materialIconOutline(\e5cf);
+				content: url(../images/elements/caret-down-mobile-main-nav.svg);
 				color: $white;
 				position: absolute;
-				right: -35px;
-				top: -15px;
+				right: -10px;
+				bottom: 3px;
 				@include safeFlex(row,no-wrap,center,center);
-				@include setDimensions(60px,60px);
+				width: 20px;
+        height: 20px;
 				text-indent: 0;
 				@include transFormAnimate;
 			}
@@ -131,24 +159,38 @@ ul.sf-menu.sf-horizontal{
 
 		//dropdown wrapper
 		& > ul{
-			padding: 2.5rem 0 0;
+			padding: 2.5rem 0;
 			top: 100%;
 			min-width: 280px;
 			@extend %menuDropdown;
 			& > li{
 				padding: 0;
 				&:last-of-type{
-					padding: 0 0 2.5rem;
+					border-bottom: 0px;
 				}
 			}
 		}
 
 	}//end main dropdown
 
+	li.sf-depth-2 {
+		border-bottom: 1px solid rgba(1, 96, 242, 0.12);
+		margin: 0 1rem;
+		width: calc(100% - 2rem);
+	}
+
 	//level 2 links
 	a.sf-depth-2{
 		line-height: 1;
-		padding: 1.5rem 2.5rem;
+		padding: 1.5rem;
+		&:hover, &:focus, &.is-active {
+			background: $white;
+		}
+    &.is-active{
+      &:hover,&:focus{
+        background: $lightGrey;
+      }
+    }
 	}
 
 	// sub menu toggles
@@ -161,13 +203,13 @@ ul.sf-menu.sf-horizontal{
 				padding: 0;
 				position: relative;
 				right: -7px;
-				top: 0.6rem;
+				top: 1px;
 				opacity: 1;
 				height: 18px;
 				width: 18px;
 				background-image: none;
 				@include materialIconOutline(\e5e1);
-				font-size: 18px;
+				font-size: 12px;
 				@include transFormAnimate;
 			}
 			&:hover,&:focus{
@@ -223,12 +265,11 @@ ul.sf-menu.sf-accordion{
 				display: block;
 				top: 0;
 				left: calc(50% - 119px);
-				opacity: 8%;
 				position: absolute;
 				width: 238px;
 				height: 238px;
-				background-image: url(../images/logos-badges/seal.svg);
-				background-position: center -112px;
+				background-image: url(../images/logos-badges/uwec-seal-white.svg);
+				background-position: center -130px;
 				background-repeat: no-repeat;
 				background-size: 238px 238px;
 			}
@@ -237,12 +278,11 @@ ul.sf-menu.sf-accordion{
 				display: block;
 				bottom: 0;
 				left: calc(50% - 119px);
-				opacity: 8%;
 				position: absolute;
 				width: 238px;
 				height: 238px;
-				background-image: url(../images/logos-badges/seal.svg);
-				background-position: center 112px;
+				background-image: url(../images/logos-badges/uwec-seal-white.svg);
+				background-position: center 130px;
 				background-repeat: no-repeat;
 				background-size: 238px 238px;
 			}
@@ -251,7 +291,7 @@ ul.sf-menu.sf-accordion{
 
 	// global mobile links
 	a{
-		padding: 2.5rem 4rem;
+		padding: 1.5rem 4rem;
 		line-height: 1.15;
 	}
 
@@ -259,34 +299,24 @@ ul.sf-menu.sf-accordion{
 	&.sf-accordion-with-buttons li{
 		position: relative;
 		& > .sf-accordion-button{
-			width: 60px;
-			height: 60px;
+			width: 52px;
+			height: 52px;
 			padding: 0;
 			text-indent: 9000px;
 			position: absolute;
 			top: 0;
-			right: 0;
+			right: -18px;
 			z-index: 1;
-			background: transparent;
-			//expander toggle
-			&:after{
-				@include materialIconOutline(\e5cf);
-				position: absolute;
-				right: 10px;
-				top: 0;
-				@include safeFlex(row,no-wrap,center,center);
-				@include setDimensions(60px,60px);
-				text-indent: 0;
-				@include transFormAnimate;
-			}
+			background-color: transparent;
+      background-image: url(../images/elements/caret-down-mobile-main-nav.svg);
+      background-position: center center;
+      background-repeat: no-repeat;				
+      @include transFormAnimate;
+      &:after{
+        content: '' !important;
+      }
 		}//end accordion button
-
-		&.sf-expanded {
-			& > .sf-accordion-button:after{
-				content: "\e5cf" !important;
-			}
-		}
-		
+	
 		&.menuparent{
 			a{
 				display: block;
@@ -296,18 +326,12 @@ ul.sf-menu.sf-accordion{
 			}
 		}//end menupareny
 		&.sf-expanded > .sf-accordion-button{
-			background: transparent;
-
-			&:after{
-				@include rotate(180);
-				@include materialIconOutline(\e5cf);
-				position: absolute;
-				@include safeFlex(row,no-wrap,center,center);
-				@include setDimensions(60px,60px);
-				text-indent: 0;
-
-
-			}
+      background-color: transparent;
+      background-image: url(../images/elements/caret-down-mobile-main-nav.svg);
+      background-position: center center;
+      background-repeat: no-repeat;	
+      background-size: 12px;			
+			@include rotate(180);
 		}
 	}//end li
 
@@ -317,23 +341,33 @@ ul.sf-menu.sf-accordion{
 
 	// top level
 	li.sf-depth-1{
+		margin: 0 40px;
+		width: calc(100% - 80px);
 		& > a{
 			font-family: $header;
 			text-transform: uppercase;
 			font-size: 3rem;
 			color: $sfMobileTop;
 			background: $sfMobileTopBack;
+			letter-spacing: 3px;
+			padding-left: 0;
+      &.is-active{
+        color: $gold;
+      }
 		}
-		&:not(:last-child){
-			border-bottom: 1px solid $sfMobileItemBorder
+		&:not(:nth-child(2)){
+			border-top: 1px solid $sfMobileItemBorder;
 		}
 		&.sf-expanded{
 			& > a{
 				color: $sfMobileTopExpanded;
 				background: $sfMobileTopBackExpanded;
+        &.is-active{
+          color: $gold;
+        }
 			}
 			& > ul{
-				padding: 1.5rem 0;
+				padding: 0 0 1.5rem;
 			}
 		}
 	}//end level 1
@@ -356,7 +390,7 @@ ul.sf-menu.sf-accordion{
 				height: 40px;
 			}
 			&:not(.sf-accordion-button){
-				padding: 10px 30px 10px 40px;
+				padding: 10px 30px 10px 15px;
 			}
 		}
 	}//end level 2

@@ -6,6 +6,31 @@
 
 //hours field on the set paragraph
 .field-hours.entity-reference-revisions{
+  select.panel-select{
+    @include browserWipe;
+    width: 100%;
+    font-family: $baseText;
+    color: $brightBlue;
+    font-size: 14px;
+    line-height: 2.28;
+    letter-spacing: .05em;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0; 
+    border-bottom: 1px solid rgba($brightBlue,.25);
+    background-image: url('../images/elements/caret-down-bright-blue-sm.svg');
+    background-repeat: no-repeat;
+    background-size: 9px;
+    background-position: 98% 50%;
+    margin-bottom: 24px;
+    padding-left: 6px;
+    &:focus{
+      background-image: url('../images/elements/caret-up-bright-blue-sm.svg');
+      background-repeat: no-repeat;
+      background-size: 9px;
+      background-position: 98% 50%;
+    }
+  }//end select
 	.select-panel{
 		&:not(.show-panel){
 			@include visuallyHidden;
@@ -13,3 +38,54 @@
 	}
 }//end hours set
 
+
+.paragraph--type--hours-set{
+  color: $brightBlue;
+  font-size: 1.75rem;
+  line-height: 1.42;
+  .widget-wrapper{
+    @include safeFlex(row,nowrap,start,start);
+    .icon-wrapper{
+      width: 16px;
+      margin-right: 12px;
+      svg{
+        fill: none;
+      }
+    }
+    .hours-inner-wrapper{
+      width: calc(100% - 28px);
+    }
+  }
+  .field-set-title{
+    display: none;
+  }
+  .field-hours-set{
+    .office-hours__item-label{
+      width: 87px;
+      display: inline-block;
+      font-weight: $regular;
+    }
+  }//end field hours
+  .office-hours{
+    margin-bottom: $spaceXs;
+    .office-hours__item{
+      @include safeFlex(row,nowrap,start,start);
+      &:nth-child(5){
+        margin-bottom: $spaceXxs;
+      }
+      .office-hours__item-label{
+        flex: 0 0 87px;
+        display: block;
+        font-weight: $regular;
+      }
+    }
+  }//end office hours
+  .display-notice-wrapper{
+    margin-bottom: $spaceXxs;
+  }
+  .exception-wrapper{
+    .field-exceptions{
+      display: inline;
+    }
+  }
+}//end hours set

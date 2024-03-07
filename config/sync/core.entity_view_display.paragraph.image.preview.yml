@@ -8,6 +8,7 @@ dependencies:
     - field.field.paragraph.image.field_caption
     - field.field.paragraph.image.field_caption_headline
     - field.field.paragraph.image.field_image
+    - field.field.paragraph.image.field_size
     - image.style.paragraph_preview
     - paragraphs.paragraphs_type.image
   module:
@@ -30,7 +31,7 @@ content:
     label: inline
     settings: {  }
     third_party_settings: {  }
-    weight: 1
+    weight: 2
     region: content
   field_image:
     type: media_thumbnail
@@ -42,6 +43,13 @@ content:
         attribute: lazy
     third_party_settings: {  }
     weight: 0
+    region: content
+  field_size:
+    type: list_default
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
     region: content
 hidden:
   field_caption: true
