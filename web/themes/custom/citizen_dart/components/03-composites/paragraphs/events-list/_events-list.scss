@@ -5,5 +5,59 @@
 @use '../../../00-base/base' as *;
 
 .paragraph--type--events-list{
-
+  //event day
+  .lw_events_day{
+    .lw_events_header_date{
+      display: block;
+      width: 113px;
+      height: 115px;
+      font-family: $header;
+      font-size: 18px;
+      word-break: break-all;
+      background: $navy;
+      color: $white;
+    }
+    .lw_item_thumb{
+      display: block;
+      max-width: 332px;
+      margin: 0 auto 20px;
+    }
+    .lw_events_time{
+      display: block;
+      font-size: 1.5rem;
+      line-height: 2;
+      text-transform: uppercase;
+      letter-spacing: .05%;
+    }
+    .lw_events_title{
+      font-family: $header;
+      font-size: 2.25rem;
+      line-height: 1.44;
+      display: block;
+      margin-bottom: $spaceXxs;
+      a{
+        color: $navy;
+        &:hover,&:focus{
+          &:after{
+            @include rightArrow(white,$navy,$navy,sm);
+          }
+        }
+        &:after{
+          content: '';
+          display: inline-block;
+          position: relative;
+          top: 4px;
+          margin-left: 10px;
+          @include rightArrow(navy,$white,$navy,sm);
+        }
+      }//end a
+    }//end events title
+    .lw_events_summary{
+      @extend .lw_events_time;
+      text-transform: none;
+    }
+    .lw_events_until{
+      @extend .lw_events_time;
+    }
+  }//end lw events day
 }//end events-list widget

@@ -13,7 +13,7 @@ bundle: events_list
 mode: default
 content:
   field_livewhale_group:
-    type: list_default
+    type: list_key
     label: above
     settings: {  }
     third_party_settings: {  }
