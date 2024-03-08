@@ -5,5 +5,122 @@
 @use '../../../00-base/base' as *;
 
 .paragraph--type--events-list{
+  .events-title{
+    @include styledHeader;
+    text-align: left;
+    margin-bottom: $spaceXxs;
+    span{
+      font-size: 5.375rem;
+    }
+    strong{
+      font-size: 5.75rem;
+    }
+    .widget-section > .layout--onecol &{
+      @media screen and (min-width: 784px){
+        text-align: center;
+        margin-bottom: $spaceSm;
+        strong{
+          display: inline-block;
+        }
+      }
+      @include contentStopMargin{
+        margin-bottom: $spaceLg;
+        span{
+          font-size: 6.5rem;
+        }
+        strong{
+          font-size: 6.75rem;
+        }
+      }
+    }//end layout check for title
+  }//end events title
 
+  .lwcw.events-list{
+    @include safeFlex(row,wrap,center,start);
+    @include bleed(padding,40px);
+    @include contentStopMargin{
+      @include bleed(padding,74px);
+    }
+  }
+  //event day
+  .event{
+    position: relative;
+    margin-bottom: $spaceSm;
+    max-width: 412px;
+    @include contentStopMargin{
+      max-width: 389px;
+    }
+    .date{
+      position: absolute;
+      top: 108px;
+      left: 0;
+      width: 115px;
+      height: 115px;
+      padding: 15px 0 15px 20px;
+      background: $navy;
+      color: $white;
+      @include safeFlex(column,nowrap,center,start);
+      font-size: 1.5rem;
+      line-height: 2;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+      @include contentStopMargin{
+        top: 100px;
+        left: 17px;
+      }
+      .month{
+        font-family: $header;
+        font-size: 2.25rem;
+        line-height: 1.33;
+      }
+      .day{
+        font-family: $header;
+        font-size: 4.5rem;
+        line-height: 1.1;
+      }
+    }//end date
+    .image{
+      display: block;
+      margin-bottom: $spaceXxs;
+    }
+    .title{
+      display: inline-block;
+      //margin-bottom: $spaceXxs;
+      &:hover,&:focus{
+        &:after{
+          @include rightArrow(white,$navy,$navy,sm);
+        }
+      }
+      a{
+        font-family: $header;
+        font-size: 2.25rem;
+        line-height: 1.33;
+        color: $navy;
+        &:hover,&:focus{
+          @include dottedLink($brightBlue);
+          padding-bottom: 1px;
+        }
+      }//end a
+      &:after{
+        content: '';
+        display: inline-block;
+        margin-left: 10px;
+        width: 20px;
+        height: 20px;
+        position: relative;
+        top: 4px;
+        @include rightArrow(navy,transparent,$navy,sm);
+      }//end after
+    }//end title
+    .summary{
+      display: block;
+      margin: $spaceXxs 0;
+    }
+    .time,.until,.location{
+      display: block;
+      font-size: 1.5rem;
+      line-height: 2;
+      text-transform: uppercase;
+    }
+  }//end event
 }//end events-list widget

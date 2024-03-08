@@ -8,10 +8,13 @@ dependencies:
     - media.type.document
     - media.type.image
     - media.type.remote_video
+    - node.type.academic_program
     - node.type.bios
     - node.type.contact
+    - node.type.department
     - node.type.hours
     - node.type.job
+    - node.type.news
     - node.type.page
     - workflows.workflow.non_moderated
   module:
@@ -29,6 +32,7 @@ dependencies:
     - smart_date_recur
     - system
     - toolbar
+    - view_unpublished
     - workbench_access
 _core:
   default_config_hash: EXd6odxtI3ATSRa8lIDzgMFLGlfXgkm31FsS0ncrzl8
@@ -87,7 +91,12 @@ permissions:
   - 'use text format limited_html'
   - 'use text format short_text_formatted_html'
   - 'use workbench access'
+  - 'view any unpublished academic_program content'
+  - 'view any unpublished bios content'
   - 'view any unpublished content'
+  - 'view any unpublished department content'
+  - 'view any unpublished news content'
+  - 'view any unpublished page content'
   - 'view assigned domains'
   - 'view bios revisions'
   - 'view contact revisions'

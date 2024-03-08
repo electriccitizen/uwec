@@ -204,3 +204,88 @@
 		margin-bottom: $spaceXs;
 	}
 }//end page header text
+
+@mixin profileTeaser{
+  padding-bottom: 40px;
+  .field-image{
+    margin-bottom: 2rem;
+  }
+  .field:not(.field-image):not(.field-name){
+    font-size: 1.75rem;
+    line-height: 1.285;
+    &:not(:last-of-type){
+      margin-bottom: 1rem;
+    }
+  }
+  .field-name,.teaser-title{
+    font-family: $displayHeader;
+    font-size: 3.25rem;
+    line-height: 1.23;
+    padding-right: 20px;
+    margin-bottom: 1rem;
+    a{
+      color: $navy;
+      @include dottedLink($navy);
+      &:hover,&:focus{
+        color: $royal;
+        background-image: none;
+      }
+    }
+  }//end name
+  .field-departments{
+    font-family: $header;
+    font-weight: $xHeavy;
+    padding-right: 20px;
+    & > div{
+      display: inline-block;
+      &:not(:last-child){
+        &:after{
+          content: ' |';
+          margin-right: .25em;
+          white-space: nowrap;
+        }
+      }
+    }
+  }
+  .field-job-title,.field-long-text,.field-position,.field-position-override{
+    @extend .field-departments;
+    font-family: $bodyText;
+    font-weight: $regular;
+  }//end job title
+  .field-email{
+    @include safeFlex(row,nowrap,start,start);
+    padding-right: 20px;
+    .icon-wrapper{
+			width: 16px;
+			margin-right: 12px;
+		}
+		.field-content{
+			width: calc(100% - 28px);
+      a{
+        color: $navy;
+        @include dottedLink($navy);
+        display: inline-block;
+        &:hover,&:focus{
+          color: $royal;
+          background-image: none;
+        }
+      }
+		}
+		svg{
+			max-height: 16px;
+			margin-top: 3px;
+      position: relative;
+      top: -2px;
+      .cls-1{
+        fill: $navy;
+      }
+		}
+	}
+	.field-phone{
+    @extend .field-email;
+		svg{
+			max-height: 15px;
+      top: 1px;
+		}
+	}
+}//end profileTeaser

@@ -76,10 +76,16 @@
 {% block nodeTitle %}{% endblock %}
 {% block nodeContent %}
   {{- content.field_image -}}
-  <div class="teaser-title">
-		{{- label.0['#context'].value -}}
-	</div>
-	{{ content.field_plain_text }}
-	{{ content.field_link }}
+  <div class="snapshot-teaser-text">
+    <div class="snapshot-teaser-text-intro">
+      <div class="teaser-title">
+        {{- label.0['#context'].value -}}
+      </div>
+      {{ content.field_plain_text }}
+    </div>
+    <div class="field field-link">
+      <a href="{{ content.field_link.0['#url'] }}"><span>{{ content.field_link.0['#title'] }}</span></a>
+    </div>
+  </div>
 {% endblock %}
 	

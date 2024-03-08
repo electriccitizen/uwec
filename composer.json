@@ -88,6 +88,7 @@
     "drupal/svg_image": "^3.0",
     "drupal/token": "^1.7",
     "drupal/twig_tweak": "^3.1",
+    "drupal/view_unpublished": "^1.2",
     "drupal/views_bulk_operations": "^4.0",
     "drupal/views_infinite_scroll": "^2.0",
     "drupal/workbench_access": "^2.0",

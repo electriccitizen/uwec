@@ -40,18 +40,18 @@
 {% extends 'field.html.twig' %}
 
 {% block fieldMultiNoClasses %}
-      <div{{ attributes.addClass(classes) }}>
-        {% block fieldMultiNoItems %}
-          {%- for item in items -%}
-            <div{{ item.attributes }}>
-              {% block fieldMultiNo %}
-                <a href="{{ item.content['#url'] }}">
-                  <span>{{ item.content['#title']}}</span>
-                </a>
-              {% endblock %}
-            </div>
-          {%- endfor -%}
-        {% endblock %}
-      </div>
+  <div{{ attributes.addClass(classes) }}>
+    {% block fieldMultiNoItems %}
+      {%- for item in items -%}
+        <div{{ item.attributes }}>
+          {% block fieldMultiNo %}
+            <a href="{{ item.content['#url'] }}">
+              <span>{{ item.content['#title']}}</span>
+            </a>
+          {% endblock %}
+        </div>
+      {%- endfor -%}
     {% endblock %}
+  </div>
+{% endblock %}
           

@@ -40,6 +40,10 @@
 {% extends 'paragraph.html.twig' %}
 
 {% block widgetContent %}
-	{# this is just the livewhale widget code snippet pasted, with the addition of the group filter #}
-	<div class="lwcw" data-options="id=6&format=html&group={{ content.field_livewhale_group[0]['#markup'] }}"></div> <script type="text/javascript" id="lw_lwcw" src="//calendar.uwec.edu/livewhale/theme/core/scripts/lwcw.js"></script>
+	{# this is just the livewhale widget code snippet pasted, with the addition of the group filter (gid = group id) #}
+  <h2 class="events-title">
+    <span>Upcoming</span>
+    <strong>Events</strong>
+  </h2>
+	<div class="lwcw events-list" data-options="id=6&format=html&filter=gid&#124;equals&#124;{{ content.field_livewhale_group[0]['#markup'] }}"></div> <script type="text/javascript" id="lw_lwcw" src="https://calendar.uwec.edu/livewhale/theme/core/scripts/lwcw.js"></script>
 {% endblock %}
