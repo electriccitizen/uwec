@@ -40,12 +40,13 @@
 {% extends 'paragraph.html.twig' %}
 
 {% block widgetContent %}
+  {{ attach_library('citizen_dart/steps') }}
 	{# Check if the 'Use Icon' field is true #}
 		{# Render 'Step Item' paragraphs with icons #}
 		{% for item in paragraph.field_step_items %}
       <div class="step">
         <div class="step-number">
-          {{ loop.index > 9 ? loop.index : '0' ~ loop.index }}
+          <span>{{ loop.index > 9 ? loop.index : '0' ~ loop.index }}</span>
           {% if paragraph.field_use_icon.value %}
             <div class="step-icon">{{ drupal_field('field_icon', 'paragraph', item.target_id) }}</div>
           {% endif %}
