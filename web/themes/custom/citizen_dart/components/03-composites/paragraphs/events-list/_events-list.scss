@@ -15,7 +15,7 @@
     strong{
       font-size: 5.75rem;
     }
-    .widget-section > .layout--onecol &{
+    .widget-section > .layout--onecol &,.node-support-book &{
       @media screen and (min-width: 784px){
         text-align: center;
         margin-bottom: $spaceSm;

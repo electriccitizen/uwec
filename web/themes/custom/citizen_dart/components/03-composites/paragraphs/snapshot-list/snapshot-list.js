@@ -5,7 +5,6 @@
 Drupal.behaviors.snapshotAnimate = {
   attach: function (context, settings) {
   	$(once('snapshotAnimations', '.node-teaser-snapshot', context)).each(function(){
-      console.log('snapshoting');
       // Function to handle the intersection observer callback
       function handleIntersection(entries, observer) {
         entries.forEach(entry => {
