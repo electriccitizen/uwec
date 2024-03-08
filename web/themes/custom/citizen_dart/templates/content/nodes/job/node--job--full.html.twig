@@ -1,0 +1,39 @@
+{% extends 'node.html.twig' %}
+
+{% block nodeContent %}
+	<h1>{{ node.title.value }}</h1>
+	<p>UW-Eau Claire - 
+		{% for item in content.field_campus['#items'] %}
+			{{ item.entity.label }}
+			{%- if not loop.last -%}
+				,
+			{% endif %}
+		{% endfor %}
+		campus
+		{%- if content.field_campus['#items']|length > 1 -%}
+			es
+		{%- endif -%}
+	</p>
+	<p>
+		{{ content.field_employment_type.0['#plain_text'] }},
+		{{ content.field_employment_category.0['#plain_text'] }}
+	</p>
+	{{ content.field_official_title }}
+	{{ content.field_job_id }}
+	{{ content.field_posted_on }}
+	<p>
+		Apply by: {{ content.field_apply_by.0 }}
+		|
+		To ensure consideration, completed applications must be received by deadline. However, screening may continue until position is filled.
+	</p>
+	<p>
+		<a href="https://www.careers.wisconsin.edu/psc/careers/EMPLOYEE/UW_TAM/c/HRS_HRAM_FL.HRS_CG_SEARCH_FL.GBL?Page=HRS_CAREERS_FL&Action=U&FOCUS=Applicant&SiteId=3">Apply Now</a>
+		<a href="https://www.wisconsin.edu/ohrwd/benefits/benefits-estimator/">Benefits Estimator</a>
+		Share with:
+		<a href="https://www.facebook.com/sharer/sharer.php?u={{ url|url_encode }}">Facebook</a>
+		<a href="https://twitter.com/intent/tweet?text={{ content.title.value|url_encode }}&url={{ url|url_encode }}&via=http://www.twitter.com/uweauclaire">Twitter</a>
+		<a href="https://www.linkedin.com/shareArticle?mini=true&url={{ url|url_encode }}&title={{ content.title.value|url_encode }}&source=UWEC%20News">LinkedIn</a>
+		<a href="mailto:?subject={{ content.title.value|url_encode }}&amp;body={{ url|url_encode }}">Email</a>
+	</p>
+	{{ content.body }}
+{% endblock %}
