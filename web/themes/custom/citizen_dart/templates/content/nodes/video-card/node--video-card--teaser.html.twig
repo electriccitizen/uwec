@@ -82,7 +82,7 @@
 {% block nodeContent %}
 	{{ content.field_video }}
 	<div class="teaser-title">
-		{{- label.0['#context'].value -}}
+		<a href="{{- url -}}" rel="bookmark"><span>{{- label.0['#context'].value -}}</span></a>
 	</div>
 	{{ content|without('field_video') }}
 {% endblock %}

@@ -143,6 +143,10 @@ steps:
   version: 1.0
   js:
     components/03-composites/paragraphs/steps/steps.js: {}
+stories-video-list:
+  version: 1.0
+  js:
+    components/03-composites/paragraphs/stories-video-list/stories-video-list.js: {}
 table:
   version: 1.0
   css:

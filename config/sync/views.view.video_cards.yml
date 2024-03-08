@@ -208,10 +208,9 @@ display:
           separator: ', '
           field_api_classes: false
       pager:
-        type: some
+        type: none
         options:
-          offset: 1
-          items_per_page: 1
+          offset: 0
       exposed_form:
         type: basic
         options:
@@ -1089,6 +1088,11 @@ display:
     display_plugin: embed
     position: 1
     display_options:
+      pager:
+        type: some
+        options:
+          offset: 0
+          items_per_page: 3
       filters:
         status:
           id: status
@@ -1413,6 +1417,7 @@ display:
         groups:
           1: AND
       defaults:
+        pager: false
         filters: false
         filter_groups: false
       display_description: ''

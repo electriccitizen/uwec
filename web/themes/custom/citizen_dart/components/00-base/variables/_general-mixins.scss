@@ -412,6 +412,24 @@
   padding-left: 56px;
 }
 
+@mixin arrowLinkAfter($arrowLinkColor){
+  font-family: f.$header;
+  font-size: 2.25rem;
+  line-height: 1.33;
+  color: $arrowLinkColor;
+  span{
+    margin-right: 10px;
+  }
+  &:after{
+    content: '';
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    position: relative;
+    top: 4px;
+  }//end before
+}
+
 @mixin dottedLink($dotColor){
 	background-image: linear-gradient(to right, $dotColor 33%, rgba(0,0,0,0) 0%);
 	background-position: bottom;

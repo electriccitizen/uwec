@@ -6,31 +6,50 @@
 
 
 .paragraph--type--stories-video-list{
+  max-width: 1320px;
+  @include auto;
+  & > *:last-child{
+    margin-bottom: -$spaceMd;
+  }
 	.views-wrapper{
-		@include safeFlex(row,wrap,start,start);
-		@include bleed(padding,24px);
-		&.views-both{
-			@include tab{
-				& > .views-element-container{
-					&:first-child{
-						width: 33.33%;
-					}
-					&:last-child:not(:only-child){
-						width: 66.67%;
-					}
-				}
-			}
-		}//end views both
+    &.views-both{
+      .widget-section > .layout--onecol &,.node-support-book &{
+        @include desk{
+          @include safeFlex(row,wrap,start,start);
+          @include bleed(padding,20px);
+          & > .views-element-container{
+            &:first-child{
+              width: 33.33%;
+            }
+            &:last-child:not(:only-child){
+              width: 66.67%;
+            }
+          }
+        }//end desk
+      }//end layout check
+    }//end both
 	}//end views wrapper
 	.field-manual-select{
-		@include safeFlex(row,wrap,start,start);
-		@include bleed(padding,24px);
-		& > div{
-			width: 100%;
-			@include tab{
-				width: 33.33%;
-			}
-		}
-	}
+    .widget-section > .layout--onecol &,.node-support-book &{
+      @include desk{
+        @include safeFlex(row,nowrap,start,start);
+        @include bleed(padding,20px);
+        & > div{
+          width: 33.3%;
+        }
+      }
+    }//end layout check
+    & > div{
+      margin-bottom: $spaceMd;
+    }//end > div
+	}//end manual select
+
+  //stories video list animation
+  .node-teaser{
+    opacity: 0;
+    &.story-video-visible{
+      @include animation('fadeIn 1s 1 forwards');
+    }
+  }
 }//end stories video list widget
 
