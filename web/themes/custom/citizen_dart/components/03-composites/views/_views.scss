@@ -11,6 +11,7 @@
 @forward 'snapshots/snapshots-views';
 @forward 'video-card/video-card-views';
 @forward 'facts/facts-views';
+@forward 'departments/department-views';
 
 @use '../../00-base/base' as *;
 
