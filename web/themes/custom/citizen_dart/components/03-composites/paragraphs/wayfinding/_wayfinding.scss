@@ -3,43 +3,361 @@
 ================== */
 
 @use '../../../00-base/base' as *;
+@use '../../../01-parts/buttons/button-mixins' as *;
 
 .paragraph--type--wayfinding{
-   .wayfinding {
-      &.single {
-         @include safeFlex(row,wrap,start,start);
-         gap: $spaceLg;
-         .wayfinding-text {
-            order: 1;
-            width: 100%;
-            @include tab {
-               max-width: calc(100% - 426px - $spaceLg);
-            }
-         }
-         .image {
-            order: 2;
-         }
-         &.right {
-            .wayfinding-text {
-               order: 2;
-            }
-            .image {
-               order: 1;
-            }
-         }
+  .widget-wrapper{
+    padding-top: 1px;
+    padding-bottom: 1px;
+  }
+  .wayfinding{
+    padding: 20px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    position: relative;
+    max-width: 440px;
+    @include auto;
+    .field-image{
+      margin-bottom: 5rem;
+      position: relative;
+      z-index: 1;
+    }
+    .wayfinding-info{
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+    .wayfinding-headline{
+      @include heading2;
+      line-height: 1.58;
+      margin-bottom: $spaceXs;
+    }
+    .wayfinding-text{
+      margin-bottom: $spaceLg;
+    }
+
+    /* BOX WAYFINDING */
+    &.box{
+      background: $siteBack;
+      //animation
+      &.wayfinding-visible{
+        .gold-stripes-before{
+          top: -50px;
+          right: -67px;
+          transition: all 1s ease-out;
+        }
+        .gold-stripes-after{
+          bottom: -50px;
+          left: -67px;
+          transition: all 1s ease-out;
+        }
       }
-      &.box {
-         @include safeFlex(row,wrap,start,start);
-         gap: $spaceLg;
-         .wayfinding-text {
-            width: 100%;
-            @include tab {
-               max-width: calc(100% - 360px - $spaceLg);
+      .widget-section > .layout--onecol &,
+      .widget-section > .layout--twocol-section--67-33 > .layout__region--first &,
+      .widget-section > .layout--twocol-section--75-25 > .layout__region--first &,
+      .widget-section > .layout--twocol-section--33-67 > .layout__region--second &,
+      .widget-section > .layout--twocol-section--25-75 > .layout__region--second &,
+      .node-support-book &{
+        @include desk{
+          max-width: 914px;
+          padding: 30px;
+          @include safeFlex(row,nowrap,start,stretch);
+          .gold-stripes-before{
+            width: 194px;
+            height: 343px;
+          }
+          .gold-stripes-after{
+            width: 194px;
+            height: 343px;
+          }
+          &.wayfinding-visible{
+            .gold-stripes-before{
+              right: -30px;
+              top: -30px;
+              transition: all 1s ease-out;
             }
-         }
+            .gold-stripes-after{
+              bottom: -30px;
+              left: -30px;
+              transition: all 1s ease-out;
+            }
+          }
+          .field-image{
+            width: 297px;
+            margin-right: 76px;
+            margin-bottom: 0;
+          }
+          .wayfinding-info{
+            padding-left: 0;
+            padding-right: 0;
+            width: calc(100% - 373px);
+            @include safeFlex(column,nowrap,justify,start);
+            .wayfinding-text-wrapper{
+              padding-top: 50px;
+            }
+          }
+          .wayfinding-link{
+            text-align: left;
+            padding-left: 65px;
+            a{
+              margin-bottom: 0;
+            }
+          }
+        }//end desk
+      }//end layout logic check
+      .wayfinding-link{
+        text-align: center;
+        a{
+          @include outlineButton($navy);
+          min-width: 207px;
+        }
+      }//end wayfinding link
+    }//end box
+
+    /* COMBO WAYFINDING */
+    &.combo{
+      background: $lightGrey;
+      padding-top: 40px;
+      &.wayfinding-visible{
+        .gold-stripes-before{
+          top: -50px;
+          right: -67px;
+          transition: all 1s ease-out;
+        }
+        .gold-stripes-after{
+          bottom: -50px;
+          left: -67px;
+          transition: all 1s ease-out;
+        }
       }
-      &.combo {
-         
+      .widget-section > .layout--onecol &,.node-support-book &{
+        @include desk{
+          max-width: $contentStopMargin;
+          padding-top: 84px;
+          padding-bottom: 60px;
+          .gold-stripes-before{
+            width: 194px;
+            height: 343px;
+          }
+          .gold-stripes-after{
+            width: 194px;
+            height: 343px;
+          }
+          &.wayfinding-visible{
+            .gold-stripes-before{
+              right: -30px;
+              top: -30px;
+              transition: all 1s ease-out;
+            }
+            .gold-stripes-after{
+              bottom: -30px;
+              left: -30px;
+              transition: all 1s ease-out;
+            }
+          }
+          .wayfinding-text-wrapper{
+            max-width: $textMax;
+            @include auto;
+            padding-bottom: 20px;
+          }
+          .wayfinding-links{
+            @include safeFlex(row,nowrap,center,start);
+            @include bleed(padding, 80px);
+            .wayfinding-link{
+              position: relative;
+              &:not(:last-child){
+                &:after{
+                  content: '';
+                  display: block;
+                  width: 1px;
+                  height: 56px;
+                  position: absolute;
+                  top: calc(50% - 28px);
+                  right: 0;
+                  background: $navy;
+                }
+              }
+              a{
+                margin-bottom: 0;
+                min-width: 0;
+                padding-top: 17px;
+                padding-bottom: 14px;
+              }
+            }//end wayfinding link
+          }//end wayfinding links;
+        }//end desk
+        @include menuStop{
+          .wayfinding-links{
+            @include bleed(padding, 152px);
+          }
+        }
+      }//end layout logic check
+      .wayfinding-info{
+        padding-left: 0;
+        padding-right: 0;
       }
-   }
+      .wayfinding-links{
+        text-align: center;
+        a{
+          @include outlineButton($navy);
+          min-width: 207px;
+        }
+      }
+    }//end combo
+
+    /* SINGLE WAYFINDING */
+    &.single{
+      padding: 50px 0;
+      &.wayfinding-visible{
+        .field-image{
+          .field-media-image{
+            transform: scale(1);
+            transition: transform 1.5s ease-in-out;
+          }
+          .gold-stripes-narrow{
+            opacity: 1;
+            transition: opacity 1s ease-out;
+            transition-delay: 1.25s;
+          }
+        }
+      }//end wayfinding visible
+      .widget-section > .layout--onecol &,.node-support-book &{
+        @include desk{
+          padding: 90px 0;
+          max-width: 930px;
+          @include safeFlex(row,nowrap,start,start);
+          &.left{
+            .field-image{
+              @include safeFlexOrder(2);
+              margin-right: 0;
+              margin-left: 50px;
+              .gold-stripes-narrow{
+                bottom: auto;
+                top: 10px;
+                left: auto;
+                right: -150px;
+              }
+            }//end field image
+          }//end left
+          .field-image{
+            flex: 0 0 400px;
+            margin-right: 50px;
+            margin-bottom: 0;
+            .gold-stripes-narrow{
+              bottom: -50px;
+            }
+          }
+          .wayfinding-info{
+            flex: 1 1;
+            padding-top: 15px;
+            padding-left: 0;
+            padding-right: 0;
+          }
+          .wayfinding-headline{
+            font-size: 4rem;
+            line-height: 1.25;
+          }
+          .wayfinding-text{
+            padding-left: 28px;
+          }
+          .wayfinding-link{
+            padding-left: 28px;
+            a{
+              margin-bottom: 0;
+            }
+          }
+        }//end desk
+      }//end layout when in a single column or support book
+      .widget-section > .layout:not(.layout--onecol) &,.node-support-book &{
+        @include tab{
+          padding: 50px 20px;
+          background: $lightGrey;
+          overflow: hidden;
+          &:after{
+            content: none;
+          }
+        }//end tab
+      }//end layout check for not one column
+      &:after{
+        @include fullBack($lightGrey);
+        z-index: -2;
+      }
+      .field-image{
+        .field-media-image{
+          transform: scale(0);
+        }
+        .gold-stripes-narrow{
+          @include rotate(180);
+          position: absolute;
+          bottom: -20px;
+          left: -110px;
+          z-index: -1;
+          opacity: 0;
+        }
+      }//end field image
+      .wayfinding-headline{
+        font-family: $displayHeader;
+        font-size: 3.5rem;
+        line-height: 1.28;
+      }
+      .wayfinding-link{
+        a{
+          @include arrowLinkBefore($navy);
+          &:before{
+            content: '';
+            display: block;
+            position: absolute;
+            top: -12px;
+            left: 0;
+            width: 40px;
+            height: 40px;
+            @include rightArrow(navy,transparent,$navy,lg);
+          }
+          &:hover,&:focus{
+            &:before{
+              @include rightArrow(white,$navy,$navy,lg);
+            }
+            span{
+              @include dottedLink($link);
+              padding-bottom: 2px;
+            }
+          }
+        }//end a 
+      }//end wayfinding link
+    }//end single
+  }// endwayfinding
+  .gold-stripes-before{
+    position: absolute;
+    top: 0;
+    right: 100px;
+    z-index: -1;
+    width: 113px;
+    height: 199px;
+    svg{
+      width: 100%;
+      height: 100%;
+    }
+    .widget-section > .layout:not(.layout--onecol) &{
+      @include desk{
+        right: -30px;
+      }
+    }
+  }//end gold stripes before
+  .gold-stripes-after{
+    position: absolute;
+    bottom: 0;
+    left: 100px;
+    z-index: -1;
+    width: 113px;
+    height: 199px;
+    svg{
+      width: 100%;
+      height: 100%;
+    }
+    .widget-section > .layout:not(.layout--onecol) &{
+      @include desk{
+        right: auto;
+        left: -30px;
+      }
+    }
+  }//end gold stripes-after
 }//end wayfinding widget

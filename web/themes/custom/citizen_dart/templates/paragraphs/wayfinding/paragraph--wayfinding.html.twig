@@ -48,22 +48,87 @@
   {% elseif version == 'single' %}
     {% set imageStyle = '426x426' %}
   {% endif %}
-
+  {{ attach_library('citizen_dart/wayfinding') }}
   <div class="wayfinding {{ version }} {{ alignment }}">
-    {% if version != 'combo' and paragraph.field_image is not empty %}
-      {{ drupal_entity('media', paragraph.field_image.entity.id, imageStyle) }}
+    {% if version != 'single' %}
+      <div class="gold-stripes-before">
+        <svg width="76" height="136" viewBox="0 0 76 136" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <mask id="mask0_1941_40267" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="78" height="136">
+          <path d="M77.3598 0H0.517578V136H77.3598V0Z" fill="white"/>
+          </mask>
+          <g mask="url(#mask0_1941_40267)">
+          <path d="M78.3844 95.5945L-4.83398 119.457L-0.62315 134.142L82.5952 110.279L78.3844 95.5945Z" fill="#EDAC1A"/>
+          <path d="M78.3825 63.8445L-4.83594 87.707L-0.625102 102.392L82.5933 78.5295L78.3825 63.8445Z" fill="#EDAC1A"/>
+          <path d="M78.3844 32.0965L-4.83398 55.959L-0.623149 70.6439L82.5952 46.7814L78.3844 32.0965Z" fill="#EDAC1A"/>
+          <path d="M78.3864 0.346493L-4.83203 24.209L-0.621195 38.8939L82.5972 15.0314L78.3864 0.346493Z" fill="#EDAC1A"/>
+          </g>
+        </svg>
+      </div>
     {% endif %}
-    <div class="wayfinding-text">
-      <h2>{{ paragraph.field_headline.value }}</h2>
-      <p>{{ paragraph.field_additional_text.value }}</p>
-      {% if version == 'combo' and paragraph.field_link_multi is not empty %}
-        {% for link in paragraph.field_link_multi %}
-          <a href="{{ link.url }}">{{ link.title }}</a>
-        {% endfor %}
-      {% elseif paragrah.field_link is not empty %}
-        <a href="{{ paragraph.field_link.url }}">{{ paragraph.field_link.title }}</a>
+    {% if version != 'combo' and paragraph.field_image is not empty %}
+      <div class="field-image">
+        {{ drupal_entity('media', paragraph.field_image.entity.id, imageStyle) }}
+        {% if version == 'single' %}
+          <div class="gold-stripes-narrow">
+            <svg width="264" height="172" viewBox="0 0 264 172" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <mask id="mask0_2283_54005" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="264" height="172">
+              <path d="M263.747 0H0V171.284H263.747V0Z" fill="white"/>
+              </mask>
+              <g mask="url(#mask0_2283_54005)">
+              <path d="M21.1562 105.202L555.971 -48.1504" stroke="#EDAC1A" stroke-width="1.07503" stroke-miterlimit="10"/>
+              <path d="M21.1562 123.134L555.971 -30.2188" stroke="#EDAC1A" stroke-width="1.07503" stroke-miterlimit="10"/>
+              <path d="M21.1562 141.065L555.971 -12.2876" stroke="#EDAC1A" stroke-width="1.07503" stroke-miterlimit="10"/>
+              <path d="M21.1562 158.997L555.971 5.64404" stroke="#EDAC1A" stroke-width="1.07503" stroke-miterlimit="10"/>
+              <path d="M21.1562 176.928L555.971 23.5752" stroke="#EDAC1A" stroke-width="1.07503" stroke-miterlimit="10"/>
+              <path d="M21.1562 194.859L555.971 41.5068" stroke="#EDAC1A" stroke-width="1.07503" stroke-miterlimit="10"/>
+              <path d="M21.1562 212.791L555.971 59.4385" stroke="#EDAC1A" stroke-width="1.07503" stroke-miterlimit="10"/>
+              <path d="M21.1562 230.722L555.971 77.3696" stroke="#EDAC1A" stroke-width="1.07503" stroke-miterlimit="10"/>
+              </g>
+            </svg>
+          </div>
+        {% endif %}
+      </div>
+    {% endif %}
+    <div class="wayfinding-info">
+      <div class="wayfinding-text-wrapper">
+        <div class="wayfinding-headline">
+          {{ paragraph.field_headline.value }}
+        </div>
+        <div class="wayfinding-text">
+          {{ paragraph.field_additional_text.value }}
+        </div>
+      </div>
+      {% if version == 'combo' %}
+        {% if paragraph.field_link_multi.0 %}
+          <div class="wayfinding-links">
+            {% for link in paragraph.field_link_multi %}
+              <div class="wayfinding-link">
+                <a href="{{ link.url }}">{{ link.title }}</a>
+              </div>
+            {% endfor %}
+          </div>
+        {% endif %}
+      {% elseif paragraph.field_link.0 %}
+        <div class="wayfinding-link">
+          <a href="{{ paragraph.field_link.url }}"><span>{{ paragraph.field_link.title }}</span></a>
+        </div>
       {% endif %}
     </div>
+    {% if version != 'single' %}
+      <div class="gold-stripes-after">
+        <svg width="76" height="136" viewBox="0 0 76 136" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <mask id="mask0_1941_40267" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="78" height="136">
+          <path d="M77.3598 0H0.517578V136H77.3598V0Z" fill="white"/>
+          </mask>
+          <g mask="url(#mask0_1941_40267)">
+          <path d="M78.3844 95.5945L-4.83398 119.457L-0.62315 134.142L82.5952 110.279L78.3844 95.5945Z" fill="#EDAC1A"/>
+          <path d="M78.3825 63.8445L-4.83594 87.707L-0.625102 102.392L82.5933 78.5295L78.3825 63.8445Z" fill="#EDAC1A"/>
+          <path d="M78.3844 32.0965L-4.83398 55.959L-0.623149 70.6439L82.5952 46.7814L78.3844 32.0965Z" fill="#EDAC1A"/>
+          <path d="M78.3864 0.346493L-4.83203 24.209L-0.621195 38.8939L82.5972 15.0314L78.3864 0.346493Z" fill="#EDAC1A"/>
+          </g>
+        </svg>
+      </div>
+    {% endif %}
   </div>
 {% endblock %}
 
