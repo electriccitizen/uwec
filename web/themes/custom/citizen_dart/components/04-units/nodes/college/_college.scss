@@ -10,11 +10,25 @@
 		.college-hero {
 			@include heroBackground;
 			@include heroImageRight;
+      .swirl-pattern{
+        height: 100%;
+        overflow: hidden;
+      }
 		}
 		.page-header-text {
 			@include heroText;
 		}
 	}
+  #node-section-2{
+    .layout--twocol-sideleft{
+      .layout__region--content{
+        @include desk{
+          padding-top: 150px;
+          padding-left: 120px;
+        }
+      }
+    }
+  }
 	#node-section-4{
 		@include contactSection;
 	}//end node-section-4
