@@ -163,3 +163,7 @@ views:
   version: 1.0
   js:
     components/03-composites/views/views.js: {}
+wayfinding:
+  version: 1.0
+  js:
+    components/03-composites/paragraphs/wayfinding/wayfinding.js: {}
