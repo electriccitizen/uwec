@@ -173,10 +173,6 @@
 	}
 }
 
-@mixin hoursContent{
-  
-}//end hours content
-
 @mixin heroBackground {
 	position: relative;
 	z-index: 0;
@@ -215,6 +211,30 @@
 		}
 	} 
 }
+
+@mixin heroSimple{
+  position: absolute;
+  top: 0;
+  left: -$siteMarginMobile;
+  width: calc(100vw + 40px);
+  z-index: -1;
+  height: 800px;
+  overflow: hidden;
+  padding: 0 $siteMarginMobile;
+  &:after{
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: calc(100% - 400px);
+    left: -50vw;
+    height: 1000px;
+    width: 200vw;
+    z-index: -2;
+    background: $brightBlue;
+    @include rotate(16);
+  }
+}
+
 @mixin heroText {
 	position: relative;
 	z-index: 10;
