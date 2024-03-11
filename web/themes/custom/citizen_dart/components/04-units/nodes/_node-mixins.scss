@@ -14,37 +14,72 @@
 	@include auto;
 }
 
+@mixin contactSocial{
+  width: 100%;
+  margin-bottom: 0;
+  position: relative;
+  padding: 20px 0;
+  @include tab{
+    padding: 12px 0 10px;
+  }
+  &:not(:first-child){
+    margin-top: 5rem;
+  }
+  &:before{
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: calc(50% - 457px);
+    width: 914px;
+    height: 2px;
+    background: $siteBack;
+  }
+  .platform-links{
+    justify-content: center;
+    li{
+      a{
+        &:hover,&:focus{
+          background: darken($ice,3%);
+          border-radius: 4px;
+        }
+      }
+    }
+  }//end platform links
+}
+
 @mixin contactSection{
 	max-width: 914px;
 	@include auto;
 	background: $ice;
-	padding: 60px 84px 76px;
-	.layout__region--content{
-		@include safeFlex(row,wrap,start,start);
-	}
+  padding: 22px 20px 1px;
+  overflow: hidden;
+  .layout__region--content{
+    margin-bottom: 0 !important;
+  }
+  @include tab{
+    padding: 60px 84px 1px;
+    .layout__region--content{
+      @include safeFlex(row,wrap,start,start);
+    }
+  }
 	h2{
-		font-size: 32px;
-		line-height: 40px;
-		color: $brightBlue;
-		width: 100%;
-		font-family: $displayHeader;
-		padding: 0 20px;
+		@include contactTitle;
+    width: 100%;
+    padding-bottom: 32px;
 	}
-	.block-field-contact,.block-field-hours{
-		margin-bottom: $spaceMd;
-		padding: 0 20px;
+	.block-field-contact,.block-field-hours-library{
+		margin-bottom: 1.5rem;
+    &:last-child{
+      margin-bottom: $spaceLg;
+    }
 		@include tab{
 			width: 50%;
 		}
 	}
 	.block-field-platforms{
-		width: 100%;
-		margin-bottom: 0;
-		padding: 0 20px;
-		.platform-links{
-			justify-content: center;
-		}
-	}
+		@include contactSocial;
+	}//end block field platforms
 }//end contactSection
 
 @mixin contactHolder{
