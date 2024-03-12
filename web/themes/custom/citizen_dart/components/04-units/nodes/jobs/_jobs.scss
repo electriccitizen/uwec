@@ -4,6 +4,7 @@
 
 @use '../../../00-base/base' as *;
 @use '../node-mixins' as *;
+@use '../../../01-parts/buttons/_button-mixins.scss' as *;
 
 .node-job{
 	.content-col{
@@ -24,5 +25,30 @@
 	/* prevent cutting off the bottom blue slash */
 	.main-node-content{
 		padding-bottom:11rem;
+	}
+
+	.contact-wrapper{
+		@include contactSection;
+		margin:0;
+
+		.social{
+			padding-bottom:2rem;
+			a{
+				display:inline-block;
+				margin-right:4px;
+
+				svg{
+					width:3rem;
+					height:3rem;
+				}
+			}
+		}
+	}
+	.button{
+		@include outlineButton($navy);
+	}
+
+	.body.field{
+		margin-top:2rem;
 	}
 }
