@@ -37,36 +37,11 @@
  */
 #}
 
-{# check for a paragraph id #}
-{% if paragraph.id.value %}
-	{% if (content.field_list_type.0['#markup'] == 'manual') or (drupal_view('video_cards','recent_three', paragraph.id.value)|render|striptags|trim|length > 0) or (drupal_view('news','recent_two', paragraph.id.value)|render|striptags|trim|length > 0) %} 
-		<div class="paragraph paragraph--type--stories-video-list custom-views-list" data-quickedit-entity-id="paragraph/{{ paragraph.id.value }}">
-        {{ attach_library('citizen_dart/stories-video-list') }}
-				{{ content.field_widget_title }}
+{% extends 'paragraph.html.twig' %}
 
-				{% if content.field_list_type.0['#markup'] == 'auto' %}
-					{% if drupal_view('video_cards','recent_three', paragraph.id.value)|render|striptags|trim|length > 0 and not content.field_type.0 %}
-						<div class="views-wrapper views-both">
-							{{ drupal_view('video_cards','recent_three', paragraph.id.value) }}
-							{% if drupal_view('news','recent_two', paragraph.id.value)|render|striptags|trim|length > 0 %}
-								{{ drupal_view('news','recent_two', paragraph.id.value) }}
-							{% endif %}
-						</div>
-					{% else %}
-						<div class="views-wrapper views-single">
-							{% if drupal_view('news','recent_three', paragraph.id.value)|render|striptags|trim|length > 0 %}
-								{{ drupal_view('news','recent_three', paragraph.id.value) }}
-							{% endif %}
-						</div>
-					{% endif %}
-				{% else %}
-					{{ content.field_manual_select }}
-				{% endif %}
-				
-		</div>
-	{% endif %}
-{# if no id because the node has not yet been saved, spit out a preview message #}
-{% else %}
-	<p><strong>Content placer widgets are not available in preview until the node is saved after they have been added.</strong></p>
-{% endif %}
+{% block widgetContent %}
+  {{ attach_library('citizen_dart/video') }}
+  {{ parent() }}
+{% endblock %}
+
 

@@ -1,16 +1,16 @@
 (function($, Drupal, once) {
 
-/* SNAPSHOT ANIMATIONS
+/* STORY VIDEO ANIMATIONS
 ------------------ */
-Drupal.behaviors.snapshotAnimate = {
+Drupal.behaviors.storyVideoAnimate = {
   attach: function (context, settings) {
-  	$(once('snapshotAnimations', '.node-teaser-snapshot', context)).each(function(){
+  	$(once('storyVideoAnimations', '.paragraph--type--stories-video-list .node-teaser', context)).each(function(){
       // Function to handle the intersection observer callback
       function handleIntersection(entries, observer) {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
             //add class when target is visible
-            entry.target.classList.add('snapshot-visible');
+            entry.target.classList.add('story-video-visible');
             observer.unobserve(entry.target); // Stop observing once the class is added
           }
         });

@@ -18,20 +18,37 @@
 /* NEWS RECENT THREE */
 .news.recent-three{
 	.view-content{
-		@extend %newsThreeColumn;
-	}
+    & > div{
+      margin-bottom: $spaceMd;
+    }
+		.widget-section > .layout--onecol &,.node-support-book &{
+      @include desk{
+        @include safeFlex(row,nowrap,start,start);
+        @include bleed(padding,20px);
+        & > div{
+          width: 33.3%;
+        }
+      }
+    }//end layout check
+	}//end view content
 }//end news recent three
 
 /* NEWS RECENT TWO */
 .news.recent-two{
 	.view-content{
-		@include bleed(padding,24px);
-		& > .views-row{
-			@include tab{
-				width: 50%;
-			}
-		}
-	}
+    & > div{
+      margin-bottom: $spaceMd;
+    }
+		.widget-section > .layout--onecol &,.node-support-book &{
+      @include desk{
+        @include safeFlex(row,nowrap,start,start);
+        @include bleed(padding,20px);
+        & > div{
+          width: 50%;
+        }
+      }
+    }//end layout check
+	}//end view content
 }//end news recent two
 
 .news.recent-by-tag{

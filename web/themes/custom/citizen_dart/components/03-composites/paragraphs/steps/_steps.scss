@@ -3,28 +3,110 @@
 ================== */
 
 @use '../../../00-base/base' as *;
+@use '../../../01-parts/buttons/button-mixins' as *;
 
 .paragraph--type--steps{
-   .step {
-      @include safeFlex(row,wrap,start,start);
-      @include bleed('padding', $spaceLg);
-      border-bottom: 1px solid $warmGrey;
-      padding: 6.25rem 0;
-      .step-number {
-         font-family: $header;
-         font-size: 4.5rem;
-         text-align: center;
-         .step-icon svg {
-            width: 31px;
-            height: auto;
-         }
+  @include edgeToEdge;
+  .step {
+    border-bottom: 1px solid $borderRule;
+    padding: 6rem 40px;
+    .widget-section > .layout--onecol &,
+    .widget-section > .layout--twocol-section--50-50 &,
+    .widget-section > .layout--twocol-section--67-33 > .layout__region--first &,
+    .widget-section > .layout--twocol-section--75-25 > .layout__region--first &,
+    .widget-section > .layout--twocol-section--33-67 > .layout__region--second &,
+    .widget-section > .layout--twocol-section--25-75 > .layout__region--second &,
+    .node-support-book &{
+      @include tab{
+        padding-left: 0;
+        padding-rigth: 0;
+        max-width: 650px;
+        @include auto;
+        @include safeFlex(row,nowrap,start,start);
       }
-      .step-details {
-         max-width: calc(100% - 110px);
-         .field-headline {
-            font-family: $header;
-            font-size: 2.625rem;
-         }
+    }//end layout checks
+    &:first-child{
+      border-top: 1px solid $borderRule;
+    }
+    &.step-visible{
+      .step-number{
+        span{
+          @include animation('flipRight .5s 1 forwards');
+        }
+        .step-icon{
+          @include animation('flipLeft .4s 1 forwards');
+          animation-delay: .5s;
+        }
       }
-   }
+    }//end step visible
+    .step-number {
+      @include safeFlex(row,wrap,start,center);
+      font-family: $header;
+      font-size: 4.5rem;
+      line-height: 1;
+      letter-spacing: .05em;
+      margin-bottom: 4rem;
+      .widget-section > .layout--onecol &,
+      .widget-section > .layout--twocol-section--50-50 &,
+      .widget-section > .layout--twocol-section--67-33 > .layout__region--first &,
+      .widget-section > .layout--twocol-section--75-25 > .layout__region--first &,
+      .widget-section > .layout--twocol-section--33-67 > .layout__region--second &,
+      .widget-section > .layout--twocol-section--25-75 > .layout__region--second &,
+      .node-support-book &{
+        @include tab{
+          @include safeFlex(column,nowrap,start,center);
+          width: 90px;
+          margin-right: 20px;
+          span{
+            margin-right: 0;
+          }
+          .step-icon{
+            margin-top: 16px;
+          }
+        }
+      }
+      span{
+        margin-right: 10px;
+        transform: rotateY(0);
+      }
+      .step-icon{
+        width: 31px;
+        transform: rotateY(0);
+        svg {
+          width: 31px;
+          height: auto;
+        }
+      }//end step icon
+    }//end step number
+    .step-details {
+      .widget-section > .layout--onecol &,
+      .widget-section > .layout--twocol-section--50-50 &,
+      .widget-section > .layout--twocol-section--67-33 > .layout__region--first &,
+      .widget-section > .layout--twocol-section--75-25 > .layout__region--first &,
+      .widget-section > .layout--twocol-section--33-67 > .layout__region--second &,
+      .widget-section > .layout--twocol-section--25-75 > .layout__region--second &,
+      .node-support-book &{
+        @include tab{
+          padding-top: 7px;
+          width: calc(100% - 110px);
+          .field-headline{
+            margin-bottom: 1.5rem;
+          }
+        }
+      }//end layout checks
+      .field-headline {
+        font-family: $header;
+        font-size: 2.625rem;
+        line-height: 1.42;
+        margin-bottom: $spaceXs;
+      }
+      .field-link{
+        margin-top: $spaceSm;
+        a{
+          @include outlineButton($navy);
+          margin-bottom: 0;
+        }
+      }//end field link
+    }//end step details
+  }//end step
 }//end steps widget

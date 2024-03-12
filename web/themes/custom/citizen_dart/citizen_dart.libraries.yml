@@ -139,6 +139,14 @@ snapshot-list:
   version: 1.0
   js:
     components/03-composites/paragraphs/snapshot-list/snapshot-list.js: {}
+steps:
+  version: 1.0
+  js:
+    components/03-composites/paragraphs/steps/steps.js: {}
+stories-video-list:
+  version: 1.0
+  js:
+    components/03-composites/paragraphs/stories-video-list/stories-video-list.js: {}
 table:
   version: 1.0
   css:
@@ -147,7 +155,15 @@ table:
   js:
     components/01-parts/tables/tables.js: {}
     components-addons/basictable/jquery.basictable.min.js: { minified: true }
+video:
+  version: 1.0
+  js:
+    components/03-composites/paragraphs/video/video.js: {}
 views:
   version: 1.0
   js:
     components/03-composites/views/views.js: {}
+wayfinding:
+  version: 1.0
+  js:
+    components/03-composites/paragraphs/wayfinding/wayfinding.js: {}

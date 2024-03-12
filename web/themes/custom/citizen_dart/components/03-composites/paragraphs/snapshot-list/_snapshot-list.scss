@@ -9,10 +9,10 @@
 	@include auto;
 	//manual list
 	.field-manual-select{
-    .widget-section > .layout--onecol &{
+    .widget-section > .layout--onecol &,.node-support-book &{
       @include desk{
-          @include safeFlex(row,nowrap,start,stretch);
-          @include bleed(padding,20px);
+        @include safeFlex(row,nowrap,start,stretch);
+        @include bleed(padding,20px);
         & > div{
           width: 33.3%;
         }
