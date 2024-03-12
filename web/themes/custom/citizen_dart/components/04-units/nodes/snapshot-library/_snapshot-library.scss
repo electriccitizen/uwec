@@ -160,6 +160,68 @@
 
 //snapshot widget (for conten carousel)
 .node-widget-snapshot{
-	
+  color: $brightBlue;
+  @include onlySmall{
+    background: $lightGrey;
+  }
+  .snapshot-top-right{
+    padding: 20px 20px 8px;
+    .field-eyebrow{
+      @include onlySmall{
+        display: none;
+      }
+    }
+    .snapshot-title{
+      font-family: $header;
+      font-size: 2.25rem;
+      line-height: 1.33;
+    }
+  }//end snapshot toprright
+  .snapshot-bottom{
+    padding-right: 20px;
+    padding-left: 20px;
+    .field-plain-text{
+      line-height: 1.5;
+      margin-bottom: $spaceSm;
+    }
+    .field-link{
+      margin-bottom: $spaceSm;
+      a{
+        display: inline-block;
+        @include arrowLinkBefore($brightBlue);
+        padding-left: 32px;
+        font-size: 16px;
+        line-height: 1.2;
+        &:before{
+          content: '';
+          display: block;
+          position: absolute;
+          top: -2px;
+          left: 0;
+          width: 20px;
+          height: 20px;
+          @include rightArrow(blue,transparent,$brightBlue,sm);
+        }//end before
+        &:hover,&:focus{
+          &:before{
+            @include rightArrow(white,$brightBlue,$brightBlue,sm);
+          }
+          span{
+            @include dottedLink($brightBlue);
+            padding-bottom: 1px;
+          }
+        }//end hover, focus
+      }//end a
+    }//end field link
+  }//end snapshot bottom
+  .snapshot-eyebrow-sm{
+    padding-right: 20px;
+    padding-left: 20px;
+    font-size: 1.5rem;
+    line-height: 1.5;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+    padding-bottom: $spaceXs;
+  }
 }//end widget snapshot
 

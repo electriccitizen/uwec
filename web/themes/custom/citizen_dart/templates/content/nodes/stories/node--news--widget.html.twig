@@ -78,26 +78,16 @@
 
 
 <article{{ attributes.addClass(classes) }}>
-  
-  <div class="snapshot-widget-content">
-    <div class="snapshot-top-left">
-      {{- content.field_image -}}
-    </div>
-    <div class="snapshot-top-right">
-      {{ content.field_eyebrow }}
-      <div class="snapshot-title">
-        {{- label.0['#context'].value -}}
-      </div>
-    </div>
-    <div class="snapshot-bottom">
-      {{- content.field_plain_text -}}
-      <div class="field field-link">
-        <a href="{{ content.field_link.0['#url'] }}"><span>{{ content.field_link.0['#title'] }}</span></a>
-      </div>
-    </div>
-  </div>
-  <div class="snapshot-eyebrow-sm">
+  <div class="story-eyebrow-lg">
     {{- content.field_eyebrow.0['#plain_text'] -}}
+  </div>
+  {{ content.field_image }}
+  <div class="story-text">
+    <div class="story-title"{{ title_attributes }}>
+      <a href="{{- url -}}" rel="bookmark"><span>{{- label.0['#context'].value -}}</span></a>
+    </div>
+    {{ content.field_intro_text }}
+    {{ content.field_eyebrow }}
   </div>
 </article>
 

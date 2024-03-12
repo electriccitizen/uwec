@@ -82,5 +82,68 @@
 
 /* TESTIMONIAL WIDGET (content carousel) */
 .node-widget-testimonial{
-  
+  .testimonial-eyebrow-lg{
+    @include onlySmall{
+      display: none;
+    }
+  }
+  .body-wrapper{
+		@include quote;
+    background: $brightBlue;
+    color: $white;
+    padding: 50px 32px 90px;
+    .quote-mark{
+      margin: 0 auto 40px;
+      width: 21px;
+      svg,.cls-1{
+        fill: $white;
+      }
+    }
+    p{
+      text-align: center;
+      font-size: 21px;
+      line-height: 1.33;
+      &:last-child{
+        margin-bottom: 0;
+      }
+    }
+	}//end body wrapper
+  .testimonial-details{
+    background: $lightGrey;
+    @include safeFlex(row,nowrap,start,stretch);
+    .testimonial-meta{
+      flex: 1 1;
+      padding: 28px 20px 12px;
+      color: $brightBlue;
+      font-size: 1.5rem;
+      line-height: 1.5;
+      .testimonial-title{
+        font-family: $header;
+        font-size: 2.25rem;
+        line-height: 1.33;
+        margin-bottom: $spaceXs;
+      }
+      .field-eyebrow{
+        margin-top: $spaceSm;
+        text-transform: uppercase;
+        letter-spacing: .05em;
+      }
+      //when no ptoho
+      &:only-child{
+        text-align: center;
+        .field-eyebrow{
+          text-align: left;
+        }
+      }
+    }//end testimonial meta
+    .field-image{
+      flex: 0 0 203px;
+      *{
+        height: 100%;
+      }
+      img{
+        object-fit: cover;
+      }
+    }//end field image
+  }//end testimonial-details
 }//end testimonial

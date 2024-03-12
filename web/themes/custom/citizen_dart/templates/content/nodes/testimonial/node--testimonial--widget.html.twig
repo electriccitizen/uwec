@@ -85,7 +85,15 @@
 		  <div class="testimonial-title">
         {{- label.0['#context'].value -}}
       </div>
-      {{ content.field_position }}
+      {% if content.field_position.0 %}
+        <div class="field field-position">
+          {% for position in content.field_position['#items'] %}
+            <span class="position">
+              {{- position.value -}}{%- if not loop.last %} | {% endif -%}
+            </span>
+          {% endfor %}
+        </div>
+      {% endif %}
       {{ content.field_major }}
       {{ content.field_grad_year }}
       {{ content.field_eyebrow }}

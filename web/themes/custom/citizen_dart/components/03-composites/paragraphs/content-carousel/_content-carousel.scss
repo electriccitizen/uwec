@@ -5,5 +5,33 @@
 @use '../../../00-base/base' as *;
 
 .paragraph--type--content-carousel{
-  
+  @include edgeToEdge;
+  .view{
+    padding: 0 5px;
+  }
+  .slick-slider{
+    /*
+    .slick-track{
+      display: flex !important;
+      .slick-slide{
+        height: inherit !important;
+      }
+    }
+    .view,.view-content,.views-row,.node-widget{
+      height: 100%;
+    }
+    */
+    .slick-arrow{
+      top: calc(90px + 4vw);
+      &.slick-prev{
+        left: 10px;
+      }
+      &.slick-next{
+        right: 10px;
+      }
+      @include smallTab{
+        top: calc(120px + 6%);
+      }
+    }//end slick arrow
+  }//end slick slider
 }//end content-carousel widget
