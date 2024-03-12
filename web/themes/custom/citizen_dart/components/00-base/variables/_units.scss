@@ -6,6 +6,7 @@ $em-base: 8px;
 
 /* BREAKPOINT VARIABLES
 ------------------------ */
+$carouselBreak: 496px;
 $smallTab: 520px;
 $tab: 800px;
 $desk: 984px;
@@ -45,6 +46,12 @@ $sectionGutter: 40px;
 
 /* BREAKPOINT SHORTHANDS & EDGE MIXINS
 -------------------------- */
+@mixin carouselBreak {
+	@media screen and (min-width: $smallTab) {
+		@content;
+	}
+}
+
 @mixin smallTab {
 	@media screen and (min-width: $smallTab) {
 		@content;

@@ -82,16 +82,27 @@
 
 /* TESTIMONIAL WIDGET (content carousel) */
 .node-widget-testimonial{
-  .testimonial-eyebrow-lg{
-    @include onlySmall{
-      display: none;
-    }
-  }
-  .body-wrapper{
-		@include quote;
+  .testimonial-quote{
     background: $brightBlue;
     color: $white;
     padding: 50px 32px 90px;
+    @include carouselBreak{
+      padding: 20px 50px 90px;
+    }
+    .testimonial-eyebrow-lg{
+      display: none;
+      @include carouselBreak{
+        display: block;
+        text-transform: uppercase;
+        letter-spacing: .05em;
+        font-size: 1.5rem;
+        line-height: 1.5;
+        margin-bottom: $spaceSm;
+      }
+    }
+  }//end testimonial quote
+  .body-wrapper{
+		@include quote;
     .quote-mark{
       margin: 0 auto 40px;
       width: 21px;
@@ -117,6 +128,9 @@
       color: $brightBlue;
       font-size: 1.5rem;
       line-height: 1.5;
+      @include carouselBreak{
+        margin-bottom: $spaceXs;
+      }
       .testimonial-title{
         font-family: $header;
         font-size: 2.25rem;
@@ -127,6 +141,9 @@
         margin-top: $spaceSm;
         text-transform: uppercase;
         letter-spacing: .05em;
+        @include carouselBreak{
+          display: none;
+        }
       }
       //when no ptoho
       &:only-child{

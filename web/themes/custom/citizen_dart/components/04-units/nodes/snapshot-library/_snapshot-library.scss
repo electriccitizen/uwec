@@ -161,14 +161,38 @@
 //snapshot widget (for conten carousel)
 .node-widget-snapshot{
   color: $brightBlue;
-  @include onlySmall{
-    background: $lightGrey;
+  background: $lightGrey;
+  @include carouselBreak{
+    background: $siteBack;
+  }
+  .snapshot-widget-content{
+    @include carouselBreak{
+      @include safeFlex(row,wrap,start,stretch);
+      background: $siteBack;
+      padding-top: 27px;
+    }
+  }
+  .snapshot-top-left{
+    @include carouselBreak{
+      width: 50%;
+    }
   }
   .snapshot-top-right{
     padding: 20px 20px 8px;
+    @include carouselBreak{
+      width: 50%;
+      @include safeFlex(column,nowrap,end,start);
+      padding: 0 0 0 20px;
+    }
     .field-eyebrow{
-      @include onlySmall{
-        display: none;
+      display: none;
+      @include carouselBreak{
+        display: block;
+        font-size: 1.5rem;
+        line-height: 1.5;
+        text-transform: uppercase;
+        letter-spacing: .05em;
+        margin-bottom: $spaceXxs;
       }
     }
     .snapshot-title{
@@ -180,9 +204,17 @@
   .snapshot-bottom{
     padding-right: 20px;
     padding-left: 20px;
+    @include carouselBreak{
+      max-width: 762px;
+      margin: $spaceSm auto 0;
+      width: 100%;
+    }
     .field-plain-text{
       line-height: 1.5;
       margin-bottom: $spaceSm;
+      @include carouselBreak{
+        margin-bottom: $spaceXs;
+      }
     }
     .field-link{
       margin-bottom: $spaceSm;
@@ -222,6 +254,9 @@
     text-transform: uppercase;
     letter-spacing: .05em;
     padding-bottom: $spaceXs;
+    @include carouselBreak{
+      display: none;
+    }
   }
 }//end widget snapshot
 

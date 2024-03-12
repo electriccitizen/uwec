@@ -154,17 +154,35 @@
 ------------------- */
 .node-widget-news{
   .story-eyebrow-lg{
-    @include onlySmall{
-      display: none;
+    display: none;
+    @include carouselBreak{
+      display: block;
+      text-align: right;
+      font-size: 1.5rem;
+      line-height: 1.5;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+      margin-bottom: $spaceXxs;
+      color: $brightBlue;
     }
   }
   .story-text{
     padding: 20px 20px 12px;
     color: $brightBlue;
     background: $lightGrey;
+    @include carouselBreak{
+      background: $siteBack;
+      @include safeFlex(row,nowrap,start,start); 
+      padding: 20px 0 0;
+    }
   }
   .story-title{
     margin-bottom: $spaceXxs;
+    @include carouselBreak{
+      padding-right: 20px;
+      width: 50%;
+      margin-bottom: 0;
+    }
     a{
       @include arrowLinkAfter($brightBlue);
       &:after{
@@ -183,6 +201,10 @@
   }
   .field-intro-text{
     line-height: 1.5;
+    @include carouselBreak{
+      padding-top: 4px;
+      width: 50%;
+    }
   }
   .field-eyebrow{
     margin-top: $spaceSm;
@@ -190,5 +212,8 @@
     line-height: 1.5;
     text-transform: uppercase;
     letter-spacing: .05em;
+    @include carouselBreak{
+      display: none;
+    }
   }
 }//end widget story

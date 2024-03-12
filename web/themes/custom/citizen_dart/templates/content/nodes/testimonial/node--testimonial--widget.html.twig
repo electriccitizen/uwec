@@ -76,10 +76,12 @@
 {% block nodeTitle %}{% endblock %}
 
 {% block nodeContent %}
-  <div class="testimonial-eyebrow-lg">
-    {{- content.field_eyebrow.0['#plain_text'] -}}
+  <div class="testimonial-quote">
+    <div class="testimonial-eyebrow-lg">
+      {{- content.field_eyebrow.0['#plain_text'] -}}
+    </div>
+    {{ content.body}}
   </div>
-  {{ content.body}}
 	<div class="testimonial-details">
     <div class="testimonial-meta">
 		  <div class="testimonial-title">
