@@ -160,32 +160,6 @@
 
 //snapshot widget (for conten carousel)
 .node-widget-snapshot{
-	max-width: 966px;
-	@include auto;
-	.snapshot-top{
-		@include desk{
-			display: grid;
-			grid-template-columns: 492px 426px;
-  		grid-gap: 48px;
-  	}
-	}
-	.snapshot-top-left{
-		position: relative;
-		svg{
-			position: absolute;
-			top: -54px;
-			left: 84px;
-			@include desk{
-				width: 610px;
-				height: 374px;
-				z-index: -1;
-			}
-		}
-	}//end top left
-	.snapshot-top-right{
-		display: flex;
-		flex-direction: column;
-		justify-content: flex-end;
-	}
+	
 }//end widget snapshot
 
