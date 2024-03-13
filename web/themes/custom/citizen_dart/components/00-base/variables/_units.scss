@@ -9,6 +9,7 @@ $em-base: 8px;
 $carouselBreak: 496px;
 $smallTab: 520px;
 $tab: 800px;
+$largeTab: 874px;
 $desk: 984px;
 $menuStop: 1200px;
 $contentStopMargin: 1320px;
@@ -47,7 +48,7 @@ $sectionGutter: 40px;
 /* BREAKPOINT SHORTHANDS & EDGE MIXINS
 -------------------------- */
 @mixin carouselBreak {
-	@media screen and (min-width: $smallTab) {
+	@media screen and (min-width: $carouselBreak) {
 		@content;
 	}
 }
@@ -60,6 +61,12 @@ $sectionGutter: 40px;
 
 @mixin tab {
 	@media screen and (min-width: $tab) {
+		@content;
+	}
+}
+
+@mixin largeTab {
+	@media screen and (min-width: $largeTab) {
 		@content;
 	}
 }

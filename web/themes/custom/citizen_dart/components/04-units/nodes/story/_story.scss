@@ -165,7 +165,10 @@
       margin-bottom: $spaceXxs;
       color: $brightBlue;
     }
-  }
+    @include desk{
+      padding-top: 22px;
+    }
+  }//end story eyebrow lg
   .story-text{
     padding: 20px 20px 12px;
     color: $brightBlue;
@@ -175,7 +178,23 @@
       @include safeFlex(row,nowrap,start,start); 
       padding: 20px 0 0;
     }
-  }
+    @include desk{
+      padding-top: 30px;
+    }
+  }//end story text
+  .field-image{
+    @include desk{
+      position: relative;
+      z-index: 1;
+      &:after{
+        content: url(../images/elements/swirl-horizontal-blue.svg);
+        position: absolute;
+        top: -53px;
+        left: -50px;
+        z-index: -1;
+      }
+    }
+  }//end field image
   .story-title{
     margin-bottom: $spaceXxs;
     @include carouselBreak{
@@ -198,14 +217,14 @@
         }
       }//end hover, focus
     }//end a
-  }
+  }//end story title
   .field-intro-text{
     line-height: 1.5;
     @include carouselBreak{
       padding-top: 4px;
       width: 50%;
     }
-  }
+  }//end field intro text
   .field-eyebrow{
     margin-top: $spaceSm;
     font-size: 1.5rem;
@@ -215,5 +234,5 @@
     @include carouselBreak{
       display: none;
     }
-  }
+  }//end field eyebrow
 }//end widget story

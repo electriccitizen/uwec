@@ -99,7 +99,10 @@
       margin-bottom: $spaceXxs;
       color: $brightBlue;
     }
-  }
+    @include desk{
+      padding-top: 22px;
+    }
+  }//end eyebrow lg
   .video-card-text{
     padding: 20px 20px 12px;
     color: $brightBlue;
@@ -109,29 +112,31 @@
       @include safeFlex(row,nowrap,start,start); 
       padding: 20px 0 0;
     }
-  }
+    @include desk{
+      padding-top: 30px;
+    }
+  }//end video card text
+  .field-video{
+    @include desk{
+      position: relative;
+      z-index: 1;
+      &:after{
+        content: url(../images/elements/swirl-horizontal-blue.svg);
+        position: absolute;
+        top: -53px;
+        left: -50px;
+        z-index: -1;
+      }
+    }
+  }//end field video
   .video-card-title{
     margin-bottom: $spaceXxs;
+    @include arrowLinkAfter($brightBlue);
     @include carouselBreak{
       padding-right: 20px;
       width: 50%;
       margin-bottom: 0;
     }
-    a{
-      @include arrowLinkAfter($brightBlue);
-      &:after{
-        @include rightArrow(blue,transparent,$brightBlue,sm);
-      }
-      &:hover,&:focus{
-        &:after{
-          @include rightArrow(white,$brightBlue,$brightBlue,sm);
-        }
-        span{
-          @include dottedLink($brightBlue);
-          padding-bottom: 1px;
-        }
-      }//end hover, focus
-    }//end a
   }//end video card title
   .field.body{
     line-height: 1.5;

@@ -171,18 +171,52 @@
       background: $siteBack;
       padding-top: 27px;
     }
-  }
+    @include carouselBreak{
+      padding-top: 53px;
+    }
+  }//end snapshot widget content
   .snapshot-top-left{
     @include carouselBreak{
       width: 50%;
+      position: relative;
+      z-index: 1;
     }
-  }
+    @include tab{
+      width: 56.3%;
+    }
+    .swirl-blue{
+      display: none;
+      @include carouselBreak{
+        display: block;
+        position: absolute;
+        top: -53px;
+        left: 112px;
+        width: 50vw;
+        max-width: 611px;
+        z-index: -1;
+        svg{
+          width: 100%;
+          height: auto;
+        }
+      }
+      @include tab{
+        width: 62vw;
+      }
+      @include desk{
+        width: 50vw;
+      }
+    }//end swirl blue;
+  }//end top left
   .snapshot-top-right{
     padding: 20px 20px 8px;
     @include carouselBreak{
       width: 50%;
       @include safeFlex(column,nowrap,end,start);
       padding: 0 0 0 20px;
+    }
+    @include tab{
+      padding: 0 0 0 47px;
+      width: 43.7%;
     }
     .field-eyebrow{
       display: none;
@@ -199,6 +233,9 @@
       font-family: $header;
       font-size: 2.25rem;
       line-height: 1.33;
+      @include desk{
+        font-size: 3rem;
+      }
     }
   }//end snapshot toprright
   .snapshot-bottom{
@@ -257,6 +294,6 @@
     @include carouselBreak{
       display: none;
     }
-  }
+  }//end eyebrow sm
 }//end widget snapshot
 
