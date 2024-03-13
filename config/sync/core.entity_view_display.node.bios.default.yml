@@ -69,45 +69,6 @@ third_party_settings:
           label: ''
           context_mapping: {  }
         components:
-          93715856-4d57-4331-bf22-fe109b6f1ffd:
-            uuid: 93715856-4d57-4331-bf22-fe109b6f1ffd
-            region: first
-            configuration:
-              id: 'field_block:node:bios:field_is_alumni'
-              label: 'Alumni?'
-              label_display: '0'
-              provider: layout_builder
-              context_mapping:
-                entity: layout_builder.entity
-                view_mode: view_mode
-              formatter:
-                type: boolean
-                label: hidden
-                settings:
-                  format: custom
-                  format_custom_false: ''
-                  format_custom_true: Alumnus
-                third_party_settings: {  }
-            weight: 2
-            additional: {  }
-          155aad20-f8c8-4ef8-838c-2fd41ba6e4eb:
-            uuid: 155aad20-f8c8-4ef8-838c-2fd41ba6e4eb
-            region: first
-            configuration:
-              id: 'field_block:node:bios:field_emeriti_status'
-              label: 'Emeriti Status'
-              label_display: '0'
-              provider: layout_builder
-              context_mapping:
-                entity: layout_builder.entity
-                view_mode: view_mode
-              formatter:
-                type: list_key
-                label: hidden
-                settings: {  }
-                third_party_settings: {  }
-            weight: 1
-            additional: {  }
           da69263f-8129-4557-ae64-9aac6a561d43:
             uuid: da69263f-8129-4557-ae64-9aac6a561d43
             region: first
@@ -457,6 +418,7 @@ third_party_settings:
         - 'Lists (Views)'
         - Menus
         - 'Responsive Preview'
+        - 'Site Search'
         - Superfish
         - User
         - core
