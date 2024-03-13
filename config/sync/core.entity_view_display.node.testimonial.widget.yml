@@ -1,0 +1,111 @@
+uuid: 0dfcf830-6341-4cbe-ae6f-f1bb9b6e1b0e
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.widget
+    - field.field.node.testimonial.body
+    - field.field.node.testimonial.field_colleges
+    - field.field.node.testimonial.field_date
+    - field.field.node.testimonial.field_departments
+    - field.field.node.testimonial.field_domain_access
+    - field.field.node.testimonial.field_domain_all_affiliates
+    - field.field.node.testimonial.field_domain_source
+    - field.field.node.testimonial.field_editorial_sections
+    - field.field.node.testimonial.field_eyebrow
+    - field.field.node.testimonial.field_grad_year
+    - field.field.node.testimonial.field_image
+    - field.field.node.testimonial.field_is_quote
+    - field.field.node.testimonial.field_list_widget
+    - field.field.node.testimonial.field_major
+    - field.field.node.testimonial.field_page_families
+    - field.field.node.testimonial.field_placement_tags
+    - field.field.node.testimonial.field_position
+    - field.field.node.testimonial.field_programs
+    - node.type.testimonial
+  module:
+    - layout_builder
+    - layout_builder_restrictions
+    - text
+    - user
+third_party_settings:
+  layout_builder:
+    enabled: false
+    allow_custom: false
+  layout_builder_restrictions:
+    allowed_block_categories: {  }
+    entity_view_mode_restriction:
+      allowed_layouts: {  }
+      denylisted_blocks: {  }
+      allowlisted_blocks: {  }
+      restricted_categories: {  }
+id: node.testimonial.widget
+targetEntityType: node
+bundle: testimonial
+mode: widget
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_eyebrow:
+    type: entity_reference_label
+    label: hidden
+    settings:
+      link: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_grad_year:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_image:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: 240x240
+      link: false
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  field_major:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_position:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+hidden:
+  content_moderation_control: true
+  field_colleges: true
+  field_date: true
+  field_departments: true
+  field_domain_access: true
+  field_domain_all_affiliates: true
+  field_domain_source: true
+  field_editorial_sections: true
+  field_is_quote: true
+  field_list_widget: true
+  field_page_families: true
+  field_placement_tags: true
+  field_programs: true
+  layout_builder__layout: true
+  links: true
+  search_api_excerpt: true

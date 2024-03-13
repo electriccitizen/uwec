@@ -71,22 +71,37 @@
  */
 #}
 
-{% set classes = [
-  'node-widget',
-  'node-widget-' ~ node.type.0.target_id|clean_class,
-] %}
+{% extends 'node--widget.html.twig' %}
 
-{% if elements['#node'].published %}
-	<article{{ attributes.addClass(classes) }}>
-	    {% block nodeTitle %}
-	    	{{ title_prefix }}
-	      <div class="node-widget-title"{{ title_attributes }}>
-	        <a href="{{- url -}}" rel="bookmark">{{- label.0['#context'].value -}}</a>
-	      </div>
-	      {{ title_suffix }}
-	    {% endblock %}
-	    {% block nodeContent %}
-	      {{- content -}}
-	    {% endblock %}
-	</article>
-{% endif %}
+{% block nodeTitle %}{% endblock %}
+
+{% block nodeContent %}
+  <div class="testimonial-quote">
+    <div class="testimonial-eyebrow-lg">
+      {{- content.field_eyebrow.0['#plain_text'] -}}
+    </div>
+    {{ content.body}}
+  </div>
+	<div class="testimonial-details">
+    <div class="testimonial-meta">
+		  <div class="testimonial-title">
+        {{- label.0['#context'].value -}}
+      </div>
+      {% if content.field_position.0 %}
+        <div class="field field-position">
+          {% for position in content.field_position['#items'] %}
+            <span class="position">
+              {{- position.value -}}{%- if not loop.last %} | {% endif -%}
+            </span>
+          {% endfor %}
+        </div>
+      {% endif %}
+      {{ content.field_major }}
+      {{ content.field_grad_year }}
+      {{ content.field_eyebrow }}
+    </div>
+    {% if content.field_image.0 %}
+      {{ content.field_image }}
+    {% endif %}
+	</div>
+{% endblock %}

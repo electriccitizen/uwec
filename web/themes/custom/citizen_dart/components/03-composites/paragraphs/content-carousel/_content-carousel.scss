@@ -5,5 +5,58 @@
 @use '../../../00-base/base' as *;
 
 .paragraph--type--content-carousel{
-
+  @include edgeToEdge;
+  @include desk{
+    @include auto;
+    max-width: 1192px;
+  }
+  .view{
+    padding: 0 5px;
+    @include desk{
+      padding: 0 111px;
+      max-width: 1096px;
+      @include auto;
+      &.testimonials{
+        padding: 0;
+      }
+    }
+  }
+  .slick-slider{
+    .slick-arrow{
+      top: calc(90px + 4vw);
+      @include carouselBreak{
+        top: calc(120px + 6%);
+      }
+      @media screen and (min-width: 600px){
+        top: calc(120px + 12%);
+      }
+      @include tab{
+        top: calc(120px + 20%);
+      }
+      @include desk{
+        top: calc(130px + 16%);
+      }
+      @media screen and (min-width: 1192px){
+        top: 300px;
+      }
+      &.slick-prev{
+        left: 10px;
+        @include desk{
+          left: -10px;
+        }
+        @media screen and (min-width: 1192px){
+          left: 0;
+        }
+      }
+      &.slick-next{
+        right: 10px;
+        @include desk{
+          right: -10px;
+        }
+        @media screen and (min-width: 1192px){
+          right: 0;
+        }
+      }
+    }//end slick arrow
+  }//end slick slider
 }//end content-carousel widget

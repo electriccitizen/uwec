@@ -76,17 +76,19 @@
   'node-widget-' ~ node.type.0.target_id|clean_class,
 ] %}
 
-{% if elements['#node'].published %}
-	<article{{ attributes.addClass(classes) }}>
-	    {% block nodeTitle %}
-	    	{{ title_prefix }}
-	      <div class="node-widget-title"{{ title_attributes }}>
-	        <a href="{{- url -}}" rel="bookmark">{{- label.0['#context'].value -}}</a>
-	      </div>
-	      {{ title_suffix }}
-	    {% endblock %}
-	    {% block nodeContent %}
-	      {{- content -}}
-	    {% endblock %}
-	</article>
-{% endif %}
+
+<article{{ attributes.addClass(classes) }}>
+  <div class="video-card-eyebrow-lg">
+    {{- content.field_eyebrow.0['#plain_text'] -}}
+  </div>
+  {{ content.field_video }}
+  <div class="video-card-text">
+    <div class="video-card-title"{{ title_attributes }}>
+      {{- label.0['#context'].value -}}
+    </div>
+    {{ content.body }}
+    {{ content.field_eyebrow }}
+  </div>
+</article>
+
+	
