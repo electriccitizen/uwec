@@ -8,295 +8,290 @@
 //bio node
 .node-bios{
 	#node-section-1{
-		padding-bottom: 40rem;
-		@media screen and (min-width: 3200px) {
-			padding-bottom: 60rem;
+    position: relative;
+		padding-bottom: 14rem;
+    padding-top: 10px;
+    @include onlyMobile{
+      &:before{
+        @include fullBack($brightBlue);
+        top: 100%;
+        height: 42px;
+        z-index: 0;
+      }
+    }
+    @include desk{
+      padding-top: 8.75rem;
+      padding-bottom: calc(80px + 16vw);
+    }
+		@media screen and (min-width: 1650px){
+      padding-bottom: calc(80px + 14vw);
+    }
+    @media screen and (min-width: 2100px){
+      padding-bottom: calc(80px + 12vw);
+    }
+    &:after {
+			@include fullBack($navy);
 		}
-		position: relative;
-		padding-top: 8.75rem;
 		& > .layout--twocol-even {
 			max-width: $contentStopMargin;
-			@include auto;
 			position: relative;
-			@include onlySmall {
-				width: 100%;
-			}
-			&:after {
-				content: '';
-				display: block;
-				bottom: calc(-40rem - 1px);
-				right: calc(50% - 50vw);
-				height: 20vw;
-				width: 100vw;
-				clip-path: polygon(100% 0%, 0% 100%, 100% 100%);
-				background: $brightBlue;
-				position: absolute;
-				@media screen and (min-width: 3200px) {
-					bottom: -60rem;
+      @include contentStopMargin{
+        width: 100%;
+        @include auto
+      }
+      .layout__region{
+        & > * {
+          position: relative;
+          z-index: 10;
+          * {
+            color: $white;
+          }
+        }
+        &.layout__region--first{
+          @include desk{
+            padding-left: 130px;
+            padding-right: 30px;
+            @include safeFlex(row,wrap,end,start);
+            @include contentStopMargin{
+              padding-left: 30px;
+            }
+          }
+        }
+        &.layout__region--content{
+          @include contentStopMargin{
+            padding-left: 23px;
+          }
+        }
+      }//end layout region
+		}//end layout two column even
+
+    .block-field-image {
+      max-width: 426px;
+      margin: 0 auto;
+      .field-image{
+        @include desk{
+          @include safeFlex(row,wrap,end,start);
+        }
+      }
+      .image-wrapper {
+        position: relative;
+        margin-bottom: 2.5rem;
+        &:before {
+          background-image: url(../images/elements/fat-stripes-gold.svg);
+          content: '';
+          display: block;
+          width: 140px;
+          height: 247px;
+          position: absolute;
+          bottom: -41px;
+          left: -30px;
+          background-repeat: no-repeat;
+          background-size: 100% 100%;
+          @include desk {
+            bottom: -30px;
+            left: -50px;
+            width: 220px;
+            height: 340px;
+          }
+        }//end before
+        .field-media-image {
+          position: relative;
+          z-index: 15;
+        }
+      }//end field image
+    }//end image block
+
+    .emeriti-wrapper {
+      color: $white;
+      width: 120px;
+      font-size: 1.5rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 1rem;
+      margin-left: auto;
+      @include safeFlex(row,nowrap,start,start);
+      @include desk{
+        width: auto;
+        margin-left: 3rem;
+      }
+			.icon-wrapper {
+				width: 15px;
+				height: 18px;
+				margin-top: 3px;
+				margin-right: $spaceXxs;
+				svg path {
+					fill: none;
 				}
-			}
-			.field.title {
+			}//end icon wrapper
+		}//end emeriti
+
+		.alumni-wrapper {
+      @extend .emeriti-wrapper;
+		}//end is alumni
+
+    .block-title {
+      margin-bottom: 0;
+      @include edgeReset;
+      @include desk{
+        margin-top: 28px;
+      }
+      .field.title {
 				margin-bottom: 1rem;
-				margin-top: 2rem;
+				margin-top: 3rem;
 				@include desk {
 					margin-top: 0;
 				}
 			}
-			.block-field-image {
-				margin-bottom: 4rem;
-				.field-image {
-					position: relative;
-					&:before {
-						background-image: url(../images/elements/fat-stripes-gold.svg);
-						content: '';
-						display: block;
-						width: 140px;
-						height: 247px;
-						position: absolute;
-						bottom: -20px;
-						background-repeat: no-repeat;
-						left: -50px;
-						background-size: 100% 100%;
-						@include desk {
-							width: 220px;
-							height: 340px;
-						}
-					}
-					.field-media-image {
-						position: relative;
-						z-index: 15;
-					}
-				}
-			}
-		}
-		.block-field-departments {
-			.block-title {
-				margin-bottom: 0.5rem !important;
-			}
-			.field-departments {
-				span {
-					display: inline-block;
-					color: $gold;
-					&:hover, &:focus {
-						border-bottom: 1px dotted $gold;
-					}
-				}
-				a {
-					position: relative;
-					@include safeFlex(row,nowrap,start,center);
-					&:after {
-						content: '';
-						display: inline-block;
-						width: 20px;
-						height: 20px;
-						background: url(../images/arrows/right-arrow-gold-sm.svg) no-repeat;
-						background-position: center center;
-						background-size: 50%;
-						border: 1px solid $gold;
-						border-radius: 50%;
-						margin-left: .5em;
-					}
-				&:hover, &:focus {
-						&:after {
-							background-image: url(../images/arrows/right-arrow-navy-sm.svg);
-							border-color: $white;
-							background-color: $white;
-						}
-					}
-				}
-			}
-		}
+    }//end title block
 
-		.block-field-emeriti-status {
-			color: $white;
-			width: 100%;
-			font-size: 1.5rem;
-			text-transform: uppercase;
-			letter-spacing: 1px;
-			margin-bottom: 1rem;
-			margin-right: 2rem;
-			@include tab {
-				width: auto;
-				margin-left: $spaceSm;
-				margin-bottom: 0;
-				margin-right: 0;
-			}
-			@include safeFlex(row,nowrap,center,center);
-			@include onlyMobile {
-				justify-content: flex-end;;
-			}
-			.icon-wrapper {
-				width: 15px;
-				height: 18px;
-				margin-top: 4px;
-				margin-right: $spaceXxs;
-				svg path {
-					fill: none;
-				}
-			}
-		}
+    .block-created {
+      margin-bottom: 0;
+    }
 
-		.block-field-is-alumni {
-			color: $white;
-			width: 100%;
-			font-size: 1.5rem;
-			margin-bottom: 1rem;
-			margin-right: 2rem;
-			text-transform: uppercase;
-			letter-spacing: 1px;
-			@include tab {
-				width: auto;
-				margin-bottom: 0;
-				margin-right: 0;
-				margin-left: $spaceSm;
-			}
-			@include safeFlex(row,nowrap,center,center);
-			@include onlyMobile {
-				justify-content: flex-end;;
-			}
-			.icon-wrapper {
-				width: 15px;
-				height: 18px;
-				margin-top: 4px;
-				margin-right: $spaceXxs;
-				svg path {
-					fill: none;
-				}
-			}
-		}
+    .block-field-pronouns {
+      text-transform: uppercase;
+      margin-bottom: 0;
+      letter-spacing: 0.05em;
+    }
 
-		&:after {
-			@include fullBack($navy);
-		}
-		.layout__region--first{
-			padding-left: 0;
-			padding-right: 0;
-			@include tab {
-				@include safeFlex(row,wrap,end,start);
-				max-width: 556px;
-			}
-			@include desk {
-				padding-left: 65px;
-				padding-right: 65px;
-			}
-			& > * {
-				position: relative;
-				z-index: 10;
-			}
-		}
-		.layout__region--content {
-			padding-left: 0;
-			padding-right: 0;
-			@include tab {
-				padding-top: 3rem;
-				width: 100%;
-			}
-			@include desk {
-				max-width: calc(100% - 556px);
-				padding-left: 65px;
-				padding-right: 65px;
-			}
-			& > * {
-				position: relative;
-				z-index: 10;
-			}
-			&:after {
-				content: '';
-				display: block;
-				position: absolute;
-				bottom: -410px;
-				-webkit-mask: url(../images/elements/swirl-vertical-blue.svg) no-repeat 50% 50%;
-				mask: url(../images/elements/swirl-vertical-blue.svg) no-repeat 50% 50%;
-				-webkit-mask-size: cover;
-				mask-size: cover;
-				background-color:$royal;
-				margin-left: .5em;
-				width: 452px;
-				height: 950px;
-				right: -48rem;
-				z-index: 5;
-        @include desk{
-          bottom: -460px;
-          right: -$siteMarginDesk;
+    .block-field-positions {
+      font-family: $header;
+      margin-top: 6rem;
+      margin-bottom: 0;
+      font-size: 2.5rem;
+      line-height: 1.5;
+      @include desk{
+        margin-top: 8rem;
+      }
+      .field-positions > div:not(:last-child){
+        margin-bottom: $spaceXxs;
+      }
+    }//end block field positions
+
+    .block-field-departments {
+      margin-top: 6rem;
+      h2.block-title{
+        font-family: $bodyText;
+        font-size: 1.75rem;
+        text-align: left;
+        font-weight: normal;
+        text-transform: capitalize;
+        letter-spacing: unset;
+        margin-bottom: 0.5rem;
+      }//end block title
+      .field-departments {
+        a {
+          @include arrowLinkAfter($gold);
+          font-family: $bodyText;
+          font-size: 2rem;
+          line-height: 1.875;
+          font-weight: $heavy;
+          span{
+            color: $gold;
+          }
+          &:after{
+            @include rightArrow(gold,transparent,$gold,sm);
+          }
+          &:hover,&:focus{
+            &:after{
+              @include rightArrow(navy,$white,$white,sm);
+            }
+            span{
+              @include dottedLink($white);
+              padding-bottom: 1px;
+            }
+          }//end hover, focus
+        }//end a
+      }//end field departments
+    }//end departments block
+    .blue-triangle {
+      position: absolute;
+      bottom: -1px;
+      left: -20px;
+      height: 29vw;
+      width: 100vw;
+      clip-path: polygon(100% 0%, 0% 100%, 100% 100%);
+      background: $brightBlue;
+      overflow: hidden;
+      @include desk{
+        &:after{
+          content: '';
+          display: block;
+          height: 500%;
+          width: 50%;
+          position: absolute;
+          bottom: -1px;
+          left: 0;
+          background: $white;
+          z-index: 1;
         }
-			}
-			* {
-				color: $white;
-			}
-			.block-title {
-				margin-bottom: 0;
-				@include edgeReset;
-			}
-			.block-created {
-				margin-bottom: 0;
-			}
-			.block-field-pronouns {
-				text-transform: uppercase;
-				margin-bottom: 0;
-				letter-spacing: 0.05em;
-				& + .block-field-departments {
-					margin-top: 10rem;
-				}
-			}
-			.block-field-positions {
-				font-family: $header;
-				margin-top: 10rem;
-				margin-bottom: 0;
-				font-size: 2.5rem;
-				line-height: 1.5;
-			}
-			.block-field-departments {
-				margin-top: 7.5rem;
-				h2 {
-					font-family: $bodyText;
-					font-size: 1.75rem;
-					text-align: left;
-					font-weight: normal;
-					text-transform: capitalize;
-					letter-spacing: unset;
-				}
-				.field-departments {
-					a {
-						color: $gold;
-						font-weight: $heavy;
-					}
-				}
-			}
-		}
-	}
+      }
+    }//end after
+    .blue-swirl{
+      position: absolute;
+      bottom: -92px;
+      left: 73vw; 
+      z-index: 5;
+      @include menuStop{
+        bottom: -100px;
+      }
+      @include contentStop{
+        left: auto;
+        right: -74px;
+      }
+      svg{
+        path{
+          stroke: $royal;
+        }
+      }
+    }//end blue swirl
+	}//end node section one
+
 	#node-section-2{
 		@include contactHolder;
-		margin-top: -22rem;
+		margin-top: -6rem;
 		position: relative;
 		z-index: 10;
 		margin-bottom: $spaceMd;
+    @include smallTab{
+      margin-top: calc(-10px + -8vw);
+    }
 		@include desk {
+      margin-top: calc(-20px + -16vw);
 			margin-bottom: 0;
 		}
-		@media screen and (min-width: 1600px){
-			margin-top: -26rem;
-		}
-		@media screen and (min-width: 1700px){
-			margin-top: -29rem;
-		}
-		@media screen and (min-width: 3200px) {
-			margin-top: -42rem;
-		}
+    @media screen and (min-width: 1650px){
+      margin-top: calc(-20px + -14vw);
+    }
+    @media screen and (min-width: 2100px){
+      margin-top: calc(-20px - 12vw);
+    }
+    @media screen and (min-width: 2500px){
+      margin-top: calc(-20px - 11vw);
+    }
+    @media screen and (min-width: 2800px){
+      margin-top: calc(-20px - 10vw);
+    }
+    .contact-wrapper{
+      padding-top: 56px;
+      padding-bottom: 50px;
+    }
     .contact-title{
       @include contactTitle;
-			margin-bottom: 5rem;
+			margin-bottom: 3.5rem;
+      @include desk{
+        font-size: 25px;
+      }
     }
 		.block-field {
-			margin-bottom: 2rem;
+			margin-bottom: 1.5rem;
 		}
 		.nid a {
 			display: block;
 			margin-bottom: 0.25rem;
 			width: fit-content;
 			border-bottom: 1px dotted;
-
 		}
-
 		#hours-icon {
 			fill: none !important;
 		}
@@ -306,19 +301,35 @@
 		#cv-icon {
 			fill: none !important;
 		}
-		.field-platforms .platform-links svg {
-			width: 2rem;
-			height: 2rem;
+		.field-platforms .platform-links{
+      a{ 
+        &:hover,&:focus{
+          background: darken($ice,3%);
+          border-radius: 4px;
+        }
+        svg {
+          width: 2rem;
+          height: 2rem;
+        }
+      }
 		}
-    .layout__region{
-      @include contactContent;
+    .layout--twocol-even{
+      .layout__region{
+        @include contactContent;
+        @include tab{
+          width: 50%;
+        }
+      }
     }
-	}
+	}//end node section two
 
 	#node-section-3{
 		max-width: $textMax;
 		@include auto;
-		padding-top: 5rem;
+		padding-top: 3rem;
+    @include desk{
+      padding-top: 70px;
+    }
 		h2.block-title {
 			text-align: left;
 			@include heading3;
@@ -326,6 +337,7 @@
 			font-size: 2rem;
 			margin-bottom: 0.5rem;
 			line-height: 2;
+      letter-spacing: 0;
 			@include desk {
 				font-size: 2.25rem;
 			}
@@ -336,15 +348,7 @@
 				padding: 0;
 			}
 		}
-	}
-
-	.block-field-image{
-		width: 100%;
-		max-width: 426px;
-	}
-
-
-
+	}//end node section three
 }//end bios
 
 /* PROFILE TEASER
