@@ -214,15 +214,16 @@
       background: $brightBlue;
       overflow: hidden;
       @include desk{
+        background: $white;
         &:after{
           content: '';
           display: block;
           height: 500%;
-          width: 50%;
+          width: 60%;
           position: absolute;
-          bottom: -1px;
-          left: 0;
-          background: $white;
+          bottom: -2px;
+          right: 0;
+          background: $brightBlue;
           z-index: 1;
         }
       }
