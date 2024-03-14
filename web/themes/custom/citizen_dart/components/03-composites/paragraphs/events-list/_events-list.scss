@@ -5,6 +5,7 @@
 @use '../../../00-base/base' as *;
 
 .paragraph--type--events-list{
+  @include animation('fadeInDelay 1.5s 1 forwards');
   .events-title{
     @include styledHeader;
     text-align: left;
@@ -81,7 +82,7 @@
     }//end date
     .image{
       display: block;
-      margin-bottom: $spaceXxs;
+      margin-bottom: $spaceXs;
     }
     .title{
       display: inline-block;

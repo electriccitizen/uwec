@@ -38,6 +38,10 @@ drawers:
   version: 1.0
   js:
     components/02-chunks/drawers/drawers.js: {}
+events-list:
+  version: 1.0
+  js:
+    components/03-composites/paragraphs/events-list/events-list.js: {}
 facts-list:
   version: 1.0
   js:

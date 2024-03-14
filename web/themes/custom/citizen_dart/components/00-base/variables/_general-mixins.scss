@@ -909,10 +909,11 @@
 			width: calc(100% - 28px);
       a{
         display: inline-block;
+        @include dottedLink(cc.$link);
+        background-position: 0 94%;
         &:hover,&:focus{
-          color: c.$royal;
-          @include dottedLink(c.$royal);
-          background-position: 0 94%;
+          color: c.$navy;
+          background: none;
         }
       }
 		}//end field-content
@@ -1048,6 +1049,21 @@
 	}
 	100%{
 		transform: rotateY(-360deg);
+	}
+}
+
+@include keyframes(fadeInDelay){
+	from{
+		opacity: 0;
+	}
+  75%{
+    opacity: 0;
+  }
+	80%{
+		opacity: .25;
+	}
+	100%{
+		opacity: 1;
 	}
 }
 

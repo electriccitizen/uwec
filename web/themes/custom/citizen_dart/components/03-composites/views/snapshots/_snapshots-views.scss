@@ -8,8 +8,6 @@
 /* SNAPSHOTS LIST
 ------------- */
 .snapshots.list{
-	max-width: 945px;
-	@include auto;
   .view-content{
     .widget-section > .layout--onecol &{
       @include desk{
