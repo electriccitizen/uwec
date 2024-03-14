@@ -191,21 +191,27 @@
 				height: 66vw;
         max-height: 466px;
 				position: relative;
-        margin-top: 80px;
+        margin-top: 150px;
+        @include smallTab{
+          margin-top: 80px;
+        }
 			}
 			.video-mask-inner{
 				position: absolute;
 			  top: 0;
-			  left: 0;
-			  right: 0;
+			  left: -20vw;
+			  right: -20vw;
 			  bottom: 0;
 			  display: flex;
 			  align-items: center;
 			  justify-content: center;
         background: rgba(green,0.4);
         @include rotate(-16);
-        z-index: 9999;
         clip-path: inset(0 0 0 0);
+        @include smallTab{
+          left: 0;
+          right: 0;
+        }
         & > *{
           @include rotate(16);
         }
