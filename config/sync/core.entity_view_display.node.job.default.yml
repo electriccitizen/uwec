@@ -83,12 +83,12 @@ third_party_settings:
           context_mapping: {  }
           column_widths: 50-50
         components:
-          f9835442-9683-432b-a50b-f404163f8d37:
-            uuid: f9835442-9683-432b-a50b-f404163f8d37
-            region: second
+          3dd3674e-f85a-4abd-9acd-ccc3ed5617d8:
+            uuid: 3dd3674e-f85a-4abd-9acd-ccc3ed5617d8
+            region: first
             configuration:
-              id: 'field_block:node:job:field_employment_category'
-              label: 'Employment Category'
+              id: 'field_block:node:job:field_campus'
+              label: Campus
               label_display: '0'
               provider: layout_builder
               context_mapping:
@@ -96,26 +96,7 @@ third_party_settings:
                 view_mode: view_mode
               formatter:
                 type: entity_reference_label
-                label: inline
-                settings:
-                  link: false
-                third_party_settings: {  }
-            weight: 2
-            additional: {  }
-          627376b1-3e63-40ce-b836-91ba791556da:
-            uuid: 627376b1-3e63-40ce-b836-91ba791556da
-            region: second
-            configuration:
-              id: 'field_block:node:job:field_employment_type'
-              label: 'Employment Type'
-              label_display: '0'
-              provider: layout_builder
-              context_mapping:
-                entity: layout_builder.entity
-                view_mode: view_mode
-              formatter:
-                type: entity_reference_label
-                label: inline
+                label: hidden
                 settings:
                   link: false
                 third_party_settings: {  }
@@ -123,7 +104,7 @@ third_party_settings:
             additional: {  }
           411909d1-1ffc-4885-a182-f3c2e2cc8936:
             uuid: 411909d1-1ffc-4885-a182-f3c2e2cc8936
-            region: first
+            region: second
             configuration:
               id: 'field_block:node:job:field_official_title'
               label_display: '0'
@@ -135,11 +116,11 @@ third_party_settings:
                 settings:
                   link_to_entity: false
                 third_party_settings: {  }
-            weight: 3
+            weight: 0
             additional: {  }
           6eb65d73-3368-4d75-abc4-948296b5c556:
             uuid: 6eb65d73-3368-4d75-abc4-948296b5c556
-            region: first
+            region: second
             configuration:
               id: 'field_block:node:job:field_job_id'
               label: 'Job ID'
@@ -155,49 +136,11 @@ third_party_settings:
                   thousand_separator: ''
                   prefix_suffix: false
                 third_party_settings: {  }
-            weight: 4
-            additional: {  }
-          3dd3674e-f85a-4abd-9acd-ccc3ed5617d8:
-            uuid: 3dd3674e-f85a-4abd-9acd-ccc3ed5617d8
-            region: second
-            configuration:
-              id: 'field_block:node:job:field_campus'
-              label: Campus
-              label_display: '0'
-              provider: layout_builder
-              context_mapping:
-                entity: layout_builder.entity
-                view_mode: view_mode
-              formatter:
-                type: entity_reference_label
-                label: inline
-                settings:
-                  link: false
-                third_party_settings: {  }
-            weight: 0
-            additional: {  }
-          c437d77e-8c67-40ff-a3f8-8eb47ffabb8a:
-            uuid: c437d77e-8c67-40ff-a3f8-8eb47ffabb8a
-            region: second
-            configuration:
-              id: 'field_block:node:job:field_department'
-              label: Department
-              label_display: '0'
-              provider: layout_builder
-              context_mapping:
-                entity: layout_builder.entity
-                view_mode: view_mode
-              formatter:
-                type: entity_reference_label
-                label: inline
-                settings:
-                  link: true
-                third_party_settings: {  }
             weight: 1
             additional: {  }
           7a8a2b35-af23-4193-ae97-2ccab08dd01a:
             uuid: 7a8a2b35-af23-4193-ae97-2ccab08dd01a
-            region: first
+            region: second
             configuration:
               id: 'field_block:node:job:field_posted_on'
               label: 'Posted On'
@@ -213,11 +156,11 @@ third_party_settings:
                   timezone_override: ''
                   format_type: month_dd_yyyy
                 third_party_settings: {  }
-            weight: 5
+            weight: 2
             additional: {  }
           fc1a4725-45ca-4691-9ea9-7634c38e91a4:
             uuid: fc1a4725-45ca-4691-9ea9-7634c38e91a4
-            region: first
+            region: second
             configuration:
               id: 'field_block:node:job:field_apply_by'
               label: 'Apply By'
@@ -233,7 +176,38 @@ third_party_settings:
                   timezone_override: ''
                   format_type: month_dd_yyyy
                 third_party_settings: {  }
-            weight: 6
+            weight: 3
+            additional: {  }
+          b0cebef4-e217-4c4c-8e7e-8b4421eeaca8:
+            uuid: b0cebef4-e217-4c4c-8e7e-8b4421eeaca8
+            region: first
+            configuration:
+              id: 'field_block:node:job:created'
+              label: 'Authored on'
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: timestamp
+                label: hidden
+                settings:
+                  date_format: medium
+                  custom_date_format: ''
+                  timezone: ''
+                  tooltip:
+                    date_format: long
+                    custom_date_format: ''
+                  time_diff:
+                    enabled: false
+                    future_format: '@interval hence'
+                    past_format: '@interval ago'
+                    granularity: 2
+                    refresh: 60
+                    description: ''
+                third_party_settings: {  }
+            weight: 4
             additional: {  }
         third_party_settings: {  }
       -
