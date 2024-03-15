@@ -3,13 +3,13 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.paragraph.profiles_list.field_college
     - field.field.paragraph.profiles_list.field_department
     - field.field.paragraph.profiles_list.field_faculty_staff
     - field.field.paragraph.profiles_list.field_limit_list
     - field.field.paragraph.profiles_list.field_list_type
     - field.field.paragraph.profiles_list.field_list_widget
     - field.field.paragraph.profiles_list.field_page_family
-    - field.field.paragraph.profiles_list.field_placement_tag
     - field.field.paragraph.profiles_list.field_profiles
     - field.field.paragraph.profiles_list.field_program
     - field.field.paragraph.profiles_list.field_randomize
@@ -22,6 +22,13 @@ targetEntityType: paragraph
 bundle: profiles_list
 mode: default
 content:
+  field_college:
+    type: entity_reference_entity_id
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
   field_department:
     type: entity_reference_entity_id
     label: hidden
@@ -66,13 +73,6 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: 5
-    region: content
-  field_placement_tag:
-    type: entity_reference_entity_id
-    label: hidden
-    settings: {  }
-    third_party_settings: {  }
-    weight: 4
     region: content
   field_profiles:
     type: entity_reference_entity_view

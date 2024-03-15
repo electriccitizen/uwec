@@ -3,13 +3,13 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.paragraph.profiles_list.field_college
     - field.field.paragraph.profiles_list.field_department
     - field.field.paragraph.profiles_list.field_faculty_staff
     - field.field.paragraph.profiles_list.field_limit_list
     - field.field.paragraph.profiles_list.field_list_type
     - field.field.paragraph.profiles_list.field_list_widget
     - field.field.paragraph.profiles_list.field_page_family
-    - field.field.paragraph.profiles_list.field_placement_tag
     - field.field.paragraph.profiles_list.field_profiles
     - field.field.paragraph.profiles_list.field_program
     - field.field.paragraph.profiles_list.field_randomize
@@ -20,9 +20,19 @@ targetEntityType: paragraph
 bundle: profiles_list
 mode: default
 content:
-  field_department:
+  field_college:
     type: entity_reference_autocomplete
     weight: 2
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_department:
+    type: entity_reference_autocomplete
+    weight: 3
     region: content
     settings:
       match_operator: CONTAINS
@@ -59,16 +69,6 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-  field_placement_tag:
-    type: entity_reference_autocomplete
-    weight: 4
-    region: content
-    settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
   field_profiles:
     type: entity_reference_autocomplete
     weight: 7
@@ -81,7 +81,7 @@ content:
     third_party_settings: {  }
   field_program:
     type: entity_reference_autocomplete
-    weight: 3
+    weight: 4
     region: content
     settings:
       match_operator: CONTAINS

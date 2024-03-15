@@ -9,10 +9,8 @@ dependencies:
     - field.storage.node.field_position
     - node.type.bios
     - taxonomy.vocabulary.page_families
-    - taxonomy.vocabulary.placement_tags
   content:
     - 'taxonomy_term:page_families:e660eb6f-fc22-4daf-9d7f-bd93e363607b'
-    - 'taxonomy_term:placement_tags:479d2dfa-0914-41c7-90c9-7897ba00491d'
   module:
     - node
     - options
@@ -891,52 +889,6 @@ display:
           hierarchy: false
           limit: true
           error_message: true
-        field_placement_tags_target_id:
-          id: field_placement_tags_target_id
-          table: node__field_placement_tags
-          field: field_placement_tags_target_id
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: taxonomy_index_tid
-          operator: or
-          value:
-            32: 32
-          group: 1
-          exposed: false
-          expose:
-            operator_id: ''
-            label: ''
-            description: ''
-            use_operator: false
-            operator: ''
-            operator_limit_selection: false
-            operator_list: {  }
-            identifier: ''
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-            reduce: false
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          reduce_duplicates: true
-          vid: placement_tags
-          type: select
-          hierarchy: false
-          limit: true
-          error_message: true
         field_list_type_value:
           id: field_list_type_value
           table: paragraph__field_list_type
@@ -1026,6 +978,50 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           reduce_duplicates: true
+        field_colleges_target_id:
+          id: field_colleges_target_id
+          table: node__field_colleges
+          field: field_colleges_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: numeric
+          operator: '='
+          value:
+            min: ''
+            max: ''
+            value: '1'
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            min_placeholder: ''
+            max_placeholder: ''
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
         field_departments_target_id:
           id: field_departments_target_id
           table: node__field_departments

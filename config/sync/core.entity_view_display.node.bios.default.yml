@@ -7,6 +7,7 @@ dependencies:
     - field.field.node.bios.field_active
     - field.field.node.bios.field_athena_id
     - field.field.node.bios.field_campus
+    - field.field.node.bios.field_colleges
     - field.field.node.bios.field_cv
     - field.field.node.bios.field_departments
     - field.field.node.bios.field_domain_access
@@ -33,7 +34,6 @@ dependencies:
     - field.field.node.bios.field_office_hours
     - field.field.node.bios.field_page_families
     - field.field.node.bios.field_phone
-    - field.field.node.bios.field_placement_tags
     - field.field.node.bios.field_platforms
     - field.field.node.bios.field_position
     - field.field.node.bios.field_position_override
@@ -471,6 +471,14 @@ content:
     third_party_settings: {  }
     weight: 118
     region: content
+  field_colleges:
+    type: entity_reference_label
+    label: inline
+    settings:
+      link: false
+    third_party_settings: {  }
+    weight: 135
+    region: first
   field_cv:
     type: file_default
     label: above
@@ -636,14 +644,6 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: 105
-    region: content
-  field_placement_tags:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 103
     region: content
   field_platforms:
     type: link
