@@ -5,22 +5,6 @@
 @use '../../../00-base/base' as *;
 @use '../node-mixins' as *;
 
-@mixin centeredHeaderText{
-	margin-top: 80px;
-	position: relative;
-	z-index: 1;
-	max-width: 1000px;
-	@include auto;
-	padding: 60px $siteMarginMobile;
-	.field.title{
-		margin-bottom: 60px;
-	}
-	.field:not(.title){
-		max-width: $textMax;
-		@include auto;
-	}
-}
-
 /* PAGE CONTENT */
 .node-page{
 	&.contextual-region{
@@ -38,7 +22,7 @@
 		}
 	}
 	.node-intro-simple{
-		@include heroSimple;
+		@include heroSimpleBackground;
 	}//end intro simple
 	.layout--twocol-sideleft{
 		max-width: 100%;
@@ -205,7 +189,6 @@
 			  display: flex;
 			  align-items: center;
 			  justify-content: center;
-        background: rgba(green,0.4);
         @include rotate(-16);
         clip-path: inset(0 0 0 0);
         @include smallTab{

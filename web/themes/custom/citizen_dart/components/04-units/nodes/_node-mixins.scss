@@ -212,7 +212,7 @@
 	} 
 }
 
-@mixin heroSimple{
+@mixin heroSimpleBackground{
   position: absolute;
   top: 0;
   left: -$siteMarginMobile;
@@ -225,7 +225,7 @@
     content: '';
     display: block;
     position: absolute;
-    bottom: calc(100% - 400px);
+    bottom: calc(100% - 260px);
     left: -50vw;
     height: 1000px;
     width: 200vw;
@@ -259,6 +259,22 @@
 		margin-bottom: $spaceXs;
 	}
 }//end page header text
+
+@mixin centeredHeaderText{
+	margin-top: 80px;
+	position: relative;
+	z-index: 1;
+	max-width: 1000px;
+	@include auto;
+	padding: 60px $siteMarginMobile;
+	.field.title{
+		margin-bottom: 60px;
+	}
+	.field:not(.title){
+		max-width: $textMax;
+		@include auto;
+	}
+}
 
 @mixin profileTeaser{
   padding-bottom: 40px;

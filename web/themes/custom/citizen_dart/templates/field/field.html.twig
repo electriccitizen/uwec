@@ -88,7 +88,9 @@
       {% block fieldLabel %}
         {%- for item in items -%}
           <div{{- item.attributes -}}>
-            {{- item.content -}}
+            {% block fieldLabelItem %}
+              {{- item.content -}}
+            {% endblock %}
           </div>
         {%- endfor -%}
       {% endblock %}
