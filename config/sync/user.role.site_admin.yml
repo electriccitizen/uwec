@@ -462,6 +462,7 @@ permissions:
   - 'view any structured_section block content history'
   - 'view any unpublished academic_program content'
   - 'view any unpublished bios content'
+  - 'view any unpublished college content'
   - 'view any unpublished content'
   - 'view any unpublished department content'
   - 'view any unpublished news content'

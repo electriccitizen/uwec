@@ -9,6 +9,7 @@ dependencies:
     - media.type.remote_video
     - node.type.academic_program
     - node.type.bios
+    - node.type.college
     - node.type.contact
     - node.type.department
     - node.type.hours
@@ -92,6 +93,7 @@ permissions:
   - 'view all revisions'
   - 'view any unpublished academic_program content'
   - 'view any unpublished bios content'
+  - 'view any unpublished college content'
   - 'view any unpublished content'
   - 'view any unpublished department content'
   - 'view any unpublished news content'
