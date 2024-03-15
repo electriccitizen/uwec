@@ -17,7 +17,7 @@ dependencies:
     - field.field.node.fact.field_plain_text
     - field.field.node.fact.field_programs
     - field.field.node.fact.field_source
-    - field.field.node.fact.field_source_link
+    - field.field.node.fact.field_source_link_internal
     - field.field.node.fact.layout_builder__layout
     - node.type.fact
   module:
@@ -25,7 +25,6 @@ dependencies:
     - layout_builder
     - layout_builder_restrictions
     - layout_discovery
-    - link
     - metatag
     - user
 third_party_settings:
@@ -55,7 +54,7 @@ third_party_settings:
                 settings:
                   link: false
                 third_party_settings: {  }
-            weight: 14
+            weight: 15
             additional: {  }
           ab62245e-c0a8-4730-8753-213c5f861952:
             uuid: ab62245e-c0a8-4730-8753-213c5f861952
@@ -130,30 +129,7 @@ third_party_settings:
                 settings:
                   link: false
                 third_party_settings: {  }
-            weight: 13
-            additional: {  }
-          63535f19-0ce7-4f38-ad82-3928d6e7d904:
-            uuid: 63535f19-0ce7-4f38-ad82-3928d6e7d904
-            region: content
-            configuration:
-              id: 'field_block:node:fact:field_source_link'
-              label: 'Link to Source'
-              label_display: '0'
-              provider: layout_builder
-              context_mapping:
-                entity: layout_builder.entity
-                view_mode: view_mode
-              formatter:
-                type: link
-                label: inline
-                settings:
-                  trim_length: 80
-                  url_only: false
-                  url_plain: false
-                  rel: '0'
-                  target: '0'
-                third_party_settings: {  }
-            weight: 8
+            weight: 14
             additional: {  }
           e3fefe5d-bd84-4bcf-abe3-62d4f7940c34:
             uuid: e3fefe5d-bd84-4bcf-abe3-62d4f7940c34
@@ -186,7 +162,7 @@ third_party_settings:
                     decimals: 2
                     suffix: h
                 third_party_settings: {  }
-            weight: 9
+            weight: 10
             additional: {  }
           259d248c-a05d-480a-98a1-055c22187d13:
             uuid: 259d248c-a05d-480a-98a1-055c22187d13
@@ -205,7 +181,7 @@ third_party_settings:
                 settings:
                   link: false
                 third_party_settings: {  }
-            weight: 10
+            weight: 11
             additional: {  }
           0338ae1e-6b46-4b5c-954f-84a4c91e00fe:
             uuid: 0338ae1e-6b46-4b5c-954f-84a4c91e00fe
@@ -224,7 +200,7 @@ third_party_settings:
                 settings:
                   link: false
                 third_party_settings: {  }
-            weight: 12
+            weight: 13
             additional: {  }
           50db1be0-09d8-43d7-ae50-c903b6ad9d7f:
             uuid: 50db1be0-09d8-43d7-ae50-c903b6ad9d7f
@@ -243,7 +219,26 @@ third_party_settings:
                 settings:
                   link: false
                 third_party_settings: {  }
-            weight: 11
+            weight: 12
+            additional: {  }
+          dd0c7db7-3198-4f34-a722-0c80b2ae4c24:
+            uuid: dd0c7db7-3198-4f34-a722-0c80b2ae4c24
+            region: content
+            configuration:
+              id: 'field_block:node:fact:field_source_link_internal'
+              label: 'Source Link (internal)'
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: string
+                label: inline
+                settings:
+                  link_to_entity: false
+                third_party_settings: {  }
+            weight: 9
             additional: {  }
         third_party_settings: {  }
   layout_builder_restrictions:
@@ -350,17 +345,13 @@ content:
     third_party_settings: {  }
     weight: 105
     region: content
-  field_source_link:
-    type: link
+  field_source_link_internal:
+    type: string
     label: above
     settings:
-      trim_length: 80
-      url_only: false
-      url_plain: false
-      rel: ''
-      target: ''
+      link_to_entity: false
     third_party_settings: {  }
-    weight: 106
+    weight: 124
     region: content
   links:
     settings: {  }

@@ -1,0 +1,19 @@
+uuid: 380c4bb6-72a9-4578-ad53-b323a28cc316
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_source_link_internal
+    - node.type.fact
+id: node.fact.field_source_link_internal
+field_name: field_source_link_internal
+entity_type: node
+bundle: fact
+label: 'Source Link (internal)'
+description: 'Add a link or some text about where the source came from. Used for internal review.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
