@@ -12,6 +12,7 @@
   }
   .view{
     padding: 0 5px;
+    height: 100%;
     @include desk{
       padding: 0 111px;
       max-width: 1096px;
@@ -20,8 +21,22 @@
         padding: 0;
       }
     }
-  }
+    .view-content{
+      height: 100%;
+      background: $lightGrey;
+      @include carouselBreak{
+        background: none;
+        height: auto;
+      }
+    }
+  }//end view
   .slick-slider{
+    .slick-track{
+      display: flex !important;
+    }
+    .slick-slide{
+      height: inherit !important;
+    }
     .slick-arrow{
       top: calc(90px + 4vw);
       @include carouselBreak{
