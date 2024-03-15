@@ -10,7 +10,7 @@ field_name: field_grad_year
 entity_type: node
 bundle: testimonial
 label: 'Grad Year'
-description: "Format should be 'Class of XX'."
+description: ''
 required: false
 translatable: false
 default_value: {  }
