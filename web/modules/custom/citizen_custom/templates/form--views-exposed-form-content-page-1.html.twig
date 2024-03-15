@@ -37,6 +37,12 @@
       {{ element.type }}
     </div>
   {% endif %}
+  {% if element.type %}
+    <div class="views-exposed-filter custom-views-filter filter-content-placement-tags">
+      <label for="edit-field-placement-tags-target-id" class="form-item__label">Placement Tags</label>
+      {{ element.field_placement_tags_target_id }}
+    </div>
+  {% endif %}
   {{ element.status }}
   {{ element.created_wrapper }}
   {{ element.actions }}
