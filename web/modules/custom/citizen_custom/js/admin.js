@@ -335,4 +335,23 @@
     }
   };
 
+   /* ADVANCED FILTER DRAWERS
+  ----------------------- */
+  Drupal.behaviors.advancedFilters = {
+    attach: function (context, settings) {
+    	$(once('advancedFilters', '.views-exposed-form .advanced-filters-drawer', context)).each(function(){
+        $('.advanced-toggle',this).click(function(e){
+          e.preventDefault();
+          console.log('clicked',this);
+          $(this).next('.advanced-filters-wrapper').slideToggle(500);
+        });
+        $('.advanced-filters-wrapper select').each(function(){
+          if($(this).find("option:selected").val() != 'All'){
+            $('.advanced-filters-wrapper').show();
+          }
+        });
+      });
+    }
+  };
+
 })(jQuery, Drupal, once);

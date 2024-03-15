@@ -1,0 +1,56 @@
+{#
+/**
+ * @file
+ * Default theme implementation for a 'form' element.
+ *
+ * Available variables
+ * - attributes: A list of HTML attributes for the wrapper element.
+ * - children: The child elements of the form.
+ *
+ * @see template_preprocess_form()
+ *
+ * @ingroup themeable
+ */
+#}
+{#
+/**
+ * @file
+ * Theme override for a views exposed form.
+ *
+ * Available variables:
+ * - form: A render element representing the form.
+ *
+ * @see template_preprocess_views_exposed_form()
+ */
+#}
+
+<form {{ attributes}} class="{{ element['#attributes'].class.0 }}" aria-label="Filter the contents of the Content view" data-drupal-selector="{{ element['#id'] }}" id="{{ element['#id'] }}" action="{{ element['#action'] }}" method="{{ element['#method'] }}" accept-charset="UTF-8">
+  {% if element.title %}
+    <div class="views-exposed-filter custom-views-filter filter-title">
+      <label for="edit-title" class="form-item__label">Title</label>
+      {{ element.title }}
+    </div>
+  {% endif %}
+  {% if element.type %}
+    <div class="views-exposed-filter custom-views-filter filter-content-type">
+      <label for="edit-type" class="form-item__label">Content Type</label>
+      {{ element.type }}
+    </div>
+  {% endif %}
+  {{ element.status }}
+  {{ element.created_wrapper }}
+  {{ element.actions }}
+  <div class="advanced-filters-drawer">
+    <a href="#" class="advanced-toggle">Advanced filters</a>
+    <div class="advanced-filters-wrapper">
+      <div class="advanced-filters-inner">
+        {% if element.type %}
+          <div class="views-exposed-filter custom-views-filter filter-editorial-sections">
+            <label for="edit-field-editorial-sections-target-id" class="form-item__label">Editorial Section</label>
+            {{ element.field_editorial_sections_target_id }}
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</form>
