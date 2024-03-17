@@ -71,6 +71,10 @@ source:
 
 # Add processing for fields specific to this content type.
 process:
+  layout_parent_id:
+    plugin: migration_lookup
+    migration: layout_pages
+    source: parentId
   type:
     plugin: default_value
     default_value: 'fauxfile'
@@ -80,6 +84,12 @@ process:
   parent_field_name:
     plugin: default_value
     default_value: field_paragraphs
+  behavior_settings:
+    -
+      plugin: single_value
+      source: '@layout_parent_id'
+    -
+      plugin: citizen_behavior_settings
 
   field_fauxfile_items:
     - plugin: cm_lookup

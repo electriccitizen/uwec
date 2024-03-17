@@ -59,6 +59,10 @@ source:
 
 # Add processing for fields specific to this content type.
 process:
+  layout_parent_id:
+    plugin: migration_lookup
+    migration: layout_stories
+    source: legacy_id
   type:
     plugin: default_value
     default_value: text
@@ -68,6 +72,12 @@ process:
   parent_field_name:
     plugin: default_value
     default_value: field_paragraphs
+  behavior_settings:
+    -
+      plugin: single_value
+      source: '@layout_parent_id'
+    -
+      plugin: citizen_behavior_settings
   'field_long_text/value': content
   'field_long_text/format':
     plugin: default_value
