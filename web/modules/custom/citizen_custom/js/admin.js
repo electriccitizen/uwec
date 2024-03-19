@@ -343,7 +343,7 @@
         $('.advanced-toggle',this).click(function(e){
           e.preventDefault();
           console.log('clicked',this);
-          $(this).next('.advanced-filters-wrapper').slideToggle(500);
+          $(this).toggleClass('open').next('.advanced-filters-wrapper').slideToggle(500);
         });
         $('.advanced-filters-wrapper select').each(function(){
           if($(this).find("option:selected").val() != 'All'){

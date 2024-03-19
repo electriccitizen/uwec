@@ -284,6 +284,21 @@ body:not(.role-super-user):not(.role-administrator):not(.role-site_admin) .field
 #views-exposed-form-content-page-1 .custom-views-filter .js-form-item{
   margin-top: .5rem; 
 }
+#views-exposed-form-content-page-1 .advanced-toggle:hover,#views-exposed-form-content-page-1 .advanced-toggle:hover{
+  text-decoration: underline;
+}
+#views-exposed-form-content-page-1 .advanced-toggle .caret{
+  margin-left: .5rem;
+  position: relative;
+  top: -2px;
+}
+#views-exposed-form-content-page-1 .advanced-toggle .caret path{
+  stroke: rgba(5,80,230);
+}
+#views-exposed-form-content-page-1 .advanced-toggle.open .caret svg{
+  transform: rotate(180deg);
+  transition: transform .3s ease-in-out;
+}
 #views-exposed-form-content-page-1 .advanced-filters-drawer{
   margin-top: 1.5rem;
   width: 100%;
