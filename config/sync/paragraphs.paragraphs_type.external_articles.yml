@@ -1,0 +1,10 @@
+uuid: 8094a3d7-13ba-4a3d-ba36-064c0087826c
+langcode: en
+status: true
+dependencies: {  }
+id: external_articles
+label: 'External Articles'
+icon_uuid: null
+icon_default: null
+description: 'Link to external news articles. AKA "In the News"'
+behavior_plugins: {  }

@@ -1,0 +1,10 @@
+uuid: d12a295c-c5b9-4de4-b2c2-686f39be082d
+langcode: en
+status: true
+dependencies: {  }
+id: external_articles_item
+label: 'External Articles Item'
+icon_uuid: null
+icon_default: null
+description: 'A single item in the External Articles paragraph.'
+behavior_plugins: {  }

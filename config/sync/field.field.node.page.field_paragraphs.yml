@@ -12,6 +12,7 @@ dependencies:
     - paragraphs.paragraphs_type.ctas
     - paragraphs.paragraphs_type.custom_embed
     - paragraphs.paragraphs_type.events_list
+    - paragraphs.paragraphs_type.external_articles
     - paragraphs.paragraphs_type.facts_list
     - paragraphs.paragraphs_type.fauxfile
     - paragraphs.paragraphs_type.gallery
@@ -81,6 +82,7 @@ settings:
       video: video
       view_placer: view_placer
       wayfinding: wayfinding
+      external_articles: external_articles
     negate: 0
     target_bundles_drag_drop:
       accordion_item:
@@ -113,6 +115,12 @@ settings:
       events_list:
         weight: -71
         enabled: true
+      external_articles:
+        weight: 53
+        enabled: true
+      external_articles_item:
+        weight: 54
+        enabled: false
       facts_list:
         weight: -69
         enabled: true

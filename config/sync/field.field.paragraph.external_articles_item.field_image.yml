@@ -1,0 +1,29 @@
+uuid: 05f010f2-9512-42c9-b5d5-98b7f3787604
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_image
+    - media.type.image
+    - paragraphs.paragraphs_type.external_articles_item
+id: paragraph.external_articles_item.field_image
+field_name: field_image
+entity_type: paragraph
+bundle: external_articles_item
+label: Image
+description: '<strong>Optimal image size:</strong> 1920x1445 for a CTA bar and 786×442 for CTA Trio images.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference
