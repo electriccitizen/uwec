@@ -64,7 +64,7 @@ class CmFetchActiveFiles extends DrushCommands {
 
       // Further filter Story nodes to those from unit_id 35.
       if ($endpoint === 'stories.json') {
-        $url .= '&unit_id=35';
+        $url .= '&system_id=1&unit_id=35';
       }
       if ($endpoint === 'pages.json') {
         $url .= '&system_id=1&migrating_to_drupal=1';

@@ -69,7 +69,10 @@ process:
   layout_parent_id:
     plugin: migration_lookup
     migration: layout_stories
-    source: legacy_id
+    source:
+      - legacy_id
+      - legacy_id
+      - legacy_id
   type:
     plugin: default_value
     default_value: 'image'

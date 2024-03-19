@@ -16,30 +16,32 @@ use Symfony\Component\DomCrawler\Crawler;
 class CMContentLogger extends CMProcess {
 
   public function transform($value, MigrateExecutableInterface $migrate_executable, Row $row, $destination_property) {
-    // Ensure that $value is a DOMDocument instance.
-    if (!$value instanceof \DOMDocument) {
-      return $value;
-    }
+
     $index = 0;
-    $csvData = [];
+    $csvData = []; // For logging the content
+    $paragraphs = []; // For passing to the next field for processing.
 
     // The data array to hold the values.
     $csvData['legacy_id'] = $row->getSourceIdValues()['id'];
-    $csvData['drupal_id'] = $row->getIdMap()['destid1'];
+    $csvData['drupal_id'] = $row->getIdMap()['destid1'] ?? 0;
 
-    // Log the value of the video_id and cutline fields.
-    if (isset($this->configuration['field'])) {
-      $field = $this->configuration['field'];
-      $csvData[$field] = $value;
-      if ($this->configuration['log_data']) {
-        $this->cmTools->logToFile($csvData, "public://source-data/stories_para_$field.csv", '');
+    // Ensure that $value is a DOMDocument instance.
+    if (!$value instanceof \DOMDocument) {
+      // Log the value of the video_id and cutline fields.
+      if (isset($this->configuration['field'])) {
+        $field = $this->configuration['field'];
+        $csvData[$field] = $value;
+        if ($this->configuration['log_data']) {
+          $this->cmTools->logToFile($csvData, "public://source-data/stories_para_$field.csv", '');
+        }
+        return $field;
       }
-      return $field;
+      return $value;
     }
 
     $crawler = new Crawler($value);
     // Select all elements you are interested in. Adjust the XPath as needed.
-    $tags = implode(', ', $this->configuration['tags']);
+    $tags = isset($this->configuration['tags']) ? implode(', ', $this->configuration['tags']) : '';
     $nodes = $crawler->filter($tags);
 
     foreach ($nodes as $node) {
@@ -54,7 +56,7 @@ class CMContentLogger extends CMProcess {
 
       // Handle <figure> elements.
       if ($domElement->nodeName == 'figure') {
-
+        unset($csvData['content']);
         $img = $domElement->getElementsByTagName('img')[0];
         $csvData['src'] = $img ? $img->getAttribute('src') : '';
         $csvData['image_id'] = $img ? $img->getAttribute('data-image_id') : '';
@@ -63,6 +65,7 @@ class CMContentLogger extends CMProcess {
         if ($this->configuration['log_data']) {
           $this->cmTools->logToFile($csvData, "public://source-data/stories_para_images.csv", '');
         }
+        $paragraphs[] = $csvData;
         continue;
       }
 
@@ -100,13 +103,15 @@ class CMContentLogger extends CMProcess {
 //        $html = $value->saveHTML($domElement);
 //        $csvData['content'] = $html;
 //      }
+      unset($csvData['caption'], $csvData['image_id'], $csvData['src']);
       if ($this->configuration['log_data']) {
         $this->cmTools->logToFile($csvData, "public://source-data/stories_para_text.csv", '');
       }
+      $paragraphs[] = $csvData;
     }
-
+    return $paragraphs;
     // Return the original value as this plugin is for logging, not transforming.
-    return $value->saveHTML();
+//    return $value->saveHTML();
   }
 
   /**

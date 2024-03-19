@@ -46,6 +46,8 @@ source:
   fields:
     - name: legacy_id
       label: 'ID'
+    - name: drupal_id
+      label: 'Drupal ID'
     - name: index
       label: 'Index'
     - name: tag
@@ -60,9 +62,13 @@ source:
 # Add processing for fields specific to this content type.
 process:
   layout_parent_id:
-    plugin: migration_lookup
-    migration: layout_stories
-    source: legacy_id
+    -
+      plugin: migration_lookup
+      migration: layout_stories
+      source:
+        - legacy_id
+        - legacy_id
+        - legacy_id
   type:
     plugin: default_value
     default_value: text

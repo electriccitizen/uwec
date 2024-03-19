@@ -51,8 +51,18 @@ source:
     - name: id
       label: 'ID'
       selector: id
+    - name: index
+      label: 'Index'
+      selector: id
+    - name: tag
+      label: 'Tag'
+      selector: id
   ids:
     id:
+      type: integer
+    index:
+      type: integer
+    tag:
       type: integer
 
 # Add processing for fields specific to this content type.

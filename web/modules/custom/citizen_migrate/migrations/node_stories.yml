@@ -133,15 +133,24 @@ process:
     plugin: default_value
     default_value: limited_html
   video:
-    plugin: cm_content_logger
-    log_data: true
-    source: video_id
-    field: video
+    -
+      plugin: skip_on_value
+      value: 0
+      source: video_id
+      method: process
+    -
+      plugin: cm_content_logger
+      log_data: false
+      field: video
   cutline:
-    plugin: cm_content_logger
-    log_data: true
-    source: cutline
-    field: cutline
+    -
+      plugin: skip_on_empty
+      source: cutline
+      method: process
+    -
+      plugin: cm_content_logger
+      log_data: false
+      field: cutline
 
 #  images:
 #    - plugin: dom
@@ -152,7 +161,7 @@ process:
 #      log_data: false
 #      tag:
 #        - figure
-  text:
+  paragraphs:
 #    -
 #      plugin: cm_remove_attributes
 #      source: article
@@ -181,7 +190,7 @@ process:
     -
       plugin: cm_content_logger
       log_data: true
-      tag:
+      tags:
         - h2
         - h3
         - h4
@@ -189,11 +198,20 @@ process:
         - ul
         - ol
         - figure
-  paragraphs:
-    plugin: cm_array_merge
-    source:
-      - '@images'
-      - '@text'
+  layout_paragraph:
+    plugin: cm_layout_paragraph
+    source: id
+  all_parapraphs:
+    -
+      plugin: get
+      source:
+        - '@layout_paragraph'
+        - '@paragraphs'
+#  paragraphs:
+#    plugin: cm_array_merge
+#    source:
+#      - '@images'
+#      - '@text'
   layout_section:
     -
       plugin: migration_lookup
@@ -233,7 +251,7 @@ process:
 #            - 1
 #  field_paragraphs:
 #    plugin: sub_process
-#    source: '@paragraphs'
+#    source: '@all_paragraphs'
 #    process:
 #      new_id:
 #        -
