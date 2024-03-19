@@ -122,6 +122,9 @@ class CmFetchActiveFiles extends DrushCommands {
       }
     }
     $this->removeDuplicates($this->outputFile);
+    $this->removeDuplicates('public://source-data/doc_links.csv');
+    $this->removeDuplicates('public://source-data/vid_links.csv');
+    $this->output()->writeln("Images found in text: $this->images_from_text");
   }
 
   /**
@@ -192,7 +195,7 @@ class CmFetchActiveFiles extends DrushCommands {
    * @param string $filePath Path to the CSV file.
    */
   public function removeDuplicates(string $filePath) {
-    $this->output()->writeln("Removing duplicates...");
+    $this->output()->writeln("Removing duplicates from $filePath...");
 
     // Check if file exists
     if (!file_exists($filePath) || !is_readable($filePath)) {
@@ -233,7 +236,6 @@ class CmFetchActiveFiles extends DrushCommands {
       }
       fclose($handle);
       $this->output()->writeln("Duplicates removed from file: $filePath");
-      $this->output()->writeln("Images found in text: $this->images_from_text");
     }
   }
 
