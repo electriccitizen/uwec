@@ -2,6 +2,7 @@
 
 namespace Drupal\citizen_migrate\Commands;
 
+use Drupal\Core\Site\Settings;
 use Drush\Commands\DrushCommands;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use GuzzleHttp\Client;
@@ -44,19 +45,34 @@ class CmDeleteUnusedEntities extends DrushCommands {
    * @option entity The entity type to be cleaned: node (default) or paragraph. Use --entity=paragraph to specify.
    * @usage citizen-migrate:delete-unused-entities my_migration
    *   Removes nodes that are not found in the external API list for the specified migration.
-   * @usage citizen-migrate:delete-unused-entities my_migration paragraph
+   * @usage citizen-migrate:delete-unused-entities my_migration --entity=paragraph
    *   Removes paragraphs that are not found in the external API list for the specified migration.
    */
   public function cleanEntities($migration_name, $options = ['entity' => 'node']) {
     $client = new Client();
-    $response = $client->request('GET', 'https://athena.apps.uwec.edu/api/pages.json', [
+    $response = $client->request('GET', 'https://athena.apps.uwec.edu/api/stories.json', [
       'query' => [
-        'apikey' => '36dadd0fab31edb063666ef8f43e595d',
+        'apikey' => Settings::get('uwec_api_key'),
         'ispublished' => 1,
         'system_id' => 1,
         'migrating_to_drupal' => 1,
+        'unit_id' => 35,
+        'system_id' => 1
       ]
     ]);
+    // content_2col
+    // content_3col
+    // fauxfile_item
+    // fauxfile
+    // featured_copy
+    // gallery_items
+    // gallery
+    // links_files
+    // stackla
+    // standard_rte
+    // tabular_rte
+    // video
+    // page
 
     if ($response->getStatusCode() == 200) {
       $data = json_decode($response->getBody()->getContents(), TRUE);

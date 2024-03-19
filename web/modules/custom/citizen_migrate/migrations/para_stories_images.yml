@@ -42,10 +42,12 @@ include:
 # you must put a field with a value.
 source:
   plugin: csv
-  path: 'sites/default/files/source-data/stories_para_figure.csv'
+  path: 'sites/default/files/source-data/stories_para_images.csv'
   fields:
     - name: legacy_id
       label: 'ID'
+    - name: drupal_id
+      label: 'Drupal ID'
     - name: index
       label: 'Index'
     - name: tag
@@ -74,6 +76,10 @@ process:
   parent_type:
     plugin: default_value
     default_value: node
+  parent_id:
+    plugin: migration_lookup
+    migration: stories
+    source: legacy_id
   parent_field_name:
     plugin: default_value
     default_value: field_paragraphs

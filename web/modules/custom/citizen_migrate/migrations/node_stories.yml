@@ -46,6 +46,7 @@ source:
   urls: 'https://athena.apps.uwec.edu/api/stories.json'
   constants:
     unit_id: 35
+    systemid: 1
     isactive: 1
   fields:
     - name: id
@@ -54,6 +55,9 @@ source:
     - name: image_id
       label: 'Image ID'
       selector: image_id
+    - name: video_id
+      label: 'Video ID'
+      selector: video_id
     - name: title
       label: 'Title'
       selector: title
@@ -66,6 +70,9 @@ source:
     - name: featuredheadline
       label: 'Featured Headline'
       selector: featuredheadline
+    - name: cutline
+      label: 'Cutline'
+      selector: cutline
     - name: pub_date
       label: 'Publication Date'
       selector: pub_date
@@ -125,35 +132,63 @@ process:
   'field_intro_text/format':
     plugin: default_value
     default_value: limited_html
-  images:
-    - plugin: dom
-      method: import
-      source: article
-    -
-      plugin: cm_content_logger
-      log_data: false
-      tag: figure
+  video:
+    plugin: cm_content_logger
+    log_data: true
+    source: video_id
+    field: video
+  cutline:
+    plugin: cm_content_logger
+    log_data: true
+    source: cutline
+    field: cutline
+
+#  images:
+#    - plugin: dom
+#      method: import
+#      source: article
+#    -
+#      plugin: cm_content_logger
+#      log_data: false
+#      tag:
+#        - figure
   text:
-    - plugin: dom
+#    -
+#      plugin: cm_remove_attributes
+#      source: article
+#      selector: '*'
+#      attributes:
+#        - class
+#        - style
+    -
+      plugin: dom
       method: import
       source: article
-    -
-      plugin: dom_remove
-      selector: //figure
-    -
-      plugin: dom_remove
-      mode: attribute
-      selector: //*[@class]
-      attribute: class
-    -
-      plugin: dom_remove
-      mode: attribute
-      selector: //*[@style]
-      attribute: style
+#    -
+#      plugin: dom_remove
+#      selector: //figure
+
+#    -
+#      plugin: dom_remove
+#      mode: attribute
+#      selector: //*[@class]
+#      attribute: class
+#    -
+#      plugin: dom_remove
+#      mode: attribute
+#      selector: //*[@style]
+#      attribute: style
     -
       plugin: cm_content_logger
-      log_data: false
-      tag: p
+      log_data: true
+      tag:
+        - h2
+        - h3
+        - h4
+        - p
+        - ul
+        - ol
+        - figure
   paragraphs:
     plugin: cm_array_merge
     source:

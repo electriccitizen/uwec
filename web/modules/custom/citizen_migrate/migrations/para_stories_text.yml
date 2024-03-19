@@ -42,7 +42,7 @@ include:
 # you must put a field with a value.
 source:
   plugin: csv
-  path: 'sites/default/files/source-data/stories_para_p.csv'
+  path: 'sites/default/files/source-data/stories_para_text.csv'
   fields:
     - name: legacy_id
       label: 'ID'
@@ -69,6 +69,10 @@ process:
   parent_type:
     plugin: default_value
     default_value: node
+  parent_id:
+    plugin: migration_lookup
+    migration: stories
+    source: legacy_id
   parent_field_name:
     plugin: default_value
     default_value: field_paragraphs
