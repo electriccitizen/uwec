@@ -23,6 +23,7 @@ dependencies:
     - paragraphs.paragraphs_type.profiles_list
     - paragraphs.paragraphs_type.program_search
     - paragraphs.paragraphs_type.programs_list
+    - paragraphs.paragraphs_type.quick_links
     - paragraphs.paragraphs_type.select_type
     - paragraphs.paragraphs_type.slate_form
     - paragraphs.paragraphs_type.snapshot_list
@@ -81,6 +82,7 @@ settings:
       video: video
       view_placer: view_placer
       wayfinding: wayfinding
+      quick_links: quick_links
     negate: 0
     target_bundles_drag_drop:
       accordion_item:
@@ -161,6 +163,12 @@ settings:
       programs_list:
         weight: -62
         enabled: true
+      quick_links:
+        weight: 43
+        enabled: true
+      quick_links_item:
+        weight: 70
+        enabled: false
       quote:
         weight: -60
         enabled: false

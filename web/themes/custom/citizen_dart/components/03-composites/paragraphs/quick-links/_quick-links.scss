@@ -1,0 +1,41 @@
+@use '../../../00-base/base' as *;
+
+.paragraph--type--quick-links .field-quick-links-items{
+	display:flex;
+	flex-flow:row wrap;
+	justify-content:center;
+	gap:2rem;
+
+	.image{
+		text-align:center;
+		svg{
+			width:10rem;
+			height:10rem;
+			transition:transform .1s;
+		}
+	}
+
+	/* these classless divs are the container for each tile */
+	>div{
+		width:18rem;
+		a{
+			display:inline-block;
+			width:18rem;
+			height:100%;
+			padding:2rem;
+			color:$navy;
+			background:$ice;
+			text-align:center;
+			line-height:3rem;
+			transition:background-color .1s;
+
+			&:hover{
+				background:$white;
+				font-style:italic;
+				svg{
+					transform:skew(-16deg);
+				}
+			}
+		}
+	}
+}
