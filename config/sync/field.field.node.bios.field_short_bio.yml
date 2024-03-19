@@ -13,7 +13,7 @@ field_name: field_short_bio
 entity_type: node
 bundle: bios
 label: 'Short Bio'
-description: ''
+description: 'Short bios ONLY appear when you are featured on a department, office, or service employee listing. This should be a quick summary of your role. Please keep text between 1-3 sentences. '
 required: false
 translatable: false
 default_value: {  }

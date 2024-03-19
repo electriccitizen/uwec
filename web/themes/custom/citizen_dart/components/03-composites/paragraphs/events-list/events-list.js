@@ -14,7 +14,7 @@ Drupal.behaviors.eventsList = {
               $listView.closest('.paragraph--type--events-list').remove();
             }
           });
-        }, 1000);
+        }, 2000);
       });
     });
   }

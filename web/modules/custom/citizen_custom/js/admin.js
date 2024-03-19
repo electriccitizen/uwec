@@ -342,12 +342,14 @@
     	$(once('advancedFilters', '.views-exposed-form .advanced-filters-drawer', context)).each(function(){
         $('.advanced-toggle',this).click(function(e){
           e.preventDefault();
-          console.log('clicked',this);
-          $(this).next('.advanced-filters-wrapper').slideToggle(500);
+          $('.views-exposed-form').toggleClass('move-actions');
+          $(this).toggleClass('open').next('.advanced-filters-wrapper').slideToggle(500);
         });
         $('.advanced-filters-wrapper select').each(function(){
-          if($(this).find("option:selected").val() != 'All'){
+          if($(this).find("option:selected").text() != '- Any -'){
+            $('.advanced-toggle').addClass('open');
             $('.advanced-filters-wrapper').show();
+            $('.views-exposed-form').addClass('move-actions');
           }
         });
       });
