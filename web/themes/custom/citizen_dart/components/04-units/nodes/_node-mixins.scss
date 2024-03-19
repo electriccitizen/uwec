@@ -231,7 +231,7 @@
     top: calc(100% - 1px);
     left: 0;
     height: 29vw;
-    width: 100vw;
+    width: calc(100vw + 40px);
     z-index: -1;
     background: $brightBlue;
     clip-path: polygon(0 0, 100% 0, 100% 100%);
@@ -292,7 +292,7 @@
     }
   }
   .field-name,.teaser-title{
-    font-family: $displayHeader;
+    font-weight: $displayHeader;
     font-size: 3.25rem;
     line-height: 1.23;
     padding-right: 20px;
@@ -303,12 +303,14 @@
       &:hover,&:focus{
         color: $royal;
         background-image: none;
+        .profile-search.directory &{
+          color: $brightBlue;
+        }
       }
     }
   }//end name
   .field-departments{
-    font-family: $header;
-    font-weight: $xHeavy;
+    font-weight: $heavy;
     padding-right: 20px;
     & > div{
       display: inline-block;

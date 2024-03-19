@@ -96,7 +96,7 @@ display:
         type: full
         options:
           offset: 0
-          items_per_page: 8
+          items_per_page: 12
           total_pages: null
           id: 0
           tags:
@@ -184,7 +184,7 @@ display:
           exposed: true
           expose:
             operator_id: search_api_fulltext_op
-            label: 'Search Faculty'
+            label: Keywords
             description: 'Search UW-Eau Claire faculty and staff. You can search by department, job title, and more. '
             use_operator: false
             operator: search_api_fulltext_op

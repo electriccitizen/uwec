@@ -27,15 +27,30 @@
 				margin-top: .5rem;
 			}
 		}
-	}
+    &.js-form-type-textfield{
+      input{
+        font-size: 2rem;
+        line-height: 2;
+        border-radius: 50px;
+        border: none;
+      }
+      .description{
+        margin-left: 20px;
+        margin-right: 20px;
+        font-size: 1.75rem;
+        line-height: 1.71;
+        padding-bottom: $spaceXs;
+      }
+    }
+	}//end form item
 	.form-actions{
-		@include auto;
 		@include safeFlex(row,wrap,start,start);
 		@include tab{
 			margin: .5rem 0 0 -10px;
 		}
 		input.form-submit.button{
 			@include submitButton;
+      color: $navy;
 			margin: 0 10px;
 			&[data-drupal-selector='edit-reset']{
 				@include warningButton;
