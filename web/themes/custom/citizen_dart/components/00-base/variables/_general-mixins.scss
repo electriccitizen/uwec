@@ -540,7 +540,18 @@
 	background: c.$lightGrey;
 	max-width: 894px;
 	margin: 0 auto 60px;
-	padding: 30px 60px 44px;
+  padding: 36px 20px 40px;
+  @include u.desk{
+	  padding: 30px 60px 60px;
+    margin-bottom: 80px;
+  }
+  & > h2{
+    font-family: f.$displayHeader;
+    font-size: 21px;
+    line-height: 1.14;
+    margin-bottom: u.$spaceMd;
+    margin-left: 20px;
+  }
 }
 
 @mixin styledHeader{

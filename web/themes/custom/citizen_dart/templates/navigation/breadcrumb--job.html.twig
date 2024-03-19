@@ -22,12 +22,5 @@
 		{% endif %}
 	{% endfor %}
 	<li><a href="{{ path('entity.node.canonical', {'node':'1'}) }}">Employment Opportunities</a></li>
-  {% for item in breadcrumb %}
-		{% if loop.last %}
-			<li>
-				{{ currentNode.title.0.value }}
-			</li>
-		{% endif %}
-	{% endfor %}
 {% endblock %}
 		

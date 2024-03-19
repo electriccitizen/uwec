@@ -21,7 +21,11 @@
 		@include heading2;
 		font-size: 20px;
 		line-height: 32px;
-		margin-bottom: $elementSpace;
+    max-width: 894px;
+		margin: -30px auto 60px;
+    @include desk{
+      margin: -40px auto 80px;
+    }
 		.search-terms{
 			display: inline;
 			.search-term{
