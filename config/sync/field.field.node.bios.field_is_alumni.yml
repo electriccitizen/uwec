@@ -9,7 +9,7 @@ id: node.bios.field_is_alumni
 field_name: field_is_alumni
 entity_type: node
 bundle: bios
-label: 'Alumni?'
+label: 'UWEC Alumni?'
 description: ''
 required: false
 translatable: false

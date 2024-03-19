@@ -10,7 +10,7 @@ id: node.bios.field_programs
 field_name: field_programs
 entity_type: node
 bundle: bios
-label: Program(s)
+label: 'Academic Program(s)'
 description: ''
 required: false
 translatable: false

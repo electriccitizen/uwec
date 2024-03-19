@@ -10,7 +10,7 @@ field_name: field_pronouns
 entity_type: node
 bundle: bios
 label: Pronouns
-description: ''
+description: 'Optionally enter your pronouns here (e.g., "she/her/hers" or "they/them" or "he or they"). If entered, your pronouns will be listed alongside your name on your profile.'
 required: false
 translatable: false
 default_value: {  }

@@ -321,25 +321,7 @@ third_party_settings:
                 label: hidden
                 settings: {  }
                 third_party_settings: {  }
-            weight: 18
-            additional: {  }
-          64882d8f-24f6-481c-970d-810333afd00b:
-            uuid: 64882d8f-24f6-481c-970d-810333afd00b
-            region: content
-            configuration:
-              id: 'field_block:node:bios:field_education'
-              label: Education
-              label_display: visible
-              provider: layout_builder
-              context_mapping:
-                entity: layout_builder.entity
-                view_mode: view_mode
-              formatter:
-                type: text_default
-                label: hidden
-                settings: {  }
-                third_party_settings: {  }
-            weight: 20
+            weight: 19
             additional: {  }
           51f84dc7-a6fd-48ec-a3cb-552afed214a4:
             uuid: 51f84dc7-a6fd-48ec-a3cb-552afed214a4
@@ -359,24 +341,6 @@ third_party_settings:
                 third_party_settings: {  }
             weight: 21
             additional: {  }
-          e106a923-1488-425d-8b6d-fdedb4529b8e:
-            uuid: e106a923-1488-425d-8b6d-fdedb4529b8e
-            region: content
-            configuration:
-              id: 'field_block:node:bios:field_publications'
-              label: 'Published Research'
-              label_display: visible
-              provider: layout_builder
-              context_mapping:
-                entity: layout_builder.entity
-                view_mode: view_mode
-              formatter:
-                type: text_default
-                label: hidden
-                settings: {  }
-                third_party_settings: {  }
-            weight: 22
-            additional: {  }
           b8f1809e-7a20-4e59-a3c8-33097218a597:
             uuid: b8f1809e-7a20-4e59-a3c8-33097218a597
             region: content
@@ -394,6 +358,42 @@ third_party_settings:
                 settings: {  }
                 third_party_settings: {  }
             weight: 17
+            additional: {  }
+          64882d8f-24f6-481c-970d-810333afd00b:
+            uuid: 64882d8f-24f6-481c-970d-810333afd00b
+            region: content
+            configuration:
+              id: 'field_block:node:bios:field_education'
+              label: Education
+              label_display: visible
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: text_default
+                label: hidden
+                settings: {  }
+                third_party_settings: {  }
+            weight: 18
+            additional: {  }
+          e106a923-1488-425d-8b6d-fdedb4529b8e:
+            uuid: e106a923-1488-425d-8b6d-fdedb4529b8e
+            region: content
+            configuration:
+              id: 'field_block:node:bios:field_publications'
+              label: 'Published Research'
+              label_display: visible
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: text_default
+                label: hidden
+                settings: {  }
+                third_party_settings: {  }
+            weight: 20
             additional: {  }
         third_party_settings: {  }
   layout_builder_restrictions:
