@@ -44,6 +44,7 @@ dependencies:
     - taxonomy.vocabulary.program_types
     - taxonomy.vocabulary.slate_script_tag_types
     - taxonomy.vocabulary.snapshot_types
+    - taxonomy.vocabulary.story_categories
     - taxonomy.vocabulary.story_types
     - workflows.workflow.marketing
     - workflows.workflow.non_moderated
@@ -73,6 +74,7 @@ dependencies:
     - smart_date_recur
     - system
     - taxonomy
+    - view_unpublished
     - workbench_access
 id: site_admin
 label: 'Site Admin'
@@ -194,6 +196,7 @@ permissions:
   - 'create terms in placement_tags'
   - 'create terms in program_types'
   - 'create terms in snapshot_types'
+  - 'create terms in story_categories'
   - 'create terms in story_types'
   - 'create testimonial content'
   - 'create testimonial content on assigned domains'
@@ -309,6 +312,7 @@ permissions:
   - 'delete terms in placement_tags'
   - 'delete terms in program_types'
   - 'delete terms in snapshot_types'
+  - 'delete terms in story_categories'
   - 'delete terms in story_types'
   - 'delete testimonial content on assigned domains'
   - 'delete testimonial revisions'
@@ -373,6 +377,7 @@ permissions:
   - 'edit terms in program_types'
   - 'edit terms in slate_script_tag_types'
   - 'edit terms in snapshot_types'
+  - 'edit terms in story_categories'
   - 'edit terms in story_types'
   - 'make smart dates recur'
   - 'perform batch updates entity usage'
@@ -455,7 +460,13 @@ permissions:
   - 'view any reusable_widgets block content history'
   - 'view any social_media_links block content history'
   - 'view any structured_section block content history'
+  - 'view any unpublished academic_program content'
+  - 'view any unpublished bios content'
+  - 'view any unpublished college content'
   - 'view any unpublished content'
+  - 'view any unpublished department content'
+  - 'view any unpublished news content'
+  - 'view any unpublished page content'
   - 'view assigned domains'
   - 'view bios revisions'
   - 'view college revisions'

@@ -3,22 +3,7 @@
 ================ */
 
 @use '../../../00-base/base' as *;
-
-@mixin centeredHeaderText{
-	margin-top: 80px;
-	position: relative;
-	z-index: 1;
-	max-width: 1000px;
-	@include auto;
-	padding: 60px $siteMarginMobile;
-	.field.title{
-		margin-bottom: 60px;
-	}
-	.field:not(.title){
-		max-width: $textMax;
-		@include auto;
-	}
-}
+@use '../node-mixins' as *;
 
 /* PAGE CONTENT */
 .node-page{
@@ -37,25 +22,7 @@
 		}
 	}
 	.node-intro-simple{
-		position: absolute;
-		top: 0;
-		left: -$siteMarginMobile;
-		width: 100vw;
-		z-index: -1;
-		height: 800px;
-		overflow: hidden;
-		&:after{
-			content: '';
-			display: block;
-			position: absolute;
-			bottom: calc(100% - 400px);
-			left: -50vw;
-			height: 1000px;
-			width: 200vw;
-			z-index: -2;
-			background: $brightBlue;
-			@include rotate(16);
-		}
+		@include heroSimpleBackground;
 	}//end intro simple
 	.layout--twocol-sideleft{
 		max-width: 100%;
@@ -201,22 +168,36 @@
 		  bottom: 0;
 		  display: flex;
 		  align-items: center;
-			  justify-content: center;
+			justify-content: center;
 			.video-hero-mask{
-				width: 912px;
-				height: 835px;
+				width: 100vw;
+        max-width: 700px;
+				height: 66vw;
+        max-height: 466px;
 				position: relative;
-				clip-path: polygon(84% 8%, 100% 51%, 15% 92%, 0 46%);
+        margin-top: 150px;
+        @include smallTab{
+          margin-top: 80px;
+        }
 			}
 			.video-mask-inner{
 				position: absolute;
 			  top: 0;
-			  left: 0;
-			  right: 0;
+			  left: -20vw;
+			  right: -20vw;
 			  bottom: 0;
 			  display: flex;
 			  align-items: center;
 			  justify-content: center;
+        @include rotate(-16);
+        clip-path: inset(0 0 0 0);
+        @include smallTab{
+          left: 0;
+          right: 0;
+        }
+        & > *{
+          @include rotate(16);
+        }
 			}
 		}//end hero video
 		.image-right{

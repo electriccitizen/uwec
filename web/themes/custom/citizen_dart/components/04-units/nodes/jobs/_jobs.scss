@@ -3,57 +3,135 @@
 ================ */
 
 @use '../../../00-base/base' as *;
+@use '../node-mixins' as *;
 
 .node-job{
-	max-width: 914px;
-	@include auto;
-	#node-section-1{
-		.layout__region--content{
-			@include safeFlex(row,wrap,start,start);
-			@include bleed(padding,10px);
-			margin-bottom: $elementSpace - $spaceXxs;
-		}
-		.block-field,.block{
-			width: 100%;
-			&.block-title{
-				margin-left: 0;
-			}
-		}
-		.block-field-campus{
-			@include heading4;
-			margin-bottom: $spaceXxs;
-		}
-		.block-field-employment-type{
-			margin-bottom: $spaceXxs;
-			@include tab{
-				width: auto;
-				& + .block-field-employment-category{
-					&:before{
-						content: "|";
-						display: inline;
-						margin-right: 10px;
-					}
-				}
-			}//end tab
-		}//end block field employment tpye
-		.block-field-employment-category{
-			margin-bottom: $spaceXxs;
-			@include tab{
-				width: auto;
-				.field{
-					display: inline;
-				}
-			}
-		}// block employment category
-	}//end node section 1
-	#node-section-2{
-		.block-field:not(:last-child){
-			margin-bottom: $spaceXxs;
-		}
-	}
-
-	.block-field.block-body{
-		max-width: $textMax;
-		@include auto;
-	}
+	.node-intro-simple{
+		@include heroSimpleBackground;
+	}//end intro simple
+  .node-section{
+    position: relative;
+    z-index: 1;
+    max-width: 1000px;
+    @include auto;
+    &:not(#node-section-1){
+      padding-left: $siteMarginMobile;
+      padding-right: $siteMarginMobile;
+      background: $siteBack;
+    }
+  }
+  #node-section-1{
+    @include onlyMobile{
+      display: none;
+    }
+    .breadcrumb li{
+      a{
+        color: $white;
+      }
+    }//end breadcrumb
+  }//end node section one
+  #node-section-2{
+    &:after{
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: calc(100% + 300px);
+      background: $siteBack;
+      z-index: -1;
+    }
+  }
+  .block-field.block-title{
+    padding-top: 75px;
+    h1{
+      color: $brightBlue;
+      padding-bottom: $spaceXs;
+    }
+  }
+  #node-section-3{
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-bottom: $elementSpace;
+    .info-wrapper{
+      @include contactHolder;
+      h2{
+        @include contactTitle;
+        margin-bottom: 3.5rem;
+        @include desk{
+          font-size: 25px;
+        }
+      }
+    }//end info wrapper
+    .block-field{
+      margin-bottom: 1.5rem;
+      color: $brightBlue;
+      font-size: 1.75rem;
+      line-height: 1.42;
+    }
+    .field-campus{
+      div{
+        display: inline;
+      }
+    }
+    .disclaimer{
+      font-size: 1.5rem;
+      line-height: 1.33;
+      margin-top: .5rem;
+    }
+  }//end node section 3
+  // buttons and sharing
+  .field.nid{
+    @include safeFlex(row,wrap,center,center);
+    .ec-button{
+      margin-left: 16px;
+      margin-right: 16px;
+      @include largeTab{
+        margin-bottom: 0;
+      }
+    }
+    .social{
+      width: 100%;
+      @include safeFlex(row,nowrap,center,center);
+      @include largeTab{
+        width: auto;
+        justify-content: flex-start;
+        margin-left: 32px;
+      }
+      span{
+        margin-right: .5rem;
+      }
+      a{
+        @include safeFlex(column,nowrap,center,center);
+        width: 36px;
+        height: 36px;
+        &:hover,&:focus{
+          background: $lightGrey;
+          svg#facebook,svg#twitter,svg#linkedin{
+            path{
+              fill: $navy;
+            }
+          }
+          svg#email{
+            rect,path{
+              stroke: $navy;
+              fill: none;
+            }
+          }
+        }//end hover focus
+        svg{
+          width: 16px;
+          height: 16px;
+          &#facebook,&#email{
+            width: 18px;
+            height: 18px;
+          }
+        }
+      }//end a 
+    }//end social
+  }//end field nid
+  .block-field.block-body{
+    @include textContent;
+  }
 }//end jobs node

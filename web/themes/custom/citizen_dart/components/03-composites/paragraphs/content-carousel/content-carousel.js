@@ -10,7 +10,18 @@
 					$('.paragraph--type--content-carousel .widget-wrapper', this).slick({
 						adaptiveHeight: false,
 						autoplay: false,
-						autoplaySpeed: 5000
+            centerMode: false,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            responsive: [
+              {
+                breakpoint: 984,
+                settings: {
+                  centerMode: true,
+                  centerPadding: '20px',
+                }
+              }
+            ]
 					});
 				});
 			});

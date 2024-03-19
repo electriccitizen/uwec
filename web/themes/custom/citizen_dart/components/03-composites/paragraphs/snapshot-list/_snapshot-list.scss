@@ -4,24 +4,19 @@
 
 @use '../../../00-base/base' as *;
 
-.paragraph--type--snapshots-list{
-	max-width: 945px;
+.paragraph--type--snapshot-list{
+  max-width: 1320px;
 	@include auto;
-
 	//manual list
 	.field-manual-select{
-		@include safeFlex(row,wrap,center,start);
-		@include bleed(padding,20px);
-		& > div{
-			&:not(:last-child){
-				margin-bottom: $spaceMd;
-			}
-			@include smallTab{
-				width: 50%;
-			}
-			@include tab{
-				width: 33.33%;
-			}
-		}
-	}//end field profiles
+    .widget-section > .layout--onecol &,.node-support-book &{
+      @include desk{
+        @include safeFlex(row,nowrap,start,stretch);
+        @include bleed(padding,20px);
+        & > div{
+          width: 33.3%;
+        }
+      }
+    }//end layout check
+	}//end field manual select
 }//end snapshot-list widget

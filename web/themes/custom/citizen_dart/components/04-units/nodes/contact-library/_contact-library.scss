@@ -20,11 +20,6 @@
 			@include contactContent;
 		}
 	}//end node section 1
-	#node-section-2{
-		.block-field{
-			margin-bottom: $spaceXxs;
-		}
-	}
 }//end contact-library
 
 .node-widget-contact{
@@ -32,7 +27,7 @@
   //remove extra padding when not in a one column layout
   .widget-section > .layout:not(.layout--onecol) &{
     & > *:first-child{
-      @include tab{
+      @include desk{
         padding: 40px 20px 30px;
       }
     }
@@ -45,7 +40,7 @@
     .widget-section > .layout--twocol-section--75-25 > .layout__region--first &,
     .widget-section > .layout--twocol-section--33-67 > .layout__region--second &,
     .widget-section > .layout--twocol-section--25-75 > .layout__region--second &{
-      @include tab{
+      @include desk{
         @include safeFlex(row,wrap,start,start);
         @include bleed(padding,20px);
         & > *{
@@ -66,7 +61,7 @@
     .widget-section > .layout--twocol-section--75-25 > .layout__region--first &,
     .widget-section > .layout--twocol-section--33-67 > .layout__region--second &,
     .widget-section > .layout--twocol-section--25-75 > .layout__region--second &{
-      @include tab{
+      @include desk{
         padding-left: 20px;
       }
     }

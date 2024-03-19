@@ -7,7 +7,10 @@ dependencies:
     - media.type.document
     - media.type.image
     - media.type.remote_video
+    - node.type.academic_program
     - node.type.bios
+    - node.type.college
+    - node.type.department
     - node.type.fact
     - node.type.hours
     - node.type.news
@@ -30,6 +33,7 @@ dependencies:
     - shortcut
     - smart_date_recur
     - system
+    - view_unpublished
     - workbench_access
 id: marketing_editor
 label: 'Marketing Editor'
@@ -102,7 +106,13 @@ permissions:
   - 'use non_moderated transition publish'
   - 'use text format short_text_formatted_html'
   - 'use workbench access'
+  - 'view any unpublished academic_program content'
+  - 'view any unpublished bios content'
+  - 'view any unpublished college content'
   - 'view any unpublished content'
+  - 'view any unpublished department content'
+  - 'view any unpublished news content'
+  - 'view any unpublished page content'
   - 'view assigned domains'
   - 'view bios revisions'
   - 'view domain aliases'

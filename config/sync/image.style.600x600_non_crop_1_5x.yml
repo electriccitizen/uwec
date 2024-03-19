@@ -1,0 +1,21 @@
+uuid: 3e91eb88-8091-4557-9ac0-c26f1ba80d75
+langcode: en
+status: true
+dependencies: {  }
+name: 600x600_non_crop_1_5x
+label: '600x600 non-crop 1.5x'
+effects:
+  4a28bfdd-436f-495c-8428-26cb53e5eeab:
+    uuid: 4a28bfdd-436f-495c-8428-26cb53e5eeab
+    id: image_scale
+    weight: 1
+    data:
+      width: 900
+      height: 900
+      upscale: false
+  4aa52bdd-65c3-45e1-941c-facb5879f0fe:
+    uuid: 4aa52bdd-65c3-45e1-941c-facb5879f0fe
+    id: image_convert
+    weight: 2
+    data:
+      extension: webp

@@ -38,14 +38,45 @@
 	.platform-links{
 		@include listReset;
 		@include safeFlex(row,wrap,start,start);
-		@include bleed(padding,12px);
 		li{
 			margin-bottom: $spaceXxs;
+      a{
+        @include safeFlex(column,nowrap,center,center);
+        width: 38px;
+        height: 38px;
+        &:hover,&:focus{
+          svg,.cls-1{
+            fill: $navy;
+            transition: fill .3s ease;
+          }
+        }
+      }
 		}
 		svg{
 			width: $socialIcons;
 			height: $socialIcons;
-		}
+      &#facebook{
+        width: $socialIcons * 1.1;
+			  height: $socialIcons * 1.1;
+        position: relative;
+        top: -1px;
+      }
+      &#twitter{
+        width: $socialIcons * .9;
+			  height: $socialIcons * .9;
+        margin-right: 2px;
+      }
+      &#youtube{
+        width: $socialIcons * 1.2;
+			  height: $socialIcons * 1.2;
+        margin-left: 2px;
+        margin-right: 2px;
+      }
+      &#tiktok{
+        width: $socialIcons * .95;
+			  height: $socialIcons * .95;
+      }
+		}//end platform links
 	}//end platform links
 }//end field platforms
 

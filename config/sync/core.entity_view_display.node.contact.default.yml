@@ -11,14 +11,12 @@ dependencies:
     - field.field.node.contact.field_editorial_sections
     - field.field.node.contact.field_email
     - field.field.node.contact.field_phone
-    - field.field.node.contact.field_placement_tags
     - field.field.node.contact.layout_builder__layout
     - node.type.contact
   module:
     - address
     - layout_builder
     - layout_builder_restrictions
-    - layout_discovery
     - telephone
     - text
     - user
@@ -110,32 +108,6 @@ third_party_settings:
             weight: 2
             additional: {  }
         third_party_settings: {  }
-      -
-        layout_id: layout_onecol
-        layout_settings:
-          label: ''
-          context_mapping: {  }
-        components:
-          920c4276-f744-4cf1-9fff-5b37bdbfa274:
-            uuid: 920c4276-f744-4cf1-9fff-5b37bdbfa274
-            region: content
-            configuration:
-              id: 'field_block:node:contact:field_placement_tags'
-              label: 'Placement tags'
-              label_display: '0'
-              provider: layout_builder
-              context_mapping:
-                entity: layout_builder.entity
-                view_mode: view_mode
-              formatter:
-                type: entity_reference_label
-                label: inline
-                settings:
-                  link: false
-                third_party_settings: {  }
-            weight: 0
-            additional: {  }
-        third_party_settings: {  }
   layout_builder_restrictions:
     allowed_block_categories: {  }
     entity_view_mode_restriction:
@@ -189,14 +161,6 @@ content:
       title: ''
     third_party_settings: {  }
     weight: 104
-    region: content
-  field_placement_tags:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 103
     region: content
   links:
     settings: {  }

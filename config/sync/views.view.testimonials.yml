@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
+    - core.entity_view_mode.node.widget
     - field.storage.node.body
     - field.storage.node.field_date
     - field.storage.node.field_eyebrow
@@ -18,7 +19,6 @@ dependencies:
     - user.role.administrator
     - user.role.site_admin
   content:
-    - 'taxonomy_term:page_families:9f5d1d79-0dde-4a9d-8942-6be310a0a391'
     - 'taxonomy_term:placement_tags:479d2dfa-0914-41c7-90c9-7897ba00491d'
   module:
     - datetime
@@ -1305,12 +1305,10 @@ display:
           default_row_class: true
           uses_fields: false
       row:
-        type: fields
+        type: 'entity:node'
         options:
-          default_field_elements: true
-          inline: {  }
-          separator: ''
-          hide_empty: false
+          relationship: none
+          view_mode: widget
       defaults:
         pager: false
         style: false
@@ -2529,12 +2527,10 @@ display:
           default_row_class: true
           uses_fields: false
       row:
-        type: fields
+        type: 'entity:node'
         options:
-          default_field_elements: true
-          inline: {  }
-          separator: ''
-          hide_empty: false
+          relationship: none
+          view_mode: widget
       defaults:
         pager: false
         style: false

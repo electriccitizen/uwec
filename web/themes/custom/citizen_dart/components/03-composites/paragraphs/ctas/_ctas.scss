@@ -10,7 +10,8 @@
     .cta-trio .cta-item .cta-item-inner .cta-image{
       .widget-section > .layout--onecol &,
       .widget-section > .layout--twocol-section--75-25 > .layout__region--first &,
-      .widget-section > .layout--twocol-section--25-75 > .layout__region--second &{
+      .widget-section > .layout--twocol-section--25-75 > .layout__region--second &,
+      .node-support-book &{
         @include tab{
           opacity: 1;
           transition: opacity 0.5s ease-in;
@@ -46,7 +47,8 @@
         margin-bottom: $spaceSm;
         .widget-section > .layout--onecol &,
         .widget-section > .layout--twocol-section--75-25 > .layout__region--first &,
-        .widget-section > .layout--twocol-section--25-75 > .layout__region--second &{
+        .widget-section > .layout--twocol-section--25-75 > .layout__region--second &,
+        .node-support-book &{
           @include tab{
             margin-bottom: 0;
           }
@@ -54,7 +56,8 @@
       }
       .widget-section > .layout--onecol &,
       .widget-section > .layout--twocol-section--75-25 > .layout__region--first &,
-      .widget-section > .layout--twocol-section--25-75 > .layout__region--second &{
+      .widget-section > .layout--twocol-section--25-75 > .layout__region--second &,
+      .node-support-book &{
         @include tab{
           width: 33.33%;
         }
@@ -65,7 +68,8 @@
 				padding: 38px 20px 50px;
         .widget-section > .layout--onecol &,
         .widget-section > .layout--twocol-section--75-25 > .layout__region--first &,
-        .widget-section > .layout--twocol-section--25-75 > .layout__region--second &{
+        .widget-section > .layout--twocol-section--25-75 > .layout__region--second &,
+        .node-support-book &{
           @include tab{
             padding: 30px 30px 80px;
             position: relative;
@@ -75,7 +79,8 @@
           display: none;
           .widget-section > .layout--onecol &,
           .widget-section > .layout--twocol-section--75-25 > .layout__region--first &,
-          .widget-section > .layout--twocol-section--25-75 > .layout__region--second &{
+          .widget-section > .layout--twocol-section--25-75 > .layout__region--second &,
+          .node-support-book &{
             @include tab{
               display: block;
               margin-bottom: 20px;
@@ -86,7 +91,8 @@
         .cta-headline{
           .widget-section > .layout--onecol &,
           .widget-section > .layout--twocol-section--75-25 > .layout__region--first &,
-          .widget-section > .layout--twocol-section--25-75 > .layout__region--second &{
+          .widget-section > .layout--twocol-section--25-75 > .layout__region--second &,
+          .node-support-book &{
             @include tab{
               line-height: 1.583;
               &:not(:only-child){
@@ -99,7 +105,8 @@
           line-height: 1.5;
           .widget-section > .layout--onecol &,
           .widget-section > .layout--twocol-section--75-25 > .layout__region--first &,
-          .widget-section > .layout--twocol-section--25-75 > .layout__region--second &{
+          .widget-section > .layout--twocol-section--25-75 > .layout__region--second &,
+          .node-support-book &{
             @include tab{
               margin-bottom: $spaceSm;
             }
@@ -108,7 +115,8 @@
         .cta-button{
           .widget-section > .layout--onecol &,
           .widget-section > .layout--twocol-section--75-25 > .layout__region--first &,
-          .widget-section > .layout--twocol-section--25-75 > .layout__region--second &{
+          .widget-section > .layout--twocol-section--25-75 > .layout__region--second &,
+          .node-support-book &{
             @include tab{
               position: absolute;
               bottom: 30px;
@@ -125,6 +133,20 @@
 		max-width: 1094px;
 		@include auto; 
     position: relative;
+    &:after{
+      @include fullBack($lightGrey);
+      height: 76%;
+      top: 12%;
+      z-index: -5;
+      .widget-section > .layout:not(.layout--onecol) &,.node-support-book &{
+        @include tab{
+          width: calc(100% + 40px);
+          left: -20px;
+          height: 40%;
+          top: 30%;
+        }
+      }
+    }
     .gold-stripes{
       position: absolute;
       top: -128px;
@@ -138,7 +160,8 @@
       .widget-section > .layout--twocol-section--67-33 > .layout__region--first &,
       .widget-section > .layout--twocol-section--75-25 > .layout__region--first &,
       .widget-section > .layout--twocol-section--33-67 > .layout__region--second &,
-      .widget-section > .layout--twocol-section--25-75 > .layout__region--second &{
+      .widget-section > .layout--twocol-section--25-75 > .layout__region--second &,
+      .node-support-book &{
         @include tab{
           top: -65px;
         }
@@ -155,7 +178,8 @@
       .widget-section > .layout--twocol-section--67-33 > .layout__region--first &,
       .widget-section > .layout--twocol-section--75-25 > .layout__region--first &,
       .widget-section > .layout--twocol-section--33-67 > .layout__region--second &,
-      .widget-section > .layout--twocol-section--25-75 > .layout__region--second &{
+      .widget-section > .layout--twocol-section--25-75 > .layout__region--second &,
+      .node-support-book &{
         @include tab{
           @include safeFlex(row,wrap,start,center);
           padding: 80px 109px 90px;
@@ -197,7 +221,8 @@
         .widget-section > .layout--twocol-section--67-33 > .layout__region--first &,
         .widget-section > .layout--twocol-section--75-25 > .layout__region--first &,
         .widget-section > .layout--twocol-section--33-67 > .layout__region--second &,
-        .widget-section > .layout--twocol-section--25-75 > .layout__region--second &{
+        .widget-section > .layout--twocol-section--25-75 > .layout__region--second &,
+        .node-support-book &{
           @include tab{
             @include safeFlex(row,wrap,start,center);
             .cta-text-left{
@@ -230,7 +255,8 @@
             .widget-section > .layout--twocol-section--67-33 > .layout__region--first &,
             .widget-section > .layout--twocol-section--75-25 > .layout__region--first &,
             .widget-section > .layout--twocol-section--33-67 > .layout__region--second &,
-            .widget-section > .layout--twocol-section--25-75 > .layout__region--second &{
+            .widget-section > .layout--twocol-section--25-75 > .layout__region--second &,
+            .node-support-book &{
               @include tab{
                 padding: 2.1rem 3.25rem 1.85rem;
               }

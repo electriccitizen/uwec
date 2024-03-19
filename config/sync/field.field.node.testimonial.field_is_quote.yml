@@ -13,7 +13,9 @@ label: 'Is Quote'
 description: 'Will style quote/summary text as a quote.'
 required: false
 translatable: false
-default_value: {  }
+default_value:
+  -
+    value: 1
 default_value_callback: ''
 settings:
   on_label: 'On'

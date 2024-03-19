@@ -3,34 +3,34 @@
 ================= */
 
 @use '../../00-base/base' as *;
+@use '../nodes/node-mixins' as *;
 
 
 .vocab-page-families{
-	max-width: 914px;
-	@include auto;
-	background: $ice;
-	padding: 60px 84px 76px;
-	@include safeFlex(row,wrap,start,start);
-	h1,h2{
+	@include contactSection;
+  @include tab{
+    @include safeFlex(row,wrap,start,start);
+  }
+	h1{
+    width: 100%;
 		font-size: 32px;
 		line-height: 40px;
 		color: $brightBlue;
 		width: 100%;
 		padding: 0 20px;
 	}
-	& > .field-contact,& > .field-hours{
-		margin-bottom: $spaceMd;
-		padding: 0 20px;
+  & > .field-contact,& > .field-hours{
+    margin-bottom: 1.5rem;
+    &:last-child{
+      margin-bottom: $spaceLg;
+    }
 		@include tab{
 			width: 50%;
 		}
-	}
-	& > .field-platforms{
-		width: 100%;
-		.platform-links{
-			justify-content: center;
-		}
-	}
+  }
+  & > .field-platforms{
+    @include contactSocial;
+  }
 }//end page family vocab
 
 .vocab-teaser-page-families{

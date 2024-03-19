@@ -52,15 +52,16 @@
 		 			var headerPosition = $('header.site-header').offset().top();
 		 			$('#header-search').css('top',headerPosition);
 		 		}
-		 		
 		 		$('.t-search', this).click(function(e){
 		 			e.preventDefault();
-		 			$('.google-search-container').slideDown(400).attr('aria-hidden', 'false');
+					if($(this).hasClass('close-search')) {
+						$(this).removeClass('close-search').find('span').text('Open Search');
+		 				$('.google-search-container').slideUp(400).attr('aria-hidden', 'true');
+					} else {
+						$(this).addClass('close-search').find('span').text('Close Search');
+						$('.google-search-container').slideDown(400).attr('aria-hidden', 'false');
+					}
 		 		});
-		 		$('.close-search', this).click(function(e){
-		 			e.preventDefault();
-		 			$('.google-search-container').slideUp(400).attr('aria-hidden', 'true');
-		 		});	
 			});
 		}
 	}

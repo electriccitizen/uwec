@@ -7,6 +7,7 @@ dependencies:
     - field.field.node.bios.field_active
     - field.field.node.bios.field_athena_id
     - field.field.node.bios.field_campus
+    - field.field.node.bios.field_colleges
     - field.field.node.bios.field_cv
     - field.field.node.bios.field_departments
     - field.field.node.bios.field_domain_access
@@ -33,7 +34,6 @@ dependencies:
     - field.field.node.bios.field_office_hours
     - field.field.node.bios.field_page_families
     - field.field.node.bios.field_phone
-    - field.field.node.bios.field_placement_tags
     - field.field.node.bios.field_platforms
     - field.field.node.bios.field_position
     - field.field.node.bios.field_position_override
@@ -69,45 +69,6 @@ third_party_settings:
           label: ''
           context_mapping: {  }
         components:
-          93715856-4d57-4331-bf22-fe109b6f1ffd:
-            uuid: 93715856-4d57-4331-bf22-fe109b6f1ffd
-            region: first
-            configuration:
-              id: 'field_block:node:bios:field_is_alumni'
-              label: 'Alumni?'
-              label_display: '0'
-              provider: layout_builder
-              context_mapping:
-                entity: layout_builder.entity
-                view_mode: view_mode
-              formatter:
-                type: boolean
-                label: hidden
-                settings:
-                  format: custom
-                  format_custom_false: ''
-                  format_custom_true: Alumnus
-                third_party_settings: {  }
-            weight: 2
-            additional: {  }
-          155aad20-f8c8-4ef8-838c-2fd41ba6e4eb:
-            uuid: 155aad20-f8c8-4ef8-838c-2fd41ba6e4eb
-            region: first
-            configuration:
-              id: 'field_block:node:bios:field_emeriti_status'
-              label: 'Emeriti Status'
-              label_display: '0'
-              provider: layout_builder
-              context_mapping:
-                entity: layout_builder.entity
-                view_mode: view_mode
-              formatter:
-                type: list_key
-                label: hidden
-                settings: {  }
-                third_party_settings: {  }
-            weight: 1
-            additional: {  }
           da69263f-8129-4557-ae64-9aac6a561d43:
             uuid: da69263f-8129-4557-ae64-9aac6a561d43
             region: first
@@ -295,47 +256,6 @@ third_party_settings:
                 third_party_settings: {  }
             weight: 3
             additional: {  }
-          d69428a9-0cd2-47e2-bfe4-0406e572ff82:
-            uuid: d69428a9-0cd2-47e2-bfe4-0406e572ff82
-            region: content
-            configuration:
-              id: 'field_block:node:bios:field_cv'
-              label: CV
-              label_display: '0'
-              provider: layout_builder
-              context_mapping:
-                entity: layout_builder.entity
-                view_mode: view_mode
-              formatter:
-                type: file_url_plain
-                label: hidden
-                settings: {  }
-                third_party_settings: {  }
-            weight: 2
-            additional: {  }
-          3c082d9c-ebde-4927-81f4-3d554a33b087:
-            uuid: 3c082d9c-ebde-4927-81f4-3d554a33b087
-            region: content
-            configuration:
-              id: 'field_block:node:bios:field_links'
-              label: Links
-              label_display: '0'
-              provider: layout_builder
-              context_mapping:
-                entity: layout_builder.entity
-                view_mode: view_mode
-              formatter:
-                type: link
-                label: hidden
-                settings:
-                  trim_length: 80
-                  url_only: false
-                  url_plain: false
-                  rel: '0'
-                  target: '0'
-                third_party_settings: {  }
-            weight: 3
-            additional: {  }
           1a44a0ff-430a-4b12-85ce-df3e21fae96c:
             uuid: 1a44a0ff-430a-4b12-85ce-df3e21fae96c
             region: content
@@ -356,6 +276,26 @@ third_party_settings:
                   url_plain: true
                   rel: '0'
                   target: '0'
+                third_party_settings: {  }
+            weight: 5
+            additional: {  }
+          486ec615-7a16-4d24-b167-ea897ccfa801:
+            uuid: 486ec615-7a16-4d24-b167-ea897ccfa801
+            region: content
+            configuration:
+              id: 'field_block:node:bios:nid'
+              label: ID
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: number_integer
+                label: hidden
+                settings:
+                  thousand_separator: ''
+                  prefix_suffix: false
                 third_party_settings: {  }
             weight: 4
             additional: {  }
@@ -442,8 +382,8 @@ third_party_settings:
             region: content
             configuration:
               id: 'field_block:node:bios:body'
-              label: Bio
-              label_display: '0'
+              label: Biography
+              label_display: visible
               provider: layout_builder
               context_mapping:
                 entity: layout_builder.entity
@@ -531,6 +471,14 @@ content:
     third_party_settings: {  }
     weight: 118
     region: content
+  field_colleges:
+    type: entity_reference_label
+    label: inline
+    settings:
+      link: false
+    third_party_settings: {  }
+    weight: 135
+    region: first
   field_cv:
     type: file_default
     label: above
@@ -696,14 +644,6 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: 105
-    region: content
-  field_placement_tags:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 103
     region: content
   field_platforms:
     type: link

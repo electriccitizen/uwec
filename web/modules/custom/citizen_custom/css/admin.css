@@ -272,6 +272,38 @@ body:not(.role-super-user):not(.role-administrator):not(.role-site_admin) .field
 	display: none;
 }
 
+/* CUSTOM EXPOSED FILTERS FOR ADMIN CONTENT
+------------------------------------ */
+#views-exposed-form-content-page-1 > *:not(.custom-views-filter):not(.advanced-filters-drawer){
+  margin-right: 1.5rem;
+}
+#views-exposed-form-content-page-1 .custom-views-filter{
+  margin-top: 1.5rem;
+  margin-right: 1.5rem;
+}
+#views-exposed-form-content-page-1 .custom-views-filter .js-form-item{
+  margin-top: .5rem; 
+}
+#views-exposed-form-content-page-1 .advanced-filters-drawer{
+  margin-top: 1.5rem;
+  width: 100%;
+}
+#views-exposed-form-content-page-1 .advanced-filters-drawer .advanced-filters-wrapper{
+  display: none;
+}
+#views-exposed-form-content-page-1 .advanced-filters-drawer .advanced-filters-inner{
+  display: flex;
+  flex-wrap: wrap;
+}
+#views-exposed-form-content-page-1 .advanced-filters-drawer .advanced-filters-inner > *{
+  margin-top: 1.5rem;
+  margin-right: 1.5rem;
+}
+#views-exposed-form-content-page-1 #edit-created-wrapper .form-type--date .form-item__label{
+  margin-top: -1.5rem;
+  margin-bottom: .25rem;
+}
+
 /* CUSTOM ADMIN REVIEW VIEWS
 -------------------------- */
 .view-snapshots.view-display-id-review .form-item--field-entry-year-value-min .form-item__label,.view-snapshots.view-display-id-review .form-item--field-entry-year-value-max .form-item__label{

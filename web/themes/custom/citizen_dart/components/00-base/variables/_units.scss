@@ -6,9 +6,12 @@ $em-base: 8px;
 
 /* BREAKPOINT VARIABLES
 ------------------------ */
+$carouselBreak: 496px;
 $smallTab: 520px;
 $tab: 800px;
+$largeTab: 874px;
 $desk: 984px;
+$menuStop: 1200px;
 $contentStopMargin: 1320px;
 $contentStop: 1440px;
 $largeScreen: 1600px;
@@ -44,6 +47,12 @@ $sectionGutter: 40px;
 
 /* BREAKPOINT SHORTHANDS & EDGE MIXINS
 -------------------------- */
+@mixin carouselBreak {
+	@media screen and (min-width: $carouselBreak) {
+		@content;
+	}
+}
+
 @mixin smallTab {
 	@media screen and (min-width: $smallTab) {
 		@content;
@@ -56,8 +65,20 @@ $sectionGutter: 40px;
 	}
 }
 
+@mixin largeTab {
+	@media screen and (min-width: $largeTab) {
+		@content;
+	}
+}
+
 @mixin desk {
 	@media screen and (min-width: $desk) {
+		@content;
+	}
+}
+
+@mixin menuStop {
+	@media screen and (min-width: $menuStop) {
 		@content;
 	}
 }

@@ -14,37 +14,72 @@
 	@include auto;
 }
 
+@mixin contactSocial{
+  width: 100%;
+  margin-bottom: 0;
+  position: relative;
+  padding: 20px 0;
+  @include tab{
+    padding: 12px 0 10px;
+  }
+  &:not(:first-child){
+    margin-top: 5rem;
+  }
+  &:before{
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: calc(50% - 457px);
+    width: 914px;
+    height: 2px;
+    background: $siteBack;
+  }
+  .platform-links{
+    justify-content: center;
+    li{
+      a{
+        &:hover,&:focus{
+          background: darken($ice,3%);
+          border-radius: 4px;
+        }
+      }
+    }
+  }//end platform links
+}
+
 @mixin contactSection{
 	max-width: 914px;
 	@include auto;
 	background: $ice;
-	padding: 60px 84px 76px;
-	.layout__region--content{
-		@include safeFlex(row,wrap,start,start);
-	}
+  padding: 22px 20px 1px;
+  overflow: hidden;
+  .layout__region--content{
+    margin-bottom: 0 !important;
+  }
+  @include tab{
+    padding: 60px 84px 1px;
+    .layout__region--content{
+      @include safeFlex(row,wrap,start,start);
+    }
+  }
 	h2{
-		font-size: 32px;
-		line-height: 40px;
-		color: $brightBlue;
-		width: 100%;
-		font-family: $displayHeader;
-		padding: 0 20px;
+		@include contactTitle;
+    width: 100%;
+    padding-bottom: 32px;
 	}
-	.block-field-contact,.block-field-hours{
-		margin-bottom: $spaceMd;
-		padding: 0 20px;
+	.block-field-contact,.block-field-hours-library{
+		margin-bottom: 1.5rem;
+    &:last-child{
+      margin-bottom: $spaceLg;
+    }
 		@include tab{
 			width: 50%;
 		}
 	}
 	.block-field-platforms{
-		width: 100%;
-		margin-bottom: 0;
-		padding: 0 20px;
-		.platform-links{
-			justify-content: center;
-		}
-	}
+		@include contactSocial;
+	}//end block field platforms
 }//end contactSection
 
 @mixin contactHolder{
@@ -84,6 +119,9 @@
 		.icon-wrapper{
 			width: 16px;
 			margin-right: 12px;
+      svg{
+        fill: none;
+      }
 		}
 		.field-content{
 			width: calc(100% - 28px);
@@ -123,6 +161,18 @@
 	}//end field phone
 }//end contact contnet
 
+@mixin hoursHolder{
+	max-width: 914px;
+	@include auto;
+	& > *:first-child{
+		background: $ice;
+    padding: 40px 20px 30px;
+    @include tab{
+		  padding: 60px 124px 76px;
+    }
+	}
+}
+
 @mixin heroBackground {
 	position: relative;
 	z-index: 0;
@@ -161,6 +211,30 @@
 		}
 	} 
 }
+
+@mixin heroSimpleBackground{
+  position: absolute;
+  top: 0;
+  left: -$siteMarginMobile;
+  width: calc(100vw + 40px);
+  z-index: -1;
+  height: 800px;
+  overflow: hidden;
+  padding: 0 $siteMarginMobile;
+  &:after{
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: calc(100% - 260px);
+    left: -50vw;
+    height: 1000px;
+    width: 200vw;
+    z-index: -2;
+    background: $brightBlue;
+    @include rotate(16);
+  }
+}
+
 @mixin heroText {
 	position: relative;
 	z-index: 10;
@@ -185,3 +259,104 @@
 		margin-bottom: $spaceXs;
 	}
 }//end page header text
+
+@mixin centeredHeaderText{
+	margin-top: 80px;
+	position: relative;
+	z-index: 1;
+	max-width: 1000px;
+	@include auto;
+	padding: 60px $siteMarginMobile;
+	.field.title{
+		margin-bottom: 60px;
+	}
+	.field:not(.title){
+		max-width: $textMax;
+		@include auto;
+	}
+}
+
+@mixin profileTeaser{
+  padding-bottom: 40px;
+  .field-image{
+    margin-bottom: 2rem;
+  }
+  .field:not(.field-image):not(.field-name){
+    font-size: 1.75rem;
+    line-height: 1.285;
+    &:not(:last-of-type){
+      margin-bottom: 1rem;
+    }
+  }
+  .field-name,.teaser-title{
+    font-family: $displayHeader;
+    font-size: 3.25rem;
+    line-height: 1.23;
+    padding-right: 20px;
+    margin-bottom: 1rem;
+    a{
+      color: $navy;
+      @include dottedLink($navy);
+      &:hover,&:focus{
+        color: $royal;
+        background-image: none;
+      }
+    }
+  }//end name
+  .field-departments{
+    font-family: $header;
+    font-weight: $xHeavy;
+    padding-right: 20px;
+    & > div{
+      display: inline-block;
+      &:not(:last-child){
+        &:after{
+          content: ' |';
+          margin-right: .25em;
+          white-space: nowrap;
+        }
+      }
+    }
+  }
+  .field-job-title,.field-long-text,.field-position,.field-position-override{
+    @extend .field-departments;
+    font-family: $bodyText;
+    font-weight: $regular;
+  }//end job title
+  .field-email{
+    @include safeFlex(row,nowrap,start,start);
+    padding-right: 20px;
+    .icon-wrapper{
+			width: 16px;
+			margin-right: 12px;
+		}
+		.field-content{
+			width: calc(100% - 28px);
+      a{
+        color: $navy;
+        @include dottedLink($navy);
+        display: inline-block;
+        &:hover,&:focus{
+          color: $royal;
+          background-image: none;
+        }
+      }
+		}
+		svg{
+			max-height: 16px;
+			margin-top: 3px;
+      position: relative;
+      top: -2px;
+      .cls-1{
+        fill: $navy;
+      }
+		}
+	}
+	.field-phone{
+    @extend .field-email;
+		svg{
+			max-height: 15px;
+      top: 1px;
+		}
+	}
+}//end profileTeaser

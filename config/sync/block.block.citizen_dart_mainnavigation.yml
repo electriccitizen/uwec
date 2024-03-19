@@ -22,7 +22,7 @@ settings:
   label_display: '0'
   provider: superfish
   level: '1'
-  depth: '3'
+  depth: '2'
   expand_all_items: false
   menu_type: horizontal
   style: none
@@ -40,7 +40,7 @@ settings:
   touchual: ''
   touchuam: '0'
   small: '2'
-  smallbp: '984'
+  smallbp: '1201'
   smallua: '0'
   smallual: ''
   smalluam: '0'

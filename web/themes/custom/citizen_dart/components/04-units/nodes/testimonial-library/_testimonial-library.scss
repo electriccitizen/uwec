@@ -79,3 +79,127 @@
 		@include heading2;
 	}
 }
+
+/* TESTIMONIAL WIDGET (content carousel) */
+.node-widget-testimonial{
+  .testimonial-quote{
+    background: $brightBlue;
+    color: $white;
+    padding: 50px 32px 90px;
+    @include carouselBreak{
+      padding: 20px 50px 90px;
+    }
+    @include desk{
+      padding-bottom: 150px;
+    }
+    .testimonial-eyebrow-lg{
+      display: none;
+      @include carouselBreak{
+        display: block;
+        text-transform: uppercase;
+        letter-spacing: .05em;
+        font-size: 1.5rem;
+        line-height: 1.5;
+        margin-bottom: $spaceSm;
+        max-width: 874px;
+        @include auto;
+      }
+      @include desk{
+        margin-bottom: 6rem;
+      }
+    }//end testimonial eyebrow lg
+  }//end testimonial quote
+  .field.body{
+    max-width: $largeTab;
+    .body-wrapper{
+      @include quote;
+      .quote-mark{
+        margin: 0 auto 40px;
+        width: 21px;
+        svg,.cls-1{
+          fill: $white;
+        }
+      }
+      p{
+        text-align: center;
+        font-size: 21px;
+        line-height: 1.33;
+        @include largeTab{
+          font-size: 31px;
+          line-height: 1.54;
+        }
+        &:last-child{
+          margin-bottom: 0;
+        }
+      }
+    }//end body wrapper
+  }//end field body
+  .testimonial-details{
+    background: $lightGrey;
+    @include safeFlex(row,nowrap,start,stretch);
+    max-width: $largeTab;
+    @include auto;
+    @include desk{
+      justify-content: flex-end;
+      padding-bottom: 20px;
+    }
+    .testimonial-meta{
+      flex: 1 1;
+      padding: 28px 20px 12px;
+      color: $brightBlue;
+      font-size: 1.5rem;
+      line-height: 1.5;
+      @include carouselBreak{
+        margin-bottom: $spaceXs;
+      }
+      @include desk{
+        &:not(:only-child){
+          flex: 0 0 335px;
+          order: 2;
+          font-size: 2rem;
+          padding: 36px 28px 24px;
+        }
+      }
+      .testimonial-title{
+        font-family: $header;
+        font-size: 2.25rem;
+        line-height: 1.33;
+        margin-bottom: $spaceXs;
+        @include desk{
+          font-size: 3rem;
+        }
+      }//end testimonial title
+      .field-eyebrow{
+        margin-top: $spaceSm;
+        text-transform: uppercase;
+        letter-spacing: .05em;
+        @include carouselBreak{
+          display: none;
+        }
+      }
+      //when no ptoho
+      &:only-child{
+        text-align: center;
+        .field-eyebrow{
+          text-align: left;
+        }
+      }
+    }//end testimonial meta
+    .field-image{
+      flex: 0 0 203px;
+      *{
+        height: 100%;
+      }
+      article{
+        @include desk{
+          position: relative;
+          top: -20px;
+          height: 203px;
+        }
+      }
+      img{
+        object-fit: cover;
+      }
+    }//end field image
+  }//end testimonial-details
+}//end testimonial

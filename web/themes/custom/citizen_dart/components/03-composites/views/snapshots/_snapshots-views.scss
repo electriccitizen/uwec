@@ -8,21 +8,15 @@
 /* SNAPSHOTS LIST
 ------------- */
 .snapshots.list{
-	max-width: 945px;
-	@include auto;
-	.view-content{
-		@include bleed(padding,20px);
-		justify-content: center;
-	}
-	.views-row{
-		&:not(:last-child){
-			margin-bottom: $spaceMd;
-		}
-		@include smallTab{
-			width: 50%;
-		}
-		@include tab{
-			width: 33.33%;
-		}
-	}
+  .view-content{
+    .widget-section > .layout--onecol &{
+      @include desk{
+          @include safeFlex(row,nowrap,start,stretch);
+          @include bleed(padding,20px);
+        & > div{
+          width: 33.3%;
+        }
+      }
+    }//end layout check
+  }//end view content
 }//end snapshots list

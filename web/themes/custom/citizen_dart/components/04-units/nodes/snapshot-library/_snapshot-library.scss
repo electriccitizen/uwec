@@ -40,43 +40,260 @@
 
 //snapshot teasers
 .node-teaser-snapshot{
+  position: relative;
+  padding: 0 20px $spaceMd;
+  margin: 0 -20px 8rem;
+  @include desk{
+    @include edgeReset;
+    overflow: hidden;
+    .widget-section > .layout--onecol &{
+      margin-bottom: 0;
+      height: 100%;
+    }
+  }
+  &:after{
+    content: '';
+    display: block;
+    width: 100%;
+    height: calc(100% - 80px);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    background: $warmGrey;
+  }
+  &.snapshot-visible{
+    .field-image{
+      &:after{
+        right: -130px;
+        transition: right 1s ease-out;
+        @include desk{
+          right: -40px;
+          transition: right .001s ease-out;
+        }
+      }
+      article img{
+        opacity: 1;
+        transition: opacity 0.5s ease-in;
+      }
+    }//end field image
+  }//end snapshot visible
 	.field-image{
-		max-width: 240px;
-		@include auto;
-	}
+		margin-bottom: $spaceXs;
+    position: relative;
+    z-index: 1;
+    width: 240px;
+    @include auto;
+    @include desk{
+      width: 100%;
+    }
+    article{
+      max-width: 240px;
+      @include auto;
+      img{
+        opacity: 0;
+      }
+    }
+    &:after{
+      content: url(../images/elements/stripes-narrow-gold.svg);
+      width: 264px;
+      height: 172px;
+      position: absolute;
+      top: 31px;
+      z-index: -1;
+      @include rotate(180);
+      @include onlyMobile{
+        right: 100vw;
+      }
+    }//end image after
+	}//end field image
+  .snapshot-teaser-text{
+    max-width: $textMax;
+    @include auto;
+    .widget-section > .layout--onecol &{
+      @include desk{
+        height: calc(100% - 256px);
+        @include safeFlex(column,nowrap,justify,start);
+      }
+    }
+  }
 	.teaser-title{
 		@include heading2;
+    font-size: 18px;
+    line-height: 1.33;
+    margin-bottom: $spaceXxs;
 	}
-}
+  .field-plain-text{
+    line-height: 1.5;
+    margin-bottom: $spaceSm;
+  }
+  .field-link{
+    a{
+      display: inline-block;
+      @include arrowLinkBefore($navy);
+      padding-left: 32px;
+      font-size: 16px;
+      line-height: 1.2;
+      &:before{
+        content: '';
+        display: block;
+        position: absolute;
+        top: -2px;
+        left: 0;
+        width: 20px;
+        height: 20px;
+        @include rightArrow(navy,transparent,$navy,sm);
+      }//end before
+      &:hover,&:focus{
+        &:before{
+          @include rightArrow(white,$navy,$navy,sm);
+        }
+        span{
+          @include dottedLink($navy);
+          padding-bottom: 1px;
+        }
+      }//end hover, focus
+    }//end a
+  }//end field link
+
+}//end snaptshot teaser
 
 //snapshot widget (for conten carousel)
 .node-widget-snapshot{
-	max-width: 966px;
-	@include auto;
-	.snapshot-top{
-		@include desk{
-			display: grid;
-			grid-template-columns: 492px 426px;
-  		grid-gap: 48px;
-  	}
-	}
-	.snapshot-top-left{
-		position: relative;
-		svg{
-			position: absolute;
-			top: -54px;
-			left: 84px;
-			@include desk{
-				width: 610px;
-				height: 374px;
-				z-index: -1;
-			}
-		}
-	}//end top left
-	.snapshot-top-right{
-		display: flex;
-		flex-direction: column;
-		justify-content: flex-end;
-	}
+  color: $brightBlue;
+  background: $lightGrey;
+  @include carouselBreak{
+    background: $siteBack;
+  }
+  .snapshot-widget-content{
+    @include carouselBreak{
+      @include safeFlex(row,wrap,start,stretch);
+      background: $siteBack;
+      padding-top: 27px;
+    }
+    @include carouselBreak{
+      padding-top: 53px;
+    }
+  }//end snapshot widget content
+  .snapshot-top-left{
+    @include carouselBreak{
+      width: 50%;
+      position: relative;
+      z-index: 1;
+    }
+    @include tab{
+      width: 56.3%;
+    }
+    .swirl-blue{
+      display: none;
+      @include carouselBreak{
+        display: block;
+        position: absolute;
+        top: -53px;
+        left: 112px;
+        width: 50vw;
+        max-width: 611px;
+        z-index: -1;
+        svg{
+          width: 100%;
+          height: auto;
+        }
+      }
+      @include tab{
+        width: 62vw;
+      }
+      @include desk{
+        width: 50vw;
+      }
+    }//end swirl blue;
+  }//end top left
+  .snapshot-top-right{
+    padding: 20px 20px 8px;
+    @include carouselBreak{
+      width: 50%;
+      @include safeFlex(column,nowrap,end,start);
+      padding: 0 0 0 20px;
+    }
+    @include tab{
+      padding: 0 0 0 47px;
+      width: 43.7%;
+    }
+    .field-eyebrow{
+      display: none;
+      @include carouselBreak{
+        display: block;
+        font-size: 1.5rem;
+        line-height: 1.5;
+        text-transform: uppercase;
+        letter-spacing: .05em;
+        margin-bottom: $spaceXxs;
+      }
+    }
+    .snapshot-title{
+      font-family: $header;
+      font-size: 2.25rem;
+      line-height: 1.33;
+      @include desk{
+        font-size: 3rem;
+      }
+    }
+  }//end snapshot toprright
+  .snapshot-bottom{
+    padding-right: 20px;
+    padding-left: 20px;
+    @include carouselBreak{
+      max-width: 762px;
+      margin: $spaceSm auto 0;
+      width: 100%;
+    }
+    .field-plain-text{
+      line-height: 1.5;
+      margin-bottom: $spaceSm;
+      @include carouselBreak{
+        margin-bottom: $spaceXs;
+      }
+    }
+    .field-link{
+      margin-bottom: $spaceSm;
+      a{
+        display: inline-block;
+        @include arrowLinkBefore($brightBlue);
+        padding-left: 32px;
+        font-size: 16px;
+        line-height: 1.2;
+        &:before{
+          content: '';
+          display: block;
+          position: absolute;
+          top: -2px;
+          left: 0;
+          width: 20px;
+          height: 20px;
+          @include rightArrow(blue,transparent,$brightBlue,sm);
+        }//end before
+        &:hover,&:focus{
+          &:before{
+            @include rightArrow(white,$brightBlue,$brightBlue,sm);
+          }
+          span{
+            @include dottedLink($brightBlue);
+            padding-bottom: 1px;
+          }
+        }//end hover, focus
+      }//end a
+    }//end field link
+  }//end snapshot bottom
+  .snapshot-eyebrow-sm{
+    padding-right: 20px;
+    padding-left: 20px;
+    font-size: 1.5rem;
+    line-height: 1.5;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+    padding-bottom: $spaceXs;
+    @include carouselBreak{
+      display: none;
+    }
+  }//end eyebrow sm
 }//end widget snapshot
 

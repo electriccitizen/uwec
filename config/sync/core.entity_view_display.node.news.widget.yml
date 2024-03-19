@@ -1,0 +1,117 @@
+uuid: 6ddc755d-cdba-4bfa-bc75-95efdc88bf51
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.widget
+    - field.field.node.news.field_authors
+    - field.field.node.news.field_colleges
+    - field.field.node.news.field_departments
+    - field.field.node.news.field_domain_access
+    - field.field.node.news.field_domain_all_affiliates
+    - field.field.node.news.field_domain_source
+    - field.field.node.news.field_editorial_sections
+    - field.field.node.news.field_eyebrow
+    - field.field.node.news.field_image
+    - field.field.node.news.field_intro_text
+    - field.field.node.news.field_list_widget
+    - field.field.node.news.field_meta_description
+    - field.field.node.news.field_metatags
+    - field.field.node.news.field_page_families
+    - field.field.node.news.field_paragraphs
+    - field.field.node.news.field_placement_tags
+    - field.field.node.news.field_programs
+    - field.field.node.news.field_story_categories
+    - field.field.node.news.field_story_type
+    - field.field.node.news.layout_builder__layout
+    - node.type.news
+  module:
+    - layout_builder
+    - layout_builder_restrictions
+    - text
+    - user
+third_party_settings:
+  layout_builder:
+    enabled: false
+    allow_custom: false
+  layout_builder_restrictions:
+    allowed_block_categories: {  }
+    entity_view_mode_restriction:
+      allowed_layouts:
+        - layout_onecol
+        - two_column_quad_split
+      denylisted_blocks: {  }
+      allowlisted_blocks:
+        System:
+          - system_breadcrumb_block
+      restricted_categories:
+        - '@entity'
+        - 'Chaos Tools'
+        - 'Custom block types'
+        - 'Custom blocks'
+        - Devel
+        - Forms
+        - Help
+        - 'Inline blocks'
+        - Menus
+        - 'Responsive Preview'
+        - Superfish
+        - User
+        - core
+      blacklisted_blocks: {  }
+      whitelisted_blocks:
+        System:
+          - system_breadcrumb_block
+_core:
+  default_config_hash: B4j9HeR2frSpLSsaAJEkCBRbCCvVGFLX3oNW0XjB2ew
+id: node.news.widget
+targetEntityType: node
+bundle: news
+mode: widget
+content:
+  field_eyebrow:
+    type: entity_reference_label
+    label: hidden
+    settings:
+      link: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_image:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: 874x492
+      link: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_intro_text:
+    type: text_summary_or_trimmed
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    weight: 2
+    region: content
+hidden:
+  content_moderation_control: true
+  field_authors: true
+  field_colleges: true
+  field_departments: true
+  field_domain_access: true
+  field_domain_all_affiliates: true
+  field_domain_source: true
+  field_editorial_sections: true
+  field_list_widget: true
+  field_meta_description: true
+  field_metatags: true
+  field_page_families: true
+  field_paragraphs: true
+  field_placement_tags: true
+  field_programs: true
+  field_story_categories: true
+  field_story_type: true
+  layout_builder__layout: true
+  links: true
+  search_api_excerpt: true

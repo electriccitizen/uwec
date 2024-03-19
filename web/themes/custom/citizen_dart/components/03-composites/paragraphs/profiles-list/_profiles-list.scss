@@ -5,14 +5,15 @@
 @use '../../../00-base/base' as *;
 
 .paragraph--type--profiles-list{
-  &.profile-list-manual{
-    .node-teaser-bios{
-      padding: 0 10px 40px;
-    }
+  padding-left: 20px;
+  padding-right: 20px;
+  max-width: 912px;
+  @include auto;
+  .field-widget-title{
+    text-align: left;
+    text-transform: none;
+    font-size: 3rem;
+    line-height: 1.33;
+    margin-left: 0;
   }
-  .widget-inner{
-	  @include profileGrid;
-    padding-bottom: 40px;	
-  }
-  
 }//end profiles-list widget

@@ -400,6 +400,7 @@
 	background-repeat: no-repeat;
 	background-size: 50%;
 	background-position: 50% 50%;
+  box-sizing: border-box;
 }
 
 @mixin arrowLinkBefore($arrowLinkColor){
@@ -408,7 +409,25 @@
   line-height: 1.44;
   color: #{$arrowLinkColor};
   position: relative;
-  padding-left: 52px;
+  padding-left: 56px;
+}
+
+@mixin arrowLinkAfter($arrowLinkColor){
+  font-family: f.$header;
+  font-size: 2.25rem;
+  line-height: 1.33;
+  color: $arrowLinkColor;
+  span{
+    margin-right: 10px;
+  }
+  &:after{
+    content: '';
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    position: relative;
+    top: 4px;
+  }//end before
 }
 
 @mixin dottedLink($dotColor){
@@ -773,24 +792,59 @@
   }
 }//end profile grid
 
-@mixin profileTeaser{
-  padding-bottom: 40px;
-  .field-image{
-    margin-bottom: 2rem;
-  }
-  .field:not(.field-image):not(.field-name){
-    font-size: 1.75rem;
-    line-height: 1.285;
-    &:not(:last-of-type){
-      margin-bottom: 1rem;
+//Profile needs to be here instead of in node mixins because of fauxfile
+@mixin profileStacked{
+  margin-bottom: u.$spaceLg;
+  @include u.tab{
+    .widget-section > .layout--onecol &,.node-support-book &{
+      @include safeFlex(row,nowrap,start,start);
     }
   }
-  .field-name,.teaser-title{
+  .stacked-intro{
+    max-width: 380px;
+    @include u.tab{
+      .widget-section > .layout--onecol &{
+        max-width: 203px;
+        margin-right: 20px;
+      }
+    }
+    .field-image{
+      margin-bottom: 2rem;
+    }
+    .profile-stacked-icons{
+      margin-bottom: u.$spaceSm;
+      .profile-stacked-icon{
+        color: c.$oldGoldDark;
+        font-size: 1.5rem;
+        line-height: 2;
+        @include safeFlex(row,nowrap,start,center);
+        .icon-wrapper{
+          width: 15px;
+          height: 18px;
+          margin-top: 4px;
+          margin-right: u.$spaceXxs;
+          svg path {
+            fill: none;
+            stroke: c.$oldGold;
+          }
+        }//end icon wrapper
+      }//end profile stacked icon
+    }//end profile stacked icons
+  }//end stacked intro
+
+  .stacked-text{
+    max-width: 650px;
+    @include u.tab{
+      width: calc(100% - 223px);
+    }
+  }
+  
+  .stacked-title{
     font-family: f.$displayHeader;
     font-size: 3.25rem;
     line-height: 1.23;
     padding-right: 20px;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
     a{
       color: c.$navy;
       @include dottedLink(c.$navy);
@@ -800,10 +854,17 @@
       }
     }
   }//end name
+  .field-pronouns{
+    font-size: 1.5rem;
+    line-height: 2;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
   .field-departments{
-    font-family: f.$header;
-    font-weight: f.$xHeavy;
+    font-weight: f.$heavy;
     padding-right: 20px;
+    font-size: 1.75rem;
+    line-height: 1.71;
     & > div{
       display: inline-block;
       &:not(:last-child){
@@ -814,13 +875,30 @@
         }
       }
     }
-  }
+  }//end field departments
   .field-job-title,.field-long-text,.field-position,.field-position-override{
     @extend .field-departments;
     font-family: f.$bodyText;
     font-weight: f.$regular;
   }//end job title
-  .field-email{
+
+  .stacked-text-contact{
+    border-top: 1px solid cc.$borderRule;
+    padding-top: 2.5rem;
+    margin-top: u.$spaceXs;
+    font-size: 1.75rem;
+    line-height: 1.42;
+    &:not(:last-child){
+      border-bottom: 1px solid cc.$borderRule;
+    }
+    .field{
+      margin-bottom: u.$spaceXxs;
+      &:last-child{
+        margin-bottom: u.$spaceXs;
+      }
+    }
+  }
+  .field-office{
     @include safeFlex(row,nowrap,start,start);
     padding-right: 20px;
     .icon-wrapper{
@@ -830,33 +908,59 @@
 		.field-content{
 			width: calc(100% - 28px);
       a{
-        color: c.$navy;
-        @include dottedLink(c.$navy);
         display: inline-block;
+        @include dottedLink(cc.$link);
+        background-position: 0 94%;
         &:hover,&:focus{
-          color: c.$royal;
-          background-image: none;
+          color: c.$navy;
+          background: none;
         }
       }
-		}
+		}//end field-content
 		svg{
 			max-height: 16px;
 			margin-top: 3px;
       position: relative;
-      top: -2px;
+      top: 0;
       .cls-1{
         fill: c.$navy;
       }
 		}
-	}
-	.field-phone{
-    @extend .field-email;
+	}//end field office
+	.field-email{
+    @extend .field-office;
 		svg{
-			max-height: 15px;
-      top: 1px;
+			max-height: 16px;
+      .cls-1{
+        fill: c.$navy;
+      }
 		}
-	}
-}//end profileTeaser
+	}//end field email
+  .field-phone{
+    @extend .field-office;
+		svg{
+			max-height: 14px;
+      fill: none;
+      path{
+        stroke: c.$navy;
+      }
+		}
+	}//end field phone
+  .field-office-hours{
+    @extend .field-office;
+		svg{
+			max-height: 14px;
+      fill: none;
+      path{
+        stroke: c.$navy;
+      }
+		}
+	}//end field phone
+  .text-long{
+    margin-top: u.$spaceXs;
+    line-height: 1.5;
+  }
+}//end profile stacked
 
 /* ANIMATION MIXINS
 --------------------- */
@@ -928,6 +1032,38 @@
 	100%{
     opacity: 1;
 		scale: 1;
+	}
+}
+
+@include keyframes(flipRight){
+	from{
+		transform: rotateY(0);
+	}
+	100%{
+		transform: rotateY(360deg);
+	}
+}
+@include keyframes(flipLeft){
+	from{
+		transform: rotateY(0);
+	}
+	100%{
+		transform: rotateY(-360deg);
+	}
+}
+
+@include keyframes(fadeInDelay){
+	from{
+		opacity: 0;
+	}
+  75%{
+    opacity: 0;
+  }
+	80%{
+		opacity: .25;
+	}
+	100%{
+		opacity: 1;
 	}
 }
 

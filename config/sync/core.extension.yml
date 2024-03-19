@@ -116,6 +116,7 @@ module:
   twig_tweak: 0
   update: 0
   user: 0
+  view_unpublished: 0
   views_bulk_operations: 0
   views_infinite_scroll: 0
   views_ui: 0
@@ -130,6 +131,7 @@ module:
   views: 10
   paragraphs: 11
   citizen: 1000
+  eu_cookie_compliance: 1001
 theme:
   stable9: 0
   claro: 0

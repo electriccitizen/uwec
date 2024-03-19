@@ -17,7 +17,7 @@
       padding-bottom: 105px;
     }
   }
-  .widget-section > .layout:not(.layout--onecol) &{
+  .widget-section > .layout:not(.layout--onecol) &,.node-support-book &{
     @include tab{
       background: $lightGrey;
       margin-left: -20px;

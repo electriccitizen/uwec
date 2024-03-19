@@ -83,8 +83,6 @@
 	}//end section 2
 
 	#node-section-3{
-		max-width: $textMax;
-		@include auto;
 		.field-authors{
 			@include safeFlex(row,wrap,start,start);
 		}
@@ -119,3 +117,122 @@
 		}//end authors fields block
 	}//end node section 4
 }//end news
+
+
+/* STORY TEASER
+------------------- */
+.node-teaser-news{
+  max-width: 426px;
+  @include auto;
+  .field-image{
+    margin-bottom: $spaceXs;
+  }
+  .teaser-title{
+    margin-bottom: $spaceXxs;
+    a{
+      @include arrowLinkAfter($navy);
+      &:after{
+        @include rightArrow(navy,transparent,$navy,sm);
+      }
+      &:hover,&:focus{
+        &:after{
+          @include rightArrow(white,$navy,$navy,sm);
+        }
+        span{
+          @include dottedLink($navy);
+          padding-bottom: 1px;
+        }
+      }//end hover, focus
+    }//end a
+  }
+  .field.body{
+    line-height: 1.5;
+  }
+}//end teaser story
+
+/* STORY WIDGET
+------------------- */
+.node-widget-news{
+  .story-eyebrow-lg{
+    display: none;
+    @include carouselBreak{
+      display: block;
+      text-align: right;
+      font-size: 1.5rem;
+      line-height: 1.5;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+      margin-bottom: $spaceXxs;
+      color: $brightBlue;
+    }
+    @include desk{
+      padding-top: 22px;
+    }
+  }//end story eyebrow lg
+  .story-text{
+    padding: 20px 20px 12px;
+    color: $brightBlue;
+    background: $lightGrey;
+    @include carouselBreak{
+      background: $siteBack;
+      @include safeFlex(row,nowrap,start,start); 
+      padding: 20px 0 0;
+    }
+    @include desk{
+      padding-top: 30px;
+    }
+  }//end story text
+  .field-image{
+    @include desk{
+      position: relative;
+      z-index: 1;
+      &:after{
+        content: url(../images/elements/swirl-horizontal-blue.svg);
+        position: absolute;
+        top: -53px;
+        left: -50px;
+        z-index: -1;
+      }
+    }
+  }//end field image
+  .story-title{
+    margin-bottom: $spaceXxs;
+    @include carouselBreak{
+      padding-right: 20px;
+      width: 50%;
+      margin-bottom: 0;
+    }
+    a{
+      @include arrowLinkAfter($brightBlue);
+      &:after{
+        @include rightArrow(blue,transparent,$brightBlue,sm);
+      }
+      &:hover,&:focus{
+        &:after{
+          @include rightArrow(white,$brightBlue,$brightBlue,sm);
+        }
+        span{
+          @include dottedLink($brightBlue);
+          padding-bottom: 1px;
+        }
+      }//end hover, focus
+    }//end a
+  }//end story title
+  .field-intro-text{
+    line-height: 1.5;
+    @include carouselBreak{
+      padding-top: 4px;
+      width: 50%;
+    }
+  }//end field intro text
+  .field-eyebrow{
+    margin-top: $spaceSm;
+    font-size: 1.5rem;
+    line-height: 1.5;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+    @include carouselBreak{
+      display: none;
+    }
+  }//end field eyebrow
+}//end widget story

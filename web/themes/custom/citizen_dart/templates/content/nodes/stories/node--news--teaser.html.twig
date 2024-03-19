@@ -82,7 +82,7 @@
 {% block nodeContent %}
 	{{ content.field_image }}
 	<div class="teaser-title">
-		<a href="{{- url -}}" rel="bookmark">{{- label.0['#context'].value -}}</a>
+		<a href="{{- url -}}" rel="bookmark"><span>{{- label.0['#context'].value -}}</span></a>
 	</div>
 	{{ content|without('field_image') }}
 {% endblock %}

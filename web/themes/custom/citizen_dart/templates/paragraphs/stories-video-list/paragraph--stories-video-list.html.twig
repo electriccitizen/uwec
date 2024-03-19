@@ -41,6 +41,7 @@
 {% if paragraph.id.value %}
 	{% if (content.field_list_type.0['#markup'] == 'manual') or (drupal_view('video_cards','recent_three', paragraph.id.value)|render|striptags|trim|length > 0) or (drupal_view('news','recent_two', paragraph.id.value)|render|striptags|trim|length > 0) %} 
 		<div class="paragraph paragraph--type--stories-video-list custom-views-list" data-quickedit-entity-id="paragraph/{{ paragraph.id.value }}">
+        {{ attach_library('citizen_dart/stories-video-list') }}
 				{{ content.field_widget_title }}
 
 				{% if content.field_list_type.0['#markup'] == 'auto' %}

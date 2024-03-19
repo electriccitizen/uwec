@@ -18,7 +18,7 @@ mode: default
 content:
   field_media_image:
     type: image_focal_point
-    weight: 0
+    weight: 1
     region: content
     settings:
       progress_indicator: throbber
@@ -28,7 +28,7 @@ content:
     third_party_settings: {  }
   field_media_tags:
     type: entity_reference_autocomplete
-    weight: 26
+    weight: 2
     region: content
     settings:
       match_operator: CONTAINS
@@ -36,9 +36,16 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+  name:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
 hidden:
   created: true
-  name: true
   path: true
   publish_on: true
   publish_state: true

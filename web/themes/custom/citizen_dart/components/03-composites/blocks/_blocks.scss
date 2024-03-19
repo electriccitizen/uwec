@@ -56,28 +56,26 @@
   .field-platforms{
     .platform-links{
       justify-content: center;
-    }
-    li{
-      margin: 0 3px;
-      a{
-        *{
-          transform-style: unset;
-        }
-        svg{
-          width: 22px;
-          height: 22px;
-        }
-        svg,.cls-1{
-          fill: $footerLink;
-        }
-        &:hover,&:focus{
-          svg,.cls-1{
-            transition: fill .3s ease;
-            fill: $footerLinkHover;
+      li{
+        a{
+          *{
+            transform-style: unset;
           }
-        }
-      }//end a
-    }//end li
+          svg{
+            width: 22px;
+            height: 22px;
+          }
+          svg,.cls-1{
+            fill: $footerLink;
+          }
+          &:hover,&:focus{
+            svg,.cls-1{
+              fill: $footerLinkHover;
+            }
+          }
+        }//end a
+      }//end li
+    }//end platform links
   }//end field platforms
 }//end block social media
 

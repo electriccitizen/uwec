@@ -7,40 +7,365 @@
 
 //bio node
 .node-bios{
-
 	#node-section-1{
-		.layout__region--first{
-			@include safeFlex(row,wrap,end,start);
+    position: relative;
+		padding-bottom: 14rem;
+    padding-top: 10px;
+    @include onlyMobile{
+      &:before{
+        @include fullBack($brightBlue);
+        top: 100%;
+        height: 42px;
+        z-index: 0;
+      }
+    }
+    @include desk{
+      padding-top: 8.75rem;
+      padding-bottom: calc(80px + 16vw);
+    }
+		@media screen and (min-width: 1650px){
+      padding-bottom: calc(80px + 14vw);
+    }
+    @media screen and (min-width: 2100px){
+      padding-bottom: calc(80px + 12vw);
+    }
+    &:after {
+			@include fullBack($navy);
 		}
-	}
+		& > .layout--twocol-even {
+			max-width: $contentStopMargin;
+			position: relative;
+      @include contentStopMargin{
+        width: 100%;
+        @include auto
+      }
+      .layout__region{
+        & > * {
+          position: relative;
+          z-index: 10;
+          * {
+            color: $white;
+          }
+        }
+        &.layout__region--first{
+          @include desk{
+            padding-left: 130px;
+            padding-right: 30px;
+            @include safeFlex(row,wrap,end,start);
+            @include contentStopMargin{
+              padding-left: 30px;
+            }
+          }
+        }
+        &.layout__region--content{
+          @include contentStopMargin{
+            padding-left: 23px;
+          }
+        }
+      }//end layout region
+		}//end layout two column even
+
+    .block-field-image {
+      max-width: 426px;
+      margin: 0 auto;
+      .field-image{
+        @include desk{
+          @include safeFlex(row,wrap,end,start);
+        }
+      }
+      .image-wrapper {
+        position: relative;
+        margin-bottom: 2.5rem;
+        &:before {
+          background-image: url(../images/elements/fat-stripes-gold.svg);
+          content: '';
+          display: block;
+          width: 140px;
+          height: 247px;
+          position: absolute;
+          bottom: -41px;
+          left: -30px;
+          background-repeat: no-repeat;
+          background-size: 100% 100%;
+          @include desk {
+            bottom: -30px;
+            left: -50px;
+            width: 220px;
+            height: 340px;
+          }
+        }//end before
+        .field-media-image {
+          position: relative;
+          z-index: 15;
+        }
+      }//end field image
+    }//end image block
+
+    .emeriti-wrapper {
+      color: $white;
+      width: 120px;
+      font-size: 1.5rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 1rem;
+      margin-left: auto;
+      @include safeFlex(row,nowrap,start,start);
+      @include desk{
+        width: auto;
+        margin-left: 3rem;
+      }
+			.icon-wrapper {
+				width: 15px;
+				height: 18px;
+				margin-top: 3px;
+				margin-right: $spaceXxs;
+				svg path {
+					fill: none;
+				}
+			}//end icon wrapper
+		}//end emeriti
+
+		.alumni-wrapper {
+      @extend .emeriti-wrapper;
+		}//end is alumni
+
+    .block-title {
+      margin-bottom: 0;
+      @include edgeReset;
+      @include desk{
+        margin-top: 28px;
+      }
+      .field.title {
+				margin-bottom: 1rem;
+				margin-top: 3rem;
+				@include desk {
+					margin-top: 0;
+				}
+			}
+    }//end title block
+
+    .block-created {
+      margin-bottom: 0;
+    }
+
+    .block-field-pronouns {
+      text-transform: uppercase;
+      margin-bottom: 0;
+      letter-spacing: 0.05em;
+    }
+
+    .block-field-positions {
+      font-family: $header;
+      margin-top: 6rem;
+      margin-bottom: 0;
+      font-size: 2.5rem;
+      line-height: 1.5;
+      @include desk{
+        margin-top: 8rem;
+      }
+      .field-positions > div:not(:last-child){
+        margin-bottom: $spaceXxs;
+      }
+    }//end block field positions
+
+    .block-field-departments {
+      margin-top: 6rem;
+      h2.block-title{
+        font-family: $bodyText;
+        font-size: 1.75rem;
+        text-align: left;
+        font-weight: normal;
+        text-transform: capitalize;
+        letter-spacing: unset;
+        margin-bottom: 0.5rem;
+      }//end block title
+      .field-departments {
+        a {
+          @include arrowLinkAfter($gold);
+          font-family: $bodyText;
+          font-size: 2rem;
+          line-height: 1.875;
+          font-weight: $heavy;
+          span{
+            color: $gold;
+          }
+          &:after{
+            @include rightArrow(gold,transparent,$gold,sm);
+          }
+          &:hover,&:focus{
+            &:after{
+              @include rightArrow(navy,$white,$white,sm);
+            }
+            span{
+              @include dottedLink($white);
+              padding-bottom: 1px;
+            }
+          }//end hover, focus
+        }//end a
+      }//end field departments
+    }//end departments block
+    .blue-triangle {
+      position: absolute;
+      bottom: -1px;
+      left: -20px;
+      height: 29vw;
+      width: 100vw;
+      clip-path: polygon(100% 0%, 0% 100%, 100% 100%);
+      background: $brightBlue;
+      overflow: hidden;
+      @include desk{
+        background: $white;
+        &:after{
+          content: '';
+          display: block;
+          height: 500%;
+          width: 60%;
+          position: absolute;
+          bottom: -2px;
+          right: 0;
+          background: $brightBlue;
+          z-index: 1;
+        }
+      }
+    }//end after
+    .blue-swirl{
+      position: absolute;
+      bottom: -92px;
+      left: 73vw; 
+      z-index: 5;
+      @include menuStop{
+        bottom: -100px;
+      }
+      @include contentStop{
+        left: auto;
+        right: -74px;
+      }
+      svg{
+        path{
+          stroke: $royal;
+        }
+      }
+    }//end blue swirl
+	}//end node section one
+
 	#node-section-2{
 		@include contactHolder;
+		margin-top: -6rem;
+		position: relative;
+		z-index: 10;
+		margin-bottom: $spaceMd;
+    @include smallTab{
+      margin-top: calc(-10px + -8vw);
+    }
+		@include desk {
+      margin-top: calc(-20px + -16vw);
+			margin-bottom: 0;
+		}
+    @media screen and (min-width: 1650px){
+      margin-top: calc(-20px + -14vw);
+    }
+    @media screen and (min-width: 2100px){
+      margin-top: calc(-20px - 12vw);
+    }
+    @media screen and (min-width: 2500px){
+      margin-top: calc(-20px - 11vw);
+    }
+    @media screen and (min-width: 2800px){
+      margin-top: calc(-20px - 10vw);
+    }
+    .contact-wrapper{
+      padding-top: 56px;
+      padding-bottom: 50px;
+    }
     .contact-title{
       @include contactTitle;
+			margin-bottom: 3.5rem;
+      @include desk{
+        font-size: 25px;
+      }
     }
-    .layout__region{
-      @include contactContent;
+		.block-field {
+			margin-bottom: 1.5rem;
+		}
+		.nid a {
+			display: block;
+			margin-bottom: 0.25rem;
+			width: fit-content;
+			border-bottom: 1px dotted;
+		}
+		#hours-icon {
+			fill: none !important;
+		}
+		#phone-icon {
+			fill: none !important;
+		}
+		#cv-icon {
+			fill: none !important;
+		}
+		.field-platforms .platform-links{
+      a{ 
+        &:hover,&:focus{
+          background: darken($ice,3%);
+          border-radius: 4px;
+        }
+        svg {
+          width: 2rem;
+          height: 2rem;
+        }
+      }
+		}
+    .layout--twocol-even{
+      .layout__region{
+        @include contactContent;
+        @include tab{
+          width: 50%;
+        }
+      }
     }
-	}
+	}//end node section two
 
 	#node-section-3{
 		max-width: $textMax;
 		@include auto;
-	}
-
-	.block-field-image{
-		width: 100%;
-	}
-
-
-
+		padding-top: 3rem;
+    @include desk{
+      padding-top: 70px;
+    }
+		h2.block-title {
+			text-align: left;
+			@include heading3;
+			text-transform: capitalize;
+			font-size: 2rem;
+			margin-bottom: 0.5rem;
+			line-height: 2;
+      letter-spacing: 0;
+			@include desk {
+				font-size: 2.25rem;
+			}
+		}
+		.block-field {
+			padding: 0 2.5rem;
+			@include desk {
+				padding: 0;
+			}
+		}
+	}//end node section three
 }//end bios
 
-//bio teaser
+/* PROFILE TEASER
+--------------------- */
 .node-teaser-bios{
 	@include profileTeaser;
   .teaser-title{
     margin-bottom: 1.5rem;
   }
 }//end node teaser bios
+
+/* PROFILE STACKED
+--------------------- */
+.node-stacked-bios{
+  //mixin from general mixins because of fauxfile
+  @include profileStacked;
+}
+
 

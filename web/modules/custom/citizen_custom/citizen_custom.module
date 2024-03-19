@@ -59,13 +59,16 @@ function citizen_custom_theme() {
         'nids'=>[],
       ],
     ],
-	'courses'=>[
-	  'variables'=>[
-	    'program_title'=>'',
-		'courses'=>[],
-		'courseleaf_slug'=>'',
-	  ],
-	],
+    'courses'=>[
+      'variables'=>[
+        'program_title'=>'',
+      'courses'=>[],
+      'courseleaf_slug'=>'',
+      ],
+    ],
+    'form__views_exposed_form_content_page_1' => [
+      'template' => 'form--views-exposed-form-content-page-1',
+    ],
   ];
 }
 
@@ -473,7 +476,7 @@ function citizen_custom_views_pre_view($view, $display_id, &$args) {
 		      $paragraph = Paragraph::load($paragraph_id);
 		      $parentNode = $paragraph->parent_id;
 
-		      if ($parentNode) {
+		      if ($parentNode && !empty($parentNode->value)) {
 		        $node = Node::load($parentNode->value);
 
 		        if ($node) {

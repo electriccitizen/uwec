@@ -47,7 +47,7 @@ content:
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 3
+    weight: 5
     region: content
   field_name:
     type: string
@@ -63,7 +63,7 @@ content:
     settings:
       title: ''
     third_party_settings: {  }
-    weight: 5
+    weight: 3
     region: content
 hidden:
   search_api_excerpt: true

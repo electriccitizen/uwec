@@ -20,6 +20,40 @@
 }
 
 .paragraph--type--gallery{
+  &.gallery-visible{
+    .tiles .gallery-wrapper .square,.masonry .masonry-item{
+      opacity: 1;
+      transition: opacity .5s ease-in;
+    }
+    .image-gal{
+      &:nth-child(3n+1) {
+        .square{
+          transition-delay: .25s;
+        }
+      }
+      &:nth-child(3n+2){
+        .square{
+          transition-delay: .5s;
+        }
+      }
+      &:nth-child(3n+2){
+        .square{
+          transition-delay: .75s;
+        }
+      }
+    }//end image gal
+    .masonry-item{
+      &:nth-child(3n+1) {
+        transition-delay: .25s;
+      }
+      &:nth-child(3n+2){
+        transition-delay: .5s;
+      }
+      &:nth-child(3n+2){
+        transition-delay: .75s;
+      }
+    }//end masonry item
+  }//end gallery visible
 	.tiles{
     @include edgeToEdge;
     @include contentStopMargin{
@@ -36,6 +70,9 @@
 			@include safeFlex(row,wrap,start,start);
 			@include bleed(padding,20px);
 			margin-bottom: 20px;
+      .square{
+        opacity: 0;
+      }
 			//hide the content before tiles
 			.featherlight-hidden {
 				display: none;
@@ -49,7 +86,8 @@
 				max-width: 335px;
         .widget-section > .layout--onecol &,
         .widget-section > .layout--twocol-section--75-25 > .layout__region--first &,
-        .widget-section > .layout--twocol-section--25-75 > .layout__region--second &{
+        .widget-section > .layout--twocol-section--25-75 > .layout__region--second &,
+        .node-support-book &{
           @include tab{
             width: 33%.3;
           }
@@ -99,7 +137,8 @@
           .widget-section > .layout--twocol-section--67-33 > .layout__region--first &,
           .widget-section > .layout--twocol-section--75-25 > .layout__region--first &,
           .widget-section > .layout--twocol-section--33-67 > .layout__region--second &,
-          .widget-section > .layout--twocol-section--25-75 > .layout__region--second &{
+          .widget-section > .layout--twocol-section--25-75 > .layout__region--second &,
+          .node-support-book &{
             @include tab{
               width: 50%;
             }
@@ -132,7 +171,8 @@
         .widget-section > .layout--twocol-section--67-33 > .layout__region--first &,
         .widget-section > .layout--twocol-section--75-25 > .layout__region--first &,
         .widget-section > .layout--twocol-section--33-67 > .layout__region--second &,
-        .widget-section > .layout--twocol-section--25-75 > .layout__region--second &{
+        .widget-section > .layout--twocol-section--25-75 > .layout__region--second &,
+        .node-support-book &{
           @include tab{
             top: calc(120px + 14%);
           }
@@ -206,6 +246,7 @@
 		.masonry-item {
       margin-bottom: 10px;
       max-width: 100%;
+      opacity: 0;
       //when on mobile or in a layout region with little room ,force masonry full width
       @include onlyPhone{
         position: static !important;
@@ -218,7 +259,7 @@
       .widget-section > .layout--threecol-section--33-34-33 &,
       .widget-section > .layout--threecol-section--25-50-25 &,
       .widget-section > .layout--threecol-section--25-25-50 &,
-      .widget-section > .layout--threecol-section--50-25-25 &,{
+      .widget-section > .layout--threecol-section--50-25-25 &{
         position: static !important;
         width: 100% !important;
         @include tab{
