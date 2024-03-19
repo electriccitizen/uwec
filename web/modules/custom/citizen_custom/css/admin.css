@@ -274,6 +274,9 @@ body:not(.role-super-user):not(.role-administrator):not(.role-site_admin) .field
 
 /* CUSTOM EXPOSED FILTERS FOR ADMIN CONTENT
 ------------------------------------ */
+#views-exposed-form-content-page-1.move-actions #edit-actions{
+  order: 99;
+}
 #views-exposed-form-content-page-1 > *:not(.custom-views-filter):not(.advanced-filters-drawer){
   margin-right: 1.5rem;
 }
