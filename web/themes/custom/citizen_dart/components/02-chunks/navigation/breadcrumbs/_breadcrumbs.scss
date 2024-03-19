@@ -6,7 +6,7 @@
 .breadcrumb{
 	max-width: $contentStop;
 	@include auto;
-	padding: $spaceMd 0 8rem;
+	padding: $spaceMd 0 0;
 	ol {
 		@include listReset;
 	}
@@ -26,10 +26,11 @@
 				font-size: 1.5rem;
 				letter-spacing: 1px;
 				text-transform: uppercase;
+        margin-left: .25em;
+        margin-right: .25em;
 			}
 		}
 		a{
-			@include transAll(.3s);
 			color: $breadLink;
 			font-family: $bodyText;
 			font-size: 1.5rem;
@@ -37,6 +38,8 @@
 			text-transform: uppercase;
 			&:hover,&:focus{
 				color: $breadLinkHover;
+        padding-bottom: 2px;
+        @include dottedLink($white);
 			}
 		}
 	}
