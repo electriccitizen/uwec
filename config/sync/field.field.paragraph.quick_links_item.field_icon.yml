@@ -1,0 +1,29 @@
+uuid: 79fb9ef8-45c4-4a1a-91c4-8f556d2d83df
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_icon
+    - media.type.icon
+    - paragraphs.paragraphs_type.quick_links_item
+id: paragraph.quick_links_item.field_icon
+field_name: field_icon
+entity_type: paragraph
+bundle: quick_links_item
+label: Icon
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      icon: icon
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

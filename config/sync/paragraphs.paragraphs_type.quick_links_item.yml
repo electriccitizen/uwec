@@ -1,0 +1,10 @@
+uuid: d892afd9-fab9-4515-928c-f42bd8130a14
+langcode: en
+status: true
+dependencies: {  }
+id: quick_links_item
+label: 'Quick Links Item'
+icon_uuid: null
+icon_default: null
+description: 'A single tile in the Quick Links paragraph.'
+behavior_plugins: {  }

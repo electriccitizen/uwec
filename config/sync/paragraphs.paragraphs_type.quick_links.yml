@@ -1,0 +1,10 @@
+uuid: 2a2360a2-e322-4dfc-9c51-68ca92c7ee5a
+langcode: en
+status: true
+dependencies: {  }
+id: quick_links
+label: 'Quick Links'
+icon_uuid: null
+icon_default: null
+description: 'A collection of tiles with an icon and a link.'
+behavior_plugins: {  }
