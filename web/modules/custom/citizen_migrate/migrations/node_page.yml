@@ -78,29 +78,19 @@ process:
   field_formatted_title: title
   status: ispublished
   field_page_family: page_family
-  layout_section:
-    - plugin: migration_lookup
-      migration: page
-      source: id
-    - plugin: cm_layout_section
   field_paragraphs:
-    plugin: sub_process
-    source: '@layout_section'
-    process:
-      target_id: id
-      target_revision_id: revision_id
-
-#  field_paragraphs:
-#    -
-#      plugin: single_value
-#      source: data
-#    -
-#      plugin: cm_field_paragraphs
-#    -
-#      plugin: sub_process
-#      process:
-#        target_id: id
-#        target_revision_id: revision_id
+    -
+      plugin: single_value
+      source:
+        - data
+        - id
+    -
+      plugin: cm_field_paragraphs
+    -
+      plugin: sub_process
+      process:
+        target_id: id
+        target_revision_id: revision_id
 
 destination:
   plugin: entity:node

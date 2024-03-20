@@ -52,8 +52,15 @@ source:
     - name: id
       label: 'ID'
       selector: id
+    # Technically, we only need one 'id'.
+    # But we need to match the ID structure of the paragraphs for Pages.
+    - name: rowIndex
+      label: 'Row Index'
+      selector: id
   ids:
     id:
+      type: integer
+    rowIndex:
       type: integer
 
 # Add processing for fields specific to this content type.
@@ -61,10 +68,10 @@ process:
   type:
     plugin: default_value
     default_value: layout_section
-  parent_id:
-    plugin: migration_lookup
-    migration: page
-    source: id
+#  parent_id:
+#    plugin: migration_lookup
+#    migration: page
+#    source: id
   parent_type:
     plugin: default_value
     default_value: node
