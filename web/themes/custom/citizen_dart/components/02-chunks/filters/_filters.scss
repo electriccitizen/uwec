@@ -16,6 +16,8 @@
 		label{
 			@include formLabel;
 			margin-bottom: $spaceXxs;
+      text-transform: uppercase;
+      padding-left: 20px;
 		}
 		@include tab{
 			width: 50%;
@@ -28,11 +30,15 @@
 			}
 		}
     &.js-form-type-textfield{
+      label{
+        padding-left: 26px;
+      }
       input{
         font-size: 2rem;
         line-height: 2;
         border-radius: 50px;
         border: none;
+        padding-top: 9px;
       }
       .description{
         margin-left: 20px;
@@ -53,7 +59,6 @@
       color: $navy;
 			margin: 0 10px;
 			&[data-drupal-selector='edit-reset']{
-				@include warningButton;
 				margin: 0 10px;
 			}
 		}

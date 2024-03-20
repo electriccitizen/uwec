@@ -84,13 +84,13 @@
 
 @mixin inputSelect{
 	width: 100%;
-	font-size: 2rem;
-	border-radius: 10px;
+  border: 1px solid $white;
+  border-radius: 10px;
 	height: auto;
 	background: $siteBack;
-	&.select2--container--focus{
-		box-shadow: 0 2px 2px $warmGrey;
-	}
+  .select2-selection__rendered{
+    border-radius: 10px; 
+  }
 }
 
 @mixin customOptions{

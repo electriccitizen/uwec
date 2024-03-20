@@ -5,15 +5,6 @@
 @use '../../../00-base/base' as *;
 @use '../views-mixins' as *;
 
-@mixin threeColumnPrograms{
-  width: 100%;
-  @include safeFlex(row,wrap,start,stretch);
-  gap: 20px;
-  & > *{
-    width: calc(33.33% - 14px);
-  }
-}
-
 /* PROGRAMS LIST
 ------------- */
 .programs.list {
@@ -21,7 +12,7 @@
 	@include auto;
   .view-content{
 	  @include tab{
-  		@include threeColumnPrograms;
+  		@include threeColumnStartStretch;
   	}// end programs-wrapper
 	}//end tab
 }//end programs list
@@ -31,7 +22,7 @@
   @include auto;
   .view-content{
 	  @include tab{
-  		@include threeColumnPrograms;
+  		@include threeColumnStartStretch;
   	}// end programs-wrapper
     @include desk{
       & > *{
