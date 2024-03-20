@@ -5,36 +5,38 @@
 @use '../../../00-base/base' as *;
 @use '../views-mixins' as *;
 
+@mixin threeColumnPrograms{
+  width: 100%;
+  @include safeFlex(row,wrap,start,stretch);
+  gap: 20px;
+  & > *{
+    width: calc(33.33% - 14px);
+  }
+}
+
 /* PROGRAMS LIST
 ------------- */
 .programs.list {
-	max-width: 984px;
+	max-width: 985px;
 	@include auto;
-	@include tab{
-  	.programs-wrapper{
-  		width: 100%;
-  		display: grid;
-			grid-template-columns: 1fr 1fr 1fr;
-	  	grid-gap: 65px;
+  .view-content{
+	  @include tab{
+  		@include threeColumnPrograms;
   	}// end programs-wrapper
 	}//end tab
 }//end programs list
 
 .programs.by-department{
-  @include tab{
-    .programs-wrapper{
-      width: 100%;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      grid-gap: 65px;
-    }// end programs-wrapper
-  }//end tab
-  @include desk{
-    .programs-wrapper{
-      width: 100%;
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr 1fr;
-      grid-gap: 65px;
-    }// end programs-wrapper
-  }//end tab
+  max-width: $contentStopMargin;
+  @include auto;
+  .view-content{
+	  @include tab{
+  		@include threeColumnPrograms;
+  	}// end programs-wrapper
+    @include desk{
+      & > *{
+        width: calc(25% - 15px);
+      }
+    }
+	}//end tab
 }//end programs by department

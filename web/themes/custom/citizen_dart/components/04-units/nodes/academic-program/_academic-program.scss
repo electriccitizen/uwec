@@ -260,31 +260,142 @@
 }//end academic-program
 
 .academic-program-teaser {
-	.hidden {
-    display: none;
-	}
-	.program-toggle {
-    background: none;
-    color: inherit;
-    border: none;
-    padding: 0;
-    font: inherit;
-    cursor: pointer;
-    outline: inherit;
-	}
-	.chevron-down {
-    display: inline-block;
-    width: 10px;
-    height: 10px;
-    border-right: 2px solid currentColor;
-    border-bottom: 2px solid currentColor;
-    transform: rotate(45deg);
-    margin-left: 5px;
-    vertical-align: middle;
-			transition: transform 0.3s ease;
-		}
-	
-	.chevron-flip {
-			transform: rotate(225deg);
-	}
+  @include tab{
+    height: 100%;
+  }
+  .program-inner{
+    border-top: 1px solid $warmGrey;
+    min-height: 130px;
+    margin-bottom: 20px;
+    background: $lightGrey;
+    @include safeFlex(column,nowrap,justify,start);
+    @include tab{
+      height: 100%;
+      min-height: 313px;
+    }
+    & > *{
+      width: 100%;
+    }
+  }//end program inner
+  &.open-program{
+    position: relative;
+    .program-inner{
+      background: $warmGrey;
+      @include tab{
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+    }//end program inner
+    .program-intro,.program-meta{
+      @include tab{
+        background: $warmGrey;
+      }
+    }
+    .program-types .program-toggle{
+      &:hover,&:focus{
+        .chevron-down{
+          background: darken($warmGrey,3%);
+        }
+      }
+    }//end program toggle
+  }//end open program
+  .program-intro{
+    padding: 20px 20px 1px;
+    @include tab{
+      background: $lightGrey;
+    }
+    .program-image{
+      margin-bottom: $spaceSm;
+      @include onlySmall{
+        display: none;
+      }
+    }
+    .program-title{
+      @include heading3;
+      line-height: 1.33;
+      color: $navy;
+      margin-bottom: $spaceXxs;
+    }
+  }//end program intro
+  .program-meta{
+    padding: 1px 20px 12px;
+    @include tab{
+      background: $lightGrey;
+    }
+  }
+  .program-types{
+    position: relative;
+    .program-toggle {
+      &.open .chevron-down svg{
+        transform: rotate(180deg);
+      }
+      &:hover,&:focus{
+        .type-list span{
+          @include dottedLink($brightBlue);
+        }
+        .chevron-down{
+          background: rgba($warmGrey,.3);
+        }
+      }
+      .type-list{
+        max-width: calc(100% - 50px);
+        font-size: 12px;
+        color: $navy;
+        text-transform: uppercase;
+      }
+      .chevron-down {
+        position: absolute;
+        bottom: -12px;
+        right: -20px;
+        display: block;
+        width: 40px;
+        height: 40px;
+        @include safeFlex(column,nowrap,center,center);
+        svg{
+          transition: transform 0.3s ease;
+          fill: none;
+          width: 10px;
+        }
+      }//end chevron down
+    }//end program toggle
+  }//end program types
+  .program-body{
+    margin-top: $spaceSm;
+    font-size: 1.75rem;
+    line-height: 2;
+    &.hidden {
+      display: none;
+    }
+    .program-intro-text{
+      margin-bottom: $spaceSm;
+    }
+    .program-link{
+      display: inline-block;
+      @include arrowLinkBefore($navy);
+      padding-left: 32px;
+      font-size: 16px;
+      line-height: 1.2;
+      margin-bottom: $spaceMd;
+      &:before{
+        content: '';
+        display: block;
+        position: absolute;
+        top: -2px;
+        left: 0;
+        width: 20px;
+        height: 20px;
+        @include rightArrow(navy,transparent,$navy,sm);
+      }//end before
+      &:hover,&:focus{
+        &:before{
+          @include rightArrow(white,$navy,$navy,sm);
+        }
+        .program-link-text{
+          @include dottedLink($white);
+          padding-bottom: 1px;
+        }
+      }//end hover, focus
+    }//end program link
+  }//end program body
 } //end academic-program-teaser 
