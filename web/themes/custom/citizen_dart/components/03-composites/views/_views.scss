@@ -47,8 +47,8 @@
 }//end view content
 
 .view-empty{
-	margin-bottom: $spaceLg;
-	max-width: $textMax;
+	margin-bottom: $spaceXl;
+	max-width: $largeTab;
 	@include auto;
 	text-align: center;
 }

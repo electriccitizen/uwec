@@ -9,10 +9,10 @@
  * @see template_preprocess_views_exposed_form()
  */
 #}
-
+<h2>Search Programs</h2>
 {{ attach_library('citizen_dart/drawers') }}
+
 <div class="views-exposed-form-inner">
-	<div class="filters-title">Search Programs</div>
 	{% if q is not empty %}
 	  {#
 	    This ensures that, if clean URLs are off, the 'q' is added first,
@@ -24,7 +24,22 @@
 		{{ form.programs_fulltext }}
 	</div>
 	<div class="advanced-form">
-		<a href="#" class="filter-toggle" aria-controls="advanced-filters" aria-expanded="false">Advanced Search</a>
+		<a href="#" class="filter-toggle" aria-controls="advanced-filters" aria-expanded="false">
+      <div>
+        <svg id="filter-icon" width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <line y1="2.64258" x2="15" y2="2.64258" stroke="black"/>
+          <line y1="6.92969" x2="15" y2="6.92969" stroke="black"/>
+          <line y1="11.2148" x2="15" y2="11.2148" stroke="black"/>
+          <circle cx="2.67843" cy="6.8923" r="1.60714" fill="#DBD8D1" stroke="black"/>
+          <circle cx="10.1784" cy="2.60714" r="1.60714" fill="#DBD8D1" stroke="black"/>
+          <circle cx="9.10739" cy="11.1794" r="1.60714" fill="#DBD8D1" stroke="black"/>
+        </svg>
+        <span>Advanced Search</span>
+      </div>
+      <svg id="filter-caret" width="12" height="7" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M1 1L6.00145 6.00145L11 1" stroke="#06233D" stroke-miterlimit="10"/>
+      </svg>
+    </a>
 		<div id="advanced-filters" class="advanced-form-inner" aria-hidden="true">
 			<div class="advanced-form-inner-filters">
 				{{ form|without('programs_fulltext','actions') }}

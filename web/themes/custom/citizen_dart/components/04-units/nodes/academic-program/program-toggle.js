@@ -1,19 +1,28 @@
-function toggleProgramDetails() {
-  var body = document.getElementById("programBody");
-  var chevron = document.getElementById("chevronIcon");
-  body.classList.toggle("hidden");
-  chevron.classList.toggle("chevron-flip");
-}
+(function($, Drupal, once) {
 
+  Drupal.behaviors.programToggle = {
+    attach: function (context, settings) {
+      $(once('program', '.academic-program-teaser', context)).each(function(){
+        $('.program-toggle',this).click(function(e){
+          e.preventDefault();
+          if($(this).hasClass('open')){
+            $(this).attr('aria-expanded', "false")
+              .removeClass('open')
+              .closest('.program-types')
+              .prev('.program-body')
+              .slideUp(300, function() {
+                // This function is called after the slideUp animation completes
+                $(this).attr('aria-hidden', "true")
+                    .closest('.academic-program-teaser')
+                    .removeClass('open-program');
+            });
+          }else{
+            $(this).closest('.academic-program-teaser').addClass('open-program');
+            $(this).attr('aria-expanded', "true").addClass('open').closest('.program-types').prev('.program-body').slideDown(300).attr('aria-hidden', "false");
+          }
+        });
+      });
+    }
+  }
 
-function toggleProgramDetails(button) {
-  // Find the closest parent container with the class 'academic-program-teaser'
-  var container = button.closest('.academic-program-teaser');
-
-  // Within this container, toggle the 'hidden' class for the program body and link
-  var body = container.querySelector('.program-body');
-  var chevron = button.querySelector('.chevron-down');
-  
-  body.classList.toggle("hidden");
-  chevron.classList.toggle("chevron-flip");
-}
+})(jQuery, Drupal, once);
