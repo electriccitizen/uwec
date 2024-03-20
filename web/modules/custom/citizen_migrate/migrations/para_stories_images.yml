@@ -69,6 +69,7 @@ process:
   layout_parent_id:
     plugin: migration_lookup
     migration: layout_stories
+    # This is intentional to match the id structure of paragraphs.
     source:
       - legacy_id
       - legacy_id
@@ -79,10 +80,7 @@ process:
   parent_type:
     plugin: default_value
     default_value: node
-  parent_id:
-    plugin: migration_lookup
-    migration: stories
-    source: legacy_id
+#  parent_id: Parent entity ID must be available when the migration is run. Stubs won't work.
   parent_field_name:
     plugin: default_value
     default_value: field_paragraphs

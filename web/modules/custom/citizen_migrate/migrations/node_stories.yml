@@ -96,10 +96,10 @@ source:
 # Add processing for fields specific to this content type.
 process:
   # image cutline
-  # videos_id: goes to remote video paragraph
+  # videos_id: goes to remote video paragraph -done
   # intro paragraph should not be required (temporarily)
   # Some images are too large for editing the focal point
-  # bullet points
+  # bullet points -done
   field_editorial_sections:
     plugin: default_value
     default_value: 28
@@ -120,11 +120,6 @@ process:
     source: pub_date
     from_format: 'Y-m-d H:i:s'
     to_format: 'U'
-#  changed:
-#    plugin: format_date
-#    source: updated_at
-#    from_format: 'Y-m-d H:i:s'
-#    to_format: 'U'
   'field_intro_text/summary': excerpt
   'field_intro_text/value':
     plugin: default_value
@@ -151,45 +146,14 @@ process:
       plugin: cm_content_logger
       log_data: false
       field: cutline
-
-#  images:
-#    - plugin: dom
-#      method: import
-#      source: article
-#    -
-#      plugin: cm_content_logger
-#      log_data: false
-#      tag:
-#        - figure
   paragraphs:
-#    -
-#      plugin: cm_remove_attributes
-#      source: article
-#      selector: '*'
-#      attributes:
-#        - class
-#        - style
     -
       plugin: dom
       method: import
       source: article
-#    -
-#      plugin: dom_remove
-#      selector: //figure
-
-#    -
-#      plugin: dom_remove
-#      mode: attribute
-#      selector: //*[@class]
-#      attribute: class
-#    -
-#      plugin: dom_remove
-#      mode: attribute
-#      selector: //*[@style]
-#      attribute: style
     -
       plugin: cm_content_logger
-      log_data: true
+      log_data: false
       tags:
         - h2
         - h3
@@ -198,88 +162,44 @@ process:
         - ul
         - ol
         - figure
-  layout_paragraph:
-    plugin: cm_layout_paragraph
-    source: id
-  all_parapraphs:
-    -
-      plugin: get
-      source:
-        - '@layout_paragraph'
-        - '@paragraphs'
-#  paragraphs:
-#    plugin: cm_array_merge
-#    source:
-#      - '@images'
-#      - '@text'
-  layout_section:
-    -
-      plugin: migration_lookup
-      migration: stories
-      source: id
-    -
-      plugin: cm_layout_section
   field_paragraphs:
-    plugin: sub_process
-    source: '@layout_section'
-    process:
-      target_id: id
-      target_revision_id: revision_id
-#  'field_paragraphs/target_id':
-#    -
-#      plugin: single_value
-#      source: '@layout_section'
-#    -
-#      plugin: extract
-#      index:
-#        - 0
-#  'field_paragraphs/target_revision_id':
-#    -
-#      plugin: single_value
-#      source: '@layout_section'
-#    -
-#      plugin: extract
-#      index:
-#        - 1
-#        target_id:
-#          plugin: extract
-#          index:
-#            - 0
-#        revision_target_id:
-#          plugin: extract
-#          index:
-#            - 1
-#  field_paragraphs:
-#    plugin: sub_process
-#    source: '@all_paragraphs'
-#    process:
-#      new_id:
-#        -
-#          plugin: migration_lookup
-#          migration:
-#            - stories_images
-#            - stories_text
-#          source:
-#            - legacy_id
-#            - index
-#            - tag
-#      target_id:
-#        -
-#          plugin: single_value
-#          source: '@new_id'
-#        -
-#          plugin: extract
-#          index:
-#            - 0
-#      target_revision_id:
-#        -
-#          plugin: single_value
-#          source: '@new_id'
-#        -
-#          plugin: extract
-#          index:
-#            - 1
-#into sections
+    -
+      plugin: cm_merge_arrays
+      source:
+        - '@paragraphs'
+        - id
+    -
+      plugin: sub_process
+      process:
+        new_id:
+          -
+            plugin: migration_lookup
+            migration:
+              - stories_images
+              - stories_text
+              - stories_video
+              - layout_stories
+            source:
+              - legacy_id
+              - index
+              - tag
+        target_id:
+          -
+            plugin: single_value
+            source: '@new_id'
+          -
+            plugin: extract
+            index:
+              - 0
+        target_revision_id:
+          -
+            plugin: single_value
+            source: '@new_id'
+          -
+            plugin: extract
+            index:
+              - 1
+
 destination:
   plugin: entity:node
   default_bundle: news

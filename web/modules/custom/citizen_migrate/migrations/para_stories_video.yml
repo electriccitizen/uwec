@@ -1,5 +1,5 @@
-id: layout_stories
-label: 'Paragraphs: Layout Section'
+id: stories_video
+label: 'Stories: Video'
 
 # This migration will be run with all the other migrations in
 # the ECM group when using the --group tag in Drush.
@@ -15,7 +15,7 @@ migration_group: ecm
 # Example: files, media, taxonomy, etc.
 # @Drush: fin drush migrate:import --tag=files
 migration_tags:
-  - layout_section
+  - para_stories
 
 # Adding dependencies allows migrations to be run in the proper
 # order when run as part of the ECM Group or in a tag.
@@ -30,7 +30,7 @@ migration_dependencies:
 # @See citizen_migrate.migrate_shared_configuration.yml.
 include:
   - cm_defaults
-  - json_defaults
+  - csv_defaults
 
 # Keys set here for source, process and destination will override
 # any keys with the same name set in the shared configuration.
@@ -41,46 +41,53 @@ include:
 # If you uncomment any of the source, process or destination keys,
 # you must put a field with a value.
 source:
-  plugin: uwec_url
-  urls: 'https://athena.apps.uwec.edu/api/stories.json'
-  constants:
-    unit_id: 35
-    isactive: 1
+  plugin: csv
+  path: 'sites/default/files/source-data/stories_para_video.csv'
   fields:
-    - name: id
+    - name: legacy_id
       label: 'ID'
-      selector: id
-    # Technically, we only need one 'id'.
-    # But we need to match the ID structure of the paragraphs for Story.
-    - name: index
-      label: 'Index'
-      selector: id
+    - name: drupal_id
+      label: 'Drupal ID'
+    - name: video
+      label: 'Video'
     - name: tag
       label: 'Tag'
-      selector: id
   ids:
-    id:
-      type: integer
-    index:
-      type: integer
-    tag:
-      type: integer
+    - legacy_id
+    - video
+    - tag
 
 # Add processing for fields specific to this content type.
 process:
+  layout_parent_id:
+    plugin: migration_lookup
+    migration: layout_stories
+    # This is intentional to match the id structure of paragraphs.
+    source:
+      - legacy_id
+      - legacy_id
+      - legacy_id
   type:
     plugin: default_value
-    default_value: layout_section
-  #  parent_id: Parent entity ID must be available when the migration is run. Stubs won't work.
+    default_value: 'video'
   parent_type:
     plugin: default_value
     default_value: node
+#  parent_id: Parent entity ID must be available when the migration is run. Stubs won't work.
   parent_field_name:
     plugin: default_value
     default_value: field_paragraphs
   behavior_settings:
-    plugin: citizen_behavior_settings
+    -
+      plugin: single_value
+      source: '@layout_parent_id'
+    -
+      plugin: citizen_behavior_settings
+  field_video:
+    plugin: migration_lookup
+    migration: media_video
+    source: video
 
 destination:
-  plugin: 'entity_reference_revisions:paragraph'
-  default_bundle: 'layout_section'
+  plugin: entity_reference_revisions:paragraph
+  default_bundle: video
