@@ -306,7 +306,7 @@ process:
   field_position:
     -
       plugin: explode
-      source: title
+      source: hrs_title
       delimiter: "\n"
   # id 2412 has identical titles
   # id 1184 has different titles (slightly)
