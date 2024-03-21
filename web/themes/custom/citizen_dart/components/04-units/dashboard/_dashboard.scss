@@ -18,7 +18,7 @@
 	.block-name{
 		margin-bottom: $spaceXxs;
 		h1{
-			margin-bottom: $spaceXs;
+			margin-bottom: $spaceLg;
       color: $brightBlue;
 		}
 	}
@@ -28,7 +28,7 @@
     color: $brightBlue;
     font-size: 1.75rem;
     line-height: 1.42;
-    margin-bottom: $spaceMd;
+    margin-bottom: $spaceLg;
     @include tab{
       @include safeFlex(row,nowrap,start,start);
       gap: 20px;
