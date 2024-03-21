@@ -1,0 +1,19 @@
+@use '../../../00-base/base' as *;
+
+.paragraph--type--external-articles .field-external-articles-items{
+	display:flex;
+	flex-flow:row wrap;
+	justify-content:center;
+
+	/* these classless divs are the container for each tile */
+	>div{
+		max-width:393px;
+		a{
+			display:inline-block;
+			padding:1rem;
+			&:hover{
+				background:$ice;
+			}
+		}
+	}
+}

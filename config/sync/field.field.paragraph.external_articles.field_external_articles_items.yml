@@ -1,0 +1,154 @@
+uuid: 922d2464-2928-4b9d-8498-1bdd26df191f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_external_articles_items
+    - paragraphs.paragraphs_type.external_articles
+    - paragraphs.paragraphs_type.external_articles_item
+  module:
+    - entity_reference_revisions
+id: paragraph.external_articles.field_external_articles_items
+field_name: field_external_articles_items
+entity_type: paragraph
+bundle: external_articles
+label: Articles
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      external_articles_item: external_articles_item
+    negate: 0
+    target_bundles_drag_drop:
+      accordion_item:
+        weight: 44
+        enabled: false
+      accordions:
+        weight: 45
+        enabled: false
+      block_placer:
+        weight: 46
+        enabled: false
+      button:
+        weight: 47
+        enabled: false
+      contact_placer:
+        weight: 48
+        enabled: false
+      content_carousel:
+        weight: 49
+        enabled: false
+      cta_item:
+        weight: 50
+        enabled: false
+      ctas:
+        weight: 51
+        enabled: false
+      custom_embed:
+        weight: 52
+        enabled: false
+      events_list:
+        weight: 53
+        enabled: false
+      external_articles:
+        weight: 43
+        enabled: false
+      external_articles_item:
+        weight: 54
+        enabled: true
+      facts_list:
+        weight: 55
+        enabled: false
+      fauxfile:
+        weight: 56
+        enabled: false
+      fauxfile_item:
+        weight: 57
+        enabled: false
+      gallery:
+        weight: 58
+        enabled: false
+      gallery_item:
+        weight: 59
+        enabled: false
+      hallmark:
+        weight: 60
+        enabled: false
+      hero:
+        weight: 61
+        enabled: false
+      highlight_box:
+        weight: 62
+        enabled: false
+      hours_placer:
+        weight: 63
+        enabled: false
+      hours_set:
+        weight: 64
+        enabled: false
+      image:
+        weight: 65
+        enabled: false
+      layout_section:
+        weight: 66
+        enabled: false
+      links_files:
+        weight: 67
+        enabled: false
+      profiles_list:
+        weight: 68
+        enabled: false
+      program_search:
+        weight: 69
+        enabled: false
+      programs_list:
+        weight: 70
+        enabled: false
+      quote:
+        weight: 71
+        enabled: false
+      select_item:
+        weight: 72
+        enabled: false
+      select_type:
+        weight: 73
+        enabled: false
+      slate_form:
+        weight: 74
+        enabled: false
+      snapshot_list:
+        weight: 75
+        enabled: false
+      social_media_links:
+        weight: 76
+        enabled: false
+      step_item:
+        weight: 77
+        enabled: false
+      steps:
+        weight: 78
+        enabled: false
+      stories_video_list:
+        weight: 79
+        enabled: false
+      testimonial_placer:
+        weight: 80
+        enabled: false
+      text:
+        weight: 81
+        enabled: false
+      video:
+        weight: 82
+        enabled: false
+      view_placer:
+        weight: 83
+        enabled: false
+      wayfinding:
+        weight: 84
+        enabled: false
+field_type: entity_reference_revisions

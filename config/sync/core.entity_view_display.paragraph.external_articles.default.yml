@@ -1,0 +1,25 @@
+uuid: 2265dd4b-23df-4c65-b79c-0d0e30b63bd3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.external_articles.field_external_articles_items
+    - paragraphs.paragraphs_type.external_articles
+  module:
+    - entity_reference_revisions
+id: paragraph.external_articles.default
+targetEntityType: paragraph
+bundle: external_articles
+mode: default
+content:
+  field_external_articles_items:
+    type: entity_reference_revisions_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  search_api_excerpt: true
