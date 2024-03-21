@@ -88,6 +88,7 @@
           margin-bottom: $spaceMd;
           padding-top: $spaceMd;
           padding-bottom: $spaceMd;
+          margin-top: $spaceMd;
           @include tab{
             gap: 20px;
           }

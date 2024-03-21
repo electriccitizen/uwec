@@ -97,6 +97,11 @@
 	}//end node section 3
 
 	#node-section-4{
+    position: relative;
+    color: $white;
+    &:after{
+      @include fullBack($brightBlue);
+    }
 		.block-field-authors{
 			max-width: $textMax;
 			@include auto;
@@ -131,20 +136,35 @@
     margin-bottom: $spaceXxs;
     a{
       @include arrowLinkAfter($navy);
+      .views-block.block-related-stories &{
+        color: $white;
+      }
       &:after{
         @include rightArrow(navy,transparent,$navy,sm);
+        .views-block.block-related-stories &{
+          @include rightArrow(white,transparent,$white,sm);
+        }
       }
       &:hover,&:focus{
         &:after{
           @include rightArrow(white,$navy,$navy,sm);
+          .views-block.block-related-stories &{
+            @include rightArrow(blue,$white,$white,sm);
+          }
         }
         span{
           @include dottedLink($navy);
           padding-bottom: 1px;
+          .views-block.block-related-stories &{
+            @include dottedLink($white);
+          }
         }
       }//end hover, focus
     }//end a
-  }
+    .views-block.block-related-stories &{
+
+    }
+  }//end teaser-title
   .field.body{
     line-height: 1.5;
   }
