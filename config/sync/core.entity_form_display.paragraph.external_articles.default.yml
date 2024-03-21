@@ -19,16 +19,17 @@ content:
     settings:
       title: Paragraph
       title_plural: Paragraphs
-      edit_mode: open
-      closed_mode: summary
+      edit_mode: closed
+      closed_mode: preview
       autocollapse: none
       closed_mode_threshold: 0
-      add_mode: dropdown
+      add_mode: button
       form_display_mode: default
-      default_paragraph_type: ''
+      default_paragraph_type: external_articles_item
       features:
+        add_above: '0'
         collapse_edit_all: collapse_edit_all
-        duplicate: duplicate
+        duplicate: '0'
     third_party_settings: {  }
 hidden:
   created: true
