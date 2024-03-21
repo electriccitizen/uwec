@@ -7,6 +7,7 @@
 .user-dashboard{
 	max-width: 945px;
 	@include auto;
+  margin-bottom: -15rem;
 	.field-user-image{
 		border-radius: 50%;
 		overflow: hidden;
@@ -18,18 +19,36 @@
 		margin-bottom: $spaceXxs;
 		h1{
 			margin-bottom: $spaceXs;
+      color: $brightBlue;
 		}
 	}
-	.user-roles > span{
-		&:not(:first-child):not(:last-child){
-			position: relative;
-			&:after{
-				@include vertRule(right,70%,$baseText);
-			}
-		}
-	}
+  .user-meta-wrapper{
+    background: $ice;
+    padding: 30px 20px;
+    color: $brightBlue;
+    font-size: 1.75rem;
+    line-height: 1.42;
+    margin-bottom: $spaceMd;
+    @include tab{
+      @include safeFlex(row,nowrap,start,start);
+      gap: 20px;
+      & > *{
+        width: calc(50% - 10px);
+      }
+    }
+    .username,.user-info{
+      margin-bottom: $spaceXxs;
+    }
+    .user-roles > span{
+      &:not(:first-child):not(:last-child){
+        position: relative;
+        &:after{
+          @include vertRule(right,70%,$baseText);
+        }
+      }
+    }
+  }//end user meta
 	.domains-access{
-		margin-bottom: $spaceMd;
 		ul{
 			@include listReset;
 			@include safeFlex(row,wrap,start,center);
@@ -71,102 +90,21 @@
 					@include vertRule(right,80%,$borderRule);
 				}
 			}
-		}
-	}
-  .action-buttons{
-    a{
-      margin-right: 2rem;
+      a{
+        @include dottedLink($brightBlue);
+        &:hover,&:focus{
+          background-image: none;
+          color: $navy;
+        }
+      }
+		}//end div
+	}//end user actions
+  .block-field-uid{
+    margin-bottom: 0;
+    .action-buttons{
+      a{
+        margin-right: 2rem;
+      }
     }
   }
-	.layout--tabs .layout__region--tabs{
-		.tab-item{
-			padding-top: 0;
-		}
-	}
 }//end user dashboard
-
-
-/* CONTENT VIEWS
--------------------- */
-
-.views-block.block-user-dashboard{
-	@include onlyMobile{
-		padding-top: 1rem;
-	}
-	.view-empty{
-		padding-top: $spaceLg;
-	}
-	table{
-		@include desk{
-			border-top: 0;
-		}
-	}
-	
-	.views-field-title{
-		@include desk{
-			width: calc(100% - 255px);
-		}
-		a{
-			text-decoration: none;
-			&:hover,&:focus{
-				text-decoration: underline;
-			}
-		}
-		.restricted{
-			margin-left: .5rem;
-			color: $red;
-			font-size: 1.4rem;
-		}
-	}
-	&.all-recents{
-		.views-field-title{
-			@include desk{
-				width: calc(100% - 525px);
-			}
-		}
-	}
-	.views-field-changed{
-		@include desk{
-			width: 180px;
-		}
-	}
-	.views-field-uid{
-		@include desk{
-			width: 180px;
-		}
-	}
-	.views-field-operations{
-		&.st-val{
-			padding-top: .6rem;
-			padding-bottom: .5rem;
-		}
-		@include desk{
-			width: 165px !important;
-			max-width: 165px;
-		}
-	}
-}//end views block
-
-/* MODERATED CONTENT
----------------------- */
-.views-block.block-moderated-content{
-	h2.block-title{
-		display: none;
-	}
-	table{
-		@include desk{
-			border-top: 0;
-		}
-	}
-}
-
-.user-dashboard .view-content table.small-only{
-	.st-key{
-		width: 150px;
-	}
-	.st-val{
-		width: calc(100% - 150px);
-		padding-right: 1rem;
-		max-width: none;
-	}
-}
