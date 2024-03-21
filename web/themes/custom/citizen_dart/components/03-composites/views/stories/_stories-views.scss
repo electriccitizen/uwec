@@ -107,14 +107,32 @@
 	}
 }//end all news
 
-.news.related-stories{
+/* RELATED NEWS
+---------------- */
+.views-block.block-related-stories{
+  position: relative;
+  max-width: $contentStopMargin;
+  @include auto;
+  &:after{
+    @include fullBack($brightBlue);
+    height: 100vh;
+    z-index: -3;
+    top: 100%;
+  }
+  h2.block-title{
+    color: $white;
+    margin-bottom: $spaceXs;
+  }
 	.view-content{
-		@include bleed(padding,24px);
+		@include bleed(padding,20px);
 		& > .views-row{
 			width: 100%;
+      &:not(:last-child){
+        margin-bottom: $spaceXl;
+      }
 			@include tab{
 				width: 33.33%;
 			}
-		}
-	}
-}
+		}//end views row
+	}//end view content
+}//end related stories
