@@ -31,6 +31,8 @@ permissions:
   - 'view paragraph content ctas'
   - 'view paragraph content custom_embed'
   - 'view paragraph content events_list'
+  - 'view paragraph content external_articles'
+  - 'view paragraph content external_articles_item'
   - 'view paragraph content facts_list'
   - 'view paragraph content fauxfile'
   - 'view paragraph content fauxfile_item'

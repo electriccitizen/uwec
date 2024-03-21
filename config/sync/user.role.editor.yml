@@ -28,6 +28,7 @@ dependencies:
     - filter
     - media
     - node
+    - paragraphs_type_permissions
     - responsive_preview
     - shortcut
     - smart_date_recur
@@ -59,6 +60,8 @@ permissions:
   - 'create job content on assigned domains'
   - 'create remote_video media'
   - 'delete own files'
+  - 'delete paragraph content external_articles'
+  - 'delete paragraph content external_articles_item'
   - 'edit any bios content'
   - 'edit any contact content'
   - 'edit any document media'
@@ -84,6 +87,8 @@ permissions:
   - 'update hours content on assigned domains'
   - 'update job content on assigned domains'
   - 'update page content on assigned domains'
+  - 'update paragraph content external_articles'
+  - 'update paragraph content external_articles_item'
   - 'use add another'
   - 'use domain nav block'
   - 'use non_moderated transition archive'
