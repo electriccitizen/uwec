@@ -127,25 +127,6 @@ third_party_settings:
           label: ''
           context_mapping: {  }
         components:
-          9a3e9b3a-f53a-4e84-a7bc-0986c91bdad5:
-            uuid: 9a3e9b3a-f53a-4e84-a7bc-0986c91bdad5
-            region: content
-            configuration:
-              id: 'field_block:node:news:field_authors'
-              label: Authors
-              label_display: '0'
-              provider: layout_builder
-              context_mapping:
-                entity: layout_builder.entity
-                view_mode: view_mode
-              formatter:
-                type: entity_reference_entity_view
-                label: hidden
-                settings:
-                  view_mode: mini
-                third_party_settings: {  }
-            weight: 0
-            additional: {  }
           7648b6a1-70a4-4166-8ff0-f15fa7f48937:
             uuid: 7648b6a1-70a4-4166-8ff0-f15fa7f48937
             region: content

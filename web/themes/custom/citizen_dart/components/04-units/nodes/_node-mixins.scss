@@ -218,20 +218,23 @@
   left: -$siteMarginMobile;
   width: calc(100vw + 40px);
   z-index: -1;
-  height: 800px;
-  overflow: hidden;
+  height: 140px;
   padding: 0 $siteMarginMobile;
+  background: $brightBlue;
+  @include desk{
+    height: 180px;
+  }
   &:after{
     content: '';
     display: block;
     position: absolute;
-    bottom: calc(100% - 260px);
-    left: -50vw;
-    height: 1000px;
-    width: 200vw;
-    z-index: -2;
+    top: calc(100% - 1px);
+    left: 0;
+    height: 29vw;
+    width: calc(100vw + 40px);
+    z-index: -1;
     background: $brightBlue;
-    @include rotate(16);
+    clip-path: polygon(0 0, 100% 0, 100% 100%);
   }
 }
 
@@ -289,7 +292,7 @@
     }
   }
   .field-name,.teaser-title{
-    font-family: $displayHeader;
+    font-weight: $displayHeader;
     font-size: 3.25rem;
     line-height: 1.23;
     padding-right: 20px;
@@ -300,12 +303,14 @@
       &:hover,&:focus{
         color: $royal;
         background-image: none;
+        .profile-search.directory &{
+          color: $brightBlue;
+        }
       }
     }
   }//end name
   .field-departments{
-    font-family: $header;
-    font-weight: $xHeavy;
+    font-weight: $heavy;
     padding-right: 20px;
     & > div{
       display: inline-block;

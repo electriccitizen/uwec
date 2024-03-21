@@ -85,33 +85,22 @@
       margin-bottom: $spaceXs;
     }
     .title{
-      display: inline-block;
-      //margin-bottom: $spaceXxs;
-      &:hover,&:focus{
-        &:after{
-          @include rightArrow(white,$navy,$navy,sm);
-        }
-      }
+      display: block;
       a{
-        font-family: $header;
-        font-size: 2.25rem;
-        line-height: 1.33;
-        color: $navy;
-        margin-right: 10px;
-        &:hover,&:focus{
-          @include dottedLink($brightBlue);
-          padding-bottom: 1px;
+        @include arrowLinkAfter($navy);
+        &:after{
+          @include rightArrow(navy,transparent,$navy,sm);
         }
+        &:hover,&:focus{
+          &:after{
+            @include rightArrow(white,$navy,$navy,sm);
+          }
+          span{
+            @include dottedLink($brightBlue);
+            padding-bottom: 1px;
+          }
+        }//end hover, focus
       }//end a
-      &:after{
-        content: '';
-        display: inline-block;
-        width: 20px;
-        height: 20px;
-        position: relative;
-        top: 4px;
-        @include rightArrow(navy,transparent,$navy,sm);
-      }//end after
     }//end title
     .summary{
       display: block;

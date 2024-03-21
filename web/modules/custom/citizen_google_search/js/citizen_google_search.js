@@ -48,7 +48,7 @@
 		attach: function (context, settings) {
 		 	$(once('tSearch', '.block-citizen-google-search-block', context)).each(function(){
 		 		//find the top position of the site header and position the fixed search box to that if we're on desktop 
-		 		if($('window').outerWidth() > 983){
+		 		if($('window').outerWidth() > 1199){
 		 			var headerPosition = $('header.site-header').offset().top();
 		 			$('#header-search').css('top',headerPosition);
 		 		}

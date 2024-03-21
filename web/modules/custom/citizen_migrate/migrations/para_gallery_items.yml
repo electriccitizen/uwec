@@ -51,6 +51,8 @@ source:
   urls: 'https://athena.apps.uwec.edu/api/pages.json'
   constants:
     ispublished: 1
+    system_id: 1
+    migrating_to_drupal: 1
   row_id: 47
   get_photos: true
   source_log: 'gallery_items.csv'

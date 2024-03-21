@@ -3,21 +3,18 @@ PAGERS
 ================= */
 @use '../../00-base/base' as *;
 
-$pagerLine: 3rem;
-
 %pagerItemStyle{
-	display: block;
-	min-width: 28px;
-	height: 28px;
+	@include safeFlex(column,nowrap,center,center);
+	height: 36px;
+  width: 30px;
 	padding: 0px 4px;
-	line-height: $pagerLine;
 	text-align: center;
-	border-radius: 4px;
 	color: $pagerNumber;
-	background: $pagerNumberBack;
+	background-color: $pagerNumberBack;
+  font-size: 1.75rem;
 	&:hover,&:focus{
 		color: $pagerNumberHover;
-		background: $pagerNumberBackHover;
+		background-color: $pagerNumberBackHover;
 		text-decoration: none;
 		@include transAll(.3s);
 	}
@@ -31,6 +28,7 @@ $pagerLine: 3rem;
 	&:hover,&:focus{
 		background-image: url(../images/arrows/pager-left-navy.svg);
 		@include transition(background-image, 0.3s, ease);
+    background-color: transparent;
 	}
 }
 @mixin nextLink{
@@ -41,6 +39,7 @@ $pagerLine: 3rem;
 	&:hover,&:focus{
 		background-image: url(../images/arrows/pager-right-navy.svg);
 		@include transition(background-image, 0.3s, ease);
+    background-color: transparent;
 	}
 }
 
@@ -52,9 +51,7 @@ $pagerLine: 3rem;
 	margin-bottom: $spaceSm;
 	@include safeFlex(row,wrap,start,start);
 	li{
-		font-weight: $heavy;
 		*{
-			line-height: $pagerLine;
 			display: block;
 		}
 		&:not(:first-child):not(:last-child){
@@ -71,9 +68,10 @@ $pagerLine: 3rem;
 		margin-top: $spaceXl;
 	}
 	.pager__items{
-		padding: 10px 40px;
+		padding: 10px 47px;
 		margin-bottom: 0;
 		background: $lightGrey;
+    border-radius: 50px;
 	}
 	.pager__item{
 		a{
