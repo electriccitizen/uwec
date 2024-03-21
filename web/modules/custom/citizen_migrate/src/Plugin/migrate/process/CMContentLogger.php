@@ -31,6 +31,7 @@ class CMContentLogger extends CMProcess {
       if (isset($this->configuration['field'])) {
         $field = $this->configuration['field'];
         $csvData[$field] = $value;
+        $csvData['tag'] = 'na';
         if ($this->configuration['log_data']) {
           $this->cmTools->logToFile($csvData, "public://source-data/stories_para_$field.csv", '');
         }
