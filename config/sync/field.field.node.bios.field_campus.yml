@@ -11,7 +11,7 @@ field_name: field_campus
 entity_type: node
 bundle: bios
 label: Campus
-description: 'To select multiple campuses hold down the ctrl (pc) or apple (mac) key and select the ones you want. You can also select the first one, hold shift and select the last one you wish. This will automatically select all campuses between the first one you selected and the last one you selected.'
+description: 'To select multiple campuses, hold down the ctrl (PC) or command (mac) key and select all desired fields.'
 required: true
 translatable: false
 default_value: {  }

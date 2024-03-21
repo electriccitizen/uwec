@@ -29,14 +29,14 @@ Drupal.behaviors.filterDrawer = {
     	var urlCurrent = window.location.href;
 
     	if(urlCurrent.indexOf("?p") > -1){
-    		$(this).next('#advanced-filters').show().attr('aria-hidden','false').addClass('open-drawer').end().text('Simple Search').addClass('active-drawer').attr('aria-expanded', 'true');
+    		$(this).next('#advanced-filters').show().attr('aria-hidden','false').addClass('open-drawer').end().addClass('active-drawer').attr('aria-expanded', 'true').find('span').text('Simple Search');
     	}
       $(this).click(function(e){
         e.preventDefault();
         if(!$(this).is('.active-drawer')){
-          $(this).next('#advanced-filters').slideDown(300).attr('aria-hidden','false').addClass('open-drawer').end().text('Simple Search').addClass('active-drawer').attr('aria-expanded', 'true');
+          $(this).next('#advanced-filters').slideDown(300).attr('aria-hidden','false').addClass('open-drawer').end().addClass('active-drawer').attr('aria-expanded', 'true').find('span').text('Simple Search');
         }else{
-          $(this).next('#advanced-filters').slideUp(300).attr('aria-hidden','true').removeClass('open-drawer').end().text('Advanced Search').removeClass('active-drawer').attr('aria-expanded', 'false');
+          $(this).next('#advanced-filters').slideUp(300).attr('aria-hidden','true').removeClass('open-drawer').end().removeClass('active-drawer').attr('aria-expanded', 'false').find('span').text('Advanced Search');
         }
       });
     });

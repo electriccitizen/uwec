@@ -16,6 +16,8 @@
 		label{
 			@include formLabel;
 			margin-bottom: $spaceXxs;
+      text-transform: uppercase;
+      padding-left: 20px;
 		}
 		@include tab{
 			width: 50%;
@@ -27,18 +29,36 @@
 				margin-top: .5rem;
 			}
 		}
-	}
+    &.js-form-type-textfield{
+      label{
+        padding-left: 26px;
+      }
+      input{
+        font-size: 2rem;
+        line-height: 2;
+        border-radius: 50px;
+        border: none;
+        padding-top: 9px;
+      }
+      .description{
+        margin-left: 20px;
+        margin-right: 20px;
+        font-size: 1.75rem;
+        line-height: 1.71;
+        padding-bottom: $spaceXs;
+      }
+    }
+	}//end form item
 	.form-actions{
-		@include auto;
 		@include safeFlex(row,wrap,start,start);
 		@include tab{
 			margin: .5rem 0 0 -10px;
 		}
 		input.form-submit.button{
 			@include submitButton;
+      color: $navy;
 			margin: 0 10px;
 			&[data-drupal-selector='edit-reset']{
-				@include warningButton;
 				margin: 0 10px;
 			}
 		}

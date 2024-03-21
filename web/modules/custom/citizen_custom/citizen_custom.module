@@ -223,48 +223,78 @@ function citizen_custom_form_program_search_form_alter(&$form, FormStateInterfac
 }
 
 function citizen_custom_form_views_exposed_form_alter(&$form, FormStateInterface $form_state, $form_id) {
-    // If not the view we are looking, move on
-    if ($form['#id'] != 'views-exposed-form-program-search-program-search') {
-     return FALSE;
-    }
- 
-    // Query nodes
-    $storage = Drupal::getContainer()->get('entity_type.manager')->getStorage('node');
-    $nids = $storage->getQuery();
- 
-    // Gather published college nodes and sort by title
-    $nids = $nids->condition('type', 'college')
-     ->condition('status', 1)
-     ->sort('title')
-     ->accessCheck(TRUE)
-     ->execute();
- 
-    // If there are no nodes, move on
-    if (!$nids) {
-     return FALSE;
-    }
- 
-    // Start building out the options for our select list
-    $options = [];
-    $nodes = $storage->loadMultiple($nids);
- 
-    $options[''] = '- Any -';
-    // Push titles into select list
-    foreach ($nodes as $node) {
-      $options[$node->id()] = $node->getTitle();
-    }
- 
-    // Start building out our new form element
-    $college_filter = 'college_filter';
-    $form[$college_filter]['#type'] = 'select';
-    $form[$college_filter]['#multiple'] = FALSE;
- 
- 
-    // Add the $options from above to our select list
-    $form[$college_filter]['#options'] = $options;
 
-    // Add t('- Any -'); as the first value in the options array
-    unset($form[$college_filter]['#size']);
+    /* Build custom select filters from node references for program search */
+    if ($form['#id'] == 'views-exposed-form-program-search-program-search') {
+      $storage = Drupal::getContainer()->get('entity_type.manager')->getStorage('node');
+      $nids = $storage->getQuery();
+      $nids = $nids->condition('type', 'college')
+      ->condition('status', 1)
+      ->sort('title')
+      ->accessCheck(TRUE)
+      ->execute();
+      if (!$nids) {
+      return FALSE;
+      }
+      $options = [];
+      $nodes = $storage->loadMultiple($nids);
+      $options[''] = '- Any -';
+      foreach ($nodes as $node) {
+        $options[$node->id()] = $node->getTitle();
+      }
+      $college_filter = 'college_filter';
+      $form[$college_filter]['#type'] = 'select';
+      $form[$college_filter]['#multiple'] = FALSE;
+      $form[$college_filter]['#options'] = $options;
+      unset($form[$college_filter]['#size']);
+    }
+
+    /* Build custom select lists for departments and programs on admin content */
+    if ($form['#id'] == 'views-exposed-form-content-page-1') {
+      $storage = Drupal::getContainer()->get('entity_type.manager')->getStorage('node');
+
+      /* department filter */
+      $departmentNodes = $storage->getQuery();
+      $departmentNodes = $departmentNodes->condition('type', 'department')
+      ->sort('title')
+      ->accessCheck(TRUE)
+      ->execute();
+      if (!$departmentNodes) {
+        return FALSE;
+      }
+      $options = [];
+      $departments = $storage->loadMultiple($departmentNodes);
+      $options[''] = '- Any -';
+      foreach ($departments as $department) {
+        $options[$department->id()] = $department->getTitle();
+      }
+      $department_filter = 'field_departments_target_id';
+      $form[$department_filter]['#type'] = 'select';
+      $form[$department_filter]['#multiple'] = FALSE;
+      $form[$department_filter]['#options'] = $options;
+      unset($form[$department_filter]['#size']);
+
+      /* program filter */
+      $programNodes = $storage->getQuery();
+      $programNodes = $programNodes->condition('type', 'academic_program')
+      ->sort('title')
+      ->accessCheck(TRUE)
+      ->execute();
+      if (!$programNodes) {
+        return FALSE;
+      }
+      $options = [];
+      $programs = $storage->loadMultiple($programNodes);
+      $options[''] = '- Any -';
+      foreach ($programs as $program) {
+        $options[$program->id()] = $program->getTitle();
+      }
+      $program_filter = 'field_programs_target_id';
+      $form[$program_filter]['#type'] = 'select';
+      $form[$program_filter]['#multiple'] = FALSE;
+      $form[$program_filter]['#options'] = $options;
+      unset($form[$program_filter]['#size']);
+    }
   }
 
 /**

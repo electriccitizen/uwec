@@ -12,7 +12,7 @@ field_name: field_cv
 entity_type: node
 bundle: bios
 label: CV
-description: ''
+description: 'If you would rather link to your CV, you may add the link below. '
 required: false
 translatable: false
 default_value: {  }

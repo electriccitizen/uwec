@@ -11,7 +11,7 @@ field_name: field_page_families
 entity_type: node
 bundle: bios
 label: 'Page Families'
-description: ''
+description: 'Please select any office or service that you should appear on a staff listing of (e.g., Blugold Central, Learning Technology Services, Center for Excellence in Teaching and Learning, Campus Closet, etc.) '
 required: false
 translatable: false
 default_value: {  }

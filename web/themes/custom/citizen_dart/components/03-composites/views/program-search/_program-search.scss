@@ -6,68 +6,118 @@
 @use '../views-mixins' as *;
 
 .view.program-search {
-	max-width: 984px;
-	@include auto;
+  max-width: $contentStopMargin;
+  @include auto;
 	.views-exposed-form{
-		.views-exposed-form-inner{
-			display: block;
-			margin: 0;
-			width: 100%;
-			& > *{
-				padding-left: 0;
-				padding-right: 0;
-			}
-			.keyword-wrapper{
-				.form-item{
-					@include smallTab{
-						max-width: 100%;
-						width: 100%;
-					}
-				}
-			}//end keyword wrapper
-			.advanced-form{
-				@include tab{
-					@include safeFlex(row,wrap,justify,start);
-					.filter-toggle{
-						order: 2;
-						width: 50%;
-					}
-					.advanced-form-inner{
-						width: 100%;
-						order: 1;
-						display: none;
-						.advanced-form-inner-filters{
-							@include safeFlex(row,wrap,start,center);
-							@include bleed(padding,20px);
-							border-top: 1px solid $borderRule;
-							border-bottom: 1px solid $borderRule;
-							margin-top: $spaceMd;
-							margin-bottom: $spaceMd;
-							padding-top: $spaceMd;
-							padding-bottom: $spaceMd;
-							.form-item{
-								max-width: 50%;
-								&.form-item-delivery-mode,&.form-item-college-filter,&.form-item-campus{
-									max-width: 33.33%;
-								}
-							}
-						}
-					}//end advanced form
-					.form-actions{
-						order: 3;
-						width: 50%;
-						justify-content: flex-end;
-					}
-				}//end tab
-			}//end advanced form
-		}//end exposed form inner
+    @include exposedForm;
+    @include edgeToEdge;
+    @include tab{
+      @include auto;
+    }
+    .keyword-wrapper{
+      width: 100%;
+      .form-item-programs-fulltext{
+        width: 100%;
+        max-width: 100%;
+      }
+    }//end keyword wrapper
+		.advanced-form{
+      width: 100%;
+      @include tab{
+        @include safeFlex(row,wrap,justify,start);
+      }
+      .filter-toggle{
+        padding-left: 26px;
+        padding-right: 20px;
+        @include onlySmall{
+          @include safeFlex(row,nowrap,justify,center);
+          font-size: 14px;
+          font-family: $header;
+          font-weight: $xHeavy;
+          letter-spacing: .05em;
+          color: $navy;
+          height: 66px;
+          margin-bottom: $spaceXxs;
+        }
+        @include tab{
+          order: 2;
+          max-width: 50%;
+          span{
+            @include dottedLink($brightBlue);
+          }
+        }
+        &:hover,&:focus{
+          span{
+            @include dottedLink($brightBlue);
+            @include tab{
+              background: none;
+            }
+          }
+        }
+        &.active-drawer{
+          svg#filter-caret{
+            @include rotate(180);
+            transition: transform .3s ease-out;
+          }
+        }
+        svg#filter-icon{
+          position: relative;
+          top: 2px;
+          margin-right: 14px;
+          @include tab{
+            display: none;
+          }
+        }
+        svg#filter-caret{
+          fill: none;
+          @include tab{
+            display: none;
+          }
+        }
+      }
+      .advanced-form-inner{
+        width: 100%;
+        display: none;
+        @include tab{
+          order: 1;
+        } 
+        .advanced-form-inner-filters{
+          @include safeFlex(row,wrap,start,center);
+          border-top: 1px solid $borderRule;
+          border-bottom: 1px solid $borderRule;
+          margin-bottom: $spaceMd;
+          padding-top: $spaceMd;
+          padding-bottom: $spaceMd;
+          @include tab{
+            gap: 20px;
+          }
+          .form-item{
+            @include tab{
+              max-width: calc(50% - 10px);
+              &.form-item-delivery-mode,&.form-item-college-filter,&.form-item-campus{
+                max-width: calc(33.33% - 14px);
+              }
+            }
+          }
+        }//end advanced form inner filters
+      }//end advanced form
+      .form-actions{
+        order: 3;
+        @include tab{
+          width: 50%;
+          justify-content: flex-end;
+        }
+      }
+    }//end advanced form
 	}//end views exposed form
-	@include tab{
-  	.view-content{
-  		width: 100%;
-  		display: grid;
-			grid-template-columns: 1fr 1fr 1fr;
-	  	grid-gap: 65px;
+	.view-content{
+	  @include tab{
+  		@include threeColumnStartStretch;
   	}// end programs-wrapper
-	}//end tab
+    @include desk{
+      & > *{
+        width: calc(25% - 15px);
+      }
+    }
+  }//end view content
 }//end programs-list widget

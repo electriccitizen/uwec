@@ -214,6 +214,33 @@ third_party_settings:
         layout_id: layout_onecol
         layout_settings:
           label: ''
+          context_mapping: {  }
+        components:
+          5ae99864-e9a3-4a0a-a581-6539b0908748:
+            uuid: 5ae99864-e9a3-4a0a-a581-6539b0908748
+            region: content
+            configuration:
+              id: 'field_block:node:job:nid'
+              label: ID
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: number_integer
+                label: hidden
+                settings:
+                  thousand_separator: ''
+                  prefix_suffix: false
+                third_party_settings: {  }
+            weight: 0
+            additional: {  }
+        third_party_settings: {  }
+      -
+        layout_id: layout_onecol
+        layout_settings:
+          label: ''
         components:
           b769a61c-5042-46e8-b4f4-54a35adebe89:
             uuid: b769a61c-5042-46e8-b4f4-54a35adebe89

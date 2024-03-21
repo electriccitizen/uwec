@@ -37,20 +37,40 @@
       {{ element.type }}
     </div>
   {% endif %}
-  {% if element.type %}
-    <div class="views-exposed-filter custom-views-filter filter-content-placement-tags">
-      <label for="edit-field-placement-tags-target-id" class="form-item__label">Placement Tags</label>
-      {{ element.field_placement_tags_target_id }}
+  {% if element.field_page_families_target_id %}
+    <div class="views-exposed-filter custom-views-filter filter-content-page-families">
+      <label for="edit-field-page-families-target-id" class="form-item__label">Page Family</label>
+      {{ element.field_page_families_target_id }}
     </div>
   {% endif %}
   {{ element.status }}
   {{ element.created_wrapper }}
   {{ element.actions }}
   <div class="advanced-filters-drawer">
-    <a href="#" class="advanced-toggle">Advanced filters</a>
+    <a href="#" class="advanced-toggle">Advanced filters<span class="caret"><svg width="12" height="7" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M1 1L6 6L10.9971 1" stroke="#0160F2" stroke-miterlimit="10"/>
+      </svg></span></a>
     <div class="advanced-filters-wrapper">
       <div class="advanced-filters-inner">
-        {% if element.type %}
+        {% if element.field_placement_tags_target_id %}
+          <div class="views-exposed-filter custom-views-filter filter-content-placement-tags">
+            <label for="edit-field-placement-tags-target-id" class="form-item__label">Placement Tag</label>
+            {{ element.field_placement_tags_target_id }}
+          </div>
+        {% endif %}
+        {% if element.field_departments_target_id %}
+          <div class="views-exposed-filter custom-views-filter filter-content-departments">
+            <label for="edit-field-departments-target-id" class="form-item__label">Department</label>
+            {{ element.field_departments_target_id }}
+          </div>
+        {% endif %}
+        {% if element.field_programs_target_id %}
+          <div class="views-exposed-filter custom-views-filter filter-content-programs">
+            <label for="edit-field-programs-target-id" class="form-item__label">Program</label>
+            {{ element.field_programs_target_id }}
+          </div>
+        {% endif %}
+        {% if element.field_editorial_sections_target_id %}
           <div class="views-exposed-filter custom-views-filter filter-editorial-sections">
             <label for="edit-field-editorial-sections-target-id" class="form-item__label">Editorial Section</label>
             {{ element.field_editorial_sections_target_id }}

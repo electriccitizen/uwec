@@ -7,23 +7,59 @@
 
 /* DIRECTORY
 --------------- */
+//move directory up if its the first paragraph in the first section and there is no body field
+#node-section-2 .layout__region--content:first-child .block-field-paragraphs:first-child .layout-section:first-child .layout__region:first-child .paragraph--type--view-placer:first-child{
+  .profile-search.directory{
+    margin-top: -200px;
+    @include desk{
+      margin-top: -350px;
+      .logged-in &{
+        margin-top: -234px;
+      }
+    }
+  }
+}
 .profile-search.directory{
 	.views-exposed-form{
 		@include exposedForm;
+    @include edgeToEdge;
+    @include tab{
+      @include auto;
+    }
+    .form-item-profiles-fulltext{
+      @include tab{
+        width: 100%;
+        max-width: 100%;
+      }
+      label{
+        @include visuallyHidden;
+      }
+    }
 		.form-item-title,.form-item-title-1{
 			display: none;
 		}
-	}
+    .form-actions{
+      margin-left: 0;
+    }
+	}//end exposed form
 	.view-content{
 		@include bleed(padding,20px);
+    justify-content: center;
+    @include smallTab{
+      justify-content: flex-start;
+    }
 	}
 	.views-row{
+    max-width: 335px;
 		@include smallTab{
 			width: 50%;
 		}
 		@include tab{
-			width: 25%;
+			width: 33.3%;
 		}
+    @include desk{
+      width: 25%;
+    }
 	}
 }//end directory
 

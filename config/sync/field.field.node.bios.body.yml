@@ -14,8 +14,8 @@ id: node.bios.body
 field_name: body
 entity_type: node
 bundle: bios
-label: Bio
-description: ''
+label: 'Full Bio'
+description: "Full bios ONLY appear on your full profile listing. This is used to display more robust information about you and your role. This field can be as long or as short as you'd like. "
 required: false
 translatable: true
 default_value: {  }

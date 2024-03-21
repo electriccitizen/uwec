@@ -4,4 +4,11 @@
 
 @use '../../00-base/base' as *;
 
-
+@mixin threeColumnStartStretch{
+  width: 100%;
+  @include safeFlex(row,wrap,start,stretch);
+  gap: 20px;
+  & > *{
+    width: calc(33.33% - 14px);
+  }
+}
