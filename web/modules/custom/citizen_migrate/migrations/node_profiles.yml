@@ -254,7 +254,9 @@ process:
         title: title
         uri: uri
   field_middle_name: middle_name
-#  field_office: hrs_room
+  field_office:
+    plugin: default_value
+    default_value: ''
 #  field_page_families: 0
   field_phone: preferred_phone
   field_pronouns: pronouns
