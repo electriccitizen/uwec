@@ -42,10 +42,12 @@ include:
 # you must put a field with a value.
 source:
   plugin: csv
-  path: 'sites/default/files/source-data/stories_para_p.csv'
+  path: 'sites/default/files/source-data/stories_para_text.csv'
   fields:
     - name: legacy_id
       label: 'ID'
+    - name: drupal_id
+      label: 'Drupal ID'
     - name: index
       label: 'Index'
     - name: tag
@@ -59,15 +61,31 @@ source:
 
 # Add processing for fields specific to this content type.
 process:
+  layout_parent_id:
+    -
+      plugin: migration_lookup
+      migration: layout_stories
+      # This is intentional to match the id structure of paragraphs.
+      source:
+        - legacy_id
+        - legacy_id
+        - legacy_id
   type:
     plugin: default_value
     default_value: text
   parent_type:
     plugin: default_value
     default_value: node
+#  parent_id: Parent entity ID must be available when the migration is run. Stubs won't work.
   parent_field_name:
     plugin: default_value
     default_value: field_paragraphs
+  behavior_settings:
+    -
+      plugin: single_value
+      source: '@layout_parent_id'
+    -
+      plugin: citizen_behavior_settings
   'field_long_text/value': content
   'field_long_text/format':
     plugin: default_value

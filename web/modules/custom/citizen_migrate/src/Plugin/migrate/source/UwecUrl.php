@@ -29,6 +29,8 @@ class UwecUrl extends Url {
     $configuration['urls'] = $configuration['urls'] . '&unit_id=' . $configuration['constants']['unit_id'];
     $configuration['urls'] = $configuration['urls'] . '&isactive=' . $configuration['constants']['isactive'];
     $configuration['urls'] = $configuration['urls'] . '&ispublished=' . $configuration['constants']['ispublished'];
+    $configuration['urls'] = $configuration['urls'] . '&system_id=' . $configuration['constants']['system_id'];
+    $configuration['urls'] = $configuration['urls'] . '&migrating_to_drupal=' . $configuration['constants']['migrating_to_drupal'];
     parent::__construct($configuration, $plugin_id, $plugin_definition, $migration);
   }
 

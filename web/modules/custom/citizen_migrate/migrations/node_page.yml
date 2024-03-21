@@ -46,6 +46,8 @@ source:
   urls: 'https://athena.apps.uwec.edu/api/pages.json'
   constants:
     ispublished: 1
+    system_id: 1
+    migrating_to_drupal: 1
   get_page_rows: true
   fields:
     - name: id
@@ -57,6 +59,9 @@ source:
     - name: url
       label: 'URL'
       selector: url
+    - name: page_family
+      label: 'Page Family'
+      selector: page_family
     - name: data
       label: 'Data'
       selector: data
@@ -72,10 +77,13 @@ process:
   title: title
   field_formatted_title: title
   status: ispublished
+  field_page_family: page_family
   field_paragraphs:
     -
       plugin: single_value
-      source: data
+      source:
+        - data
+        - id
     -
       plugin: cm_field_paragraphs
     -

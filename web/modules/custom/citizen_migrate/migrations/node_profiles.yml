@@ -207,7 +207,9 @@ process:
       2: active_emeritus
       3: inactive_emeritus
   field_first_name: first_name
-  field_first_override: first_name
+  field_first_override:
+    plugin: default_value
+    default_value: ''
   'field_image/target_id':
     -
       plugin: skip_on_value
@@ -228,7 +230,9 @@ process:
   'field_office_hours/value': office_hours
 #  field_import_date: 0
   field_last_name: last_name
-  field_last_override: last_name
+  field_last_override:
+    plugin: default_value
+    default_value: ''
   links:
     -
       plugin: get
@@ -302,12 +306,23 @@ process:
   field_position:
     -
       plugin: explode
-      source: title
+      source: hrs_title
       delimiter: "\n"
+  # id 2412 has identical titles
+  # id 1184 has different titles (slightly)
   field_position_override:
     -
+      plugin: cm_string_compare
+      source:
+        - title
+        - hrs_title
+    -
+      plugin: skip_on_value
+      value: true
+      method: process
+    -
       plugin: explode
-      source: title
+      source: title #compare title to hrs_title if identical, leave override blank
       delimiter: "\n"
   field_username: username
 

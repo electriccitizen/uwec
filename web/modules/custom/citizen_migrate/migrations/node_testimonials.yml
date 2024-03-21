@@ -59,9 +59,15 @@ source:
     - name: major
       label: 'Major'
       selector: major
+    - name: grad_year
+      label: 'Grad year'
+      selector: grad_year
     - name: image_id
       label: 'Image ID'
       selector: image_id
+    - name: created_at
+      label: 'Created at'
+      selector: created_at
     - name: updated_at
       label: 'Updated'
       selector: updated_at
@@ -98,7 +104,23 @@ process:
     from_format: 'Y-m-d H:i:s' #2024-01-08 14:51:11
     to_format: 'U'
     source: updated_at
-
+  field_date:
+    plugin: format_date
+    from_format: 'Y-m-d H:i:s' #2024-01-08 14:51:11
+    to_format: 'Y-m-d'
+    source: created_at
+  field_is_quote:
+    plugin: default_value
+    default_value: 1
+  field_grad_year:
+    plugin: skip_on_value
+    value: 0
+    method: process
+    source: grad_year
+#add_date: created_at - done
+#is_quote: default 1 - done
+#grad_year: - done
+#double check images
 destination:
   plugin: entity:node
   default_bundle: testimonial

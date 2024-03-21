@@ -25,3 +25,12 @@ services:
     arguments: ['@entity_type.manager', '@file_system']
     tags:
       - { name: drush.command }
+  citizen_migrate.check_images:
+    class: Drupal\citizen_migrate\Commands\CmMissingImageCheckerCommands
+    tags:
+      - { name: drush.command }
+  citizen_migrate.delete_unused_entities:
+    class: Drupal\citizen_migrate\Commands\CmDeleteUnusedEntities
+    arguments: ['@entity_type.manager']
+    tags:
+      - { name: drush.command }

@@ -1,5 +1,5 @@
-id: stackla
-label: 'Stackla'
+id: layout_stories
+label: 'Paragraphs: Layout Section'
 
 # This migration will be run with all the other migrations in
 # the ECM group when using the --group tag in Drush.
@@ -15,17 +15,12 @@ migration_group: ecm
 # Example: files, media, taxonomy, etc.
 # @Drush: fin drush migrate:import --tag=files
 migration_tags:
-  - para
+  - layout_section
 
 # Adding dependencies allows migrations to be run in the proper
 # order when run as part of the ECM Group or in a tag.
 migration_dependencies:
-  required:
-#    - files_doc
-#    - files_img
-#    - media_doc
-#    - media_img
-    - media_video
+  required: { }
   optional: { }
 
 # These keys hold the shared configuration used by this and other
@@ -46,38 +41,37 @@ include:
 # If you uncomment any of the source, process or destination keys,
 # you must put a field with a value.
 source:
-  plugin: uwec_url_paragraphs
-  urls: 'https://athena.apps.uwec.edu/api/pages.json'
+  plugin: uwec_url
+  urls: 'https://athena.apps.uwec.edu/api/stories.json'
   constants:
-    ispublished: 1
-    system_id: 1
-    migrating_to_drupal: 1
-  row_id: 25
+    unit_id: 35
+    isactive: 1
   fields:
-    - name: parentId
-      label: 'Parent ID'
-      selector: parentId
-    - name: rowIndex
-      label: 'Row Index'
-      selector: rowIndex
-    - name: stackla_widget
-      label: 'Stackla widget'
-      selector: stackla_widget
+    - name: id
+      label: 'ID'
+      selector: id
+    # Technically, we only need one 'id'.
+    # But we need to match the ID structure of the paragraphs for Story.
+    - name: index
+      label: 'Index'
+      selector: id
+    - name: tag
+      label: 'Tag'
+      selector: id
   ids:
-    parentId:
+    id:
       type: integer
-    rowIndex:
+    index:
+      type: integer
+    tag:
       type: integer
 
 # Add processing for fields specific to this content type.
 process:
-  layout_parent_id:
-    plugin: migration_lookup
-    migration: layout_pages
-    source: parentId
   type:
     plugin: default_value
-    default_value: 'custom_embed'
+    default_value: layout_section
+  #  parent_id: Parent entity ID must be available when the migration is run. Stubs won't work.
   parent_type:
     plugin: default_value
     default_value: node
@@ -85,28 +79,8 @@ process:
     plugin: default_value
     default_value: field_paragraphs
   behavior_settings:
-    -
-      plugin: single_value
-      source: '@layout_parent_id'
-    -
-      plugin: citizen_behavior_settings
-
-  'field_embed_content/value':
-    -
-      plugin: single_value
-      source: stackla_widget
-    -
-      plugin: extract
-      index:
-        - embed_code
-  field_widget_title:
-    - plugin: single_value
-      source: stackla_widget
-    -
-      plugin: extract
-      index:
-        - title
+    plugin: citizen_behavior_settings
 
 destination:
-  plugin: entity_reference_revisions:paragraph
-  default_bundle: custom_embed
+  plugin: 'entity_reference_revisions:paragraph'
+  default_bundle: 'layout_section'
