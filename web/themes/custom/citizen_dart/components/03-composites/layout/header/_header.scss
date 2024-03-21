@@ -22,7 +22,7 @@
 		max-width: $contentStop;
 		@include auto;
 		position: relative;
-		@include safeFlex(row,wrap,null,center);
+		@include safeFlex(row,wrap,justify,center);
     @include menuStop{
       padding-bottom: 10px;
     }
@@ -91,6 +91,9 @@
 /* MAIN NAVIGATION BLOCK
 ------------------------ */
 .block-superfishmain{
+  &.contextual-region{
+    position: static; 
+  }
   #superfish-main-toggle{
     position: absolute;
     height: 40px;

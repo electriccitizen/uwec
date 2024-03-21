@@ -19,7 +19,10 @@
 			}
 		}
 		.gin-secondary-toolbar--frontend{
-			padding-left: 58px;
+      padding-left: 0;
+      @media screen and (min-width: 976px){
+			  padding-left: 58px;
+      }
 		}
 	}//end body
 }
@@ -32,7 +35,6 @@
 	top: 0;
 	left: 0;
 	background: $siteBack;
-
 	.unpublished &{
 		background: $unpub;
 	}
@@ -63,7 +65,9 @@
   // 	transform-style: preserve-3d;
   // }
   .gin--vertical-toolbar &{
-  	padding-left: 58px;
+    @media screen and (min-width: 976px){
+  	  padding-left: 58px;
+    }
   }
   .layout-container{
   	position: absolute;
@@ -73,8 +77,10 @@
 	  height: auto;
 	  transform: translateZ(0px);
 	  .gin--vertical-toolbar &{
-	  	left: 66px;
-			width: calc(100% - 66px);
+      @media screen and (min-width: 976px){
+	  	  left: 66px;
+			  width: calc(100% - 66px);
+      }
 		}
   }//end layout container
 }//end off canvas main canvas
