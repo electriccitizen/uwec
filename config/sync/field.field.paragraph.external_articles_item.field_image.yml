@@ -11,7 +11,7 @@ field_name: field_image
 entity_type: paragraph
 bundle: external_articles_item
 label: Image
-description: '<strong>Optimal image size:</strong> 1920x1445 for a CTA bar and 786×442 for CTA Trio images.'
+description: '<strong>Optimal image size:</strong> 786x442.'
 required: true
 translatable: false
 default_value: {  }
