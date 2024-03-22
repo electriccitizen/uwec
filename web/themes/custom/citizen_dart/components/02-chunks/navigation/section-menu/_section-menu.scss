@@ -20,7 +20,11 @@
 		display: none;
 	}
 	@include onlyMobile{
-		margin-bottom: $spaceLg;
+		position: fixed;
+    left: 0;
+    width: 100%;
+    z-index: 9999;
+    height: 60px;
 	}
 	h2.block-title{
 		position: relative;

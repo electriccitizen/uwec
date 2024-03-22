@@ -37,8 +37,17 @@ function citizen_dart_preprocess_html(&$variables) {
     //add global hero class
     if (($node->field_hero) && ($node->field_hero[0])) {
     	$variables['attributes']['class'][] = 'hero-' . $node->field_hero[0]->entity->field_hero_type[0]->value;
+      if(($node->field_hero[0]->entity->field_hero_type[0]->value == 'pattern') && ($node->field_hero[0]->entity->field_links[0])){
+        $variables['attributes']['class'][] = 'hero-pattern-links';
+      }
     }else{
     	$variables['attributes']['class'][] = 'hero-none';
+    }
+    if ($node->getType() == 'department'){
+      $variables['attributes']['class'][] = 'hero-pattern';
+      if($node->field_links[0]){
+        $variables['attributes']['class'][] = 'hero-pattern-links';
+      }
     }
   }
 }

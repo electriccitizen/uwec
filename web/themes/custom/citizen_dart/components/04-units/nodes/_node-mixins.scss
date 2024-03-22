@@ -217,7 +217,7 @@
   top: 0;
   left: -$siteMarginMobile;
   width: calc(100vw + 40px);
-  z-index: -1;
+  z-index: 0;
   height: 140px;
   padding: 0 $siteMarginMobile;
   background: $brightBlue;
