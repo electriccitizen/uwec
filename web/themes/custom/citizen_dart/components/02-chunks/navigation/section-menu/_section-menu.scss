@@ -3,70 +3,52 @@
 ===================== */
 @use '../../../00-base/base' as *;
 #block-section-menu,#block-section-menu-deparment{
-	width: 300px;
-	//move menu up into top page fold on general pages when not in layout builder
-	&:not(.js-layout-builder-block){
-		.node-type-page &{
-			position: relative;
-      z-index: 1;
-      top: -106px;
-		}
-	}
-	// body:not(.logged-in) &{
-	// 	transform-origin: 0;
-	// 	transform: translateZ(2px) scale(0.75);
-	// }
-	.hide-nav &{
+  margin-bottom: 0;
+  width: 100%;
+  .hide-nav &{
 		display: none;
 	}
 	@include onlyMobile{
 		position: fixed;
     left: 0;
-    width: 100%;
+    bottom: 0;
     z-index: 9999;
-    height: 60px;
 	}
 	h2.block-title{
+    padding: 20px 30px;
 		position: relative;
-		display: block;
-		padding: 2.5rem $siteMarginMobile 0;
+		display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
 		background: $menuBlockTitleBack;
 		color: $menuBlockTitle;
 		max-width: none;
 		margin-bottom: 0;
 		text-align: left;
-		font-size: 16px;
-		line-height: 1.5;
-		letter-spacing: 0.8px;
-		@include onlyMobile{
-			padding: 2rem 2.5rem;
-			@include edgeToEdge;
-		}
+		
 		a{
 			color: $menuBlockTitle;
-			&:hover,&:focus{
-				color: $menuBlockTitleHover;
-			}
+      &:not(.section-menu-toggle){
+        font-size: 16px;
+        line-height: 1.5;
+        letter-spacing: .05em;
+        max-width: calc(100% - 112px);
+      }
 			&.section-menu-toggle{
-				display: inline-block;
-				vertical-align: middle;
-				text-align: center;
-				width: 60px;
-				span{
-					display: none;
-				}
-				&:before{
-					@include materialIcon(\e5d2);
-					display: inline-block;
-					top: 0;
-					right: 0;
-					color: $hamburger;
-					line-height: 28px;
-				}
-				@include desk{
+        @include desk{
 					pointer-events: none;
 					display: none;
 				}
+				span{
+          font-family: $bodyText;
+          font-weight: $regular;
+          font-size: 14px;
+          text-transform: none;
+          letter-spacing: 0;
+				}
+				
 			}//end section menu toggle
 		}//end a
 	}//end block title
@@ -77,40 +59,31 @@
 #section-menu-wrapper{
 	display: none;
 	background: $menuBack;
-	padding: $spaceSm $spaceXxs $spaceMd;
-	border-bottom: 2px solid $menuBlockTitleBack;
-	@include onlyMobile{
-		padding-left: $siteMarginMobile;
-		padding-right: $siteMarginMobile;
-		@include edgeToEdge;
-	}
+	padding: 0 15px 100px;
 	@include desk{
 		display: block !important;
+    .layout-builder__layout &{
+      display: none !important;
+    }
 	}
 	& > ul:not(.contextual-links){
 		@include listReset;
-		//max-width: 300px;
 		@include auto;
-
-		//child menus
-		ul:not(.contextual-links){
-			margin: .5rem 0;
-			display: none;
-			padding-left: 2.5rem;
-			&.expanded{
-				display: block;
-			}
-		}
+    ul{
+      @include listReset;
+    }
 		//global menu items
 		li{
 			list-style: none;
 			position: relative;
+      border-bottom: 1px solid rgba($brightBlue,.12);
 			//active link
 			a{
 				text-decoration: none;
 				display: block;
 				color: $menuTop;
-				padding: .5rem 2.5rem .5rem 5.5rem;
+				padding: 12px 15px;
+        line-height: 1.5;
 				&:hover,&:focus{
 					color: $menuTopHover;
 				}
@@ -120,35 +93,12 @@
 					pointer-events: none;
 				}
 			}//end a
-			//parents
-			&.parent{
-				& > .expander{
-					position: absolute;
-					top: 0;
-					left: 0;
-					font-size: 3rem;
-					line-height: 36px;
-					width: 3.75rem;
-					height: 38px;
-					text-align: center;
-					padding: 0;
-					z-index: 1;
-					&:before{
-						content: "+";
-					}
-				}
-				&.expanded{
-					& > .expander{
-						&:before{
-							content: "–";
-						}
-					}
-				}//end when expanded
-			}//end parent
+      //child menu items
 			li{
-				padding: .5rem 0;
+        border-bottom: 0;
 				a{
 					color: $menuChild;
+          padding-left: 25px;
 					&:hover,&:focus{
 						color: $menuChildHover;
 					}

@@ -220,10 +220,11 @@
     margin-bottom: $spaceSm;
   }
   .field-links{
-    padding-top: 40px;
+    padding-top: 100px;
     padding-bottom: 60px;
     max-width: 984px;
     @include smallTab{
+      padding-top: 40px;
       padding-right: 0;
       @include safeFlex(column,nowrap,end,end);
       & > div{

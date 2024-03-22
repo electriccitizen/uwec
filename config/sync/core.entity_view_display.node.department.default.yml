@@ -184,7 +184,7 @@ third_party_settings:
               follow_parent: active
               label_link: true
               label_type: root
-              level: 2
+              level: 1
               depth: 3
               expand_all_items: true
               parent: 'departments:'

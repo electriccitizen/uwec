@@ -6,42 +6,14 @@ Drupal.behaviors.sectionMenu = {
 			//mobile toggle
 			$('.section-menu-toggle').click(function(e){
 				e.preventDefault();
-		      if($(window).outerWidth() < 984){
-		        if($(this).is('.active-nav')){
-		          $(this).attr('aria-expanded', 'false').removeClass('active-nav').find('.material-icons').html('menu').closest('#section-menu-title').next('#section-menu-wrapper').attr('aria-hidden', 'true').slideUp(500);
-		        }else{
-		          $(this).attr('aria-expanded', 'true').addClass('active-nav').find('.material-icons').html('close').closest('#section-menu-title').next('#section-menu-wrapper').attr('aria-hidden', 'false').slideDown(500);
-		        }
-		      }
+        if($(this).is('.active-nav')){
+          $(this).attr('aria-expanded', 'false').removeClass('active-nav').find('span').text('Explore Section').closest('#section-menu-title').next('#section-menu-wrapper').attr('aria-hidden', 'true').slideUp(500);
+        }else{
+          $(this).attr('aria-expanded', 'true').addClass('active-nav').find('span').text('Close').addClass('active-nav').closest('#section-menu-title').next('#section-menu-wrapper').attr('aria-hidden', 'false').slideDown(500);
+        }
 			});
 
 			$(window).on('resize', debounce(mobileSectionnav, 150)).trigger('resize');
-
-			//need doc ready because active-class script fires after theme scripts
-			$(document).ready(function(){
-				$('#section-menu-wrapper ul li').each(function(){
-					//find nested lists and set their parents and expanders
-					if(($('ul', this).length) && (!$('.expander:first', this).length) ){
-					  $(this).addClass('parent').prepend('<a href="#" class="expander" aria-expanded="false" role="button" aria-label="Section Submenu Expander"></a>').find(' > a:not(.expander)').next('ul').attr('aria-hidden', 'true');
-					}
-
-					//find active links and set the active trail
-					$('.is-active', this).removeAttr('href').siblings('ul').slideDown(100).attr('aria-hidden', 'false').end().parentsUntil('#section-menu-wrapper > ul').addClass('active-trail expanded');
-
-					//find active-trail li and add aria expanded role to the expander
-					$('li.active-trail > .expander').attr('aria-expanded', "true").siblings('ul').attr('aria-hidden', 'false');
-				});
-
-				//set button roles, tab indexes and keypresses on sidebar links
-				$(document).on('click','#section-menu-wrapper .expander',function(e){
-					e.preventDefault();
-          if($(this).attr('aria-expanded') == 'false'){
-            $(this).attr('aria-expanded', "true").siblings('ul').slideDown(300).attr('aria-hidden', 'false').end().closest('li').addClass('expanded');
-          }else{
-            $(this).attr('aria-expanded', "false").siblings('ul').slideUp(300).attr('aria-hidden', 'true').end().closest('li').removeClass('expanded');
-          }
-				});
-			});
 
 			//remove nav region if nav is hidden
 			if($('body.hide-nav').length){
