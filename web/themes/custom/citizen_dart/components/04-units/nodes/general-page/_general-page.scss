@@ -134,6 +134,13 @@
 				top: 0;
 				background: linear-gradient(180deg, rgba(217, 217, 217, 0) 0%, #06233D 100%);
 			}
+			.hero-background {
+				background-color: $brightBlue;
+				& > article {
+					max-width: 1920px;
+					@include auto;
+				}
+			}
 			.blue-triangle {
 				position: absolute;
 				bottom: 0px;
