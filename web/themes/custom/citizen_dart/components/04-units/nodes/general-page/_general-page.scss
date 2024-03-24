@@ -123,6 +123,44 @@
 				@include rotate(-16);
 			}
 		}
+		&.page-hero-full-image {
+			&:before {
+				content: '';
+				display: block;
+				position: absolute;
+				height: 100%;
+				width: 100%;
+				z-index: 1;
+				top: 0;
+				background: linear-gradient(180deg, rgba(217, 217, 217, 0) 0%, #06233D 100%);
+			}
+			.blue-triangle {
+				position: absolute;
+				bottom: 0px;
+				right: 67px;
+				height: 150px;
+				width: 521px;
+				clip-path: polygon(100% 0%, 0% 100%, 100% 100%);
+				background: $brightBlue;
+				overflow: hidden;
+				z-index: 1;
+				@include desk{
+					background: $white;
+					&:after{
+						content: '';
+						display: block;
+						height: 500%;
+						width: 100%;
+						position: absolute;
+						bottom: -2px;
+						right: 0;
+						background: $brightBlue;
+						z-index: 5;
+					}
+				}
+			}//end after
+
+		}
 		&.page-hero-pattern {
 			.page-header-text {
 				margin-top: 0 !important;
@@ -224,7 +262,9 @@
 				padding-bottom: 100px;
 				position: relative;
 				.page-header-text-inner{
-					color: $white;
+					.page-title {
+						color: $white;
+					}
 				}
 			}
 		}//end page header text

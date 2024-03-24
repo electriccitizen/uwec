@@ -236,7 +236,7 @@
 
 		{# set an area with breadcrumbs and header text content #}
 		<div class="page-header-text">
-			{% if element['#object'].field_hide_nav.0.value == '0' %}
+			{% if element['#object'].field_hide_nav.0.value == '0' and element['#object'].field_hero.0.entity.field_hero_type.0.value != 'full_image' %}
 				{{ drupal_block('system_breadcrumb_block') }}
 			{% endif %}
 			<div class="page-header-text-inner">
@@ -262,12 +262,12 @@
 				<div class="field title string">
 					<h1 class="page-title formatted-title">{{ formattedTitle|render|striptags('<strong>')|trim|raw }}</h1>
 				</div>
-				{% if element['#object'].field_subtitle.0 %}
+				{% if element['#object'].field_subtitle.0 and element['#object'].field_hero.0.entity.field_hero_type.0.value != 'full_image' %}
 					<div class="field field-subtitle string">
 						{{ element['#object'].field_subtitle.0.value }}
 					</div>
 				{% endif %}
-				{% if element['#object'].body.0 %}
+				{% if element['#object'].body.0 and element['#object'].field_hero.0.entity.field_hero_type.0.value != 'full_image' %}
 					<div class="field field-body text-long">
 						{{ bodyText }}
 					</div>
@@ -335,19 +335,23 @@
 			{% endif %}
 
 			{# render the links field if it exists and if the hero is not video #}
-			{% if element['#object'].field_hero.0.entity.field_hero_type.0.value != 'video' %}
+			{% if element['#object'].field_hero.0.entity.field_hero_type.0.value != 'video' and element['#object'].field_hero.0.entity.field_hero_type.0.value != 'full_image' %}
 				{% if element['#object'].field_hero.0.entity.field_links.0 %}
 					<div class="field field-links">
 						<ul class="hero-links">
 							{% for link in element['#object'].field_hero.0.entity.field_links %}
 								<li>
-									<span class="link-arrow"></span>
+									<span class="link-arrow"></span> 
 									<a href="{{ link.url }}">{{ link.title }}</a>
 								</li>
 							{% endfor %}
 						</ul>
 					</div>
 				{% endif %}
+			{% endif %}
+
+			{% if element['#object'].field_hero.0.entity.field_hero_type.0.value == 'full_image' %}
+				<div class="blue-triangle"></div>
 			{% endif %}
 
 		</div>
