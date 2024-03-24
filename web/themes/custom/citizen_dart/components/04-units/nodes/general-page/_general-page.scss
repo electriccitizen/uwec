@@ -49,6 +49,52 @@
 		padding-top: 205px;
 		width: 100vw;
 		min-height: 100vh;
+		.field-links {
+			max-width: 1000px;
+			@include auto;
+			position: relative;
+			.hero-links {
+				position: absolute;
+				right: 0;
+				bottom: -50px;
+				z-index: 1;
+				li {
+					@include safeFlex(row,nowrap,center,start);
+					margin-bottom: 1.5rem;
+				}
+				.link-arrow {
+					display: inline-block;
+					border-radius: 50%;
+					border: 1px solid $white;
+					height: 25px;
+					width: 25px;
+					position: absolute;
+					left: 5px;
+					margin-top: 2px;
+					&:after {
+						content: '';
+						display: block;
+						-webkit-mask: url(../images/arrows/right-arrow-white-sm.svg) no-repeat 50% 50%;
+						mask: url(../images/arrows/right-arrow-white-sm.svg) no-repeat 50% 50%;
+						-webkit-mask-size: contain;
+						mask-size: contain;
+						background-color:$white;
+						width: 15px;
+						height: 15px;
+						margin-left: 5px;
+						margin-top: 4px;
+					}
+				}
+			}
+			a {
+				color: $white;
+				font-family: $header;
+				font-size: 2rem;
+				&:hover {
+					@include dottedLink($white);
+				}
+			}
+		}
 		@include desk{
 			margin-top: -114px;
 			padding-top: 114px;
@@ -75,6 +121,35 @@
 				z-index: -1;
 				background: $brightBlue;
 				@include rotate(-16);
+			}
+		}
+		&.page-hero-pattern {
+			.page-header-text {
+				margin-top: 0 !important;
+				.page-header-text-inner {
+					@include auto;
+					max-width: 650px;
+					margin-top: 4rem;
+					.stripes {
+						position: absolute;
+						bottom: -100px;
+						z-index: -1;
+						left: 120px;
+					}
+				}
+				.field:not(.title) {
+					margin-left: 0 !important;
+					margin-right: 0 !important;
+					color: $white;
+				}
+				.field.title {
+					margin-bottom: 4rem !important;
+				}
+				.field-subtitle {
+					font-family: $header;
+					font-size: 3rem;
+					margin-bottom: 1rem;
+				}
 			}
 		}
 		.page-header-text{
@@ -261,8 +336,6 @@
 						margin-left: .5em;
 						width: 25px;
 						height: 25px;
-						border: 1px solid $gold;
-						border-radius: 50%;
 						transform: rotate(90deg);
 						margin-top: 5px;
 						margin-left: 7px;
