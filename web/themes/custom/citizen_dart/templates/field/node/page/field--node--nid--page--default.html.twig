@@ -35,7 +35,8 @@
 
 {% block fieldSingleNo %}
 
-	<div class="page-header-wrapper{% if element['#object'].field_hero.0 %} has-hero page-hero-{{ element['#object'].field_hero.0.entity.field_hero_type.0.value|clean_class }}{% endif %}">
+	<div
+		class="page-header-wrapper{% if element['#object'].field_hero.0 %} has-hero page-hero-{{ element['#object'].field_hero.0.entity.field_hero_type.0.value|clean_class }}{% endif %}">
 
 		{# render a large version image for certain heros #}
 		{% if element['#object'].field_hero.0.entity.field_hero_type.0.value == 
@@ -61,7 +62,7 @@
 		{% if element['#object'].field_hero.0.entity.field_hero_type.0.value == 
 		'pattern' %}
 			<div class="swirl-pattern">
-				<svg width="371" height="839" viewBox="0 0 371 839" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<svg width="371" height="839" viewbox="0 0 371 839" fill="none" xmlns="http://www.w3.org/2000/svg">
 					<path d="M377.436 710.494L371.381 692.688" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
 					<path d="M378.056 647.166L370.762 630.642" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
 					<path d="M378.675 583.84L370.142 568.598" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
@@ -261,36 +262,76 @@
 			{% if element['#object'].field_hero.0.entity.field_hero_video.0 %}
 				<div class="video-hero">
 					<div class="video-hero-mask">
+						<div class="stripes-first">
+							<svg width="264" height="172" viewbox="0 0 264 172" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<mask id="mask0_2283_54005" style="mask-type:luminance" maskunits="userSpaceOnUse" x="0" y="0" width="264" height="172">
+									<path d="M263.747 0H0V171.284H263.747V0Z" fill="white"/>
+								</mask>
+								<g mask="url(#mask0_2283_54005)">
+									<path d="M21.1562 105.202L555.971 -48.1504" stroke="#EDAC1A" stroke-width="1.07503" stroke-miterlimit="10"/>
+									<path d="M21.1562 123.134L555.971 -30.2188" stroke="#EDAC1A" stroke-width="1.07503" stroke-miterlimit="10"/>
+									<path d="M21.1562 141.065L555.971 -12.2876" stroke="#EDAC1A" stroke-width="1.07503" stroke-miterlimit="10"/>
+									<path d="M21.1562 158.997L555.971 5.64404" stroke="#EDAC1A" stroke-width="1.07503" stroke-miterlimit="10"/>
+									<path d="M21.1562 176.928L555.971 23.5752" stroke="#EDAC1A" stroke-width="1.07503" stroke-miterlimit="10"/>
+									<path d="M21.1562 194.859L555.971 41.5068" stroke="#EDAC1A" stroke-width="1.07503" stroke-miterlimit="10"/>
+									<path d="M21.1562 212.791L555.971 59.4385" stroke="#EDAC1A" stroke-width="1.07503" stroke-miterlimit="10"/>
+									<path d="M21.1562 230.722L555.971 77.3696" stroke="#EDAC1A" stroke-width="1.07503" stroke-miterlimit="10"/>
+								</g>
+							</svg>
+
+						</div>
 						<div class="video-mask-inner">
-							<video playsinline autoplay muted loop {% if element['#object'].field_hero.0.entity.field_video_poster.0 %}poster="{{ element['#object'].field_hero.0.entity.field_video_poster.0.entity.field_media_image.0.entity.uri.0.value|replace({'public://':'/sites/default/files/'}) }}{% endif %}">
+							<video playsinline autoplay muted loop {% if element['#object'].field_hero.0.entity.field_video_poster.0 %} poster="{{ element['#object'].field_hero.0.entity.field_video_poster.0.entity.field_media_image.0.entity.uri.0.value|replace({'public://':'/sites/default/files/'}) }}{% endif %}">
 								{% for video in element['#object'].field_hero.0.entity.field_hero_video %}
-									<source src="{{ video.entity.uri.0.value|replace({'public://':'/sites/default/files/'}) }}" type="{{ video.entity.filemime.0.value }}" />
+									<source src="{{ video.entity.uri.0.value|replace({'public://':'/sites/default/files/'}) }}" type="{{ video.entity.filemime.0.value }}"/>
 								{% endfor %}
 							</video>
 						</div>
+						<div class="stripes-last">
+							<svg width="264" height="172" viewbox="0 0 264 172" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<mask id="mask0_2283_54005" style="mask-type:luminance" maskunits="userSpaceOnUse" x="0" y="0" width="264" height="172">
+									<path d="M263.747 0H0V171.284H263.747V0Z" fill="white"/>
+								</mask>
+								<g mask="url(#mask0_2283_54005)">
+									<path d="M21.1562 105.202L555.971 -48.1504" stroke="#EDAC1A" stroke-width="1.07503" stroke-miterlimit="10"/>
+									<path d="M21.1562 123.134L555.971 -30.2188" stroke="#EDAC1A" stroke-width="1.07503" stroke-miterlimit="10"/>
+									<path d="M21.1562 141.065L555.971 -12.2876" stroke="#EDAC1A" stroke-width="1.07503" stroke-miterlimit="10"/>
+									<path d="M21.1562 158.997L555.971 5.64404" stroke="#EDAC1A" stroke-width="1.07503" stroke-miterlimit="10"/>
+									<path d="M21.1562 176.928L555.971 23.5752" stroke="#EDAC1A" stroke-width="1.07503" stroke-miterlimit="10"/>
+									<path d="M21.1562 194.859L555.971 41.5068" stroke="#EDAC1A" stroke-width="1.07503" stroke-miterlimit="10"/>
+									<path d="M21.1562 212.791L555.971 59.4385" stroke="#EDAC1A" stroke-width="1.07503" stroke-miterlimit="10"/>
+									<path d="M21.1562 230.722L555.971 77.3696" stroke="#EDAC1A" stroke-width="1.07503" stroke-miterlimit="10"/>
+								</g>
+							</svg>
+						</div>
 					</div>
-				</div>
-			{% endif %}
-			<div class="scroll-link">
-				<a href="{% if element['#object'].field_hero.0.entity.field_structure_section.0 %}#structured-content{% else %}#node-section-2{% endif %}">Here you can<span class="link-arrow">scroll to content</span></a>
-			</div>
-		{% endif %}
+					{% endif %}
+					<div class="scroll-link">
+						<a href="{% if element['#object'].field_hero.0.entity.field_structure_section.0 %}#structured-content{% else %}#node-section-2{% endif %}">Here you can
+							<span class="link-arrow">
+								<span>scroll to content</span>
+							</span>
+						</a>
+					</div>
+				{% endif %}
 
-		{# render the links field if it exists and if the hero is not video #}
-		{% if element['#object'].field_hero.0.entity.field_hero_type.0.value != 
+				{# render the links field if it exists and if the hero is not video #}
+				{% if element['#object'].field_hero.0.entity.field_hero_type.0.value != 
 		'video' %}
-			{% if element['#object'].field_hero.0.entity.field_links.0 %}
-				<div class="field field-links">
-					<ul class="hero-links">
-						{% for link in element['#object'].field_hero.0.entity.field_links %}
-							<li><a href="{{ link.url }}">{{ link.title }}</a></li>
-						{% endfor %}
-					</ul>
-				</div>
-			{% endif %}
-		{% endif %}
+					{% if element['#object'].field_hero.0.entity.field_links.0 %}
+						<div class="field field-links">
+							<ul class="hero-links">
+								{% for link in element['#object'].field_hero.0.entity.field_links %}
+									<li>
+										<a href="{{ link.url }}">{{ link.title }}</a>
+									</li>
+								{% endfor %}
+							</ul>
+						</div>
+					{% endif %}
+				{% endif %}
 
-	</div>{# end page header wrapper #}
+			</div>
+			{# end page header wrapper #}
 
-{% endblock %}
-
+		{% endblock %}

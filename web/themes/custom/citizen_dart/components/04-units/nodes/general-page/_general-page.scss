@@ -21,6 +21,9 @@
 			}
 		}
 	}
+	.block-nid {
+		margin-bottom: 0;
+	}
 	.node-intro-simple{
 		@include heroSimpleBackground;
 	}//end intro simple
@@ -88,10 +91,19 @@
 				@include translate(-50%,-50%);
 				h1.formatted-title{
 					color: $white;
-					font-size: 96px;
+					font-size: 150px;
 					font-style: italic;
+					text-transform: uppercase;
+					letter-spacing: 5%;
 					strong{
+						display: block;
+						@include desk {
+							display: inline;
+						}
 						font-style: normal;
+						font-family: $header;
+						font-size: 161px;
+						letter-spacing: unset;
 					}
 				}
 			}
@@ -162,13 +174,26 @@
 		}
 		.video-hero{
 			position: absolute;
-		  top: 0;
+		  top: 50px;
 		  left: 0;
 		  right: 0;
 		  bottom: 0;
 		  display: flex;
 		  align-items: center;
 			justify-content: center;
+			.stripes-first {
+				position: absolute;
+				bottom: 0;
+				left: -100px;
+				transform: scale(-1, -1);
+				z-index: 1;
+			}
+			.stripes-last {
+				position: absolute;
+				top: -100px;
+				right: -100px;
+				z-index: 1;
+			}
 			.video-hero-mask{
 				width: 100vw;
         max-width: 700px;
@@ -206,16 +231,42 @@
 				order: 2;
 			}
 		}
-		.field-links,.scroll-link{
+		.scroll-link{
 			position: absolute;
-			bottom: 100px;
-			right: 100px;
+			bottom: 150px;
+			right: 300px;
 			z-index: 10;
+			font-family: $header;
 			a{
-				color: $white;
-				.link-arrow{
-					display: block;
-					text-indent: -300vw;
+				color: $gold;
+				text-transform: uppercase;
+				.link-arrow {
+						width: 40px;
+						height: 40px;
+						border: 1px solid $gold;
+						border-radius: 50%;
+						display: block;
+						@include auto;
+					span {
+						@include visuallyHidden;
+					}
+					&:after {
+						content: '';
+						display: block;
+						-webkit-mask: url(../images/arrows/right-arrow-gold-sm.svg) no-repeat 50% 50%;
+						mask: url(../images/arrows/right-arrow-gold-sm.svg) no-repeat 50% 50%;
+						-webkit-mask-size: contain;
+						mask-size: contain;
+						background-color:currentColor;
+						margin-left: .5em;
+						width: 25px;
+						height: 25px;
+						border: 1px solid $gold;
+						border-radius: 50%;
+						transform: rotate(90deg);
+						margin-top: 5px;
+						margin-left: 7px;
+					}
 				}
 			}
 		}
