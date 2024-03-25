@@ -89,11 +89,8 @@
   }//end links field a
 }//end patternHero
 
-@mixin patternHeroBrightBlue{
+@mixin heroBlue{
   position: relative;
-  & > *:first-child{
-    background: red;
-  }
   &:before{
     @include fullBack($brightBlue);
     top: auto;
@@ -186,7 +183,7 @@
       }
       .hero-pattern-links &{
         & > .block-field:nth-last-child(2){
-          @include patternHeroBrightBlue;
+          @include heroBlue;
           @include desk{
             & > .field{
               @include stripesRoyalNarrow;
@@ -197,7 +194,7 @@
       .hero-pattern:not(.hero-pattern-links) &{
         padding-bottom: 115px;
         & > .block-field:last-child{
-          @include patternHeroBrightBlue;
+          @include heroBlue;
           @include desk{
             & > .field{
               @include stripesRoyalNarrow;
