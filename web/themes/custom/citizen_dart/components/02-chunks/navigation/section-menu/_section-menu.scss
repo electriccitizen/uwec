@@ -47,8 +47,8 @@
         width: calc(100% - 60px);
       }
       @include menuStop{
-        left: 0;
-        width: 250px;
+        left: -15px;
+        width: 259px;
       }
     }
   }//end is fixed
