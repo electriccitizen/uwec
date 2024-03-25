@@ -133,6 +133,9 @@
 /* START ACTUAL DEPARTMENT THEMING */
 .node-department{
   padding-bottom: $spaceXxs;
+  @include menuStop{
+    padding-bottom: 0;
+  }
 	#node-section-1 {
     @include patternHero;
     .layout__region--content{
@@ -251,29 +254,54 @@
     .layout__region--content{
       padding-left: 20px;
       padding-right: 20px;
+      @include desk{
+        width: 100%;
+      }
+      @include menuStop{
+        &:not(:only-child){
+          width: calc(100% - $sideBar);
+        }
+      }
+    }//end layout region content
+  }//end two column side left
+  .block-field.block-body{
+    max-width: $textMax;
+    @include auto;
+    @include menuStop{
+      margin-top: $spaceMd;
+      margin-bottom: $spaceXl;
     }
   }
-  .block-department-faculty{
-    margin-bottom: $spaceXl;
-  }
-  .block-field-facts-list{
-    @include edgeToEdge;
-    padding: 28px 20px 70px;
-    border-top: 1px solid $warmGrey;
-    border-bottom: 1px solid $warmGrey;
-    margin-bottom: $spaceSm;
-    background: $siteBack;
-  }
-  .block-field-opportunities{
-    position: relative;
-    z-index: 1;
-    &:after{
-      @include fullBack($lightGrey);
+
+  #node-section-3{
+    .layout__region--content > *{
+      @include menuStop{
+        margin-bottom: 70px;
+      }
     }
-  }
-  .block-field-content-carousel{
-    margin-bottom: $spaceXs;
-  }
+    .block-department-faculty{
+      margin-bottom: $spaceXl;
+    }
+    .block-field-facts-list{
+      @include edgeToEdge;
+      margin-bottom: $spaceSm;
+      background: $siteBack;
+      @include menuStop{
+        margin-bottom: 70px;
+      }
+
+    }//end fact slist
+    .block-field-opportunities{
+      position: relative;
+      z-index: 1;
+      max-width: $textMax;
+      @include auto;
+      &:after{
+        @include fullBack($lightGrey);
+      }
+    }
+  }//end node section 3
+
 	#node-section-4{
 		@include contactSection;
     &:not(:last-child){
@@ -288,8 +316,13 @@
       margin-bottom: $spaceSm;
       color: $brightBlue;
       font-size: 43px;
-      strong{
-        font-size: 46px;
+      @include onlyMobile{
+        strong{
+          font-size: 46px;
+        }
+      }
+      @include tab{
+        text-align: center;
       }
     }//end next title
   }//end whats next

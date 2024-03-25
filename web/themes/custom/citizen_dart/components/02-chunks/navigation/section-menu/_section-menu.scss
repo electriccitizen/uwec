@@ -36,6 +36,7 @@
       // make sure the menu is static on department pages because we don't have widgets to account for
       .node-type-department &{
         position: static !important;
+        margin-top: -200px;
       }
     }
     .logged-in &{
