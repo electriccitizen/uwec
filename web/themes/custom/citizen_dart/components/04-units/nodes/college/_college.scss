@@ -232,6 +232,9 @@
       position: relative;
       z-index: 1;
     }
+    @include contentStop{
+      margin-top: -2vw;
+    }
     @media screen and (min-width: 1600px){
       margin-top: -5vw;
     }
@@ -247,12 +250,21 @@
         padding-left: 20px;
         padding-right: 20px;
         @include desk{
-          width: 100%;
+          width: 100%; 
         }
         @include menuStop{
           &:not(:only-child){
-            width: 100%;
-            @include auto;
+            width: calc(100% - 259px);
+            max-width: 1045px;
+            margin-left: auto;
+            .block-field.block-body{
+              margin-left: 0;
+            }
+          }
+        }
+        @include contentStopMargin{
+          &:not(:only-child){
+            margin-right: 40px;
           }
         }
       }//end layout region content
