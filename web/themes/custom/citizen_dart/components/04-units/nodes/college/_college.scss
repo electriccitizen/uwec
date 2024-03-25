@@ -87,14 +87,18 @@
       width: 50%;
       min-height: 100%;
       z-index: 2;
-      max-width: 50%;
+      max-width: 720px;
       margin: 0;
       *{
         height: 100%;
       }
       img{
         object-fit: cover;
+        @include height100;
       }
+    }//end desk
+    @include contentStop{
+      right: calc(50% - 720px);
     }
     &:after{
       @include goldSwirl;
@@ -110,8 +114,12 @@
       @include desk{
         right: auto;
         left: -60px;
+        bottom: -125px;
       }
-    }
+      @include contentStop{
+        bottom: -146px;
+      }
+    }//end after swirl
   }//end image right
 
   .swirl-pattern{
@@ -141,7 +149,10 @@
       max-width: 1092px;
       @include auto;
       body:not(.hero-has-image) &{
-        max-width: 650px;
+        & > *:not(.block-system-breadcrumb-block){
+          max-width: 650px;
+          @include auto;
+        }
       }
       @include desk{
         padding-top: 0;
