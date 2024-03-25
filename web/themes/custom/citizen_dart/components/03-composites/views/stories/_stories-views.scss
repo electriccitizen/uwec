@@ -21,7 +21,7 @@
     & > div{
       margin-bottom: $spaceMd;
     }
-		.widget-section > .layout--onecol &,.node-support-book &{
+		.widget-section > .layout--onecol &,.node-support-book &,.block-field-stories-video-list &{
       @include desk{
         @include safeFlex(row,nowrap,start,start);
         @include bleed(padding,20px);
@@ -39,7 +39,7 @@
     & > div{
       margin-bottom: $spaceMd;
     }
-		.widget-section > .layout--onecol &,.node-support-book &{
+		.widget-section > .layout--onecol &,.node-support-book &,.block-field-stories-video-list &{
       @include desk{
         @include safeFlex(row,nowrap,start,start);
         @include bleed(padding,20px);
