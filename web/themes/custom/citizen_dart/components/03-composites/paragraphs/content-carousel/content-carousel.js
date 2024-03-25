@@ -6,6 +6,9 @@
 		attach: function (context, settings) {
 			//Slider
 			$(once('contentCarousel', '.paragraph--type--content-carousel', context)).each(function(){
+        if(!$('.views-row',this).length){
+          $(this).closest('.block-field-content-carousel').remove();
+        }
 				$(document).ready(function(){
 					$('.paragraph--type--content-carousel .widget-wrapper', this).slick({
 						adaptiveHeight: false,
