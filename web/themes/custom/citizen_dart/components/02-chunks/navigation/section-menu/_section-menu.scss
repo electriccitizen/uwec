@@ -12,6 +12,9 @@
     // fallback in case top javascrip ends
     top: calc(100% - 60px);
     width: $sideBar;
+    @include contentStop{
+      left: calc(50% - 730px);
+    }
     .logged-in &{
       left: 70px;
     }
@@ -32,12 +35,10 @@
       top: auto !important;
     }
     @include menuStop{
-      position: static;
-      // make sure the menu is static on department pages because we don't have widgets to account for
-      .node-type-department &{
-        position: static !important;
-        margin-top: -200px;
-      }
+      position: absolute;
+      top: -200px !important;
+      left: -10px;
+      width: 259px;
     }
     .logged-in &{
       @include desk{
@@ -46,7 +47,7 @@
       }
       @include menuStop{
         left: 0;
-        width: 100%;
+        width: 250px;
       }
     }
   }//end is fixed

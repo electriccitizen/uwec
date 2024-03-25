@@ -251,6 +251,7 @@
   }//end field links
   //section two - nav and body
   .layout--twocol-sideleft{
+    position: relative;
     .layout__region--content{
       padding-left: 20px;
       padding-right: 20px;
@@ -259,7 +260,8 @@
       }
       @include menuStop{
         &:not(:only-child){
-          width: calc(100% - $sideBar);
+          width: 100%;
+          @include auto;
         }
       }
     }//end layout region content
