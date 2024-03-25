@@ -53,14 +53,13 @@ Drupal.behaviors.navPosition = {
         var $titleHeight = $('#section-menu-title').outerHeight();
         var viewportBottom = $(window).scrollTop() + $(window).height();
         var elementTop = $targetElement.offset().top;
+        if (viewportBottom > elementTop) {
+          $('#block-section-menu',$targetElement).addClass('post-intro');
+        } else {
+          $('#block-section-menu',$targetElement).removeClass('post-intro');
+        }
         if(windowWidth > 1199){
           $('#block-section-menu',$targetElement).css('top','calc(100% - ' + $titleHeight + 'px)');
-          console.log(viewportBottom,elementTop);
-          if (viewportBottom > elementTop) {
-            $('#block-section-menu',$targetElement).addClass('post-intro');
-          } else {
-            $('#block-section-menu',$targetElement).removeClass('post-intro');
-          }
         }else{
           $('#block-section-menu',$targetElement).css('top','auto');
         }

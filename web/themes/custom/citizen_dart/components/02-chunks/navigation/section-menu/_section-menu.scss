@@ -122,6 +122,7 @@
 	@include menuStop{
 		display: block !important;
     padding: 0 10px 20px;
+    margin-bottom: $spaceLg;
     .layout-builder__layout &{
       display: none !important;
     }
