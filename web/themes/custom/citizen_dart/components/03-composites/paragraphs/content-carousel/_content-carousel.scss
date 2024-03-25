@@ -10,6 +10,16 @@
     @include auto;
     max-width: 1192px;
   }
+  h2.block-title{
+    color: $brightBlue;
+    margin-bottom: $spaceXxs;
+    text-align: left;
+    padding-left: 26px;
+    padding-right: 26px;
+    @include desk{
+      text-align: center;
+    }
+  }
   .view{
     padding: 0 5px;
     height: 100%;

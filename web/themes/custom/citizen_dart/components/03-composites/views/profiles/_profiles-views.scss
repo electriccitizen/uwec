@@ -66,6 +66,7 @@
 /* FACULTY VIEWS
 ------------- */
 .department-faculty{
+  position: relative;
   .view-wrapper{
     @include profileSlider;
     padding-bottom: 40px;
@@ -104,7 +105,7 @@
           @include rightArrow(navy,white,$white,lg);
         }
         span{
-          @include dottedLink($navy);
+          @include dottedLink($white);
           padding-bottom: 2px;
         }
       }

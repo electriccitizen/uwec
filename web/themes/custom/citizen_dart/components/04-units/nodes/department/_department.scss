@@ -132,6 +132,7 @@
 
 /* START ACTUAL DEPARTMENT THEMING */
 .node-department{
+  padding-bottom: $spaceXxs;
 	#node-section-1 {
     @include patternHero;
     .layout__region--content{
@@ -245,7 +246,51 @@
       margin-top: 13vw;
     }
   }//end field links
+  //section two - nav and body
+  .layout--twocol-sideleft{
+    .layout__region--content{
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+  }
+  .block-department-faculty{
+    margin-bottom: $spaceXl;
+  }
+  .block-field-facts-list{
+    @include edgeToEdge;
+    padding: 28px 20px 70px;
+    border-top: 1px solid $warmGrey;
+    border-bottom: 1px solid $warmGrey;
+    margin-bottom: $spaceSm;
+    background: $siteBack;
+  }
+  .block-field-opportunities{
+    position: relative;
+    z-index: 1;
+    &:after{
+      @include fullBack($lightGrey);
+    }
+  }
+  .block-field-content-carousel{
+    margin-bottom: $spaceXs;
+  }
 	#node-section-4{
 		@include contactSection;
+    &:not(:last-child){
+      margin-bottom: $spaceXl;
+    }
 	}//end node-section-4
+
+  .block-field-whats-next{
+    h2.next-title{
+      @include styledHeader;
+      text-align: left;
+      margin-bottom: $spaceSm;
+      color: $brightBlue;
+      font-size: 43px;
+      strong{
+        font-size: 46px;
+      }
+    }//end next title
+  }//end whats next
 }//end department
