@@ -2,7 +2,7 @@
 	 SECTION MENU
 ===================== */
 @use '../../../00-base/base' as *;
-#block-section-menu,#block-section-menu-deparment{
+#block-section-menu{
   margin-bottom: 0;
   @include edgeToEdge;
   @include menuStop{
@@ -12,12 +12,13 @@
     // fallback in case top javascrip ends
     top: calc(100% - 60px);
     width: $sideBar;
-    @include contentStop{
-      left: calc(50% - 730px);
-    }
+    @include animation('fadeInDelay 1s 1');
     .logged-in &{
       left: 70px;
     }
+  }
+  @media screen and (min-width: 1480px){
+    left: calc(50% - 730px);
   }
   .hide-nav &{
 		display: none;
