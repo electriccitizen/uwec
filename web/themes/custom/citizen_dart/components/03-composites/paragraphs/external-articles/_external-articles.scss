@@ -1,18 +1,38 @@
 @use '../../../00-base/base' as *;
 
-.paragraph--type--external-articles .field-external-articles-items{
-	display:flex;
-	flex-flow:row wrap;
-	justify-content:center;
+.paragraph--type--external-articles{
+	max-width: 1320px;
+	@include auto;
 
-	/* these classless divs are the container for each tile */
-	>div{
-		max-width:393px;
-		a{
-			display:inline-block;
-			padding:1rem;
-			&:hover{
-				background:$ice;
+	@include desk{
+		.field-external-articles-items{
+			@include safeFlex(row, wrap, start, start);
+			@include bleed(padding, 20px);
+			>div{
+				width:33.33%;
+				opacity:0;
+				&.external-articles-visible{
+					@include animation('fadeIn 1s 1 forwards');
+				}
+			}
+		}
+	}
+
+	a{
+		display:inline-block;
+		margin-top:2rem;
+		@include arrowLinkAfter($navy);
+
+		&:after{
+			@include rightArrow(navy, transparent, $navy, sm);
+		}
+		&:hover, &:focus{
+			&:after{
+				@include rightArrow(white, $navy, $navy, sm);
+			}
+			span{
+				@include dottedLink($navy);
+				padding-bottom:1px;
 			}
 		}
 	}

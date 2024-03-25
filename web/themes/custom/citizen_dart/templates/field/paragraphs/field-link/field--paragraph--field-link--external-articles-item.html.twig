@@ -1,0 +1,6 @@
+{% block fieldSingleNo %}
+	{% set link = items.0.content %}
+	{% set href = link['#url'].uri %}
+	{% set text = link['#title'] %}
+	<a href="{{ href }}"><span>{{ text }}</span></a>
+{% endblock %}

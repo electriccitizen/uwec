@@ -1,6 +1,2 @@
-{% block widgetContent %}
-	<a href="{{ content.field_link.0['#url'] }}">
-		{{ content.field_image }}
-		{{ content.field_link.0['#title'] }}
-	</a>
-{% endblock %}
+{{ attach_library('citizen_dart/external-articles') }}
+{{ content }}
