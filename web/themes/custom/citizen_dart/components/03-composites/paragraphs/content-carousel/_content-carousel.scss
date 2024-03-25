@@ -10,9 +10,24 @@
     @include auto;
     max-width: 1192px;
   }
+  h2.block-title{
+    color: $brightBlue;
+    margin-bottom: $spaceXxs;
+    text-align: left;
+    padding-left: 26px;
+    padding-right: 26px;
+    @include desk{
+      text-align: center;
+      margin-bottom: $spaceMd;
+    }
+  }
+  .widget-wrapper,.slick-track,.slick-slide{
+    height: inherit !important;
+  }
   .view{
     padding: 0 5px;
-    height: 100%;
+    display: block;
+    height: auto;
     @include desk{
       padding: 0 111px;
       max-width: 1096px;
@@ -21,21 +36,11 @@
         padding: 0;
       }
     }
-    .view-content{
-      height: 100%;
-      background: $lightGrey;
-      @include carouselBreak{
-        background: none;
-        height: auto;
-      }
-    }
   }//end view
   .slick-slider{
-    .slick-track{
-      display: flex !important;
-    }
-    .slick-slide{
-      height: inherit !important;
+    background: $lightGrey;
+    @include carouselBreak{
+      background: none;
     }
     .slick-arrow{
       top: calc(90px + 4vw);

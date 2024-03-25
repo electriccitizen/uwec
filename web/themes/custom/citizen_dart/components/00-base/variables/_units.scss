@@ -42,8 +42,8 @@ $siteBottomSpace: 12rem;
 $buttonPadding: 1.625rem 3rem 1.35rem;
 $submitPadding: 2px 2rem 0;
 
-$sideBar: 300px;
-$sectionGutter: 40px;
+$sideBar: 259px;
+$sectionGutter: 20px;
 
 /* BREAKPOINT SHORTHANDS & EDGE MIXINS
 -------------------------- */
@@ -98,6 +98,12 @@ $sectionGutter: 40px;
 
 @mixin largeScreen {
 	@media screen and (min-width: $largeScreen) {
+		@content;
+	}
+}
+
+@mixin mobileMenu {
+	@media screen and (max-width: $menuStop) {
 		@content;
 	}
 }

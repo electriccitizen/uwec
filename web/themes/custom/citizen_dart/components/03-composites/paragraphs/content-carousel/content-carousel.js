@@ -17,6 +17,7 @@
               {
                 breakpoint: 984,
                 settings: {
+                  adaptiveHeight: false,
                   centerMode: true,
                   centerPadding: '20px',
                 }

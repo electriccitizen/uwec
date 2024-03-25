@@ -7,8 +7,15 @@
 .paragraph--type--facts-list{
 	max-width: 1092px;
 	@include auto;
-  padding-left: 20px;
-  padding-right: 20px;
+  padding: 28px 40px 70px;
+  border-top: 1px solid $warmGrey;
+  border-bottom: 1px solid $warmGrey;
+  max-width: 1092px;
+  @include auto;
+  @include menuStop{
+    padding-top: 36px;
+    padding-bottom: 0;
+  }
   &.facts-visible{
     .node-teaser-fact{
       opacity: 1;
@@ -78,14 +85,11 @@
 	    grid-row-start: 1;
 	    grid-row-end: 2;
       margin-bottom: 0;
-      // body:not(.logged-in) &{
-      //   transform-origin: 0;
-      //   transform: translateZ(2px) scale(0.75);
-      // }
     }
     .facts-title-inner{
       @include styledHeader;
       position: relative;
+      z-index: 1;
       display: block;
       width: 300px;
       @include auto;
