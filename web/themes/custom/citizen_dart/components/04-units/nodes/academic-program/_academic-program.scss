@@ -105,18 +105,27 @@
 		* {
 			color: $white;
 		}
+    .field-outcomes-image,
+    .outcomes,
+    .recent-grads {
+      max-width: $largeTab;
+      h2 {
+        font-family: $displayHeader;
+      }
+    }
 		.field-outcomes-image {
-			max-width: 874px;
 			@include auto;
 		}
 		.outcomes {
 			@include auto;
-			max-width: 874px;
 			@include safeFlex(row,wrap,justify,start);
+      gap: 40px;
+      .first {
+        flex: 1 1 60%;
+      }
 		}
 		.recent-grads {
 			@include auto;
-			max-width: 874px;
 			.grads {
 				@include safeFlex(row,wrap,start,start);
 				.grad {
