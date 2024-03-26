@@ -252,18 +252,17 @@
           border: none;
           top: 5px;
           right: 5px;
-          background-image: none;
-          background-color: $navy;
-          -webkit-mask: url('../images/elements/search.svg') no-repeat 50% 50%;
-          mask: url('../images/elements/search.svg') no-repeat 50% 50%;
-          -webkit-mask-size: 17px;
-          mask-size: 17px;
+          background-image: url('../images/elements/search.svg');
+          background-repeat: no-repeat;
+          background-size: 17px;
+          background-position: center;
         } 
 				&:hover,&:focus{
 					background-color: $navy;
 					color: $white;
           .layout__region--content &{
-            background-color: $brightBlue;
+            background-color: lighten($ice,1%);
+            background-image: url('../images/elements/search-blue.svg');
           }
 				}
 				header &{
@@ -274,6 +273,7 @@
             line-height: 1.2;
             font-family: $header;
             font-weight: $xHeavy;
+            background-image: none;
           }
 					&:hover,&:focus{
 						background-color: $white;
@@ -344,7 +344,29 @@
 	margin: $elementSpace auto 0;
 }
 
+
+
 #search-results-wrapper {
+  //snug up search if its in the first paragraph and depending on body content
+  .field-paragraphs:not(.has-body-content) .layout-section:first-child .layout__region:first-child .paragraph--type--custom-embed:first-child &{
+    margin-top: -200px;
+    @include desk{
+      margin-top: -350px;
+      .logged-in &{
+        margin-top: -234px;
+      }
+    }
+  }
+  .field-paragraphs.has-body-content .layout-section:first-child .layout__region:first-child .paragraph--type--custom-embed:first-child &{
+    margin-top: -40px;
+    @include desk{
+      margin-top: -80px;
+      .logged-in &{
+        margin-top: -20px;
+      }
+    }
+  }
+
   max-width: 984px;
   @include auto;
   //general wrapper

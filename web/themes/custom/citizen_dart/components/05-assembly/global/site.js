@@ -50,7 +50,7 @@ Drupal.behaviors.backToTop = {
       //scroll to toc
       $('.back-anchor a').click(function(e){
         e.preventDefault();
-        $('.overflow-guard .dialog-off-canvas-main-canvas').animate({
+        $('html,body').animate({
           scrollTop: $('.layout-container').offset().top - 10
         });
       });

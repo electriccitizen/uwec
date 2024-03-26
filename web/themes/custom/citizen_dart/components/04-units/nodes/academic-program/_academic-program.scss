@@ -279,6 +279,7 @@
   }//end program inner
   &.open-program{
     position: relative;
+    z-index: 1;
     .program-inner{
       background: $warmGrey;
       @include tab{

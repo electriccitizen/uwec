@@ -209,11 +209,7 @@
       padding: 50px 0;
       &.wayfinding-visible{
         .field-image{
-          .field-media-image{
-            transform: scale(1);
-            transition: transform 1.5s ease-in-out;
-          }
-          .gold-stripes-narrow{
+          .field-media-image,.gold-stripes-narrow{
             opacity: 1;
             transition: opacity 1s ease-out;
             transition-delay: 1.25s;
@@ -283,7 +279,7 @@
       }
       .field-image{
         .field-media-image{
-          transform: scale(0);
+          opacity: 0;
         }
         .gold-stripes-narrow{
           @include rotate(180);
