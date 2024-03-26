@@ -297,27 +297,11 @@
       }
       .wayfinding-link{
         a{
-          @include arrowLinkBefore($navy);
+          @include linkArrow(navy);
           &:before{
-            content: '';
-            display: block;
-            position: absolute;
             top: -12px;
-            left: 0;
-            width: 40px;
-            height: 40px;
-            @include rightArrow(navy,transparent,$navy,lg);
           }
-          &:hover,&:focus{
-            &:before{
-              @include rightArrow(white,$navy,$navy,lg);
-            }
-            span{
-              @include dottedLink($link);
-              padding-bottom: 2px;
-            }
-          }
-        }//end a 
+        }//end a
       }//end wayfinding link
     }//end single
   }// endwayfinding

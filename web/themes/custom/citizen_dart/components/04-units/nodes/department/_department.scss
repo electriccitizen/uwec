@@ -63,29 +63,7 @@
   }
   .field-links a{
     display: inline-block;
-    @include arrowLinkBefore($white);
-    padding-left: 32px;
-    font-size: 16px;
-    line-height: 1.2;
-    &:before{
-      content: '';
-      display: block;
-      position: absolute;
-      top: -2px;
-      left: 0;
-      width: 20px;
-      height: 20px;
-      @include rightArrow(white,transparent,$white,sm);
-    }//end before
-    &:hover,&:focus{
-      &:before{
-        @include rightArrow(royal,$white,$white,sm);
-      }
-      span{
-        @include dottedLink($white);
-        padding-bottom: 1px;
-      }
-    }//end hover, focus
+    @include linkArrow(white, sm, "span");
   }//end links field a
 }//end patternHero
 
@@ -110,7 +88,7 @@
     background: $brightBlue;
     clip-path: polygon(0 0, 100% 0, 0 100%);
   }
-}//end pattern bright blue 
+}//end pattern bright blue
 
 @mixin stripesRoyalNarrow{
   position: relative;
@@ -153,7 +131,7 @@
       content: '';
       position: absolute;
       bottom: -8px;
-      left: 73vw; 
+      left: 73vw;
       z-index: 0;
       width: 308px;
       height: 572px;

@@ -434,13 +434,23 @@
   box-sizing: border-box;
 }
 
-@mixin arrowLinkBefore($arrowLinkColor){
+@mixin arrowLinkBefore($arrowLinkColor, $size: lg){
+  $font-size: 18px;
+  $line-height: 1.44;
+  $padding-left: 56px;
+
+  @if $size == sm {
+    $font-size: 16px;
+    $line-height: 1.2;
+    $padding-left: 32px;
+  }
+
   font-family: vinila-extended, sans-serif;
-  font-size: 18px;
-  line-height: 1.44;
+  font-size: $font-size;
+  line-height: $line-height;
   color: #{$arrowLinkColor};
   position: relative;
-  padding-left: 56px;
+  padding-left: $padding-left;
 }
 
 @mixin arrowLinkAfter($arrowLinkColor){
@@ -466,6 +476,75 @@
 	background-position: bottom;
 	background-size: 4px 1px;
 	background-repeat: repeat-x;
+}
+
+@mixin linkArrow($theme: navy, $size: lg, $dotted-selector: 'span') {
+  // Defaults are the settings for navy, lg.
+  $arrow: c.$navy;
+  $arrow-string: navy;
+  $arrow-invert: white;
+  $border: c.$navy;
+  $hover-border: c.$navy;
+  $back: transparent;
+  $hover-back: $arrow;
+
+  $top: -10px;
+  $dimensions: 40px;
+  $dotted-padding: 2px;
+
+  @if $theme == navyLight {
+    $arrow-invert: navy;
+    $hover-back: c.$white;
+    $hover-border: c.$white;
+  }
+  @if $theme == brightBlue {
+    $arrow: c.$brightBlue;
+    $arrow-string: blue;
+    $border: c.$brightBlue;
+    $hover-back: $arrow;
+  }
+  @if $theme == white {
+    $arrow: c.$white;
+    $arrow-string: white;
+    $border: c.$white;
+    $arrow-invert: royal;
+    $hover-back: $arrow;
+  }
+  @if $theme == gold {
+    $arrow: c.$gold;
+    $arrow-string: gold;
+    $border: c.$gold;
+    $hover-border: c.$white;
+    $arrow-invert: navy;
+    $hover-back: c.$white;
+  }
+
+  @if $size == sm {
+    $top: -2px;
+    $dimensions: 20px;
+    $dotted-padding: 1px;
+  }
+
+  @include arrowLinkBefore($arrow, $size);
+  &:before{
+    content: '';
+    display: block;
+    position: absolute;
+    top: $top;
+    left: 0;
+    width: $dimensions;
+    height: $dimensions;
+    @include rightArrow($arrow-string, $back, $border, $size);
+  }//end before
+  &:hover,&:focus{
+    &:before{
+      @include rightArrow($arrow-invert, $hover-back, $hover-border, $size);
+    }
+    #{$dotted-selector} {
+      @include dottedLink($hover-border);
+      padding-bottom: $dotted-padding;
+    }
+  }
 }
 
 @mixin factsGrid{

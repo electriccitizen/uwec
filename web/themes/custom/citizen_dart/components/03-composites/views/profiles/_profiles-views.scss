@@ -75,29 +75,10 @@
       text-align: center;
     }
 		a{
-			@include arrowLinkBefore($navy);
+			@include linkArrow(navyLight);
       display: inline-block;
       max-width: $textMax;
       @include auto;
-      &:before{
-        content: '';
-        display: block;
-        position: absolute;
-        top: -10px;
-        left: 0;
-        width: 40px;
-        height: 40px;
-        @include rightArrow(navy,transparent,$navy,lg);
-      }
-      &:hover,&:focus{
-        &:before{
-          @include rightArrow(navy,white,$white,lg);
-        }
-        span{
-          @include dottedLink($white);
-          padding-bottom: 2px;
-        }
-      }
 		}//end a
 	}//end more link
 }//end department faculty
