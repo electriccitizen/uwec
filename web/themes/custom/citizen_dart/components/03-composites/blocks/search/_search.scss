@@ -252,18 +252,17 @@
           border: none;
           top: 5px;
           right: 5px;
-          background-image: none;
-          background-color: $navy;
-          -webkit-mask: url('../images/elements/search.svg') no-repeat 50% 50%;
-          mask: url('../images/elements/search.svg') no-repeat 50% 50%;
-          -webkit-mask-size: 17px;
-          mask-size: 17px;
+          background-image: url('../images/elements/search.svg');
+          background-repeat: no-repeat;
+          background-size: 17px;
+          background-position: center;
         } 
 				&:hover,&:focus{
 					background-color: $navy;
 					color: $white;
           .layout__region--content &{
-            background-color: $brightBlue;
+            background-color: lighten($ice,1%);
+            background-image: url('../images/elements/search-blue.svg');
           }
 				}
 				header &{
@@ -274,6 +273,7 @@
             line-height: 1.2;
             font-family: $header;
             font-weight: $xHeavy;
+            background-image: none;
           }
 					&:hover,&:focus{
 						background-color: $white;
