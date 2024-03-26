@@ -6,56 +6,54 @@
 @use '../node-mixins' as *;
 
 .node-academic-program{
-	&.contextual-region{
-		position: static;
-		& > .contextual{
-			display: none;
-		}
-		.program-hero {
-			margin-top: -216px;
-			padding-top: 216px;
-			@include desk{
-				margin-top: -170px;
-				padding-top: 170px;
-			}
-		}
-	}
-
-   //page header section
-	#node-section-1{
-		transform-style: preserve-3d !important;
-		.hero-video &,.hero-full_image &,.hero-background &{
-			position: static;
-		}
-		*{
-			transform-style: unset;
-		}
-	}
 
 	//hero setups
 	#node-section-1 {
-		.program-hero {
-			@include heroBackground;
-			@include heroImageRight;
-		}
-		.page-header-text {
-			@include heroText;
-		}
+		@include heroRightImage;
+    .field-intro {
+      margin-bottom: 6.5rem;
+    }
 	}
 	.field.body {
 		max-width: $textMax;
 		@include auto;
+    padding: 2.5rem;
+    @include desk {
+      padding: 0;
+    }
 	}
+  .available-as {
+    margin-bottom: 6.5rem;
+    .tag {
+      @include tag;
+      display: block;
+    }
+    .field-content {
+      @include heading2;
+      color: $white;
+      font-family: $displayHeader;
+    }
+  }
+  .field-links a {
+    @include linkArrow(white, sm);
+    display: block;
+    margin-bottom: 16px;
+  }
 	.program-details-wrapper {
 		color: $royal;
 		background-color: $lightGrey;
-		padding: 6.5rem 16.75rem;
+    padding: 2.5rem;
+    @include desk {
+      padding: 6.5rem 16.75rem;
+    }
 		h2 {
 			margin-bottom: 2.625rem;
 			color: $royal;
 		}
 		.program-details {
-			@include safeFlex(row,wrap,start,start);
+      @include desk {
+        @include safeFlex(row,wrap,start,start);
+      }
 			.program-detail {
 				font-weight: $heavy;
 				margin-bottom: 3.625rem;
@@ -66,18 +64,32 @@
 					display: block;
 					font-weight: $regular;
 				}
+        a {
+          @include blockArrow(royal, sm);
+          span {
+            display: inline;
+          }
+        }
 			}
 			.first {
-				border-right: $warmGrey solid 1px;
-				width: calc(50% - 11rem);
+				border-bottom: $warmGrey solid 1px;
+        margin-bottom: 3.625rem;
+        @include desk {
+          border-bottom: 0;
+          border-right: $warmGrey solid 1px;
+          margin-bottom: 0;
+          width: calc(50% - 11rem);
+        }
 			}
 			.last {
 				@include safeFlex(row,wrap,start,flex-start);
-				width: 50%;
-				padding-left: 11rem;
+        @include desk {
+          width: 50%;
+          padding-left: 11rem;
+        }
 				div {
 					flex: 0 0 50%;
-					box-sizing: border-box; 
+					box-sizing: border-box;
 				}
 			}
 		} // end program-details
@@ -87,7 +99,7 @@
 		background-color: $lightGrey;
 		padding: 6.5rem 16.75rem;
 		margin-top: .375rem;
-		h2 { 
+		h2 {
 			color: $royal;
 		}
 		.accreditation-details {
@@ -110,23 +122,41 @@
 		* {
 			color: $white;
 		}
+    .field-outcomes-image,
+    .outcomes,
+    .recent-grads {
+      max-width: $largeTab;
+      h2 {
+        font-family: $displayHeader;
+      }
+    }
+    .outcomes,
+    .recent-grads {
+      padding: 2.5rem;
+      @include desk {
+        padding: 0;
+      }
+    }
 		.field-outcomes-image {
-			max-width: 874px;
 			@include auto;
 		}
 		.outcomes {
 			@include auto;
-			max-width: 874px;
-			@include safeFlex(row,wrap,justify,start);
+      @include desk {
+        @include safeFlex(row,wrap,justify,start);
+        gap: 40px;
+      }
+      .first {
+        flex: 1 1 60%;
+      }
 		}
 		.recent-grads {
 			@include auto;
-			max-width: 874px;
 			.grads {
 				@include safeFlex(row,wrap,start,start);
 				.grad {
 					flex: 0 0 33.33%;
-					box-sizing: border-box; 
+					box-sizing: border-box;
 				}
 			}
 		}
@@ -373,30 +403,8 @@
     }
     .program-link{
       display: inline-block;
-      @include arrowLinkBefore($navy);
-      padding-left: 32px;
-      font-size: 16px;
-      line-height: 1.2;
+      @include linkArrow(navy, sm, '.program-link-text');
       margin-bottom: $spaceMd;
-      &:before{
-        content: '';
-        display: block;
-        position: absolute;
-        top: -2px;
-        left: 0;
-        width: 20px;
-        height: 20px;
-        @include rightArrow(navy,transparent,$navy,sm);
-      }//end before
-      &:hover,&:focus{
-        &:before{
-          @include rightArrow(white,$navy,$navy,sm);
-        }
-        .program-link-text{
-          @include dottedLink($white);
-          padding-bottom: 1px;
-        }
-      }//end hover, focus
     }//end program link
   }//end program body
-} //end academic-program-teaser 
+} //end academic-program-teaser

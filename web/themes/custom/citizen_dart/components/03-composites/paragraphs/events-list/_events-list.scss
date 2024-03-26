@@ -88,19 +88,7 @@
     .title{
       display: block;
       a{
-        @include arrowLinkAfter($navy);
-        &:after{
-          @include rightArrow(navy,transparent,$navy,sm);
-        }
-        &:hover,&:focus{
-          &:after{
-            @include rightArrow(white,$navy,$navy,sm);
-          }
-          span{
-            @include dottedLink($brightBlue);
-            padding-bottom: 1px;
-          }
-        }//end hover, focus
+        @include blockArrow(navy, sm);
       }//end a
     }//end title
     .summary{

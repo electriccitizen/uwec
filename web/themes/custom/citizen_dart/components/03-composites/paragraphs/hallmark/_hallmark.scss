@@ -152,7 +152,7 @@
           padding-right: 20px;
           padding-left: 60px;
         }
-      }//end 
+      }//end
       @include contentStopMargin{
         .hallmark-text{
           padding-left: 152px;
@@ -257,27 +257,7 @@
       .field-link{
         padding-top: 14px;
         a{
-          @include arrowLinkBefore($gold);
-          display: inline-block;
-          &:before{
-            content: '';
-            display: block;
-            position: absolute;
-            top: -10px;
-            left: 0;
-            width: 40px;
-            height: 40px;
-            @include rightArrow(gold,transparent,$gold,lg);
-          }
-          &:hover,&:focus{
-            &:before{
-              @include rightArrow(navy,white,$white,lg);
-            }
-            span{
-              @include dottedLink($white);
-              padding-bottom: 2px;
-            }
-          }
+          @include linkArrow(gold);
         }//end a
       }//end field link
     }//end hallmark text

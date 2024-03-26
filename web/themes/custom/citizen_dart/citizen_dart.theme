@@ -49,8 +49,8 @@ function citizen_dart_preprocess_html(&$variables) {
         $variables['attributes']['class'][] = 'hero-pattern-links';
       }
     }
-    if ($node->getType() == 'college'){
-      if($node->field_image[0]){
+    if (in_array($node->getType(), ['college', 'academic_program'])) {
+      if ($node->field_image[0]) {
         $variables['attributes']['class'][] = 'hero-has-image';
       }
     }
@@ -315,5 +315,3 @@ function citizen_dart_theme_suggestions_paragraph_alter(array &$suggestions, arr
   // array_push($suggestions, 'paragraph__' . $paragraph->getType() . '__' . $id);
   array_push($suggestions, 'paragraph__' . $paragraph->getType() . '__' . $id);
 }
-
-
