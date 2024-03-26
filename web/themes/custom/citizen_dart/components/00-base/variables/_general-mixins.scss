@@ -475,9 +475,7 @@
 	background-repeat: repeat-x;
 }
 
-// Based on the "Link Arrow" design, this adds a circle-arrow at the start of an
-// element.
-@mixin linkArrow($theme: navy, $size: lg, $dotted-selector: 'span') {
+@mixin arrowLink($location: 'before', $theme: navy, $size: lg, $dotted-selector: 'span') {
   // Defaults are the settings for navy, lg.
   $arrow: c.$navy;
   $arrow-string: navy;
@@ -487,79 +485,6 @@
   $back: transparent;
   $hover-back: $arrow;
 
-  $top: -10px;
-  $dimensions: 40px;
-  $dotted-padding: 2px;
-
-  @if $theme == navyLight {
-    $arrow-invert: navy;
-    $hover-back: c.$white;
-    $hover-border: c.$white;
-  }
-  @if $theme == brightBlue {
-    $arrow: c.$brightBlue;
-    $arrow-string: blue;
-    $border: c.$brightBlue;
-    $hover-back: $arrow;
-  }
-  @if $theme == white {
-    $arrow: c.$white;
-    $arrow-string: white;
-    $border: c.$white;
-    $arrow-invert: royal;
-    $hover-back: $arrow;
-  }
-  @if $theme == gold {
-    $arrow: c.$gold;
-    $arrow-string: gold;
-    $border: c.$gold;
-    $hover-border: c.$white;
-    $arrow-invert: navy;
-    $hover-back: c.$white;
-  }
-
-  @if $size == sm {
-    $top: -2px;
-    $dimensions: 20px;
-    $dotted-padding: 1px;
-  }
-
-  @include arrowLinkBefore($arrow, $size);
-  &:before {
-    content: '';
-    display: block;
-    position: absolute;
-    top: $top;
-    left: 0;
-    width: $dimensions;
-    height: $dimensions;
-    @include rightArrow($arrow-string, $back, $border, $size);
-  }//end before
-  &:hover, &:focus {
-    &:before {
-      @include rightArrow($arrow-invert, $hover-back, $hover-border, $size);
-    }
-    #{$dotted-selector} {
-      @include dottedLink($hover-border);
-      margin-right: 10px;
-      padding-bottom: $dotted-padding;
-    }
-  }
-}
-
-// Based on the "Block Arrow" design, this adds a circle-arrow at the end of an
-// element.
-@mixin blockArrow($theme: navy, $size: lg, $dotted-selector: 'span') {
-  // Defaults are the settings for navy, lg.
-  $arrow: c.$navy;
-  $arrow-string: navy;
-  $arrow-invert: white;
-  $border: c.$navy;
-  $hover-border: c.$navy;
-  $back: transparent;
-  $hover-back: $arrow;
-
-  $top: 4px;
   $dimensions: 40px;
   $dotted-padding: 2px;
 
@@ -596,33 +521,70 @@
     $hover-back: c.$white;
   }
 
-  @if $size == small {
+  @if $size == sm {
     $dimensions: 20px;
     $dotted-padding: 1px;
   }
 
-  @include arrowLinkAfter($arrow, $size);
-  #{$dotted-selector} {
-    margin-right: 10px;
+  @if $location == "after" {
+    @include arrowLinkAfter($arrow, $size);
   }
-  &:after{
+  @else {
+    @include arrowLinkBefore($arrow, $size);
+  }
+
+  &:#{$location} {
     content: '';
-    display: inline-block;
     width: $dimensions;
     height: $dimensions;
-    position: relative;
-    top: $top;
     @include rightArrow($arrow-string, $back, $border, $size);
   }
-  &:hover,&:focus {
-    &:after {
+  &:hover, &:focus {
+    &:#{$location} {
       @include rightArrow($arrow-invert, $hover-back, $hover-border, $size);
     }
     #{$dotted-selector} {
       @include dottedLink($hover-border);
       padding-bottom: $dotted-padding;
     }
-  }//end hover, focus
+  }
+}
+
+// Based on the "Link Arrow" design, this adds a circle-arrow at the start of an
+// element.
+@mixin linkArrow($theme: navy, $size: lg, $dotted-selector: 'span') {
+  // Defaults are the settings for navy, lg.
+  @include arrowLink("before", $theme, $size, $dotted-selector);
+
+  $top: -10px;
+
+  @if $size == sm {
+    $top: -2px;
+  }
+
+  &:before {
+    display: block;
+    left: 0;
+    position: absolute;
+    top: $top;
+  }//end before
+}
+
+// Based on the "Block Arrow" design, this adds a circle-arrow at the end of an
+// element.
+@mixin blockArrow($theme: navy, $size: lg, $dotted-selector: 'span') {
+  @include arrowLink("after", $theme, $size, $dotted-selector);
+
+  $top: 4px;
+
+  #{$dotted-selector} {
+    margin-right: 10px;
+  }
+  &:after {
+    display: inline-block;
+    position: relative;
+    top: $top;
+  }
 }
 
 @mixin factsGrid{
