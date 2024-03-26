@@ -38,43 +38,45 @@
 			</div>
 		{% endif %}
 
-		{# set an area with breadcrumbs and header text content #}
-		<div class="page-header-text">
-			<div class="page-header-text-inner">
-        {{ drupal_block('system_breadcrumb_block') }}
-				<div class="field title string">
-					<h1 class="field page-title">{{ element['#object'].title.0.value }}</h1>
-				</div>
-        <div class="field field-intro text-long">
-          {{ intro }}
-				</div>
-        {% if element['#object'].field_program_type|length > 0 %}
-        <div class="field available-as">
-          <span>{% trans %}Available as{% endtrans %}</span>
-          {%- for type in element['#object'].field_program_type -%}
-            {% if not loop.first and loop.last %} {% trans %}or{% endtrans %} {% endif %}
-            {{- type.entity.label -}}
-            {% if (loop.length != 2) and not loop.last %},
+      {# set an area with breadcrumbs and header text content #}
+      <div class="page-header-text">
+        <div class="page-header-text-inner">
+          {{ drupal_block('system_breadcrumb_block') }}
+          <div class="field title string">
+            <h1 class="field page-title">{{ element['#object'].title.0.value }}</h1>
+          </div>
+          <div class="field field-intro text-long">
+            {{ intro }}
+          </div>
+          {% if element['#object'].field_program_type|length > 0 %}
+          <div class="field available-as">
+            <span class="tag">{% trans %}Available as{% endtrans %}</span>
+            <div class="field-content">
+              {%- for type in element['#object'].field_program_type -%}
+                {% if not loop.first and loop.last %} {% trans %}or{% endtrans %} {% endif %}
+                {{- type.entity.label -}}
+                {% if (loop.length != 2) and not loop.last %},
+                {% endif %}
+              {%- endfor -%}
+            </div>
+          </div>
+          {% endif %}
+          {% if element['#object'].field_admissions_requirements.0.uri or element['#object'].field_tuition_link.0.uri %}
+          <div class="field field-links">
+            {% if element['#object'].field_tuition_link.0.uri %}
+            <a href="{{ element['#object'].field_tuition_link.0.url }}">
+              <span class="link-text">{% trans %}See tuition info{% endtrans %}</span>
+            </a>
             {% endif %}
-          {%- endfor -%}
+            {% if element['#object'].field_admissions_requirements.0.uri %}
+            <a href="{{ element['#object'].field_admissions_requirements.0.url }}">
+              <span class="text">{% trans %}See admission requirements{% endtrans %}</span>
+            </a>
+            {% endif %}
+          </div>
+          {% endif %}
         </div>
-        {% endif %}
-         {% if element['#object'].field_admissions_requirements.0.uri or element['#object'].field_tuition_link.0.uri %}
-      <div class="field field-links">
-        {% if element['#object'].field_tuition_link.0.uri %}
-          <a href="{{ element['#object'].field_tuition_link.0.url }}">
-            <span class="link-text">{% trans %}See tuition info{% endtrans %}</span>
-          </a>
-        {% endif %}
-        {% if element['#object'].field_admissions_requirements.0.uri %}
-          <a href="{{ element['#object'].field_admissions_requirements.0.url }}">
-            <span class="text">{% trans %}See admission requirements{% endtrans %}</span>
-          </a>
-        {% endif %}
       </div>
-    {% endif %}
-			</div>
-		</div>
     </div>
 	</div>{# end page header wrapper #}
 {% endblock %}

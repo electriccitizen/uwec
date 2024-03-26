@@ -10,11 +10,25 @@
 	//hero setups
 	#node-section-1 {
 		@include heroRightImage;
+    .field-intro {
+      margin-bottom: 6.5rem;
+    }
 	}
 	.field.body {
 		max-width: $textMax;
 		@include auto;
 	}
+  .available-as {
+    .tag {
+      @include tag;
+      display: block;
+    }
+    .field-content {
+      @include heading2;
+      color: $white;
+      font-family: $displayHeader;
+    }
+  }
 	.program-details-wrapper {
 		color: $royal;
 		background-color: $lightGrey;
