@@ -184,6 +184,24 @@
 	}
 }
 
+@mixin height100{
+  @include u.desk{
+    min-height: calc(100vh - 100px);
+  }
+  @include u.menuStop{
+    min-height: calc(100vh - 110px);
+  }
+  .logged-in &{
+    min-height: calc(100vh - 137px);
+    @media screen and (min-width: 976px){
+      min-height: calc(100vh - 216px);
+    }
+    @include u.menuStop{
+      min-height: calc(100vh - 226px);
+    }
+  }//end logged in min heights
+}//end height 100
+
 /*  STYLE MIXINS
 ------------------- */
 
@@ -305,6 +323,19 @@
 		border-bottom: $actualHeight double rgba(0,0,0,0);
 		border-left: $triWidth solid $triColor;
 	}
+}
+
+@mixin blueTriangle{
+  content: '';
+  display: block;
+  position: absolute;
+  top: calc(100% - 1px);
+  left: 0;
+  height: 29vw;
+  width: 100vw;
+  z-index: -1;
+  background: c.$brightBlue;
+  clip-path: polygon(0 0, 100% 0, 0 100%);
 }
 
 @mixin lightBack($lightText,$lightLink) {
@@ -827,7 +858,7 @@
       width: calc(100% - 223px);
     }
   }
-  
+
   .stacked-title{
     font-family: f.$displayHeader;
     font-size: 3.25rem;
@@ -1059,4 +1090,3 @@
 .fadeIn {
 	@include animation('fadeIn 1.5s 1');
 }
-
