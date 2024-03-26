@@ -220,17 +220,22 @@
 		@include auto;
     position: relative;
     z-index: 5;
-    @include tab{
+    @include desk{
       padding-left: 0;
       padding-right: 0;
     }
 	}
   .field-college{
-    max-width: 610px;
+    max-width: $textMax;
     @include auto;
+    padding-left: 20px;
+    padding-right: 20px;
     font-size: 1.75rem;
     line-height: 1.71;
     text-transform: uppercase;
+    a{
+      margin-left: -20px;
+    }
   }
   .block-field.block-title{
     margin-bottom: 8rem;

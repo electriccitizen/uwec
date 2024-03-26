@@ -46,7 +46,12 @@ function mobileSectionnav() {
 ------------------ */
 Drupal.behaviors.navPosition = {
   attach: function (context, settings) {
-  	$(once('navPosition', '.layout--twocol-sideleft', context)).each(function(){
+  	$(once('navPosition', '.layout--twocol-sideleft:not(.layout-builder__layout)', context)).each(function(){
+      if($('#block-section-menu .menu-item',this).length){
+        $('#block-section-menu',this).addClass('show-nav');
+      }else{
+        $('.layout__region--first',this).remove();
+      }
       $(document).ready(function() {
         var windowWidth = $(window).outerWidth();
         var $targetElement = $('.layout--twocol-sideleft'); 

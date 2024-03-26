@@ -36,19 +36,17 @@
 
 {% set attributes = attributes|without('role', 'aria-labelledby', 'id') %}
 
-{% if content['#items'] %}
-  <nav aria-label="section-menu" id="block-section-menu"{{ attributes }} class="block--system-menu section-menu">
-    {{ title_prefix }}
-    <h2 id="section-menu-title" class="block-title{% if not configuration.label_display %} visually-hidden{% endif %}">
-      {{ configuration.label }}
-      <a href="#" class="section-menu-toggle" aria-label="Mobile Section Menu Toggle"><span>Explore Section</span>
-      </a>
-    </h2>
-    {{ title_suffix }}
-    <div id="section-menu-wrapper" class="something">
-      {% block sectionMenu %}
-        {{ content }}
-      {% endblock %}
-    </div>
-  </nav>
-{% endif %}
+<nav aria-label="section-menu" id="block-section-menu"{{ attributes }} class="block--system-menu section-menu">
+  {{ title_prefix }}
+  <h2 id="section-menu-title" class="block-title{% if not configuration.label_display %} visually-hidden{% endif %}">
+    {{ configuration.label }}
+    <a href="#" class="section-menu-toggle" aria-label="Mobile Section Menu Toggle"><span>Explore Section</span>
+    </a>
+  </h2>
+  {{ title_suffix }}
+  <div id="section-menu-wrapper" class="something">
+    {% block sectionMenu %}
+      {{ content }}
+    {% endblock %}
+  </div>
+</nav>
