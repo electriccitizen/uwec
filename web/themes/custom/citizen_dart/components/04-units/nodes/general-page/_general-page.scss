@@ -221,9 +221,6 @@
 		}
 	}//end page-header-wrapper
 
-	.node-section:not(#node-section-1){
-		position: static;
-	}
 	.block-field-page-family{
 		max-width: 914px;
 		@include auto;
