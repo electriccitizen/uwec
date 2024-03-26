@@ -7,19 +7,8 @@
 
 /* DIRECTORY
 --------------- */
-//move directory up if its the first paragraph in the first section and there is no body field
-#node-section-2 .layout__region--content:first-child .block-field-paragraphs:first-child .layout-section:first-child .layout__region:first-child .paragraph--type--view-placer:first-child{
-  .profile-search.directory{
-    margin-top: -200px;
-    @include desk{
-      margin-top: -350px;
-      .logged-in &{
-        margin-top: -234px;
-      }
-    }
-  }
-}
 .profile-search.directory{
+  @include paragraphSnug;
 	.views-exposed-form{
 		@include exposedForm;
     @include edgeToEdge;
@@ -66,6 +55,7 @@
 /* FACULTY VIEWS
 ------------- */
 .department-faculty{
+  position: relative;
   .view-wrapper{
     @include profileSlider;
     padding-bottom: 40px;
@@ -104,7 +94,7 @@
           @include rightArrow(navy,white,$white,lg);
         }
         span{
-          @include dottedLink($navy);
+          @include dottedLink($white);
           padding-bottom: 2px;
         }
       }

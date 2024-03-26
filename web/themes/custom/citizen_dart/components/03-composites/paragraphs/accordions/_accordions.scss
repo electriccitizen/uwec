@@ -8,6 +8,9 @@
   //and background for the accordions depending on layout section
   position: relative;
   padding: 35px 0;
+  @include menuStop{
+    padding: 60px 0 80px;
+  }
   &:after{
     @include fullBack($lightGrey);
   }

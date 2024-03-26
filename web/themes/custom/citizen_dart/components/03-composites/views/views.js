@@ -10,7 +10,7 @@ Drupal.behaviors.viewsExposed = {
       if((urlCurrent.indexOf("?f") > -1) || (urlCurrent.indexOf("?c") > -1) || (urlCurrent.indexOf("?s") > -1)){
 				$(document).ready(function(){
 					setTimeout(function() {
-			   		$('.dialog-off-canvas-main-canvas').animate({
+			   		$('html,body').animate({
 							scrollTop: $('.views-exposed-form').offset().top - 10
 			   			});
 			   			$('.results-tally').delay(300).fadeIn(500);

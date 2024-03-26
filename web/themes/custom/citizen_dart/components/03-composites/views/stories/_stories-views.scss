@@ -21,7 +21,7 @@
     & > div{
       margin-bottom: $spaceMd;
     }
-		.widget-section > .layout--onecol &,.node-support-book &{
+		.widget-section > .layout--onecol &,.node-support-book &,.block-field-stories-video-list &{
       @include desk{
         @include safeFlex(row,nowrap,start,start);
         @include bleed(padding,20px);
@@ -39,7 +39,7 @@
     & > div{
       margin-bottom: $spaceMd;
     }
-		.widget-section > .layout--onecol &,.node-support-book &{
+		.widget-section > .layout--onecol &,.node-support-book &,.block-field-stories-video-list &{
       @include desk{
         @include safeFlex(row,nowrap,start,start);
         @include bleed(padding,20px);
@@ -58,21 +58,9 @@
 }
 
 /* FEATURED NEWS */
-
-//snug news up the page
-#node-section-2 .layout__region--content:first-child .block-field-paragraphs:first-child .layout-section:first-child .layout__region:first-child .paragraph--type--view-placer:first-child{
-  .news.all-news{
-    margin-top: -200px;
-    @include desk{
-      margin-top: -350px;
-      .logged-in &{
-        margin-top: -234px;
-      }
-    }
-  }
+.news.all-news{
+  @include paragraphSnug;
 }
-
-//featured stories
 .news.featured-stories{
   padding-bottom: $spaceXl;
   max-width: $largeTab;
@@ -129,9 +117,7 @@
       }
 		}//end views row
 	}//end view contnet
-}//end news recent three
-
-/* MAIN NEWS CONTENT */
+}//end featured news
 .main-news-view{
   max-width: $contentStopMargin;
   @include auto;
@@ -203,7 +189,7 @@
       }
 		}
 	}//end view content
-}//end all news
+}//end all news main news content
 
 /* RELATED NEWS
 ---------------- */

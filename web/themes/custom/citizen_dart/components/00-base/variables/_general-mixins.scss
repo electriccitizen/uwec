@@ -738,6 +738,7 @@
 
 @mixin profileSlider{
   position: relative;
+  z-index: 1;
   max-width: 985px;
   margin-left: u.$siteMarginMobile * -1;
   margin-right: u.$siteMarginMobile * -1;
@@ -779,29 +780,6 @@
     }//end slick arrow
   }//end slick slider
 }//end profile slider
-
-@mixin profileGrid{
-  position: relative;
-  max-width: 1005px;
-  margin: 0 auto;
-  &:after{
-    @include fullBack(c.$gold);
-    top: 58px;
-    height: calc(100% - 58px);
-  }
-  .field-fauxfile-items,.field-profiles,.view-content{
-    @include safeFlex(row,wrap,start,start);
-    & > div{
-      width: 100%;
-      @include u.smallTab{
-        width: 50%;
-      }
-      @include u.tab{
-        width: 33.33%;
-      }
-    }
-  }
-}//end profile grid
 
 //Profile needs to be here instead of in node mixins because of fauxfile
 @mixin profileStacked{

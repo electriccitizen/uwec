@@ -13,9 +13,6 @@
   padding-left: $siteMarginMobile;
   padding-right: $siteMarginMobile;
   color: $white;
-  h1,h2,h3,h4,h5,h6,li,a{
-    color: $white;
-  }
   //set min heights for main section
   min-height: calc(100vh - 88px);
   @include desk{
@@ -26,13 +23,27 @@
   }
   .logged-in &{
     min-height: calc(100vh - 137px);
-    @query media screen and (min-width: 976px){
+    @media screen and (min-width: 976px){
       min-height: calc(100vh - 216px);
     }
     @include menuStop{
       min-height: calc(100vh - 226px);
     }
   }//end logged in min heights
+  .hero-pattern:not(.hero-pattern-links) &{
+    @include menuStop{
+      padding-bottom: 150px;
+    }
+    @media screen and (min-width: 1600px){
+      padding-bottom: 10vw;
+    }
+    @media screen and (min-width: 1800px){
+      padding-bottom: 12vw;
+    }
+  }
+  h1,h2,h3,h4,h5,h6,li,a{
+    color: $white;
+  }
   //specific link colors
   .breadcrumb{
     max-width: 1096px;
@@ -76,25 +87,10 @@
       }
     }//end hover, focus
   }//end links field a
-  .blue-swirl{
-    position: absolute;
-    bottom: 26px;
-    left: calc(100% - 88px);
-    width: 308px;
-    height: 572px;
-    z-index: 1;
-    svg{
-      width: 100%;
-      height: 100%;
-    }
-  }
 }//end patternHero
 
-@mixin patternHeroBrightBlue{
+@mixin heroBlue{
   position: relative;
-  & > *:first-child{
-    background: red;
-  }
   &:before{
     @include fullBack($brightBlue);
     top: auto;
@@ -127,48 +123,67 @@
     z-index: -1;
     width: 263px;
     height: 171px;
+    @include tab{
+      left: -43px;
+    }
   }
 }
 
 /* START ACTUAL DEPARTMENT THEMING */
 .node-department{
+  padding-bottom: $spaceXxs;
+  @include menuStop{
+    padding-bottom: 0;
+  }
 	#node-section-1 {
     @include patternHero;
-    .layout__region--content{
-      position: relative;
+    position: relative;
+    z-index: 0;
+    margin-bottom: $elementSpace;
+    .hero-pattern:not(.hero-pattern-links) &{
+      @include largeTab{
+        margin-bottom: 70px;
+      }
+      @include menuStop{
+        margin-bottom: $elementSpace;
+      }
+    }
+    &:after{
+      @include animation('fadeInDelay 1s 1');
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 73vw; 
       z-index: 0;
-      &:after{
-        @include animation('fadeInDelay 1s 1');
-        content: '';
-        position: absolute;
-        bottom: -8px;
-        left: 73vw; 
-        z-index: 0;
-        width: 308px;
-        height: 572px;
-        background-image: url(../images/elements/swirl-vertical-blue.svg);
-        background-repeat: no-repeat;
-        background-size: 100%;
-        @include desk{
-          left: 77vw;
-          width: 380px;
-          height: 706px;
-          bottom: -83px;
-        }
-        @include contentStop{
-          left: auto;
-          right: -104px;
-          width: 452px;
-          height: 839px;
-          bottom: -95px;
-        }
-      }//end after swirl
+      width: 308px;
+      height: 572px;
+      background-image: url(../images/elements/swirl-vertical-blue.svg);
+      background-repeat: no-repeat;
+      background-size: 100%;
+      @include desk{
+        left: 77vw;
+        width: 380px;
+        height: 706px;
+        bottom: -83px;
+      }
+      @include contentStop{
+        left: auto;
+        right: -104px;
+        width: 452px;
+        height: 839px;
+        bottom: -95px;
+      }
+    }//end after swirl
+    .layout__region--content{
       .block-field{
         max-width: 100%;
+        &:last-child{
+          margin-bottom: 0;
+        }
       }
       .hero-pattern-links &{
         & > .block-field:nth-last-child(2){
-          @include patternHeroBrightBlue;
+          @include heroBlue;
           @include desk{
             & > .field{
               @include stripesRoyalNarrow;
@@ -179,7 +194,7 @@
       .hero-pattern:not(.hero-pattern-links) &{
         padding-bottom: 115px;
         & > .block-field:last-child{
-          @include patternHeroBrightBlue;
+          @include heroBlue;
           @include desk{
             & > .field{
               @include stripesRoyalNarrow;
@@ -205,13 +220,22 @@
 		@include auto;
     position: relative;
     z-index: 5;
+    @include desk{
+      padding-left: 0;
+      padding-right: 0;
+    }
 	}
   .field-college{
-    max-width: 610px;
+    max-width: $textMax;
     @include auto;
+    padding-left: 20px;
+    padding-right: 20px;
     font-size: 1.75rem;
     line-height: 1.71;
     text-transform: uppercase;
+    a{
+      margin-left: -20px;
+    }
   }
   .block-field.block-title{
     margin-bottom: 8rem;
@@ -220,10 +244,11 @@
     margin-bottom: $spaceSm;
   }
   .field-links{
-    padding-top: 40px;
+    padding-top: 100px;
     padding-bottom: 60px;
     max-width: 984px;
     @include smallTab{
+      padding-top: 40px;
       padding-right: 0;
       @include safeFlex(column,nowrap,end,end);
       & > div{
@@ -244,7 +269,82 @@
       margin-top: 13vw;
     }
   }//end field links
+  //section two - nav and body
+  .layout--twocol-sideleft{
+    position: relative;
+    .layout__region--content{
+      padding-left: 20px;
+      padding-right: 20px;
+      @include desk{
+        width: 100%;
+      }
+      @include menuStop{
+        &:not(:only-child){
+          width: 100%;
+          @include auto;
+        }
+      }
+    }//end layout region content
+  }//end two column side left
+  .block-field.block-body{
+    max-width: $textMax;
+    @include auto;
+    @include menuStop{
+      margin-top: $spaceMd;
+      margin-bottom: $spaceXl;
+    }
+  }
+
+  #node-section-3{
+    .layout__region--content > *{
+      @include menuStop{
+        margin-bottom: 70px;
+      }
+    }
+    .block-department-faculty{
+      margin-bottom: $spaceXl;
+    }
+    .block-field-facts-list{
+      @include edgeToEdge;
+      margin-bottom: $spaceSm;
+      background: $siteBack;
+      @include menuStop{
+        margin-bottom: 70px;
+      }
+    }//end fact list
+    .block-field-opportunities{
+      position: relative;
+      z-index: 1;
+      max-width: $textMax;
+      @include auto;
+      &:after{
+        @include fullBack($lightGrey);
+      }
+    }
+  }//end node section 3
+
 	#node-section-4{
 		@include contactSection;
+    &:not(:last-child){
+      margin-bottom: $spaceXl;
+    }
 	}//end node-section-4
+
+  .block-field-whats-next{
+    h2.next-title{
+      @include styledHeader;
+      text-align: left;
+      margin-bottom: $spaceSm;
+      color: $brightBlue;
+      font-size: 43px;
+      @include onlyMobile{
+        strong{
+          font-size: 46px;
+        }
+      }
+      @include tab{
+        text-align: center;
+      }
+    }//end next title
+  }//end whats next
 }//end department

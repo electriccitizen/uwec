@@ -39,6 +39,7 @@
   .lwcw.events-list{
     @include safeFlex(row,wrap,center,start);
     @include bleed(padding,40px);
+    margin-bottom: -$spaceSm;
     @include contentStopMargin{
       @include bleed(padding,74px);
     }

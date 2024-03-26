@@ -19,8 +19,8 @@ Drupal.behaviors.accordion = {
             var currentAccordion = $('.accord-active').offset().top;
             if(windowTop > currentAccordion){
               $('html, body').animate({
-                      scrollTop: $('.accord-active').offset().top - 100
-                  });
+                scrollTop: $('.accord-active').offset().top - 100
+              });
             }
           }, 510);
         }
