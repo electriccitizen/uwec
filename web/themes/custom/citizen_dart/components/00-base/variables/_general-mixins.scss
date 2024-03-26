@@ -532,10 +532,10 @@
     $line-height: 1.2;
   }
 
+  color: $arrowLinkColor;
   font-family: f.$header;
   font-size: $font-size;
   line-height: $line-height;
-  color: $arrowLinkColor;
 }
 
 @mixin dottedLink($dotColor){
@@ -555,7 +555,7 @@
   $back: transparent;
   $hover-back: $arrow;
 
-  $top: -10px;
+  $top: 4px;
   $dimensions: 40px;
   $dotted-padding: 2px;
 
@@ -568,6 +568,12 @@
     $arrow: c.$brightBlue;
     $arrow-string: blue;
     $border: c.$brightBlue;
+    $hover-back: $arrow;
+  }
+  @if $theme == royal {
+    $arrow: c.$royal;
+    $arrow-string: royal;
+    $border: c.$royal;
     $hover-back: $arrow;
   }
   @if $theme == white {
@@ -587,6 +593,7 @@
   }
 
   @if $size == small {
+    $dimensions: 20px;
     $dotted-padding: 1px;
   }
 
@@ -597,10 +604,10 @@
   &:after{
     content: '';
     display: inline-block;
-    width: 20px;
-    height: 20px;
+    width: $dimensions;
+    height: $dimensions;
     position: relative;
-    top: 4px;
+    top: $top;
     @include rightArrow($arrow-string, $back, $border, $size);
   }
   &:hover,&:focus {

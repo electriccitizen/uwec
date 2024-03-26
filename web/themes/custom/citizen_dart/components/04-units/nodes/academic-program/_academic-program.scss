@@ -55,6 +55,12 @@
 					display: block;
 					font-weight: $regular;
 				}
+        a {
+          @include blockArrow(royal, sm);
+          span {
+            display: inline;
+          }
+        }
 			}
 			.first {
 				border-right: $warmGrey solid 1px;
