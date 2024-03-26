@@ -434,7 +434,7 @@
   box-sizing: border-box;
 }
 
-@mixin arrowLinkBefore($arrowLinkColor, $size: lg){
+@mixin arrowLinkBefore($arrowLinkColor, $size: lg) {
   $font-size: 18px;
   $line-height: 1.44;
   $padding-left: 56px;
@@ -445,37 +445,12 @@
     $padding-left: 32px;
   }
 
-  font-family: vinila-extended, sans-serif;
+  font-family: f.$header;
   font-size: $font-size;
   line-height: $line-height;
   color: #{$arrowLinkColor};
   position: relative;
   padding-left: $padding-left;
-}
-
-@mixin arrowLinkAfter($arrowLinkColor){
-  font-family: f.$header;
-  font-size: 2.25rem;
-  line-height: 1.33;
-  color: $arrowLinkColor;
-  span{
-    margin-right: 10px;
-  }
-  &:after{
-    content: '';
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-    position: relative;
-    top: 4px;
-  }//end before
-}
-
-@mixin dottedLink($dotColor){
-	background-image: linear-gradient(to right, $dotColor 33%, rgba(0,0,0,0) 0%);
-	background-position: bottom;
-	background-size: 4px 1px;
-	background-repeat: repeat-x;
 }
 
 @mixin linkArrow($theme: navy, $size: lg, $dotted-selector: 'span') {
@@ -526,7 +501,7 @@
   }
 
   @include arrowLinkBefore($arrow, $size);
-  &:before{
+  &:before {
     content: '';
     display: block;
     position: absolute;
@@ -536,15 +511,107 @@
     height: $dimensions;
     @include rightArrow($arrow-string, $back, $border, $size);
   }//end before
-  &:hover,&:focus{
-    &:before{
+  &:hover, &:focus {
+    &:before {
+      @include rightArrow($arrow-invert, $hover-back, $hover-border, $size);
+    }
+    #{$dotted-selector} {
+      @include dottedLink($hover-border);
+      margin-right: 10px;
+      padding-bottom: $dotted-padding;
+    }
+  }
+}
+
+@mixin arrowLinkAfter($arrowLinkColor, $size: lg) {
+  $font-size: 18px;
+  $line-height: 1.44;
+
+  @if $size == sm {
+    $font-size: 16px;
+    $line-height: 1.2;
+  }
+
+  font-family: f.$header;
+  font-size: $font-size;
+  line-height: $line-height;
+  color: $arrowLinkColor;
+}
+
+@mixin dottedLink($dotColor){
+	background-image: linear-gradient(to right, $dotColor 33%, rgba(0,0,0,0) 0%);
+	background-position: bottom;
+	background-size: 4px 1px;
+	background-repeat: repeat-x;
+}
+
+@mixin blockArrow($theme: navy, $size: lg, $dotted-selector: 'span') {
+  // Defaults are the settings for navy, lg.
+  $arrow: c.$navy;
+  $arrow-string: navy;
+  $arrow-invert: white;
+  $border: c.$navy;
+  $hover-border: c.$navy;
+  $back: transparent;
+  $hover-back: $arrow;
+
+  $top: -10px;
+  $dimensions: 40px;
+  $dotted-padding: 2px;
+
+  @if $theme == navyLight {
+    $arrow-invert: navy;
+    $hover-back: c.$white;
+    $hover-border: c.$white;
+  }
+  @if $theme == brightBlue {
+    $arrow: c.$brightBlue;
+    $arrow-string: blue;
+    $border: c.$brightBlue;
+    $hover-back: $arrow;
+  }
+  @if $theme == white {
+    $arrow: c.$white;
+    $arrow-string: white;
+    $border: c.$white;
+    $arrow-invert: royal;
+    $hover-back: $arrow;
+  }
+  @if $theme == gold {
+    $arrow: c.$gold;
+    $arrow-string: gold;
+    $border: c.$gold;
+    $hover-border: c.$white;
+    $arrow-invert: navy;
+    $hover-back: c.$white;
+  }
+
+  @if $size == small {
+    $dotted-padding: 1px;
+  }
+
+  @include arrowLinkAfter($arrow, $size);
+  #{$dotted-selector} {
+    margin-right: 10px;
+  }
+  &:after{
+    content: '';
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    position: relative;
+    top: 4px;
+    @include rightArrow($arrow-string, $back, $border, $size);
+  }
+  &:hover,&:focus {
+    &:after {
       @include rightArrow($arrow-invert, $hover-back, $hover-border, $size);
     }
     #{$dotted-selector} {
       @include dottedLink($hover-border);
       padding-bottom: $dotted-padding;
     }
-  }
+  }//end hover, focus
 }
 
 @mixin factsGrid{

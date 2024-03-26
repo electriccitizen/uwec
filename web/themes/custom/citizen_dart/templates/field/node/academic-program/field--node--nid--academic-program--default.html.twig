@@ -65,12 +65,12 @@
           <div class="field field-links">
             {% if element['#object'].field_tuition_link.0.uri %}
             <a href="{{ element['#object'].field_tuition_link.0.url }}">
-              <span class="link-text">{% trans %}See tuition info{% endtrans %}</span>
+              <span>{% trans %}See tuition info{% endtrans %}</span>
             </a>
             {% endif %}
             {% if element['#object'].field_admissions_requirements.0.uri %}
             <a href="{{ element['#object'].field_admissions_requirements.0.url }}">
-              <span class="text">{% trans %}See admission requirements{% endtrans %}</span>
+              <span>{% trans %}See admission requirements{% endtrans %}</span>
             </a>
             {% endif %}
           </div>

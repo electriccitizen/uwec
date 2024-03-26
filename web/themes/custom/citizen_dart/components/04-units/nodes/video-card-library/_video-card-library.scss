@@ -63,20 +63,8 @@
   }
   .teaser-title{
     margin-bottom: $spaceXxs;
-    a{
-      @include arrowLinkAfter($navy);
-      &:after{
-        @include rightArrow(navy,transparent,$navy,sm);
-      }
-      &:hover,&:focus{
-        &:after{
-          @include rightArrow(white,$navy,$navy,sm);
-        }
-        span{
-          @include dottedLink($navy);
-          padding-bottom: 1px;
-        }
-      }//end hover, focus
+    a {
+      @include blockArrow(navy, sm);
     }//end a
   }
   .field.body{
@@ -109,7 +97,7 @@
     background: $lightGrey;
     @include carouselBreak{
       background: $siteBack;
-      @include safeFlex(row,nowrap,start,start); 
+      @include safeFlex(row,nowrap,start,start);
       padding: 20px 0 0;
     }
     @include desk{
