@@ -9,12 +9,24 @@
     @include edgeReset;
     position: fixed;
     left: 10px;
-    // fallback in case top javascrip ends
+    // fallback in case top javascript fails
     top: calc(100% - 60px);
     width: $sideBar;
-    @include animation('fadeInDelay 1s 1');
+    opacity: 0;
+    z-index: 20;
+    &.show-nav{
+      @include animation('fadeInDelay 1s 1 forwards');
+    }
     .logged-in &{
       left: 70px;
+    }
+    .layout-builder__layout &{
+      position: relative !important;
+      left: 0 !important;
+      opacity: 1;
+    }
+    .node-type-support-book &{
+      position: static;
     }
   }
   @media screen and (min-width: 1480px){
@@ -34,12 +46,17 @@
       width: 100%;
       //override potential interference from desktop position
       top: auto !important;
+      z-index: 20;
     }
     @include menuStop{
       position: absolute;
       top: -200px !important;
       left: -10px;
       width: 259px;
+      z-index: 20;
+      .node-type-support-book &{
+        position: static;
+      }
     }
     .logged-in &{
       @include desk{
@@ -135,6 +152,7 @@
 		@include auto;
     ul{
       @include listReset;
+      display: none;
     }
 		//global menu items
 		li{
@@ -159,6 +177,9 @@
         }
 				&.is-active{
 					background: $siteBack;
+          + ul{
+            display: block;
+          }
 				}
 			}//end a
       //child menu items
