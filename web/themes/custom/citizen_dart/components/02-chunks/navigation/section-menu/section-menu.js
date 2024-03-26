@@ -66,8 +66,11 @@ Drupal.behaviors.navPosition = {
         if(windowWidth > 1199){
           $('#block-section-menu',$targetElement).css('top','calc(100% - ' + $titleHeight + 'px)');
           // find menu height minus offset & spacing so can make sure there is enough body height to push down paragraphs
-          var menuHeight = $('#block-section-menu',$targetElement).outerHeight() - 280 + 'px';
-          $('.block-field.block-body',$targetElement).css('min-height',menuHeight);
+          var menuHeight = $('#block-section-menu',$targetElement).outerHeight() - 280;
+          if(menuHeight > 0){
+            $('.layout--twocol-sideleft:not(.layout-builder__layout) .block-field.block-body,.node-type-page.hero-none .page-header-text-inner .field-body').css('min-height',menuHeight + 'px');
+            
+          }
         }else{
           $('#block-section-menu',$targetElement).css('top','auto');
         }
