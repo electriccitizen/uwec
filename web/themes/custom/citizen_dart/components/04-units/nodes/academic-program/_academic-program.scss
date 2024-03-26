@@ -17,6 +17,10 @@
 	.field.body {
 		max-width: $textMax;
 		@include auto;
+    padding: 2.5rem;
+    @include desk {
+      padding: 0;
+    }
 	}
   .available-as {
     margin-bottom: 6.5rem;
@@ -38,13 +42,18 @@
 	.program-details-wrapper {
 		color: $royal;
 		background-color: $lightGrey;
-		padding: 6.5rem 16.75rem;
+    padding: 2.5rem;
+    @include desk {
+      padding: 6.5rem 16.75rem;
+    }
 		h2 {
 			margin-bottom: 2.625rem;
 			color: $royal;
 		}
 		.program-details {
-			@include safeFlex(row,wrap,start,start);
+      @include desk {
+        @include safeFlex(row,wrap,start,start);
+      }
 			.program-detail {
 				font-weight: $heavy;
 				margin-bottom: 3.625rem;
@@ -63,13 +72,21 @@
         }
 			}
 			.first {
-				border-right: $warmGrey solid 1px;
-				width: calc(50% - 11rem);
+				border-bottom: $warmGrey solid 1px;
+        margin-bottom: 3.625rem;
+        @include desk {
+          border-bottom: 0;
+          border-right: $warmGrey solid 1px;
+          margin-bottom: 0;
+          width: calc(50% - 11rem);
+        }
 			}
 			.last {
 				@include safeFlex(row,wrap,start,flex-start);
-				width: 50%;
-				padding-left: 11rem;
+        @include desk {
+          width: 50%;
+          padding-left: 11rem;
+        }
 				div {
 					flex: 0 0 50%;
 					box-sizing: border-box;
@@ -113,13 +130,22 @@
         font-family: $displayHeader;
       }
     }
+    .outcomes,
+    .recent-grads {
+      padding: 2.5rem;
+      @include desk {
+        padding: 0;
+      }
+    }
 		.field-outcomes-image {
 			@include auto;
 		}
 		.outcomes {
 			@include auto;
-			@include safeFlex(row,wrap,justify,start);
-      gap: 40px;
+      @include desk {
+        @include safeFlex(row,wrap,justify,start);
+        gap: 40px;
+      }
       .first {
         flex: 1 1 60%;
       }
