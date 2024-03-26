@@ -19,6 +19,7 @@
 		@include auto;
 	}
   .available-as {
+    margin-bottom: 6.5rem;
     .tag {
       @include tag;
       display: block;
@@ -28,6 +29,11 @@
       color: $white;
       font-family: $displayHeader;
     }
+  }
+  .field-links a {
+    @include linkArrow(white, sm);
+    display: block;
+    margin-bottom: 16px;
   }
 	.program-details-wrapper {
 		color: $royal;

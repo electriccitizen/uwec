@@ -63,14 +63,14 @@
           {% endif %}
           {% if element['#object'].field_admissions_requirements.0.uri or element['#object'].field_tuition_link.0.uri %}
           <div class="field field-links">
-            {% if element['#object'].field_tuition_link.0.uri %}
-            <a href="{{ element['#object'].field_tuition_link.0.url }}">
-              <span>{% trans %}See tuition info{% endtrans %}</span>
-            </a>
-            {% endif %}
             {% if element['#object'].field_admissions_requirements.0.uri %}
             <a href="{{ element['#object'].field_admissions_requirements.0.url }}">
               <span>{% trans %}See admission requirements{% endtrans %}</span>
+            </a>
+            {% endif %}
+            {% if element['#object'].field_tuition_link.0.uri %}
+            <a href="{{ element['#object'].field_tuition_link.0.url }}">
+              <span>{% trans %}See tuition info{% endtrans %}</span>
             </a>
             {% endif %}
           </div>
