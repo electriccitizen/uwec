@@ -142,6 +142,7 @@
   }// end accreditation-wrapper
 
   #node-section-5 {
+    @include edgeToEdge;
     background-color: $brightBlue;
     padding: 8.25rem 0;
     margin-bottom: 8.75rem;
