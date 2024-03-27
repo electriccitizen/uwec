@@ -7,21 +7,21 @@
 
 .node-academic-program{
 
-	//hero setups
-	#node-section-1 {
-		@include heroRightImage;
+  //hero setups
+  #node-section-1 {
+    @include heroRightImage;
     .field-intro {
       margin-bottom: 6.5rem;
     }
-	}
-	.field.body {
-		max-width: $textMax;
-		@include auto;
+  }
+  .field.body {
+    max-width: $textMax;
+    @include auto;
     padding: 2.5rem;
     @include desk {
       padding: 0;
     }
-	}
+  }
   .available-as {
     margin-bottom: 6.5rem;
     .tag {
@@ -39,40 +39,62 @@
     display: block;
     margin-bottom: 16px;
   }
-	.program-details-wrapper {
-		color: $royal;
-		background-color: $lightGrey;
+  .block-field-degree-types,
+  .block-field-accreditation {
+    margin-bottom: 2px;
+    @include desk {
+      margin-bottom: $elementSpace;
+    }
+  }
+  .program-details-wrapper {
+    color: $royal;
+    background-color: $lightGrey;
     padding: 2.5rem;
     @include desk {
       padding: 6.5rem 16.75rem;
     }
-		h2 {
-			margin-bottom: 2.625rem;
-			color: $royal;
-		}
-		.program-details {
+    h2 {
+      color: $royal;
+      margin: 3.5rem 0 4rem;
+      @include desk {
+        margin: 0 0 2.625rem;
+      }
+    }
+    .program-details {
       @include desk {
         @include safeFlex(row,wrap,start,start);
       }
-			.program-detail {
-				font-weight: $heavy;
-				margin-bottom: 3.625rem;
-				&.degree-level{
-					text-transform: capitalize;
-				}
-				span {
-					display: block;
-					font-weight: $regular;
-				}
+      .program-detail {
+        font-weight: $heavy;
+        margin-bottom: 3.625rem;
+        line-height: 1.375;
+        @include desk {
+          line-height: 1.875;
+        }
+
+        &.degree-level{
+          text-transform: capitalize;
+        }
+        span.label {
+          display: block;
+          font-weight: $regular;
+          margin-bottom: 2px;
+        }
         a {
           @include blockArrow(royal, sm);
+          &:after {
+            margin-top: -4px; // Fix for inline-block lineheight calcs.
+          }
           span {
-            display: inline;
+            line-height: 1.125;
+            @include desk {
+              line-height: 1.875;
+            }
           }
         }
-			}
-			.first {
-				border-bottom: $warmGrey solid 1px;
+      }
+      .first {
+        border-bottom: $warmGrey solid 1px;
         margin-bottom: 3.625rem;
         @include desk {
           border-bottom: 0;
@@ -80,48 +102,52 @@
           margin-bottom: 0;
           width: calc(50% - 11rem);
         }
-			}
-			.last {
-				@include safeFlex(row,wrap,start,flex-start);
+      }
+      .last {
+        @include safeFlex(row,wrap,start,flex-start);
         @include desk {
           width: 50%;
           padding-left: 11rem;
         }
-				div {
-					flex: 0 0 50%;
-					box-sizing: border-box;
-				}
-			}
-		} // end program-details
-	} // end program-details-wrapper
-	.accreditation-wrapper {
-		color: $royal;
-		background-color: $lightGrey;
-		padding: 6.5rem 16.75rem;
-		margin-top: .375rem;
-		h2 {
-			color: $royal;
-		}
-		.accreditation-details {
-			@include safeFlex(row,wrap,justify,start);
-			p {
-				max-width: $textMax;
-			}
-		}
-		.licensure-details {
-			p {
-				max-width: $textMax;
-			}
-		}
-	}// end accreditation-wrapper
+        div {
+          flex: 0 0 49%;
+          box-sizing: border-box;
+        }
+      }
+    } // end program-details
+  } // end program-details-wrapper
+  .accreditation-wrapper {
+    color: $royal;
+    background-color: $lightGrey;
+    margin: .375rem 0 3.75rem;
+    padding: 2.5rem;
+    @include desk {
+      margin-bottom: 0;
+      padding: 6.5rem 16.75rem;
+    }
+    h2 {
+      color: $royal;
+    }
+    .accreditation-details {
+      @include safeFlex(row,wrap,justify,start);
+      p {
+        max-width: $textMax;
+      }
+    }
+    .licensure-details {
+      p {
+        max-width: $textMax;
+      }
+    }
+  }// end accreditation-wrapper
 
-	#node-section-5 {
-		background-color: $brightBlue;
-		padding: 8.25rem 0;
-		margin-bottom: 8.75rem;
-		* {
-			color: $white;
-		}
+  #node-section-5 {
+    background-color: $brightBlue;
+    padding: 8.25rem 0;
+    margin-bottom: 8.75rem;
+    * {
+      color: $white;
+    }
     .field-outcomes-image,
     .outcomes,
     .recent-grads {
@@ -137,11 +163,11 @@
         padding: 0;
       }
     }
-		.field-outcomes-image {
-			@include auto;
-		}
-		.outcomes {
-			@include auto;
+    .field-outcomes-image {
+      @include auto;
+    }
+    .outcomes {
+      @include auto;
       @include desk {
         @include safeFlex(row,wrap,justify,start);
         gap: 40px;
@@ -149,49 +175,49 @@
       .first {
         flex: 1 1 60%;
       }
-		}
-		.recent-grads {
-			@include auto;
-			.grads {
-				@include safeFlex(row,wrap,start,start);
-				.grad {
-					flex: 0 0 33.33%;
-					box-sizing: border-box;
-				}
-			}
-		}
-	} //end #node-section-5
-	.course-information {
-		@include safeFlex(row,wrap,justify,start);
-		max-width: $contentStop;
-		@include auto;
-		.courses-header{
-			font-size: 74px;
-			color: $brightBlue;
-			font-style: italic;
-			font-family: $displayHeader;
-			line-height: 93px;
-			text-transform: uppercase;
-			letter-spacing: 5%;
-			strong{
-				font-size: 79px;
-				font-family: $header;
-				font-weight: $xHeavy;
-				line-height: 95px;
-				letter-spacing: 0;
-			}
-			@include tab{
-				width: 50%;
-				padding-right: 20px;
-			}
-		}//end courses header
-		.course-text{
-			@include tab{
-				width: 50%;
-				padding-left: 20px;
-			}
-		}
-	}//end course-information
+    }
+    .recent-grads {
+      @include auto;
+      .grads {
+        @include safeFlex(row,wrap,start,start);
+        .grad {
+          flex: 0 0 33.33%;
+          box-sizing: border-box;
+        }
+      }
+    }
+  } //end #node-section-5
+  .course-information {
+    @include safeFlex(row,wrap,justify,start);
+    max-width: $contentStop;
+    @include auto;
+    .courses-header{
+      font-size: 74px;
+      color: $brightBlue;
+      font-style: italic;
+      font-family: $displayHeader;
+      line-height: 93px;
+      text-transform: uppercase;
+      letter-spacing: 5%;
+      strong{
+        font-size: 79px;
+        font-family: $header;
+        font-weight: $xHeavy;
+        line-height: 95px;
+        letter-spacing: 0;
+      }
+      @include tab{
+        width: 50%;
+        padding-right: 20px;
+      }
+    }//end courses header
+    .course-text{
+      @include tab{
+        width: 50%;
+        padding-left: 20px;
+      }
+    }
+  }//end course-information
   .field-request-for-info{
     max-width: 1138px;
     @include auto;
@@ -269,24 +295,24 @@
       }//end slate right
     }//end more info
   }//end field request for info
-	.block-field-related-programs{
-		max-width: 1136px;
-		@include auto;
-		background: $warmGrey;
-		padding: 40px 130px;
-		.field-related-programs {
-			@include safeFlex(row,wrap,start,start);
-			@include bleed(padding, 20px);
-			.related-intro{
-				width: 100%;
-			}
-			@include tab{
-				div:not(.related-intro) {
-					flex: 0 0 25%;
-				}
-			}
-		}//end field related programs
-	}//end block field related programs
+  .block-field-related-programs{
+    max-width: 1136px;
+    @include auto;
+    background: $warmGrey;
+    padding: 40px 130px;
+    .field-related-programs {
+      @include safeFlex(row,wrap,start,start);
+      @include bleed(padding, 20px);
+      .related-intro{
+        width: 100%;
+      }
+      @include tab{
+        div:not(.related-intro) {
+          flex: 0 0 25%;
+        }
+      }
+    }//end field related programs
+  }//end block field related programs
 }//end academic-program
 
 .academic-program-teaser {
