@@ -350,19 +350,42 @@
     }//end more info
   }//end field request for info
   .block-field-related-programs{
-    max-width: 1136px;
     @include auto;
-    background: $warmGrey;
-    padding: 40px 130px;
+    max-width: 1136px;    background: $warmGrey;
+    padding: 9rem $siteMarginMobile;
+    @include tab {
+      padding: 40px 130px;
+    }
+    h2 {
+      font-size: 28px;
+      margin-bottom: 2.5rem;
+      text-transform: capitalize;
+    }
     .field-related-programs {
-      @include safeFlex(row,wrap,start,start);
       @include bleed(padding, 20px);
-      .related-intro{
-        width: 100%;
+      .related-items {
+        @include safeFlex(row, wrap, start, start);
+        gap: 5rem;
+        margin-top: 5rem;
+        @include tab {
+          gap: 2.5rem;
+          margin-top: 0;
+        }
       }
-      @include tab{
-        div:not(.related-intro) {
+      .related-item {
+        flex: 1 1 100%;
+        @include tab {
           flex: 0 0 25%;
+        }
+        .content-thumb-title {
+          line-height: 1.2;
+          margin-top: 1.5rem;
+        }
+        a {
+          font-family: $displayHeader;
+          font-size: 16px;
+          font-weight: $heavy;
+          @include blockArrow(navy, sm);
         }
       }
     }//end field related programs

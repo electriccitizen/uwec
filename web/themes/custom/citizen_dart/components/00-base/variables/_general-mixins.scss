@@ -583,6 +583,7 @@
   }
   &:after {
     display: inline-block;
+    margin-top: -$top;
     position: relative;
     top: $top;
   }
