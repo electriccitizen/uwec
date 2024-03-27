@@ -20,20 +20,4 @@
  */
 #}
 
-{% extends 'field.html.twig' %}
-
-{% set courseInformation = {
-	'#type': 'processed_text',
-	'#text': element['#object'].field_courses_text.0.value,
-	'#format': element['#object'].field_courses_text.0.format
-} %}
-
-{% block fieldSingleNo %}
-  <div class="course-information">
-    <div class="courses-header">{% trans %}Sample<strong>Courses</strong>{% endtrans %}</div>
-    <div class="course-text">
-      <h2>{% trans %}Understanding the {{ element['#object'].title.0.value }} program curriculum{% endtrans %}</h2>
-	    {{ courseInformation }}
-	  </div>
-  </div>
-{% endblock %}
+{% extends 'field--node--field-links.html.twig' %}

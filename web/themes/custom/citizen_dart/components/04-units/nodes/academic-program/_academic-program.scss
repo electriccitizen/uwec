@@ -211,24 +211,38 @@
       @include royalSwirl;
     }
   } //end #node-section-5
+  .block-field-courses-text {
+    margin-bottom: 0;
+    @include desk {
+      margin-bottom: $elementSpace;
+    }
+  }
   .course-information {
     @include safeFlex(row,wrap,justify,start);
     max-width: $contentStop;
     @include auto;
     .courses-header{
-      font-size: 74px;
       color: $brightBlue;
-      font-style: italic;
       font-family: $displayHeader;
-      line-height: 93px;
-      text-transform: uppercase;
+      font-size: 60px;
+      font-style: italic;
       letter-spacing: 5%;
-      strong{
-        font-size: 79px;
+      line-height: 1;
+      padding-left: 8px;
+      text-transform: uppercase;
+      @include desk {
+        font-size: 74px;
+        padding-left: 0;
+      }
+      strong {
+        display: block;
         font-family: $header;
         font-weight: $xHeavy;
-        line-height: 95px;
         letter-spacing: 0;
+        margin-left: -8px;
+        @include desk {
+          margin-left: 8px;
+        }
       }
       @include tab{
         width: 50%;
@@ -236,12 +250,28 @@
       }
     }//end courses header
     .course-text{
+      margin-top: 2rem;
+      padding: $siteMarginMobile;
       @include tab{
-        width: 50%;
+        margin-top: 0;
         padding-left: 20px;
+        width: 50%;
       }
     }
   }//end course-information
+  .field-course-links {
+    div {
+      @include tab {
+        display: flex;
+        justify-content: center;
+      }
+    }
+    a {
+      @include heading3;
+      @include linkArrow(navy);
+      color: $black;
+    }
+  }
   .field-request-for-info{
     max-width: 1138px;
     @include auto;

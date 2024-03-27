@@ -1,17 +1,17 @@
 {% extends "block.html.twig" %}
 
 {% block blockContent %}
-	{% if content['#courses'] is not empty %}
-		<p>Here are a few courses in {{ content['#program_title'] ?? 'this program' }} at UW-Eau Claire.</p>
+  {% if content['#courses'] is not empty %}
+    <p>Here are a few courses in {{ content['#program_title'] ?? 'this program' }} at UW-Eau Claire.</p>
 
-		<div class="courses">
-			{% for course in content['#courses'] %}
-				<div class="course">
-					<p class="number">{{ course['number'] }}</p>
-					<p class="title">{{ course['title'] }}</p>
-					<p class="description">{{ course['description'] }}</p>
-				</div>
-			{% endfor %}
-		</div>
-	{% endif %}
+    <div class="courses">
+      {% for course in content['#courses'] %}
+        <div class="course">
+          <p class="number">{{ course['number'] }}</p>
+          <h3 class="title">{{ course['title'] }}</h3>
+          <p class="description">{{ course['description'] }}</p>
+        </div>
+      {% endfor %}
+    </div>
+  {% endif %}
 {% endblock %}
