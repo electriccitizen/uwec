@@ -39,9 +39,11 @@
     display: block;
     margin-bottom: 16px;
   }
-  .block-field-degree-types,
+  .block-field-degree-types {
+    margin-bottom: 3px;
+  }
   .block-field-accreditation {
-    margin-bottom: 2px;
+    margin-bottom: 0;
     @include desk {
       margin-bottom: $elementSpace;
     }
@@ -49,7 +51,7 @@
   .program-details-wrapper {
     color: $royal;
     background-color: $lightGrey;
-    padding: 2.5rem;
+    padding: $siteMarginMobile;
     @include desk {
       padding: 6.5rem 16.75rem;
     }
@@ -120,7 +122,7 @@
     color: $royal;
     background-color: $lightGrey;
     margin: .375rem 0 3.75rem;
-    padding: 2.5rem;
+    padding: $siteMarginMobile;
     @include desk {
       margin-bottom: 0;
       padding: 6.5rem 16.75rem;
@@ -148,44 +150,65 @@
     margin-bottom: 8.75rem;
     * {
       color: $white;
+      position: relative;
+      z-index: 1;
     }
-    .field-outcomes-image,
-    .outcomes,
-    .recent-grads {
+
+    .field-outcomes-image {
+      @include auto;
       max-width: $largeTab;
+    }
+    .field-outcome-text {
+      @include safeFlex(row, wrap, start, start);
+      gap: 40px;
+      margin: 0 $siteMarginMobile;
+      max-width: $largeTab;
+      @include desk {
+        @include auto;
+      }
+    }
+    .outcomes {
+      margin: 0 $siteMarginMobile;
+      flex: 1 1 100%;
+      @include desk {
+        @include auto;
+        flex: 1 1 60%;
+      }
+    }
+    .example-careers,
+    .recent-grads {
+      flex: 1 1 100%;
+      @include desk {
+        flex: 1 1 30%;
+      }
       h2 {
         font-family: $displayHeader;
       }
     }
-    .outcomes,
-    .recent-grads {
-      padding: 2.5rem;
+    .example-careers {
+      order: 3;
       @include desk {
-        padding: 0;
-      }
-    }
-    .field-outcomes-image {
-      @include auto;
-    }
-    .outcomes {
-      @include auto;
-      @include desk {
-        @include safeFlex(row,wrap,justify,start);
-        gap: 40px;
-      }
-      .first {
-        flex: 1 1 60%;
+        order: 2;
       }
     }
     .recent-grads {
-      @include auto;
+      order: 2;
+      @include desk {
+        order: 3;
+      }
       .grads {
         @include safeFlex(row,wrap,start,start);
         .grad {
-          flex: 0 0 33.33%;
+          flex: 0 0 50%;
           box-sizing: border-box;
+          @include desk {
+            flex: 0 0 33.33%;
+          }
         }
       }
+    }
+    &:after {
+      @include royalSwirl;
     }
   } //end #node-section-5
   .course-information {
