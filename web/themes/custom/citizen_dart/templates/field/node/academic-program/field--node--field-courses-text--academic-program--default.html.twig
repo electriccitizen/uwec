@@ -30,10 +30,10 @@
 
 {% block fieldSingleNo %}
   <div class="course-information">
-    <div class='courses-header'>Sample</br><strong>Courses</strong></div>
+    <div class="courses-header">{% trans %}Sample<strong>Courses</strong>{% endtrans %}</div>
     <div class="course-text">
+      <h2>{% trans %}Understanding the {{ element['#object'].title.0.value }} program curriculum{% endtrans %}</h2>
 	    {{ courseInformation }}
 	  </div>
   </div>
 {% endblock %}
-

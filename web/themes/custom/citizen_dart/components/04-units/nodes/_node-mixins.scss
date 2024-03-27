@@ -535,3 +535,29 @@
     bottom: -95px;
   }
 }//end gold swirl
+
+@mixin royalSwirl{
+  @include animation('fadeInDelay 1s 1');
+  content: '';
+  position: absolute;
+  top: 212px;
+  left: 77vw;
+  z-index: 0;
+  width: 308px;
+  height: 572px;
+  background-image: url(../images/elements/swirl-vertical-wide-royal.svg);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  @include desk{
+    left: 77vw;
+    width: 380px;
+    height: 706px;
+  }
+  @include contentStop{
+    left: auto;
+    right: -104px;
+    width: 452px;
+    height: 839px;
+    bottom: -95px;
+  }
+}//end royal swirl

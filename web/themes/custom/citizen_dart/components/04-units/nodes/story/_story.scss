@@ -219,7 +219,7 @@
       margin-bottom: 0;
     }
     a{
-      @include blockArrow(brightBlue);
+      @include blockArrow(brightBlue, sm);
     }//end a
   }//end story title
   .field-intro-text{

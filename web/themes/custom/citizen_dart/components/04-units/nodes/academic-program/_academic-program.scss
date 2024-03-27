@@ -6,22 +6,40 @@
 @use '../node-mixins' as *;
 
 .node-academic-program{
+  margin-bottom: 30rem; // This needs to be so high to push down on the footer.
+  @include tab {
+    margin-bottom: 0;
+  }
 
-	//hero setups
-	#node-section-1 {
-		@include heroRightImage;
+  //hero setups
+  #node-section-1 {
+    @include heroRightImage;
     .field-intro {
       margin-bottom: 6.5rem;
     }
-	}
-	.field.body {
-		max-width: $textMax;
-		@include auto;
+  }
+  #node-section-2 {
+    @include contentStop{
+      margin-top: -2vw;
+    }
+    @media screen and (min-width: 1600px){
+      margin-top: -5vw;
+    }
+    @media screen and (min-width: 1900px){
+      margin-top: -7vw;
+    }
+    @media screen and (min-width: 2400px){
+      margin-top: -8vw;
+    }
+  }
+  .field.body {
+    max-width: $textMax;
+    @include auto;
     padding: 2.5rem;
     @include desk {
       padding: 0;
     }
-	}
+  }
   .available-as {
     margin-bottom: 6.5rem;
     .tag {
@@ -39,40 +57,54 @@
     display: block;
     margin-bottom: 16px;
   }
-	.program-details-wrapper {
-		color: $royal;
-		background-color: $lightGrey;
-    padding: 2.5rem;
+  .block-field-degree-types {
+    margin-bottom: 3px;
+  }
+  .program-details-wrapper {
+    @include auto;
+    color: $royal;
+    background-color: $lightGrey;
+    max-width: 1136px;
+    padding: $siteMarginMobile;
     @include desk {
       padding: 6.5rem 16.75rem;
     }
-		h2 {
-			margin-bottom: 2.625rem;
-			color: $royal;
-		}
-		.program-details {
+    h2 {
+      color: $royal;
+      margin: 3.5rem 0 4rem;
+      @include desk {
+        margin: 0 0 2.625rem;
+      }
+    }
+    .program-details {
       @include desk {
         @include safeFlex(row,wrap,start,start);
       }
-			.program-detail {
-				font-weight: $heavy;
-				margin-bottom: 3.625rem;
-				&.degree-level{
-					text-transform: capitalize;
-				}
-				span {
-					display: block;
-					font-weight: $regular;
-				}
+      .program-detail {
+        font-weight: $heavy;
+        margin-bottom: 3.625rem;
+        line-height: 1.375;
+
+        &.degree-level{
+          text-transform: capitalize;
+        }
+        span.label {
+          display: block;
+          font-weight: $regular;
+          margin-bottom: 2px;
+        }
         a {
           @include blockArrow(royal, sm);
+          &:after {
+            margin-top: -4px; // Fix for inline-block lineheight calcs.
+          }
           span {
-            display: inline;
+            line-height: 1.125;
           }
         }
-			}
-			.first {
-				border-bottom: $warmGrey solid 1px;
+      }
+      .first {
+        border-bottom: $warmGrey solid 1px;
         margin-bottom: 3.625rem;
         @include desk {
           border-bottom: 0;
@@ -80,118 +112,180 @@
           margin-bottom: 0;
           width: calc(50% - 11rem);
         }
-			}
-			.last {
-				@include safeFlex(row,wrap,start,flex-start);
+      }
+      .last {
+        @include safeFlex(row,wrap,start,flex-start);
         @include desk {
           width: 50%;
           padding-left: 11rem;
         }
-				div {
-					flex: 0 0 50%;
-					box-sizing: border-box;
-				}
-			}
-		} // end program-details
-	} // end program-details-wrapper
-	.accreditation-wrapper {
-		color: $royal;
-		background-color: $lightGrey;
-		padding: 6.5rem 16.75rem;
-		margin-top: .375rem;
-		h2 {
-			color: $royal;
-		}
-		.accreditation-details {
-			@include safeFlex(row,wrap,justify,start);
-			p {
-				max-width: $textMax;
-			}
-		}
-		.licensure-details {
-			p {
-				max-width: $textMax;
-			}
-		}
-	}// end accreditation-wrapper
+        div {
+          flex: 0 0 49%;
+          box-sizing: border-box;
+        }
+      }
+    } // end program-details
+  } // end program-details-wrapper
+  .block-field-accreditation {
+    @include auto;
+    margin-bottom: 0;
+    max-width: 1136px;
+    @include desk {
+      margin-bottom: $elementSpace;
+    }
+  }
+  .accreditation-wrapper {
+    color: $royal;
+    background-color: $lightGrey;
+    margin: .375rem 0 3.75rem;
+    padding: $siteMarginMobile;
+    @include desk {
+      margin-bottom: 0;
+      padding: 6.5rem 16.75rem;
+    }
+    h2 {
+      color: $royal;
+    }
+    .accreditation-details {
+      @include safeFlex(column, wrap, justify, start);
+      @include desk {
+        @include safeFlex(row, wrap, justify, start);
+      }
+      p {
+        max-width: 424px;
+      }
+      .media-item.image {
+        align-self: center;
+        margin: 4rem 0;
+        @include desk {
+          margin: 0;
+        }
+      }
+    }
+    .licensure-details {
+      p {
+        max-width: $textMax;
+      }
+    }
+  }// end accreditation-wrapper
 
-	#node-section-5 {
-		background-color: $brightBlue;
-		padding: 8.25rem 0;
-		margin-bottom: 8.75rem;
-		* {
-			color: $white;
-		}
-    .field-outcomes-image,
-    .outcomes,
-    .recent-grads {
+  #node-section-5 {
+    @include edgeToEdge;
+    background-color: $brightBlue;
+    padding: 8.25rem 0 1px; // 1px bottom padding essentially a clearfix.
+    margin-bottom: 8.75rem;
+    * {
+      color: $white;
+      position: relative;
+      z-index: 1;
+    }
+
+    .field-outcomes-image {
+      @include auto;
       max-width: $largeTab;
+    }
+    .field-outcome-text {
+      @include safeFlex(row, wrap, start, start);
+      gap: 40px;
+      margin: 0 $siteMarginMobile;
+      max-width: $largeTab;
+      @include desk {
+        @include auto;
+      }
+    }
+    .outcomes {
+      margin: 0 $siteMarginMobile;
+      flex: 1 1 100%;
+      @include desk {
+        @include auto;
+        flex: 1 1 60%;
+      }
+    }
+    .example-careers,
+    .recent-grads {
+      flex: 1 1 100%;
+      @include desk {
+        flex: 1 1 30%;
+      }
       h2 {
         font-family: $displayHeader;
       }
     }
-    .outcomes,
-    .recent-grads {
-      padding: 2.5rem;
+    .example-careers {
+      order: 3;
       @include desk {
-        padding: 0;
+        order: 2;
       }
     }
-		.field-outcomes-image {
-			@include auto;
-		}
-		.outcomes {
-			@include auto;
+    .recent-grads {
+      order: 2;
       @include desk {
-        @include safeFlex(row,wrap,justify,start);
-        gap: 40px;
+        order: 3;
       }
-      .first {
-        flex: 1 1 60%;
+      .grads {
+        @include safeFlex(row,wrap,start,start);
+        .grad {
+          flex: 0 0 50%;
+          box-sizing: border-box;
+          @include desk {
+            flex: 0 0 33.33%;
+          }
+        }
       }
-		}
-		.recent-grads {
-			@include auto;
-			.grads {
-				@include safeFlex(row,wrap,start,start);
-				.grad {
-					flex: 0 0 33.33%;
-					box-sizing: border-box;
-				}
-			}
-		}
-	} //end #node-section-5
-	.course-information {
-		@include safeFlex(row,wrap,justify,start);
-		max-width: $contentStop;
-		@include auto;
-		.courses-header{
-			font-size: 74px;
-			color: $brightBlue;
-			font-style: italic;
-			font-family: $displayHeader;
-			line-height: 93px;
-			text-transform: uppercase;
-			letter-spacing: 5%;
-			strong{
-				font-size: 79px;
-				font-family: $header;
-				font-weight: $xHeavy;
-				line-height: 95px;
-				letter-spacing: 0;
-			}
-			@include tab{
-				width: 50%;
-				padding-right: 20px;
-			}
-		}//end courses header
-		.course-text{
-			@include tab{
-				width: 50%;
-				padding-left: 20px;
-			}
-		}
-	}//end course-information
+    }
+    &:after {
+      @include royalSwirl;
+    }
+  } //end #node-section-5
+  .block-field-courses-text {
+    @include auto;
+    margin-bottom: 0;
+    max-width: 1136px;
+    @include desk {
+      margin-bottom: $elementSpace;
+    }
+  }
+  .block-courses {
+    @include auto;
+    max-width: 1098px;
+  }
+  .course-information {
+    @include safeFlex(row,wrap,justify,start);
+    max-width: $contentStop;
+    @include auto;
+    .courses-header{
+      @include styledHeader;
+      color: $brightBlue;
+      text-align: left;
+    }//end courses header
+    .course-text{
+      margin-top: 2rem;
+      padding: $siteMarginMobile;
+      @include tab{
+        margin-top: 0;
+        padding-left: 20px;
+        width: 50%;
+      }
+    }
+  }//end course-information
+  .field-course-links {
+    div {
+      @include tab {
+        display: flex;
+        justify-content: center;
+      }
+    }
+    a {
+      @include heading3;
+      @include linkArrow(navy);
+      color: $black;
+    }
+  }
+  .block-field-request-for-info {
+    @include desk {
+      margin-bottom: 9rem;
+    }
+  }
   .field-request-for-info{
     max-width: 1138px;
     @include auto;
@@ -269,24 +363,82 @@
       }//end slate right
     }//end more info
   }//end field request for info
-	.block-field-related-programs{
-		max-width: 1136px;
-		@include auto;
-		background: $warmGrey;
-		padding: 40px 130px;
-		.field-related-programs {
-			@include safeFlex(row,wrap,start,start);
-			@include bleed(padding, 20px);
-			.related-intro{
-				width: 100%;
-			}
-			@include tab{
-				div:not(.related-intro) {
-					flex: 0 0 25%;
-				}
-			}
-		}//end field related programs
-	}//end block field related programs
+  .block-field-related-programs{
+    @include auto;
+    background: $warmGrey;
+    max-width: 1136px;
+    padding: 9rem $siteMarginMobile;
+    position: relative;
+    @include tab {
+      padding: 40px 130px;
+    }
+    &:after {
+      @include tab {
+        @include fatStripes($gold);
+        background: repeating-linear-gradient(
+          0deg,
+          $gold,
+          $gold 25px,
+          transparent 25px,
+          transparent 50px
+        );
+        bottom: -15px;
+        left: 0;
+        height: 200px;
+        top: auto;
+        width: 50px;
+        z-index: 5;
+      }
+    }
+    h2 {
+      font-size: 28px;
+      margin-bottom: 2.5rem;
+      text-transform: uppercase;
+    }
+    .field-related-programs {
+      @include bleed(padding, 20px);
+      .related-items {
+        @include safeFlex(row, wrap, start, start);
+        gap: 5rem;
+        margin-top: 5rem;
+        @include tab {
+          gap: 2.5rem;
+          margin-top: 0;
+        }
+      }
+      .related-item {
+        flex: 1 1 100%;
+        @include tab {
+          flex: 0 0 30%;
+        }
+        @include desk {
+          flex: 0 0 22%;
+        }
+        .content-thumb-title {
+          line-height: 1.2;
+          margin-top: 1.5rem;
+        }
+        a {
+          font-family: $displayHeader;
+          font-size: 16px;
+          font-weight: $heavy;
+          @include blockArrow(navy, sm);
+        }
+      }
+    }//end field related programs
+  }//end block field related programs
+  .field-whats-next {
+    h2.next-title {
+      @include styledHeader;
+      color: $brightBlue;
+      margin: 1.5rem 0;
+      text-align: left;
+      @include tab {
+        margin: 2.5rem 0;
+        text-align: center;
+      }
+    }
+  }
 }//end academic-program
 
 .academic-program-teaser {

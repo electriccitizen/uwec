@@ -75,14 +75,21 @@
       text-align: center;
     }
 		a{
+      @include auto;
 			@include linkArrow(navyLight);
       display: inline-block;
-      max-width: $textMax;
-      @include auto;
+      max-width: $smallTab;
+      text-align: left;
 		}//end a
 	}//end more link
 }//end department faculty
 
 .bios.program-faculty{
 	@extend .department-faculty;
+  h2.block-title {
+    text-align: left;
+    @include tab {
+      text-align: center;
+    }
+  }
 }
