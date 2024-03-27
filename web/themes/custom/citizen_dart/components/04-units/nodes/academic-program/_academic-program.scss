@@ -6,6 +6,10 @@
 @use '../node-mixins' as *;
 
 .node-academic-program{
+  margin-bottom: 30rem; // This needs to be so high to push down on the footer.
+  @include tab {
+    margin-bottom: 0;
+  }
 
   //hero setups
   #node-section-1 {
@@ -222,32 +226,9 @@
     max-width: $contentStop;
     @include auto;
     .courses-header{
+      @include styledHeader;
       color: $brightBlue;
-      font-family: $displayHeader;
-      font-size: 60px;
-      font-style: italic;
-      letter-spacing: 5%;
-      line-height: 1;
-      padding-left: 8px;
-      text-transform: uppercase;
-      @include desk {
-        font-size: 74px;
-        padding-left: 0;
-      }
-      strong {
-        display: block;
-        font-family: $header;
-        font-weight: $xHeavy;
-        letter-spacing: 0;
-        margin-left: -8px;
-        @include desk {
-          margin-left: 8px;
-        }
-      }
-      @include tab{
-        width: 50%;
-        padding-right: 20px;
-      }
+      text-align: left;
     }//end courses header
     .course-text{
       margin-top: 2rem;
@@ -359,7 +340,7 @@
     h2 {
       font-size: 28px;
       margin-bottom: 2.5rem;
-      text-transform: capitalize;
+      text-transform: uppercase;
     }
     .field-related-programs {
       @include bleed(padding, 20px);
@@ -390,6 +371,16 @@
       }
     }//end field related programs
   }//end block field related programs
+  .field-whats-next {
+    h2.next-title {
+      @include styledHeader;
+      color: $brightBlue;
+      text-align: left;
+      @include tab {
+        text-align: center;
+      }
+    }
+  }
 }//end academic-program
 
 .academic-program-teaser {
