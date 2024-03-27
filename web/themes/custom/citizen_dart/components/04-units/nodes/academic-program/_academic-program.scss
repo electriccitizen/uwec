@@ -18,6 +18,20 @@
       margin-bottom: 6.5rem;
     }
   }
+  #node-section-2 {
+    @include contentStop{
+      margin-top: -2vw;
+    }
+    @media screen and (min-width: 1600px){
+      margin-top: -5vw;
+    }
+    @media screen and (min-width: 1900px){
+      margin-top: -7vw;
+    }
+    @media screen and (min-width: 2400px){
+      margin-top: -8vw;
+    }
+  }
   .field.body {
     max-width: $textMax;
     @include auto;
@@ -46,15 +60,11 @@
   .block-field-degree-types {
     margin-bottom: 3px;
   }
-  .block-field-accreditation {
-    margin-bottom: 0;
-    @include desk {
-      margin-bottom: $elementSpace;
-    }
-  }
   .program-details-wrapper {
+    @include auto;
     color: $royal;
     background-color: $lightGrey;
+    max-width: 1136px;
     padding: $siteMarginMobile;
     @include desk {
       padding: 6.5rem 16.75rem;
@@ -74,9 +84,6 @@
         font-weight: $heavy;
         margin-bottom: 3.625rem;
         line-height: 1.375;
-        @include desk {
-          line-height: 1.875;
-        }
 
         &.degree-level{
           text-transform: capitalize;
@@ -93,9 +100,6 @@
           }
           span {
             line-height: 1.125;
-            @include desk {
-              line-height: 1.875;
-            }
           }
         }
       }
@@ -122,6 +126,14 @@
       }
     } // end program-details
   } // end program-details-wrapper
+  .block-field-accreditation {
+    @include auto;
+    margin-bottom: 0;
+    max-width: 1136px;
+    @include desk {
+      margin-bottom: $elementSpace;
+    }
+  }
   .accreditation-wrapper {
     color: $royal;
     background-color: $lightGrey;
@@ -135,9 +147,19 @@
       color: $royal;
     }
     .accreditation-details {
-      @include safeFlex(row,wrap,justify,start);
+      @include safeFlex(column, wrap, justify, start);
+      @include desk {
+        @include safeFlex(row, wrap, justify, start);
+      }
       p {
-        max-width: $textMax;
+        max-width: 424px;
+      }
+      .media-item.image {
+        align-self: center;
+        margin: 4rem 0;
+        @include desk {
+          margin: 0;
+        }
       }
     }
     .licensure-details {
@@ -150,7 +172,7 @@
   #node-section-5 {
     @include edgeToEdge;
     background-color: $brightBlue;
-    padding: 8.25rem 0;
+    padding: 8.25rem 0 1px; // 1px bottom padding essentially a clearfix.
     margin-bottom: 8.75rem;
     * {
       color: $white;
@@ -216,10 +238,16 @@
     }
   } //end #node-section-5
   .block-field-courses-text {
+    @include auto;
     margin-bottom: 0;
+    max-width: 1136px;
     @include desk {
       margin-bottom: $elementSpace;
     }
+  }
+  .block-courses {
+    @include auto;
+    max-width: 1098px;
   }
   .course-information {
     @include safeFlex(row,wrap,justify,start);
@@ -251,6 +279,11 @@
       @include heading3;
       @include linkArrow(navy);
       color: $black;
+    }
+  }
+  .block-field-request-for-info {
+    @include desk {
+      margin-bottom: 9rem;
     }
   }
   .field-request-for-info{
@@ -332,10 +365,30 @@
   }//end field request for info
   .block-field-related-programs{
     @include auto;
-    max-width: 1136px;    background: $warmGrey;
+    background: $warmGrey;
+    max-width: 1136px;
     padding: 9rem $siteMarginMobile;
+    position: relative;
     @include tab {
       padding: 40px 130px;
+    }
+    &:after {
+      @include tab {
+        @include fatStripes($gold);
+        background: repeating-linear-gradient(
+          0deg,
+          $gold,
+          $gold 25px,
+          transparent 25px,
+          transparent 50px
+        );
+        bottom: -15px;
+        left: 0;
+        height: 200px;
+        top: auto;
+        width: 50px;
+        z-index: 5;
+      }
     }
     h2 {
       font-size: 28px;
@@ -356,7 +409,10 @@
       .related-item {
         flex: 1 1 100%;
         @include tab {
-          flex: 0 0 25%;
+          flex: 0 0 30%;
+        }
+        @include desk {
+          flex: 0 0 22%;
         }
         .content-thumb-title {
           line-height: 1.2;
@@ -375,8 +431,10 @@
     h2.next-title {
       @include styledHeader;
       color: $brightBlue;
+      margin: 1.5rem 0;
       text-align: left;
       @include tab {
+        margin: 2.5rem 0;
         text-align: center;
       }
     }
