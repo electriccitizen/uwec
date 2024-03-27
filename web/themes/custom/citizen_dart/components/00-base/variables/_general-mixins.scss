@@ -442,13 +442,14 @@
   @if $size == sm {
     $font-size: 16px;
     $line-height: 1.2;
-    $padding-left: 32px;
+    $padding-left: 36px;
   }
 
+  color: #{$arrowLinkColor};
+  display: inline-block;
   font-family: f.$header;
   font-size: $font-size;
   line-height: $line-height;
-  color: #{$arrowLinkColor};
   position: relative;
   padding-left: $padding-left;
 }
@@ -487,7 +488,6 @@
   $back: transparent;
   $hover-back: $arrow;
 
-  $dimensions: 40px;
   $dotted-padding: 2px;
 
   @if $theme == navyLight {
@@ -500,6 +500,7 @@
     $arrow-string: blue;
     $border: c.$brightBlue;
     $hover-back: $arrow;
+    $hover-border: $arrow;
   }
   @if $theme == royal {
     $arrow: c.$royal;
@@ -512,6 +513,7 @@
     $arrow-string: white;
     $border: c.$white;
     $arrow-invert: royal;
+    $hover-border: $arrow;
     $hover-back: $arrow;
   }
   @if $theme == gold {
@@ -524,7 +526,6 @@
   }
 
   @if $size == sm {
-    $dimensions: 20px;
     $dotted-padding: 1px;
   }
 
@@ -537,8 +538,6 @@
 
   &:#{$location} {
     content: '';
-    width: $dimensions;
-    height: $dimensions;
     @include rightArrow($arrow-string, $back, $border, $size);
   }
   &:hover, &:focus {
