@@ -409,6 +409,9 @@
     }
     .field-related-programs {
       @include bleed(padding, 20px);
+      .related-intro {
+        line-height: 1.5;
+      }
       .related-items {
         @include safeFlex(row, wrap, start, start);
         gap: 5rem;
