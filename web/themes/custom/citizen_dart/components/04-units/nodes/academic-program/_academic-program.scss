@@ -321,7 +321,7 @@
   }
   .block-field-request-for-info {
     @include desk {
-      margin-bottom: 9rem;
+      margin-bottom: 13.875rem;
     }
   }
   .field-request-for-info{
@@ -401,6 +401,11 @@
       }//end slate right
     }//end more info
   }//end field request for info
+  .block-program-faculty {
+    @include desk {
+      margin-bottom: 7.5rem;
+    }
+  }
   .block-field-related-programs {
     @include auto;
     background: $warmGrey;
