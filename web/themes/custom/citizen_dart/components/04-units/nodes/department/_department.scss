@@ -5,109 +5,6 @@
 @use '../../../00-base/base' as *;
 @use '../node-mixins' as *;
 
-/* NOTE: RESOLVE THESE WITH PATTERN HERO GENERAL MIXIN ONCE HEROS ARE DONE */
-@mixin patternHero{
-  padding-top: 40px;
-  background: $royal;
-  @include edgeToEdge;
-  padding-left: $siteMarginMobile;
-  padding-right: $siteMarginMobile;
-  color: $white;
-  //set min heights for main section
-  min-height: calc(100vh - 88px);
-  @include desk{
-    min-height: calc(100vh - 100px);
-  }
-  @include menuStop{
-    min-height: calc(100vh - 110px);
-  }
-  .logged-in &{
-    min-height: calc(100vh - 137px);
-    @media screen and (min-width: 976px){
-      min-height: calc(100vh - 216px);
-    }
-    @include menuStop{
-      min-height: calc(100vh - 226px);
-    }
-  }//end logged in min heights
-  .hero-pattern:not(.hero-pattern-links) &{
-    @include menuStop{
-      padding-bottom: 150px;
-    }
-    @media screen and (min-width: 1600px){
-      padding-bottom: 10vw;
-    }
-    @media screen and (min-width: 1800px){
-      padding-bottom: 12vw;
-    }
-  }
-  h1,h2,h3,h4,h5,h6,li,a{
-    color: $white;
-  }
-  //specific link colors
-  .breadcrumb{
-    max-width: 1096px;
-    a{
-      &:hover,&:focus{
-        @include dottedLink($white);
-      }
-    }
-  }//end breadcrumb
-  .field-college a{
-    padding-bottom: 1px;
-    @include dottedLink($white);
-    &:hover,&:focus{
-      color: $transWhite;
-      background-image: none;
-    }
-  }
-  .field-links a{
-    display: inline-block;
-    @include linkArrow(white, sm, "span");
-  }//end links field a
-}//end patternHero
-
-@mixin heroBlue{
-  position: relative;
-  &:before{
-    @include fullBack($brightBlue);
-    top: auto;
-    bottom: 0;
-    height: 1000px;
-    z-index: -1;
-  }//end before
-  &:after{
-    content: '';
-    display: block;
-    position: absolute;
-    top: calc(100% - 1px);
-    left: -$siteMarginMobile;
-    height: 29vw;
-    width: 100vw;
-    z-index: -1;
-    background: $brightBlue;
-    clip-path: polygon(0 0, 100% 0, 0 100%);
-  }
-}//end pattern bright blue
-
-@mixin stripesRoyalNarrow{
-  position: relative;
-  &:before{
-    @include animation('fadeInDelay 1s 1');
-    content: url(../images/elements/stripes-narrow-royal.svg);
-    position: absolute;
-    top: calc(100% - 22px);
-    left: -23px;
-    z-index: -1;
-    width: 263px;
-    height: 171px;
-    @include tab{
-      left: -43px;
-    }
-  }
-}
-
-/* START ACTUAL DEPARTMENT THEMING */
 .node-department{
   padding-bottom: $spaceXxs;
   @include menuStop{
@@ -131,7 +28,7 @@
       content: '';
       position: absolute;
       bottom: -8px;
-      left: 73vw;
+      animation: heroSwirlSlideMobileLeft 1.5s forwards;
       z-index: 0;
       width: 308px;
       height: 572px;
@@ -139,14 +36,14 @@
       background-repeat: no-repeat;
       background-size: 100%;
       @include desk{
-        left: 77vw;
+        animation: heroSwirlSlideMidLeft 1.5s forwards;
         width: 380px;
         height: 706px;
         bottom: -83px;
       }
       @include contentStop{
         left: auto;
-        right: -104px;
+        animation: heroSwirlSlideWideRight 1.5s forwards;
         width: 452px;
         height: 839px;
         bottom: -95px;
