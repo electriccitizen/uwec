@@ -8,6 +8,8 @@ use Drupal\Core\Template\Attribute;
 use Drupal\taxonomy\Entity\Term;
 use Drupal\image\Entity\ImageStyle;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Url;
+use Drupal\Core\Link;
 
 /**
  * Implements hook_preprocess_html().
@@ -29,7 +31,7 @@ function citizen_dart_preprocess_html(&$variables) {
       $variables['attributes']['class'][] = 'unpublished';
     }
     //check for hide breadcrumbs/nav
-    if (isset($node->field_hide_nav[0]->value)){ 
+    if (isset($node->field_hide_nav[0]->value)){
       if ($node->field_hide_nav[0]->value == '1') {
         $variables['attributes']['class'][] = 'hide-nav';
       }
@@ -219,11 +221,17 @@ function citizen_dart_preprocess_field__node__field_hours(&$variables) {
   $variables['unique_id'] = uniqid();
 }
 
-//find node title for custom breadcrumbs
+/**
+ * Implements template_preprocess_breadcrumb().
+ */
 function citizen_dart_preprocess_breadcrumb(&$variables) {
   $node = \Drupal::routeMatch()->getParameter('node');
   $node_revision = \Drupal::routeMatch()->getParameter('node_revision');
-  if($node_revision){
+  $original_links = $variables['links'];
+  $new_links = [];
+
+  // Find node title for custom breadcrumbs.
+  if ($node_revision) {
   	$vid = $node_revision->getRevisionId();
 	}
   if ($node) {
@@ -231,6 +239,44 @@ function citizen_dart_preprocess_breadcrumb(&$variables) {
       $node = \Drupal::entityTypeManager()->getStorage('node')->loadRevision($vid);
     }
     $variables['currentNode'] = $node;
+
+    // Node type-specific updates.
+    switch ($node->getType()) {
+      case 'academic_program':
+        // Program crumbs should be to Home > Programs [Majors & Minors node] >
+        // [Degree Level field] > [Program].
+        $majors_minors_node_id = 1886;
+        // Remove all but the first ("Home") breadcrumb.
+        if (is_array($original_links) && !empty($original_links)) {
+          $new_links[] = array_shift($original_links);
+        }
+
+        // Create the "Programs" link, directly to the Majors & Minors node.
+        $major_minor_url = Url::fromRoute('entity.node.canonical', ['node' => $majors_minors_node_id]);
+        $new_links[] = Link::fromTextAndUrl(t('Programs'), $major_minor_url);
+
+        // Create the Degree Level link, directly to a search entry on M&Ms.
+        $degree_level = $node->get('field_degree_level')->first()->value;
+        $degree_level_options = options_allowed_values($node->get('field_degree_level')->getFieldDefinition()->getFieldStorageDefinition(), $node);
+        $degree_level_label = isset($degree_level_options[$degree_level]) ? $degree_level_options[$degree_level] : $degree_level;
+
+        $major_minor_url->setRouteParameter('degree_level_filter', $degree_level);
+        // Link directly to the section with results.
+        $major_minor_url->setOption('fragment', 'node-section-2');
+        $new_links[] = Link::fromTextAndUrl($degree_level_label, $major_minor_url);
+
+        break;
+    }
+  }
+
+  if (!empty($new_links)) {
+    $variables['links'] = $new_links;
+
+    // Process every link to form the end result.
+    // @see theme.inc:template_preprocess_breadcrumb().
+    foreach ($variables['links'] as $key => $link) {
+      $variables['breadcrumb'][$key] = ['text' => $link->getText(), 'url' => $link->getUrl()->toString()];
+    }
   }
 }
 
