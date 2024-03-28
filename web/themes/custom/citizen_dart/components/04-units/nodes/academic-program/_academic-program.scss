@@ -254,12 +254,15 @@
   }
   .block-courses {
     @include auto;
-    max-width: 1098px;
+    max-width: 985px;
+    p {
+      max-width: 650px;
+    }
   }
   .course-information {
     @include safeFlex(row,wrap,justify,start);
-    max-width: $contentStop;
     @include auto;
+    max-width: 1098px;
     .courses-header{
       @include styledHeader(true);
       color: $brightBlue;
