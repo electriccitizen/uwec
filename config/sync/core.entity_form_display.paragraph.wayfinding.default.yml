@@ -12,7 +12,7 @@ dependencies:
     - field.field.paragraph.wayfinding.field_version
     - paragraphs.paragraphs_type.wayfinding
   module:
-    - link
+    - linkit
     - media_library
 id: paragraph.wayfinding.default
 targetEntityType: paragraph
@@ -43,20 +43,24 @@ content:
       media_types: {  }
     third_party_settings: {  }
   field_link:
-    type: link_default
+    type: linkit
     weight: 4
     region: content
     settings:
       placeholder_url: ''
       placeholder_title: ''
+      linkit_profile: default
+      linkit_auto_link_text: false
     third_party_settings: {  }
   field_link_multi:
-    type: link_default
+    type: linkit
     weight: 5
     region: content
     settings:
       placeholder_url: ''
       placeholder_title: ''
+      linkit_profile: default
+      linkit_auto_link_text: false
     third_party_settings: {  }
   field_text_placement:
     type: options_select

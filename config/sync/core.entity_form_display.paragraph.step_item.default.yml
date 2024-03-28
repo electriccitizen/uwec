@@ -9,7 +9,7 @@ dependencies:
     - field.field.paragraph.step_item.field_long_text
     - paragraphs.paragraphs_type.step_item
   module:
-    - link
+    - linkit
     - media_library
     - text
 id: paragraph.step_item.default
@@ -33,12 +33,14 @@ content:
       media_types: {  }
     third_party_settings: {  }
   field_link:
-    type: link_default
+    type: linkit
     weight: 3
     region: content
     settings:
       placeholder_url: ''
       placeholder_title: ''
+      linkit_profile: default
+      linkit_auto_link_text: false
     third_party_settings: {  }
   field_long_text:
     type: text_textarea

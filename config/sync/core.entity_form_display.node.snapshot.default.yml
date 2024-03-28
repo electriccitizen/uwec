@@ -27,7 +27,7 @@ dependencies:
     - content_moderation
     - datetime
     - field_group
-    - link
+    - linkit
     - media_library
     - path
 third_party_settings:
@@ -121,12 +121,14 @@ content:
       media_types: {  }
     third_party_settings: {  }
   field_link:
-    type: link_default
+    type: linkit
     weight: 3
     region: content
     settings:
       placeholder_url: ''
       placeholder_title: ''
+      linkit_profile: default
+      linkit_auto_link_text: false
     third_party_settings: {  }
   field_page_families:
     type: entity_reference_autocomplete

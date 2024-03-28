@@ -32,6 +32,7 @@ dependencies:
     - field_group
     - layout_paragraphs
     - link
+    - linkit
     - paragraphs
     - path
     - text
@@ -151,12 +152,14 @@ content:
         duplicate: '0'
     third_party_settings: {  }
   field_faculty_link:
-    type: link_default
+    type: linkit
     weight: 7
     region: content
     settings:
       placeholder_url: ''
       placeholder_title: ''
+      linkit_profile: default
+      linkit_auto_link_text: false
     third_party_settings: {  }
   field_hallmarks:
     type: paragraphs
@@ -198,12 +201,14 @@ content:
       show_summary: false
     third_party_settings: {  }
   field_links:
-    type: link_default
+    type: linkit
     weight: 5
     region: content
     settings:
       placeholder_url: ''
       placeholder_title: ''
+      linkit_profile: default
+      linkit_auto_link_text: false
     third_party_settings: {  }
   field_meta_description:
     type: string_textfield

@@ -52,7 +52,7 @@ dependencies:
     - content_moderation
     - field_group
     - layout_paragraphs
-    - link
+    - linkit
     - media_library
     - paragraphs
     - path
@@ -188,12 +188,14 @@ content:
       media_types: {  }
     third_party_settings: {  }
   field_admissions_requirements:
-    type: link_default
+    type: linkit
     weight: 6
     region: content
     settings:
       placeholder_url: ''
       placeholder_title: ''
+      linkit_profile: default
+      linkit_auto_link_text: false
     third_party_settings: {  }
   field_campus:
     type: options_select
@@ -231,12 +233,14 @@ content:
         duplicate: '0'
     third_party_settings: {  }
   field_course_links:
-    type: link_default
+    type: linkit
     weight: 27
     region: content
     settings:
       placeholder_url: ''
       placeholder_title: ''
+      linkit_profile: default
+      linkit_auto_link_text: false
     third_party_settings: {  }
   field_courseleaf_slug:
     type: string_textfield
@@ -343,12 +347,14 @@ content:
         duplicate: '0'
     third_party_settings: {  }
   field_faculty_link:
-    type: link_default
+    type: linkit
     weight: 16
     region: content
     settings:
       placeholder_url: ''
       placeholder_title: ''
+      linkit_profile: default
+      linkit_auto_link_text: false
     third_party_settings: {  }
   field_grads:
     type: text_textarea
@@ -492,12 +498,14 @@ content:
       placeholder: ''
     third_party_settings: {  }
   field_tuition_link:
-    type: link_default
+    type: linkit
     weight: 5
     region: content
     settings:
       placeholder_url: ''
       placeholder_title: ''
+      linkit_profile: default
+      linkit_auto_link_text: false
     third_party_settings: {  }
   field_whats_next:
     type: options_select
