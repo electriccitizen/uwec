@@ -29,7 +29,6 @@ dependencies:
     - field_group
     - link
     - media_library
-    - metatag
     - path
 third_party_settings:
   field_group:
@@ -42,7 +41,7 @@ third_party_settings:
       label: Access
       region: content
       parent_name: ''
-      weight: 16
+      weight: 14
       format_type: details_sidebar
       format_settings:
         classes: ''
@@ -129,14 +128,6 @@ content:
       placeholder_url: ''
       placeholder_title: ''
     third_party_settings: {  }
-  field_metatags:
-    type: metatag_firehose
-    weight: 13
-    region: content
-    settings:
-      sidebar: true
-      use_details: true
-    third_party_settings: {  }
   field_page_families:
     type: entity_reference_autocomplete
     weight: 11
@@ -183,19 +174,19 @@ content:
     third_party_settings: {  }
   moderation_state:
     type: moderation_state_default
-    weight: 17
+    weight: 15
     region: content
     settings: {  }
     third_party_settings: {  }
   path:
     type: path
-    weight: 14
+    weight: 12
     region: content
     settings: {  }
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 15
+    weight: 13
     region: content
     settings:
       display_label: true
@@ -211,6 +202,7 @@ content:
 hidden:
   created: true
   field_list_widget: true
+  field_metatags: true
   layout_builder__layout: true
   promote: true
   publish_on: true
