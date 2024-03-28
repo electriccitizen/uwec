@@ -70,6 +70,21 @@
  *   in different view modes.
  */
 #}
-{{ attach_library('citizen_dart/academic-program-animate') }}
 
-{% include 'node.html.twig' %}
+{% extends 'node.html.twig' %}
+
+{% block nodeMeta %}
+  {{ attach_library('citizen_dart/academic-program-animate') }}
+  {{ parent() }}
+{% endblock %}
+
+{% block layoutSectionContent %}
+  {% set classes = [
+    "node-section",
+    loop.index == 5 and (node.field_outcome_text|length > 0 or node.field_outcomes_image|length > 0 or node.field_example_careers|length > 0 or node.field_grads|length > 0) ? "outcomes-visible",
+    loop.index == 5 and node.field_outcomes_image|length > 0 ? "outcomes-image",
+  ] %}
+  <section id="node-section-{{ loop.index }}" class="{{ classes|sort|join(' ')|trim }}">
+    {{- layoutSection -}}
+  </section>
+{% endblock %}
