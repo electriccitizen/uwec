@@ -161,7 +161,7 @@
     }//end left
     &.right{
       @include tab{
-        margin-left: 60px;
+        margin-left: 40px;
         .hallmark-image{
           right: auto;
           left: 0;
