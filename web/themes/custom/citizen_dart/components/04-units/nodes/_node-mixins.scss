@@ -486,6 +486,7 @@
   .field-links a{
     display: inline-block;
     @include linkArrow(white, sm, "span");
+    min-height: 32px;
   }//end links field a
 }//end patternHero
 

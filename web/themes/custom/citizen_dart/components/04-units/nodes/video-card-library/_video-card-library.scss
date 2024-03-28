@@ -65,6 +65,11 @@
     margin-bottom: $spaceXxs;
     a {
       @include blockArrow(navy, sm);
+      &:hover,&:focus{
+        span{
+          @include dottedLink($brightBlue);
+        }
+      }
     }//end a
   }
   .field.body{
