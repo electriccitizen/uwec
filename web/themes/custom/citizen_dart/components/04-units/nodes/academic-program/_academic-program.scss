@@ -254,9 +254,19 @@
     max-width: $contentStop;
     @include auto;
     .courses-header{
-      @include styledHeader;
+      @include styledHeader(true);
       color: $brightBlue;
       text-align: left;
+      margin-left: 8px;
+      strong {
+        margin-left: -8px;
+      }
+      @include desk {
+        margin-left: 0;
+        strong {
+          margin-left: 0;
+        }
+      }
     }//end courses header
     .course-text{
       margin-top: 2rem;
@@ -429,7 +439,7 @@
   }//end block field related programs
   .field-whats-next {
     h2.next-title {
-      @include styledHeader;
+      @include styledHeader(true);
       color: $brightBlue;
       margin: 1.5rem 0;
       text-align: left;
