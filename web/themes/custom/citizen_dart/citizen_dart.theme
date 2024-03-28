@@ -260,10 +260,12 @@ function citizen_dart_preprocess_breadcrumb(&$variables) {
         $degree_level_options = options_allowed_values($node->get('field_degree_level')->getFieldDefinition()->getFieldStorageDefinition(), $node);
         $degree_level_label = isset($degree_level_options[$degree_level]) ? $degree_level_options[$degree_level] : $degree_level;
 
-        $major_minor_url->setRouteParameter('degree_level_filter', $degree_level);
-        // Link directly to the section with results.
-        $major_minor_url->setOption('fragment', 'node-section-2');
-        $new_links[] = Link::fromTextAndUrl($degree_level_label, $major_minor_url);
+        // Link directly to a search and the section with results.
+        $degree_level_url = Url::fromRoute('entity.node.canonical', [
+          'node' => $majors_minors_node_id,
+          'degree_level_filter' => $degree_level,
+        ], ['fragment' => 'node-section-2']);
+        $new_links[] = Link::fromTextAndUrl($degree_level_label, $degree_level_url);
 
         break;
     }

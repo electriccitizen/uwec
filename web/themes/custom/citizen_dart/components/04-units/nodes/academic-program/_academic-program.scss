@@ -88,8 +88,10 @@
     h2 {
       color: $royal;
       margin: 2.5rem 0 4rem;
+      text-align: center;
       @include desk {
         margin: 0 0 2.625rem;
+        text-align: left;
       }
     }
   }
@@ -173,6 +175,10 @@
       }
     }
     .licensure-details {
+      margin-top: 2rem;
+      @include desk {
+        margin-top: 8.875rem;
+      }
       p {
         max-width: $textMax;
       }
@@ -280,12 +286,9 @@
     max-width: 1098px;
     .courses-header{
       @include styledHeader(true);
+      @include auto;
       color: $brightBlue;
       text-align: center;
-      margin-left: 8px;
-      strong {
-        margin-left: -8px;
-      }
       @include desk {
         margin-left: 0;
         text-align: left;
@@ -357,6 +360,9 @@
             scale: 1;
             position: relative;
             bottom: -2px;
+          }
+          @include desk {
+            text-align: left;
           }
         }//end h2
         p{
@@ -445,7 +451,11 @@
     h2 {
       font-size: 28px;
       margin-bottom: 2.5rem;
+      text-align: center;
       text-transform: uppercase;
+      @include desk {
+        text-align: left;
+      }
     }
     .field-related-programs {
       @include bleed(padding, 20px);
