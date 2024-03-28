@@ -33,6 +33,7 @@
     <h2>{% trans %}What can I do with a {{ element['#object'].title.0.value }} degree?{% endtrans %}</h2>
     {{ outcomeText }}
 	</div>
+  {% if element['#object'].field_example_careers|length > 0 %}
   <div class="example-careers">
     <h2>{% trans %}Example Careers{% endtrans %}</h2>
     <ul>
@@ -41,6 +42,8 @@
     {% endfor %}
     </ul>
   </div>
+  {% endif %}
+  {% if element['#object'].field_grads|length > 0 %}
 	<div class="recent-grads">
 	  <h2>{% trans %}Recent Graduates{% endtrans %}</h2>
 	  <div class="grads">
@@ -56,4 +59,5 @@
 		  {% endfor %}
 		 </div>
 	</div>
+  {% endif %}
 {% endblock %}

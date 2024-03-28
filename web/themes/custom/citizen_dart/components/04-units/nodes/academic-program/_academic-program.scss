@@ -167,8 +167,11 @@
   #node-section-5 {
     @include edgeToEdge;
     background-color: $brightBlue;
-    padding: 8.25rem 0 1px; // 1px bottom padding essentially a clearfix.
     margin-bottom: 8.75rem;
+    padding: 3rem 0 1px; // 1px bottom padding essentially a clearfix.
+    @include tab {
+      padding-top: 8.25rem;
+    }
     * {
       color: $white;
       position: relative;
@@ -229,7 +232,9 @@
       }
     }
     &:after {
-      @include royalSwirl;
+      @include desk {
+        @include royalSwirl;
+      }
     }
   } //end #node-section-5
   .block-field-courses-text {
