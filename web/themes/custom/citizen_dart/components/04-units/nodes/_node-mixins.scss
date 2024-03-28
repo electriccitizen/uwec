@@ -4,6 +4,78 @@
 
 @use '../../00-base/base' as *;
 
+/* SWIRL NAIMATION VARIABLES */
+.hero-pattern,.node-type-college{
+  --animation-start: 200vw; 
+  --animation-start-mid: 200vw; 
+  --animation-start-wide: -200vw; 
+  --animation-end: 73vw; 
+  --animation-end-mid: 77vw; 
+  --animation-end-wide: -104px; 
+}
+.node-type-college.hero-has-image,.node-type-academic-program{
+  --animation-start: -200vw; 
+  --animation-start-mid: -200vw; 
+  --animation-start-wide: 200vw; 
+  --animation-end: -12px; 
+  --animation-end-mid: -30px; 
+  --animation-end-wide: -60px; 
+}
+
+@keyframes heroSwirlSlideMobileLeft {
+  from {
+    left: var(--animation-start);
+  }
+  to {
+    left: var(--animation-end);
+  }
+}
+
+@keyframes heroSwirlSlideMidLeft {
+  from {
+    left: var(--animation-start-mid);
+  }
+  to {
+    left: var(--animation-end-mid);
+  }
+}
+
+@keyframes heroSwirlSlideWideLeft {
+  from {
+    left: var(--animation-start-wide);
+  }
+  to {
+    left: var(--animation-end-wide);
+  }
+}
+
+@keyframes heroSwirlSlideMobileRight {
+  from {
+    right: var(--animation-start);
+  }
+  to {
+    right: var(--animation-end);
+  }
+}
+
+@keyframes heroSwirlSlideMidRight {
+  from {
+    right: var(--animation-start-mid);
+  }
+  to {
+    right: var(--animation-end-mid);
+  }
+}
+
+@keyframes heroSwirlSlideWideRight {
+  from {
+    right: var(--animation-start-wide);
+  }
+  to {
+    right: var(--animation-end-wide);
+  }
+}
+
 @mixin sectionLimit{
 	max-width: $contentStop;
 	@include auto;
@@ -220,7 +292,7 @@
     z-index: 1;
     @include desk{
       position: absolute;
-      top: 0;
+      top: 6px;
       right: 0;
       width: 50%;
       z-index: 2;
@@ -240,14 +312,14 @@
       height: 351px;
       bottom: -66px;
       left: auto;
-      right: -12px;
+      animation: heroSwirlSlideMobileRight 1.5s forwards;
       z-index: -1;
       @include smallTab{
-        right: -30px;
+        animation: heroSwirlSlideMidRight 1.5s forwards;
       }
       @include desk{
         right: auto;
-        left: -60px;
+        animation: heroSwirlSlideWideLeft 1.5s forwards;
         bottom: -125px;
       }
       @include contentStop{
@@ -356,6 +428,68 @@
   }
 }//end hero image right
 
+@mixin patternHero{
+  padding-top: 40px;
+  background: $royal;
+  @include edgeToEdge;
+  padding-left: $siteMarginMobile;
+  padding-right: $siteMarginMobile;
+  color: $white;
+  //set min heights for main section
+  min-height: calc(100vh - 88px);
+  @include desk{
+    min-height: calc(100vh - 100px);
+  }
+  @include menuStop{
+    min-height: calc(100vh - 110px);
+  }
+  .logged-in &{
+    min-height: calc(100vh - 137px);
+    @media screen and (min-width: 976px){
+      min-height: calc(100vh - 216px);
+    }
+    @include menuStop{
+      min-height: calc(100vh - 226px);
+    }
+  }//end logged in min heights
+  .hero-pattern:not(.hero-pattern-links) &{
+    @include menuStop{
+      padding-bottom: 150px;
+    }
+    @media screen and (min-width: 1600px){
+      padding-bottom: 10vw;
+    }
+    @media screen and (min-width: 1800px){
+      padding-bottom: 12vw;
+    }
+  }
+  h1,h2,h3,h4,h5,h6,li,a{
+    color: $white;
+  }
+  //specific link colors
+  .breadcrumb{
+    max-width: 1096px;
+    a{
+      &:hover,&:focus{
+        @include dottedLink($white);
+      }
+    }
+  }//end breadcrumb
+  .field-college a{
+    padding-bottom: 1px;
+    @include dottedLink($white);
+    &:hover,&:focus{
+      color: $transWhite;
+      background-image: none;
+    }
+  }
+  .field-links a{
+    display: inline-block;
+    @include linkArrow(white, sm, "span");
+    min-height: 32px;
+  }//end links field a
+}//end patternHero
+
 @mixin heroSimpleBackground{
   position: absolute;
   top: 0;
@@ -381,6 +515,29 @@
     clip-path: polygon(0 0, 100% 0, 100% 100%);
   }
 }
+
+@mixin heroBlue{
+  position: relative;
+  &:before{
+    @include fullBack($brightBlue);
+    top: auto;
+    bottom: 0;
+    height: 1000px;
+    z-index: -1;
+  }//end before
+  &:after{
+    content: '';
+    display: block;
+    position: absolute;
+    top: calc(100% - 1px);
+    left: -$siteMarginMobile;
+    height: 29vw;
+    width: 100vw;
+    z-index: -1;
+    background: $brightBlue;
+    clip-path: polygon(0 0, 100% 0, 0 100%);
+  }
+}//end hero bright blue
 
 @mixin heroText {
 	position: relative;
@@ -515,7 +672,7 @@
   content: '';
   position: absolute;
   bottom: -83px;
-  left: 73vw;
+  animation: heroSwirlSlideMobileLeft 1.5s forwards;
   z-index: 0;
   width: 308px;
   height: 572px;
@@ -523,13 +680,13 @@
   background-repeat: no-repeat;
   background-size: 100%;
   @include desk{
-    left: 77vw;
+    animation: heroSwirlSlideMidLeft 1.5s forwards;
     width: 380px;
     height: 706px;
   }
   @include contentStop{
     left: auto;
-    right: -104px;
+    animation: heroSwirlSlideWideRight 1.5s forwards;
     width: 452px;
     height: 839px;
     bottom: -95px;
@@ -561,3 +718,20 @@
     bottom: -95px;
   }
 }//end royal swirl
+
+@mixin stripesRoyalNarrow{
+  position: relative;
+  &:before{
+    @include animation('fadeInDelay 1s 1');
+    content: url(../images/elements/stripes-narrow-royal.svg);
+    position: absolute;
+    top: calc(100% - 22px);
+    left: -23px;
+    z-index: -1;
+    width: 263px;
+    height: 171px;
+    @include tab{
+      left: -43px;
+    }
+  }
+}
