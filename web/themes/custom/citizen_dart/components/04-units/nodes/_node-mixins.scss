@@ -4,30 +4,75 @@
 
 @use '../../00-base/base' as *;
 
-@keyframes heroSwirlSlideMobile {
+/* SWIRL NAIMATION VARIABLES */
+.hero-pattern,.node-type-college{
+  --animation-start: 200vw; 
+  --animation-start-mid: 200vw; 
+  --animation-start-wide: -200vw; 
+  --animation-end: 73vw; 
+  --animation-end-mid: 77vw; 
+  --animation-end-wide: -104px; 
+}
+.node-type-college.hero-has-image{
+  --animation-start: -200vw; 
+  --animation-start-mid: -200vw; 
+  --animation-start-wide: 200vw; 
+  --animation-end: -12px; 
+  --animation-end-mid: -30px; 
+  --animation-end-wide: -60px; 
+}
+
+@keyframes heroSwirlSlideMobileLeft {
   from {
-    left: 200vw;
+    left: var(--animation-start);
   }
   to {
-    left: 73vw;
+    left: var(--animation-end);
   }
 }
 
-@keyframes heroSwirlSlideDesk {
+@keyframes heroSwirlSlideMidLeft {
   from {
-    left: 200vw;
+    left: var(--animation-start-mid);
   }
   to {
-    left: 77vw;
+    left: var(--animation-end-mid);
   }
 }
 
-@keyframes heroSwirlSlideWide {
+@keyframes heroSwirlSlideWideLeft {
   from {
-    right: -200vw;
+    left: var(--animation-start-wide);
   }
   to {
-    right: -104px;
+    left: var(--animation-end-wide);
+  }
+}
+
+@keyframes heroSwirlSlideMobileRight {
+  from {
+    right: var(--animation-start);
+  }
+  to {
+    right: var(--animation-end);
+  }
+}
+
+@keyframes heroSwirlSlideMidRight {
+  from {
+    right: var(--animation-start-mid);
+  }
+  to {
+    right: var(--animation-end-mid);
+  }
+}
+
+@keyframes heroSwirlSlideWideRight {
+  from {
+    right: var(--animation-start-wide);
+  }
+  to {
+    right: var(--animation-end-wide);
   }
 }
 
@@ -267,14 +312,14 @@
       height: 351px;
       bottom: -66px;
       left: auto;
-      right: -12px;
+      animation: heroSwirlSlideMobileRight 1.5s forwards;
       z-index: -1;
       @include smallTab{
-        right: -30px;
+        animation: heroSwirlSlideMidRight 1.5s forwards;
       }
       @include desk{
         right: auto;
-        left: -60px;
+        animation: heroSwirlSlideWideLeft 1.5s forwards;
         bottom: -125px;
       }
       @include contentStop{
@@ -626,7 +671,7 @@
   content: '';
   position: absolute;
   bottom: -83px;
-  left: 73vw;
+  animation: heroSwirlSlideMobileLeft 1.5s forwards;
   z-index: 0;
   width: 308px;
   height: 572px;
@@ -634,13 +679,13 @@
   background-repeat: no-repeat;
   background-size: 100%;
   @include desk{
-    left: 77vw;
+    animation: heroSwirlSlideMidLeft 1.5s forwards;
     width: 380px;
     height: 706px;
   }
   @include contentStop{
     left: auto;
-    right: -104px;
+    animation: heroSwirlSlideWideRight 1.5s forwards;
     width: 452px;
     height: 839px;
     bottom: -95px;
