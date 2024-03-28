@@ -263,13 +263,14 @@
     .courses-header{
       @include styledHeader(true);
       color: $brightBlue;
-      text-align: left;
+      text-align: center;
       margin-left: 8px;
       strong {
         margin-left: -8px;
       }
       @include desk {
         margin-left: 0;
+        text-align: left;
         strong {
           margin-left: 0;
         }
@@ -330,7 +331,7 @@
         }
         h2{
           @include styledHeader;
-          text-align: left;
+          text-align: center;
           margin-bottom: $spaceSm;
           color: $brightBlue;
           strong{
@@ -463,10 +464,9 @@
       @include styledHeader(true);
       color: $brightBlue;
       margin: 1.5rem 0;
-      text-align: left;
+      text-align: center;
       @include tab {
         margin: 2.5rem 0;
-        text-align: center;
       }
     }
   }
