@@ -5,6 +5,13 @@
 @use '../../../00-base/base' as *;
 @use '../node-mixins' as *;
 
+.block-field-related-programs {
+  --animation-start: -100vw;
+  --animation-start-mid: -100vw;
+  --animation-start-wide: -100vw;
+  --animation-end: 0;
+}
+
 .node-academic-program{
   margin-bottom: 30rem; // This needs to be so high to push down on the footer.
   @include tab {
@@ -375,7 +382,7 @@
       }//end slate right
     }//end more info
   }//end field request for info
-  .block-field-related-programs{
+  .block-field-related-programs {
     @include auto;
     background: $warmGrey;
     max-width: 1136px;
@@ -395,11 +402,20 @@
           transparent 50px
         );
         bottom: -15px;
-        left: 0;
+        left: var(--animation-start-mid);
         height: 200px;
         top: auto;
+        transition: left 1.5s ease-in-out;
         width: 50px;
         z-index: 5;
+      }
+      @include desk {
+        left: var(--animation-start-wide);
+      }
+    }
+    &.visible:after {
+      @include tab {
+        left: var(--animation-end);
       }
     }
     h2 {
