@@ -4,7 +4,7 @@
 ------------------ */
 Drupal.behaviors.academicProgramAnimate = {
   attach: function (context, settings) {
-  	$(once('academicProgramRelated', '.node-academic-program .block-field-related-programs', context)).each(function(){
+    $(once('academicProgramRelated', '.block-field-related-programs, .outcomes-image', context)).each(function(){
       // Function to handle the intersection observer callback
       function handleIntersection(entries, observer) {
         entries.forEach(entry => {

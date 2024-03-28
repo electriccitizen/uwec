@@ -11,6 +11,14 @@
   --animation-start-wide: -100vw;
   --animation-end: 0;
 }
+.outcomes-image {
+  --animation-start: -200vw;
+  --animation-start-mid: -200vw;
+  --animation-start-wide: -200vw;
+  --animation-end: -104px;
+  --animation-end-mid: -50px;
+  --animation-end-wide: -2px;
+}
 
 .node-academic-program{
   margin-bottom: 30rem; // This needs to be so high to push down on the footer.
@@ -238,9 +246,16 @@
         }
       }
     }
-    &.outcomes-image:after {
-      @include desk {
-        @include royalSwirl;
+    &.outcomes-image {
+      &:after {
+        right: var(--animation-start-wide);
+        transition: right 1s ease-in-out;
+        @include desk {
+          @include royalSwirl;
+        }
+      }
+      &.visible:after {
+        right: var(--animation-end-wide);
       }
     }
   } //end #node-section-5
