@@ -227,8 +227,6 @@ function citizen_dart_preprocess_field__node__field_hours(&$variables) {
 function citizen_dart_preprocess_breadcrumb(&$variables) {
   $node = \Drupal::routeMatch()->getParameter('node');
   $node_revision = \Drupal::routeMatch()->getParameter('node_revision');
-  $original_links = $variables['links'];
-  $new_links = [];
 
   // Find node title for custom breadcrumbs.
   if ($node_revision) {
@@ -243,17 +241,15 @@ function citizen_dart_preprocess_breadcrumb(&$variables) {
     // Node type-specific updates.
     switch ($node->getType()) {
       case 'academic_program':
-        // Program crumbs should be to Home > Programs [Majors & Minors node] >
-        // [Degree Level field] > [Program].
+        // Program crumbs should be to Home > Academics >
+        // Programs [Majors & Minors node] > [Degree Level field] > [Program].
+        // They should have Home > Academics by default, so we build on top of
+        // that base.
         $majors_minors_node_id = 1886;
-        // Remove all but the first ("Home") breadcrumb.
-        if (is_array($original_links) && !empty($original_links)) {
-          $new_links[] = array_shift($original_links);
-        }
 
         // Create the "Programs" link, directly to the Majors & Minors node.
         $major_minor_url = Url::fromRoute('entity.node.canonical', ['node' => $majors_minors_node_id]);
-        $new_links[] = Link::fromTextAndUrl(t('Programs'), $major_minor_url);
+        $variables['links'][] = Link::fromTextAndUrl(t('Programs'), $major_minor_url);
 
         // Create the Degree Level link, directly to a search entry on M&Ms.
         $degree_level = $node->get('field_degree_level')->first()->value;
@@ -265,20 +261,16 @@ function citizen_dart_preprocess_breadcrumb(&$variables) {
           'node' => $majors_minors_node_id,
           'degree_level_filter' => $degree_level,
         ], ['fragment' => 'node-section-2']);
-        $new_links[] = Link::fromTextAndUrl($degree_level_label, $degree_level_url);
+        $variables['links'][] = Link::fromTextAndUrl($degree_level_label, $degree_level_url);
 
         break;
     }
   }
 
-  if (!empty($new_links)) {
-    $variables['links'] = $new_links;
-
-    // Process every link to form the end result.
-    // @see theme.inc:template_preprocess_breadcrumb().
-    foreach ($variables['links'] as $key => $link) {
-      $variables['breadcrumb'][$key] = ['text' => $link->getText(), 'url' => $link->getUrl()->toString()];
-    }
+  // Process every link to form the end result.
+  // @see theme.inc:template_preprocess_breadcrumb().
+  foreach ($variables['links'] as $key => $link) {
+    $variables['breadcrumb'][$key] = ['text' => $link->getText(), 'url' => $link->getUrl()->toString()];
   }
 }
 
