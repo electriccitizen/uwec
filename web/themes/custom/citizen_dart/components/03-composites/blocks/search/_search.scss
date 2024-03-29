@@ -412,10 +412,11 @@
     font-weight: $xHeavy;
     font-size: 2.25rem;
     line-height: 1.33;
+    @include dottedLink($brightBlue);
+    padding-bottom: 1px;
     &:hover,&:focus{
       color: $navy !important;
-      @include dottedLink($navy);
-      padding-bottom: 1px;
+      background-image: none;
     }//end hover, focus
 	}//end title link
 	.gsc-url-top{

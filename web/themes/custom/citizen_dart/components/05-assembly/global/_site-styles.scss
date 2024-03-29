@@ -12,8 +12,9 @@
 }
 
 .overflow-guard{
-	overflow: hidden;
+	overflow-x: hidden;
 	background: $siteBack;
+  width: 100%;
 	.unpublished &{
 		background: $unpub;
 	}
