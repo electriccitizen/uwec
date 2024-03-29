@@ -1,7 +1,7 @@
 @use '../../../00-base/base' as *;
 
 .block-courses{
-  >p{
+  > p {
     @include headerGlobals;
     font-size: $h2;
   }
@@ -9,11 +9,13 @@
   .courses{
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 3rem;
+    margin-top: 2rem;
     padding: $siteMarginMobile;
 
     @include tab{
       flex-direction: row;
+      gap: 2rem;
       margin-top: 3.5rem;
       padding: 0;
     }

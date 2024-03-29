@@ -46,11 +46,17 @@
     @media screen and (min-width: 2400px){
       margin-top: -8vw;
     }
+    @include desk {
+      margin-bottom: 9.875rem;
+    }
+  }
+  .block-body {
+    margin-bottom: 4rem;
   }
   .field.body {
     max-width: $textMax;
     @include auto;
-    padding: 2.5rem;
+    padding: 2.5rem 2.5rem 0;
     @include desk {
       padding: 0;
     }
@@ -126,22 +132,25 @@
       .first {
         border-bottom: $warmGrey solid 1px;
         margin-bottom: 3.625rem;
+        padding-bottom: 2rem;
         @include desk {
           border-bottom: 0;
           border-right: $warmGrey solid 1px;
           margin-bottom: 0;
-          width: calc(50% - 11rem);
+          flex: 0 1 calc(50% - 11rem);
         }
       }
       .last {
         @include safeFlex(row,wrap,start,flex-start);
         @include desk {
-          width: 50%;
+          flex: 1 1 50%;
           padding-left: 11rem;
         }
-        div {
-          flex: 0 0 49%;
+        margin: 0 -1rem;
+        .program-detail {
           box-sizing: border-box;
+          padding: 0 1rem;
+          width: 50%;
         }
       }
     } // end program-details
@@ -205,11 +214,11 @@
     }
     .field-outcome-text {
       @include safeFlex(row, wrap, start, start);
-      gap: 40px;
       margin: 0 $siteMarginMobile;
       max-width: $largeTab;
       @include desk {
         @include auto;
+        gap: 5rem;
       }
     }
     .outcomes {
@@ -223,8 +232,10 @@
     .example-careers,
     .recent-grads {
       flex: 1 1 100%;
+      margin-top: 5rem;
       @include desk {
         flex: 1 1 30%;
+        margin: 0;
       }
       h2 {
         font-family: $displayHeader;
@@ -258,9 +269,11 @@
         transition: right 1s ease-in-out;
         @include desk {
           @include royalSwirl;
+          @include animation('none'); // Make sure this doesn't fade in until.
         }
       }
       &.visible:after {
+        @include animation('fadeInDelay 1s 1');
         right: var(--animation-end-wide);
       }
     }
@@ -275,7 +288,11 @@
   }
   .block-courses {
     @include auto;
+    margin-bottom: 3rem;
     max-width: 985px;
+    @include desk {
+      margin-bottom: 6rem;
+    }
     p {
       max-width: 650px;
     }
@@ -307,6 +324,11 @@
       }
     }
   }//end course-information
+  .block-field-course-links {
+    @include desk {
+      margin-bottom: 9.875rem;
+    }
+  }
   .field-course-links {
     div {
       height: 40px;
@@ -323,6 +345,7 @@
     }
   }
   .block-field-request-for-info {
+    margin-bottom: 7.5rem;
     @include desk {
       margin-bottom: 13.875rem;
     }
@@ -366,6 +389,7 @@
           }
         }//end h2
         p{
+          line-height: 2;
           margin-bottom: 2.5rem;
         }
       }//end slate left
@@ -461,23 +485,25 @@
       @include bleed(padding, 20px);
       .related-intro {
         line-height: 1.5;
+        max-width: 650px;
       }
       .related-items {
         @include safeFlex(row, wrap, start, start);
-        gap: 5rem;
         margin-top: 5rem;
         @include tab {
-          gap: 2.5rem;
-          margin-top: 0;
+          margin: 0 -1.25rem;
         }
       }
       .related-item {
-        flex: 1 1 100%;
+        width: 100%;
+        margin-bottom: 5rem;
+        padding: 0 1.25rem;
         @include tab {
-          flex: 0 0 30%;
+          width: 33%;
+          margin-bottom: 2.5rem;
         }
         @include desk {
-          flex: 0 0 22%;
+          width: 25%;
         }
         .content-thumb-title {
           line-height: 1.2;
