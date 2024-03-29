@@ -5,6 +5,21 @@
 @use '../../../00-base/base' as *;
 @use '../node-mixins' as *;
 
+.block-field-related-programs {
+  --animation-start: -100vw;
+  --animation-start-mid: -100vw;
+  --animation-start-wide: -100vw;
+  --animation-end: 0;
+}
+.outcomes-image {
+  --animation-start: -200vw;
+  --animation-start-mid: -200vw;
+  --animation-start-wide: -200vw;
+  --animation-end: -104px;
+  --animation-end-mid: -50px;
+  --animation-end-wide: -2px;
+}
+
 .node-academic-program{
   margin-bottom: 30rem; // This needs to be so high to push down on the footer.
   @include tab {
@@ -31,11 +46,17 @@
     @media screen and (min-width: 2400px){
       margin-top: -8vw;
     }
+    @include desk {
+      margin-bottom: 9.875rem;
+    }
+  }
+  .block-body {
+    margin-bottom: 4rem;
   }
   .field.body {
     max-width: $textMax;
     @include auto;
-    padding: 2.5rem;
+    padding: 2.5rem 2.5rem 0;
     @include desk {
       padding: 0;
     }
@@ -60,22 +81,27 @@
   .block-field-degree-types {
     margin-bottom: 3px;
   }
-  .program-details-wrapper {
+  .program-details-wrapper, .accreditation-wrapper {
     @include auto;
-    color: $royal;
     background-color: $lightGrey;
+    color: $royal;
     max-width: 1136px;
     padding: $siteMarginMobile;
     @include desk {
       padding: 6.5rem 16.75rem;
     }
+
     h2 {
       color: $royal;
-      margin: 3.5rem 0 4rem;
+      margin: 2.5rem 0 4rem;
+      text-align: center;
       @include desk {
         margin: 0 0 2.625rem;
+        text-align: left;
       }
     }
+  }
+  .program-details-wrapper {
     .program-details {
       @include desk {
         @include safeFlex(row,wrap,start,start);
@@ -106,45 +132,40 @@
       .first {
         border-bottom: $warmGrey solid 1px;
         margin-bottom: 3.625rem;
+        padding-bottom: 2rem;
         @include desk {
           border-bottom: 0;
           border-right: $warmGrey solid 1px;
           margin-bottom: 0;
-          width: calc(50% - 11rem);
+          flex: 0 1 calc(50% - 11rem);
         }
       }
       .last {
         @include safeFlex(row,wrap,start,flex-start);
         @include desk {
-          width: 50%;
+          flex: 1 1 50%;
           padding-left: 11rem;
         }
-        div {
-          flex: 0 0 49%;
+        margin: 0 -1rem;
+        .program-detail {
           box-sizing: border-box;
+          padding: 0 1rem;
+          width: 50%;
         }
       }
     } // end program-details
   } // end program-details-wrapper
   .block-field-accreditation {
-    @include auto;
     margin-bottom: 0;
-    max-width: 1136px;
     @include desk {
       margin-bottom: $elementSpace;
     }
   }
   .accreditation-wrapper {
-    color: $royal;
-    background-color: $lightGrey;
-    margin: .375rem 0 3.75rem;
-    padding: $siteMarginMobile;
+    margin-bottom: 3.75rem;
+    margin-top: .375rem;
     @include desk {
       margin-bottom: 0;
-      padding: 6.5rem 16.75rem;
-    }
-    h2 {
-      color: $royal;
     }
     .accreditation-details {
       @include safeFlex(column, wrap, justify, start);
@@ -163,17 +184,24 @@
       }
     }
     .licensure-details {
+      margin-top: 2rem;
+      @include desk {
+        margin-top: 8.875rem;
+      }
       p {
         max-width: $textMax;
       }
     }
   }// end accreditation-wrapper
 
-  #node-section-5 {
+  #node-section-5.outcomes-visible {
     @include edgeToEdge;
     background-color: $brightBlue;
-    padding: 8.25rem 0 1px; // 1px bottom padding essentially a clearfix.
     margin-bottom: 8.75rem;
+    padding: 3rem 0 1px; // 1px bottom padding essentially a clearfix.
+    @include tab {
+      padding-top: 8.25rem;
+    }
     * {
       color: $white;
       position: relative;
@@ -186,11 +214,11 @@
     }
     .field-outcome-text {
       @include safeFlex(row, wrap, start, start);
-      gap: 40px;
       margin: 0 $siteMarginMobile;
       max-width: $largeTab;
       @include desk {
         @include auto;
+        gap: 5rem;
       }
     }
     .outcomes {
@@ -204,8 +232,10 @@
     .example-careers,
     .recent-grads {
       flex: 1 1 100%;
+      margin-top: 5rem;
       @include desk {
         flex: 1 1 30%;
+        margin: 0;
       }
       h2 {
         font-family: $displayHeader;
@@ -233,8 +263,19 @@
         }
       }
     }
-    &:after {
-      @include royalSwirl;
+    &.outcomes-image {
+      &:after {
+        right: var(--animation-start-wide);
+        transition: right 1s ease-in-out;
+        @include desk {
+          @include royalSwirl;
+          @include animation('none'); // Make sure this doesn't fade in until.
+        }
+      }
+      &.visible:after {
+        @include animation('fadeInDelay 1s 1');
+        right: var(--animation-end-wide);
+      }
     }
   } //end #node-section-5
   .block-field-courses-text {
@@ -247,16 +288,31 @@
   }
   .block-courses {
     @include auto;
-    max-width: 1098px;
+    margin-bottom: 3rem;
+    max-width: 985px;
+    @include desk {
+      margin-bottom: 6rem;
+    }
+    p {
+      max-width: 650px;
+    }
   }
   .course-information {
     @include safeFlex(row,wrap,justify,start);
-    max-width: $contentStop;
     @include auto;
+    max-width: 1098px;
     .courses-header{
-      @include styledHeader;
+      @include styledHeader(true);
+      @include auto;
       color: $brightBlue;
-      text-align: left;
+      text-align: center;
+      @include desk {
+        margin-left: 0;
+        text-align: left;
+        strong {
+          margin-left: 0;
+        }
+      }
     }//end courses header
     .course-text{
       margin-top: 2rem;
@@ -268,8 +324,15 @@
       }
     }
   }//end course-information
+  .block-field-course-links {
+    @include desk {
+      margin-bottom: 9.875rem;
+    }
+  }
   .field-course-links {
     div {
+      height: 40px;
+      margin-bottom: 1rem;
       @include tab {
         display: flex;
         justify-content: center;
@@ -282,8 +345,9 @@
     }
   }
   .block-field-request-for-info {
+    margin-bottom: 7.5rem;
     @include desk {
-      margin-bottom: 9rem;
+      margin-bottom: 13.875rem;
     }
   }
   .field-request-for-info{
@@ -311,7 +375,7 @@
         }
         h2{
           @include styledHeader;
-          text-align: left;
+          text-align: center;
           margin-bottom: $spaceSm;
           color: $brightBlue;
           strong{
@@ -320,8 +384,12 @@
             position: relative;
             bottom: -2px;
           }
+          @include desk {
+            text-align: left;
+          }
         }//end h2
         p{
+          line-height: 2;
           margin-bottom: 2.5rem;
         }
       }//end slate left
@@ -363,7 +431,12 @@
       }//end slate right
     }//end more info
   }//end field request for info
-  .block-field-related-programs{
+  .block-program-faculty {
+    @include desk {
+      margin-bottom: 7.5rem;
+    }
+  }
+  .block-field-related-programs {
     @include auto;
     background: $warmGrey;
     max-width: 1136px;
@@ -383,36 +456,54 @@
           transparent 50px
         );
         bottom: -15px;
-        left: 0;
+        left: var(--animation-start-mid);
         height: 200px;
         top: auto;
+        transition: left 1.5s ease-in-out;
         width: 50px;
         z-index: 5;
+      }
+      @include desk {
+        left: var(--animation-start-wide);
+      }
+    }
+    &.visible:after {
+      @include tab {
+        left: var(--animation-end);
       }
     }
     h2 {
       font-size: 28px;
       margin-bottom: 2.5rem;
+      text-align: center;
       text-transform: uppercase;
+      @include desk {
+        text-align: left;
+      }
     }
     .field-related-programs {
       @include bleed(padding, 20px);
+      .related-intro {
+        line-height: 1.5;
+        max-width: 650px;
+      }
       .related-items {
         @include safeFlex(row, wrap, start, start);
-        gap: 5rem;
         margin-top: 5rem;
         @include tab {
-          gap: 2.5rem;
-          margin-top: 0;
+          margin: 0 -1.25rem;
         }
       }
       .related-item {
-        flex: 1 1 100%;
+        width: 100%;
+        margin-bottom: 5rem;
+        padding: 0 1.25rem;
         @include tab {
-          flex: 0 0 30%;
+          width: 33%;
+          margin-bottom: 2.5rem;
         }
         @include desk {
-          flex: 0 0 22%;
+          width: 25%;
         }
         .content-thumb-title {
           line-height: 1.2;
@@ -429,13 +520,12 @@
   }//end block field related programs
   .field-whats-next {
     h2.next-title {
-      @include styledHeader;
+      @include styledHeader(true);
       color: $brightBlue;
       margin: 1.5rem 0;
-      text-align: left;
+      text-align: center;
       @include tab {
         margin: 2.5rem 0;
-        text-align: center;
       }
     }
   }

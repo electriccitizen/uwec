@@ -86,10 +86,4 @@
 
 .bios.program-faculty{
 	@extend .department-faculty;
-  h2.block-title {
-    text-align: left;
-    @include tab {
-      text-align: center;
-    }
-  }
 }

@@ -4,22 +4,22 @@
 
 @use '../../00-base/base' as *;
 
-/* SWIRL NAIMATION VARIABLES */
+/* SWIRL ANIMATION VARIABLES */
 .hero-pattern,.node-type-college{
-  --animation-start: 200vw; 
-  --animation-start-mid: 200vw; 
-  --animation-start-wide: -200vw; 
-  --animation-end: 73vw; 
-  --animation-end-mid: 77vw; 
-  --animation-end-wide: -104px; 
+  --animation-start: 200vw;
+  --animation-start-mid: 200vw;
+  --animation-start-wide: -200vw;
+  --animation-end: 73vw;
+  --animation-end-mid: 77vw;
+  --animation-end-wide: -104px;
 }
 .node-type-college.hero-has-image,.node-type-academic-program{
-  --animation-start: -200vw; 
-  --animation-start-mid: -200vw; 
-  --animation-start-wide: 200vw; 
-  --animation-end: -12px; 
-  --animation-end-mid: -30px; 
-  --animation-end-wide: -60px; 
+  --animation-start: -200vw;
+  --animation-start-mid: -200vw;
+  --animation-start-wide: 200vw;
+  --animation-end: -12px;
+  --animation-end-mid: -30px;
+  --animation-end-wide: -60px;
 }
 
 @keyframes heroSwirlSlideMobileLeft {

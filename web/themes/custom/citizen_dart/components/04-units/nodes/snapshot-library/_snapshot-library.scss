@@ -130,7 +130,7 @@
   .field-link{
     a{
       display: inline-block;
-      @include linkArrow(navy);
+      @include linkArrow(navy, sm);
       &:before {
         top: -2px;
       }//end before

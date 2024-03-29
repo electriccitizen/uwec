@@ -6,11 +6,12 @@ dependencies:
     - field.storage.node.field_program_type
     - field.storage.node.field_campus
     - field.storage.node.field_college
+    - field.storage.node.field_degree_level
     - field.storage.node.field_degree_types
+    - field.storage.node.field_delivery_mode
     - field.storage.node.field_departments
     - field.storage.node.body
     - field.storage.node.field_example_careers
-    - field.storage.node.field_delivery_mode
     - field.storage.node.field_intro_text
     - field.storage.node.field_program_length
     - search_api.server.local
@@ -69,6 +70,14 @@ field_settings:
     dependencies:
       config:
         - field.storage.node.field_college
+  degree_level_filter:
+    label: 'Degree Level Filter'
+    datasource_id: 'entity:node'
+    property_path: field_degree_level
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_degree_level
   degree_types:
     label: 'Degree Types'
     datasource_id: 'entity:node'
@@ -215,6 +224,7 @@ processor_settings:
       - campus_filter
       - college
       - college_filter
+      - degree_level_filter
       - degree_types
       - degree_types_filter
       - delivery_mode
@@ -246,6 +256,7 @@ processor_settings:
       - campus_filter
       - college
       - college_filter
+      - degree_level_filter
       - degree_types
       - degree_types_filter
       - delivery_mode
@@ -311,6 +322,7 @@ processor_settings:
       - campus_filter
       - college
       - college_filter
+      - degree_level_filter
       - degree_types
       - degree_types_filter
       - delivery_mode
