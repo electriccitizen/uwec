@@ -65,6 +65,15 @@
   padding-bottom: $spaceXl;
   max-width: $largeTab;
   @include auto;
+  h2.featured-header{
+    padding-top: 20px;
+    margin-bottom: $spaceXs;
+    max-width: 426px;
+    @include auto;
+    @include tab{
+      max-width: $largeTab;
+    }
+  }
 	.view-content{
 		@include safeFlex(row,wrap,center,start);
     @include tab{
