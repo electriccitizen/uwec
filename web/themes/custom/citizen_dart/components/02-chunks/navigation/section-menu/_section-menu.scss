@@ -7,13 +7,12 @@
   @include edgeToEdge;
   @include menuStop{
     @include edgeReset;
-    position: fixed;
-    left: 10px;
-    // fallback in case top javascript fails
-    top: calc(100% - 60px);
+    position: absolute;
+    top: -200px !important;
+    left: -10px;
+    z-index: 20;
     width: $sideBar;
     opacity: 0;
-    z-index: 20;
     &.show-nav{
       @include animation('fadeInDelay 1s 1 forwards');
     }
@@ -52,7 +51,7 @@
       position: absolute;
       top: -200px !important;
       left: -10px;
-      width: 259px;
+      width: $sideBar;
       z-index: 20;
       .node-type-support-book &{
         position: static;
