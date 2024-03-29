@@ -42,7 +42,7 @@
 {% block fieldSingleNo %}
   <div class="user-actions">
 		<div class="edit-link">
-			<a href="/user/{{ element['#object'].uid.0.value }}/edit">Edit Profile</a>
+			<a href="/user/{{ element['#object'].uid.0.value }}/edit">Edit User</a>
 		</div>
 		<div class="logout-link">
 			<a href="/user/logout">Logout</a>
@@ -50,10 +50,10 @@
 	</div>
 
 	<div class="action-buttons">
-		<a href="/admin/content" class="ec-button">View Content</a>
-		<a href="/node/add" class="ec-button">+ Add Content</a>
-		<a href="{{ path('entity.node.canonical', {'node':'28'}) }}" class="ec-button">Support Book</a>
-    <a href="{{ path('entity.node.canonical', {'node':'78'}) }}" class="ec-button">Content Strategy Book</a>
+		<a href="/admin/content" class="ec-button view-admin-content">View Content</a>
+		<a href="/node/add" class="ec-button add-node-content">+ Add Content</a>
+		<a href="{{ path('entity.node.canonical', {'node':'28'}) }}" class="ec-button view-support-book">Support Book</a>
+    <a href="{{ path('entity.node.canonical', {'node':'78'}) }}" class="ec-button view-content-book">Content Strategy Book</a>
 	</div>
 {% endblock %}
          

@@ -1300,8 +1300,21 @@ display:
         fields: false
         filters: false
         filter_groups: false
+        header: false
         footer: false
       display_description: ''
+      header:
+        area_text_custom:
+          id: area_text_custom
+          table: views
+          field: area_text_custom
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: text_custom
+          empty: false
+          content: '<h2 class="featured-header">Featured Stories</h2>'
+          tokenize: false
       footer: {  }
       display_extenders: {  }
       displays:

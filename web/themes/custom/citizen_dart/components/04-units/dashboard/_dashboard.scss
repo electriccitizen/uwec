@@ -104,7 +104,12 @@
     .action-buttons{
       a{
         margin-right: 1rem;
+        &.add-node-content{
+          .role-editor &,.role-personnel &{
+            display: none;
+          }
+        }
       }
-    }
-  }
+    }//end action buttons
+  }//end uuid (action buttons
 }//end user dashboard

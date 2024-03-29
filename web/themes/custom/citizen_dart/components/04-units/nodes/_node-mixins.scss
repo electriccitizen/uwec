@@ -493,8 +493,8 @@
 @mixin heroSimpleBackground{
   position: absolute;
   top: 0;
-  left: -$siteMarginMobile;
-  width: calc(100vw + 40px);
+  left:0;
+  width: 100vw;
   z-index: 0;
   height: 140px;
   padding: 0 $siteMarginMobile;
@@ -509,7 +509,7 @@
     top: calc(100% - 1px);
     left: 0;
     height: 29vw;
-    width: calc(100vw + 40px);
+    width: 100vw;
     z-index: -1;
     background: $brightBlue;
     clip-path: polygon(0 0, 100% 0, 100% 100%);
