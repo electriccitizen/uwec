@@ -7,7 +7,7 @@ dependencies:
     - field.field.paragraph.highlight_box.field_link
     - paragraphs.paragraphs_type.highlight_box
   module:
-    - link
+    - linkit
 id: paragraph.highlight_box.default
 targetEntityType: paragraph
 bundle: highlight_box
@@ -22,12 +22,14 @@ content:
       placeholder: ''
     third_party_settings: {  }
   field_link:
-    type: link_default
+    type: linkit
     weight: 3
     region: content
     settings:
       placeholder_url: ''
       placeholder_title: ''
+      linkit_profile: default
+      linkit_auto_link_text: false
     third_party_settings: {  }
 hidden:
   created: true

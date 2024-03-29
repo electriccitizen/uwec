@@ -151,15 +151,13 @@
           }
         }
         span{
+          @include dottedLink($brightBlue);
           .views-block.block-related-stories &{
             @include dottedLink($white);
           }
         }
       }//end hover, focus
     }//end a
-    .views-block.block-related-stories &{
-
-    }
   }//end teaser-title
   .field.body{
     line-height: 1.5;
@@ -219,7 +217,7 @@
       margin-bottom: 0;
     }
     a{
-      @include blockArrow(brightBlue);
+      @include blockArrow(brightBlue, sm);
     }//end a
   }//end story title
   .field-intro-text{

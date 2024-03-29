@@ -161,7 +161,7 @@
     }//end left
     &.right{
       @include tab{
-        margin-left: 60px;
+        margin-left: 40px;
         .hallmark-image{
           right: auto;
           left: 0;
@@ -225,7 +225,7 @@
       @include tab{
         padding-top: 10px;
         padding-bottom: 0;
-        flex: 0 0 52%;
+        flex: 0 0 42%;
       }
       @include contentStopMargin{
         flex: 0 0 35%;

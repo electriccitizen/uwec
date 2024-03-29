@@ -20,20 +20,4 @@
  */
 #}
 
-{% extends 'field.html.twig' %}
-
-{% block fieldMultiNoItems %}
-	<div class="related-intro">
-		<h2>Related Programs</h2>
-		<p>Thinking about a degree in {{ element['#object'].label }}? You might also be interested in exploring these other, related degrees and programs. </p>
-	</div>
-  <div class="related-items">
-    {%- for item in items -%}
-      <div{{ item.attributes.addClass("related-item") }}>
-        {% block fieldMultiNo %}
-          {{- item.content -}}
-        {% endblock %}
-      </div>
-    {%- endfor -%}
-  </div>
-{% endblock %}
+{% extends 'field--node--field-links.html.twig' %}

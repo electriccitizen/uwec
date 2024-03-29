@@ -8,6 +8,8 @@ use Drupal\Core\Template\Attribute;
 use Drupal\taxonomy\Entity\Term;
 use Drupal\image\Entity\ImageStyle;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Url;
+use Drupal\Core\Link;
 
 /**
  * Implements hook_preprocess_html().
@@ -22,26 +24,26 @@ function citizen_dart_preprocess_html(&$variables) {
     if ((!$node instanceof NodeInterface) && (isset($vid))) {
       $node = \Drupal::entityTypeManager()->getStorage('node')->loadRevision($vid);
     }
-  	//set published or unpublished
+    //set published or unpublished
     if($node->status[0]->value == '1'){
       $variables['attributes']['class'][] = 'published';
     } else {
       $variables['attributes']['class'][] = 'unpublished';
     }
     //check for hide breadcrumbs/nav
-    if (isset($node->field_hide_nav[0]->value)){ 
+    if (isset($node->field_hide_nav[0]->value)){
       if ($node->field_hide_nav[0]->value == '1') {
         $variables['attributes']['class'][] = 'hide-nav';
       }
     }
     //add global hero class
     if (($node->field_hero) && ($node->field_hero[0])) {
-    	$variables['attributes']['class'][] = 'hero-' . $node->field_hero[0]->entity->field_hero_type[0]->value;
+      $variables['attributes']['class'][] = 'hero-' . $node->field_hero[0]->entity->field_hero_type[0]->value;
       if(($node->field_hero[0]->entity->field_hero_type[0]->value == 'pattern') && ($node->field_hero[0]->entity->field_links[0])){
         $variables['attributes']['class'][] = 'hero-pattern-links';
       }
     }else{
-    	$variables['attributes']['class'][] = 'hero-none';
+      $variables['attributes']['class'][] = 'hero-none';
     }
     if ($node->getType() == 'department'){
       $variables['attributes']['class'][] = 'hero-pattern';
@@ -219,18 +221,56 @@ function citizen_dart_preprocess_field__node__field_hours(&$variables) {
   $variables['unique_id'] = uniqid();
 }
 
-//find node title for custom breadcrumbs
+/**
+ * Implements template_preprocess_breadcrumb().
+ */
 function citizen_dart_preprocess_breadcrumb(&$variables) {
   $node = \Drupal::routeMatch()->getParameter('node');
   $node_revision = \Drupal::routeMatch()->getParameter('node_revision');
-  if($node_revision){
-  	$vid = $node_revision->getRevisionId();
-	}
+
+  // Find node title for custom breadcrumbs.
+  if ($node_revision) {
+    $vid = $node_revision->getRevisionId();
+  }
   if ($node) {
     if ((!$node instanceof NodeInterface) && (isset($vid))) {
       $node = \Drupal::entityTypeManager()->getStorage('node')->loadRevision($vid);
     }
     $variables['currentNode'] = $node;
+
+    // Node type-specific updates.
+    switch ($node->getType()) {
+      case 'academic_program':
+        // Program crumbs should be to Home > Academics >
+        // Programs [Majors & Minors node] > [Degree Level field] > [Program].
+        // They should have Home > Academics by default, so we build on top of
+        // that base.
+        $majors_minors_node_id = 1886;
+
+        // Create the "Programs" link, directly to the Majors & Minors node.
+        $major_minor_url = Url::fromRoute('entity.node.canonical', ['node' => $majors_minors_node_id]);
+        $variables['links'][] = Link::fromTextAndUrl(t('Programs'), $major_minor_url);
+
+        // Create the Degree Level link, directly to a search entry on M&Ms.
+        $degree_level = $node->get('field_degree_level')->first()->value;
+        $degree_level_options = options_allowed_values($node->get('field_degree_level')->getFieldDefinition()->getFieldStorageDefinition(), $node);
+        $degree_level_label = isset($degree_level_options[$degree_level]) ? $degree_level_options[$degree_level] : $degree_level;
+
+        // Link directly to a search and the section with results.
+        $degree_level_url = Url::fromRoute('entity.node.canonical', [
+          'node' => $majors_minors_node_id,
+          'degree_level_filter' => $degree_level,
+        ], ['fragment' => 'node-section-2']);
+        $variables['links'][] = Link::fromTextAndUrl($degree_level_label, $degree_level_url);
+
+        break;
+    }
+  }
+
+  // Process every link to form the end result.
+  // @see theme.inc:template_preprocess_breadcrumb().
+  foreach ($variables['links'] as $key => $link) {
+    $variables['breadcrumb'][$key] = ['text' => $link->getText(), 'url' => $link->getUrl()->toString()];
   }
 }
 
@@ -296,8 +336,8 @@ function citizen_dart_theme_suggestions_breadcrumb_alter(array &$suggestions, ar
   $node = \Drupal::routeMatch()->getParameter('node');
   $node_revision = \Drupal::routeMatch()->getParameter('node_revision');
   if($node_revision){
-  	$vid = $node_revision->getRevisionId();
-	}
+    $vid = $node_revision->getRevisionId();
+  }
   if ((!$node instanceof NodeInterface) && (isset($vid))) {
     $node = \Drupal::entityTypeManager()->getStorage('node')->loadRevision($vid);
   }

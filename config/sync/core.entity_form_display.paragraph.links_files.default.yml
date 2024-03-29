@@ -8,7 +8,7 @@ dependencies:
     - field.field.paragraph.links_files.field_widget_title
     - paragraphs.paragraphs_type.links_files
   module:
-    - link
+    - linkit
     - media_library
 _core:
   default_config_hash: hnoxV6WthMg5DMR4QAFHor5DwwcTcNsNuOyVuW8q7X8
@@ -25,12 +25,14 @@ content:
       media_types: {  }
     third_party_settings: {  }
   field_link_multi:
-    type: link_default
+    type: linkit
     weight: 2
     region: content
     settings:
       placeholder_url: ''
       placeholder_title: ''
+      linkit_profile: default
+      linkit_auto_link_text: false
     third_party_settings: {  }
   field_widget_title:
     type: string_textfield

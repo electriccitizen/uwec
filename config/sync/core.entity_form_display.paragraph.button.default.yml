@@ -6,19 +6,21 @@ dependencies:
     - field.field.paragraph.button.field_link
     - paragraphs.paragraphs_type.button
   module:
-    - link
+    - linkit
 id: paragraph.button.default
 targetEntityType: paragraph
 bundle: button
 mode: default
 content:
   field_link:
-    type: link_default
+    type: linkit
     weight: 3
     region: content
     settings:
       placeholder_url: ''
       placeholder_title: ''
+      linkit_profile: default
+      linkit_auto_link_text: false
     third_party_settings: {  }
 hidden:
   created: true

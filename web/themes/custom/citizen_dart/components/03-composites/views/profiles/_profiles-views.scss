@@ -75,10 +75,11 @@
       text-align: center;
     }
 		a{
+      @include auto;
 			@include linkArrow(navyLight);
       display: inline-block;
-      max-width: $textMax;
-      @include auto;
+      max-width: $smallTab;
+      text-align: left;
 		}//end a
 	}//end more link
 }//end department faculty

@@ -37,10 +37,10 @@
       {{ element.type }}
     </div>
   {% endif %}
-  {% if element.field_page_families_target_id %}
-    <div class="views-exposed-filter custom-views-filter filter-content-page-families">
-      <label for="edit-field-page-families-target-id" class="form-item__label">Page Family</label>
-      {{ element.field_page_families_target_id }}
+  {% if element.field_page_family_target_id %}
+    <div class="views-exposed-filter custom-views-filter filter-content-page-family">
+      <label for="edit-field-page-family-target-id" class="form-item__label">General Page Family</label>
+      {{ element.field_page_family_target_id }}
     </div>
   {% endif %}
   {{ element.status }}
@@ -52,6 +52,12 @@
       </svg></span></a>
     <div class="advanced-filters-wrapper">
       <div class="advanced-filters-inner">
+        {% if element.field_page_families_target_id %}
+          <div class="views-exposed-filter custom-views-filter filter-content-page-families">
+            <label for="edit-field-page-families-target-id" class="form-item__label">Library/Profile Page Family</label>
+            {{ element.field_page_families_target_id }}
+          </div>
+        {% endif %}
         {% if element.field_placement_tags_target_id %}
           <div class="views-exposed-filter custom-views-filter filter-content-placement-tags">
             <label for="edit-field-placement-tags-target-id" class="form-item__label">Placement Tag</label>

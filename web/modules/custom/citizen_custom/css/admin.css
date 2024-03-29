@@ -268,7 +268,9 @@ button[disabled]:hover,button.disabled:hover{
 	display: none;
 }
 
-body:not(.role-super-user):not(.role-administrator):not(.role-site_admin) .field--name-field-primary-editor{
+body:not(.role-super-user):not(.role-administrator):not(.role-site_admin) .field--name-field-primary-editor,
+body:not(.role-super-user):not(.role-administrator):not(.role-site_admin) .node-page-edit-form .field--name-field-page-family,
+body:not(.role-super-user):not(.role-administrator):not(.role-site_admin) .node-page-form .field--name-field-page-family{
 	display: none;
 }
 

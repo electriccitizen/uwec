@@ -8,7 +8,7 @@ dependencies:
     - field.field.paragraph.select_item.field_link
     - paragraphs.paragraphs_type.select_item
   module:
-    - link
+    - linkit
 id: paragraph.select_item.default
 targetEntityType: paragraph
 bundle: select_item
@@ -31,12 +31,14 @@ content:
       placeholder: ''
     third_party_settings: {  }
   field_link:
-    type: link_default
+    type: linkit
     weight: 3
     region: content
     settings:
       placeholder_url: ''
       placeholder_title: ''
+      linkit_profile: default
+      linkit_auto_link_text: false
     third_party_settings: {  }
 hidden:
   created: true
