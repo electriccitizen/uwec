@@ -15,9 +15,9 @@
 
 @mixin paragraphSnug{
   .field-paragraphs:not(.has-body-content) .layout-section:first-child .layout__region:first-child .paragraph--type--view-placer:first-child &{
-    margin-top: -200px;
+    margin-top: -190px;
     @include desk{
-      margin-top: -300px;
+      margin-top: -290px;
       .logged-in &{
         margin-top: -234px;
       }
