@@ -12,7 +12,7 @@ id: node.page.field_formatted_title
 field_name: field_formatted_title
 entity_type: node
 bundle: page
-label: 'Formatted Title'
+label: 'Page Title'
 description: ''
 required: true
 translatable: false
