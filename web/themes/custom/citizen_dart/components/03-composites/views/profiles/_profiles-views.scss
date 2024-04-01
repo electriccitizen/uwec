@@ -8,28 +8,54 @@
 /* DIRECTORY
 --------------- */
 .profile-search.directory{
+  @include paragraphSnug;
 	.views-exposed-form{
 		@include exposedForm;
+    @include edgeToEdge;
+    @include tab{
+      @include auto;
+    }
+    .form-item-profiles-fulltext{
+      @include tab{
+        width: 100%;
+        max-width: 100%;
+      }
+      label{
+        @include visuallyHidden;
+      }
+    }
 		.form-item-title,.form-item-title-1{
 			display: none;
 		}
-	}
+    .form-actions{
+      margin-left: 0;
+    }
+	}//end exposed form
 	.view-content{
 		@include bleed(padding,20px);
+    justify-content: center;
+    @include smallTab{
+      justify-content: flex-start;
+    }
 	}
 	.views-row{
+    max-width: 335px;
 		@include smallTab{
 			width: 50%;
 		}
 		@include tab{
-			width: 25%;
+			width: 33.3%;
 		}
+    @include desk{
+      width: 25%;
+    }
 	}
 }//end directory
 
 /* FACULTY VIEWS
 ------------- */
 .department-faculty{
+  position: relative;
   .view-wrapper{
     @include profileSlider;
     padding-bottom: 40px;
@@ -49,29 +75,11 @@
       text-align: center;
     }
 		a{
-			@include arrowLinkBefore($navy);
-      display: inline-block;
-      max-width: $textMax;
       @include auto;
-      &:before{
-        content: '';
-        display: block;
-        position: absolute;
-        top: -10px;
-        left: 0;
-        width: 40px;
-        height: 40px;
-        @include rightArrow(navy,transparent,$navy,lg);
-      }
-      &:hover,&:focus{
-        &:before{
-          @include rightArrow(navy,white,$white,lg);
-        }
-        span{
-          @include dottedLink($navy);
-          padding-bottom: 2px;
-        }
-      }
+			@include linkArrow(navyLight);
+      display: inline-block;
+      max-width: $smallTab;
+      text-align: left;
 		}//end a
 	}//end more link
 }//end department faculty

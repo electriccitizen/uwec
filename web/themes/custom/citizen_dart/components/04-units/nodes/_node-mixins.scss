@@ -1,8 +1,80 @@
 /* ===============
-   NODES 
+   NODES
 =================== */
 
 @use '../../00-base/base' as *;
+
+/* SWIRL ANIMATION VARIABLES */
+.hero-pattern,.node-type-college{
+  --animation-start: 200vw;
+  --animation-start-mid: 200vw;
+  --animation-start-wide: -200vw;
+  --animation-end: 73vw;
+  --animation-end-mid: 77vw;
+  --animation-end-wide: -104px;
+}
+.node-type-college.hero-has-image,.node-type-academic-program{
+  --animation-start: -200vw;
+  --animation-start-mid: -200vw;
+  --animation-start-wide: 200vw;
+  --animation-end: -12px;
+  --animation-end-mid: -30px;
+  --animation-end-wide: -60px;
+}
+
+@keyframes heroSwirlSlideMobileLeft {
+  from {
+    left: var(--animation-start);
+  }
+  to {
+    left: var(--animation-end);
+  }
+}
+
+@keyframes heroSwirlSlideMidLeft {
+  from {
+    left: var(--animation-start-mid);
+  }
+  to {
+    left: var(--animation-end-mid);
+  }
+}
+
+@keyframes heroSwirlSlideWideLeft {
+  from {
+    left: var(--animation-start-wide);
+  }
+  to {
+    left: var(--animation-end-wide);
+  }
+}
+
+@keyframes heroSwirlSlideMobileRight {
+  from {
+    right: var(--animation-start);
+  }
+  to {
+    right: var(--animation-end);
+  }
+}
+
+@keyframes heroSwirlSlideMidRight {
+  from {
+    right: var(--animation-start-mid);
+  }
+  to {
+    right: var(--animation-end-mid);
+  }
+}
+
+@keyframes heroSwirlSlideWideRight {
+  from {
+    right: var(--animation-start-wide);
+  }
+  to {
+    right: var(--animation-end-wide);
+  }
+}
 
 @mixin sectionLimit{
 	max-width: $contentStop;
@@ -196,28 +268,234 @@
 		position: relative;
 	}
 }
-@mixin heroImageRight {
-	.page-header-text {
-		@include desk{
-			width: 50%;
-		}
-	}
-	.image-right{
-		position: relative;
-		z-index: 10;
-		@include desk{
-			width: 50%;
-			order: 2;
-		}
-	} 
-}
+
+@mixin heroRightImage{
+  @include edgeToEdge;
+  position: relative;
+  min-height: calc(82vh - 88px);
+  @include height100;
+  @include onlyMobile{
+    background: $brightBlue;
+    margin-bottom: 29vw;
+    &:before{
+      @include blueTriangle;
+      z-index: 0;
+    }
+  }
+  @include desk{
+    padding-bottom: 1px;
+  }
+  .image-right{
+    max-width: 520px;
+    @include auto;
+    position: relative;
+    z-index: 1;
+    @include desk{
+      position: absolute;
+      top: 6px;
+      right: 0;
+      width: 50%;
+      z-index: 2;
+      max-width: 720px;
+      margin: 0;
+      img{
+        object-fit: cover;
+        @include height100;
+      }
+    }//end desk
+    @include contentStop{
+      right: calc(50% - 720px);
+    }
+    &:after{
+      @include goldSwirl;
+      width: 189px;
+      height: 351px;
+      bottom: -66px;
+      left: auto;
+      animation: heroSwirlSlideMobileRight 1.5s forwards;
+      z-index: -1;
+      @include smallTab{
+        animation: heroSwirlSlideMidRight 1.5s forwards;
+      }
+      @include desk{
+        right: auto;
+        animation: heroSwirlSlideWideLeft 1.5s forwards;
+        bottom: -125px;
+      }
+      @include contentStop{
+        bottom: -146px;
+      }
+    }//end after swirl
+  }//end image right
+
+  .swirl-pattern{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+  }
+
+  .page-header-text{
+    position: relative;
+    z-index: 1;
+    margin-bottom: 29vw;
+    max-width: 690px;
+    @include auto;
+    @include desk{
+      max-width: 100%;
+      position: relative;
+      background: $brightBlue;
+      &:after{
+        @include blueTriangle;
+      }
+    }
+    .page-header-text-inner{
+      color: $white;
+      padding: 58px 20px 0;
+      max-width: 1092px;
+      @include auto;
+      body:not(.hero-has-image) &{
+        & > *:not(.block-system-breadcrumb-block){
+          max-width: 650px;
+          @include auto;
+        }
+      }
+      @include desk{
+        padding-top: 0;
+        & > *{
+          max-width: calc(50% - 80px);
+          body:not(.hero-has-image) &{
+            max-width: 100%;
+          }
+        }
+      }
+      h1,h2,h3,h4,h5,h6,li,a{
+        color: $white;
+      }
+      .block-system-breadcrumb-block{
+        @include onlyMobile{
+          display: none;
+        }
+        .breadcrumb{
+          max-width: 1096px;
+          padding-top: 62px;
+          margin-bottom: 40px;
+          @include menuStop{
+            margin-bottom: 80px;
+          }
+          a{
+            &:hover,&:focus{
+              @include dottedLink($white);
+            }
+          }
+        }//end breadcrumb
+      }//end breadcrumb block
+      .field.title{
+        margin-bottom: 30px;
+      }
+      .field-subtitle{
+        margin-bottom: 20px;
+        padding-left: 20px;
+        padding-right: 20px;
+        @include desk{
+          padding-left: 0;
+          padding-right: 0;
+        }
+      }
+      .field-intro{
+        padding-left: 20px;
+        padding-right: 20px;
+        @include desk{
+          padding-left: 0;
+          padding-right: 0;
+        }
+      }
+    }//end page header text inner
+  }//end page header text
+  body:not(.hero-has-image) &{
+    &:after{
+      @include goldSwirl;
+      max-height: 100%;
+      bottom: -57px;
+      @include desk{
+        z-index: 1;
+      }
+      @media screen and (min-width: 1600px){
+        bottom: auto;
+        top: 60px;
+      }
+    }//end after swirl
+  }
+}//end hero image right
+
+@mixin patternHero{
+  padding-top: 40px;
+  background: $royal;
+  @include edgeToEdge;
+  padding-left: $siteMarginMobile;
+  padding-right: $siteMarginMobile;
+  color: $white;
+  //set min heights for main section
+  min-height: calc(100vh - 88px);
+  @include desk{
+    min-height: calc(100vh - 100px);
+  }
+  @include menuStop{
+    min-height: calc(100vh - 110px);
+  }
+  .logged-in &{
+    min-height: calc(100vh - 137px);
+    @media screen and (min-width: 976px){
+      min-height: calc(100vh - 216px);
+    }
+    @include menuStop{
+      min-height: calc(100vh - 226px);
+    }
+  }//end logged in min heights
+  .hero-pattern:not(.hero-pattern-links) &{
+    @include menuStop{
+      padding-bottom: 150px;
+    }
+    @media screen and (min-width: 1600px){
+      padding-bottom: 10vw;
+    }
+    @media screen and (min-width: 1800px){
+      padding-bottom: 12vw;
+    }
+  }
+  h1,h2,h3,h4,h5,h6,li,a{
+    color: $white;
+  }
+  //specific link colors
+  .breadcrumb{
+    max-width: 1096px;
+    a{
+      &:hover,&:focus{
+        @include dottedLink($white);
+      }
+    }
+  }//end breadcrumb
+  .field-college a{
+    padding-bottom: 1px;
+    @include dottedLink($white);
+    &:hover,&:focus{
+      color: $transWhite;
+      background-image: none;
+    }
+  }
+  .field-links a{
+    display: inline-block;
+    @include linkArrow(white, sm, "span");
+    min-height: 32px;
+  }//end links field a
+}//end patternHero
 
 @mixin heroSimpleBackground{
   position: absolute;
   top: 0;
-  left: -$siteMarginMobile;
-  width: calc(100vw + 40px);
-  z-index: -1;
+  left:0;
+  width: 100vw;
+  z-index: 0;
   height: 140px;
   padding: 0 $siteMarginMobile;
   background: $brightBlue;
@@ -237,6 +515,29 @@
     clip-path: polygon(0 0, 100% 0, 100% 100%);
   }
 }
+
+@mixin heroBlue{
+  position: relative;
+  &:before{
+    @include fullBack($brightBlue);
+    top: auto;
+    bottom: 0;
+    height: 1000px;
+    z-index: -1;
+  }//end before
+  &:after{
+    content: '';
+    display: block;
+    position: absolute;
+    top: calc(100% - 1px);
+    left: -$siteMarginMobile;
+    height: 29vw;
+    width: 100vw;
+    z-index: -1;
+    background: $brightBlue;
+    clip-path: polygon(0 0, 100% 0, 0 100%);
+  }
+}//end hero bright blue
 
 @mixin heroText {
 	position: relative;
@@ -292,7 +593,7 @@
     }
   }
   .field-name,.teaser-title{
-    font-family: $displayHeader;
+    font-weight: $displayHeader;
     font-size: 3.25rem;
     line-height: 1.23;
     padding-right: 20px;
@@ -303,12 +604,14 @@
       &:hover,&:focus{
         color: $royal;
         background-image: none;
+        .profile-search.directory &{
+          color: $brightBlue;
+        }
       }
     }
   }//end name
   .field-departments{
-    font-family: $header;
-    font-weight: $xHeavy;
+    font-weight: $heavy;
     padding-right: 20px;
     & > div{
       display: inline-block;
@@ -363,3 +666,72 @@
 		}
 	}
 }//end profileTeaser
+
+@mixin goldSwirl{
+  @include animation('fadeInDelay 1s 1');
+  content: '';
+  position: absolute;
+  bottom: -83px;
+  animation: heroSwirlSlideMobileLeft 1.5s forwards;
+  z-index: 0;
+  width: 308px;
+  height: 572px;
+  background-image: url(../images/elements/swirl-vertical-gold.svg);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  @include desk{
+    animation: heroSwirlSlideMidLeft 1.5s forwards;
+    width: 380px;
+    height: 706px;
+  }
+  @include contentStop{
+    left: auto;
+    animation: heroSwirlSlideWideRight 1.5s forwards;
+    width: 452px;
+    height: 839px;
+    bottom: -95px;
+  }
+}//end gold swirl
+
+@mixin royalSwirl{
+  @include animation('fadeInDelay 1s 1');
+  content: '';
+  position: absolute;
+  top: 212px;
+  left: 77vw;
+  z-index: 0;
+  width: 308px;
+  height: 572px;
+  background-image: url(../images/elements/swirl-vertical-wide-royal.svg);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  @include desk{
+    left: 77vw;
+    width: 380px;
+    height: 706px;
+  }
+  @include contentStop{
+    left: auto;
+    right: -104px;
+    width: 452px;
+    height: 839px;
+    bottom: -95px;
+  }
+}//end royal swirl
+
+@mixin stripesRoyalNarrow{
+  position: relative;
+  &:before{
+    @include animation('fadeInDelay 1s 1');
+    content: url(../images/elements/stripes-narrow-royal.svg);
+    position: absolute;
+    top: calc(100% - 22px);
+    left: -23px;
+    z-index: -1;
+    width: 263px;
+    height: 171px;
+    @include tab{
+      left: -43px;
+    }
+  }
+}

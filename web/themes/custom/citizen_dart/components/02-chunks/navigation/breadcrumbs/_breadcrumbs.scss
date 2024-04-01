@@ -12,12 +12,7 @@
 	}
 
 	li{
-		display: inline-block;
-		color: $white;
-		font-family: $bodyText;
-		font-size: 1.5rem;
-		letter-spacing: 1px;
-		text-transform: uppercase;
+    @include tag;
 		&:not(:last-of-type){
 			padding-right: .25rem;
 			&:after{
@@ -31,11 +26,8 @@
 			}
 		}
 		a{
-			color: $breadLink;
-			font-family: $bodyText;
-			font-size: 1.5rem;
-			letter-spacing: 1px;
-			text-transform: uppercase;
+			@include tag;
+      padding-bottom: 3px; // So the hover underline doesn't shift everything.
 			&:hover,&:focus{
 				color: $breadLinkHover;
         padding-bottom: 2px;
@@ -44,4 +36,4 @@
 		}
 	}
 
-}//end breadcrumb 
+}//end breadcrumb

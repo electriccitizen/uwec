@@ -4,6 +4,11 @@
 
 @use '../../../00-base/base' as *;
 
+section.alert-wrapper{
+  position: relative;
+  z-index: 2;
+}
+
 .site-header {
 	body:not(.hero-full_image):not(.node-type-news):not(.hero-video):not(.node-type-bios) &{
 		background: $headerBack;
@@ -19,10 +24,10 @@
 		}
 	}
 	& > div{
-		max-width: $contentStop;
+		max-width: $contentStopMargin;
 		@include auto;
 		position: relative;
-		@include safeFlex(row,wrap,null,center);
+		@include safeFlex(row,wrap,justify,center);
     @include menuStop{
       padding-bottom: 10px;
     }
@@ -41,7 +46,7 @@
 	//leave room for search toogle and menu hamburger on mobile
 	width: calc(100% - 70px);
 	position: relative;
-	z-index: 10;
+	z-index: 13;
 	@include desk{
 		width: 151px;
 	}
@@ -67,7 +72,7 @@
 	position: absolute !important;
 	top: -5px;
 	right: 1rem;
-	z-index: 2;
+	z-index: 22;
 	@include menuStop{
 		display: block;
 	}
@@ -83,7 +88,7 @@
 		position: absolute !important;
 		right: 60px;
 		top: 0;
-		z-index: 1;
+		z-index: 16;
 		width: calc(100% - 300px);
 	}//end desk
 }
@@ -91,13 +96,16 @@
 /* MAIN NAVIGATION BLOCK
 ------------------------ */
 .block-superfishmain{
+  &.contextual-region{
+    position: static; 
+  }
   #superfish-main-toggle{
     position: absolute;
     height: 40px;
     width: 40px;
     top: -8px;
     right: 0;
-    z-index: 9;
+    z-index: 12;
   }
 	//desktop position
 	@include menuStop{
@@ -105,10 +113,9 @@
 		right: 0;
     top: auto;
 		bottom: -20px;
-		z-index: 1;
+		z-index: 12;
 		width: 100%;
 		padding-left: 0;
 		padding-right: 40px;
 	}//end desk
 }//end main nav
-

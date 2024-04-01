@@ -2,66 +2,129 @@
 	 SECTION MENU
 ===================== */
 @use '../../../00-base/base' as *;
-#block-section-menu,#block-section-menu-deparment{
-	width: 300px;
-	//move menu up into top page fold on general pages when not in layout builder
-	&:not(.js-layout-builder-block){
-		.node-type-page &{
-			position: relative;
-      z-index: 1;
-      top: -106px;
-		}
-	}
-	// body:not(.logged-in) &{
-	// 	transform-origin: 0;
-	// 	transform: translateZ(2px) scale(0.75);
-	// }
-	.hide-nav &{
+#block-section-menu{
+  margin-bottom: 0;
+  @include edgeToEdge;
+  @include menuStop{
+    @include edgeReset;
+    position: absolute;
+    top: -200px !important;
+    left: -10px;
+    z-index: 20;
+    width: $sideBar;
+    opacity: 0;
+    &.show-nav{
+      @include animation('fadeInDelay 1s 1 forwards');
+    }
+    .logged-in &{
+      left: 70px;
+    }
+    .layout-builder__layout &{
+      position: relative !important;
+      left: 0 !important;
+      opacity: 1;
+    }
+    .node-type-support-book &{
+      position: static;
+    }
+  }
+  @media screen and (min-width: 1480px){
+    left: calc(50% - 730px);
+  }
+  .hide-nav &{
 		display: none;
 	}
-	@include onlyMobile{
-		margin-bottom: $spaceLg;
-	}
+  &.post-intro{
+    @include mobileMenu{
+      @include edgeReset;
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      z-index: 9999;
+      max-height: 100vw;
+      width: 100%;
+      //override potential interference from desktop position
+      top: auto !important;
+      z-index: 20;
+    }
+    @include menuStop{
+      position: absolute;
+      top: -200px !important;
+      left: -10px;
+      width: $sideBar;
+      z-index: 20;
+      .node-type-support-book &{
+        position: static;
+      }
+    }
+    .logged-in &{
+      @include desk{
+        left: 60px;
+        width: calc(100% - 60px);
+      }
+      @include menuStop{
+        left: -15px;
+        width: 259px;
+      }
+    }
+  }//end is fixed
 	h2.block-title{
+    padding: 10px 10px 10px 30px;
 		position: relative;
-		display: block;
-		padding: 2.5rem $siteMarginMobile 0;
+		display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
 		background: $menuBlockTitleBack;
 		color: $menuBlockTitle;
 		max-width: none;
 		margin-bottom: 0;
 		text-align: left;
-		font-size: 16px;
-		line-height: 1.5;
-		letter-spacing: 0.8px;
-		@include onlyMobile{
-			padding: 2rem 2.5rem;
-			@include edgeToEdge;
-		}
+    @include menuStop{
+      background: $ice;
+      padding: 10px;
+    }
 		a{
 			color: $menuBlockTitle;
-			&:hover,&:focus{
-				color: $menuBlockTitleHover;
-			}
+      &:not(.section-menu-toggle){
+        font-size: 16px;
+        line-height: 1.5;
+        letter-spacing: .05em;
+        max-width: calc(100% - 112px);
+        width: 100%;
+        @include menuStop{
+          max-width: 100%;
+          color: $brightBlue;
+          padding: 10px;
+          &:hover,&:focus{
+            background: $white;
+          }
+        }
+      }//end not section menu
 			&.section-menu-toggle{
-				display: inline-block;
-				vertical-align: middle;
-				text-align: center;
-				width: 60px;
-				span{
-					display: none;
-				}
-				&:before{
-					@include materialIcon(\e5d2);
-					display: inline-block;
-					top: 0;
-					right: 0;
-					color: $hamburger;
-					line-height: 28px;
-				}
-				@include desk{
+        @include menuStop{
 					pointer-events: none;
 					display: none;
+				}
+				span{
+          font-family: $bodyText;
+          font-weight: $regular;
+          font-size: 14px;
+          text-transform: none;
+          letter-spacing: 0;
+          text-indent: -9000px;
+          display: block;
+          width: 52px;
+          height: 40px;
+          background-image: url(../images/elements/caret-down-mobile-main-nav.svg);
+          background-repeat: no-repeat;
+          background-position: center;
+          @include rotate(180);
+          &.expanded{
+            @include rotate(0);
+            transition: transform .3s ease-in-out;
+          }
 				}
 			}//end section menu toggle
 		}//end a
@@ -73,84 +136,56 @@
 #section-menu-wrapper{
 	display: none;
 	background: $menuBack;
-	padding: $spaceSm $spaceXxs $spaceMd;
-	border-bottom: 2px solid $menuBlockTitleBack;
-	@include onlyMobile{
-		padding-left: $siteMarginMobile;
-		padding-right: $siteMarginMobile;
-		@include edgeToEdge;
-	}
-	@include desk{
+	padding: 0 15px 100px;
+  overflow-y: scroll;
+	@include menuStop{
 		display: block !important;
+    padding: 0 10px 20px;
+    margin-bottom: $spaceLg;
+    .layout-builder__layout &{
+      display: none !important;
+    }
 	}
 	& > ul:not(.contextual-links){
 		@include listReset;
-		//max-width: 300px;
 		@include auto;
-
-		//child menus
-		ul:not(.contextual-links){
-			margin: .5rem 0;
-			display: none;
-			padding-left: 2.5rem;
-			&.expanded{
-				display: block;
-			}
-		}
+    ul{
+      @include listReset;
+      display: none;
+    }
 		//global menu items
 		li{
 			list-style: none;
 			position: relative;
+      &:not(:last-child){
+        border-bottom: 1px solid rgba($brightBlue,.12);
+      }
 			//active link
 			a{
 				text-decoration: none;
 				display: block;
 				color: $menuTop;
-				padding: .5rem 2.5rem .5rem 5.5rem;
-				&:hover,&:focus{
-					color: $menuTopHover;
-				}
+				padding: 12px 15px;
+        line-height: 1.5;
+        @include menuStop{
+          padding: 12px 10px;
+          &:hover,&:focus{
+            color: $menuTopHover;
+            background: $white;
+          }
+        }
 				&.is-active{
-					color: $menuTopActive;
 					background: $siteBack;
-					pointer-events: none;
+          + ul{
+            display: block;
+          }
 				}
 			}//end a
-			//parents
-			&.parent{
-				& > .expander{
-					position: absolute;
-					top: 0;
-					left: 0;
-					font-size: 3rem;
-					line-height: 36px;
-					width: 3.75rem;
-					height: 38px;
-					text-align: center;
-					padding: 0;
-					z-index: 1;
-					&:before{
-						content: "+";
-					}
-				}
-				&.expanded{
-					& > .expander{
-						&:before{
-							content: "–";
-						}
-					}
-				}//end when expanded
-			}//end parent
+      //child menu items
 			li{
-				padding: .5rem 0;
+        border-bottom: 0;
 				a{
-					color: $menuChild;
-					&:hover,&:focus{
-						color: $menuChildHover;
-					}
-					&.is-active{
-						color: $menuChildActive;
-					}
+          padding-left: 25px;
 				}//end a
 			}//end child items
 		}//end global li

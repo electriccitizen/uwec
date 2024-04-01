@@ -8,7 +8,7 @@ dependencies:
     - field.field.block_content.formatted_promo.field_formatted_headline
     - field.field.block_content.formatted_promo.field_link
   module:
-    - link
+    - linkit
     - text
 id: block_content.formatted_promo.default
 targetEntityType: block_content
@@ -34,12 +34,14 @@ content:
       placeholder: ''
     third_party_settings: {  }
   field_link:
-    type: link_default
+    type: linkit
     weight: 3
     region: content
     settings:
       placeholder_url: ''
       placeholder_title: ''
+      linkit_profile: default
+      linkit_auto_link_text: false
     third_party_settings: {  }
   info:
     type: string_textfield

@@ -46,6 +46,7 @@ source:
   urls: 'https://athena.apps.uwec.edu/api/stories.json'
   constants:
     unit_id: 35
+    systemid: 1
     isactive: 1
   fields:
     - name: id
@@ -54,6 +55,9 @@ source:
     - name: image_id
       label: 'Image ID'
       selector: image_id
+    - name: video_id
+      label: 'Video ID'
+      selector: video_id
     - name: title
       label: 'Title'
       selector: title
@@ -66,6 +70,9 @@ source:
     - name: featuredheadline
       label: 'Featured Headline'
       selector: featuredheadline
+    - name: cutline
+      label: 'Cutline'
+      selector: cutline
     - name: pub_date
       label: 'Publication Date'
       selector: pub_date
@@ -88,6 +95,14 @@ source:
 
 # Add processing for fields specific to this content type.
 process:
+  # image cutline
+  # videos_id: goes to remote video paragraph -done
+  # intro paragraph should not be required (temporarily)
+  # Some images are too large for editing the focal point
+  # bullet points -done
+  field_editorial_sections:
+    plugin: default_value
+    default_value: 28
   'field_image/target_id':
     plugin: migration_lookup
     migration: media_img
@@ -105,82 +120,86 @@ process:
     source: pub_date
     from_format: 'Y-m-d H:i:s'
     to_format: 'U'
-#  changed:
-#    plugin: format_date
-#    source: updated_at
-#    from_format: 'Y-m-d H:i:s'
-#    to_format: 'U'
   'field_intro_text/summary': excerpt
+  field_meta_description: excerpt
   'field_intro_text/value':
     plugin: default_value
     default_value: ''
   'field_intro_text/format':
     plugin: default_value
     default_value: limited_html
-  images:
-    - plugin: dom
-      method: import
-      source: article
+  video:
+    -
+      plugin: skip_on_value
+      value: 0
+      source: video_id
+      method: process
     -
       plugin: cm_content_logger
       log_data: false
-      tag: figure
-  text:
-    - plugin: dom
-      method: import
-      source: article
+      field: video
+  cutline:
     -
-      plugin: dom_remove
-      selector: //figure
-    -
-      plugin: dom_remove
-      mode: attribute
-      selector: //*[@class]
-      attribute: class
-    -
-      plugin: dom_remove
-      mode: attribute
-      selector: //*[@style]
-      attribute: style
+      plugin: skip_on_empty
+      source: cutline
+      method: process
     -
       plugin: cm_content_logger
       log_data: false
-      tag: p
+      field: cutline
   paragraphs:
-    plugin: cm_array_merge
-    source:
-      - '@images'
-      - '@text'
+    -
+      plugin: dom
+      method: import
+      source: article
+    -
+      plugin: cm_content_logger
+      log_data: false
+      tags:
+        - h2
+        - h3
+        - h4
+        - p
+        - ul
+        - ol
+        - figure
   field_paragraphs:
-    plugin: sub_process
-    source: '@paragraphs'
-    process:
-      new_id:
-        -
-          plugin: migration_lookup
-          migration:
-            - stories_images
-            - stories_text
-          source:
-            - legacy_id
-            - index
-            - tag
-      target_id:
-        -
-          plugin: single_value
-          source: '@new_id'
-        -
-          plugin: extract
-          index:
-            - 0
-      target_revision_id:
-        -
-          plugin: single_value
-          source: '@new_id'
-        -
-          plugin: extract
-          index:
-            - 1
+    -
+      plugin: cm_merge_arrays
+      source:
+        - '@paragraphs'
+        - id
+    -
+      plugin: sub_process
+      process:
+        new_id:
+          -
+            plugin: migration_lookup
+            migration:
+              - stories_images
+              - stories_text
+              - stories_video
+              - layout_stories
+            source:
+              - legacy_id
+              - index
+              - tag
+        target_id:
+          -
+            plugin: single_value
+            source: '@new_id'
+          -
+            plugin: extract
+            index:
+              - 0
+        target_revision_id:
+          -
+            plugin: single_value
+            source: '@new_id'
+          -
+            plugin: extract
+            index:
+              - 1
 
 destination:
   plugin: entity:node

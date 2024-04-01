@@ -21,7 +21,7 @@
     & > div{
       margin-bottom: $spaceMd;
     }
-		.widget-section > .layout--onecol &,.node-support-book &{
+		.widget-section > .layout--onecol &,.node-support-book &,.block-field-stories-video-list &{
       @include desk{
         @include safeFlex(row,nowrap,start,start);
         @include bleed(padding,20px);
@@ -39,7 +39,7 @@
     & > div{
       margin-bottom: $spaceMd;
     }
-		.widget-section > .layout--onecol &,.node-support-book &{
+		.widget-section > .layout--onecol &,.node-support-book &,.block-field-stories-video-list &{
       @include desk{
         @include safeFlex(row,nowrap,start,start);
         @include bleed(padding,20px);
@@ -58,31 +58,91 @@
 }
 
 /* FEATURED NEWS */
-.news.featured-stories{
-	.view-content{
-		@include safeFlex(row,wrap,center,center);
-		& > .views-row{
-			&:first-of-type{
-				width: 100%;
-				& > .views-field{
-					width: 66.66%;
-					@include auto;
-				}
-			}
-		}
-	}
-}//end news recent three
-
-/* ALL NEWS */
 .news.all-news{
+  @include paragraphSnug;
+}
+.news.featured-stories{
+  padding-bottom: $spaceXl;
+  max-width: $largeTab;
+  @include auto;
+  h2.featured-header{
+    padding-top: 20px;
+    margin-bottom: $spaceXs;
+    max-width: 426px;
+    @include auto;
+    @include tab{
+      max-width: $largeTab;
+    }
+  }
+	.view-content{
+		@include safeFlex(row,wrap,center,start);
+    @include tab{
+      justify-items: flex-start;
+      gap: 20px;
+    }
+		& > .views-row{
+      max-width: 426px;
+      @include tab{
+        max-width: 100%;
+        &:not(:first-child){
+          width: calc(50% - 10px);
+        }
+        &:first-child{
+          .views-field-nothing .field-content{
+            @include safeFlex(row,wrap,start,start);
+            gap: 20px;
+            & > *{
+              width: calc(50% - 10px);
+            }
+          }//end combo nothing field
+        }//end first featured row
+      }//end tab
+      &:not(:last-child){
+        margin-bottom: $spaceLg;
+      }
+      .views-field-field-image{
+        margin-bottom: $spaceXs;
+      }
+      .story-title{
+        margin-bottom: $spaceXxs;
+        a{
+          @include blockArrow(navy, sm);
+        }//end a
+      }//end title
+      .intro-text{
+        line-height: 1.5;
+      }
+		}//end views row
+	}//end view contnet
+}//end featured news
+.main-news-view{
+  max-width: $contentStopMargin;
+  @include auto;
 	.views-exposed-form{
 		@include exposedForm;
-		@include safeFlex(column,wrap,start,start);
+    @include exposedForm;
+    @include edgeToEdge;
+    @include safeFlex(column,wrap,start,start);
+    @include tab{
+      max-width: $largeTab;
+      @include auto;
+      padding-left: 60px;
+      padding-right: 60px;
+    }
 		.form-item-combine{
 			width: 100%;
 	    max-width: none;
-			border-bottom: 1px solid darkGray;
-			padding-bottom: 3rem;
+      margin-bottom: $spaceSm;
+      @include tab{
+			  border-bottom: 1px solid rgba($navy,.12);
+        padding-bottom: 4rem;
+        padding-left: 32px;
+        padding-right: 32px;
+      }
+      @include largeTab{
+        padding-left: 52px;
+        padding-right: 52px;
+      }
 		}
 		input[type="text"]{
 			border-radius: 30px;
@@ -91,30 +151,69 @@
 		}
 		.js-form-type-select{
 			max-width: none;
-			.select2-selection{
-				border: 0;
-			}
-		}
-	}
+      margin-bottom: $spaceSm;
+      @include tab{
+        padding-left: 32px;
+      }
+      @include largeTab{
+        padding-left: 52px;
+      }
+		}//end select
+    .form-actions{
+      @include tab{
+        width: 50%;
+        justify-content: flex-end;
+        padding-right: 12px;
+      }
+      @include largeTab{
+        padding-right: 32px;
+      }
+    }
+	}//end exposed form
 	.view-content{
-		@include bleed(padding,24px);
+		@include bleed(padding,20px);
 		& > .views-row{
 			width: 100%;
+      margin-bottom: $spaceLg;
 			@include tab{
-				width: 33.33%;
+				width: 50%;
+        .node-teaser-news{
+          max-width: 100%;
+        }
 			}
+      @include desk{
+        width: 33.33%;
+      }
 		}
-	}
-}//end all news
+	}//end view content
+}//end all news main news content
 
-.news.related-stories{
+/* RELATED NEWS
+---------------- */
+.views-block.block-related-stories{
+  position: relative;
+  max-width: $contentStopMargin;
+  @include auto;
+  &:after{
+    @include fullBack($brightBlue);
+    height: 100vh;
+    z-index: -3;
+    top: 100%;
+  }
+  h2.block-title{
+    color: $white;
+    margin-bottom: $spaceXs;
+  }
 	.view-content{
-		@include bleed(padding,24px);
+		@include bleed(padding,20px);
 		& > .views-row{
 			width: 100%;
+      &:not(:last-child){
+        margin-bottom: $spaceXl;
+      }
 			@include tab{
 				width: 33.33%;
 			}
-		}
-	}
-}
+		}//end views row
+	}//end view content
+}//end related stories

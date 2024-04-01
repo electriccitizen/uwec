@@ -1,0 +1,15 @@
+/* ==================
+	REUSABLE WIDGETS BLOCK
+=================== */
+
+@use '../../../00-base/base' as *;
+
+.block-reusable-widgets{
+  .field-widgets{
+    & > div{
+      &:not(:last-child){
+        margin-bottom: $elementSpace;
+      }
+    }
+  }
+}//end reuable block

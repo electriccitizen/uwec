@@ -22,6 +22,8 @@ json_defaults:
       unit_id: null
       isactive: null
       ispublished: null
+      system_id: null
+      migrating_to_drupal: null
     data_fetcher_options:
       iterator:
         limit: '@constants/limit'

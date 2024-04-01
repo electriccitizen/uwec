@@ -97,6 +97,11 @@
 	}//end node section 3
 
 	#node-section-4{
+    position: relative;
+    color: $white;
+    &:after{
+      @include fullBack($brightBlue);
+    }
 		.block-field-authors{
 			max-width: $textMax;
 			@include auto;
@@ -130,21 +135,30 @@
   .teaser-title{
     margin-bottom: $spaceXxs;
     a{
-      @include arrowLinkAfter($navy);
+      @include blockArrow(navy, sm);
+      .views-block.block-related-stories & {
+        color: $white;
+      }
       &:after{
-        @include rightArrow(navy,transparent,$navy,sm);
+        .views-block.block-related-stories &{
+          @include rightArrow(white,transparent,$white,sm);
+        }
       }
       &:hover,&:focus{
         &:after{
-          @include rightArrow(white,$navy,$navy,sm);
+          .views-block.block-related-stories &{
+            @include rightArrow(blue,$white,$white,sm);
+          }
         }
         span{
-          @include dottedLink($navy);
-          padding-bottom: 1px;
+          @include dottedLink($brightBlue);
+          .views-block.block-related-stories &{
+            @include dottedLink($white);
+          }
         }
       }//end hover, focus
     }//end a
-  }
+  }//end teaser-title
   .field.body{
     line-height: 1.5;
   }
@@ -175,7 +189,7 @@
     background: $lightGrey;
     @include carouselBreak{
       background: $siteBack;
-      @include safeFlex(row,nowrap,start,start); 
+      @include safeFlex(row,nowrap,start,start);
       padding: 20px 0 0;
     }
     @include desk{
@@ -203,19 +217,7 @@
       margin-bottom: 0;
     }
     a{
-      @include arrowLinkAfter($brightBlue);
-      &:after{
-        @include rightArrow(blue,transparent,$brightBlue,sm);
-      }
-      &:hover,&:focus{
-        &:after{
-          @include rightArrow(white,$brightBlue,$brightBlue,sm);
-        }
-        span{
-          @include dottedLink($brightBlue);
-          padding-bottom: 1px;
-        }
-      }//end hover, focus
+      @include blockArrow(brightBlue, sm);
     }//end a
   }//end story title
   .field-intro-text{

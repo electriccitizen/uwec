@@ -6,24 +6,220 @@
 @use '../node-mixins' as *;
 
 .node-department{
+  padding-bottom: $spaceXxs;
+  @include menuStop{
+    padding-bottom: 0;
+  }
 	#node-section-1 {
-		@include heroBackground;
-		.layout__region--content {
-			@include heroText;
+    @include patternHero;
+    position: relative;
+    z-index: 0;
+    margin-bottom: $elementSpace;
+    .hero-pattern:not(.hero-pattern-links) &{
+      @include largeTab{
+        margin-bottom: 70px;
+      }
+      @include menuStop{
+        margin-bottom: $elementSpace;
+      }
+    }
+    &:after{
+      @include animation('fadeInDelay 1s 1');
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      animation: heroSwirlSlideMobileLeft 1.5s forwards;
+      z-index: 0;
+      width: 308px;
+      height: 572px;
+      background-image: url(../images/elements/swirl-vertical-blue.svg);
+      background-repeat: no-repeat;
+      background-size: 100%;
+      @include desk{
+        animation: heroSwirlSlideMidLeft 1.5s forwards;
+        width: 380px;
+        height: 706px;
+        bottom: -83px;
+      }
+      @include contentStop{
+        left: auto;
+        animation: heroSwirlSlideWideRight 1.5s forwards;
+        width: 452px;
+        height: 839px;
+        bottom: -95px;
+      }
+    }//end after swirl
+    .layout__region--content{
+      .block-field{
+        max-width: 100%;
+        &:last-child{
+          margin-bottom: 0;
+        }
+      }
+      .hero-pattern-links &{
+        & > .block-field:nth-last-child(2){
+          @include heroBlue;
+          @include desk{
+            & > .field{
+              @include stripesRoyalNarrow;
+            }
+          }
+        }
+      }//end pattern
+      .hero-pattern:not(.hero-pattern-links) &{
+        padding-bottom: 115px;
+        & > .block-field:last-child{
+          @include heroBlue;
+          @include desk{
+            & > .field{
+              @include stripesRoyalNarrow;
+            }
+          }
+        }
+      }//end non-pattern
+    }//end layout region content
+    .block-system-breadcrumb-block{
+      @include onlyMobile{
+        display: none;
+      }
+    }
+	}// end node section 1
+
+	.field.title,
+	.field-subtitle,
+	.field-intro-text,
+  .field-links {
+		max-width: $textMax;
+    padding-left: 20px;
+    padding-right: 20px;
+		@include auto;
+    position: relative;
+    z-index: 5;
+    @include desk{
+      padding-left: 0;
+      padding-right: 0;
+    }
+	}
+  .field-college{
+    max-width: $textMax;
+    @include auto;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: 1.75rem;
+    line-height: 1.71;
+    text-transform: uppercase;
+    a{
+      margin-left: -20px;
+    }
+  }
+  .block-field.block-title{
+    margin-bottom: 8rem;
+  }
+  .block-field-subtitle{
+    margin-bottom: $spaceSm;
+  }
+  .field-links{
+    padding-top: 100px;
+    padding-bottom: 60px;
+    max-width: 984px;
+    @include smallTab{
+      padding-top: 40px;
+      padding-right: 0;
+      @include safeFlex(column,nowrap,end,end);
+      & > div{
+        width: 210px;
+      }
+    }
+    @include desk {
+      margin-top: 10vw;
+			margin-bottom: 0;
 		}
-	}
-	.block-field-college,
-	.block-field-subtitle,
-	.block-field-intro-text {
-		max-width: $textMax;
-		@include auto;
-	}
-	.block-field-links {
-		@include safeFlex(row,wrap,end,start);
-		max-width: $textMax;
-		@include auto;
-	}
+    @media screen and (min-width: 1650px){
+      margin-top: 11vw;
+    }
+    @media screen and (min-width: 2100px){
+      margin-top: 12vw;
+    }
+    @media screen and (min-width: 2500px){
+      margin-top: 13vw;
+    }
+  }//end field links
+  //section two - nav and body
+  .layout--twocol-sideleft{
+    position: relative;
+    .layout__region--content{
+      padding-left: 20px;
+      padding-right: 20px;
+      @include desk{
+        width: 100%;
+      }
+      @include menuStop{
+        &:not(:only-child){
+          width: 100%;
+          @include auto;
+        }
+      }
+    }//end layout region content
+  }//end two column side left
+  .block-field.block-body{
+    max-width: $textMax;
+    @include auto;
+    @include menuStop{
+      margin-top: $spaceMd;
+      margin-bottom: $spaceXl;
+    }
+  }
+
+  #node-section-3{
+    .layout__region--content > *{
+      @include menuStop{
+        margin-bottom: 70px;
+      }
+    }
+    .block-department-faculty{
+      margin-bottom: $spaceXl;
+    }
+    .block-field-facts-list{
+      @include edgeToEdge;
+      margin-bottom: $spaceSm;
+      background: $siteBack;
+      @include menuStop{
+        margin-bottom: 70px;
+      }
+    }//end fact list
+    .block-field-opportunities{
+      position: relative;
+      z-index: 1;
+      max-width: $textMax;
+      @include auto;
+      &:after{
+        @include fullBack($lightGrey);
+      }
+    }
+  }//end node section 3
+
 	#node-section-4{
 		@include contactSection;
+    &:not(:last-child){
+      margin-bottom: $spaceXl;
+    }
 	}//end node-section-4
+
+  .block-field-whats-next{
+    h2.next-title{
+      @include styledHeader;
+      text-align: left;
+      margin-bottom: $spaceSm;
+      color: $brightBlue;
+      font-size: 43px;
+      @include onlyMobile{
+        strong{
+          font-size: 46px;
+        }
+      }
+      @include tab{
+        text-align: center;
+      }
+    }//end next title
+  }//end whats next
 }//end department

@@ -40,14 +40,13 @@ body,#drupal-off-canvas-wrapper-wrapper{
 		.select2-selection--single{
 			@include inputSelect;
 			&:hover{
-				box-shadow: inset 0 0 0 1px $inputBorderHover;
+				border-color: $inputBorderHover;
 			}
 			&:focus{
 				outline: none;
-				box-shadow: inset 0 0 0 1px $inputBorderFocus;
+				border-color: $inputBorderFocus;
 			}
 			&[aria-expanded="true"]{
-				box-shadow: inset 0 0 0 1px $inputBorderFocus;
 				border-color: $inputBorderFocus;
 			}
 			.select2-selection__choice__remove{
@@ -56,27 +55,35 @@ body,#drupal-off-canvas-wrapper-wrapper{
 			}
 			//rendered selection
 			.select2-selection__rendered{
-				padding: .75rem 4rem .75rem 1.5rem;
+				padding: 15px 40px 15px 20px;
 				color: $placeColor;
 				text-align: left;
 				background: $siteBack;
-			}
+        &:before{
+          content: '';
+          height: 100%;
+          width: 1px;
+          background: $lightGrey;
+          position: absolute;
+          right: 40px;
+          top: 0;
+        }
+			}//end selection rendered
 			.select2-selection__arrow{
 				background-image: none;
-				top: 9px;
+				top: 20px;
 				right: 10px;
-				@include transFormAnimate;
+        width: 20px;
+        height: 20px;
+				@include safeFlex(column,nowrap,center,center);
+        transition: transform .3s ease-out;
 				//hide default select2 arrow
 				b{
 					display: none;
 				}
 				// arrow symbol
 				&:after {
-					@include materialIconOutline(\e5cf);
-					position: absolute;
-					top: 0;
-					right: 0;
-					z-index: 2;
+					content: url('../images/elements/chevron-navy-down-sm.svg');
 					pointer-events: none;
 				}
 			}
@@ -85,27 +92,31 @@ body,#drupal-off-canvas-wrapper-wrapper{
 		/* SELECT 2 MULTI */
 		.select2-selection--multiple{
 			@include inputSelect;
-			padding: 5px 3.5rem 6px 1.5rem;
+			padding: 10px 40px 5px 14px;
+      &:before{
+        content: '';
+        height: 100%;
+        width: 1px;
+        background: $lightGrey;
+        position: absolute;
+        right: 40px;
+        top: 0;
+      }
 			&:after{
-				content: '';
-				@include safeFlex(row,no-wrap,center,center);
-				@include setDimensions(24px,24px);
-				position: absolute;
-				background-image: none;
-				@include materialIconOutline(\e5cf);
+				content: url('../images/elements/chevron-navy-down-sm.svg');
+        transition: transform .3s ease-out;
+        position: absolute;
 				top: 12px;
-				right: 12px;
-				@include transFormAnimate;
+				right: 10px;
 			}
 			&:hover{
-				box-shadow: inset 0 0 0 1px $inputBorderHover;
+				border-color: $inputBorderHover;
 			}
 			&:focus{
 				outline: none;
-				box-shadow: inset 0 0 0 1px $inputBorderFocus;
+				border-color: $inputBorderFocus;
 			}
 			&[aria-expanded="true"]{
-				box-shadow: inset 0 0 0 1px $inputBorderFocus;
 				border-color: $inputBorderFocus;
 			}
 			.select2-selection__rendered{
@@ -126,9 +137,7 @@ body,#drupal-off-canvas-wrapper-wrapper{
 				input.select2-search__field{
 					color: $navy;
 					@include placeholder;
-					&:focus{
-						@include placeholderFocus;
-					}
+          width: 100% !important;
 				}
 			}//end search inline
 
@@ -144,6 +153,7 @@ body,#drupal-off-canvas-wrapper-wrapper{
 		&.select2-container--open,&.select2-container--focus{
 			//single
 			.select2-selection--single{
+        border-color: $inputBorderFocus;
 				.select2-selection__arrow{
 					@include rotate(180);
 				}
@@ -151,16 +161,13 @@ body,#drupal-off-canvas-wrapper-wrapper{
 
 			//multiple
 			.select2-selection--multiple{
-				border-width: 2px;
+        border-color: $inputBorderFocus;
 				&:after{
 					@include rotate(180);
 				}
 				.select2-search--inline{
 					input.select2-search__field{
-						@include placeholder;
-						&:focus{
-							@include placeholderFocus;
-						}
+						@include placeholderFocus;
 					}
 				}
 			}//end multiple
@@ -175,7 +182,7 @@ body,#drupal-off-canvas-wrapper-wrapper{
 ---------------- */
 .select2-container{
 	.select2-dropdown{
-		border: 0;
+		border: 1px solid $warmGrey;
 		border-radius: 0;
 		border-top: 0;
 		padding: 0;

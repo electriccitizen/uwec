@@ -181,7 +181,7 @@ third_party_settings:
               provider: menu_block
               context_mapping: {  }
               follow: true
-              follow_parent: active
+              follow_parent: child
               label_link: true
               label_type: root
               level: 2

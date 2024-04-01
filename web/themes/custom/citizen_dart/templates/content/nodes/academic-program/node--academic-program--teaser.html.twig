@@ -1,27 +1,41 @@
-{{ attach_library('citizen_dart/academic-program') }}
+
+{{ attach_library('citizen_dart/academic-program-toggle') }}
 
 <div class="academic-program-teaser">
-  {% if node.field_image.0.target_id %}
-  <div class="program-image">        
-    {{ drupal_entity('media',node.field_image.0.target_id,'program_teaser') }}
-  </div>
-  {% endif %}
-  <div class="program-title">{{ node.title.value }}</div>
-  <div class="program-types">
-    {% for type in node.field_program_type %}
-      {{ type.entity.label }}
-      {% if not loop.last %} | {% endif %}
-    {% endfor %}  
-    
-    <button class="program-toggle" onclick="toggleProgramDetails(this)">
-      <span class="visually-hidden">View Program Details</span>
-      <span class="chevron-down" id="chevronIcon"></span>
-    </button>
-  </div>
-  <div class="program-body hidden" id="programBody">
-    {{ node.body.value|raw }}
-    <!-- Link to the node -->
-    <a href="{{ path('entity.node.canonical', {'node': node.id}) }}" class="program-link">View <span class="visually-hidden">{{ node.title.value }}</span> Program</a>
+  <div class="program-inner">
+    <div class="program-intro">
+      {% if node.field_image.0.target_id %}
+        <div class="program-image">
+          {{ drupal_entity('media',node.field_image.0.target_id,'program_teaser') }}
+        </div>
+      {% endif %}
+      <div class="program-title">{{ node.title.value }}</div>
+    </div>
+    <div class="program-meta">
+      <div class="program-body hidden" id="programBody" aria-hidden="true">
+        <div class="program-intro-text">
+          {{ node.field_intro_text.value|raw }}
+        </div>
+        <a href="{{ path('entity.node.canonical', {'node': node.id}) }}" class="program-link"><span class="program-link-text">View <span class="visually-hidden">{{ node.title.value }}</span> Program</span></a>
+      </div>
+      <div class="program-types">
+        <a href="#" class="program-toggle" aria-controls="programBody" aria-expanded="false">
+          <div class="type-list">
+            <span>
+              {% for type in node.field_program_type %}
+                {{ type.entity.label }}
+                {% if not loop.last %} | {% endif %}
+              {% endfor %}
+            </span>
+          </div>
+          <span class="visually-hidden">View Program Details</span>
+          <div class="chevron-down" id="chevronIcon">
+            <svg width="12" height="7" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M1 1L6.00145 6.00145L11 1" stroke="#06233D" stroke-miterlimit="10"/>
+            </svg>
+          </div>
+        </a>
+      </div>
+    </div>
   </div>
 </div>
-

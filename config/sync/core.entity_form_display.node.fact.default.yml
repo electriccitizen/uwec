@@ -25,7 +25,6 @@ dependencies:
     - content_moderation
     - datetime
     - field_group
-    - metatag
     - path
 third_party_settings:
   field_group:
@@ -103,14 +102,6 @@ content:
     weight: 19
     region: content
     settings: {  }
-    third_party_settings: {  }
-  field_metatags:
-    type: metatag_firehose
-    weight: 14
-    region: content
-    settings:
-      sidebar: true
-      use_details: true
     third_party_settings: {  }
   field_page_families:
     type: entity_reference_autocomplete
@@ -196,6 +187,7 @@ content:
 hidden:
   created: true
   field_list_widget: true
+  field_metatags: true
   layout_builder__layout: true
   promote: true
   publish_on: true

@@ -2,13 +2,13 @@ _core:
   default_config_hash: 2cm_cNYvfxqJOKiCQ7OLMJ8Za_YLpPUMsFjhldu7A9U
 determine_menu: true
 disable_admin_page: true
-append_current_page: true
+append_current_page: false
 current_page_as_link: false
 stop_on_first_match: false
 append_member_page: false
 member_page_as_link: false
 remove_home: false
-add_home: false
+add_home: true
 front_title: 0
 exclude_empty_url: false
 exclude_disabled_menu_items: false
@@ -17,3 +17,75 @@ menu_breadcrumb_menus:
   main:
     enabled: 1
     weight: -10
+    taxattach: 0
+    langhandle: 0
+  account:
+    enabled: 0
+    weight: 0
+    taxattach: 0
+    langhandle: 0
+  admin:
+    enabled: 0
+    weight: 0
+    taxattach: 0
+    langhandle: 0
+  content-support-book:
+    enabled: 0
+    weight: 0
+    taxattach: 0
+    langhandle: 0
+  departments:
+    enabled: 0
+    weight: 0
+    taxattach: 0
+    langhandle: 0
+  devel:
+    enabled: 0
+    weight: 0
+    taxattach: 0
+    langhandle: 0
+  example-site-main-menu:
+    enabled: 0
+    weight: 0
+    taxattach: 0
+    langhandle: 0
+  footer:
+    enabled: 0
+    weight: 0
+    taxattach: 0
+    langhandle: 0
+  footer-ancillary:
+    enabled: 0
+    weight: 0
+    taxattach: 0
+    langhandle: 0
+  footer-audience-additional:
+    enabled: 0
+    weight: 0
+    taxattach: 0
+    langhandle: 0
+  footer-for:
+    enabled: 0
+    weight: 0
+    taxattach: 0
+    langhandle: 0
+  offices-services:
+    enabled: 0
+    weight: 0
+    taxattach: 0
+    langhandle: 0
+  secondary:
+    enabled: 0
+    weight: 0
+    taxattach: 0
+    langhandle: 0
+  support-book:
+    enabled: 0
+    weight: 0
+    taxattach: 0
+    langhandle: 0
+  tools:
+    enabled: 0
+    weight: 0
+    taxattach: 0
+    langhandle: 0

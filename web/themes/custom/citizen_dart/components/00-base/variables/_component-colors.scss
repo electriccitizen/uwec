@@ -100,8 +100,8 @@ $searchCloseBackHover      : $white;
 /* FORMS
 --------------------- */
 $inputBorderColor         : transparent;
-$inputBorderHover         : $brightBlue;
-$inputBorderFocus         : $sky;
+$inputBorderHover         : $sky;
+$inputBorderFocus         : $brightBlue;
 $placeColor               : rgba(6,35,61,0.25);
 $placeFocusColor          : $placeColor;
 $validation               : $brightBlue;
@@ -177,18 +177,11 @@ $sfMobileChildActive     : $gold;
 
 /* MENU BLOCK (Sidebar)
 --------------------- */
-$menuBlockTitle       : $link;
-$menuBlockTitleHover  : $hoverLink;
-$menuBlockTitleBack   : $ice;
+$menuBlockTitle       : $white;
+$menuBlockTitleBack   : $royal;
 $menuBack             : $ice;
 $menuTop              : $link;
-$menuTopHover         : $hoverLink;
-$menuTopActive        : $link;
-$menuTopActiveHover   : $hoverLink;
-$menuChild            : $link;
-$menuChildHover       : $hoverLink;
-$menuChildActive      : $link;
-$menuChildActiveHover : $hoverLink;
+$menuTopHover         : $brightBlue;
 
 
 /* SECONDARY MENU

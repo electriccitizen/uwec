@@ -8,31 +8,13 @@
 	body {
 		width: 100%;
 		box-sizing: border-box;
-		&.responsive-preview-frame.gin--vertical-toolbar{
-			padding-left: 0 !important;
-			.dialog-off-canvas-main-canvas{
-			 	padding-left: 0;
-			 	.layout-container{
-			 		left: 0;
-			 		width: 100%;
-			 	}
-			}
-		}
-		.gin-secondary-toolbar--frontend{
-			padding-left: 58px;
-		}
 	}//end body
 }
 
 .overflow-guard{
-	overflow: hidden;
-	width: 100%;
-	height: 100vh;
-	position: fixed;
-	top: 0;
-	left: 0;
+	overflow-x: hidden;
 	background: $siteBack;
-
+  width: 100%;
 	.unpublished &{
 		background: $unpub;
 	}
@@ -47,37 +29,6 @@
 		padding: 0;
 	}
 }//end overflow guard
-
-.dialog-off-canvas-main-canvas{
-	position: relative;
-  width: 100%;
-  height: 100%;
-  overflow-x: hidden;
-  overflow-y: scroll;
-  // -webkit-perspective: 8px;
-  // perspective: 8px;
-  // perspective-origin: 0 0;
-  // -webkit-perspective-origin: 0 0;
-  // *{
-  // 	-webkit-transform-style: preserve-3d;
-  // 	transform-style: preserve-3d;
-  // }
-  .gin--vertical-toolbar &{
-  	padding-left: 58px;
-  }
-  .layout-container{
-  	position: absolute;
-	  top: 0;
-	  left: 0;
-	  width: 100%;
-	  height: auto;
-	  transform: translateZ(0px);
-	  .gin--vertical-toolbar &{
-	  	left: 66px;
-			width: calc(100% - 66px);
-		}
-  }//end layout container
-}//end off canvas main canvas
 
 .container-inline div{
 	display: inline;

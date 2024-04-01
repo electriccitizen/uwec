@@ -48,7 +48,7 @@
 		attach: function (context, settings) {
 		 	$(once('tSearch', '.block-citizen-google-search-block', context)).each(function(){
 		 		//find the top position of the site header and position the fixed search box to that if we're on desktop 
-		 		if($('window').outerWidth() > 983){
+		 		if($('window').outerWidth() > 1199){
 		 			var headerPosition = $('header.site-header').offset().top();
 		 			$('#header-search').css('top',headerPosition);
 		 		}
@@ -73,10 +73,10 @@
 	    $(once('isSearching', '#search-results-wrapper', context)).each(function(){
 	      //check if searched and scroll to if so
 	      var urlCurrent = window.location.href;
-	      if(urlCurrent.indexOf("?s") > -1){
+	      if((urlCurrent.indexOf("?q") > -1) || (urlCurrent.indexOf("#gsc.tab=0&gsc.q=") > -1)){
 					$(document).ready(function(){
 						setTimeout(function() {
-			   			$('.dialog-off-canvas-main-canvas').animate({
+			   			$('html,body').animate({
 							scrollTop: $('#search-results-wrapper').offset().top - 100
 			   			});
 		   			}, 300);

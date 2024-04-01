@@ -130,29 +130,10 @@
   .field-link{
     a{
       display: inline-block;
-      @include arrowLinkBefore($navy);
-      padding-left: 32px;
-      font-size: 16px;
-      line-height: 1.2;
-      &:before{
-        content: '';
-        display: block;
-        position: absolute;
+      @include linkArrow(navy, sm);
+      &:before {
         top: -2px;
-        left: 0;
-        width: 20px;
-        height: 20px;
-        @include rightArrow(navy,transparent,$navy,sm);
       }//end before
-      &:hover,&:focus{
-        &:before{
-          @include rightArrow(white,$navy,$navy,sm);
-        }
-        span{
-          @include dottedLink($navy);
-          padding-bottom: 1px;
-        }
-      }//end hover, focus
     }//end a
   }//end field link
 
@@ -257,29 +238,7 @@
       margin-bottom: $spaceSm;
       a{
         display: inline-block;
-        @include arrowLinkBefore($brightBlue);
-        padding-left: 32px;
-        font-size: 16px;
-        line-height: 1.2;
-        &:before{
-          content: '';
-          display: block;
-          position: absolute;
-          top: -2px;
-          left: 0;
-          width: 20px;
-          height: 20px;
-          @include rightArrow(blue,transparent,$brightBlue,sm);
-        }//end before
-        &:hover,&:focus{
-          &:before{
-            @include rightArrow(white,$brightBlue,$brightBlue,sm);
-          }
-          span{
-            @include dottedLink($brightBlue);
-            padding-bottom: 1px;
-          }
-        }//end hover, focus
+        @include linkArrow(brightBlue, sm);
       }//end a
     }//end field link
   }//end snapshot bottom
@@ -296,4 +255,3 @@
     }
   }//end eyebrow sm
 }//end widget snapshot
-

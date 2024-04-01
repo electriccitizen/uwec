@@ -1,34 +1,37 @@
 @use '../../../00-base/base' as *;
 
 .block-courses{
-	>p{
-		@include headerGlobals;
-		font-size: $h2;
-	}
+  > p {
+    @include headerGlobals;
+    font-size: $h2;
+  }
 
-	.courses{
-		display:flex;
-		gap:2rem;
-		flex-direction:column;
-		@include tab{
-			flex-direction:row;
-		}
+  .courses{
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    margin-top: 2rem;
+    padding: $siteMarginMobile;
 
-		.course{
-			flex:1;
+    @include tab{
+      flex-direction: row;
+      gap: 2rem;
+      margin-top: 3.5rem;
+      padding: 0;
+    }
 
-			p{
-				margin:.75rem 0;
-			}
-			.number{
-				font-size:75%;
-			}
-			.title{
-				font-weight:bold;
-			}
-			.description{
+    .course{
+      flex: 1;
 
-			}
-		}
-	}
+      p {
+        margin: .75rem 0;
+      }
+      h3 {
+        color: $black;
+      }
+      .number {
+        font-size: 12px;
+      }
+    }
+  }
 }

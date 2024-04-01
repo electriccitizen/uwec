@@ -160,6 +160,14 @@ $h6: 2.25rem;
 		@include auto;
 	}
 }//end quote
+@mixin tag {
+  display: inline-block;
+  color: $white;
+  font-family: $bodyText;
+  font-size: 1.5rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
 
 %materialSetup{
 	font-style: normal;

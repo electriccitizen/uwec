@@ -6,26 +6,86 @@
 @use '../node-mixins' as *;
 
 .node-college{
+  padding-bottom: $spaceXl;
+  @include menuStop{
+    padding-bottom: 0;
+  }
 	#node-section-1 {
-		.college-hero {
-			@include heroBackground;
-			@include heroImageRight;
-      .swirl-pattern{
-        height: 100%;
-        overflow: hidden;
-      }
-		}
-		.page-header-text {
-			@include heroText;
-		}
-	}
+		@include heroRightImage;
+	}//end node section 1
   #node-section-2{
+    padding-top: $spaceLg;
+    @include desk{
+      padding-top: 0;
+      position: relative;
+      z-index: 1;
+    }
+    @include contentStop{
+      margin-top: -2vw;
+    }
+    @media screen and (min-width: 1600px){
+      margin-top: -5vw;
+    }
+    @media screen and (min-width: 1900px){
+      margin-top: -7vw;
+    }
+    @media screen and (min-width: 2400px){
+      margin-top: -8vw;
+    }
     .layout--twocol-sideleft{
+      position: relative;
       .layout__region--content{
         @include desk{
-          padding-top: 150px;
-          padding-left: 120px;
+          width: 100%;
+          padding-left: 20px;
+          padding-right: 20px;
         }
+        @include menuStop{
+          &:not(:only-child){
+            width: calc(100% - 259px);
+            max-width: 1045px;
+            margin-left: auto;
+            .block-field.block-body{
+              margin-left: 0;
+            }
+          }
+        }
+        @include contentStopMargin{
+          &:not(:only-child){
+            margin-right: 40px;
+          }
+        }
+      }//end layout region content
+    }//end two column side left
+    .block-field.block-body{
+      max-width: $textMax;
+      @include auto;
+      @include onlySmall{
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+    }
+  }//end node section 2
+  .block-field-paragraphs{
+    margin-top: 80px;
+    margin-bottom: 62px;
+    @include tab{
+      margin-top: 20px;
+      margin-bottom: 90px;
+    }
+  }
+  .block-field-facts-list{
+    @include edgeToEdge;
+    margin-bottom: $spaceSm;
+    background: $siteBack;
+    margin-bottom: 70px;
+  }//end fact list
+  .block-field-stories-video-list{
+    margin-bottom: 70px;
+    .field-widget-title{
+      @include onlySmall{
+        text-align: left;
+        margin-left: 0;
       }
     }
   }
