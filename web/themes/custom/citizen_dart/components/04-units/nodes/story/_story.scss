@@ -185,15 +185,20 @@
   #node-section-4 {
     color: $white;
     position: relative;
-    &:after {
-      @include fullBack($brightBlue);
+
+    .block-field-authors,
+    .block-related-stories {
+      @include edgeToEdge;
+      background-color: $brightBlue;
     }
+
     .block-field-authors {
       @include edgeToEdge;
       background-color: $brightBlue;
+      margin-bottom: 0;
       margin-top: 12rem; // Needs to be large to accommodate overlapping.
       max-width: $textMax;
-      padding: 0 $siteMarginMobile $spaceLg;
+      padding: 0 $siteMarginMobile;
       @include desk {
         @include auto;
       }
@@ -206,6 +211,7 @@
       }
       .field-authors {
         background-color: $royal;
+        padding: calc($spaceLg + $siteMarginMobile) $siteMarginMobile;
         position: relative;
         top: -$spaceLg; // Causes the overlapping and marging calculation bugs.
         & > div{
@@ -213,8 +219,18 @@
             margin-bottom: $elementSpace;
           }
         }
+        .author-name {
+          color: $white;
+        }
       }
     }//end authors fields block
+
+    .block-related-stories {
+      padding: $siteMarginMobile;
+      &:after {
+        z-index: 0;
+      }
+    }
   }//end node section 4
 }//end news
 
