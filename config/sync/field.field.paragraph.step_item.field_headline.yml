@@ -9,7 +9,7 @@ id: paragraph.step_item.field_headline
 field_name: field_headline
 entity_type: paragraph
 bundle: step_item
-label: Headline
+label: 'Steps Header'
 description: ''
 required: true
 translatable: false
