@@ -8,7 +8,6 @@
   #node-section-1 {
     margin-left: -$siteMarginMobile;
     margin-top: -160px;
-    min-height: 100vh;
     padding-top: 160px;
     position: relative;
     width: 100vw;
@@ -18,10 +17,10 @@
     }
     @include desk {
       margin-top: -166px;
+      min-height: 100vh;
       padding-top: 166px;
     }
     .layout {
-      min-height: 100vh;
       position: relative;
       z-index: 2;
       &:after {
@@ -37,20 +36,26 @@
         left: auto;
         right: -100px;
         top: auto;
+        z-index: 2;
+      }
+      @include desk {
+        min-height: 100vh;
       }
     }
     .block-field-image {
-      height: 100%;
       left: 0;
-      min-height: 100vh;
       overflow: hidden;
-      position: absolute;
       top: 0;
       width: 100vw;
       z-index: -1;
       &:before{
         @include fullBack(rgba(35,35,35,0.4));
         z-index: 1;
+      }
+      @include desk {
+        height: 100%;
+        min-height: 100vh;
+        position: absolute;
       }
       * {
         height: 100%;
@@ -62,18 +67,22 @@
         object-fit: cover;
       }
     }//end main section 1 image
-    .block-field.block-title{
-      max-width: $textMax;
-      position: absolute;
+    .block-field.block-title {
+      @include safeFlex(column,nowrap,end,start);
       bottom: 0;
       left: $siteMarginMobile;
-      height: 100%;
-      min-height: 100vh;
+      max-width: $textMax;
       padding-bottom: 138px;
-      @include safeFlex(column,nowrap,end,start);
-      h1{
-        text-align: left;
+      position: absolute;
+      opacity: 0; // Hide on mobile but still be screen-reader accessible.
+      @include desk {
+        height: 100%;
+        min-height: 100vh;
+        opacity: 1;
+      }
+      h1 {
         color: $white;
+        text-align: left;
       }
     }//end title
     &:after{
@@ -96,38 +105,90 @@
     }
   }//end node section 1
 
-  #node-section-2{
-    max-width: $textMax;
+  #node-section-2 {
     @include auto;
-    .layout__region--content{
-      @include safeFlex(row,nowrap,justify,start);
+    max-width: $textMax;
+    .layout__region--content {
+      @include safeFlex(row,nowrap,start,start);
+      @include tab {
+        @include safeFlex(row,nowrap,justify,start);
+      }
     }
-    .breadcrumb{
-      padding-top: 0;
+    .breadcrumb, .field-story-categories {
+      padding: $spaceSm 0;
+    }
+    .breadcrumb {
+      display: none;
+      margin: 0;
+      @include tab {
+        display: block;
+      }
+      li,
+      li a {
+        color: $navy;
+      }
+    }
+    .block-field-story-categories {
+      @include tag;
+      color: $navy;
+      margin-bottom: 0;
     }
   }//end section 2
 
-  #node-section-3{
-    .field-authors{
+  #node-section-3 {
+    @include auto;
+    max-width: $textMax;
+    .field-authors {
       @include safeFlex(row,wrap,start,start);
     }
-    .block-field-image{
+    .block-created {
+      @include heading2;
+      margin-bottom: $spaceMd;
+      .mobile-title {
+        @include heading1;
+        @include desk {
+          display: none;
+        }
+        margin-bottom: $spaceSm;
+      }
+    }
+    .block-field-image {
       margin-bottom: $elementSpace;
-      .field-label{
+      position: relative;
+      &:before {
+        background-color: $navy;
+        content: '';
+        display: block;
+        height: 2px;
+        margin-bottom: $spaceSm;
+        width: 202px;
+
+      }
+      .field-label {
         @include headerGlobals;
         font-size: 26px;
         line-height: 32px;
       }
+      a {
+        @include linkArrow(navyLight, sm);
+      }
+    }
+    .block-field-intro-text {
+      font-size: 20px;
+      margin-bottom: $spaceMd;
+    }
+    h2, h3, h4, h5, h6 {
+      color: $brightBlue;
     }
   }//end node section 3
 
-  #node-section-4{
-    position: relative;
+  #node-section-4 {
     color: $white;
-    &:after{
+    position: relative;
+    &:after {
       @include fullBack($brightBlue);
     }
-    .block-field-authors{
+    .block-field-authors {
       max-width: $textMax;
       @include auto;
       h2.block-title{
@@ -137,7 +198,7 @@
         text-align: left;
         text-transform: none;
       }
-      .field-authors{
+      .field-authors {
         & > div{
           &:not(:last-child){
             margin-bottom: $elementSpace;
