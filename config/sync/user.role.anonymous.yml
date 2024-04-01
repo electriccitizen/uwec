@@ -47,6 +47,8 @@ permissions:
   - 'view paragraph content profiles_list'
   - 'view paragraph content program_search'
   - 'view paragraph content programs_list'
+  - 'view paragraph content quick_links'
+  - 'view paragraph content quick_links_item'
   - 'view paragraph content quote'
   - 'view paragraph content select_item'
   - 'view paragraph content select_type'
