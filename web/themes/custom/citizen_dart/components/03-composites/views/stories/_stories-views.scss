@@ -194,9 +194,9 @@
   position: relative;
   max-width: $contentStopMargin;
   @include auto;
-  &:after{
+  &:after {
     @include fullBack($brightBlue);
-    height: 100vh;
+    height: 600px;
     z-index: -3;
     top: 100%;
   }

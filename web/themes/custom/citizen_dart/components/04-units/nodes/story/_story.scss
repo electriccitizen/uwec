@@ -43,19 +43,20 @@
       }
     }
     .block-field-image {
-      left: 0;
+      margin-bottom: 0;
       overflow: hidden;
-      top: 0;
       width: 100vw;
-      z-index: -1;
       &:before{
         @include fullBack(rgba(35,35,35,0.4));
         z-index: 1;
       }
       @include desk {
         height: 100%;
+        left: 0;
         min-height: 100vh;
         position: absolute;
+        top: 0;
+        z-index: -1;
       }
       * {
         height: 100%;
@@ -68,21 +69,28 @@
       }
     }//end main section 1 image
     .block-field.block-title {
-      @include safeFlex(column,nowrap,end,start);
-      bottom: 0;
-      left: $siteMarginMobile;
-      max-width: $textMax;
-      padding-bottom: 138px;
-      position: absolute;
+      @include auto;
+      margin-bottom: 0;
+      max-width: 1092px;
       opacity: 0; // Hide on mobile but still be screen-reader accessible.
       @include desk {
+        @include safeFlex(row, no-wrap, start, end);
         height: 100%;
         min-height: 100vh;
+        padding-bottom: 138px;
         opacity: 1;
       }
       h1 {
         color: $white;
+        font-size: 1px;
+        max-width: $textMax;
         text-align: left;
+        @include desk {
+          font-size: $h1Mid;
+        }
+        @include contentStop {
+          font-size: $h1Lg;
+        }
       }
     }//end title
     &:after{
@@ -114,12 +122,13 @@
         @include safeFlex(row,nowrap,justify,start);
       }
     }
-    .breadcrumb, .field-story-categories {
-      padding: $spaceSm 0;
+    .block-system-breadcrumb-block,
+    .block-field-story-categories {
+      margin: $spaceSm 0;
     }
     .breadcrumb {
       display: none;
-      margin: 0;
+      padding: 0;
       @include tab {
         display: block;
       }
@@ -131,7 +140,10 @@
     .block-field-story-categories {
       @include tag;
       color: $navy;
-      margin-bottom: 0;
+    }
+    .field-story-categories {
+      @include safeFlex(row, wrap, center, center);
+      min-height: 31px;
     }
   }//end section 2
 
@@ -186,10 +198,15 @@
     color: $white;
     position: relative;
 
+    .layout__region {
+      margin-bottom: 0;
+    }
+
     .block-field-authors,
     .block-related-stories {
       @include edgeToEdge;
       background-color: $brightBlue;
+      margin-bottom: 0;
     }
 
     .block-field-authors {
