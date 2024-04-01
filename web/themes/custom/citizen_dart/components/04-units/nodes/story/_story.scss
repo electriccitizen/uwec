@@ -189,8 +189,14 @@
       @include fullBack($brightBlue);
     }
     .block-field-authors {
+      @include edgeToEdge;
+      background-color: $brightBlue;
+      margin-top: 12rem; // Needs to be large to accommodate overlapping.
       max-width: $textMax;
-      @include auto;
+      padding: 0 $siteMarginMobile $spaceLg;
+      @include desk {
+        @include auto;
+      }
       h2.block-title{
         @include headerGlobals;
         font-size: 26px;
@@ -199,6 +205,9 @@
         text-transform: none;
       }
       .field-authors {
+        background-color: $royal;
+        position: relative;
+        top: -$spaceLg; // Causes the overlapping and marging calculation bugs.
         & > div{
           &:not(:last-child){
             margin-bottom: $elementSpace;
