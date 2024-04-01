@@ -15,7 +15,7 @@ field_name: body
 entity_type: node
 bundle: page
 label: Intro
-description: ''
+description: 'Intro text is a quick introduction to the page. It should be around 1-2 sentences long.'
 required: false
 translatable: true
 default_value: {  }
