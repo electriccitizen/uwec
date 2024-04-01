@@ -1,39 +1,64 @@
 @use '../../../00-base/base' as *;
 
-.paragraph--type--quick-links .field-quick-links-items{
-	display:flex;
-	flex-flow:row wrap;
-	justify-content:center;
-	gap:2rem;
+.paragraph--type--quick-links{
+	// shine animation
+	// the js adds .quick-links-visible
+	@include desk{
+		// these two lines prevent the swipe from going out of this component's bounds
+		overflow:hidden;
+		position:relative;
 
-	.image{
-		text-align:center;
-		svg{
-			width:10rem;
-			height:10rem;
-			transition:transform .1s;
+		&:before{
+			content: '';
+			position: absolute;
+			top: 0;
+			left: -50vw;
+			z-index: 1;
+			width: 300px;
+			height: 100%;
+			background: linear-gradient(to right, transparent 0%, rgba(255,255,255,0.15) 60%, transparent 100%);
+			transform: skewX(-16deg);
+			transition: 1s;
+		}
+		&.quick-links-visible:before{
+			left:100vw;
 		}
 	}
 
-	/* these classless divs are the container for each tile */
-	>div{
-		width:18rem;
-		a{
-			display:inline-block;
-			width:18rem;
-			height:100%;
-			padding:2rem;
-			color:$navy;
-			background:$ice;
-			text-align:center;
-			line-height:3rem;
-			transition:background-color .1s;
+	.field-quick-links-items{
+		display:flex;
+		flex-flow:row wrap;
+		justify-content:center;
+		gap:2rem;
 
-			&:hover{
-				background:$white;
-				font-style:italic;
-				svg{
-					transform:skew(-16deg);
+		.image{
+			text-align:center;
+			svg{
+				width:10rem;
+				height:10rem;
+				transition:transform .1s;
+			}
+		}
+
+		/* these classless divs are the container for each tile */
+		>div{
+			width:18rem;
+			a{
+				display:inline-block;
+				width:18rem;
+				height:100%;
+				padding:2rem;
+				color:$navy;
+				background:$lightGrey;
+				text-align:center;
+				line-height:3rem;
+
+				&:hover{
+					font-style:italic;
+					text-decoration:underline;
+					svg{
+						transform:skew(-16deg);
+					}
 				}
 			}
 		}
