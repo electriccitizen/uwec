@@ -10,7 +10,7 @@ field_name: field_meta_description
 entity_type: node
 bundle: page
 label: 'Meta Description'
-description: ''
+description: "The Meta Description is the text displayed under the page's title when it appears in search results. It should provide users with a one-sentence summary of what is on the page."
 required: true
 translatable: false
 default_value: {  }
