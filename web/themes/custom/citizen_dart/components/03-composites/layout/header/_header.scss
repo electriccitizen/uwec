@@ -10,6 +10,16 @@ section.alert-wrapper{
 }
 
 .site-header {
+  // Overlap the following element on some page type.
+  .node-type-news & {
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+  // Bump it down if there's an admin toolbar.
+  .node-type-news.toolbar-horizontal & {
+    top: 100px;
+  }
 	body:not(.hero-full_image):not(.node-type-news):not(.hero-video):not(.node-type-bios) &{
 		background: $headerBack;
 	}
@@ -97,7 +107,7 @@ section.alert-wrapper{
 ------------------------ */
 .block-superfishmain{
   &.contextual-region{
-    position: static; 
+    position: static;
   }
   #superfish-main-toggle{
     position: absolute;

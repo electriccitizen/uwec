@@ -19,7 +19,8 @@
  * @see field.html.twig
  */
 #}
-<span class="inline-label">Published on:</span>
+<div class="mobile-title">{{ element['#object'].title.0.value }}</div>
+{# <span class="inline-label">Published on:</span> #}
 <span{{ attributes }}>
   {%- for item in items -%}
     {{ item.content }}
