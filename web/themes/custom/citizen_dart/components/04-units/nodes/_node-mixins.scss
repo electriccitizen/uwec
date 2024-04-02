@@ -580,6 +580,114 @@
 	}
 }
 
+@mixin heroCornerSlice {
+  margin-left: -$siteMarginMobile;
+  margin-top: -160px;
+  padding-top: 160px;
+  position: relative;
+  width: 100vw;
+  z-index: 0;
+  * {
+    transform-style: unset;
+  }
+  @include desk {
+    margin-top: -166px;
+    min-height: 100vh;
+    padding-top: 166px;
+  }
+  .layout {
+    position: relative;
+    z-index: 2;
+    &:after {
+      @include fatStripes($gold);
+      background: repeating-linear-gradient(
+        0deg,
+        $gold,
+        $gold 30px,
+        transparent 30px,
+        transparent 60px
+      );
+      bottom: -80px;
+      left: auto;
+      right: -100px;
+      top: auto;
+      z-index: 2;
+    }
+    @include desk {
+      min-height: 100vh;
+    }
+  }
+  .block-field-image {
+    margin-bottom: 0;
+    overflow: hidden;
+    width: 100vw;
+    &:before{
+      @include fullBack(rgba(35,35,35,0.4));
+      z-index: 1;
+    }
+    @include desk {
+      height: 100%;
+      left: 0;
+      min-height: 100vh;
+      position: absolute;
+      top: 0;
+      z-index: -1;
+    }
+    * {
+      height: 100%;
+    }
+    .field-label{
+      display: none;
+    }
+    img{
+      object-fit: cover;
+    }
+  }//end main section 1 image
+  .block-field.block-title {
+    @include auto;
+    margin-bottom: 0;
+    max-width: 1092px;
+    opacity: 0; // Hide on mobile but still be screen-reader accessible.
+    @include desk {
+      @include safeFlex(row, no-wrap, start, end);
+      height: 100%;
+      min-height: 100vh;
+      padding-bottom: 138px;
+      opacity: 1;
+    }
+    h1 {
+      color: $white;
+      font-size: 1px;
+      max-width: $textMax;
+      text-align: left;
+      @include desk {
+        font-size: $h1Mid;
+      }
+      @include contentStop {
+        font-size: $h1Lg;
+      }
+    }
+  }//end title
+  &:after{
+    @include rotate(16);
+    background: $navy;
+    content: '';
+    display: block;
+    width: 100vw;
+    height: 400px;
+    position: absolute;
+    bottom: -7vh;
+    right: -50vw;
+    z-index: 1;
+    @include desk {
+      @include rotate(-16);
+      background: $white;
+      bottom: -28vh;
+      z-index: 3;
+    }
+  }
+}
+
 @mixin profileTeaser{
   padding-bottom: 40px;
   .field-image{

@@ -408,8 +408,8 @@
 	z-index: -1;
 	background: repeating-linear-gradient(
 	  0deg,
-	  #{$stripeColor},
-	  #{$stripeColor} 40px,
+	  $stripeColor,
+	  $stripeColor 40px,
 	  transparent 40px,
 	  transparent 80px
 	);
