@@ -42,6 +42,9 @@ function citizen_dart_preprocess_html(&$variables) {
       if(($node->field_hero[0]->entity->field_hero_type[0]->value == 'pattern') && ($node->field_hero[0]->entity->field_links[0])){
         $variables['attributes']['class'][] = 'hero-pattern-links';
       }
+      if($node->field_hero[0]->entity->field_image[0]){
+        $variables['attributes']['class'][] = 'hero-has-image';
+      }
     }else{
       $variables['attributes']['class'][] = 'hero-none';
     }
