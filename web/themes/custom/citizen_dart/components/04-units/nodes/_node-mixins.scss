@@ -490,6 +490,33 @@
   }//end links field a
 }//end patternHero
 
+@mixin patternHeroSwirl{
+  @include animation('fadeInDelay 1s 1');
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  animation: heroSwirlSlideMobileLeft 1.5s forwards;
+  z-index: 0;
+  width: 308px;
+  height: 572px;
+  background-image: url(../images/elements/swirl-vertical-blue.svg);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  @include desk{
+    animation: heroSwirlSlideMidLeft 1.5s forwards;
+    width: 380px;
+    height: 706px;
+    bottom: -83px;
+  }
+  @include contentStop{
+    left: auto;
+    animation: heroSwirlSlideWideRight 1.5s forwards;
+    width: 452px;
+    height: 839px;
+    bottom: -95px;
+  }
+}
+
 @mixin heroSimpleBackground{
   position: absolute;
   top: 0;
