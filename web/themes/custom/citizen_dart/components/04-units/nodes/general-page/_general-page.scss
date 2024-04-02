@@ -21,6 +21,9 @@
 		.hero-video &,.hero-full_image &,.hero-background &{
 			position: static;
 		}
+    .hero-image &{
+      padding-bottom: $spaceLg;
+    }
 	}
 
 	//hero setups
@@ -91,13 +94,60 @@
       }//end page header text when pattern
 		}//end hero pattern
 
-    /* FULL PAGE HERO */
-		&.page-hero-image-right {
-      @include safeFlex(row,wrap,start,start);
-			background: $brightBlue;
-    }
+    /* HERO IMAGE RIGHT HALF */
+		&.page-hero-image{
+      @include heroRightImage;
+      @include desk{
+        margin-bottom: 11vw;
+      }
+      @include menuStop{
+        margin-bottom: 16vw;
+      }
+      @include contentStopMargin{
+        margin-bottom: 23vw;
+      }
+      @include contentStop{
+        margin-bottom: 20vw;
+      }
+      @media screen and (min-width: 1600px){
+        margin-bottom: 17vw;
+      }
+      @media screen and (min-width: 1900px){
+        margin-bottom: 16vw;
+      }
+      @media screen and (min-width: 2400px){
+        margin-bottom: 14vw;
+      }
+      .page-header-text{
+        margin-bottom: 0;
+        .breadcrumb{
+          padding-left: 20px;
+          padding-right: 20px;
+        }
+        .page-header-text-inner{
+          .node-title{
+            margin-bottom: $spaceMd;
+          }
+          .node-subtitle,.node-body{
+            @include onlyMobile{
+              padding-left: 20px;
+              padding-right: 20px;
+            }
+          }
+        }//end page header text inner
+      }//end page header text
+      .field-links{
+        padding-left: 40px;
+        max-width: 1092px;
+        @include desk{
+          align-items: flex-start;
+          padding-left: 20px;
+          margin-top: 20px;
+        }
+      }
+    }//end page hero image
 
-    /* FULL PAGE HERO */
+    /* BACKGROUND PATTERNED HERO WITH IMAGE RIGHT HALF */
 		&.page-hero-background-image {
       @include safeFlex(row,wrap,start,start);
 			background: $brightBlue;
@@ -115,7 +165,7 @@
 			}
     }//end background hero
 
-    /* FULL PAGE HERO */
+    /* FULL WIDTH IMAGE HERO */
 		&.page-hero-full-image {
 			&:before {
 				content: '';
@@ -284,8 +334,7 @@
     }//end page header text
 
     .field-links{
-      padding-top: 120px;
-      padding-bottom: 40px;
+      padding: 120px 20px 40px;
       max-width: 984px;
       position: relative;
       z-index: 1;

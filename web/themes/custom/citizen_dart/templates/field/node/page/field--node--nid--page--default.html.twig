@@ -41,9 +41,11 @@
 		{% if element['#object'].field_hero.0.entity.field_hero_type.0.value == 
 		'image' or element['#object'].field_hero.0.entity.field_hero_type.0.value == 'background_image' %}
 			{% if element['#object'].field_hero.0.entity.field_image.0 %}
-				<div class="image-right">
-					{{ drupal_entity('media',element['#object'].field_hero.0.entity.field_image.0.target_id,'730x840') }}
-				</div>
+        <div class="hero-image">
+          <div class="image-right">
+            {{ drupal_entity('media',element['#object'].field_hero.0.entity.field_image.0.target_id,'730x840') }}
+          </div>
+        </div>
 			{% endif %}
 		{% endif %}
 
@@ -142,13 +144,11 @@
 			{% if element['#object'].field_hero.0.entity.field_hero_type.0.value != 'video' and element['#object'].field_hero.0.entity.field_hero_type.0.value != 'full_image' %}
 				{% if element['#object'].field_hero.0.entity.field_links.0 %}
 					<div class="field field-links">
-						<ul class="hero-links">
-							{% for link in element['#object'].field_hero.0.entity.field_links %}
-								<li>
-									<a href="{{ link.url }}"><span>{{ link.title }}</span></a>
-								</li>
-							{% endfor %}
-						</ul>
+            {% for link in element['#object'].field_hero.0.entity.field_links %}
+              <div>
+                <a href="{{ link.url }}"><span>{{ link.title }}</span></a>
+              </div>
+            {% endfor %}
 					</div>
 				{% endif %}
 			{% endif %}

@@ -13,7 +13,7 @@
   --animation-end-mid: 77vw;
   --animation-end-wide: -104px;
 }
-.node-type-college.hero-has-image,.node-type-academic-program{
+.node-type-college.hero-has-image,.node-type-academic-program,.node-type-page.hero-image.hero-has-image{
   --animation-start: -200vw;
   --animation-start-mid: -200vw;
   --animation-start-wide: 200vw;
@@ -349,6 +349,24 @@
         @include blueTriangle;
       }
     }
+    .block-system-breadcrumb-block{
+      @include onlyMobile{
+        display: none;
+      }
+      .breadcrumb{
+        max-width: 1096px;
+        padding-top: 62px;
+        margin-bottom: 40px;
+        @include menuStop{
+          margin-bottom: 80px;
+        }
+        a{
+          &:hover,&:focus{
+            @include dottedLink($white);
+          }
+        }
+      }//end breadcrumb
+    }//end breadcrumb block
     .page-header-text-inner{
       color: $white;
       padding: 58px 20px 0;
@@ -372,24 +390,6 @@
       h1,h2,h3,h4,h5,h6,li,a{
         color: $white;
       }
-      .block-system-breadcrumb-block{
-        @include onlyMobile{
-          display: none;
-        }
-        .breadcrumb{
-          max-width: 1096px;
-          padding-top: 62px;
-          margin-bottom: 40px;
-          @include menuStop{
-            margin-bottom: 80px;
-          }
-          a{
-            &:hover,&:focus{
-              @include dottedLink($white);
-            }
-          }
-        }//end breadcrumb
-      }//end breadcrumb block
       .field.title{
         margin-bottom: 30px;
       }
@@ -425,7 +425,16 @@
         top: 60px;
       }
     }//end after swirl
-  }
+  }//end not has hero image
+  .field-links{
+    padding-top: 20px;
+    padding-bottom: 0;
+    a{
+      display: inline-block;
+      @include linkArrow(white, sm, "span");
+      min-height: 32px;
+    }
+  }//end field links
 }//end hero image right
 
 @mixin patternHero{
