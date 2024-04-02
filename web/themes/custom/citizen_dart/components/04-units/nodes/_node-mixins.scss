@@ -103,7 +103,7 @@
     position: absolute;
     top: 0;
     left: calc(50% - 457px);
-    width: 914px;
+    width: $breakoutWidth;
     height: 2px;
     background: $siteBack;
   }
@@ -121,7 +121,7 @@
 }
 
 @mixin contactSection{
-	max-width: 914px;
+	max-width: $breakoutWidth;
 	@include auto;
 	background: $ice;
   padding: 22px 20px 1px;
@@ -234,7 +234,7 @@
 }//end contact contnet
 
 @mixin hoursHolder{
-	max-width: 914px;
+	max-width: $breakoutWidth;
 	@include auto;
 	& > *:first-child{
 		background: $ice;

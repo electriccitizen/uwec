@@ -22,7 +22,7 @@
 
 .node-testimonial{
   padding-top: $elementSpace;
-	max-width: 914px;
+	max-width: $breakoutWidth;
 	@include auto;
   #node-section-1 {
     margin-bottom: $elementSpace;

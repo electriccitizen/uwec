@@ -45,14 +45,26 @@
   }//end section 2
 
   #node-section-3 {
-    @include auto;
-    max-width: $textMax;
+
+    // Set each field and blocks's width individually so that child elements can
+    // more easily "break out" to the wider width.
+    .field-authors,
+    .block-created,
+    .block-field-intro-text,
+    .block-field-image,
+    .field-paragraphs > .widget > .paragraph:not(.paragraph--type--layout-section) {
+      @include auto;
+      max-width: $textMax;
+    }
+
     .field-authors {
       @include safeFlex(row,wrap,start,start);
     }
     .block-created {
-      @include heading2;
       margin-bottom: $spaceMd;
+      .field-created {
+        @include heading2;
+      }
       .mobile-title {
         @include heading1;
         @include desk {
@@ -120,7 +132,7 @@
       max-width: $textMax;
       padding: 0 $siteMarginMobile;
       @include desk {
-        @include auto;
+        max-width: none;
       }
       h2.block-title{
         @include headerGlobals;
@@ -131,12 +143,35 @@
       }
       .field-authors {
         background-color: $royal;
-        padding: calc($spaceLg + $siteMarginMobile) $siteMarginMobile;
+        padding: calc($spaceLg + $siteMarginMobile) 0;
         position: relative;
         top: -$spaceLg; // Causes the overlapping and marging calculation bugs.
+        @include desk {
+          @include auto;
+          max-width: $breakoutWidth;
+          padding-top: $spaceXl;
+          top: -$spaceXl;
+        }
         & > div{
           &:not(:last-child){
             margin-bottom: $elementSpace;
+          }
+        }
+        .term-page {
+          padding: 0 $siteMarginMobile;
+          @include desk {
+            @include auto;
+            max-width: $textMax;
+            padding-left: 120px;
+            padding-top: $spaceMd;
+            position: relative;
+          }
+          .teaser-image {
+            @include desk {
+              position: absolute;
+              left: 0;
+              top: 0;
+            }
           }
         }
         .author-name {
