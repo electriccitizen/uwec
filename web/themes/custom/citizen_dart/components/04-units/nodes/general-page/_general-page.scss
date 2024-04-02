@@ -92,6 +92,14 @@
           }
         }//end pattern page header text inner
       }//end page header text when pattern
+      .field-links{
+        @include smallTab{
+          padding-top: 120px;
+        }
+        @include desk{
+          padding-top: 40px;
+        }
+      }
 		}//end hero pattern
 
     /* HERO IMAGE RIGHT HALF */
@@ -151,10 +159,12 @@
 		&.page-hero-background-image {
       @include heroRightImage;
       overflow: hidden;
-      margin-bottom: 0;
       padding-bottom: 29vw;
       background-size: 1273px 958px !important;
       background-position: left -250px bottom -70px !important;
+      @include onlyMobile{
+        margin-bottom: $elementSpace;
+      }
       @include smallTab{
         background-size: cover !important;
         background-position: center !important;
@@ -162,25 +172,26 @@
         padding-top: 88px;
       }
       @include desk{
-        margin-bottom: 11vw;
+        margin-bottom: 2rem;
+        margin-top: -100px;
+        padding-top: 100px;
+        padding-bottom: 29vw;
       }
       @include menuStop{
-        margin-bottom: 16vw;
+        margin-top: -110px;
+        padding-top: 110px;
       }
       @include contentStopMargin{
-        margin-bottom: 23vw;
-      }
-      @include contentStop{
-        margin-bottom: 20vw;
+        margin-bottom: 0;
       }
       @media screen and (min-width: 1600px){
-        margin-bottom: 17vw;
+        margin-bottom: -2vw;
       }
       @media screen and (min-width: 1900px){
-        margin-bottom: 16vw;
+        margin-bottom: -4vw;
       }
       @media screen and (min-width: 2400px){
-        margin-bottom: 14vw;
+        margin-bottom: -6vw;
       }
       &:before{
         top: auto;
@@ -188,9 +199,24 @@
         background: $siteBack;
         z-index: 1;
         clip-path: polygon(100% 0, 100% 100%, 0 100%,);
+        @include desk{
+          content: '';
+          display: block;
+          position: absolute;
+          left: 0;
+          height: 29vw;
+          width: 100vw;
+        }
       }
       .hero-image{
         .image-right{
+          @include desk{
+            top: 100px;
+            @include animation('fadeIn 1.25s 1');
+          }
+          @include menuStop{
+            top: 120px; 
+          }
           &:before{
             @include animation('fadeInDelay 1s 1');
             content: '';
@@ -203,18 +229,23 @@
             background-image: url(../images/elements/fat-stripes-blue.svg);
             background-repeat: no-repeat;
             background-size: 100%;
+            @include smallTab{
+              bottom: -68px;
+            }
             @include desk{
-              animation: heroSwirlSlideMidRight 1.5s forwards;
-              width: 380px;
-              height: 706px;
-              bottom: -83px;
+              animation: heroSwirlSlideMidLeft 1.5s forwards;
+              bottom: -20px;
+              z-index: -1;
+              width: 150px;
+              height: 242px;
+              background-position: bottom left;
             }
             @include contentStop{
               left: auto;
-              animation: heroSwirlSlideWideRight 1.5s forwards;
-              width: 452px;
-              height: 839px;
-              bottom: -95px;
+              animation: heroSwirlSlideWideLeft 1.5s forwards;
+              width: 222px;
+              height: 344px;
+              bottom: -35px;
             }
           }
           &:after{
@@ -224,6 +255,12 @@
       }//end hero image
       .page-header-text{
         margin-bottom: 0;
+        @include desk{
+          background: none;
+          &:after{
+            content: none;
+          }
+        }
         .breadcrumb{
           padding-left: 20px;
           padding-right: 20px;

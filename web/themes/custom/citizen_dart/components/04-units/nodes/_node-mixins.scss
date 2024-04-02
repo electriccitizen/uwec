@@ -23,11 +23,11 @@
 }
 .node-type-page.hero-background_image{
   --animation-start: -200vw;
-  --animation-start-mid: -200vw;
+  --animation-start-mid: 200vw;
   --animation-start-wide: 200vw;
   --animation-end: 0;
-  --animation-end-mid: 0;
-  --animation-end-wide: -60px;
+  --animation-end-mid: -20px;
+  --animation-end-wide: -35px;
 }
 
 @keyframes heroSwirlSlideMobileLeft {
