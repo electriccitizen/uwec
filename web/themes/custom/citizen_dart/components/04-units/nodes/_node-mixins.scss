@@ -603,14 +603,16 @@
       background: repeating-linear-gradient(
         0deg,
         $gold,
-        $gold 30px,
-        transparent 30px,
-        transparent 60px
+        $gold 20px,
+        transparent 20px,
+        transparent 40px
       );
       bottom: -80px;
+      height: 150px;
       left: auto;
       right: -100px;
       top: auto;
+      width: 147px;
       z-index: 2;
     }
     @include desk {

@@ -37,6 +37,7 @@
     .block-field-story-categories {
       @include tag;
       color: $navy;
+      line-height: 2.625;
     }
     .field-story-categories {
       @include safeFlex(row, wrap, center, center);
@@ -57,6 +58,17 @@
       max-width: $textMax;
     }
 
+    // Text-based fields have extra-wide margins on mobile.
+    .field-authors,
+    .field-created,
+    .block-field-intro-text,
+    .block-field-paragraphs .paragraph--type--text {
+      padding: 0 $siteMarginMobile;
+      @include desk {
+        padding: 0;
+      }
+    }
+
     .field-authors {
       @include safeFlex(row,wrap,start,start);
     }
@@ -64,6 +76,7 @@
       margin-bottom: $spaceMd;
       .field-created {
         @include heading2;
+        display: block;
       }
       .mobile-title {
         @include heading1;
@@ -71,6 +84,19 @@
           display: none;
         }
         margin-bottom: $spaceSm;
+      }
+    }
+    .block-field-intro-text {
+      font-size: 20px;
+      margin-bottom: $spaceMd;
+    }
+    .block-field-paragraphs {
+      padding: 0 $siteMarginMobile;
+      h2, h3, h4, h5, h6 {
+        color: $brightBlue;
+      }
+      .widget {
+        padding: 0;
       }
     }
     .block-field-image {
@@ -91,20 +117,7 @@
         line-height: 32px;
       }
       a {
-        @include linkArrow(navyLight, sm);
-      }
-    }
-    .block-field-intro-text {
-      font-size: 20px;
-      margin-bottom: $spaceMd;
-    }
-    .block-field-paragraphs {
-      padding: 0 $siteMarginMobile;
-      h2, h3, h4, h5, h6 {
-        color: $brightBlue;
-      }
-      .widget {
-        padding: 0;
+        @include linkArrow(navy, sm);
       }
     }
   }//end node section 3
