@@ -182,8 +182,18 @@
 
     .block-related-stories {
       padding: $siteMarginMobile;
+      @include desk {
+        max-width: none;
+        padding: $siteMarginDesk;
+      }
       &:after {
         z-index: 0;
+      }
+      .view {
+        @include desk {
+          @include auto;
+          max-width: $contentStopMargin;
+        }
       }
     }
   }//end node section 4
