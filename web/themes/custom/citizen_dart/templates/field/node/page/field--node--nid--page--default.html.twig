@@ -35,7 +35,7 @@
 
 {% block fieldSingleNo %}
 
-	<div class="page-header-wrapper{% if element['#object'].field_hero.0 %} has-hero page-hero-{{ element['#object'].field_hero.0.entity.field_hero_type.0.value|clean_class }}{% endif %}">
+	<div class="page-header-wrapper{% if element['#object'].field_hero.0 %} has-hero page-hero-{{ element['#object'].field_hero.0.entity.field_hero_type.0.value|clean_class }}{% endif %}"{% if element['#object'].field_hero.0.entity.field_hero_type.0.value == 'background_image' %} style="background:url({{ file_url(element['#object'].field_hero.0.entity.field_background_image.0.entity.field_media_image.entity.fileuri) }}) no-repeat"{% endif %}>
 
 		{# render a large version image for certain heros #}
 		{% if element['#object'].field_hero.0.entity.field_hero_type.0.value == 
@@ -51,14 +51,13 @@
 
 		{# add a background/full image for certain heros #}
 		{% if element['#object'].field_hero.0.entity.field_hero_type.0.value == 
-		'video' or element['#object'].field_hero.0.entity.field_hero_type.0.value == 'background_image' or element['#object'].field_hero.0.entity.field_hero_type.0.value == 'full_image' %}
+		'video' or element['#object'].field_hero.0.entity.field_hero_type.0.value == 'full_image' %}
 			{% if element['#object'].field_hero.0.entity.field_background_image.0 %}
 				<div class="hero-background">
 					{{ drupal_entity('media',element['#object'].field_hero.0.entity.field_background_image.0.target_id,'1920x1445') }}
 				</div>
 			{% endif %}
 		{% endif %}
-
 		{# set an area with breadcrumbs and header text content #}
 		<div class="page-header-text">
 			{% if element['#object'].field_hide_nav.0.value == '0' and element['#object'].field_hero.0.entity.field_hero_type.0.value != 'full_image' %}

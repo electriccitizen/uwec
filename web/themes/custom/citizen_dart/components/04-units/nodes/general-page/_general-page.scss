@@ -149,20 +149,106 @@
 
     /* BACKGROUND PATTERNED HERO WITH IMAGE RIGHT HALF */
 		&.page-hero-background-image {
-      @include safeFlex(row,wrap,start,start);
-			background: $brightBlue;
-      position: absolute;
-			top: 0;
-			right: 0;
-			bottom: 0;
-			left: 0;
-			z-index: -1;
-			& *{
-				height: 100%;
-			}
-			img{
-				object-fit: cover;
-			}
+      @include heroRightImage;
+      overflow: hidden;
+      margin-bottom: 0;
+      padding-bottom: 29vw;
+      background-size: 1273px 958px !important;
+      background-position: left -250px bottom -70px !important;
+      @include smallTab{
+        background-size: cover !important;
+        background-position: center !important;
+        margin-top: -88px;
+        padding-top: 88px;
+      }
+      @include desk{
+        margin-bottom: 11vw;
+      }
+      @include menuStop{
+        margin-bottom: 16vw;
+      }
+      @include contentStopMargin{
+        margin-bottom: 23vw;
+      }
+      @include contentStop{
+        margin-bottom: 20vw;
+      }
+      @media screen and (min-width: 1600px){
+        margin-bottom: 17vw;
+      }
+      @media screen and (min-width: 1900px){
+        margin-bottom: 16vw;
+      }
+      @media screen and (min-width: 2400px){
+        margin-bottom: 14vw;
+      }
+      &:before{
+        top: auto;
+        bottom: -1px;
+        background: $siteBack;
+        z-index: 1;
+        clip-path: polygon(100% 0, 100% 100%, 0 100%,);
+      }
+      .hero-image{
+        .image-right{
+          &:before{
+            @include animation('fadeInDelay 1s 1');
+            content: '';
+            position: absolute;
+            bottom: -195px;
+            animation: heroSwirlSlideMobileRight 1.5s forwards;
+            z-index: 0;
+            width: 72px;
+            height: 128px;
+            background-image: url(../images/elements/fat-stripes-blue.svg);
+            background-repeat: no-repeat;
+            background-size: 100%;
+            @include desk{
+              animation: heroSwirlSlideMidRight 1.5s forwards;
+              width: 380px;
+              height: 706px;
+              bottom: -83px;
+            }
+            @include contentStop{
+              left: auto;
+              animation: heroSwirlSlideWideRight 1.5s forwards;
+              width: 452px;
+              height: 839px;
+              bottom: -95px;
+            }
+          }
+          &:after{
+            content: none;
+          }
+        }//end image right
+      }//end hero image
+      .page-header-text{
+        margin-bottom: 0;
+        .breadcrumb{
+          padding-left: 20px;
+          padding-right: 20px;
+        }
+        .page-header-text-inner{
+          .node-title{
+            margin-bottom: $spaceMd;
+          }
+          .node-subtitle,.node-body{
+            @include onlyMobile{
+              padding-left: 20px;
+              padding-right: 20px;
+            }
+          }
+        }//end page header text inner
+      }//end page header text
+      .field-links{
+        padding-left: 40px;
+        max-width: 1092px;
+        @include desk{
+          align-items: flex-start;
+          padding-left: 20px;
+          margin-top: 20px;
+        }
+      }
     }//end background hero
 
     /* FULL WIDTH IMAGE HERO */
