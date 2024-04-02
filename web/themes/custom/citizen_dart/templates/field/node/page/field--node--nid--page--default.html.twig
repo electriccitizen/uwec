@@ -63,16 +63,16 @@
 				{{ drupal_block('system_breadcrumb_block') }}
 			{% endif %}
 			<div class="page-header-text-inner">
-				<div class="field title string">
+				<div class="node-title">
 					<h1 class="page-title formatted-title">{{ formattedTitle|render|striptags('<strong>')|trim|raw }}</h1>
 				</div>
 				{% if element['#object'].field_subtitle.0 and element['#object'].field_hero.0.entity.field_hero_type.0.value != 'full_image' %}
-					<div class="field field-subtitle string">
+					<h2 class="node-subtitle">
 						{{ element['#object'].field_subtitle.0.value }}
-					</div>
+          </h2>
 				{% endif %}
 				{% if element['#object'].body.0 and element['#object'].field_hero.0.entity.field_hero_type.0.value != 'full_image' %}
-					<div class="field field-body text-long">
+					<div class="node-body">
 						{{ bodyText }}
 					</div>
 				{% endif %}
@@ -145,8 +145,7 @@
 						<ul class="hero-links">
 							{% for link in element['#object'].field_hero.0.entity.field_links %}
 								<li>
-									<span class="link-arrow"></span> 
-									<a href="{{ link.url }}">{{ link.title }}</a>
+									<a href="{{ link.url }}"><span>{{ link.title }}</span></a>
 								</li>
 							{% endfor %}
 						</ul>

@@ -25,10 +25,6 @@
 		margin-bottom: 0;
 	}
 
-	.layout--twocol-sideleft{
-		max-width: 100%;
-	}
-
 	#node-section-1{
 		.hero-video &,.hero-full_image &,.hero-background &{
 			position: static;
@@ -44,12 +40,35 @@
 		&.page-hero-pattern{
       @include patternHero;
       margin-bottom: $elementSpace;
+      @include largeTab{
+        margin-bottom: 60px;
+      }
+      @include desk{
+        margin-bottom: 70px;
+      }
       .hero-pattern:not(.hero-pattern-links) &{
         @include largeTab{
-          margin-bottom: 70px;
+          margin-bottom: 80px;
+        }
+        @include desk{
+          margin-bottom: 90px;
         }
         @include menuStop{
-          margin-bottom: $elementSpace;
+          margin-bottom: 100px;
+        }
+      }
+      //set a shield to prevent swirl from interfering the page title at small screens
+      &:before{
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: $brightBlue;
+        width: 100vw;
+        height: 25%;
+        z-index: 1;
+        @include desk{
+          height: 30%;
         }
       }
       &:after{
@@ -63,7 +82,7 @@
           }
         }
         .hero-pattern:not(.hero-pattern-links) &{
-          padding-bottom: 115px;
+          margin-bottom: 115px;
         }
         .page-header-text-inner{
           max-width: $textMax;
@@ -261,10 +280,24 @@
       }//end page header text when no hero
     }//end no hero
 
+    .page-header-text{
+      .page-header-text-inner{
+        .node-title{
+          margin-bottom: 8rem;
+        }
+        .node-subtitle{
+          margin-bottom: $spaceSm;
+        }
+      }//end page header text inner
+    }//end page header text
+
     .field-links{
-      padding-top: 100px;
-      padding-bottom: 60px;
+      padding-top: 120px;
+      padding-bottom: 40px;
       max-width: 984px;
+      position: relative;
+      z-index: 1;
+      @include auto;
       @include smallTab{
         padding-top: 40px;
         padding-right: 0;
@@ -288,7 +321,35 @@
       }
     }//end field links
 
+    .block-system-breadcrumb-block{
+      display: none;
+      @include desk{
+        position: relative;
+        z-index: 1;
+        margin-bottom: $elementSpace;
+        display: block;
+      }
+    }//end block
 	}//end page-header-wrapper
+
+  #node-section-2{
+    .layout--twocol-sideleft{
+      position: relative;
+      .layout__region--content{
+        padding-left: 20px;
+        padding-right: 20px;
+        @include desk{
+          width: 100%;
+        }
+        @include menuStop{
+          &:not(:only-child){
+            width: 100%;
+            @include auto;
+          }
+        }
+      }//end layout region content
+    }//end two column side left
+  }//end node section 2;
 
 	.block-field-page-family{
 		max-width: 914px;
