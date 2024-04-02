@@ -60,19 +60,19 @@
 		{% endif %}
 		{# set an area with breadcrumbs and header text content #}
 		<div class="page-header-text">
-			{% if element['#object'].field_hide_nav.0.value == '0' and element['#object'].field_hero.0.entity.field_hero_type.0.value != 'full_image' %}
+			{% if element['#object'].field_hide_nav.0.value == '0' and (element['#object'].field_hero.0.entity.field_hero_type.0.value != 'full_image' and element['#object'].field_hero.0.entity.field_hero_type.0.value != 'video') %}
 				{{ drupal_block('system_breadcrumb_block') }}
 			{% endif %}
 			<div class="page-header-text-inner">
 				<div class="node-title">
 					<h1 class="page-title formatted-title">{{ formattedTitle|render|striptags('<strong>')|trim|raw }}</h1>
 				</div>
-				{% if element['#object'].field_subtitle.0 and element['#object'].field_hero.0.entity.field_hero_type.0.value != 'full_image' %}
+				{% if element['#object'].field_subtitle.0 and (element['#object'].field_hero.0.entity.field_hero_type.0.value == 'pattern' or element['#object'].field_hero.0.entity.field_hero_type.0.value == 'image' or element['#object'].field_hero.0.entity.field_hero_type.0.value == 'background_image') %}
 					<h2 class="node-subtitle">
 						{{ element['#object'].field_subtitle.0.value }}
           </h2>
 				{% endif %}
-				{% if element['#object'].body.0 and element['#object'].field_hero.0.entity.field_hero_type.0.value != 'full_image' %}
+				{% if element['#object'].body.0 and (element['#object'].field_hero.0.entity.field_hero_type.0.value == 'pattern' or element['#object'].field_hero.0.entity.field_hero_type.0.value == 'image' or element['#object'].field_hero.0.entity.field_hero_type.0.value == 'background_image') %}
 					<div class="node-body">
 						{{ bodyText }}
 					</div>

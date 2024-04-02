@@ -162,24 +162,17 @@
       padding-bottom: 29vw;
       background-size: 1273px 958px !important;
       background-position: left -250px bottom -70px !important;
+      @include heroHeaderInvade;
       @include onlyMobile{
         margin-bottom: $elementSpace;
       }
       @include smallTab{
         background-size: cover !important;
         background-position: center !important;
-        margin-top: -88px;
-        padding-top: 88px;
       }
       @include desk{
         margin-bottom: 2rem;
-        margin-top: -100px;
-        padding-top: 100px;
         padding-bottom: 29vw;
-      }
-      @include menuStop{
-        margin-top: -110px;
-        padding-top: 110px;
       }
       @include contentStopMargin{
         margin-bottom: 0;
@@ -290,16 +283,9 @@
 
     /* FULL WIDTH IMAGE HERO */
 		&.page-hero-full-image {
-			&:before {
-				content: '';
-				display: block;
-				position: absolute;
-				height: 100%;
-				width: 100%;
-				z-index: 1;
-				top: 0;
-				background: linear-gradient(180deg, rgba(217, 217, 217, 0) 0%, #06233D 100%);
-			}
+      @include heroFullWidthImage;
+      margin-top: -88px;
+      padding-top: -88px;
 		}//end full image
 
     /* VIDEO HERO */
@@ -445,6 +431,7 @@
       }//end page header text when no hero
     }//end no hero
 
+    /* GLOBAL HEADER TEXT & FIELD THEMING */
     .page-header-text{
       .page-header-text-inner{
         .node-title{
@@ -513,6 +500,24 @@
         }
       }//end layout region content
     }//end two column side left
+    //when breadcrumbs are in the main content (full image & video heros)
+    .block-system-breadcrumb-block{
+      display: none;
+      @include desk{
+        display: block;
+      }
+      .breadcrumb{
+        li{
+          color: $navy;
+          a{
+            color: $navy;
+            &:hover,&:focus{
+              @include dottedLink($navy);
+            }
+          }
+        }
+      }//end breadcrumb
+    }//end breadcrumb block
   }//end node section 2;
 
 	.block-field-page-family{

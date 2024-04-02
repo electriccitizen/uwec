@@ -29,6 +29,14 @@
   --animation-end-mid: -20px;
   --animation-end-wide: -35px;
 }
+.node-type-page.hero-full_image{
+  --animation-start: -200vw;
+  --animation-start-mid: -200vw;
+  --animation-start-wide: -200vw;
+  --animation-end: -80px;
+  --animation-end-mid: -92px;
+  --animation-end-wide: -105px;
+}
 
 @keyframes heroSwirlSlideMobileLeft {
   from {
@@ -253,30 +261,6 @@
 	}
 }
 
-@mixin heroBackground {
-	position: relative;
-	z-index: 0;
-	margin-left: -$siteMarginMobile;
-	margin-top: -160px;
-	padding-top: 160px;
-	width: 100vw;
-	min-height: 100vh;
-	@include desk{
-		margin-top: -114px;
-		padding-top: 114px;
-	}
-	.swirl-pattern{
-		position: absolute;
-		right: 35%;
-		top: 15%;
-	}
-	& > div {
-		@include safeFlex(row,wrap,start,start);
-		background: $brightBlue;
-		position: relative;
-	}
-}
-
 @mixin heroRightImage{
   @include edgeToEdge;
   position: relative;
@@ -370,6 +354,7 @@
         }
         a{
           &:hover,&:focus{
+            color: $white;
             @include dottedLink($white);
           }
         }
@@ -460,15 +445,6 @@
   @include menuStop{
     min-height: calc(100vh - 110px);
   }
-  .logged-in &{
-    min-height: calc(100vh - 137px);
-    @media screen and (min-width: 976px){
-      min-height: calc(100vh - 216px);
-    }
-    @include menuStop{
-      min-height: calc(100vh - 226px);
-    }
-  }//end logged in min heights
   .hero-pattern:not(.hero-pattern-links) &{
     @include menuStop{
       padding-bottom: 150px;
@@ -488,6 +464,7 @@
     max-width: 1096px;
     a{
       &:hover,&:focus{
+        color: $white;
         @include dottedLink($white);
       }
     }
@@ -531,6 +508,21 @@
     width: 452px;
     height: 839px;
     bottom: -95px;
+  }
+}
+
+@mixin heroHeaderInvade{
+  @include smallTab{
+    margin-top: -88px;
+    padding-top: 88px;
+  }
+  @include desk{
+    margin-top: -100px;
+    padding-top: 100px;
+  }
+  @include menuStop{
+    margin-top: -110px;
+    padding-top: 110px;
   }
 }
 
@@ -733,6 +725,112 @@
     }
   }
 }
+
+@mixin heroFullWidthImage {
+  @include heroHeaderInvade;
+  padding-top: 40px;
+  @include edgeToEdge;
+  padding-left: $siteMarginMobile;
+  padding-right: $siteMarginMobile;
+  color: $white;
+  min-height: 100vh;
+  margin-bottom: $elementSpace;
+  @include safeFlex(column,nowrap,end,start);
+  .hero-background{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    &:before {
+      content: '';
+      display: block;
+      position: absolute;
+      height: 110px;
+      width: 100%;
+      z-index: 0;
+      top: 0;
+      left: 0;
+      background: linear-gradient(0deg, rgba(#d9d9d9, 0) 0%, $navy 100%);
+      @include animation('fadeIn 1.25s 1');
+      @include desk{
+        height: 160px;
+      }
+      @include menuStop{
+        height: 220px;
+      }
+    }
+    &:after {
+      content: '';
+      display: block;
+      position: absolute;
+      width: 100%;
+      height: calc(100% - 110px);
+      z-index: 0;
+      bottom: 0;
+      left: 0;
+      background: linear-gradient(180deg, rgba(#d9d9d9, 0) 0%, $navy 100%);
+      @include animation('fadeIn 1.25s 1');
+      @include desk{
+        height: calc(100% - 160px);
+      }
+      @include menuStop{
+        height: calc(100% - 220px);
+      }
+    }
+    *{
+      height: 100%;
+      img{
+        object-fit: cover;
+      }
+    }
+    .field-media-image{
+      &:after{
+        content: '';
+        position: absolute;
+        top: 90px;
+        animation: heroSwirlSlideMobileRight 1.5s forwards;
+        z-index: 2;
+        width: 113px;
+        height: 200px;
+        background-image: url(../images/elements/fat-stripes-gold.svg);
+        background-repeat: no-repeat;
+        background-size: 100%;
+        @include desk{
+          animation: heroSwirlSlideMidRight 1.5s forwards;
+          top: 120px;
+          width: 140px;
+          height: 248px;
+          background-position: bottom left;
+        }
+        @include contentStop{
+          top: 140px;
+          animation: heroSwirlSlideWideRight 1.5s forwards;
+          width: 196px;
+          height: 347px;
+        }
+      }//end after
+    }//end field media image
+  }//end hero background
+  h1,h2,h3,h4,h5,h6,li,a{
+    color: $white;
+  }
+  //specific link colors
+  .breadcrumb{
+    max-width: 1096px;
+    a{
+      &:hover,&:focus{
+        @include dottedLink($white);
+      }
+    }
+  }//end breadcrumb
+  .field-links a{
+    display: inline-block;
+    @include linkArrow(white, sm, "span");
+    min-height: 32px;
+  }//end links field a
+}//end heroFullWidthImage
 
 @mixin profileTeaser{
   padding-bottom: 40px;
