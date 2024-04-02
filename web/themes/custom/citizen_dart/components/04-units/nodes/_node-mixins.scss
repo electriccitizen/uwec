@@ -111,7 +111,7 @@
     position: absolute;
     top: 0;
     left: calc(50% - 457px);
-    width: 914px;
+    width: $breakoutWidth;
     height: 2px;
     background: $siteBack;
   }
@@ -129,7 +129,7 @@
 }
 
 @mixin contactSection{
-	max-width: 914px;
+	max-width: $breakoutWidth;
 	@include auto;
 	background: $ice;
   padding: 22px 20px 1px;
@@ -242,7 +242,7 @@
 }//end contact contnet
 
 @mixin hoursHolder{
-	max-width: 914px;
+	max-width: $breakoutWidth;
 	@include auto;
 	& > *:first-child{
 		background: $ice;
@@ -647,14 +647,16 @@
       background: repeating-linear-gradient(
         0deg,
         $gold,
-        $gold 30px,
-        transparent 30px,
-        transparent 60px
+        $gold 20px,
+        transparent 20px,
+        transparent 40px
       );
       bottom: -80px;
+      height: 150px;
       left: auto;
       right: -100px;
       top: auto;
+      width: 147px;
       z-index: 2;
     }
     @include desk {

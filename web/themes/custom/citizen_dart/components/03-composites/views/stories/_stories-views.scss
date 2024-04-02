@@ -196,9 +196,12 @@
   @include auto;
   &:after {
     @include fullBack($brightBlue);
-    height: 600px;
+    height: 50vw;
     z-index: -3;
     top: 100%;
+    @include desk {
+      height: 30vw;
+    }
   }
   h2.block-title{
     color: $white;
