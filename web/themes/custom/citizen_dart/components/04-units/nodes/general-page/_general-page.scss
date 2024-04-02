@@ -393,7 +393,7 @@
 	}//end page-header-wrapper
 
 	.block-field-page-family{
-		max-width: 914px;
+		max-width: $breakoutWidth;
 		@include auto;
 	}
 }//end basic page

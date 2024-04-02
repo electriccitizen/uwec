@@ -58,7 +58,7 @@
       .widget-section > .layout--twocol-section--25-75 > .layout__region--second &,
       .node-support-book &{
         @include desk{
-          max-width: 914px;
+          max-width: $breakoutWidth;
           padding: 30px;
           @include safeFlex(row,nowrap,start,stretch);
           .gold-stripes-before{
