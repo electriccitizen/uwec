@@ -17,7 +17,7 @@
       @include animation('fadeInDelay 1s 1 forwards');
     }
     .logged-in &{
-      left: 70px;
+      left: -15px;
     }
     .layout-builder__layout &{
       position: relative !important;

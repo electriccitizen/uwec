@@ -13,13 +13,21 @@
   --animation-end-mid: 77vw;
   --animation-end-wide: -104px;
 }
-.node-type-college.hero-has-image,.node-type-academic-program{
+.node-type-college.hero-has-image,.node-type-academic-program,.node-type-page.hero-image.hero-has-image{
   --animation-start: -200vw;
   --animation-start-mid: -200vw;
   --animation-start-wide: 200vw;
   --animation-end: -12px;
   --animation-end-mid: -30px;
   --animation-end-wide: -60px;
+}
+.node-type-page.hero-background_image{
+  --animation-start: -200vw;
+  --animation-start-mid: 200vw;
+  --animation-start-wide: 200vw;
+  --animation-end: 0;
+  --animation-end-mid: -20px;
+  --animation-end-wide: -35px;
 }
 
 @keyframes heroSwirlSlideMobileLeft {
@@ -349,6 +357,24 @@
         @include blueTriangle;
       }
     }
+    .block-system-breadcrumb-block{
+      @include onlyMobile{
+        display: none;
+      }
+      .breadcrumb{
+        max-width: 1096px;
+        padding-top: 62px;
+        margin-bottom: 40px;
+        @include menuStop{
+          margin-bottom: 80px;
+        }
+        a{
+          &:hover,&:focus{
+            @include dottedLink($white);
+          }
+        }
+      }//end breadcrumb
+    }//end breadcrumb block
     .page-header-text-inner{
       color: $white;
       padding: 58px 20px 0;
@@ -372,24 +398,6 @@
       h1,h2,h3,h4,h5,h6,li,a{
         color: $white;
       }
-      .block-system-breadcrumb-block{
-        @include onlyMobile{
-          display: none;
-        }
-        .breadcrumb{
-          max-width: 1096px;
-          padding-top: 62px;
-          margin-bottom: 40px;
-          @include menuStop{
-            margin-bottom: 80px;
-          }
-          a{
-            &:hover,&:focus{
-              @include dottedLink($white);
-            }
-          }
-        }//end breadcrumb
-      }//end breadcrumb block
       .field.title{
         margin-bottom: 30px;
       }
@@ -425,7 +433,16 @@
         top: 60px;
       }
     }//end after swirl
-  }
+  }//end not has hero image
+  .field-links{
+    padding-top: 20px;
+    padding-bottom: 0;
+    a{
+      display: inline-block;
+      @include linkArrow(white, sm, "span");
+      min-height: 32px;
+    }
+  }//end field links
 }//end hero image right
 
 @mixin patternHero{
@@ -489,6 +506,33 @@
     min-height: 32px;
   }//end links field a
 }//end patternHero
+
+@mixin patternHeroSwirl{
+  @include animation('fadeInDelay 1s 1');
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  animation: heroSwirlSlideMobileLeft 1.5s forwards;
+  z-index: 0;
+  width: 308px;
+  height: 572px;
+  background-image: url(../images/elements/swirl-vertical-blue.svg);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  @include desk{
+    animation: heroSwirlSlideMidLeft 1.5s forwards;
+    width: 380px;
+    height: 706px;
+    bottom: -83px;
+  }
+  @include contentStop{
+    left: auto;
+    animation: heroSwirlSlideWideRight 1.5s forwards;
+    width: 452px;
+    height: 839px;
+    bottom: -95px;
+  }
+}
 
 @mixin heroSimpleBackground{
   position: absolute;

@@ -191,15 +191,6 @@
   @include u.menuStop{
     min-height: calc(100vh - 110px);
   }
-  .logged-in &{
-    min-height: calc(100vh - 137px);
-    @media screen and (min-width: 976px){
-      min-height: calc(100vh - 216px);
-    }
-    @include u.menuStop{
-      min-height: calc(100vh - 226px);
-    }
-  }//end logged in min heights
 }//end height 100
 
 /*  STYLE MIXINS
@@ -524,7 +515,6 @@
     $arrow-invert: navy;
     $hover-back: c.$white;
   }
-
   @if $size == sm {
     $dotted-padding: 1px;
   }
