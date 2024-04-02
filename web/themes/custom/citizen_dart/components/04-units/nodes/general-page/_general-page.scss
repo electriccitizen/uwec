@@ -12,14 +12,6 @@
 		& > .contextual{
 			display: none;
 		}
-		.page-header-wrapper{
-			margin-top: -216px;
-			padding-top: 216px;
-			@include desk{
-				margin-top: -170px;
-				padding-top: 170px;
-			}
-		}
 	}// contextual region
 	.block-nid {
 		margin-bottom: 0;
