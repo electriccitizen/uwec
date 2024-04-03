@@ -100,6 +100,8 @@
       .field-created {
         @include heading2;
         display: block;
+        font-size: $h5;
+        line-height: 1.2;
       }
       .mobile-title {
         @include heading1;
@@ -107,6 +109,7 @@
           display: none;
         }
         margin-bottom: $spaceSm;
+        margin-right: $spaceMd;
       }
     }
     .block-field-intro-text {
@@ -129,7 +132,7 @@
         background-color: $navy;
         content: '';
         display: block;
-        height: 2px;
+        height: 1px;
         margin-bottom: $spaceSm;
         width: 202px;
 
@@ -138,6 +141,7 @@
         @include headerGlobals;
         font-size: 26px;
         line-height: 32px;
+        margin-bottom: $spaceXxs;
       }
       a {
         @include linkArrow(navy, sm);
@@ -179,6 +183,7 @@
       }
       .field-authors {
         background-color: $royal;
+        margin-bottom: -$spaceLg; // Correction for negative top spacing.
         padding: calc($spaceLg + $siteMarginMobile) 0;
         position: relative;
         top: -$spaceLg; // Causes the overlapping and marging calculation bugs.
@@ -217,10 +222,10 @@
     }//end authors fields block
 
     .block-related-stories {
-      padding: $siteMarginMobile;
+      padding: $spaceXl $siteMarginMobile $siteMarginMobile;
       @include desk {
         max-width: none;
-        padding: $siteMarginDesk;
+        padding: $spaceXl $siteMarginDesk $siteMarginDesk;
       }
       &:after {
         z-index: 0;

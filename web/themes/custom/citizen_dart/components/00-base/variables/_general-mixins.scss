@@ -478,6 +478,7 @@
   $hover-border: c.$navy;
   $back: transparent;
   $hover-back: $arrow;
+  $dots: c.$brightBlue;
 
   $dotted-padding: 2px;
 
@@ -485,6 +486,7 @@
     $arrow-invert: navy;
     $hover-back: c.$white;
     $hover-border: c.$white;
+    $dots: c.$white;
   }
   @if $theme == brightBlue {
     $arrow: c.$brightBlue;
@@ -498,6 +500,7 @@
     $arrow-string: royal;
     $border: c.$royal;
     $hover-back: $arrow;
+    $dots: c.$royal;
   }
   @if $theme == white {
     $arrow: c.$white;
@@ -506,6 +509,7 @@
     $arrow-invert: royal;
     $hover-border: $arrow;
     $hover-back: $arrow;
+    $dots: c.$white;
   }
   @if $theme == gold {
     $arrow: c.$gold;
@@ -514,6 +518,7 @@
     $hover-border: c.$white;
     $arrow-invert: navy;
     $hover-back: c.$white;
+    $dots: c.$white;
   }
   @if $size == sm {
     $dotted-padding: 1px;
@@ -535,7 +540,7 @@
       @include rightArrow($arrow-invert, $hover-back, $hover-border, $size);
     }
     #{$dotted-selector} {
-      @include dottedLink($hover-border);
+      @include dottedLink($dots);
       padding-bottom: $dotted-padding;
     }
   }
