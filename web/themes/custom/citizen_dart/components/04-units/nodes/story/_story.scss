@@ -33,15 +33,38 @@
       li a {
         color: $navy;
       }
+      li a:hover {
+        @include dottedLink($navy);
+      }
     }
     .block-field-story-categories {
       @include tag;
       color: $navy;
       line-height: 2.625;
-    }
-    .field-story-categories {
-      @include safeFlex(row, wrap, center, center);
-      min-height: 31px;
+      .field-story-categories {
+        @include safeFlex(row, wrap, start, start);
+        max-width: 75%;
+        min-height: 31px;
+        @include desk {
+          @include safeFlex(row, wrap, end, start);
+        }
+      }
+      .category {
+        &:after {
+          content: "|";
+          margin-right: .5rem;
+        }
+        &:last-child:after {
+          content: "";
+        }
+      }
+      a {
+        color: $navy;
+        display: inline-block;
+        &:hover {
+          @include dottedLink($navy);
+        }
+      }
     }
   }//end section 2
 
