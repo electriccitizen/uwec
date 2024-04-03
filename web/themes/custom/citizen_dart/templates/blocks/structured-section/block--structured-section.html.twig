@@ -19,7 +19,7 @@
   <div class="cta-section">
     {% if bgImageUrl %} <img src="{{ bgImageUrl }}" alt="" class="bg-image" />{% endif %}
     <div class="cta-section-inner">
-      <div class="first">
+      <div class="column first">
         {{ content.field_formatted_headline }}
         {{ content.body }}
         {% if content.field_program_finder.0['#markup'] == "On" %}
@@ -29,8 +29,10 @@
           </div>
         {% endif %}
       </div>
-      <div class="last">
+      <div class="column cta-image">
         {{ content.field_cta_image }}
+      </div>
+      <div class="column last">
         {{ content.field_cta_links }}
       </div>
     </div>

@@ -133,71 +133,97 @@
       display: block;
     }
   }
-   .cta-section {
-      position: relative;
-      color: $white;
-      padding-bottom: 100px;
-      .cta-section-inner {
-         @include safeFlex(row,wrap,start,start);
-         @include bleed(padding, $spaceLg);
-         max-width: $contentStop;
-         @include auto;
-         padding-top: $spaceMd;
-         padding-bottom: $spaceMd;
-         .first,.last {
-            width: 50%;
-            .field-formatted-headline {
-               h2 {
-                  color: $white;
-               }
-            }
-            .program-search {
-              h3 {
-                 color: $white;
-              }
-              #program-search-form{
-                 position: relative;
-                 *{
-                   transform-style: unset;
-                 }
-                 #edit-program-search-submit{
-                   position: absolute;
-                   top: calc(50% - 12px);
-                   right: 20px;
-                   @include browserWipe;
-                   width: 24px;
-                   height: 24px;
-                   overflow: hidden;
-                   text-indent: -9000px;
-                   background-color: transparent;
-                   border: 0;
-                   background-image: url(../images/elements/search.svg);
-                   background-repeat: no-repeat;
-                   background-size: 100%;
-                   background-position: 0 0;
-                   &:hover,&:focus{
-                     opacity: .5;
-                     border-bottom: 1px solid $black;
-                   }
-                 }
-              }
-            }
-            .body {
-               color: $white;
-               margin-bottom: $spaceMd;
-            }
-            .field-cta-image {
-               max-width: 426px;
-               margin-bottom: $spaceMd;
-            }
-            .field-cta-links {
-               a {
-                  color: $white;
-               }
-            }
-         }//end first last
-      }//end CTA section inner
-   }//end CTA section
+  .cta-section {
+    position: relative;
+    color: $white;
+    padding-bottom: 100px;
+    .cta-section-inner {
+      @include safeFlex(column,wrap,start,start);
+      @include auto;
+      @include edgeToEdge;
+      padding-bottom: $spaceMd;
+      padding-top: $spaceMd;
+      @include desk {
+        @include bleed(padding, $spaceLg);
+        columns: 2;
+        display: block;
+        margin-left: 0;
+        margin-right: 0;
+        max-width: $contentStop;
+      }
+      .column {
+        @include desk {
+          width: 50%;
+        }
+      }
+      .first,.last {
+        margin: 0 $siteMarginMobile;
+      }
+      .first {
+        order: 1;
+        margin: 0 $siteMarginMobile;
+      }
+      .cta-image {
+        order: 0;
+        width: 100%;
+        @include desk {
+          order: 2;
+        }
+      }
+      .last {
+        order: 3;
+      }
+      .field-formatted-headline {
+        h2 {
+          color: $white;
+        }
+      }
+      .program-search {
+        h3 {
+          color: $white;
+        }
+      }
+      .body {
+        color: $white;
+        margin-bottom: $spaceMd;
+      }
+      .field-cta-image {
+        max-width: 426px;
+        margin-bottom: $spaceMd;
+      }
+      .field-cta-links {
+        a {
+          color: $white;
+        }
+      }//end first last
+    }//end CTA section inner
+  }//end CTA section
+  #program-search-form {
+    position: relative;
+    * {
+      transform-style: unset;
+    }
+    #edit-program-search-submit {
+      position: absolute;
+      top: calc(50% - 12px);
+      right: 20px;
+      @include browserWipe;
+      width: 24px;
+      height: 24px;
+      overflow: hidden;
+      text-indent: -9000px;
+      background-color: transparent;
+      border: 0;
+      background-image: url(../images/elements/search.svg);
+      background-repeat: no-repeat;
+      background-size: 100%;
+      background-position: 0 0;
+      &:hover,&:focus{
+        opacity: .5;
+        border-bottom: 1px solid $black;
+      }
+    }
+  }
   .angle-cut{
     position: absolute;
     bottom: -1px;
