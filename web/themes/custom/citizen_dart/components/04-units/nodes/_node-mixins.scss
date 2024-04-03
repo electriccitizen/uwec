@@ -38,6 +38,15 @@
   --animation-end-wide: -105px;
 }
 
+#node-section-1 > .layout {
+  --animation-start: -200vw;
+  --animation-start-mid: -200vw;
+  --animation-start-wide: -200vw;
+  --animation-end: -28px;
+  --animation-end-mid: 0;
+  --animation-end-wide: 0;
+}
+
 @keyframes heroSwirlSlideMobileLeft {
   from {
     left: var(--animation-start);
@@ -634,35 +643,33 @@
   .layout {
     position: relative;
     z-index: 2;
+    @include desk {
+      min-height: 100vh;
+    }
     &:after {
-      @include fatStripes($gold);
-      background: repeating-linear-gradient(
-        0deg,
-        $gold,
-        $gold 20px,
-        transparent 20px,
-        transparent 40px
-      );
+      @include animation(heroSwirlSlideMobileRight 1.5s forwards);
+      content: '';
+      display: block;
+      position: absolute;
+      background: url(../images/elements/fat-stripes-gold.svg) left top / cover no-repeat transparent;
       bottom: -80px;
       height: 150px;
       left: auto;
-      right: -100px;
       top: auto;
-      width: 147px;
+      width: 87px;
       z-index: 2;
-    }
-    @include desk {
-      min-height: 100vh;
+      @include desk {
+        @include animation(heroSwirlSlideWideRight 1.5s forwards);
+        bottom: 0;
+        height: 260px;
+        top: 136px;
+      }
     }
   }
   .block-field-image {
     margin-bottom: 0;
     overflow: hidden;
     width: 100vw;
-    &:before{
-      @include fullBack(rgba(35,35,35,0.4));
-      z-index: 1;
-    }
     @include desk {
       height: 100%;
       left: 0;
@@ -670,6 +677,27 @@
       position: absolute;
       top: 0;
       z-index: -1;
+    }
+    &:before{
+      @include animation('fadeIn 1.25s 1');
+      @include fullBack(transparent); // BG will be replaced by gradient.
+      @include gradient('top', #{$navy}ff, 0, #d9d9d900);
+      height: 110px;
+      z-index: 1;
+      @include desk {
+        height: 249px;
+      }
+    }
+    &:after {
+      @include desk {
+        @include animation('fadeIn 1.25s 1');
+        @include fullBack(transparent); // BG will be replaced by gradient.
+        @include gradient('bottom', #{$navy}ff, 0, #d9d9d900);
+        bottom: 0;
+        height: 50%;
+        top: auto;
+        z-index: 1;
+      }
     }
     * {
       height: 100%;
