@@ -35,7 +35,7 @@
     top: -$elementSpace;
 
     .wayfinding {
-      max-width: 1136px;
+      max-width: $wideContent;
 
       @include desk {
         @include safeFlex(row, no-wrap, justify, start);
@@ -52,7 +52,7 @@
           @include auto;
           background-color: $lightGrey;
           left: 0;
-          max-width: 1136px;
+          max-width: $wideContent;
           width: 100%;
         }
       }
@@ -139,22 +139,15 @@
     padding-bottom: 100px;
     .cta-section-inner {
       @include safeFlex(column,wrap,start,start);
-      @include auto;
       @include edgeToEdge;
       padding-bottom: $spaceMd;
       padding-top: $spaceMd;
       @include desk {
-        @include bleed(padding, $spaceLg);
+        @include auto;
         columns: 2;
+        column-gap: 70px;
         display: block;
-        margin-left: 0;
-        margin-right: 0;
-        max-width: $contentStop;
-      }
-      .column {
-        @include desk {
-          width: 50%;
-        }
+        max-width: $wideContent;
       }
       .first,.last {
         margin: 0 $siteMarginMobile;
