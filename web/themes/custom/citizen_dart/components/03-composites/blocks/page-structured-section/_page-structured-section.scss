@@ -104,9 +104,14 @@
       height: 59px;
       margin: $spaceSm auto;
       width: 40px;
+      visibility: hidden;
       @include desk {
         margin: $spaceLg auto;
       }
+    }
+    &.visible:before {
+      @include animation('flipRight .5s');
+      visibility: visible;
     }
   }
 
@@ -185,6 +190,16 @@
       .field-cta-image {
         max-width: 426px;
         margin-bottom: $spaceMd;
+        .media-item {
+          visibility: hidden;
+          left: 200vw;
+          position: relative;
+          transition: left .75s ease-out;
+        }
+        &.visible .media-item {
+          left: 0;
+          visibility: visible;
+        }
       }
       .field-cta-links {
         margin-top: $spaceMd;
