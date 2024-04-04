@@ -626,7 +626,6 @@
 }
 
 @mixin heroCornerSlice {
-  background-color: $brightBlue;
   margin-left: -$siteMarginMobile;
   margin-top: -160px;
   padding-top: 160px;
@@ -637,6 +636,7 @@
     transform-style: unset;
   }
   @include desk {
+    background-color: $brightBlue;
     margin-top: -166px;
     min-height: 100vh;
     padding-top: 166px;
