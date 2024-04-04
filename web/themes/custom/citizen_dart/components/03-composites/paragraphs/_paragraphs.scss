@@ -1,5 +1,5 @@
 /* ===================
-	PARAGRAPHS
+  PARAGRAPHS
 ===================== */
 
 /* WIDGETS INDEX
@@ -42,38 +42,39 @@
 
 //widgets parent field
 .block-field-paragraphs{
-	@include edgeToEdge;
+  @include edgeToEdge;
 }//end field paragraphs
 
 /* WIDGETS
 --------------------- */
 .widget{
-	width: 100%;
-	padding: 0 $siteMarginMobile;
-	position: relative;
-	@include contentStop{
-		padding: 0 $siteMarginDesk;
-	}
-	//regular widgets not in layout sections
-	&:not(.layout-section){
-		margin-bottom: $elementSpace;
-	}
-	//layout-sections
-	&.layout-section{
-		&.background{
-			padding-top: $elementSpace;
-			&.light-grey{
-				background: $lightGrey;
-			}
-			&.light-blue{
-				background: $ice;
-			}
-			& + .backless{
-				margin-top: $elementSpace;
-			}
-			&:last-child{
-				margin-bottom: -$siteBottomSpace;
-			}
-		}//end background
-	}//end layout section
+  width: 100%;
+  margin-bottom: $elementSpace;
+  padding: 0 $siteMarginMobile;
+  position: relative;
+  @include contentStop{
+    padding: 0 $siteMarginDesk;
+  }
+  //layout-sections
+  &.text:not(:only-child) {
+    margin-bottom: $spaceXs;
+  }
+  &.layout-section{
+    margin-bottom: 0;
+    &.background{
+      padding-top: $elementSpace;
+      &.light-grey{
+        background: $lightGrey;
+      }
+      &.light-blue{
+        background: $ice;
+      }
+      & + .backless{
+        margin-top: $elementSpace;
+      }
+      &:last-child{
+        margin-bottom: -$siteBottomSpace;
+      }
+    }//end background
+  }//end layout section
 }//end widget

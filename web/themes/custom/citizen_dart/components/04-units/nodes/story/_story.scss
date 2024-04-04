@@ -15,8 +15,13 @@
     max-width: $textMax;
     .layout__region--content {
       @include safeFlex(row,nowrap,start,start);
-      @include tab {
+      max-width: 75%;
+      @include desk {
         @include safeFlex(row,nowrap,justify,start);
+        gap: $spaceSm;
+        margin-right: -$spaceXl;
+        max-width: none;
+        width: auto;
       }
     }
     .block-system-breadcrumb-block,
@@ -26,22 +31,44 @@
     .breadcrumb {
       display: none;
       padding: 0;
-      @include tab {
+      @include desk {
         display: block;
       }
       li,
       li a {
         color: $navy;
       }
+      li a:hover {
+        @include dottedLink($navy);
+      }
     }
     .block-field-story-categories {
       @include tag;
       color: $navy;
       line-height: 2.625;
-    }
-    .field-story-categories {
-      @include safeFlex(row, wrap, center, center);
-      min-height: 31px;
+      .field-story-categories {
+        @include safeFlex(row, wrap, start, start);
+        min-height: 31px;
+        @include desk {
+          @include safeFlex(row, wrap, end, start);
+        }
+      }
+      .category {
+        &:after {
+          content: "|";
+          margin-right: .5rem;
+        }
+        &:last-child:after {
+          content: "";
+        }
+      }
+      a {
+        color: $navy;
+        display: inline-block;
+        &:hover {
+          @include dottedLink($navy);
+        }
+      }
     }
   }//end section 2
 
@@ -77,6 +104,8 @@
       .field-created {
         @include heading2;
         display: block;
+        font-size: $h5;
+        line-height: 1.2;
       }
       .mobile-title {
         @include heading1;
@@ -84,6 +113,7 @@
           display: none;
         }
         margin-bottom: $spaceSm;
+        margin-right: $spaceMd;
       }
     }
     .block-field-intro-text {
@@ -106,7 +136,7 @@
         background-color: $navy;
         content: '';
         display: block;
-        height: 2px;
+        height: 1px;
         margin-bottom: $spaceSm;
         width: 202px;
 
@@ -115,6 +145,7 @@
         @include headerGlobals;
         font-size: 26px;
         line-height: 32px;
+        margin-bottom: $spaceXxs;
       }
       a {
         @include linkArrow(navy, sm);
@@ -142,11 +173,7 @@
       background-color: $brightBlue;
       margin-bottom: 0;
       margin-top: 12rem; // Needs to be large to accommodate overlapping.
-      max-width: $textMax;
       padding: 0 $siteMarginMobile;
-      @include desk {
-        max-width: none;
-      }
       h2.block-title{
         @include headerGlobals;
         font-size: 26px;
@@ -156,6 +183,7 @@
       }
       .field-authors {
         background-color: $royal;
+        margin-bottom: -$spaceLg; // Correction for negative top spacing.
         padding: calc($spaceLg + $siteMarginMobile) 0;
         position: relative;
         top: -$spaceLg; // Causes the overlapping and marging calculation bugs.
@@ -194,10 +222,10 @@
     }//end authors fields block
 
     .block-related-stories {
-      padding: $siteMarginMobile;
+      padding: $spaceXl $siteMarginMobile $siteMarginMobile;
       @include desk {
         max-width: none;
-        padding: $siteMarginDesk;
+        padding: $spaceXl $siteMarginDesk $siteMarginDesk;
       }
       &:after {
         z-index: 0;
