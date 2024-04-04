@@ -35,7 +35,8 @@
 
 {% block fieldSingleNo %}
 
-	<div class="page-header-wrapper{% if element['#object'].field_hero.0 %} has-hero page-hero-{{ element['#object'].field_hero.0.entity.field_hero_type.0.value|clean_class }}{% endif %}"{% if element['#object'].field_hero.0.entity.field_hero_type.0.value == 'background_image' %} style="background:url({{ file_url(element['#object'].field_hero.0.entity.field_background_image.0.entity.field_media_image.entity.fileuri) }}) no-repeat"{% endif %}>
+	<div class="page-header-wrapper{% if element['#object'].field_hero.0 %} has-hero page-hero-{{ element['#object'].field_hero.0.entity.field_hero_type.0.value|clean_class }}{% endif %}"{% if element['#object'].field_hero.0.entity.field_hero_type.0.value == 'background_image' or element['#object'].field_hero.0.entity.field_hero_type.0.value == 
+  'video' %} style="background:url({{ file_url(element['#object'].field_hero.0.entity.field_background_image.0.entity.field_media_image.entity.fileuri) }}) no-repeat"{% endif %}>
 
 		{# render a large version image for certain heros #}
 		{% if element['#object'].field_hero.0.entity.field_hero_type.0.value == 
@@ -50,8 +51,7 @@
 		{% endif %}
 
 		{# add a background/full image for certain heros #}
-		{% if element['#object'].field_hero.0.entity.field_hero_type.0.value == 
-		'video' or element['#object'].field_hero.0.entity.field_hero_type.0.value == 'full_image' %}
+		{% if element['#object'].field_hero.0.entity.field_hero_type.0.value == 'full_image' %}
 			{% if element['#object'].field_hero.0.entity.field_background_image.0 %}
 				<div class="hero-background">
 					{{ drupal_entity('media',element['#object'].field_hero.0.entity.field_background_image.0.target_id,'1920x1445') }}
@@ -77,6 +77,13 @@
 						{{ bodyText }}
 					</div>
 				{% endif %}
+        <div class="scroll-link">
+					<a href="#scroll-anchor">Here you can
+						<span class="link-arrow">
+							<span>scroll to content</span>
+						</span>
+					</a>
+				</div>
 			</div>
 		</div>
 
@@ -130,13 +137,6 @@
 						</div>
 					</div>
 				{% endif %}
-				<div class="scroll-link">
-					<a href="{% if element['#object'].field_hero.0.entity.field_structure_section.0 %}#structured-content{% else %}#node-section-2{% endif %}">Here you can
-						<span class="link-arrow">
-							<span>scroll to content</span>
-						</span>
-					</a>
-				</div>
 			{% endif %}
 
 			{# render the links field if it exists and if the hero is not video #}
@@ -151,12 +151,7 @@
 					</div>
 				{% endif %}
 			{% endif %}
-
-			{# {% if element['#object'].field_hero.0.entity.field_hero_type.0.value == 'full_image' %}
-				<div class="blue-triangle"></div>
-			{% endif %} #}
-
 		</div>
 		{# end page header wrapper #}
-
+    <div id="scroll-anchor"></div>
 	{% endblock %}
