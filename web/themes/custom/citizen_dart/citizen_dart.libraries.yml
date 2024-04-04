@@ -103,6 +103,10 @@ omnilert:
   version: 1.0
   js:
     components/03-composites/blocks/omnilert/omnilert.js: {}
+page-structured-section:
+  version: 1.0
+  js:
+    components/03-composites/blocks/page-structured-section/page-structured-section-animate.js: {}
 profiles-slider:
   version: 1.0
   js:

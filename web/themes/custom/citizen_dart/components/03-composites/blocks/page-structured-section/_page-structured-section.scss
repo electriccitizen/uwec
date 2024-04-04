@@ -167,13 +167,16 @@
         order: 3;
       }
       .field-formatted-headline {
+        @include rollingSeal;
         h2 {
+		      @include styledHeader(true);
           color: $white;
         }
       }
       .program-search {
         h3 {
           color: $white;
+          margin-bottom: $spaceXs;
         }
       }
       .body {
@@ -195,6 +198,16 @@
     position: relative;
     * {
       transform-style: unset;
+    }
+    input[type="text"] {
+      background: $ice;
+      border: 0;
+      border-radius: 30px;
+      font-size: 2rem;
+      font-family: $bodyText;
+      font-weight: $regular;
+      min-height: 50px;
+      padding: 11px 50px 11px 20px;
     }
     #edit-program-search-submit {
       position: absolute;
