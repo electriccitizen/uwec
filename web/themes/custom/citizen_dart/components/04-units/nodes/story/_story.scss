@@ -15,8 +15,13 @@
     max-width: $textMax;
     .layout__region--content {
       @include safeFlex(row,nowrap,start,start);
-      @include tab {
+      max-width: 75%;
+      @include desk {
         @include safeFlex(row,nowrap,justify,start);
+        gap: $spaceSm;
+        margin-right: -$spaceXl;
+        max-width: none;
+        width: auto;
       }
     }
     .block-system-breadcrumb-block,
@@ -43,7 +48,6 @@
       line-height: 2.625;
       .field-story-categories {
         @include safeFlex(row, wrap, start, start);
-        max-width: 75%;
         min-height: 31px;
         @include desk {
           @include safeFlex(row, wrap, end, start);

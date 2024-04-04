@@ -626,6 +626,7 @@
 }
 
 @mixin heroCornerSlice {
+  background-color: $brightBlue;
   margin-left: -$siteMarginMobile;
   margin-top: -160px;
   padding-top: 160px;
@@ -644,6 +645,8 @@
     position: relative;
     z-index: 2;
     @include desk {
+      @include auto;
+      max-width: $ultraWidescreen;
       min-height: 100vh;
     }
     &:after {
@@ -653,7 +656,7 @@
       position: absolute;
       background: url(../images/elements/fat-stripes-gold.svg) left top / cover no-repeat transparent;
       bottom: -80px;
-      height: 150px;
+      height: 155px;
       left: auto;
       top: auto;
       width: 87px;
@@ -669,7 +672,7 @@
   .block-field-image {
     margin-bottom: 0;
     overflow: hidden;
-    width: 100vw;
+    width: 100%;
     @include desk {
       height: 100%;
       left: 0;
@@ -728,9 +731,11 @@
       text-align: left;
       @include desk {
         font-size: $h1Mid;
+        padding-left: $siteMarginMobile;
       }
       @include contentStop {
         font-size: $h1Lg;
+        padding-left: 0;
       }
     }
   }//end title
@@ -748,7 +753,7 @@
     @include desk {
       @include rotate(-16);
       background: $white;
-      bottom: -28vh;
+      bottom: -29vh;
       z-index: 3;
     }
   }
