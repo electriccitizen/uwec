@@ -681,7 +681,7 @@
       top: 0;
       z-index: -1;
     }
-    &:before{ // Top gradient.
+    &:before { // Top gradient.
       @include animation('fadeIn 1.25s 1');
       @include fullBack(transparent); // BG will be replaced by gradient.
       @include gradient('top', #{$navy}ff, 0, #d9d9d900);
@@ -708,7 +708,7 @@
     .field-label{
       display: none;
     }
-    img{
+    img {
       object-fit: cover;
     }
   }//end main section 1 image
