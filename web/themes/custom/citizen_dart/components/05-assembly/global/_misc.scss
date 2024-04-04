@@ -34,6 +34,23 @@ iframe.npc-frame{
 }//end net price calculator
 
 
+.full-width-video{
+	background-color:#555f60;
+	position:relative;
+	padding-bottom:56.25%; /* 16:9 */
+	height:0;
+
+	iframe{
+		position:absolute;
+		border:none;
+		width:100%;
+		height:100%;
+		left:0;
+		top:0;
+	}
+}
+
+
 /* GDPR
 -------------------- */
 #sliding-popup{
