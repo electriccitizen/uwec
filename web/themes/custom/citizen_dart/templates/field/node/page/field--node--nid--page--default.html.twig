@@ -140,7 +140,7 @@
 			{% endif %}
 
 			{# render the links field if it exists and if the hero is not video #}
-			{% if element['#object'].field_hero.0.entity.field_hero_type.0.value != 'video' and element['#object'].field_hero.0.entity.field_hero_type.0.value != 'full_image' %}
+			{% if element['#object'].field_hero.0.entity.field_hero_type.0.value != 'video' %}
 				{% if element['#object'].field_hero.0.entity.field_links.0 %}
 					<div class="field field-links">
             {% for link in element['#object'].field_hero.0.entity.field_links %}

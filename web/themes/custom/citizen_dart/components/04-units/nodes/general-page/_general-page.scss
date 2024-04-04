@@ -286,6 +286,17 @@
       @include heroFullWidthImage;
       margin-top: -88px;
       padding-top: -88px;
+      .page-header-text{
+        .page-header-text-inner{
+          .in-main-menu &{
+            @include menuStop{
+              .node-title{
+                margin-bottom: 100px;
+              }
+            }
+          }
+        }//end page header text inner
+      }//end page header test
 		}//end full image
 
     /* VIDEO HERO */
@@ -497,6 +508,37 @@
             width: 100%;
             @include auto;
           }
+        }
+        //hide alternate breadcrumb/body/subsitle for pages with heros that have that content in the hero
+        .hero-pattern &,.hero-background_image &,.hero-image &{
+          .block-system-breadcrumb-block,.block-field-subtitle,.block-field.block-body{
+            display: none;
+          }
+        }
+        //set widths for alternate bread/subtitle/body when shown
+        .block-system-breadcrumb-block{
+          max-width: 1092px;
+          @include auto;
+          margin-top: -60px;
+          .in-main-menu &{
+            @include menuStop{
+              max-width: $textMax;
+              margin-left: 19.5vw;
+            }
+            @include contentStop{
+              max-width: $largeTab;
+              margin-left: auto;
+            }
+          }
+        }
+        .block-field-subtitle{
+          max-width: $textMax;
+          @include auto;
+          margin-bottom: $spaceSm;
+        }
+        .block-field.block-body{
+          max-width: $textMax;
+          @include auto;
         }
       }//end layout region content
     }//end two column side left
