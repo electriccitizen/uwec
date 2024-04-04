@@ -13,7 +13,7 @@ field_name: field_formatted_title
 entity_type: node
 bundle: page
 label: 'Page Title'
-description: ''
+description: 'This is your page title. Please do not edit this without first emailing <a href="mailto:helpdesk@uwec.edu">helpdesk@uwec.edu</a>.'
 required: true
 translatable: false
 default_value: {  }
