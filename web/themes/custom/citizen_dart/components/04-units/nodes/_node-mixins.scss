@@ -649,7 +649,7 @@
       max-width: $ultraWidescreen;
       min-height: 100vh;
     }
-    &:after {
+    &:after { // Right gold stripes.
       @include animation(heroSwirlSlideMobileRight 1.5s forwards);
       content: '';
       display: block;
@@ -681,7 +681,7 @@
       top: 0;
       z-index: -1;
     }
-    &:before{
+    &:before{ // Top gradient.
       @include animation('fadeIn 1.25s 1');
       @include fullBack(transparent); // BG will be replaced by gradient.
       @include gradient('top', #{$navy}ff, 0, #d9d9d900);
@@ -691,7 +691,7 @@
         height: 249px;
       }
     }
-    &:after {
+    &:after { // Bottom gradient, only exists on desktop.
       @include desk {
         @include animation('fadeIn 1.25s 1');
         @include fullBack(transparent); // BG will be replaced by gradient.
@@ -739,21 +739,23 @@
       }
     }
   }//end title
-  &:after{
-    @include rotate(16);
+  &:after { // Right bottom corner triangles.
     background: $navy;
+    clip-path: polygon(0 0, 100% 0, 100% 100%);
     content: '';
     display: block;
-    width: 100vw;
-    height: 400px;
+    height: 29vw;
+    left: calc(100vw - 45%);
     position: absolute;
-    bottom: -7vh;
-    right: -50vw;
+    top: calc(100% - 1px);
+    width: 100vw;
     z-index: 1;
     @include desk {
-      @include rotate(-16);
       background: $white;
-      bottom: -29vh;
+      bottom: -1px;
+      clip-path: polygon(0 100%, 100% 0, 100% 100%);
+      left: calc(100vw - 25%);
+      top: auto;
       z-index: 3;
     }
   }
