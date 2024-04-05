@@ -465,15 +465,14 @@
   background-image: url(../images/elements/swirl-vertical-blue.svg);
   background-repeat: no-repeat;
   background-size: 100%;
+  @include swirlAnimationNoImage;
   @include desk{
-    animation: heroSwirlSlideMidRight 1.5s forwards;
     width: 380px;
     height: 706px;
     bottom: -83px;
   }
   @include contentStop{
     left: auto;
-    animation: heroSwirlSlideWideRight 1.5s forwards;
     width: 452px;
     height: 839px;
     bottom: -95px;
