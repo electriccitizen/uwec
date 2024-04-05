@@ -4,7 +4,7 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.paragraph.preview
-    - field.field.paragraph.highlight_box.field_headline
+    - field.field.paragraph.highlight_box.field_additional_text
     - field.field.paragraph.highlight_box.field_link
     - paragraphs.paragraphs_type.highlight_box
   module:
@@ -18,11 +18,10 @@ targetEntityType: paragraph
 bundle: highlight_box
 mode: preview
 content:
-  field_headline:
-    type: string
+  field_additional_text:
+    type: basic_string
     label: hidden
-    settings:
-      link_to_entity: false
+    settings: {  }
     third_party_settings: {  }
     weight: 0
     region: content
