@@ -4,11 +4,24 @@
 @use '../../../00-base/base' as *;
 
 .block-formatted-promo{
-	max-width: 650px;
-	@include auto;
-	.field-formatted-headline{
-		@include styledHeader;
-		text-align: left;
-	}
+  @include auto;
+  max-width: 650px;
+  padding: 0 $siteMarginMobile;
+  .field-formatted-headline {
+    @include styledHeader(true);
+    margin-bottom: $spaceSm;
+    @include desk {
+      text-align: left;
+    }
+  }
+  .body {
+    font-size: 2.5rem;
+    line-height: 4.5rem;
+  }
+  .field-link {
+    margin-top: $spaceSm;
+    a {
+      @include linkArrow($navy, lg);
+    }
+  }
 }//end block formatted-promo
-
