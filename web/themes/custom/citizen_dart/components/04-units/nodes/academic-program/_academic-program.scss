@@ -85,7 +85,7 @@
     @include auto;
     background-color: $lightGrey;
     color: $royal;
-    max-width: 1136px;
+    max-width: $wideContent;
     padding: $siteMarginMobile;
     @include desk {
       padding: 6.5rem 16.75rem;
@@ -281,7 +281,7 @@
   .block-field-courses-text {
     @include auto;
     margin-bottom: 0;
-    max-width: 1136px;
+    max-width: $wideContent;
     @include desk {
       margin-bottom: $elementSpace;
     }
@@ -439,7 +439,7 @@
   .block-field-related-programs {
     @include auto;
     background: $warmGrey;
-    max-width: 1136px;
+    max-width: $wideContent;
     padding: 9rem $siteMarginMobile;
     position: relative;
     @include tab {
@@ -447,14 +447,7 @@
     }
     &:after {
       @include tab {
-        @include fatStripes($gold);
-        background: repeating-linear-gradient(
-          0deg,
-          $gold,
-          $gold 25px,
-          transparent 25px,
-          transparent 50px
-        );
+        @include fatStripes($gold, 25px);
         bottom: -15px;
         left: var(--animation-start-mid);
         height: 200px;
