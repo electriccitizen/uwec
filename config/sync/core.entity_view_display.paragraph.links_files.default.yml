@@ -3,7 +3,6 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.paragraph.links_files.field_file_multi
     - field.field.paragraph.links_files.field_link_multi
     - field.field.paragraph.links_files.field_widget_title
     - paragraphs.paragraphs_type.links_files
@@ -22,15 +21,6 @@ targetEntityType: paragraph
 bundle: links_files
 mode: default
 content:
-  field_file_multi:
-    type: entity_reference_entity_view
-    label: hidden
-    settings:
-      view_mode: default
-      link: false
-    third_party_settings: {  }
-    weight: 2
-    region: content
   field_link_multi:
     type: link
     label: hidden

@@ -27,6 +27,9 @@
     .node-type-support-book &{
       position: static;
     }
+    .hero-full_image.in-main-menu &{
+      top: -110px !important;
+    }
   }
   @media screen and (min-width: 1480px){
     left: calc(50% - 730px);
