@@ -447,14 +447,7 @@
     }
     &:after {
       @include tab {
-        @include fatStripes($gold);
-        background: repeating-linear-gradient(
-          0deg,
-          $gold,
-          $gold 25px,
-          transparent 25px,
-          transparent 50px
-        );
+        @include fatStripes($gold, 25px);
         bottom: -15px;
         left: var(--animation-start-mid);
         height: 200px;

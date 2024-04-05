@@ -386,7 +386,16 @@
   &.visible:before {
     @include animation('sealRollRight 1s');
     display: block;
-    right: u.$spaceXs;
+    right: 18%;
+  }
+  @include u.desk {
+    &:before {
+      top: 20px;
+    }
+    &.visible:before {
+      @include animation('sealRollRightDesk 1s');
+      right: 85%;
+    }
   }
 }
 
@@ -409,7 +418,7 @@
 	clip-path: polygon(0 0, 100% 0, 100% 43%, 0 100%);
 }
 
-@mixin fatStripes($stripeColor){
+@mixin fatStripes($stripeColor, $size: 40px){
 	content: '';
 	display: block;
 	position: absolute;
@@ -421,9 +430,9 @@
 	background: repeating-linear-gradient(
 	  0deg,
 	  $stripeColor,
-	  $stripeColor 40px,
-	  transparent 40px,
-	  transparent 80px
+	  $stripeColor $size,
+	  transparent $size,
+	  transparent calc($size * 2)
 	);
 	@include skew(0,-16);
 }
@@ -1237,7 +1246,18 @@
     transform: rotateZ(-360deg);
   }
   to {
-    right: u.$spaceSm;
+    right: 18%;
+    transform: rotateZ(0);
+  }
+}
+
+@include keyframes(sealRollRightDesk) {
+  from {
+    right: 200vw;
+    transform: rotateZ(-360deg);
+  }
+  to {
+    right: 85%;
     transform: rotateZ(0);
   }
 }
