@@ -230,32 +230,47 @@
             content: '';
             position: absolute;
             bottom: -195px;
-            animation: heroSwirlSlideMobileRight 1.5s forwards;
             z-index: 0;
             width: 72px;
             height: 128px;
             background-image: url(../images/elements/fat-stripes-blue.svg);
             background-repeat: no-repeat;
             background-size: 100%;
+            @keyframes heroSwirlSlideImage {
+              from {
+                right: -200vw;
+              }
+              to {
+                right: 0;
+              }
+            }
+            animation: heroSwirlSlideImage 1.5s forwards;
             @include smallTab{
               bottom: -68px;
             }
             @include desk{
-              animation: heroSwirlSlideMidLeft 1.5s forwards;
               bottom: -20px;
               z-index: -1;
               width: 150px;
               height: 242px;
               background-position: bottom left;
-            }
+              right: auto;
+              @keyframes heroSwirlSlideImage {
+                from {
+                  left: 200vw;
+                }
+                to {
+                  left: -30px;
+                }
+              }
+              animation: heroSwirlSlideImage 1.5s forwards;
+            }//end desk
             @include contentStop{
-              left: auto;
-              animation: heroSwirlSlideWideLeft 1.5s forwards;
               width: 222px;
               height: 344px;
               bottom: -35px;
-            }
-          }
+            }//end content stop
+          }//end image before
           &:after{
             content: none;
           }
