@@ -369,6 +369,36 @@
 	height: #{$height};
 }
 
+@mixin rollingSeal {
+  padding-top: u.$spaceLg;
+  position: relative;
+  &:before {
+    background: url("../images/logos-badges/seal.svg") no-repeat transparent;
+    content: '';
+    display: none;
+    height: 125px;
+    position: absolute;
+    right: 200vw;
+    top: 0;
+    width: 125px;
+    z-index: -1;
+  }
+  &.visible:before {
+    @include animation('sealRollRight 1s');
+    display: block;
+    right: 18%;
+  }
+  @include u.desk {
+    &:before {
+      top: 20px;
+    }
+    &.visible:before {
+      @include animation('sealRollRightDesk 1s');
+      right: 85%;
+    }
+  }
+}
+
 @mixin narrowStripes($stripeColor){
 	content: '';
 	display: block;
@@ -388,7 +418,7 @@
 	clip-path: polygon(0 0, 100% 0, 100% 43%, 0 100%);
 }
 
-@mixin fatStripes($stripeColor){
+@mixin fatStripes($stripeColor, $size: 40px){
 	content: '';
 	display: block;
 	position: absolute;
@@ -400,9 +430,9 @@
 	background: repeating-linear-gradient(
 	  0deg,
 	  $stripeColor,
-	  $stripeColor 40px,
-	  transparent 40px,
-	  transparent 80px
+	  $stripeColor $size,
+	  transparent $size,
+	  transparent calc($size * 2)
 	);
 	@include skew(0,-16);
 }
@@ -1208,6 +1238,28 @@
 	100%{
 		opacity: 1;
 	}
+}
+
+@include keyframes(sealRollRight) {
+  from {
+    right: 200vw;
+    transform: rotateZ(-360deg);
+  }
+  to {
+    right: 18%;
+    transform: rotateZ(0);
+  }
+}
+
+@include keyframes(sealRollRightDesk) {
+  from {
+    right: 200vw;
+    transform: rotateZ(-360deg);
+  }
+  to {
+    right: 85%;
+    transform: rotateZ(0);
+  }
 }
 
 .fadeIn {

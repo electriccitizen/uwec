@@ -160,6 +160,15 @@ function citizen_custom_form_alter(&$form, FormStateInterface $form_state, $form
   }
 }
 
+
+// display help text on image name field
+function citizen_custom_form_media_library_add_form_upload_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id){
+	if(isset($form['media'][0]['fields']['name']['widget'][0]['value'])){
+		$form['media'][0]['fields']['name']['widget'][0]['value']['#description'] = \Drupal\Core\Field\FieldFilteredMarkup::create(t('Name the image file in this format: YYYYMMDD_subject<br>e.g., 20240218_Schofield in the snow'));
+	}
+}
+
+
 /**
  * Implements hook_node_form_alter().
  */
