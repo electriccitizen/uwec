@@ -64,6 +64,52 @@
   }
 }//end swirlAnimationRightImage
 
+@mixin swirlAnimationFullImage{
+  left: auto;
+  @keyframes heroSwirlSlideFullImage {
+    from {
+      right: -200vw;
+    }
+    to {
+      right: -80px;
+    }
+  }
+  animation: heroSwirlSlideFullImage 1.5s forwards;
+  @include smallTab{
+    @keyframes heroSwirlSlideFullImage {
+      from {
+        right: -200vw;
+      }
+      to {
+        right: -60px;
+      }
+    }
+    animation: heroSwirlSlideFullImage 1.5s forwards;
+  }
+  @include desk{
+    @keyframes heroSwirlSlideFullImage {
+      from {
+        right: -200vw;
+      }
+      to {
+        right: -70px;
+      }
+    }
+    animation: heroSwirlSlideFullImage 1.5s forwards;
+  }
+  @include contentStop{
+    @keyframes heroSwirlSlideFullImage {
+      from {
+        right: -200vw;
+      }
+      to {
+        right: -100px;
+      }
+    }
+    animation: heroSwirlSlideFullImage 1.5s forwards;
+  }
+}//end swirlAnimationRightImage
+
 @mixin sectionLimit{
 	max-width: $contentStop;
 	@include auto;
@@ -586,45 +632,48 @@
 
 @mixin heroCornerSlice {
   margin-left: -$siteMarginMobile;
-  margin-top: -160px;
-  padding-top: 160px;
+  margin-top: -88px;
   position: relative;
   width: 100vw;
   z-index: 0;
-  * {
-    transform-style: unset;
+  @include heroHeaderInvade;
+  @include smallTab{
+    padding-top: 0;
   }
   @include desk {
     background-color: $brightBlue;
-    margin-top: -166px;
-    min-height: 100vh;
-    padding-top: 166px;
+    .logged-in &{
+      width: calc(100vw - 66px);
+    }
   }
   .layout {
     position: relative;
-    z-index: 2;
     @include desk {
+      height: 100vh;
       @include auto;
       max-width: $ultraWidescreen;
-      min-height: 100vh;
     }
     &:after { // Right gold stripes.
-      @include animation(heroSwirlSlideMobileRight 1.5s forwards);
       content: '';
       display: block;
       position: absolute;
       background: url(../images/elements/fat-stripes-gold.svg) left top / cover no-repeat transparent;
       bottom: -80px;
       height: 155px;
-      left: auto;
-      top: auto;
       width: 87px;
       z-index: 2;
+      margin-right: 40px;
+      @include swirlAnimationFullImage;
       @include desk {
-        @include animation(heroSwirlSlideWideRight 1.5s forwards);
         bottom: 0;
         height: 260px;
+        width: 147px;
         top: 136px;
+        margin-right: 0;
+      }
+      @include contentStop{
+        height: 346px;
+        width: 195px;
       }
     }
   }
@@ -632,10 +681,9 @@
     margin-bottom: 0;
     overflow: hidden;
     width: 100%;
+    height: 100%;
     @include desk {
-      height: 100%;
       left: 0;
-      min-height: 100vh;
       position: absolute;
       top: 0;
       z-index: -1;
@@ -791,15 +839,14 @@
         content: '';
         position: absolute;
         top: 90px;
-        animation: heroSwirlSlideMobileRight 1.5s forwards;
         z-index: 2;
         width: 113px;
         height: 200px;
         background-image: url(../images/elements/fat-stripes-gold.svg);
         background-repeat: no-repeat;
         background-size: 100%;
+        @include swirlAnimationFullImage();
         @include desk{
-          animation: heroSwirlSlideMidRight 1.5s forwards;
           top: 120px;
           width: 140px;
           height: 248px;
@@ -807,7 +854,6 @@
         }
         @include contentStop{
           top: 140px;
-          animation: heroSwirlSlideWideRight 1.5s forwards;
           width: 196px;
           height: 347px;
         }
