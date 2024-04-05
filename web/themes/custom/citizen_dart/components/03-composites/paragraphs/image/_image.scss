@@ -6,36 +6,37 @@
 @use '../../../02-chunks/media/media-mixins' as *;
 
 .paragraph--type--image{
-	max-width: 1104px;
-	@include auto;
+  max-width: 1104px;
+  @include auto;
   &.image-visible{
     .image-wrapper{
       @include animation('fadeIn 1.5s 1 forwards');
     }
   }
-	.caption-left,
-	.caption-right{
+  .caption-left,
+  .caption-right{
     .image-wrapper{
       @include edgeToEdge;
     }
-		@include tab{
+    @include tab{
       .widget-section > .layout--onecol &,.node-support-book &{
         @include safeFlex(row,wrap,left,center);
         .caption {
           flex: 1;
         }
       }//end layout check
-			.image-wrapper{
-				max-width: 500px;
+      .image-wrapper {
+        flex: 1;
+        max-width: 500px;
         margin: 0;
-			}
-		}//end tab
+      }
+    }//end tab
     @include desk{
       .image-wrapper{
-				max-width: 716px;
-			}
+        max-width: 716px;
+      }
     }//end desk
-	}//end left right
+  }//end left right
   .caption-right{
     @include tab{
       .image-wrapper{
@@ -53,7 +54,7 @@
       }
     }
   }//end caption right
-	.caption-left {
+  .caption-left {
     @include tab{
       .widget-section > .layout--onecol &,.node-support-book &{
         flex-direction: row-reverse;
@@ -72,10 +73,10 @@
         padding-left: 66px;
       }
     }
-	}//end caption left
-	.caption-none {
-		max-width: 874px;
-		@include auto;
+  }//end caption left
+  .caption-none {
+    max-width: 874px;
+    @include auto;
     .image-wrapper{
       margin-bottom: 0;
       &.size-full{
@@ -123,10 +124,10 @@
         }
       }//end size full
     }//end image wrapper
-	}//end caption below
+  }//end caption below
   .caption-below{
     max-width: 690px;
-		@include auto;
+    @include auto;
     .image-wrapper{
       margin-bottom: $spaceSm;
     }
@@ -175,6 +176,9 @@
   .image-wrapper{
     margin-bottom: $spaceMd;
     opacity: 0;
+    img {
+      max-width: 100%;
+    }
     &:not(.size-full){
       img{
         width: revert-layer;
@@ -196,4 +200,3 @@
     }
   }//end caption
 }//end image widget
-
