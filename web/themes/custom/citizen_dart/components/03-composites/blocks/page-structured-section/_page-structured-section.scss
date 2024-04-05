@@ -198,7 +198,7 @@
       .field-formatted-headline {
         @include rollingSeal;
         h2 {
-		      @include styledHeader(true);
+          @include styledHeader(true);
           color: $white;
           @include desk {
             text-align: left;
