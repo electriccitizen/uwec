@@ -40,13 +40,19 @@
 #}
 {% extends 'field.html.twig' %}
 
-{% block fieldMultiNoItems %}
-	{%- for item in items -%}
-		<div class="widget{% if (item.content['#paragraph'].type.0.target_id == 'layout_section') %} layout-section{% endif %}">
-			{% block paragraphItem %}
-				{{- item.content -}}
-			{% endblock %}
-		</div>
-	{%- endfor -%}
+{% block fieldMultiNoClasses %}
+  {% if element['#object'].body.0 %}
+    {% set bodyClass = 'has-body-content' %}
+  {% endif %}
+  <div{{ attributes.addClass(classes,bodyClass) }}>
+    {% block fieldMultiNoItems %}
+      {%- for item in items -%}
+        <div class="widget {{ item.content['#paragraph'].type.0.target_id|clean_class }}">
+          {% block paragraphItem %}
+            {{- item.content -}}
+          {% endblock %}
+        </div>
+      {%- endfor -%}
+    {% endblock %}
+  </div>
 {% endblock %}
-

@@ -13,7 +13,7 @@
   }
 	.views-wrapper{
     &.views-both{
-      .widget-section > .layout--onecol &,.node-support-book &{
+      .widget-section > .layout--onecol &,.node-support-book &,.block-field-stories-video-list &{
         @include desk{
           @include safeFlex(row,wrap,start,start);
           @include bleed(padding,20px);
@@ -30,7 +30,7 @@
     }//end both
 	}//end views wrapper
 	.field-manual-select{
-    .widget-section > .layout--onecol &,.node-support-book &{
+    .widget-section > .layout--onecol &,.node-support-book &,.block-field-stories-video-list &{
       @include desk{
         @include safeFlex(row,nowrap,start,start);
         @include bleed(padding,20px);

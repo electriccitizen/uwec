@@ -12,10 +12,14 @@ global:
     - core/drupalSettings
     - core/jquery
     - core/once
-academic-program:
+academic-program-toggle:
   version: 1.0
   js:
     components/04-units/nodes/academic-program/program-toggle.js: {}
+academic-program-animate:
+  version: 1.0
+  js:
+    components/04-units/nodes/academic-program/program-animate.js: {}
 accordion:
   version: 1.0
   js:
@@ -24,7 +28,7 @@ announcements:
   version: 1.0
   js:
     components/03-composites/blocks/announcements/ajax.js: {}
-content-carousel: 
+content-carousel:
   version: 1.0
   js:
     components/03-composites/paragraphs/content-carousel/content-carousel.js: {}
@@ -99,6 +103,10 @@ omnilert:
   version: 1.0
   js:
     components/03-composites/blocks/omnilert/omnilert.js: {}
+page-structured-section:
+  version: 1.0
+  js:
+    components/03-composites/blocks/page-structured-section/page-structured-section-animate.js: {}
 profiles-slider:
   version: 1.0
   js:

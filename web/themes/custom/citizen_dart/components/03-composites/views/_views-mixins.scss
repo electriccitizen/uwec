@@ -12,3 +12,24 @@
     width: calc(33.33% - 14px);
   }
 }
+
+@mixin paragraphSnug{
+  .field-paragraphs:not(.has-body-content) .layout-section:first-child .layout__region:first-child .paragraph--type--view-placer:first-child &{
+    margin-top: -190px;
+    @include desk{
+      margin-top: -290px;
+      .logged-in &{
+        margin-top: -234px;
+      }
+    }
+  }
+  .field-paragraphs.has-body-content .layout-section:first-child .layout__region:first-child .paragraph--type--view-placer:first-child &{
+    margin-top: -40px;
+    @include desk{
+      margin-top: -80px;
+      .logged-in &{
+        margin-top: -20px;
+      }
+    }
+  }
+}

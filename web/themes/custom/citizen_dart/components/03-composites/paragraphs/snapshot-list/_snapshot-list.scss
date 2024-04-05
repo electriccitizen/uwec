@@ -13,6 +13,7 @@
       @include desk{
         @include safeFlex(row,nowrap,start,stretch);
         @include bleed(padding,20px);
+        padding-bottom: 5rem;
         & > div{
           width: 33.3%;
         }

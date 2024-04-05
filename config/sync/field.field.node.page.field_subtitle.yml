@@ -10,7 +10,7 @@ field_name: field_subtitle
 entity_type: node
 bundle: page
 label: Subtitle
-description: ''
+description: 'Subtitles are not necessary and should only be used to break up the content following your Intro Text.'
 required: false
 translatable: false
 default_value: {  }

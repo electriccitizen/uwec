@@ -39,7 +39,7 @@
 		@include auto;
 		.ctas-wrapper{
 			@include safeFlex(row,wrap,start,stretch);
-			@include bleed(padding,20px);
+			@include bleed(padding,16px);
 		}
 		.cta-item{
 			width: 100%;

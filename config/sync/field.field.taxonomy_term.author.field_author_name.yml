@@ -9,7 +9,7 @@ id: taxonomy_term.author.field_author_name
 field_name: field_author_name
 entity_type: taxonomy_term
 bundle: author
-label: Name
+label: 'Author Name'
 description: ''
 required: false
 translatable: false
