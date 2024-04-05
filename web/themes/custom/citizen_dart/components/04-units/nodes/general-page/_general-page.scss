@@ -76,6 +76,9 @@
       .page-header-text{
         @include heroBlue;
         @include desk{
+          .hide-nav &{
+            padding-top: 60px;
+          }
           .page-header-text-inner > .field:last-child{
             @include stripesRoyalNarrow;
           }
@@ -93,6 +96,9 @@
           @include desk{
             padding-left: 0;
             padding-right: 0;
+            &:last-child:not(.node-title){
+              @include stripesRoyalNarrow;
+            }
           }
         }//end pattern page header text inner
       }//end page header text when pattern
@@ -132,6 +138,11 @@
       }
       .page-header-text{
         margin-bottom: 0;
+        @include desk{
+          .hide-nav &{
+            padding-top: 80px;
+          }
+        }
         .breadcrumb{
           padding-left: 20px;
           padding-right: 20px;
@@ -254,6 +265,9 @@
         margin-bottom: 0;
         @include desk{
           background: none;
+          .hide-nav &{
+            padding-top: 80px;
+          }
           &:after{
             content: none;
           }

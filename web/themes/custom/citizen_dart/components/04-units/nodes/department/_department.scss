@@ -25,6 +25,13 @@
     }
     &:after{
       @include patternHeroSwirl;
+      animation: heroSwirlSlideMobileLeft 1.5s forwards;
+      @include desk{
+        animation: heroSwirlSlideMidLeft 1.5s forwards;
+      }
+      @include contentStop{
+        animation: heroSwirlSlideWideRight 1.5s forwards;
+      }
     }//end after swirl
     .layout__region--content{
       .block-field{

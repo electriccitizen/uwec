@@ -4,102 +4,65 @@
 
 @use '../../00-base/base' as *;
 
-/* SWIRL ANIMATION VARIABLES */
-.hero-pattern,.node-type-college{
-  --animation-start: 200vw;
-  --animation-start-mid: 200vw;
-  --animation-start-wide: -200vw;
-  --animation-end: 73vw;
-  --animation-end-mid: 77vw;
-  --animation-end-wide: -104px;
-}
-.node-type-college.hero-has-image,.node-type-academic-program,.node-type-page.hero-image.hero-has-image{
-  --animation-start: -200vw;
-  --animation-start-mid: -200vw;
-  --animation-start-wide: 200vw;
-  --animation-end: -12px;
-  --animation-end-mid: -30px;
-  --animation-end-wide: -60px;
-}
-.node-type-page.hero-background_image{
-  --animation-start: -200vw;
-  --animation-start-mid: 200vw;
-  --animation-start-wide: 200vw;
-  --animation-end: 0;
-  --animation-end-mid: -20px;
-  --animation-end-wide: -35px;
-}
-.node-type-page.hero-full_image{
-  --animation-start: -200vw;
-  --animation-start-mid: -200vw;
-  --animation-start-wide: -200vw;
-  --animation-end: -80px;
-  --animation-end-mid: -92px;
-  --animation-end-wide: -105px;
-}
+@mixin swirlAnimationNoImage{
+  left: auto;
+  @keyframes heroSwirlSlide {
+    from {
+      right: -200vw;
+    }
+    to {
+      right: -28px;
+    }
+  }
+  animation: heroSwirlSlide 1.5s forwards;
+  @include smallTab{
+    @keyframes heroSwirlSlide {
+      from {
+        right: -200vw;
+      }
+      to {
+        right: 0;
+      }
+    }
+    animation: heroSwirlSlide 1.5s forwards;
+  }
+}//end swirlAnimationNoImage
 
-#node-section-1 > .layout {
-  --animation-start: -200vw;
-  --animation-start-mid: -200vw;
-  --animation-start-wide: -200vw;
-  --animation-end: -28px;
-  --animation-end-mid: 0;
-  --animation-end-wide: 0;
-}
-
-@keyframes heroSwirlSlideMobileLeft {
-  from {
-    left: var(--animation-start);
+@mixin swirlAnimationRightImage{
+  left: auto;
+  @keyframes heroSwirlSlideImage {
+    from {
+      right: -200vw;
+    }
+    to {
+      right: -12px;
+    }
   }
-  to {
-    left: var(--animation-end);
+  animation: heroSwirlSlideImage 1.5s forwards;
+  @include smallTab{
+    @keyframes heroSwirlSlideImage {
+      from {
+        right: -200vw;
+      }
+      to {
+        right: -30px;
+      }
+    }
+    animation: heroSwirlSlideImage 1.5s forwards;
   }
-}
-
-@keyframes heroSwirlSlideMidLeft {
-  from {
-    left: var(--animation-start-mid);
+  @include desk{
+    right: auto;
+    @keyframes heroSwirlSlideImage {
+      from {
+        left: 200vw;
+      }
+      to {
+        left: -80px;
+      }
+    }
+    animation: heroSwirlSlideImage 1.5s forwards;
   }
-  to {
-    left: var(--animation-end-mid);
-  }
-}
-
-@keyframes heroSwirlSlideWideLeft {
-  from {
-    left: var(--animation-start-wide);
-  }
-  to {
-    left: var(--animation-end-wide);
-  }
-}
-
-@keyframes heroSwirlSlideMobileRight {
-  from {
-    right: var(--animation-start);
-  }
-  to {
-    right: var(--animation-end);
-  }
-}
-
-@keyframes heroSwirlSlideMidRight {
-  from {
-    right: var(--animation-start-mid);
-  }
-  to {
-    right: var(--animation-end-mid);
-  }
-}
-
-@keyframes heroSwirlSlideWideRight {
-  from {
-    right: var(--animation-start-wide);
-  }
-  to {
-    right: var(--animation-end-wide);
-  }
-}
+}//end swirlAnimationRightImage
 
 @mixin sectionLimit{
 	max-width: $contentStop;
@@ -312,19 +275,15 @@
       width: 189px;
       height: 351px;
       bottom: -66px;
-      left: auto;
-      animation: heroSwirlSlideMobileRight 1.5s forwards;
       z-index: -1;
-      @include smallTab{
-        animation: heroSwirlSlideMidRight 1.5s forwards;
-      }
       @include desk{
-        right: auto;
-        animation: heroSwirlSlideWideLeft 1.5s forwards;
         bottom: -125px;
       }
       @include contentStop{
         bottom: -146px;
+      }
+      .hero-image &,.node-type-college.hero-has-image &,.node-type-academic-program &{
+        @include swirlAnimationRightImage;
       }
     }//end after swirl
   }//end image right
@@ -418,7 +377,8 @@
     &:after{
       @include goldSwirl;
       max-height: 100%;
-      bottom: -57px;
+      bottom: -180px;
+      @include swirlAnimationNoImage;
       @include desk{
         z-index: 1;
       }
@@ -498,7 +458,7 @@
   content: '';
   position: absolute;
   bottom: -8px;
-  animation: heroSwirlSlideMobileLeft 1.5s forwards;
+  animation: heroSwirlSlideMobileRight 1.5s forwards;
   z-index: 0;
   width: 308px;
   height: 572px;
@@ -506,7 +466,7 @@
   background-repeat: no-repeat;
   background-size: 100%;
   @include desk{
-    animation: heroSwirlSlideMidLeft 1.5s forwards;
+    animation: heroSwirlSlideMidRight 1.5s forwards;
     width: 380px;
     height: 706px;
     bottom: -83px;
