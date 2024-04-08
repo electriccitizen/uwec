@@ -5,10 +5,11 @@
 
 .block-formatted-promo{
   @include auto;
-  margin-bottom: $spaceSm;
+  margin-bottom: $spaceLg;
   max-width: 650px;
   padding: 0 $siteMarginMobile;
   @include desk {
+    margin-bottom: $spaceXl;
     padding: 0;
   }
   &.visible .field-formatted-headline strong {
