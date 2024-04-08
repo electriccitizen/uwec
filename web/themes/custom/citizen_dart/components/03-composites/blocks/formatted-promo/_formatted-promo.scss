@@ -5,10 +5,15 @@
 
 .block-formatted-promo{
   @include auto;
+  margin-bottom: $spaceLg;
   max-width: 650px;
   padding: 0 $siteMarginMobile;
   @include desk {
+    margin-bottom: $spaceXl;
     padding: 0;
+  }
+  &.visible .field-formatted-headline strong {
+      @include animation('breatheFadeIn 1.5s 1 forwards');
   }
   .field-formatted-headline {
     @include styledHeader(true);
@@ -22,7 +27,7 @@
     line-height: 4.5rem;
   }
   .field-link {
-    margin-top: $spaceSm;
+    margin-top: $spaceMd;
     @include desk {
       margin-top: $spaceLg;
     }
