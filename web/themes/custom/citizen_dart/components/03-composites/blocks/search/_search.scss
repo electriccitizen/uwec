@@ -347,26 +347,6 @@
 
 
 #search-results-wrapper {
-  //snug up search if its in the first paragraph and depending on body content
-  .field-paragraphs:not(.has-body-content) .layout-section:first-child .layout__region:first-child .paragraph--type--custom-embed:first-child &{
-    margin-top: -200px;
-    @include desk{
-      margin-top: -350px;
-      .logged-in &{
-        margin-top: -234px;
-      }
-    }
-  }
-  .field-paragraphs.has-body-content .layout-section:first-child .layout__region:first-child .paragraph--type--custom-embed:first-child &{
-    margin-top: -40px;
-    @include desk{
-      margin-top: -80px;
-      .logged-in &{
-        margin-top: -20px;
-      }
-    }
-  }
-
   max-width: 984px;
   @include auto;
   //general wrapper

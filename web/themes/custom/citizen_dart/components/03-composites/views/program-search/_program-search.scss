@@ -6,7 +6,6 @@
 @use '../views-mixins' as *;
 
 .view.program-search {
-  @include paragraphSnug;
   max-width: $contentStopMargin;
   @include auto;
 	.views-exposed-form{
