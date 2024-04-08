@@ -66,6 +66,10 @@
         @include desk {
           margin: 0;
         }
+
+        .gold-stripes-narrow {
+          display: none;
+        }
       }
       .wayfinding-info {
         line-height: 1.5;
@@ -101,10 +105,12 @@
     margin-top: $spaceMd;
     margin-bottom: $spaceMd;
     max-width: $textMax;
+    padding: 0 $siteMarginMobile;
     text-align: left;
     @include desk {
       font-size: 4rem;
       margin-top: 12rem;
+      padding: 0;
       text-align: center;
     }
     &:before {
@@ -128,7 +134,7 @@
   .field-button {
     @include auto;
     text-align: center;
-    a{
+    a {
       @include outlineButton($white);
     }
   }
@@ -154,8 +160,7 @@
     .cta-section-inner {
       @include safeFlex(column,wrap,start,start);
       @include edgeToEdge;
-      padding-bottom: $spaceMd;
-      padding-top: $spaceMd;
+      padding: $spaceMd 0;
       @include desk {
         @include auto;
         display: grid;
@@ -216,11 +221,14 @@
       }
       .body {
         color: $white;
+        font-size: 14px;
+        line-height: 2.1;
         margin-bottom: $spaceMd;
+        padding: 0 $siteMarginMobile;
         @include desk {
           border-bottom: 1px solid $warmGrey;
           line-height: 2;
-          padding-bottom: $spaceXl;
+          padding: 0 0 $spaceXl;
           margin-bottom: $spaceSm;
         }
       }
@@ -275,14 +283,14 @@
       transform-style: unset;
     }
     input[type="text"] {
-      background: $ice;
+      background: $white;
       border: 0;
       border-radius: 30px;
       font-size: 2rem;
       font-family: $bodyText;
       font-weight: $regular;
       min-height: 50px;
-      padding: 11px 50px 11px 20px;
+      padding: 9px 50px 9px 20px;
     }
     #edit-program-search-submit {
       position: absolute;
