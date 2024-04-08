@@ -39,7 +39,8 @@
 
 
 {% set classes = 'field ' ~ field_name|clean_class ~ ' ' ~ field_type|clean_class %}
-  
+{% block fieldMeta %}{% endblock %}
+
 {# no label #}
 {%- if label_hidden -%}
   {# multi block with no label #}
@@ -100,4 +101,3 @@
     </div>
   {% endblock %}
 {%- endif -%}
-
