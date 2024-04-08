@@ -386,7 +386,7 @@
   &.visible:before {
     @include animation('sealRollRight 1s');
     display: block;
-    right: 18%;
+    right: 10%;
   }
   @include u.desk {
     &:before {
@@ -1246,7 +1246,7 @@
     transform: rotateZ(-360deg);
   }
   to {
-    right: 18%;
+    right: 10%;
     transform: rotateZ(0);
   }
 }
