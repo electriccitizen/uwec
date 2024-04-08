@@ -7,6 +7,29 @@
 
 /* PAGE CONTENT */
 .node-page{
+  //nug up to footer at larger screen sizes
+  @include contentStop{
+    margin-bottom: -5vw;
+  }
+  @media screen and (min-width: 1600px){
+    margin-bottom: -5.5vw;
+  }
+  @media screen and (min-width: 1800px){
+    margin-bottom: -6vw;
+  }
+  @media screen and (min-width: 2000px){
+    margin-bottom: -6.5vw;
+  }
+  @media screen and (min-width: 2300px){
+    margin-bottom: -7vw;
+  }
+  @media screen and (min-width: 2500px){
+    margin-bottom: -8vw;
+  }
+  @media screen and (min-width: 2900px){
+    margin-bottom: -9vw;
+  }
+  //remove contextual stuff
 	&.contextual-region{
 		position: static;
 		& > .contextual{
@@ -681,6 +704,19 @@
           }
         }
         .hero-none &{
+          @include menuStop{
+            &:after{
+              content: '';
+              display: block;
+              position: absolute;
+              top: 0;
+              left: calc(50% - 558px);
+              height: 100%;
+              z-index: -10;
+              background: $siteBack;
+              width: 1116px;
+            }
+          }
           .block-system-breadcrumb-block{
             display: none;
           }
@@ -731,7 +767,15 @@
       }//end breadcrumb
     }//end breadcrumb block
   }//end node section 2;
-
+  #node-section-3{
+    .widget.layout-section:last-child{
+      .paragraph:last-child{
+        @include contentStop{
+          margin-bottom: 0;
+        }
+      }
+    }
+  }//end node section 3
 	.block-field-page-family{
 		max-width: $breakoutWidth;
 		@include auto;
