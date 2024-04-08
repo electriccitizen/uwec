@@ -19,7 +19,7 @@
       @include desk {
         @include safeFlex(row,nowrap,justify,start);
         gap: $spaceSm;
-        margin-right: -$spaceXl;
+        margin-right: -12rem;
         max-width: none;
         width: auto;
       }
@@ -174,6 +174,9 @@
       margin-bottom: 0;
       margin-top: 12rem; // Needs to be large to accommodate overlapping.
       padding: 0 $siteMarginMobile;
+      @include desk {
+        margin-top: 16rem; // Sometimes very large.
+      }
       h2.block-title{
         @include headerGlobals;
         font-size: 26px;
@@ -186,7 +189,7 @@
         margin-bottom: -$spaceLg; // Correction for negative top spacing.
         padding: calc($spaceLg + $siteMarginMobile) 0;
         position: relative;
-        top: -$spaceLg; // Causes the overlapping and marging calculation bugs.
+        top: -$spaceLg; // Causes the overlapping and margin calculation bugs.
         @include desk {
           @include auto;
           max-width: $breakoutWidth;

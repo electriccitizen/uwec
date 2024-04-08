@@ -1,19 +1,19 @@
-uuid: ea823d92-1524-4d10-b797-8b1e07033557
+uuid: e5a85608-bd2c-4c98-8ac9-ef995de08af5
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.paragraph.field_headline
+    - field.storage.paragraph.field_additional_text
     - paragraphs.paragraphs_type.highlight_box
-id: paragraph.highlight_box.field_headline
-field_name: field_headline
+id: paragraph.highlight_box.field_additional_text
+field_name: field_additional_text
 entity_type: paragraph
 bundle: highlight_box
-label: Headline
+label: Text
 description: ''
-required: true
+required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''
 settings: {  }
-field_type: string
+field_type: string_long

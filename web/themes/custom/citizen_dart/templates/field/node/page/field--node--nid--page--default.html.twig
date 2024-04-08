@@ -77,13 +77,15 @@
 						{{ bodyText }}
 					</div>
 				{% endif %}
-        <div class="scroll-link">
-					<a href="#scroll-anchor">Here you can
-						<span class="link-arrow">
-							<span>scroll to content</span>
-						</span>
-					</a>
-				</div>
+        {% if element['#object'].field_hero.0.entity.field_hero_type.0.value == 'video' %}
+          <div class="scroll-link">
+            <a href="#scroll-anchor">Here you can
+              <span class="link-arrow">
+                <span>scroll to content</span>
+              </span>
+            </a>
+          </div>
+        {% endif %}
 			</div>
 		</div>
 
