@@ -614,22 +614,6 @@
 	}
 }//end page header text
 
-@mixin centeredHeaderText{
-	margin-top: 80px;
-	position: relative;
-	z-index: 1;
-	max-width: 1000px;
-	@include auto;
-	padding: 60px $siteMarginMobile;
-	.field.title{
-		margin-bottom: 60px;
-	}
-	.field:not(.title){
-		max-width: $textMax;
-		@include auto;
-	}
-}
-
 @mixin heroCornerSlice {
   margin-left: -$siteMarginMobile;
   margin-top: -88px;
