@@ -584,12 +584,13 @@
 
   /* WHEN THERE IS NO HERO */
   .hero-none &{
+    .main-node-content{
+      position: relative;
+    }
     .node-intro-simple{
       @include heroSimpleBackground;
-      height: 228px;
-      @include desk{
-        height: 300px;
-      }
+      left: -20px;
+      top: -10px;
     }//end intro simple
     .page-header-text{
       .block-system-breadcrumb-block{
@@ -604,6 +605,11 @@
         max-width: 1116px;
         @include auto;
         padding: 80px $siteMarginMobile 60px;
+        &:first-child{
+          @include desk{
+            border-top: 40px solid $brightBlue;
+          }
+        }
         &:after{
           content: '';
           display: block;
@@ -612,7 +618,7 @@
           left: 0;
           width: 100%;
           background: $white;
-          height: calc(100vh - 88px);
+          height: calc(100vh - 120px);
           z-index: -1;
         }
         .node-title{
@@ -634,8 +640,13 @@
       }//end page header text inner
     }//end page header text when no hero
   }//end no hero
+  .logged-in.hero-none &{
+    .main-node-content{
+      padding-top: 10px;
+    }
+  }
   //adjust some elements when there is no hero but the page is in the menu
-  .hero-none.in-main-menu &{
+  .hero-none.in-main-menu:not(.hide-nav) &{
     .page-header-text{
       .page-header-text-inner{
         .node-title{
