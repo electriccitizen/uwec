@@ -293,23 +293,20 @@
       padding: 9px 50px 9px 20px;
     }
     #edit-program-search-submit {
-      position: absolute;
-      top: calc(50% - 12px);
-      right: 20px;
       @include browserWipe;
-      width: 24px;
-      height: 24px;
-      overflow: hidden;
-      text-indent: -9000px;
-      background-color: transparent;
+      background: url(../images/elements/search.svg) center / 21px no-repeat transparent;
       border: 0;
-      background-image: url(../images/elements/search.svg);
-      background-repeat: no-repeat;
-      background-size: 100%;
-      background-position: 0 0;
+      border-radius: 100%;
+      height: 40px;
+      overflow: hidden;
+      position: absolute;
+      right: 5px;
+      text-indent: -9000px;
+      top: calc(50% - 20px);
+      width: 40px;
       &:hover,&:focus{
-        opacity: .5;
-        border-bottom: 1px solid $black;
+        background-color: lighten($ice,1%);
+        background-image: url('../images/elements/search-blue.svg');
       }
     }
   }
