@@ -63,6 +63,10 @@ fonts:
   css:
     theme:
       https://fonts.googleapis.com/css?family=Open+Sans:ital,wght@0,400;;0,700;1,400: { type: external, preprocess: false }
+formatted-promo:
+  version: 1.0
+  js:
+    components/03-composites/blocks/formatted-promo/formatted-promo.js: {}
 forms:
   version: 1.0
   js:
