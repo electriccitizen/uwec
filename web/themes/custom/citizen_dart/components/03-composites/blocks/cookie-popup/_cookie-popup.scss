@@ -9,16 +9,14 @@
   padding: $spaceSm 0;
   width: 100%;
 
-  .role-super-user & {
-    display: block !important;
-  }
-
   h2 {
     color: $white;
     font-size: 2rem;
   }
 
   .eu-cookie-compliance-message {
+    box-sizing: border-box;
+    padding-right: $spaceMd;
     p, button {
       display: inline;
       color: $white;
@@ -46,6 +44,7 @@
     text-transform: uppercase;
     @include transAll(.3s);
     &:not(:last-of-type) {
+      margin-bottom: $spaceSm;
       margin-right: $spaceSm;
     }
     &:hover,&:focus{
