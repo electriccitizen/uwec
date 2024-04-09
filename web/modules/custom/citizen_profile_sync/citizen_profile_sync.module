@@ -87,7 +87,7 @@ function citizen_profile_sync_form_node_bios_edit_form_alter(&$form, $form_state
       $form['field_position']['widget']['add_more']['#access'] = FALSE;
     }
   }
-  if (empty(array_intersect(['administrator', 'site admin'], $roles))) {
+  if (empty(array_intersect(['administrator', 'site_admin'], $roles))) {
     $hide_fields[] = 'field_active';
   }
   foreach ($disable_fields as $field_name) {
