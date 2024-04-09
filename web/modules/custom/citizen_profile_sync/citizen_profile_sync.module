@@ -82,6 +82,10 @@ function citizen_profile_sync_form_node_bios_edit_form_alter(&$form, $form_state
       'field_athena_id',
       'field_import_date',
     ];
+    if (isset($form['field_position']['widget']['add_more'])) {
+      // Hide the "Add another item" button.
+      $form['field_position']['widget']['add_more']['#access'] = FALSE;
+    }
   }
   if (empty(array_intersect(['administrator', 'site admin'], $roles))) {
     $hide_fields[] = 'field_active';
