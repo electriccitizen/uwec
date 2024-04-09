@@ -5,6 +5,19 @@
 @use '../../../00-base/base' as *;
 
 .node-support-book{
+  .block-system-breadcrumb-block{
+    .breadcrumb{
+      li{
+        color: $navy;
+        a{
+          color: $navy;
+          &:hover,&:focus{
+            @include dottedLink($navy);
+          }
+        }
+      }
+    }
+  }
 	#block-section-menu{
 		margin-top: 0;
 		margin-left: 0;
