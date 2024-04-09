@@ -5,7 +5,6 @@ dependencies:
   config:
     - filter.format.restricted_html
   module:
-    - eu_cookie_compliance
     - filter
     - media
     - paragraphs_type_permissions
@@ -18,7 +17,6 @@ weight: 0
 is_admin: false
 permissions:
   - 'access content'
-  - 'display eu cookie compliance popup'
   - 'use text format restricted_html'
   - 'view media'
   - 'view paragraph content accordion_item'

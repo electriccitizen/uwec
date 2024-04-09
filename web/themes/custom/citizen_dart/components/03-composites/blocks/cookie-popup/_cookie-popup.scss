@@ -1,0 +1,57 @@
+/* ==============
+   COOKIE POPUP!
+===============*/
+@use '../../../00-base/base' as *;
+
+#sliding-popup.sliding-popup-bottom {
+  background-color: $brightBlue;
+  color: $white;
+  padding: $spaceSm 0;
+  width: 100%;
+
+  .role-super-user & {
+    display: block !important;
+  }
+
+  h2 {
+    color: $white;
+    font-size: 2rem;
+  }
+
+  .eu-cookie-compliance-message {
+    p, button {
+      display: inline;
+      color: $white;
+      font-size: 14px;
+    }
+    button {
+      @include buttonWipe;
+      @include dottedLink($white);
+      padding: 0;
+      &:hover {
+        background: none;
+      }
+    }
+  }
+  .eu-cookie-compliance-buttons button {
+    background-color: $brightBlue;
+    border: 1px solid $white;
+    border-radius: 25px;
+    color: $white;
+    display: inline-block;
+    font-family: $header;
+    min-width: 116px;
+    padding: 13px 20px 10px;
+    text-align: center;
+    text-transform: uppercase;
+    @include transAll(.3s);
+    &:not(:last-of-type) {
+      margin-right: $spaceSm;
+    }
+    &:hover,&:focus{
+      background-color: $white;
+      color: $brightBlue;
+      @include animation('breathe .75s 1');
+    }
+  }
+}

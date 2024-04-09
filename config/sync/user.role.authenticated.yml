@@ -8,6 +8,7 @@ dependencies:
     - filter.format.short_text_formatted_html
   module:
     - content_moderation
+    - eu_cookie_compliance
     - file
     - filter
     - media
@@ -57,6 +58,7 @@ permissions:
   - 'delete paragraph content steps'
   - 'delete paragraph content text'
   - 'delete paragraph content video'
+  - 'display eu cookie compliance popup'
   - 'update paragraph content accordion_item'
   - 'update paragraph content accordions'
   - 'update paragraph content button'
