@@ -57,34 +57,54 @@ function citizen_profile_sync_cron() {
   }
 }
 
+/**
+ * @param $form
+ * @param $form_state
+ * @param $form_id
+ *
+ * @return void
+ */
 function citizen_profile_sync_form_node_bios_edit_form_alter(&$form, $form_state, $form_id) {
   $user = \Drupal::currentUser();
-  $userId = $user->id();
-  if ($userId != 1) {
-    $sync_fields = [
-      'field_athena_id',
-      'field_active',
+  $roles = $user->getRoles();
+  $disable_fields = [];
+  $hide_fields = [];
+  if (!in_array('administrator', $roles)) {
+    $disable_fields = [
       'field_username',
       'field_email',
       'field_phone',
       'field_first_name',
       'field_last_name',
       'field_position',
+    ];
+    $hide_fields = [
+      'field_athena_id',
       'field_import_date',
     ];
-
-    foreach ($sync_fields as $field_name) {
-      if (isset($form[$field_name])) {
-        $form[$field_name]['#disabled'] = TRUE;
-      }
+    if (isset($form['field_position']['widget']['add_more'])) {
+      // Hide the "Add another item" button.
+      $form['field_position']['widget']['add_more']['#access'] = FALSE;
+    }
+  }
+  if (empty(array_intersect(['administrator', 'site_admin'], $roles))) {
+    $hide_fields[] = 'field_active';
+  }
+  foreach ($disable_fields as $field_name) {
+    if (isset($form[$field_name])) {
+      $form[$field_name]['#disabled'] = TRUE;
+    }
+  }
+  foreach ($hide_fields as $field_name) {
+    if (isset($form[$field_name])) {
+      $form[$field_name]['#access'] = FALSE;
     }
   }
 }
 
 function citizen_profile_sync_form_user_form_alter(&$form, $form_state, $form_id) {
   $user = \Drupal::currentUser();
-  $userId = $user->id();
-  if ($userId != 1) {
+  if (!in_array('administrator', $user->getRoles())) {
     $form['account']['mail']['#disabled'] = TRUE;
     $form['account']['name']['#disabled'] = TRUE;
 
@@ -101,5 +121,4 @@ function citizen_profile_sync_form_user_form_alter(&$form, $form_state, $form_id
       }
     }
   }
-
 }

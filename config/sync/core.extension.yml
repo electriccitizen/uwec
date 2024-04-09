@@ -14,6 +14,7 @@ module:
   citizen_domain: 0
   citizen_google_search: 0
   citizen_migrate: 0
+  citizen_profile_sync: 0
   ckeditor5: 0
   ckeditor5_paste_filter: 0
   config: 0
