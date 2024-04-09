@@ -8,7 +8,6 @@
 /* DIRECTORY
 --------------- */
 .profile-search.directory{
-  @include paragraphSnug;
 	.views-exposed-form{
 		@include exposedForm;
     @include edgeToEdge;

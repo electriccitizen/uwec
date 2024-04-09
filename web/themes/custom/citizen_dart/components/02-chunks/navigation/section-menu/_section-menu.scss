@@ -30,6 +30,9 @@
     .hero-full_image.in-main-menu &{
       top: -110px !important;
     }
+    .hero-none.in-main-menu &{
+      top: 0 !important;
+    }
   }
   @media screen and (min-width: 1480px){
     left: calc(50% - 730px);
