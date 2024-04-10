@@ -9,6 +9,7 @@ dependencies:
     - field.field.paragraph.wayfinding.field_image
     - field.field.paragraph.wayfinding.field_link
     - field.field.paragraph.wayfinding.field_link_multi
+    - field.field.paragraph.wayfinding.field_no_background
     - field.field.paragraph.wayfinding.field_text_placement
     - field.field.paragraph.wayfinding.field_version
     - paragraphs.paragraphs_type.wayfinding
@@ -44,5 +45,6 @@ hidden:
   field_image: true
   field_link: true
   field_link_multi: true
+  field_no_background: true
   field_text_placement: true
   search_api_excerpt: true

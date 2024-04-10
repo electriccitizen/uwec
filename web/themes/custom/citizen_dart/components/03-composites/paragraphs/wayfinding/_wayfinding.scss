@@ -6,6 +6,22 @@
 @use '../../../01-parts/buttons/button-mixins' as *;
 
 .paragraph--type--wayfinding{
+  &.wf-single.wf-has-background + .wf-single.wf-has-background{
+    margin-top: calc(-6rem - 2px);
+    @include menuStop{
+      margin-top: calc(-10rem - 2px);
+    }
+  }
+  &.wf-single.wf-no-background{
+    ;
+    .wayfinding.single{
+      padding-top: 0 !important;
+      padding-bottom: 0 !important;
+      &:after{
+        content: none;
+      }
+    }
+  }
   .widget-wrapper{
     padding-top: 1px;
     padding-bottom: 1px;
