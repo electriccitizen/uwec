@@ -13,10 +13,10 @@
     }
   }
   &.wf-single.wf-no-background{
-    ;
     .wayfinding.single{
       padding-top: 0 !important;
       padding-bottom: 0 !important;
+      background: none;
       &:after{
         content: none;
       }
