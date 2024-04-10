@@ -412,6 +412,14 @@
       .field-intro{
         padding-left: 20px;
         padding-right: 20px;
+        a{
+          opacity: .75;
+          @include dottedLink($white);
+          &:hover,&:focus{
+            background-image: none;
+            opacity: 1;
+          }
+        }
         @include desk{
           padding-left: 0;
           padding-right: 0;
@@ -490,6 +498,16 @@
     &:hover,&:focus{
       color: $transWhite;
       background-image: none;
+    }
+  }
+  .field-intro-text{
+    a{
+      opacity: .75;
+      @include dottedLink($white);
+      &:hover,&:focus{
+        background-image: none;
+        opacity: 1;
+      }
     }
   }
   .field-links a{
