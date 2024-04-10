@@ -35,7 +35,7 @@
 } %}
 
 {% block fieldSingleNo %}
-  {% if accreditationText or licensureText %}
+  {% if element['#object'].field_accreditation.0 or element['#object'].field_licensure.0 %}
     <div class="accreditation-wrapper">
       {% if accreditationText %}
         <div class="accreditation-details">
@@ -48,7 +48,7 @@
           {% endif %}
         </div>
       {% endif %}
-      {% if licensureText %}
+      {% if element['#object'].field_licensure.0 %}
         <div class="licensure-details">
           <h2>{% trans %}Licensure Information{% endtrans %}</h2>
           {{ licensureText }}

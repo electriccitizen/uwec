@@ -172,8 +172,13 @@
       @include desk {
         @include safeFlex(row, wrap, justify, start);
       }
-      p {
-        max-width: 424px;
+      .accreditation-text {
+        max-width: $textMax;
+        @include desk{
+          &:not(:only-child){
+            max-width: 424px;
+          }
+        }
       }
       .media-item.image {
         align-self: center;
@@ -182,14 +187,12 @@
           margin: 0;
         }
       }
-    }
+    }//end accred details
     .licensure-details {
       margin-top: 2rem;
+      max-width: $textMax;
       @include desk {
         margin-top: 8.875rem;
-      }
-      p {
-        max-width: $textMax;
       }
     }
   }// end accreditation-wrapper
@@ -343,21 +346,20 @@
       @include linkArrow(navy);
       color: $black;
     }
-  }
-  .block-field-request-for-info {
-    margin-bottom: 7.5rem;
-    @include desk {
-      margin-bottom: 13.875rem;
-    }
-  }
-  .field-request-for-info{
+  }//end field course links
+
+  .more-info-wrapper{
     max-width: 1138px;
     @include auto;
     background: $ice;
     color: $brightBlue;
     padding: 40px 20px 30px;
+    margin-bottom: 7.5rem;
     @include tab{
       padding: 60px 112px 45px;
+    }
+    @include desk {
+      margin-bottom: 13.875rem;
     }
     .more-info {
       @include safeFlex(row,wrap,start,start);

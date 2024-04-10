@@ -94,10 +94,7 @@
           }
           .form-item{
             @include tab{
-              max-width: calc(50% - 10px);
-              &.form-item-delivery-mode,&.form-item-college-filter,&.form-item-campus{
-                max-width: calc(33.33% - 14px);
-              }
+              max-width: calc(33.33% - 14px);
             }
           }
         }//end advanced form inner filters
