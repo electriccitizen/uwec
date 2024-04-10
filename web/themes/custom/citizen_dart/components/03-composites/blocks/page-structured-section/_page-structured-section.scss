@@ -48,7 +48,7 @@
         margin-top: 0;
         padding: $siteMarginMobile;
         @include desk {
-          padding: $spaceSm 1.5rem;
+          padding: $spaceSm 20px;
         }
         &:after {
           @include auto;
@@ -80,8 +80,8 @@
         @include desk {
           line-height: 2;
           margin: 0;
-          max-width: 500px;
-          padding: $spaceLg 0 $spaceLg $spaceXl;
+          max-width: 560px;
+          padding: $spaceLg 60px $spaceLg $spaceXl;
         }
 
         .wayfinding-headline {
@@ -106,13 +106,12 @@
     font-family: $displayHeader;
     font-size: 3.5rem;
     margin-top: $spaceMd;
-    margin-bottom: $spaceMd;
+    margin-bottom: $spaceLg;
     max-width: $textMax;
     padding: 0 $siteMarginMobile;
     text-align: left;
     @include desk {
       font-size: 4rem;
-      margin-bottom: $spaceLg;
       margin-top: 12rem;
       padding: 0;
       text-align: center;
@@ -165,7 +164,19 @@
     color: $white;
     padding-bottom: 100px;
     @include desk {
+      padding-bottom: 5vw;
+    }
+    @media screen and (min-width: 2000px){
       padding-bottom: 7vw;
+    }
+    @media screen and (min-width: 2200px){
+      padding-bottom: 8vw;
+    }
+    @media screen and (min-width: 2500px){
+      padding-bottom: 9vw;
+    }
+    @media screen and (min-width: 2800px){
+      padding-bottom: 10vw;
     }
     .cta-section-inner {
       @include safeFlex(column,wrap,start,start);
@@ -201,6 +212,8 @@
         }
         @include desk {
           order: 2;
+        }
+        @include menuStop{
           width: 426px;
         }
       }
@@ -208,7 +221,9 @@
         order: 3;
         overflow: hidden;
         @include desk {
-          margin: 0;
+          margin: -5rem 0 0;
+        }
+        @include menuStop{
           width: 426px;
         }
       }
@@ -311,6 +326,7 @@
   }//end CTA section
   #program-search-form {
     position: relative;
+    max-width: 520px;
     @include desk {
       max-width: 330px;
     }

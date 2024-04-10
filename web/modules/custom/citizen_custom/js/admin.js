@@ -56,7 +56,7 @@
       
       let comboFields = $('.field--name-field-link-multi');
       let boxSingleFields = $('.field--name-field-link,.field--name-field-image');
-      let singleFields = $('.field--name-field-text-placement');
+      let singleFields = $('.field--name-field-text-placement,.field--name-field-no-background');
 
       //hide combo by default
       $(this).closest('.paragraphs-subform,.layout-paragraphs-component-form').find(comboFields).hide();

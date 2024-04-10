@@ -52,12 +52,18 @@
   margin-bottom: $elementSpace;
   padding: 0 $siteMarginMobile;
   position: relative;
+  @include menuStop{
+    margin-bottom: 10rem;
+  }
   @include contentStop{
     padding: 0 $siteMarginDesk;
   }
   //layout-sections
-  &.text:not(:only-child) {
-    margin-bottom: $spaceXs;
+  &.text + .text {
+    margin-top: -4rem;
+    @include menuStop{
+      margin-top: -8rem;
+    }
   }
   &.layout-section{
     margin-bottom: 0;
@@ -76,5 +82,16 @@
         margin-bottom: -$siteBottomSpace;
       }
     }//end background
+    .paragraph{
+      @include menuStop{
+        margin-bottom: 10rem;
+      }
+      &.paragraph--type--text + .paragraph--type--text{
+        margin-top: -4rem;
+        @include menuStop{
+          margin-top: -8rem;
+        }
+      }
+    }
   }//end layout section
 }//end widget

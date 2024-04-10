@@ -37,18 +37,19 @@
  */
 #}
 
-{% extends 'paragraph.html.twig' %}
+{%- set version = paragraph.field_version.value -%}
+{%- set alignment = paragraph.field_text_placement.value -%}
+{% set background = paragraph.field_no_background.value %}
 
-{% block widgetContent %}
-  {%- set version = paragraph.field_version.value -%}
-  {%- set alignment = paragraph.field_text_placement.value -%}
+{% if version == 'box' %}
+  {% set imageStyle = 'square' %}
+{% elseif version == 'single' %}
+  {% set imageStyle = '426x426' %}
+{% endif %}
+{{ attach_library('citizen_dart/wayfinding') }}
 
-  {% if version == 'box' %}
-    {% set imageStyle = 'square' %}
-  {% elseif version == 'single' %}
-    {% set imageStyle = '426x426' %}
-  {% endif %}
-  {{ attach_library('citizen_dart/wayfinding') }}
+<div{{ attributes|without('class') }} class="paragraph paragraph--type--{{ paragraph.bundle|clean_class  }}{% if id %} paragraphs-item-{{ paragraph.id.value }}{% endif %} wf-{{ version }}{% if background == '1'%} wf-no-background{% else %} wf-has-background{% endif %}">
+
   <div class="wayfinding {{ version }} {{ alignment }}">
     {% if version != 'single' %}
       <div class="gold-stripes-before">
@@ -130,6 +131,6 @@
       </div>
     {% endif %}
   </div>
-{% endblock %}
+</div>
 
 
