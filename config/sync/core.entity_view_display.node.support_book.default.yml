@@ -62,7 +62,7 @@ third_party_settings:
               follow: true
               follow_parent: active
               label_link: true
-              label_type: root
+              label_type: parent
               level: 2
               depth: 3
               expand_all_items: true
@@ -138,7 +138,7 @@ third_party_settings:
               follow: true
               follow_parent: active
               label_link: true
-              label_type: root
+              label_type: parent
               level: 2
               depth: 3
               expand_all_items: true
