@@ -346,21 +346,20 @@
       @include linkArrow(navy);
       color: $black;
     }
-  }
-  .block-field-request-for-info {
-    margin-bottom: 7.5rem;
-    @include desk {
-      margin-bottom: 13.875rem;
-    }
-  }
-  .field-request-for-info{
+  }//end field course links
+
+  .more-info-wrapper{
     max-width: 1138px;
     @include auto;
     background: $ice;
     color: $brightBlue;
     padding: 40px 20px 30px;
+    margin-bottom: 7.5rem;
     @include tab{
       padding: 60px 112px 45px;
+    }
+    @include desk {
+      margin-bottom: 13.875rem;
     }
     .more-info {
       @include safeFlex(row,wrap,start,start);

@@ -25,22 +25,24 @@
 {% block fieldSingleNo %}
   {{ attach_library('citizen_dart/slate-form') }}
   {% if element.0['#markup'] == "On" %}
-    <div class="more-info">
-	    <div class="slate-left">
-	      <h2>{% trans %}Get <strong>More</strong> Info{% endtrans %}</h2>
-	      <p>{% trans %}Sign up to receive additional information about our Accounting program and campus.{% endtrans %}</p>
-	    </div>
+    <div class="more-info-wrapper">
+      <div class="more-info">
+        <div class="slate-left">
+          <h2>{% trans %}Get <strong>More</strong> Info{% endtrans %}</h2>
+          <p>{% trans %}Sign up to receive additional information about our Accounting program and campus.{% endtrans %}</p>
+        </div>
 
-	    <div class="slate-right">
-	    	{% if element['#object'].field_degree_level.0.value == 'graduate' %}
-	    		<div id="form_dbcd813f-8587-43ba-a301-cd0e0ba1c8ba">Loading...</div>
-	    		<script>/*<![CDATA[*/var script = document.createElement('script'); script.async = 1; script.src = 'https://graduate.uwec.edu/register/?program_slug={{ element['#object'].field_slate_slug.value|url_encode  }}&id=dbcd813f-8587-43ba-a301-cd0e0ba1c8ba&output=embed&div=form_dbcd813f-8587-43ba-a301-cd0e0ba1c8ba' + ((location.search.length > 1) ? '&' + location.search.substring(1) : ''); var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);/*]]>*/</script>    	
-	    	{% else %}
-	    		<div id="form_208d20fe-4c47-4208-8455-7e84c9e283c8">Loading...</div>
-	    		<script>/*<![CDATA[*/var script = document.createElement('script'); script.async = 1; script.src = 'https://apply.uwec.edu/register/?program_slug={{ element['#object'].field_slate_slug.value|url_encode  }}&id=208d20fe-4c47-4208-8455-7e84c9e283c8&output=embed&div=form_208d20fe-4c47-4208-8455-7e84c9e283c8' + ((location.search.length > 1) ? '&' + location.search.substring(1) : ''); var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);/*]]>*/</script>
-	    	{% endif %}
-	    </div>
-	  </div>
+        <div class="slate-right">
+          {% if element['#object'].field_degree_level.0.value == 'graduate' %}
+            <div id="form_dbcd813f-8587-43ba-a301-cd0e0ba1c8ba">Loading...</div>
+            <script>/*<![CDATA[*/var script = document.createElement('script'); script.async = 1; script.src = 'https://graduate.uwec.edu/register/?program_slug={{ element['#object'].field_slate_slug.value|url_encode  }}&id=dbcd813f-8587-43ba-a301-cd0e0ba1c8ba&output=embed&div=form_dbcd813f-8587-43ba-a301-cd0e0ba1c8ba' + ((location.search.length > 1) ? '&' + location.search.substring(1) : ''); var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);/*]]>*/</script>    	
+          {% else %}
+            <div id="form_208d20fe-4c47-4208-8455-7e84c9e283c8">Loading...</div>
+            <script>/*<![CDATA[*/var script = document.createElement('script'); script.async = 1; script.src = 'https://apply.uwec.edu/register/?program_slug={{ element['#object'].field_slate_slug.value|url_encode  }}&id=208d20fe-4c47-4208-8455-7e84c9e283c8&output=embed&div=form_208d20fe-4c47-4208-8455-7e84c9e283c8' + ((location.search.length > 1) ? '&' + location.search.substring(1) : ''); var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);/*]]>*/</script>
+          {% endif %}
+        </div>
+      </div>
+    </div>
   {% endif %}
 {% endblock %}
 
