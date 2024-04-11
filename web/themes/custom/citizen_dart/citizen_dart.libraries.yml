@@ -75,6 +75,10 @@ galleries:
   version: 1.0
   js:
     components/03-composites/paragraphs/gallery/gallery.js: {}
+general-page:
+  version: 1.0
+  js:
+    components/04-units/nodes/general-page/general-page.js: {}
 hallmark:
   version: 1.0
   js:
