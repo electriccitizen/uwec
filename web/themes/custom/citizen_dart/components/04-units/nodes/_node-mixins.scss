@@ -413,11 +413,11 @@
         padding-left: 20px;
         padding-right: 20px;
         a{
-          opacity: .75;
+          font-weight: $heavy;
           @include dottedLink($white);
           &:hover,&:focus{
             background-image: none;
-            opacity: 1;
+            opacity: .7;
           }
         }
         @include desk{
@@ -502,11 +502,11 @@
   }
   .field-intro-text{
     a{
-      opacity: .75;
+      font-weight: $heavy;
       @include dottedLink($white);
       &:hover,&:focus{
         background-image: none;
-        opacity: 1;
+        opacity: .7;
       }
     }
   }
