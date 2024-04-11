@@ -8,6 +8,11 @@
 .paragraph--type--stories-video-list{
   max-width: 1320px;
   @include auto;
+  & > *:last-child{
+    @include tab{
+      margin-bottom: -$spaceMd;
+    }
+  }
 	.views-wrapper{
     &.views-both{
       .widget-section > .layout--onecol &,.node-support-book &,.block-field-stories-video-list &{
