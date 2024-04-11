@@ -133,11 +133,19 @@
 		max-width: 1094px;
 		@include auto; 
     position: relative;
+    padding-top: 70px;
+    @include tab{
+      padding-top: 0;
+    }
     &:after{
       @include fullBack($lightGrey);
-      height: 76%;
-      top: 12%;
+      height: calc(100% - 70px);
+      top: 0;
       z-index: -5;
+      @include tab{
+        height: 76%;
+        top: 12%;
+      }
       .widget-section > .layout:not(.layout--onecol) &,.node-support-book &{
         @include tab{
           width: calc(100% + 40px);
@@ -149,11 +157,14 @@
     }
     .gold-stripes{
       position: absolute;
-      top: -128px;
+      top: -50px;
       right: -100vw;
       z-index: 1;
       width: 263px;
       height: 171px;
+      @include tab{
+        top: -128px;
+      }
       //move strips when in a layout wide enough on a screen large enough
       .widget-section > .layout--onecol &,
       .widget-section > .layout--twocol-section--50-50 &,

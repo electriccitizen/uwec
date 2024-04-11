@@ -806,4 +806,7 @@
 		max-width: $breakoutWidth;
 		@include auto;
 	}
+  .node-section:last-child >.layout >.layout__region:last-child{
+    margin-bottom: 0;
+  }
 }//end basic page

@@ -9,7 +9,9 @@
   max-width: 1320px;
   @include auto;
   & > *:last-child{
-    margin-bottom: -$spaceMd;
+    @include tab{
+      margin-bottom: -$spaceMd;
+    }
   }
 	.views-wrapper{
     &.views-both{
