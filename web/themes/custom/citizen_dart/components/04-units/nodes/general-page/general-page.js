@@ -14,7 +14,7 @@ Drupal.behaviors.gpContact = {
 Drupal.behaviors.additionalLinksCleanup = {
   attach: function (context, settings) {
     $(once('addLinks', '.paragraph--type--links-files', context)).each(function(){
-      !$('.field.links-files',this).children().length ? $(this).remove() : '';
+      !$('.field.field-link-multi',this).children().length ? $(this).remove() : '';
     });
   }
 }
