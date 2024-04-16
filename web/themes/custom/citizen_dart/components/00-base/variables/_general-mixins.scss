@@ -621,6 +621,9 @@
 }
 
 @mixin factsGrid{
+  .fact {
+    min-width: 33%;
+  }
 	.fact-1{
 		grid-column-start: 3;
     grid-column-end: 4;

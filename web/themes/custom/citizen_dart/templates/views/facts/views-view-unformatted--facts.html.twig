@@ -38,8 +38,8 @@
           <path d="M242.59 -40.9668L-292.225 112.386" stroke="#EDAC1A" stroke-width="1.07503" stroke-miterlimit="10"/>
           <path d="M242.59 -58.8984L-292.225 94.4541" stroke="#EDAC1A" stroke-width="1.07503" stroke-miterlimit="10"/>
           </g>
-        </svg> 
-      </div> 
+        </svg>
+      </div>
     </h2>
   </div>
 	{% set rowCount = 0 %}
@@ -48,6 +48,7 @@
 	  {%
 	    set row_classes = [
 	      default_row_class ? 'views-row',
+        'fact',
 	      'fact-' ~ rowCount
 	    ]
 	  %}
@@ -58,4 +59,3 @@
 	  </div>
 	{% endfor %}
 </div>
-
