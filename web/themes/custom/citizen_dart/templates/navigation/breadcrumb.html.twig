@@ -23,7 +23,9 @@
 					</li>
 				{% endfor %}
 			{% endblock %}
-      <li>{{ currentNode.title.0.value }}</li>
+      {% block current %}
+        <li>{{ currentNode.title.0.value }}</li>
+      {% endblock %}
 		</ol>
 	</nav>
 {% endif %}

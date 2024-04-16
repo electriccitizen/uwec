@@ -27,6 +27,9 @@
     .block-system-breadcrumb-block,
     .block-field-story-categories {
       margin: $spaceSm 0;
+      @include desk {
+        flex: 1 1 50%;
+      }
     }
     .breadcrumb {
       display: none;
@@ -55,7 +58,7 @@
         margin-right: -400px;
       }
       .field-story-categories {
-        @include safeFlex(row, wrap, start, start);
+        @include safeFlex(row, wrap, end, start);
         min-height: 31px;
         @include desk {
           @include safeFlex(row, wrap, start, start);
