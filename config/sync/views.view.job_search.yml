@@ -380,7 +380,9 @@ display:
       row:
         type: search_api
         options:
-          view_modes: {  }
+          view_modes:
+            'entity:node':
+              job: teaser
       query:
         type: search_api_query
         options:
