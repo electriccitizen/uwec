@@ -111,7 +111,7 @@
         {% endif %}
       {% elseif paragraph.field_link.0 %}
         <div class="wayfinding-link">
-          <a href="{{ paragraph.field_link.url }}"><span>{{ paragraph.field_link.title }}</span></a>
+          <a href="{{ paragraph.field_link.0.url }}"><span>{{ paragraph.field_link.0.title }}</span></a>
         </div>
       {% endif %}
     </div>
@@ -132,5 +132,3 @@
     {% endif %}
   </div>
 </div>
-
-

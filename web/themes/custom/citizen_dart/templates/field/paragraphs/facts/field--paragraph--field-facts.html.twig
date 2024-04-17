@@ -59,20 +59,17 @@
           <path d="M242.59 -40.9668L-292.225 112.386" stroke="#EDAC1A" stroke-width="1.07503" stroke-miterlimit="10"/>
           <path d="M242.59 -58.8984L-292.225 94.4541" stroke="#EDAC1A" stroke-width="1.07503" stroke-miterlimit="10"/>
           </g>
-        </svg> 
-      </div> 
+        </svg>
+      </div>
     </h2>
   </div>
 	{% set rowCount = 0 %}
 	{%- for item in items -%}
 		{% set rowCount = rowCount + 1 %}
-    <div{{ item.attributes.addClass('fact-' ~ rowCount) }}>
+    <div{{ item.attributes.addClass('fact fact-' ~ rowCount) }}>
       {% block fieldMultiNo %}
         {{- item.content -}}
       {% endblock %}
     </div>
   {%- endfor -%}
 </div>
-
-
-
