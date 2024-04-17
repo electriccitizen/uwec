@@ -12,8 +12,8 @@ type: list_string
 settings:
   allowed_values:
     -
-      value: jobs
-      label: Jobs
+      value: job_search
+      label: 'Job Search'
     -
       value: profile_search
       label: Directory
