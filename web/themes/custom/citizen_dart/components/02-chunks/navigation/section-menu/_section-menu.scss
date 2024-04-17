@@ -122,17 +122,20 @@
       }
     }
   }//end section menu toggle
-	h2.block-page-title	a{
-    font-size: 16px;
-    line-height: 1.5;
-    letter-spacing: .05em;
-    max-width: calc(100% - 112px);
-    width: 100%;
-    max-width: 100%;
-    color: $brightBlue;
-    padding: 10px;
-    &:hover,&:focus {
-      background: $white;
+	h2.block-page-title	{
+    padding-left: 0;
+    a {
+      font-size: 16px;
+      line-height: 1.5;
+      letter-spacing: .05em;
+      max-width: calc(100% - 112px);
+      width: 100%;
+      max-width: 100%;
+      color: $brightBlue;
+      padding: 10px;
+      &:hover,&:focus {
+        background: $white;
+      }
     }
 	}//end block title
 }//end section menu block
