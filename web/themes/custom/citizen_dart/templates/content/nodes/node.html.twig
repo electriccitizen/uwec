@@ -78,49 +78,51 @@
 ] %}
 
 <article{{ attributes.addClass(classes) }}>
-	{% block nodeMeta %}
-	  {{ title_prefix }}
-	  {% if not page and (view_mode != 'full') %}
-	    {% block nodeTitle %}
-	      <h2{{ title_attributes }}>
-	        <a href="{{- url -}}" rel="bookmark">{{- label.0['#context'].value -}}</a>
-	      </h2>
-	    {% endblock %}
-	  {%- endif -%}
-	  {{ title_suffix }}
-	  {%- if display_submitted -%}
-	    <footer>
-	      {% block footerContent %}
-	        {{- author_picture -}}
-	        <div{{ author_attributes }}>
-	          {%- trans -%}Submitted by {{- author_name -}} on {{- date -}}{%- endtrans -%}
-	          {{- metadata -}}
-	        </div>
-	      {% endblock %}
-	    </footer>
-	  {%- endif -%}
-	{% endblock %}
-	<div class="main-node-content">
-		{% block node %}  
-		  {%- if content._layout_builder -%}
-		    {% if content._layout_builder.0 %}
-		      {%- for key, layoutSection in content._layout_builder -%}
-		      	{% if key|first != "#" %}
-			        {% block layoutSectionContent %}
-			          <section id="node-section-{{ loop.index }}" class="node-section">
-			            {{- layoutSection -}}
-			          </section>
-			        {% endblock %}
-			      {% endif %}
-		      {%- endfor -%}
-		    {% else %}
-		      {% block nodeContent %}
-		      {{- content -}}
-		    {% endblock %}
-		    {% endif %}
-		  {%- else -%}
-		    {{- content -}}
-		  {%- endif -%}
-		{% endblock %}
-	</div>
+  {% block nodeMeta %}
+    {{ title_prefix }}
+    {% if not page and (view_mode != 'full') %}
+      {% block nodeTitle %}
+        <h2{{ title_attributes }}>
+          <a href="{{- url -}}" rel="bookmark">{{- label.0['#context'].value -}}</a>
+        </h2>
+      {% endblock %}
+    {%- endif -%}
+    {{ title_suffix }}
+    {%- if display_submitted -%}
+      <footer>
+        {% block footerContent %}
+          {{- author_picture -}}
+          <div{{ author_attributes }}>
+            {%- trans -%}Submitted by {{- author_name -}} on {{- date -}}{%- endtrans -%}
+            {{- metadata -}}
+          </div>
+        {% endblock %}
+      </footer>
+    {%- endif -%}
+  {% endblock %}
+  <div class="main-node-content">
+    {% block node %}
+      {%- if content._layout_builder -%}
+        {% if content._layout_builder.0 %}
+          {%- for key, layoutSection in content._layout_builder -%}
+            {% if key|first != "#" %}
+              {% block layoutSectionContent %}
+                {% if layoutSection|render|striptags|trim is not empty %}
+                  <section id="node-section-{{ loop.index }}" class="node-section">
+                    {{- layoutSection -}}
+                  </section>
+                {% endif %}
+              {% endblock %}
+            {% endif %}
+          {%- endfor -%}
+        {% else %}
+          {% block nodeContent %}
+          {{- content -}}
+        {% endblock %}
+        {% endif %}
+      {%- else -%}
+        {{- content -}}
+      {%- endif -%}
+    {% endblock %}
+  </div>
 </article>
