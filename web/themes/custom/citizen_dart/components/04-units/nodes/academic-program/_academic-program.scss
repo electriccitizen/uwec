@@ -535,6 +535,9 @@
 }//end academic-program
 
 .academic-program-teaser {
+  @include onlySmall{
+    min-height: unset !important;
+  }
   @include tab{
     height: 100%;
   }
@@ -554,7 +557,7 @@
   }//end program inner
   &.open-program{
     position: relative;
-    z-index: 1;
+    z-index: 3;
     .program-inner{
       background: $warmGrey;
       @include tab{

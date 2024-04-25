@@ -9,6 +9,7 @@
 	padding: $spaceMd 0 0;
 	ol {
 		@include listReset;
+    max-width: $textMax;
 	}
 
 	li{
