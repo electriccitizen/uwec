@@ -52,6 +52,7 @@
       //override potential interference from desktop position
       top: auto !important;
       z-index: 20;
+      border-top: 1px solid rgba($white,0.4);
     }
     @include menuStop{
       position: absolute;
