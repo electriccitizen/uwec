@@ -12,6 +12,7 @@ dependencies:
     - paragraphs.paragraphs_type.ctas
     - paragraphs.paragraphs_type.custom_embed
     - paragraphs.paragraphs_type.events_list
+    - paragraphs.paragraphs_type.external_articles
     - paragraphs.paragraphs_type.facts_list
     - paragraphs.paragraphs_type.fauxfile
     - paragraphs.paragraphs_type.gallery
@@ -62,6 +63,7 @@ settings:
       ctas: ctas
       custom_embed: custom_embed
       events_list: events_list
+      external_articles: external_articles
       fauxfile: fauxfile
       facts_list: facts_list
       gallery: gallery
@@ -115,38 +117,44 @@ settings:
       events_list:
         weight: -75
         enabled: true
+      external_articles:
+        weight: -74
+        enabled: true
+      external_articles_item:
+        weight: -44
+        enabled: false
       facts_list:
-        weight: -73
+        weight: -72
         enabled: true
       fauxfile:
-        weight: -74
+        weight: -73
         enabled: true
       fauxfile_item:
         weight: -48
         enabled: false
       gallery:
-        weight: -72
+        weight: -71
         enabled: true
       gallery_item:
         weight: -51
         enabled: false
       hallmark:
-        weight: -71
+        weight: -70
         enabled: false
       hero:
         weight: -47
         enabled: false
       highlight_box:
-        weight: -70
+        weight: -69
         enabled: true
       hours_placer:
-        weight: -69
+        weight: -68
         enabled: true
       hours_set:
         weight: -50
         enabled: false
       image:
-        weight: -68
+        weight: -67
         enabled: true
       layout_section:
         weight: -85
@@ -155,13 +163,13 @@ settings:
         weight: -82
         enabled: true
       profiles_list:
-        weight: -67
+        weight: -66
         enabled: true
       program_search:
-        weight: -65
+        weight: -64
         enabled: true
       programs_list:
-        weight: -66
+        weight: -65
         enabled: true
       quick_links:
         weight: -64

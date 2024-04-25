@@ -46,6 +46,10 @@ events-list:
   version: 1.0
   js:
     components/03-composites/paragraphs/events-list/events-list.js: {}
+external-articles:
+  version: 1.0
+  js:
+    components/03-composites/paragraphs/external-articles/external-articles.js: {}
 facts-list:
   version: 1.0
   js:
