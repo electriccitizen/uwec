@@ -102,8 +102,7 @@
     // Text-based fields have extra-wide margins on mobile.
     .field-authors,
     .field-created,
-    .block-field-intro-text,
-    .block-field-paragraphs .paragraph--type--text {
+    .block-field-intro-text{
       padding: 0 $siteMarginMobile;
       @include desk {
         padding: 0;
