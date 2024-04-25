@@ -9,11 +9,15 @@ ul {
   .text-long &,.text-with-summary &{
     & > li {
       padding: 0 0 $spaceXxs 2.25rem;
-      text-indent: -2rem;
+      position: relative;
       &:before {
         content: '•';
         display: inline-block;
         font-size: 12px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 2.25rem;
       }
     }//end li
   }//end text long
@@ -35,16 +39,19 @@ ol {
     counter-reset: number;
     & > li {
       counter-increment: number;
-      padding: 0 0 $spaceXxs 1.5rem;
-      text-indent: -1.75rem;
+      padding: 0 0 $spaceXxs 3rem;
       list-style-type:none;
+      position: relative;
       &:before {
         content: counter(number) '. ';
         font-style: italic;
         font-family: $displayHeader;
         display: inline-block;
-        width: 1.5rem;
+        width: 2.25rem;
         text-align: left;
+        position: absolute;
+        top: 0;
+        left: 0;
       }
       ol,ul {
         margin: $spaceXxs 0 0 $spaceSm;
@@ -59,10 +66,10 @@ ol {
 		//overflow hidden is needed for lists next to floated elements
 		overflow: hidden;
 		margin: $spaceXs 0 $spaceMd;
-		padding: 0 0 0 3.5rem;
+		padding: 0 0 0 1.25rem;
 		ul,ol{
 			margin: $spaceXs 0;
-			padding: 0 0 0 2.5rem;
+			padding: 0 0 0 1rem;
 		}
 	}
 }//end text-with-summary,text-long
