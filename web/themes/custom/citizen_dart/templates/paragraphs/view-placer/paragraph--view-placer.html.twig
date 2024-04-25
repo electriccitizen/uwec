@@ -40,8 +40,8 @@
 {% extends 'paragraph.html.twig' %}
 
 {% block widgetContent %}
-	{% if content.field_view.0['#markup'] == 'jobs' %}
-		{% set viewDisplay = 'jobs' %}
+	{% if content.field_view.0['#markup'] == 'job_search' %}
+		{% set viewDisplay = 'default' %}
 	{% elseif content.field_view.0['#markup'] == 'profile_search' %}
 		{% set viewDisplay = 'directory' %}
 	{% elseif content.field_view.0['#markup'] == 'program_search' %}
@@ -49,5 +49,5 @@
 	{% elseif content.field_view.0['#markup'] == 'news' %}
 		{% set viewDisplay = 'all_news' %}
 	{% endif %}
-	{{ drupal_view(content.field_view.0['#markup'],viewDisplay) }}
+	{{ drupal_view(content.field_view.0['#markup'], viewDisplay) }}
 {% endblock %}
