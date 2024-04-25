@@ -161,6 +161,9 @@ button[disabled]:hover,button.disabled:hover{
 .lpb-component-list .lpb-component-list__group > .lpb-component-list__group--content > .type-program_search > a:before{
   background-image: url('../icons/paragraphs/program-search.svg');
 }
+.lpb-component-list .lpb-component-list__group > .lpb-component-list__group--content > .type-quick_links > a:before{
+  background-image: url('../icons/paragraphs/quick-links.svg');
+}
 .lpb-component-list .lpb-component-list__group > .lpb-component-list__group--content > .type-quote > a:before{
   background-image: url('../icons/paragraphs/quote.svg');
 }

@@ -1,0 +1,31 @@
+uuid: 9a068504-d9ca-477f-9ae0-d1ed23395c61
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.preview
+    - field.field.paragraph.quick_links.field_quick_links_items
+    - paragraphs.paragraphs_type.quick_links
+  module:
+    - entity_reference_revisions
+    - layout_builder
+third_party_settings:
+  layout_builder:
+    enabled: false
+    allow_custom: false
+id: paragraph.quick_links.preview
+targetEntityType: paragraph
+bundle: quick_links
+mode: preview
+content:
+  field_quick_links_items:
+    type: entity_reference_revisions_entity_view
+    label: hidden
+    settings:
+      view_mode: preview
+      link: ''
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  search_api_excerpt: true

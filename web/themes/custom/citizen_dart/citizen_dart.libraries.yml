@@ -119,6 +119,10 @@ profiles-slider:
   version: 1.0
   js:
     components/03-composites/views/profiles/profiles-slider.js: {}
+quick-links:
+  version: 1.0
+  js:
+    components/03-composites/paragraphs/quick-links/quick-links.js: {}
 search-block:
   version: 1.0
   js:
