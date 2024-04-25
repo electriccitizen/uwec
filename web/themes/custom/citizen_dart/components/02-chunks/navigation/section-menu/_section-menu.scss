@@ -186,6 +186,9 @@
         }
 				&.is-active{
 					background: $siteBack;
+          &:hover,&:focus{
+            background: $lightGrey;
+          }
           + ul{
             display: block;
           }
