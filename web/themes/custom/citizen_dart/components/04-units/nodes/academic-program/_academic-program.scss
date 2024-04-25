@@ -73,10 +73,13 @@
       font-family: $displayHeader;
     }
   }
-  .field-links a {
-    @include linkArrow(white, sm);
-    display: block;
-    margin-bottom: 16px;
+  .field-links{
+    padding-top: 0 !important;
+    a {
+      @include linkArrow(white, sm);
+      display: block;
+      margin-right: 16px;
+    }
   }
   .block-field-degree-types {
     margin-bottom: 3px;
