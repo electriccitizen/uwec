@@ -31,11 +31,11 @@ popup_hide_button_message: Hide
 popup_link: '<front>'
 popup_link_new_window: true
 popup_height: null
-popup_width: 100%
+popup_width: ''
 popup_delay: 300
 show_more_info: true
-popup_bg_hex: 0779bf
-popup_text_hex: ffffff
+popup_bg_hex: ''
+popup_text_hex: ''
 domain: ''
 domains_option: 1
 domains_list: ''
@@ -45,7 +45,7 @@ cookie_session: 0
 set_cookie_session_zero_on_disagree: 0
 cookie_lifetime: 100
 use_mobile_message: false
-use_bare_css: false
+use_bare_css: true
 use_olivero_css: true
 disagree_do_not_show_popup: false
 reload_page: false

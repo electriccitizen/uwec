@@ -6,6 +6,22 @@
 @use '../../../01-parts/buttons/button-mixins' as *;
 
 .paragraph--type--wayfinding{
+  &.wf-single.wf-has-background + .wf-single.wf-has-background{
+    margin-top: calc(-6rem - 2px);
+    @include menuStop{
+      margin-top: calc(-10rem - 2px);
+    }
+  }
+  &.wf-single.wf-no-background{
+    .wayfinding.single{
+      padding-top: 0 !important;
+      padding-bottom: 0 !important;
+      background: none;
+      &:after{
+        content: none;
+      }
+    }
+  }
   .widget-wrapper{
     padding-top: 1px;
     padding-bottom: 1px;
@@ -58,7 +74,7 @@
       .widget-section > .layout--twocol-section--25-75 > .layout__region--second &,
       .node-support-book &{
         @include desk{
-          max-width: 914px;
+          max-width: $breakoutWidth;
           padding: 30px;
           @include safeFlex(row,nowrap,start,stretch);
           .gold-stripes-before{
@@ -209,14 +225,10 @@
       padding: 50px 0;
       &.wayfinding-visible{
         .field-image{
-          .field-media-image{
-            transform: scale(1);
-            transition: transform 1.5s ease-in-out;
-          }
-          .gold-stripes-narrow{
+          .field-media-image,.gold-stripes-narrow{
             opacity: 1;
             transition: opacity 1s ease-out;
-            transition-delay: 1.25s;
+            transition-delay: 0.25s;
           }
         }
       }//end wayfinding visible
@@ -283,7 +295,7 @@
       }
       .field-image{
         .field-media-image{
-          transform: scale(0);
+          opacity: 0;
         }
         .gold-stripes-narrow{
           @include rotate(180);
@@ -301,27 +313,11 @@
       }
       .wayfinding-link{
         a{
-          @include arrowLinkBefore($navy);
+          @include linkArrow(navy);
           &:before{
-            content: '';
-            display: block;
-            position: absolute;
             top: -12px;
-            left: 0;
-            width: 40px;
-            height: 40px;
-            @include rightArrow(navy,transparent,$navy,lg);
           }
-          &:hover,&:focus{
-            &:before{
-              @include rightArrow(white,$navy,$navy,lg);
-            }
-            span{
-              @include dottedLink($link);
-              padding-bottom: 2px;
-            }
-          }
-        }//end a 
+        }//end a
       }//end wayfinding link
     }//end single
   }// endwayfinding

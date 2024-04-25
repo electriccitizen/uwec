@@ -500,7 +500,7 @@ display:
           reduce_duplicates: true
           vid: media_tags
           type: select
-          hierarchy: false
+          hierarchy: true
           limit: true
           error_message: true
       filter_groups:
@@ -556,11 +556,13 @@ display:
         - 'config:core.entity_view_display.media.image.200x200_non_crop'
         - 'config:core.entity_view_display.media.image.240x240'
         - 'config:core.entity_view_display.media.image.393x221'
+        - 'config:core.entity_view_display.media.image.400x400_non_crop'
         - 'config:core.entity_view_display.media.image.426x426'
         - 'config:core.entity_view_display.media.image.426x508'
         - 'config:core.entity_view_display.media.image.42x42'
         - 'config:core.entity_view_display.media.image.492x492'
         - 'config:core.entity_view_display.media.image.539x304'
+        - 'config:core.entity_view_display.media.image.600x600_non_crop'
         - 'config:core.entity_view_display.media.image.650x650'
         - 'config:core.entity_view_display.media.image.730x840'
         - 'config:core.entity_view_display.media.image.758x428'
@@ -851,11 +853,13 @@ display:
         - 'config:core.entity_view_display.media.image.200x200_non_crop'
         - 'config:core.entity_view_display.media.image.240x240'
         - 'config:core.entity_view_display.media.image.393x221'
+        - 'config:core.entity_view_display.media.image.400x400_non_crop'
         - 'config:core.entity_view_display.media.image.426x426'
         - 'config:core.entity_view_display.media.image.426x508'
         - 'config:core.entity_view_display.media.image.42x42'
         - 'config:core.entity_view_display.media.image.492x492'
         - 'config:core.entity_view_display.media.image.539x304'
+        - 'config:core.entity_view_display.media.image.600x600_non_crop'
         - 'config:core.entity_view_display.media.image.650x650'
         - 'config:core.entity_view_display.media.image.730x840'
         - 'config:core.entity_view_display.media.image.758x428'
@@ -1002,6 +1006,9 @@ display:
         type: perm
         options:
           perm: 'view media'
+      cache:
+        type: none
+        options: {  }
       arguments:
         bundle:
           id: bundle
@@ -1216,7 +1223,7 @@ display:
           reduce_duplicates: true
           vid: media_tags
           type: select
-          hierarchy: false
+          hierarchy: true
           limit: true
           error_message: true
       filter_groups:
@@ -1225,6 +1232,7 @@ display:
           1: AND
       defaults:
         access: false
+        cache: false
         css_class: false
         pager: false
         fields: false
@@ -1276,11 +1284,13 @@ display:
         - 'config:core.entity_view_display.media.image.200x200_non_crop'
         - 'config:core.entity_view_display.media.image.240x240'
         - 'config:core.entity_view_display.media.image.393x221'
+        - 'config:core.entity_view_display.media.image.400x400_non_crop'
         - 'config:core.entity_view_display.media.image.426x426'
         - 'config:core.entity_view_display.media.image.426x508'
         - 'config:core.entity_view_display.media.image.42x42'
         - 'config:core.entity_view_display.media.image.492x492'
         - 'config:core.entity_view_display.media.image.539x304'
+        - 'config:core.entity_view_display.media.image.600x600_non_crop'
         - 'config:core.entity_view_display.media.image.650x650'
         - 'config:core.entity_view_display.media.image.730x840'
         - 'config:core.entity_view_display.media.image.758x428'
@@ -1451,6 +1461,9 @@ display:
         type: perm
         options:
           perm: 'view media'
+      cache:
+        type: none
+        options: {  }
       arguments:
         bundle:
           id: bundle
@@ -1665,7 +1678,7 @@ display:
           reduce_duplicates: true
           vid: media_tags
           type: select
-          hierarchy: false
+          hierarchy: true
           limit: true
           error_message: true
       filter_groups:
@@ -1681,6 +1694,7 @@ display:
         type: fields
       defaults:
         access: false
+        cache: false
         css_class: false
         pager: false
         style: false

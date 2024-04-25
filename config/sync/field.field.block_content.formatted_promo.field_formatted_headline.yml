@@ -13,7 +13,7 @@ field_name: field_formatted_headline
 entity_type: block_content
 bundle: formatted_promo
 label: 'Formatted Headline'
-description: ''
+description: 'Bold text will appear on its own line, separate from un-bolded text, to create a styled headline.'
 required: true
 translatable: false
 default_value: {  }

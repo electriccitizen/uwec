@@ -3,119 +3,258 @@
 ================ */
 
 @use '../../../00-base/base' as *;
+@use '../node-mixins' as *;
 
-.node-news{
-	#node-section-1{
-		position: relative;
-		z-index: 0;
-		margin-left: -$siteMarginMobile;
-		margin-top: -160px;
-		padding-top: 160px;
-		width: 100vw;
-		min-height: 100vh;
-		*{
-			transform-style: unset;
-		}
-		@include desk{
-			margin-top: -166px;
-			padding-top: 166px;
-		}
-		.block-field-image{
-			position: absolute;
-			top: 0;
-			left: 0;
-			height: 100%;
-			min-height: 100vh;
-			width: 100vw;
-			z-index: -1;
-			overflow: hidden;
-			&:before{
-				@include fullBack(rgba(35,35,35,0.4));
-				z-index: 1;
-			}
-			&:after{
-				content: '';
-				display: block;
-				width: 100vw;
-				height: 400px;
-				@include rotate(-16);
-				background: $white;
-				position: absolute;
-				bottom: -45vh;
-				right: -50vw;
-				z-index: 2;
-			}
-			& *{
-				height: 100%;
-			}
-			.field-label{
-				display: none;
-			}
-			img{
-				object-fit: cover;
-			}
-		}//end main section 1 image
-		.block-field.block-title{
-			max-width: $textMax;
-			position: absolute;
-			bottom: 0;
-			left: $siteMarginMobile;
-			height: 100%;
-			min-height: 100vh;
-			padding-bottom: 138px;
-			@include safeFlex(column,nowrap,end,start);
-			h1{
-				text-align: left;
-				color: $white;
-			}
-		}//end title
-	}//end node section 1
+.node-news {
+  #node-section-1 {
+    @include heroCornerSlice;
+  }//end node section 1
 
-	#node-section-2{
-		max-width: $textMax;
-		@include auto;
-		.layout__region--content{
-			@include safeFlex(row,nowrap,justify,start);
-		}
-		.breadcrumb{
-			padding-top: 0;
-		}
-	}//end section 2
+  #node-section-2 {
+    @include auto;
+    max-width: $textMax;
+    .layout__region--content {
+      @include safeFlex(row,nowrap,start,start);
+      max-width: 75%;
+      @include desk {
+        @include safeFlex(row,nowrap,justify,start);
+        gap: $spaceSm;
+        margin-right: -12rem;
+        max-width: none;
+        width: auto;
+      }
+    }
+    .block-system-breadcrumb-block,
+    .block-field-story-categories {
+      margin: $spaceSm 0;
+      @include desk {
+        flex: 1 1 50%;
+      }
+    }
+    .breadcrumb {
+      display: none;
+      padding: 0;
+      @include desk {
+        display: block;
+      }
+      li,
+      li a {
+        color: $navy;
+      }
+      li a:hover {
+        @include dottedLink($navy);
+      }
+    }
+    .block-field-story-categories {
+      color: $navy;
+      @include menuStop{
+        width: 100%;
+        margin-right: -12vw;
+      }
+      @include contentStopMargin{
+        margin-right: -16vw;
+      }
+      @include contentStop{
+        margin-right: -400px;
+      }
+      .field-story-categories {
+        @include safeFlex(row, wrap, end, start);
+        min-height: 31px;
+        @include desk {
+          @include safeFlex(row, wrap, start, start);
+        }
+      }
+      .category {
+        font-size: 1.5rem;
+        line-height: 2;
+        text-transform: uppercase;
+        &:after {
+          content: "|";
+          margin-right: .5rem;
+        }
+        &:last-child:after {
+          content: "";
+        }
+      }
+      a {
+        color: $navy;
+        display: inline-block;
+        &:hover {
+          @include dottedLink($navy);
+        }
+      }
+    }
+  }//end section 2
 
-	#node-section-3{
-		.field-authors{
-			@include safeFlex(row,wrap,start,start);
-		}
-		.block-field-image{
-			margin-bottom: $elementSpace;
-			.field-label{
-				@include headerGlobals;
-				font-size: 26px;
-				line-height: 32px;
-			}
-		}
-	}//end node section 3
+  #node-section-3 {
 
-	#node-section-4{
-		.block-field-authors{
-			max-width: $textMax;
-			@include auto;
-			h2.block-title{
-				@include headerGlobals;
-				font-size: 26px;
-				line-height: 32px;
-				text-align: left;
-				text-transform: none;
-			}
-			.field-authors{
-				& > div{
-					&:not(:last-child){
-						margin-bottom: $elementSpace;
-					}
-				}
-			}
-		}//end authors fields block
-	}//end node section 4
+    // Set each field and blocks's width individually so that child elements can
+    // more easily "break out" to the wider width.
+    .field-authors,
+    .block-created,
+    .block-field-intro-text,
+    .block-field-image,
+    .field-paragraphs > .widget > .paragraph:not(.paragraph--type--layout-section) {
+      @include auto;
+      max-width: $textMax;
+    }
+
+    // Text-based fields have extra-wide margins on mobile.
+    .field-authors,
+    .field-created,
+    .block-field-intro-text,
+    .block-field-paragraphs .paragraph--type--text {
+      padding: 0 $siteMarginMobile;
+      @include desk {
+        padding: 0;
+      }
+    }
+
+    .field-authors {
+      @include safeFlex(row,wrap,start,start);
+    }
+    .block-created {
+      margin-bottom: $spaceLg;
+      .field-created {
+        @include heading2;
+        display: block;
+        font-size: $h5;
+        line-height: 1.2;
+      }
+      .mobile-title {
+        @include heading1;
+        margin-bottom: $spaceMd;
+        margin-right: $spaceMd;
+        @include desk {
+          display: none;
+        }
+      }
+    }
+    .block-field-intro-text {
+      font-size: 20px;
+      margin-bottom: $spaceMd;
+    }
+    .block-field-paragraphs {
+      padding: 0 $siteMarginMobile;
+      h2, h3, h4, h5, h6 {
+        color: $brightBlue;
+      }
+      .widget {
+        padding: 0;
+      }
+    }
+    .block-field-image {
+      margin-bottom: $elementSpace;
+      position: relative;
+      &:before {
+        background-color: $navy;
+        content: '';
+        display: block;
+        height: 1px;
+        margin-bottom: $spaceSm;
+        width: 202px;
+
+      }
+      .field-label {
+        @include headerGlobals;
+        font-size: 26px;
+        line-height: 32px;
+        margin-bottom: $spaceXxs;
+      }
+      a {
+        @include linkArrow(navy, sm);
+      }
+    }
+  }//end node section 3
+
+  #node-section-4 {
+    color: $white;
+    position: relative;
+
+    .layout__region {
+      margin-bottom: 0;
+    }
+
+    .block-field-authors,
+    .block-related-stories {
+      @include edgeToEdge;
+      background-color: $brightBlue;
+      margin-bottom: 0;
+    }
+
+    .block-field-authors {
+      @include edgeToEdge;
+      background-color: $brightBlue;
+      margin-bottom: 0;
+      margin-top: 12rem; // Needs to be large to accommodate overlapping.
+      padding: 0 $siteMarginMobile;
+      @include desk {
+        margin-top: 16rem; // Sometimes very large.
+      }
+      h2.block-title{
+        @include headerGlobals;
+        font-size: 26px;
+        line-height: 32px;
+        text-align: left;
+        text-transform: none;
+      }
+      .field-authors {
+        background-color: $royal;
+        margin-bottom: -$spaceLg; // Correction for negative top spacing.
+        padding: calc($spaceLg + $siteMarginMobile) 0;
+        position: relative;
+        top: -$spaceLg; // Causes the overlapping and margin calculation bugs.
+        @include desk {
+          @include auto;
+          max-width: $breakoutWidth;
+          padding-top: $spaceXl;
+          top: -$spaceXl;
+        }
+        & > div{
+          &:not(:last-child){
+            margin-bottom: $elementSpace;
+          }
+        }
+        .term-page {
+          padding: 0 $siteMarginMobile;
+          @include desk {
+            @include auto;
+            max-width: $textMax;
+            padding-left: 120px;
+            padding-top: $spaceMd;
+            position: relative;
+          }
+          .teaser-image {
+            @include desk {
+              position: absolute;
+              left: 0;
+              top: 0;
+            }
+          }
+        }
+        .author-name {
+          color: $white;
+        }
+      }
+    }//end authors fields block
+
+    .block-related-stories {
+      padding: $spaceXl $siteMarginMobile $siteMarginMobile;
+      @include desk {
+        max-width: none;
+        padding: $spaceXl $siteMarginDesk $siteMarginDesk;
+      }
+      &:after {
+        z-index: 0;
+      }
+      .view {
+        @include desk {
+          @include auto;
+          max-width: $contentStopMargin;
+        }
+      }
+    }
+  }//end node section 4
 }//end news
 
 
@@ -130,21 +269,30 @@
   .teaser-title{
     margin-bottom: $spaceXxs;
     a{
-      @include arrowLinkAfter($navy);
+      @include blockArrow(navy, sm);
+      .views-block.block-related-stories & {
+        color: $white;
+      }
       &:after{
-        @include rightArrow(navy,transparent,$navy,sm);
+        .views-block.block-related-stories &{
+          @include rightArrow(white,transparent,$white,sm);
+        }
       }
       &:hover,&:focus{
         &:after{
-          @include rightArrow(white,$navy,$navy,sm);
+          .views-block.block-related-stories &{
+            @include rightArrow(blue,$white,$white,sm);
+          }
         }
         span{
-          @include dottedLink($navy);
-          padding-bottom: 1px;
+          @include dottedLink($brightBlue);
+          .views-block.block-related-stories &{
+            @include dottedLink($white);
+          }
         }
       }//end hover, focus
     }//end a
-  }
+  }//end teaser-title
   .field.body{
     line-height: 1.5;
   }
@@ -175,7 +323,7 @@
     background: $lightGrey;
     @include carouselBreak{
       background: $siteBack;
-      @include safeFlex(row,nowrap,start,start); 
+      @include safeFlex(row,nowrap,start,start);
       padding: 20px 0 0;
     }
     @include desk{
@@ -203,19 +351,7 @@
       margin-bottom: 0;
     }
     a{
-      @include arrowLinkAfter($brightBlue);
-      &:after{
-        @include rightArrow(blue,transparent,$brightBlue,sm);
-      }
-      &:hover,&:focus{
-        &:after{
-          @include rightArrow(white,$brightBlue,$brightBlue,sm);
-        }
-        span{
-          @include dottedLink($brightBlue);
-          padding-bottom: 1px;
-        }
-      }//end hover, focus
+      @include blockArrow(brightBlue, sm);
     }//end a
   }//end story title
   .field-intro-text{

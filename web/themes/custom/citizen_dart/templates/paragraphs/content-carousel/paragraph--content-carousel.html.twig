@@ -39,9 +39,12 @@
 
 {% extends 'paragraph.html.twig' %}
 
+{% block widgetTitle %}
+  <h2 class="block-title">Blugold Stories</h2>
+{% endblock %}
+
 {% block widgetContent %}
     {{ attach_library('citizen_dart/content-carousel') }}
-
     {% set showMe = [] %}
     {% for item in paragraph.field_list_widgets %}
         {% set showItem = null %}

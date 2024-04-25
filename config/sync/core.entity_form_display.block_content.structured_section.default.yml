@@ -15,7 +15,7 @@ dependencies:
     - field.field.block_content.structured_section.field_wayfinding
   module:
     - field_group
-    - link
+    - linkit
     - media_library
     - paragraphs
     - text
@@ -63,12 +63,14 @@ content:
       media_types: {  }
     third_party_settings: {  }
   field_button:
-    type: link_default
+    type: linkit
     weight: 3
     region: content
     settings:
       placeholder_url: ''
       placeholder_title: ''
+      linkit_profile: default
+      linkit_auto_link_text: false
     third_party_settings: {  }
   field_cta_image:
     type: media_library_widget
@@ -78,12 +80,14 @@ content:
       media_types: {  }
     third_party_settings: {  }
   field_cta_links:
-    type: link_default
+    type: linkit
     weight: 33
     region: content
     settings:
       placeholder_url: ''
       placeholder_title: ''
+      linkit_profile: default
+      linkit_auto_link_text: false
     third_party_settings: {  }
   field_formatted_headline:
     type: text_textarea

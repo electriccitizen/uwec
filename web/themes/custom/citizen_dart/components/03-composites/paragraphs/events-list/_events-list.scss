@@ -39,6 +39,7 @@
   .lwcw.events-list{
     @include safeFlex(row,wrap,center,start);
     @include bleed(padding,40px);
+    margin-bottom: -$spaceSm;
     @include contentStopMargin{
       @include bleed(padding,74px);
     }
@@ -87,19 +88,12 @@
     .title{
       display: block;
       a{
-        @include arrowLinkAfter($navy);
-        &:after{
-          @include rightArrow(navy,transparent,$navy,sm);
-        }
+        @include blockArrow(navy, sm);
         &:hover,&:focus{
-          &:after{
-            @include rightArrow(white,$navy,$navy,sm);
-          }
           span{
             @include dottedLink($brightBlue);
-            padding-bottom: 1px;
           }
-        }//end hover, focus
+        }
       }//end a
     }//end title
     .summary{

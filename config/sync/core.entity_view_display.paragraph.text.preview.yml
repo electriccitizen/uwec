@@ -5,7 +5,6 @@ dependencies:
   config:
     - core.entity_view_mode.paragraph.preview
     - field.field.paragraph.text.field_long_text
-    - field.field.paragraph.text.field_widget_title
     - paragraphs.paragraphs_type.text
   module:
     - layout_builder
@@ -30,5 +29,4 @@ content:
     weight: 0
     region: content
 hidden:
-  field_widget_title: true
   search_api_excerpt: true

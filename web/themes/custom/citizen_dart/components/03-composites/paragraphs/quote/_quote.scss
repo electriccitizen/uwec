@@ -38,7 +38,7 @@
 		@include auto;
 	}
   .quote-wrapper {
-  	max-width: 914px;
+  	max-width: $breakoutWidth;
   	@include auto;
     border-top: $brightBlue 1px solid;
     border-bottom: $brightBlue 1px solid;

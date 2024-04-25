@@ -184,6 +184,15 @@
 	}
 }
 
+@mixin height100{
+  @include u.desk{
+    min-height: calc(100vh - 100px);
+  }
+  @include u.menuStop{
+    min-height: calc(100vh - 110px);
+  }
+}//end height 100
+
 /*  STYLE MIXINS
 ------------------- */
 
@@ -307,6 +316,19 @@
 	}
 }
 
+@mixin blueTriangle{
+  content: '';
+  display: block;
+  position: absolute;
+  top: calc(100% - 1px);
+  left: 0;
+  height: 29vw;
+  width: 100vw;
+  z-index: -1;
+  background: c.$brightBlue;
+  clip-path: polygon(0 0, 100% 0, 0 100%);
+}
+
 @mixin lightBack($lightText,$lightLink) {
 	h1,h2,h3,h4,h5,h6,p,div,li,.field-caption {
 		color: $lightText;
@@ -347,6 +369,42 @@
 	height: #{$height};
 }
 
+@mixin rollingSeal {
+  padding-top: 8rem;
+  position: relative;
+  margin: 0 auto -3rem;
+  max-width: 400px;
+  &:before {
+    background: url("../images/logos-badges/seal.svg") no-repeat transparent;
+    content: '';
+    display: none;
+    height: 125px;
+    position: absolute;
+    right: 200vw;
+    top: 1rem;
+    width: 125px;
+    z-index: -1;
+  }
+  &.visible:before {
+    @include animation('sealRollRight 1s');
+    display: block;
+    right: 8%;
+  }
+  @include u.desk {
+    max-width: 100%;
+    margin-bottom: 0;
+    &:before {
+      top: 20px;
+      width: 152px;
+      height: 152px;
+    }
+    &.visible:before {
+      @include animation('sealRollRightDesk 1s');
+      right: 86%;
+    }
+  }
+}
+
 @mixin narrowStripes($stripeColor){
 	content: '';
 	display: block;
@@ -366,7 +424,7 @@
 	clip-path: polygon(0 0, 100% 0, 100% 43%, 0 100%);
 }
 
-@mixin fatStripes($stripeColor){
+@mixin fatStripes($stripeColor, $size: 40px){
 	content: '';
 	display: block;
 	position: absolute;
@@ -377,10 +435,10 @@
 	z-index: -1;
 	background: repeating-linear-gradient(
 	  0deg,
-	  #{$stripeColor},
-	  #{$stripeColor} 40px,
-	  transparent 40px,
-	  transparent 80px
+	  $stripeColor,
+	  $stripeColor $size,
+	  transparent $size,
+	  transparent calc($size * 2)
 	);
 	@include skew(0,-16);
 }
@@ -403,31 +461,39 @@
   box-sizing: border-box;
 }
 
-@mixin arrowLinkBefore($arrowLinkColor){
-  font-family: vinila-extended, sans-serif;
-  font-size: 18px;
-  line-height: 1.44;
+@mixin arrowLinkBefore($arrowLinkColor, $size: lg) {
+  $font-size: 18px;
+  $line-height: 1.44;
+  $padding-left: 56px;
+
+  @if $size == sm {
+    $font-size: 16px;
+    $line-height: 1.2;
+    $padding-left: 30px;
+  }
+
   color: #{$arrowLinkColor};
+  display: inline-block;
+  font-family: f.$header;
+  font-size: $font-size;
+  line-height: $line-height;
   position: relative;
-  padding-left: 56px;
+  padding-left: $padding-left;
 }
 
-@mixin arrowLinkAfter($arrowLinkColor){
-  font-family: f.$header;
-  font-size: 2.25rem;
-  line-height: 1.33;
-  color: $arrowLinkColor;
-  span{
-    margin-right: 10px;
+@mixin arrowLinkAfter($arrowLinkColor, $size: lg) {
+  $font-size: 18px;
+  $line-height: 1.44;
+
+  @if $size == sm {
+    $font-size: 16px;
+    $line-height: 1.2;
   }
-  &:after{
-    content: '';
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-    position: relative;
-    top: 4px;
-  }//end before
+
+  color: $arrowLinkColor;
+  font-family: f.$header;
+  font-size: $font-size;
+  line-height: $line-height;
 }
 
 @mixin dottedLink($dotColor){
@@ -437,7 +503,127 @@
 	background-repeat: repeat-x;
 }
 
+// Parent mixin for both linkArrow and blockArrow, setting all themes and size
+// choices regardless of whether the arrow appears before or after the element.
+@mixin arrowLink($location: 'before', $theme: navy, $size: lg, $dotted-selector: 'span') {
+  // Defaults are the settings for navy, lg.
+  $arrow: c.$navy;
+  $arrow-string: navy;
+  $arrow-invert: white;
+  $border: c.$navy;
+  $hover-border: c.$navy;
+  $back: transparent;
+  $hover-back: $arrow;
+  $dots: c.$brightBlue;
+
+  $dotted-padding: 2px;
+
+  @if $theme == navyLight {
+    $arrow-invert: navy;
+    $hover-back: c.$white;
+    $hover-border: c.$white;
+    $dots: c.$white;
+  }
+  @if $theme == brightBlue {
+    $arrow: c.$brightBlue;
+    $arrow-string: blue;
+    $border: c.$brightBlue;
+    $hover-back: $arrow;
+    $hover-border: $arrow;
+  }
+  @if $theme == royal {
+    $arrow: c.$royal;
+    $arrow-string: royal;
+    $border: c.$royal;
+    $hover-back: $arrow;
+    $dots: c.$royal;
+  }
+  @if $theme == white {
+    $arrow: c.$white;
+    $arrow-string: white;
+    $border: c.$white;
+    $arrow-invert: royal;
+    $hover-border: $arrow;
+    $hover-back: $arrow;
+    $dots: c.$white;
+  }
+  @if $theme == gold {
+    $arrow: c.$gold;
+    $arrow-string: gold;
+    $border: c.$gold;
+    $hover-border: c.$white;
+    $arrow-invert: navy;
+    $hover-back: c.$white;
+    $dots: c.$white;
+  }
+  @if $size == sm {
+    $dotted-padding: 1px;
+  }
+
+  @if $location == "after" {
+    @include arrowLinkAfter($arrow, $size);
+  }
+  @else {
+    @include arrowLinkBefore($arrow, $size);
+  }
+
+  &:#{$location} {
+    content: '';
+    @include rightArrow($arrow-string, $back, $border, $size);
+  }
+  &:hover, &:focus {
+    &:#{$location} {
+      @include rightArrow($arrow-invert, $hover-back, $hover-border, $size);
+    }
+    #{$dotted-selector} {
+      @include dottedLink($dots);
+      padding-bottom: $dotted-padding;
+    }
+  }
+}
+
+// Based on the "Link Arrow" design, this adds a circle-arrow at the start of an
+// element.
+@mixin linkArrow($theme: navy, $size: lg, $dotted-selector: 'span') {
+  // Defaults are the settings for navy, lg.
+  @include arrowLink("before", $theme, $size, $dotted-selector);
+
+  $top: -10px;
+
+  @if $size == sm {
+    $top: -2px;
+  }
+
+  &:before {
+    display: block;
+    left: 0;
+    position: absolute;
+    top: $top;
+  }//end before
+}
+
+// Based on the "Block Arrow" design, this adds a circle-arrow at the end of an
+// element.
+@mixin blockArrow($theme: navy, $size: lg, $dotted-selector: 'span') {
+  @include arrowLink("after", $theme, $size, $dotted-selector);
+
+  $top: 4px;
+
+  #{$dotted-selector} {
+    margin-right: 10px;
+  }
+  &:after {
+    display: inline-block;
+    margin-top: -$top;
+    position: relative;
+    top: $top;
+  }
+}
+
 @mixin factsGrid{
+  .fact {
+    min-width: 33%;
+  }
 	.fact-1{
 		grid-column-start: 3;
     grid-column-end: 4;
@@ -554,7 +740,14 @@
   }
 }
 
-@mixin styledHeader{
+@mixin styledHeader($mobile-resize: false) {
+  $main-size: 64px;
+  $strong-size: 70px;
+
+  @if $mobile-resize == true {
+    $main-size: 43px;
+    $strong-size: 46px;
+  }
   display: block;
   text-align: center;
   text-transform: uppercase;
@@ -563,14 +756,14 @@
   font-family: grad, serif;
   color: #06233d;
   font-feature-settings: "liga", "dlig";
-  font-size: 64px;
+  font-size: $main-size;
   font-style: italic;
   letter-spacing: .05em;
   @include u.desk{
     font-size: 73px;
   }
 	strong{
-		font-size: 70px;
+		font-size: $strong-size;
 		line-height: 1;
 		font-family: f.$header;
 		font-weight: 800;
@@ -738,6 +931,7 @@
 
 @mixin profileSlider{
   position: relative;
+  z-index: 1;
   max-width: 985px;
   margin-left: u.$siteMarginMobile * -1;
   margin-right: u.$siteMarginMobile * -1;
@@ -779,29 +973,6 @@
     }//end slick arrow
   }//end slick slider
 }//end profile slider
-
-@mixin profileGrid{
-  position: relative;
-  max-width: 1005px;
-  margin: 0 auto;
-  &:after{
-    @include fullBack(c.$gold);
-    top: 58px;
-    height: calc(100% - 58px);
-  }
-  .field-fauxfile-items,.field-profiles,.view-content{
-    @include safeFlex(row,wrap,start,start);
-    & > div{
-      width: 100%;
-      @include u.smallTab{
-        width: 50%;
-      }
-      @include u.tab{
-        width: 33.33%;
-      }
-    }
-  }
-}//end profile grid
 
 //Profile needs to be here instead of in node mixins because of fauxfile
 @mixin profileStacked{
@@ -849,7 +1020,7 @@
       width: calc(100% - 223px);
     }
   }
-  
+
   .stacked-title{
     font-family: f.$displayHeader;
     font-size: 3.25rem;
@@ -1078,7 +1249,28 @@
 	}
 }
 
+@include keyframes(sealRollRight) {
+  from {
+    right: 200vw;
+    transform: rotateZ(-360deg);
+  }
+  to {
+    right: 10%;
+    transform: rotateZ(0);
+  }
+}
+
+@include keyframes(sealRollRightDesk) {
+  from {
+    right: 200vw;
+    transform: rotateZ(-360deg);
+  }
+  to {
+    right: 85%;
+    transform: rotateZ(0);
+  }
+}
+
 .fadeIn {
 	@include animation('fadeIn 1.5s 1');
 }
-

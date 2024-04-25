@@ -43,59 +43,63 @@
 	{% if element['#object'].field_first_name.0 or element['#object'].field_last_name.0 %}
 		<h1>{{- element['#object'].field_first_name.0.value }} {{ element['#object'].field_last_name.0.value -}}</h1>
 	{% endif %}
-	<div class="username">
-		<span class="inline-label">Username: </span>
-	  {{- item.content -}}
-	</div>
-	<div class="user-info">
-		<div class="user-roles">
-			<span class="inline-label">Role(s): </span>
-			{%- if 'administrator' in element['#object'].getroles -%}
-				<span class="role">Administrator</span>
-			{%- endif -%}
-			{%- if 'site_admin' in element['#object'].getroles -%}
-				<span class="role">Site Admin</span>
-			{%- endif -%}
-			{%- if 'section_manager' in element['#object'].getroles -%}
-				<span class="role">Section Manager</span>
-			{%- endif -%}
-			{%- if 'marketing_editor' in element['#object'].getroles -%}
-				<span class="role">Marketing Editor</span>
-			{%- endif -%}
-			{%- if 'editor' in element['#object'].getroles -%}
-				<span class="role">Editor</span>
-			{%- endif -%}
-			{%- if 'personnel' in element['#object'].getroles -%}
-				<span class="role">Personnel</span>
-			{%- endif -%}
-		</div>
-	</div>
 
-	<div class="domains-access">
-		<span class="inline-label">Domains: </span>
-		<ul>
-			{% for key, domain in element['#object'].field_domain_access %}
-				{% if key|first != '#' %}
-					{% set domainURL = domain.entity.get('url') %}
-					{% set domainName = domain.entity.get('name') %}
-					{% if domainName == 'UWEC Example Subsite' %}
-						{% set logo = '/themes/custom/citizen_dart/example-logo.svg' %}
-						{% set logoAlt = 'UWEC Example logo' %}
-						{% set logoClass = 'example-logo' %}
-					{% else %}
-						{% set logo = '/themes/custom/citizen_dart/logo.svg' %}
-						{% set logoAlt = 'UWEC site logo' %}
-						{% set logoClass = 'uwec-logo' %}
-					{% endif %}
-					<li class="domain-icon">
-						<a href="{{ domainURL }}">
-							<img class="domain-logo {{ logoClass }}" src="{{ logo }}" alt="{{ logoAlt }}" />
-						</a>
-					</li>
-				{% endif %}
-			{% endfor %}
-		</ul>
-	</div>
+  <div class="user-meta-wrapper">
+    <div class="meta-left">
+      <div class="username">
+        <span class="inline-label">Username: </span>
+        {{- item.content -}}
+      </div>
+      <div class="user-info">
+        <div class="user-roles">
+          <span class="inline-label">Role(s): </span>
+          {%- if 'administrator' in element['#object'].getroles -%}
+            <span class="role">Administrator</span>
+          {%- endif -%}
+          {%- if 'site_admin' in element['#object'].getroles -%}
+            <span class="role">Site Admin</span>
+          {%- endif -%}
+          {%- if 'section_manager' in element['#object'].getroles -%}
+            <span class="role">Section Manager</span>
+          {%- endif -%}
+          {%- if 'marketing_editor' in element['#object'].getroles -%}
+            <span class="role">Marketing Editor</span>
+          {%- endif -%}
+          {%- if 'editor' in element['#object'].getroles -%}
+            <span class="role">Editor</span>
+          {%- endif -%}
+          {%- if 'personnel' in element['#object'].getroles -%}
+            <span class="role">Personnel</span>
+          {%- endif -%}
+        </div>
+      </div>
+    </div>
+    <div class="domains-access">
+      <span class="inline-label">Domains: </span>
+      <ul>
+        {% for key, domain in element['#object'].field_domain_access %}
+          {% if key|first != '#' %}
+            {% set domainURL = domain.entity.get('url') %}
+            {% set domainName = domain.entity.get('name') %}
+            {% if domainName == 'UWEC Example Subsite' %}
+              {% set logo = '/themes/custom/citizen_dart/example-logo.svg' %}
+              {% set logoAlt = 'UWEC Example logo' %}
+              {% set logoClass = 'example-logo' %}
+            {% else %}
+              {% set logo = '/themes/custom/citizen_dart/logo.svg' %}
+              {% set logoAlt = 'UWEC site logo' %}
+              {% set logoClass = 'uwec-logo' %}
+            {% endif %}
+            <li class="domain-icon">
+              <a href="{{ domainURL }}">
+                <img class="domain-logo {{ logoClass }}" src="{{ logo }}" alt="{{ logoAlt }}" />
+              </a>
+            </li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
 {% endblock %}
          
 

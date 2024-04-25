@@ -21,5 +21,6 @@
 				</li>
 			{% endif %}
 		{% endfor %}
-		<li><a href="{{ path('entity.node.canonical', {'node':'55'}) }}">Stories</a></li>
-	{% endblock %}
+    <li><a href="{{ path('entity.node.canonical', {'node':'55'}) }}">View all stories</a></li>
+  {% endblock %}
+  {% block current %}{% endblock %}

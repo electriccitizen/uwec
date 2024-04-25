@@ -7,18 +7,6 @@
 
 /* DIRECTORY
 --------------- */
-//move directory up if its the first paragraph in the first section and there is no body field
-#node-section-2 .layout__region--content:first-child .block-field-paragraphs:first-child .layout-section:first-child .layout__region:first-child .paragraph--type--view-placer:first-child{
-  .profile-search.directory{
-    margin-top: -200px;
-    @include desk{
-      margin-top: -350px;
-      .logged-in &{
-        margin-top: -234px;
-      }
-    }
-  }
-}
 .profile-search.directory{
 	.views-exposed-form{
 		@include exposedForm;
@@ -66,6 +54,7 @@
 /* FACULTY VIEWS
 ------------- */
 .department-faculty{
+  position: relative;
   .view-wrapper{
     @include profileSlider;
     padding-bottom: 40px;
@@ -85,29 +74,11 @@
       text-align: center;
     }
 		a{
-			@include arrowLinkBefore($navy);
-      display: inline-block;
-      max-width: $textMax;
       @include auto;
-      &:before{
-        content: '';
-        display: block;
-        position: absolute;
-        top: -10px;
-        left: 0;
-        width: 40px;
-        height: 40px;
-        @include rightArrow(navy,transparent,$navy,lg);
-      }
-      &:hover,&:focus{
-        &:before{
-          @include rightArrow(navy,white,$white,lg);
-        }
-        span{
-          @include dottedLink($navy);
-          padding-bottom: 2px;
-        }
-      }
+			@include linkArrow(navyLight);
+      display: inline-block;
+      max-width: $smallTab;
+      text-align: left;
 		}//end a
 	}//end more link
 }//end department faculty

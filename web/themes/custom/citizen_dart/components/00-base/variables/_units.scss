@@ -15,8 +15,10 @@ $menuStop: 1200px;
 $contentStopMargin: 1320px;
 $contentStop: 1440px;
 $largeScreen: 1600px;
+$ultraWidescreen: 2000px;
 $textMax: 650px;
 $exposedFilterWidth: 894px;
+$breakoutWidth: 914px;
 $onlyTab: $tab $desk - 1px;
 $onlySmall: max-width $tab - 1px;
 $onlyPhone: max-width $smallTab - 1px;
@@ -38,12 +40,13 @@ $siteMarginDesk: 7.5rem;
 $formElementSpace: $spaceXs;
 $elementSpace: $spaceLg;
 $siteBottomSpace: 12rem;
+$wideContent: 1136px;
 
 $buttonPadding: 1.625rem 3rem 1.35rem;
 $submitPadding: 2px 2rem 0;
 
-$sideBar: 300px;
-$sectionGutter: 40px;
+$sideBar: 259px;
+$sectionGutter: 20px;
 
 /* BREAKPOINT SHORTHANDS & EDGE MIXINS
 -------------------------- */
@@ -98,6 +101,12 @@ $sectionGutter: 40px;
 
 @mixin largeScreen {
 	@media screen and (min-width: $largeScreen) {
+		@content;
+	}
+}
+
+@mixin mobileMenu {
+	@media screen and (max-width: $menuStop) {
 		@content;
 	}
 }

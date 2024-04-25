@@ -5,6 +5,6 @@
 @use '../../../00-base/base' as *;
 
 .paragraph--type--testimonial-placer{
-	max-width: 914px;
+	max-width: $breakoutWidth;
 	@include auto;
 }//end testimonial-placer widget

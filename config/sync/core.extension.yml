@@ -7,6 +7,7 @@ module:
   antibot: 0
   auto_entitylabel: 0
   automated_cron: 0
+  backup_migrate: 0
   block: 0
   block_content: 0
   breakpoint: 0
@@ -14,12 +15,14 @@ module:
   citizen_domain: 0
   citizen_google_search: 0
   citizen_migrate: 0
+  citizen_profile_sync: 0
   ckeditor5: 0
   ckeditor5_paste_filter: 0
   config: 0
   config_filter: 0
   config_ignore: 0
   config_split: 0
+  confirm_leave: 0
   content_moderation: 0
   contextual: 0
   crop: 0

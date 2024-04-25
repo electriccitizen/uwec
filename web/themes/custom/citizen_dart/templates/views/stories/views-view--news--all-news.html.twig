@@ -51,37 +51,40 @@
     {{ attachment_before }}
   {% endblock %}
 
-  {% block viewExposed %}
-    {{ exposed }}
-  {% endblock %}
+  <div class="main-news-view">
+    {% block viewExposed %}
+      {{ exposed }}
+    {% endblock %}
 
-  {% block viewHeader %}
-    {% if header %}
-      <div class="view-header">
-        {{ header }}
-      </div>
-    {% endif %}
-  {% endblock %}
+    {% block viewHeader %}
+      {% if header %}
+        <div class="view-header">
+          {{ header }}
+        </div>
+      {% endif %}
+    {% endblock %}
+    
+    {% block viewRows %}
+      {% if rows %}
+        <div class="view-content">
+          {{ rows }}
+        </div>
+      {% endif %}
+    {% endblock %}
 
-  {% block viewRows %}
-    {% if rows %}
-      <div class="view-content">
-        {{ rows }}
-      </div>
-    {% endif %}
-  {% endblock %}
+    {% block viewEmpty %}
+      {% if empty %}
+        <div class="view-empty">
+          {{ empty }}
+        </div>
+      {% endif %}
+    {% endblock %}
 
-  {% block viewEmpty %}
-    {% if empty %}
-      <div class="view-empty">
-        {{ empty }}
-      </div>
-    {% endif %}
-  {% endblock %}
-
-  {% block viewPager %}
-    {{ pager }}
-  {% endblock %}
+    {% block viewPager %}
+      {{ pager }}
+    {% endblock %}
+    
+  </div>
 
   {% block viewAttachAfter %}
     {{ attachment_after }}

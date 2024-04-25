@@ -12,10 +12,14 @@ global:
     - core/drupalSettings
     - core/jquery
     - core/once
-academic-program:
+academic-program-toggle:
   version: 1.0
   js:
     components/04-units/nodes/academic-program/program-toggle.js: {}
+academic-program-animate:
+  version: 1.0
+  js:
+    components/04-units/nodes/academic-program/program-animate.js: {}
 accordion:
   version: 1.0
   js:
@@ -24,7 +28,7 @@ announcements:
   version: 1.0
   js:
     components/03-composites/blocks/announcements/ajax.js: {}
-content-carousel: 
+content-carousel:
   version: 1.0
   js:
     components/03-composites/paragraphs/content-carousel/content-carousel.js: {}
@@ -63,6 +67,10 @@ fonts:
   css:
     theme:
       https://fonts.googleapis.com/css?family=Open+Sans:ital,wght@0,400;;0,700;1,400: { type: external, preprocess: false }
+formatted-promo:
+  version: 1.0
+  js:
+    components/03-composites/blocks/formatted-promo/formatted-promo.js: {}
 forms:
   version: 1.0
   js:
@@ -71,6 +79,10 @@ galleries:
   version: 1.0
   js:
     components/03-composites/paragraphs/gallery/gallery.js: {}
+general-page:
+  version: 1.0
+  js:
+    components/04-units/nodes/general-page/general-page.js: {}
 hallmark:
   version: 1.0
   js:
@@ -103,10 +115,18 @@ omnilert:
   version: 1.0
   js:
     components/03-composites/blocks/omnilert/omnilert.js: {}
+page-structured-section:
+  version: 1.0
+  js:
+    components/03-composites/blocks/page-structured-section/page-structured-section-animate.js: {}
 profiles-slider:
   version: 1.0
   js:
     components/03-composites/views/profiles/profiles-slider.js: {}
+quick-links:
+  version: 1.0
+  js:
+    components/03-composites/paragraphs/quick-links/quick-links.js: {}
 search-block:
   version: 1.0
   js:

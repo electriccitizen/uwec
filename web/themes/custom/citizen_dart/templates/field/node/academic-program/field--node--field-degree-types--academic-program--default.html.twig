@@ -29,42 +29,42 @@
     <div class="first">
       {% if element['#object'].field_degree_types.0.value %}
         <div class="program-detail degree-type">
-        	<span>{% trans %}Degree Types{% endtrans %}</span>
-        	{%- for item in items -%}
-		        <div class="degree-type">{{- item.content -}}</div>
-		      {% endfor %}
-	      </div>
+          <span class="label">{% trans %}Degree Types{% endtrans %}</span>
+          {%- for item in items -%}
+            <div class="degree-type">{{- item.content -}}</div>
+          {% endfor %}
+        </div>
       {% endif %}
 
       {% if element['#object'].field_degree_level.0.value %}
         <div class="program-detail degree-level">
-        	<span>{% trans %}Degree Level{% endtrans %}</span>
-        	{{ element['#object'].field_degree_level.0.value }}
+          <span class="label">{% trans %}Degree Level{% endtrans %}</span>
+          {{ element['#object'].field_degree_level.0.value }}
         </div>
       {% endif %}
 
       {% if element['#object'].field_program_type|length > 0 %}
         <div class="field available-as program-detail">
-          <span>{% trans %}Available as{% endtrans %}</span>
-	        {%- for type in element['#object'].field_program_type -%}
-	          {% if not loop.first and loop.last %} {% trans %}or{% endtrans %} {% endif %}
-	          {{- type.entity.label -}}
-	          {% if (loop.length != 2) and not loop.last %},{% endif %}
-	        {%- endfor -%}
-	      </div>
+          <span class="label">{% trans %}Available as{% endtrans %}</span>
+          {%- for type in element['#object'].field_program_type -%}
+            {% if not loop.first and loop.last %} {% trans %}or{% endtrans %} {% endif %}
+            {{- type.entity.label -}}
+            {% if (loop.length != 2) and not loop.last %},{% endif %}
+          {%- endfor -%}
+        </div>
       {% endif %}
     </div>{# end first #}
     <div class="last">
       {% if element['#object'].field_program_length.0.value %}
         <div class="program-detail program-length">
-        	<span>{% trans %}Program Length{% endtrans %}</span>
-	        {{ element['#object'].field_program_length.0.value }}
-	      </div>
+          <span class="label">{% trans %}Program Length{% endtrans %}</span>
+          {{ element['#object'].field_program_length.0.value }}
+        </div>
       {% endif %}
 
       {% if element['#object'].field_campus.0 %}
         <div class="program-detail campuses">
-        	<span>{% trans %}Campus{% endtrans %}</span>
+          <span class="label">{% trans %}Campus{% endtrans %}</span>
           {% for campus in element['#object'].field_campus %}
             <div class="campus">
               {{- campus.entity.label -}}
@@ -75,8 +75,8 @@
 
       {% if element['#object'].field_delivery_mode.0 %}
         <div class="program-detail delivery-modes">
-        	<span>{% trans %}In-person or online{% endtrans %}</span>
-        	{% for mode in element['#object'].field_delivery_mode %}
+          <span class="label">{% trans %}In-person or online{% endtrans %}</span>
+          {% for mode in element['#object'].field_delivery_mode %}
             <div class="delivery-modes">
               {{- mode.entity.label -}}
             </div>
@@ -86,31 +86,30 @@
 
       {% if element['#object'].field_minor_required.0 %}
         <div class="program-detail minor-required">
-        	<span>{% trans %}Requires a minor{% endtrans %}</span>
-        	{{ element['#object'].field_minor_required.0.value ? 'Yes' : 'No' }}
+          <span class="label">{% trans %}Requires a minor{% endtrans %}</span>
+          {{ element['#object'].field_minor_required.0.value ? 'Yes' : 'No' }}
         </div>
       {% endif %}
 
       {% if element['#object'].field_college.0 %}
         <div class="program-detail college">
-        	<span>{% trans %}College{% endtrans %}</span>
-        	<a href="{{ path('entity.node.canonical',{'node':element['#object'].field_college.entity.nid.0.value}) }}" class="arrow-link">{{ element['#object'].field_college.entity.label }}</a>
-      	</div>
+          <span class="label">{% trans %}College{% endtrans %}</span>
+          <a href="{{ path('entity.node.canonical',{'node':element['#object'].field_college.entity.nid.0.value}) }}" class="arrow-link"><span>{{ element['#object'].field_college.entity.label }}</span></a>
+        </div>
       {% endif %}
 
       {% if element['#object'].field_departments|length > 0 %}
        <div class="program-detail departments">
-	       	<span>{{ element['#object'].field_departments|length > 1 ? 'Departments'|t : 'Department'|t }}</span>
-	       	{%- for department in element['#object'].field_departments -%}
-	          <div class="department">
-	          	<a href="{{ path('entity.node.canonical',{'node':department.entity.nid.0.value}) }}" class="arrow-link">{{- department.entity.label -}}</a>
-	         	</div>
-	        {%- endfor -%}
-	      </div>
+          <span class="label">{{ element['#object'].field_departments|length > 1 ? 'Departments'|t : 'Department'|t }}</span>
+           {%- for department in element['#object'].field_departments -%}
+            <div class="department">
+              <a href="{{ path('entity.node.canonical',{'node':department.entity.nid.0.value}) }}" class="arrow-link"><span>{{- department.entity.label -}}</span></a>
+             </div>
+          {%- endfor -%}
+        </div>
       {% endif %}
     </div>{# end last #}
   </div>{# end program details #}
 </div>{# end program details wrapper #}
 
 {% endblock %}
-

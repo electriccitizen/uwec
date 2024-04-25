@@ -23,14 +23,14 @@
 {% extends 'field.html.twig' %}
 
 {% block fieldSingleNo %}
-	<div class="field-label">For the media</div>
-	{% if item.content['#type']  == 'link' %}
+  <div class="field-label">For the media</div>
+  {% if item.content['#type']  == 'link' %}
     {% set mimeType = item.content['#entity'].field_media_image.entity.uri.0.value[-4:] %}
     {% if '.' not in mimeType %}
       {% set mimeType = '.' ~ mimeType %}
     {% endif %}
-		<a href="{{ file_url(item.content['#entity'].field_media_image.entity.fileuri) }}" download="{{ element['#object'].title.value|lower|replace({' ':'_'}) ~ mimeType}}">Image download</a>
-	{% else %}
-		{{- item.content -}}
-	{% endif %}
+    <a href="{{ file_url(item.content['#entity'].field_media_image.entity.fileuri) }}" download="{{ element['#object'].title.value|lower|replace({' ':'_'}) ~ mimeType}}"><span>{% trans %}Image download{% endtrans %}</span></a>
+  {% else %}
+    {{- item.content -}}
+  {% endif %}
 {% endblock %}
