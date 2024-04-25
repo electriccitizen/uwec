@@ -2,14 +2,17 @@
 
 Drupal.behaviors.sectionMenu = {
 	attach: function (context, settings) {
-		$(once('section-menu', '#section-menu-wrapper', context)).each(function(){
+    $(once('section-menu', '#section-menu-wrapper', context)).each(function() {
+      const wrapper = $(this);
 			//mobile toggle
 			$('.section-menu-toggle').click(function(e){
 				e.preventDefault();
         if($(this).is('.active-nav')){
-          $(this).attr('aria-expanded', 'false').removeClass('active-nav').find('span').text('Explore Section').removeClass('expanded').closest('#section-menu-title').next('#section-menu-wrapper').attr('aria-hidden', 'true').slideUp(500);
+          $(this).attr('aria-expanded', 'false').removeClass('active-nav').find('.expand-label').text('Explore Section').removeClass('expanded');
+          wrapper.attr('aria-hidden', 'true').slideUp(500);
         }else{
-          $(this).attr('aria-expanded', 'true').addClass('active-nav').find('span').text('Close').addClass('expanded').closest('#section-menu-title').next('#section-menu-wrapper').attr('aria-hidden', 'false').slideDown(500);
+          $(this).attr('aria-expanded', 'true').addClass('active-nav').find('.expand-label').text('Close').addClass('expanded');
+          wrapper.attr('aria-hidden', 'false').slideDown(500);
         }
 			});
 
@@ -18,6 +21,11 @@ Drupal.behaviors.sectionMenu = {
 			//remove nav region if nav is hidden
 			if($('body.hide-nav').length){
 				$('#node-section-2 > .layout--twocol-sideleft > .layout__region--first').remove();
+			}
+
+      // add a class if we're on a general page to let other pieces know its in the menu
+      if($('body.node-type-page').length){
+				$('body.node-type-page').addClass('in-main-menu');
 			}
 		});
 	}//end context attach
@@ -54,7 +62,7 @@ Drupal.behaviors.navPosition = {
       }
       $(document).ready(function() {
         var windowWidth = $(window).outerWidth();
-        var $targetElement = $('.layout--twocol-sideleft'); 
+        var $targetElement = $('.layout--twocol-sideleft');
         var $titleHeight = $('#section-menu-title').outerHeight();
         var viewportBottom = $(window).scrollTop() + $(window).height();
         var elementTop = $targetElement.offset().top;
@@ -68,8 +76,7 @@ Drupal.behaviors.navPosition = {
           // find menu height minus offset & spacing so can make sure there is enough body height to push down paragraphs
           var menuHeight = $('#block-section-menu',$targetElement).outerHeight() - 280;
           if(menuHeight > 0){
-            $('.layout--twocol-sideleft:not(.layout-builder__layout) .block-field.block-body,.node-type-page.hero-none .page-header-text-inner .field-body').css('min-height',menuHeight + 'px');
-            
+            $('.layout--twocol-sideleft:not(.layout-builder__layout) .block-field.block-body:only-child').css('min-height',menuHeight + 'px');
           }
         }else{
           $('#block-section-menu',$targetElement).css('top','auto');

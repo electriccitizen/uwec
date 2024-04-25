@@ -20,35 +20,72 @@ dependencies:
     - field.field.node.job.field_posted_on
     - node.type.job
   module:
-    - text
+    - datetime
     - user
 id: node.job.teaser
 targetEntityType: node
 bundle: job
 mode: teaser
 content:
-  body:
-    type: text_summary_or_trimmed
+  field_campus:
+    type: entity_reference_label
     label: hidden
     settings:
-      trim_length: 600
+      link: false
     third_party_settings: {  }
     weight: 0
     region: content
+  field_employment_category:
+    type: entity_reference_label
+    label: hidden
+    settings:
+      link: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_employment_type:
+    type: entity_reference_label
+    label: hidden
+    settings:
+      link: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_job_id:
+    type: number_integer
+    label: inline
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_official_title:
+    type: string
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_posted_on:
+    type: datetime_default
+    label: inline
+    settings:
+      timezone_override: ''
+      format_type: medium
+    third_party_settings: {  }
+    weight: 5
+    region: content
 hidden:
+  body: true
   content_moderation_control: true
   field_apply_by: true
-  field_campus: true
   field_department: true
   field_domain_access: true
   field_domain_all_affiliates: true
   field_domain_source: true
   field_editorial_sections: true
-  field_employment_category: true
-  field_employment_type: true
-  field_job_id: true
-  field_official_title: true
   field_page_family: true
-  field_posted_on: true
   links: true
   search_api_excerpt: true

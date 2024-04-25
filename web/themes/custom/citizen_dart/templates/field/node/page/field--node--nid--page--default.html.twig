@@ -35,243 +35,57 @@
 
 {% block fieldSingleNo %}
 
-	<div
-		class="page-header-wrapper{% if element['#object'].field_hero.0 %} has-hero page-hero-{{ element['#object'].field_hero.0.entity.field_hero_type.0.value|clean_class }}{% endif %}">
+	<div class="page-header-wrapper{% if element['#object'].field_hero.0 %} has-hero page-hero-{{ element['#object'].field_hero.0.entity.field_hero_type.0.value|clean_class }}{% endif %}"{% if element['#object'].field_hero.0.entity.field_hero_type.0.value == 'background_image' or element['#object'].field_hero.0.entity.field_hero_type.0.value == 
+  'video' %} style="background:url({{ file_url(element['#object'].field_hero.0.entity.field_background_image.0.entity.field_media_image.entity.fileuri) }}) no-repeat"{% endif %}>
 
 		{# render a large version image for certain heros #}
 		{% if element['#object'].field_hero.0.entity.field_hero_type.0.value == 
 		'image' or element['#object'].field_hero.0.entity.field_hero_type.0.value == 'background_image' %}
 			{% if element['#object'].field_hero.0.entity.field_image.0 %}
-				<div class="image-right">
-					{{ drupal_entity('media',element['#object'].field_hero.0.entity.field_image.0.target_id,'730x840') }}
-				</div>
+        <div class="hero-image">
+          <div class="image-right">
+            {{ drupal_entity('media',element['#object'].field_hero.0.entity.field_image.0.target_id,'730x840') }}
+          </div>
+        </div>
 			{% endif %}
 		{% endif %}
 
 		{# add a background/full image for certain heros #}
-		{% if element['#object'].field_hero.0.entity.field_hero_type.0.value == 
-		'video' or element['#object'].field_hero.0.entity.field_hero_type.0.value == 'background_image' or element['#object'].field_hero.0.entity.field_hero_type.0.value == 'full_image' %}
+		{% if element['#object'].field_hero.0.entity.field_hero_type.0.value == 'full_image' %}
 			{% if element['#object'].field_hero.0.entity.field_background_image.0 %}
 				<div class="hero-background">
 					{{ drupal_entity('media',element['#object'].field_hero.0.entity.field_background_image.0.target_id,'1920x1445') }}
 				</div>
 			{% endif %}
 		{% endif %}
-
-		{# render the swirl pattern if its a pattern hero #}
-		{% if element['#object'].field_hero.0.entity.field_hero_type.0.value == 
-		'pattern' %}
-			<div class="swirl-pattern">
-				<svg width="371" height="839" viewbox="0 0 371 839" fill="none" xmlns="http://www.w3.org/2000/svg">
-					<path d="M377.436 710.494L371.381 692.688" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M378.056 647.166L370.762 630.642" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M378.675 583.84L370.142 568.598" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M379.295 520.512L369.523 506.553" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M379.914 457.184L368.903 444.503" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M380.534 393.855L368.284 382.457" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M381.153 330.529L367.664 320.413" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M381.772 267.201L367.044 258.367" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M382.393 203.873L366.425 196.321" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M383.012 140.545L365.805 134.275" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M383.632 77.2188L365.186 72.2315" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M384.251 13.8906L364.566 10.1857" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M344.112 836.221L338.744 817.705" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M344.595 773.039L338.262 755.517" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M345.077 709.854L337.784 693.33" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M345.56 646.668L337.301 631.143" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M346.042 583.482L336.819 568.951" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M346.524 520.297L336.337 506.764" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M347.002 457.111L335.854 444.577" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M347.484 393.926L335.372 382.389" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M347.967 330.74L334.889 320.202" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M348.449 267.553L334.411 258.009" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M348.932 204.367L333.929 195.821" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M349.414 141.188L333.447 133.636" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M349.896 78L332.964 71.4465" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M350.375 14.8145L332.482 9.25921" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M312.028 835.295L304.872 818.629" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M312.373 772.256L304.527 756.3" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M312.719 709.213L304.182 693.972" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M313.06 646.168L303.837 631.637" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M313.404 583.125L303.495 569.308" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M313.75 520.082L303.151 506.979" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M314.095 457.041L302.805 444.648" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M314.436 393.998L302.46 382.315" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M314.781 330.955L302.12 319.987" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M315.126 267.91L301.774 257.656" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M315.471 204.867L301.429 195.323" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M315.812 141.824L301.084 132.994" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M316.157 78.7832L300.743 70.6634" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M316.502 15.7402L300.397 8.33472" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M279.943 834.369L270.995 819.554" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M280.151 771.469L270.791 757.084" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M280.355 708.57L270.584 694.611" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M280.563 645.67L270.376 632.137" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M280.771 582.768L270.172 569.665" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M280.975 519.871L269.964 507.19" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M281.183 456.969L269.756 444.718" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M281.387 394.066L269.553 382.246" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M281.595 331.17L269.345 319.771" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M281.803 268.268L269.137 257.299" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M282.006 205.367L268.933 194.829" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M282.214 142.465L268.725 132.353" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M282.422 79.5664L268.517 69.8803" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M282.626 16.666L268.314 7.40594" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M247.859 833.445L237.123 820.485" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M247.926 770.686L237.052 757.867" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M247.997 707.93L236.986 695.253" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M248.063 645.17L236.915 632.635" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M248.134 582.414L236.844 570.021" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M248.2 519.654L236.778 507.404" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M248.271 456.896L236.708 444.792" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M248.342 394.141L236.641 382.174" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M248.408 331.381L236.57 319.56" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M248.479 268.625L236.503 256.942" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M248.546 205.865L236.433 194.329" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M248.616 143.105L236.366 131.711" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M248.683 80.3496L236.295 69.0972" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M248.754 17.5898L236.23 6.47943" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M215.775 832.52L203.247 821.409" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M215.704 769.902L203.317 758.65" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M215.634 707.289L203.384 695.895" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M215.567 644.672L203.455 633.135" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M215.496 582.059L203.521 570.376" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M215.43 519.439L203.591 507.619" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M215.359 456.826L203.658 444.859" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M215.293 394.209L203.729 382.105" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M215.222 331.596L203.799 319.345" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M215.155 268.979L203.866 256.586" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M215.085 206.365L203.937 193.831" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M215.015 143.746L204.004 131.069" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M214.947 81.1328L204.074 68.3141" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M214.877 18.5156L204.141 5.55493" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M183.687 831.594L169.374 822.334" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M183.482 769.119L169.578 759.433" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M183.275 706.648L169.786 696.536" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M183.067 644.172L169.994 633.634" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M182.863 581.701L170.198 570.733" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M182.655 519.229L170.405 507.83" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M182.447 456.754L170.613 444.934" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M182.244 394.281L170.818 382.031" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M182.036 331.811L171.025 319.13" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M181.828 269.336L171.233 256.233" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M181.624 206.863L171.437 193.33" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M181.416 144.389L171.644 130.43" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M181.213 81.916L171.853 67.531" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M181.005 19.4453L172.057 4.62994" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M151.603 830.664L135.498 823.259" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M151.257 768.336L135.843 760.216" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M150.916 706.006L136.188 697.176" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M150.571 643.678L136.529 634.134" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M150.226 581.344L136.874 571.09" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M149.881 519.014L137.219 508.045" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M149.54 456.686L137.565 445.003" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M149.194 394.352L137.905 381.963" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M148.85 332.021L138.25 318.919" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M148.505 269.691L138.596 255.874" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M148.163 207.363L138.94 192.832" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M147.818 145.029L139.282 129.788" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M147.474 82.6992L139.627 66.7435" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M147.128 20.3711L139.972 3.70544" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M119.518 829.74L101.625 824.185" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M119.035 767.553L102.103 760.999" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M118.553 705.365L102.585 697.813" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M118.071 643.178L103.069 634.632" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M117.593 580.99L103.551 571.446" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M117.11 518.799L104.033 508.261" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M116.628 456.611L104.515 445.075" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M116.146 394.424L104.997 381.889" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M115.663 332.236L105.48 318.703" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M115.181 270.049L105.958 255.518" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M114.698 207.857L106.44 192.332" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M114.221 145.67L106.923 129.146" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M113.738 83.4824L107.405 65.9605" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M113.256 21.2949L107.888 2.77905" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M87.4336 828.814L67.7489 825.11" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M86.8145 766.77L68.3689 761.782" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M86.1943 704.725L68.9879 698.455" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M85.5752 642.678L69.6078 635.126" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M84.9551 580.633L70.2269 571.799" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M84.3359 518.588L70.8469 508.471" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M83.7158 456.543L71.4659 445.144" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M83.0967 394.498L72.0859 381.817" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M82.4775 332.447L72.7059 318.488" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M81.8574 270.402L73.3249 255.161" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M81.2383 208.357L73.9449 191.834" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M80.6182 146.312L74.5639 128.507" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M79.999 84.2656L75.1839 65.1774" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M79.3789 22.2207L75.8029 1.85016" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M55.3496 827.889L33.8769 826.038" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M54.5928 765.986L34.6336 762.57" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M53.8359 704.082L35.3904 699.095" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M53.0742 642.18L36.1464 635.626" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M52.3184 580.275L36.9041 572.156" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M51.5615 518.373L37.6608 508.687" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M50.8047 456.469L38.4175 445.216" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M50.0479 394.566L39.1743 381.748" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M49.291 332.662L39.931 318.277" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M48.5342 270.76L40.6877 254.808" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M47.7773 208.855L41.4445 191.338" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M47.0205 146.953L42.2012 127.865" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M46.2637 85.0488L42.9579 64.3943" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M45.5068 23.1465L43.7147 0.925658" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M23.2607 826.965L-7.72961e-08 826.965" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M22.3662 765.203L0.893463 763.353" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M21.4727 703.441L1.78796 699.736" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M20.5791 641.68L2.68655 636.124" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M19.6846 579.92L3.58005 572.514" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M18.791 518.158L4.47446 508.902" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M17.8926 456.4L5.36823 445.29" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M16.999 394.639L6.2627 381.674" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M16.1045 332.877L7.15613 318.062" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M15.2109 271.117L8.05472 254.452" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M14.3164 209.355L8.94821 190.84" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M13.4229 147.594L9.84268 127.223" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M12.5244 85.832L10.7365 63.6112" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-					<path d="M11.6299 24.0703L11.6299 -0.000855043" stroke="#26B1ED" stroke-width="2" stroke-miterlimit="10"/>
-				</svg>
-
-			</div>
-		{% endif %}
-
 		{# set an area with breadcrumbs and header text content #}
 		<div class="page-header-text">
-			{% if element['#object'].field_hide_nav.0.value == '0' and element['#object'].field_hero.0.entity.field_hero_type.0.value != 'full_image' %}
+			{% if element['#object'].field_hide_nav.0.value == '0' and (element['#object'].field_hero.0.entity.field_hero_type.0.value != 'full_image' and element['#object'].field_hero.0.entity.field_hero_type.0.value != 'video') %}
 				{{ drupal_block('system_breadcrumb_block') }}
 			{% endif %}
 			<div class="page-header-text-inner">
-				{% if element['#object'].field_hero.0.entity.field_hero_type.0.value == 'pattern' %}
-					<div class="stripes">
-						<svg width="264" height="172" viewbox="0 0 264 172" fill="none" xmlns="http://www.w3.org/2000/svg">
-							<mask id="mask0_1941_28564" style="mask-type:luminance" maskunits="userSpaceOnUse" x="0" y="0" width="264" height="172">
-								<path d="M263.21 0.536758V170.746L0.537628 170.746V0.536758L263.21 0.536758Z" fill="white" stroke="white" stroke-width="1.07503"/>
-							</mask>
-							<g mask="url(#mask0_1941_28564)">
-								<path d="M242.59 66.0703L-292.225 219.423" stroke="#06233D" stroke-width="1.07503" stroke-miterlimit="10"/>
-								<path d="M242.59 48.1387L-292.225 201.491" stroke="#06233D" stroke-width="1.07503" stroke-miterlimit="10"/>
-								<path d="M242.59 30.207L-292.225 183.56" stroke="#06233D" stroke-width="1.07503" stroke-miterlimit="10"/>
-								<path d="M242.59 12.2773L-292.225 165.63" stroke="#06233D" stroke-width="1.07503" stroke-miterlimit="10"/>
-								<path d="M242.59 -5.6543L-292.225 147.698" stroke="#06233D" stroke-width="1.07503" stroke-miterlimit="10"/>
-								<path d="M242.59 -23.5859L-292.225 129.767" stroke="#06233D" stroke-width="1.07503" stroke-miterlimit="10"/>
-								<path d="M242.59 -41.5176L-292.225 111.835" stroke="#06233D" stroke-width="1.07503" stroke-miterlimit="10"/>
-								<path d="M242.59 -59.4492L-292.225 93.9033" stroke="#06233D" stroke-width="1.07503" stroke-miterlimit="10"/>
-							</g>
-						</svg>
-					</div>
-				{% endif %}
-				<div class="field title string">
+				<div class="node-title">
 					<h1 class="page-title formatted-title">{{ formattedTitle|render|striptags('<strong>')|trim|raw }}</h1>
 				</div>
-				{% if element['#object'].field_subtitle.0 and element['#object'].field_hero.0.entity.field_hero_type.0.value != 'full_image' %}
-					<div class="field field-subtitle string">
+				{% if element['#object'].field_subtitle.0 and (element['#object'].field_hero.0.entity.field_hero_type.0.value == 'pattern' or element['#object'].field_hero.0.entity.field_hero_type.0.value == 'image' or element['#object'].field_hero.0.entity.field_hero_type.0.value == 'background_image') %}
+					<h2 class="node-subtitle">
 						{{ element['#object'].field_subtitle.0.value }}
-					</div>
+          </h2>
 				{% endif %}
-				{% if element['#object'].body.0 and element['#object'].field_hero.0.entity.field_hero_type.0.value != 'full_image' %}
-					<div class="field field-body text-long">
+				{% if element['#object'].body.0 and (element['#object'].field_hero.0.entity.field_hero_type.0.value == 'pattern' or element['#object'].field_hero.0.entity.field_hero_type.0.value == 'image' or element['#object'].field_hero.0.entity.field_hero_type.0.value == 'background_image') %}
+					<div class="node-body">
 						{{ bodyText }}
 					</div>
 				{% endif %}
+        {% if element['#object'].field_hero.0.entity.field_hero_type.0.value == 'video' %}
+          <div class="scroll-link">
+            <a href="#scroll-anchor">Here you can
+              <span class="link-arrow">
+                <span>scroll to content</span>
+              </span>
+            </a>
+          </div>
+        {% endif %}
 			</div>
 		</div>
 
@@ -281,24 +95,6 @@
 			{% if element['#object'].field_hero.0.entity.field_hero_video.0 %}
 				<div class="video-hero">
 					<div class="video-hero-mask">
-						<div class="stripes-first">
-							<svg width="264" height="172" viewbox="0 0 264 172" fill="none" xmlns="http://www.w3.org/2000/svg">
-								<mask id="mask0_2283_54005" style="mask-type:luminance" maskunits="userSpaceOnUse" x="0" y="0" width="264" height="172">
-									<path d="M263.747 0H0V171.284H263.747V0Z" fill="white"/>
-								</mask>
-								<g mask="url(#mask0_2283_54005)">
-									<path d="M21.1562 105.202L555.971 -48.1504" stroke="#EDAC1A" stroke-width="1.07503" stroke-miterlimit="10"/>
-									<path d="M21.1562 123.134L555.971 -30.2188" stroke="#EDAC1A" stroke-width="1.07503" stroke-miterlimit="10"/>
-									<path d="M21.1562 141.065L555.971 -12.2876" stroke="#EDAC1A" stroke-width="1.07503" stroke-miterlimit="10"/>
-									<path d="M21.1562 158.997L555.971 5.64404" stroke="#EDAC1A" stroke-width="1.07503" stroke-miterlimit="10"/>
-									<path d="M21.1562 176.928L555.971 23.5752" stroke="#EDAC1A" stroke-width="1.07503" stroke-miterlimit="10"/>
-									<path d="M21.1562 194.859L555.971 41.5068" stroke="#EDAC1A" stroke-width="1.07503" stroke-miterlimit="10"/>
-									<path d="M21.1562 212.791L555.971 59.4385" stroke="#EDAC1A" stroke-width="1.07503" stroke-miterlimit="10"/>
-									<path d="M21.1562 230.722L555.971 77.3696" stroke="#EDAC1A" stroke-width="1.07503" stroke-miterlimit="10"/>
-								</g>
-							</svg>
-
-						</div>
 						<div class="video-mask-inner">
 							<video playsinline autoplay muted loop {% if element['#object'].field_hero.0.entity.field_video_poster.0 %} poster="{{ element['#object'].field_hero.0.entity.field_video_poster.0.entity.field_media_image.0.entity.uri.0.value|replace({'public://':'/sites/default/files/'}) }}{% endif %}">
 								{% for video in element['#object'].field_hero.0.entity.field_hero_video %}
@@ -306,55 +102,23 @@
 								{% endfor %}
 							</video>
 						</div>
-						<div class="stripes-last">
-							<svg width="264" height="172" viewbox="0 0 264 172" fill="none" xmlns="http://www.w3.org/2000/svg">
-								<mask id="mask0_2283_54005" style="mask-type:luminance" maskunits="userSpaceOnUse" x="0" y="0" width="264" height="172">
-									<path d="M263.747 0H0V171.284H263.747V0Z" fill="white"/>
-								</mask>
-								<g mask="url(#mask0_2283_54005)">
-									<path d="M21.1562 105.202L555.971 -48.1504" stroke="#EDAC1A" stroke-width="1.07503" stroke-miterlimit="10"/>
-									<path d="M21.1562 123.134L555.971 -30.2188" stroke="#EDAC1A" stroke-width="1.07503" stroke-miterlimit="10"/>
-									<path d="M21.1562 141.065L555.971 -12.2876" stroke="#EDAC1A" stroke-width="1.07503" stroke-miterlimit="10"/>
-									<path d="M21.1562 158.997L555.971 5.64404" stroke="#EDAC1A" stroke-width="1.07503" stroke-miterlimit="10"/>
-									<path d="M21.1562 176.928L555.971 23.5752" stroke="#EDAC1A" stroke-width="1.07503" stroke-miterlimit="10"/>
-									<path d="M21.1562 194.859L555.971 41.5068" stroke="#EDAC1A" stroke-width="1.07503" stroke-miterlimit="10"/>
-									<path d="M21.1562 212.791L555.971 59.4385" stroke="#EDAC1A" stroke-width="1.07503" stroke-miterlimit="10"/>
-									<path d="M21.1562 230.722L555.971 77.3696" stroke="#EDAC1A" stroke-width="1.07503" stroke-miterlimit="10"/>
-								</g>
-							</svg>
-						</div>
 					</div>
 				{% endif %}
-				<div class="scroll-link">
-					<a href="{% if element['#object'].field_hero.0.entity.field_structure_section.0 %}#structured-content{% else %}#node-section-2{% endif %}">Here you can
-						<span class="link-arrow">
-							<span>scroll to content</span>
-						</span>
-					</a>
-				</div>
 			{% endif %}
 
 			{# render the links field if it exists and if the hero is not video #}
-			{% if element['#object'].field_hero.0.entity.field_hero_type.0.value != 'video' and element['#object'].field_hero.0.entity.field_hero_type.0.value != 'full_image' %}
+			{% if element['#object'].field_hero.0.entity.field_hero_type.0.value != 'video' %}
 				{% if element['#object'].field_hero.0.entity.field_links.0 %}
 					<div class="field field-links">
-						<ul class="hero-links">
-							{% for link in element['#object'].field_hero.0.entity.field_links %}
-								<li>
-									<span class="link-arrow"></span> 
-									<a href="{{ link.url }}">{{ link.title }}</a>
-								</li>
-							{% endfor %}
-						</ul>
+            {% for link in element['#object'].field_hero.0.entity.field_links %}
+              <div>
+                <a href="{{ link.url }}"><span>{{ link.title }}</span></a>
+              </div>
+            {% endfor %}
 					</div>
 				{% endif %}
 			{% endif %}
-
-			{% if element['#object'].field_hero.0.entity.field_hero_type.0.value == 'full_image' %}
-				<div class="blue-triangle"></div>
-			{% endif %}
-
 		</div>
 		{# end page header wrapper #}
-
+    <div id="scroll-anchor"></div>
 	{% endblock %}

@@ -42,6 +42,9 @@ function citizen_dart_preprocess_html(&$variables) {
       if(($node->field_hero[0]->entity->field_hero_type[0]->value == 'pattern') && ($node->field_hero[0]->entity->field_links[0])){
         $variables['attributes']['class'][] = 'hero-pattern-links';
       }
+      if($node->field_hero[0]->entity->field_image[0]){
+        $variables['attributes']['class'][] = 'hero-has-image';
+      }
     }else{
       $variables['attributes']['class'][] = 'hero-none';
     }
@@ -219,6 +222,26 @@ function citizen_dart_preprocess_responsive_image(&$variables) {
 function citizen_dart_preprocess_field__node__field_hours(&$variables) {
   // Add a unique ID to the field template.
   $variables['unique_id'] = uniqid();
+}
+
+/**
+ * Implements template_preprocess_field__HOOK().
+ */
+function citizen_dart_preprocess_field__node__field_story_categories(&$variables) {
+  // Set Category Terms to link to the Story's search node with the term
+  // selected.
+  $stories_node = 55;
+  $targets = $variables['element']['#items']->getValue();
+  if (is_array($targets) && !empty($targets)) {
+    foreach ($targets as $key => $target) {
+      if (isset($variables['items'][$key]['content'])) {
+        $variables['items'][$key]['content']['#url'] = Url::fromRoute('entity.node.canonical', [
+          'node' => $stories_node,
+          'field_story_categories_target_id' => $target['target_id'],
+        ], ['fragment' => 'node-section-2']);
+      }
+    }
+  }
 }
 
 /**

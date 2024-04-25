@@ -17,12 +17,6 @@ section.alert-wrapper{
 		background: $navy;
 	}
 	padding: 29px $siteMarginMobile;
-	.dialog-off-canvas-main-canvas &{
-		transform-style: unset;
-		*{
-			transform-style: unset;
-		}
-	}
 	& > div{
 		max-width: $contentStopMargin;
 		@include auto;
@@ -97,7 +91,7 @@ section.alert-wrapper{
 ------------------------ */
 .block-superfishmain{
   &.contextual-region{
-    position: static; 
+    position: static;
   }
   #superfish-main-toggle{
     position: absolute;
@@ -105,7 +99,7 @@ section.alert-wrapper{
     width: 40px;
     top: -8px;
     right: 0;
-    z-index: 12;
+    z-index: 23;
   }
 	//desktop position
 	@include menuStop{

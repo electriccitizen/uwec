@@ -74,6 +74,7 @@
 {% extends 'node.html.twig' %}
 
 {% block node %} 
+  {{ attach_library('citizen_dart/general-page') }}
 	{% if not node.field_hero.0.target_id %}
 		<div class="node-intro-simple"></div>
 	{% endif %}

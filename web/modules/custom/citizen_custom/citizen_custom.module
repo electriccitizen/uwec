@@ -160,6 +160,15 @@ function citizen_custom_form_alter(&$form, FormStateInterface $form_state, $form
   }
 }
 
+
+// display help text on image name field
+function citizen_custom_form_media_library_add_form_upload_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id){
+	if(isset($form['media'][0]['fields']['name']['widget'][0]['value'])){
+		$form['media'][0]['fields']['name']['widget'][0]['value']['#description'] = \Drupal\Core\Field\FieldFilteredMarkup::create(t('Name the image file in this format: YYYYMMDD_subject<br>e.g., 20240218_Schofield in the snow'));
+	}
+}
+
+
 /**
  * Implements hook_node_form_alter().
  */
@@ -220,6 +229,13 @@ function citizen_custom_form_program_search_form_alter(&$form, FormStateInterfac
   $form['form_build_id']['#access'] = FALSE;
   $form['form_token']['#access'] = FALSE;
   $form['form_id']['#access'] = FALSE;
+}
+
+// I don't know what this does but I'm copying program_search so I'll add it here for funzies.
+function citizen_custom_for_job_search_form_alter(&$form, FormStateInterface $form_state){
+	$form['form_build_id']['#access'] = false;
+	$form['form_token']['#access'] = false;
+	$form['form_id']['#access'] = false;
 }
 
 function citizen_custom_form_views_exposed_form_alter(&$form, FormStateInterface $form_state, $form_id) {

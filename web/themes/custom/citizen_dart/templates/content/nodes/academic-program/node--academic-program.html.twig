@@ -84,7 +84,9 @@
     loop.index == 5 and (node.field_outcome_text|length > 0 or node.field_outcomes_image|length > 0 or node.field_example_careers|length > 0 or node.field_grads|length > 0) ? "outcomes-visible",
     loop.index == 5 and node.field_outcomes_image|length > 0 ? "outcomes-image",
   ] %}
-  <section id="node-section-{{ loop.index }}" class="{{ classes|sort|join(' ')|trim }}">
-    {{- layoutSection -}}
-  </section>
+  {% if layoutSection|render|striptags|trim is not empty %}
+    <section id="node-section-{{ loop.index }}" class="{{ classes|sort|join(' ')|trim }}">
+      {{- layoutSection -}}
+    </section>
+  {% endif %}
 {% endblock %}

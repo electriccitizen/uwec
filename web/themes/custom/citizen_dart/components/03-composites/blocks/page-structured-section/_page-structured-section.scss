@@ -6,122 +6,361 @@
 
 .block-structured-section {
   padding-top: $elementSpace;
-	position: relative;
+  position: relative;
   z-index: 1;
-	padding-bottom: 300px;
-	&:before{
-	 	content: '';
-	 	display: block;
-	 	width: 5000px;
-	 	height: 600px;
-	 	@include rotate(-16);
-	 	background: $brightBlue;
-	 	position: absolute;
-	 	top: -400px;
-	 	left: 0;
-	 	z-index: -1;
-	}
+  @include desk {
+    padding-bottom: 300px;
+  }
+  &:before{
+    background: $brightBlue;
+    clip-path: polygon(100% 0%, 0% 100%, 100% 100%);
+    content: '';
+    display: block;
+    height: 29vw;
+    left: calc(100vw - 49%);
+    position: absolute;
+    top: -26vw;
+    width: 100vw;
+    z-index: -1;
+  }
   &:after{
     @include fullBack($brightBlue);
   }
-  .field-wayfinding {
-    @include auto;
-    background-color: $lightGrey;
-    max-width: 1136px;
+  > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  .paragraph--type--wayfinding {
+    margin: -$elementSpace 0;
+    position: relative;
+    top: -$elementSpace;
+
+    .wayfinding {
+      max-width: $wideContent;
+
+      @include desk {
+        @include safeFlex(row, no-wrap, justify, start);
+      }
+
+      &.single {
+        margin-bottom: 0;
+        margin-top: 0;
+        padding: $siteMarginMobile;
+        @include desk {
+          padding: $spaceSm 20px;
+        }
+        &:after {
+          @include auto;
+          background-color: $lightGrey;
+          left: 0;
+          max-width: $wideContent;
+          width: 100%;
+        }
+      }
+
+      .field-image {
+        margin: 0 auto;
+        max-width: 440px;
+        order: 2;
+        @include desk {
+          margin: 0;
+        }
+
+        .gold-stripes-narrow {
+          display: none;
+        }
+      }
+      .wayfinding-info {
+        @include auto;
+        line-height: 1.5;
+        max-width: 610px;
+        order: 1;
+        padding: $siteMarginMobile 0;
+        @include desk {
+          line-height: 2;
+          margin: 0;
+          max-width: 560px;
+          padding: $spaceLg 60px $spaceLg $spaceXl;
+        }
+
+        .wayfinding-headline {
+          @include heading2;
+          line-height: 1.14;
+          margin-bottom: $spaceXxs;
+          text-transform: uppercase;
+          @include desk {
+            font-size: 4rem;
+            margin-bottom: $spaceXs;
+            text-transform: none;
+          }
+        }
+      }
+    }
   }
 
   .field-leadin {
-    max-width: $textMax;
-    color: $white;
     @include auto;
-    text-align: center;
+    color: $white;
+    line-height: 1.3;
+    font-family: $displayHeader;
+    font-size: 3.5rem;
     margin-top: $spaceMd;
-    margin-bottom: $spaceMd;
+    margin-bottom: $spaceLg;
+    max-width: $textMax;
+    padding: 0 $siteMarginMobile;
+    text-align: left;
+    @include desk {
+      font-size: 4rem;
+      margin-top: 12rem;
+      padding: 0;
+      text-align: center;
+    }
+    &:before {
+      background: url(../images/logos-badges/uwec-stacked-white.svg);
+      content: '';
+      display: block;
+      height: 59px;
+      margin: $spaceSm auto;
+      width: 40px;
+      visibility: hidden;
+      @include desk {
+        margin: $spaceLg auto;
+      }
+    }
+    &.visible:before {
+      @include animation('flipRight .5s');
+      visibility: visible;
+    }
   }
 
   .field-button {
     @include auto;
     text-align: center;
-    a{
-    	@include outlineButton($white);
+    a {
+      @include outlineButton($white);
     }
   }
 
-  .field-bg-image{
-  	position: absolute;
-  	bottom: 0;
-  	left: -$siteMarginMobile;
-  	object-fit: cover;
-  	width: 100vw;
-  	height: 65%;
-  	overflow: hidden;
-  	z-index: 0;
+  .field-bg-image {
+    bottom: 0;
+    display: none;
+    height: 65%;
+    left: -$siteMarginMobile;
+    object-fit: cover;
+    overflow: hidden;
+    position: absolute;
+    width: 100vw;
+    z-index: 0;
+    @include desk {
+      display: block;
+      // Remove size constraints to allow the image to cover.
+      height: auto;
+      width: auto;
+    }
   }
-   .cta-section {
-      position: relative;
-      color: $white;
-      padding-bottom: 100px;
-      .cta-section-inner {
-         @include safeFlex(row,wrap,start,start);
-         @include bleed(padding, $spaceLg);
-         max-width: $contentStop;
-         @include auto;
-         padding-top: $spaceMd;
-         padding-bottom: $spaceMd;
-         .first,.last {
-            width: 50%;
-            .field-formatted-headline {
-               h2 {
-                  color: $white;
-               }
+  .cta-section {
+    position: relative;
+    color: $white;
+    padding-bottom: 100px;
+    @include desk {
+      padding-bottom: 5vw;
+    }
+    @media screen and (min-width: 2000px){
+      padding-bottom: 7vw;
+    }
+    @media screen and (min-width: 2200px){
+      padding-bottom: 8vw;
+    }
+    @media screen and (min-width: 2500px){
+      padding-bottom: 9vw;
+    }
+    @media screen and (min-width: 2800px){
+      padding-bottom: 10vw;
+    }
+    .cta-section-inner {
+      @include safeFlex(column,wrap,start,start);
+      @include edgeToEdge;
+      padding: $spaceMd 0;
+      @include desk {
+        @include auto;
+        display: grid;
+        gap: 7%;
+        grid-template-columns: 57% 36%;
+        margin-top: $spaceLg;
+        max-width: $wideContent;
+      }
+      .column {
+        width: 100%;
+      }
+      .first,.last {
+        padding: 0 $siteMarginMobile;
+      }
+      .first {
+        order: 1;
+        @include desk {
+          grid-row-start: span 2;
+          margin: 60px 0 0;
+        }
+      }
+      .cta-image {
+        order: 0;
+        width: 100%;
+        img {
+          @include auto;
+          max-width: 440px;
+        }
+        @include desk {
+          order: 2;
+        }
+        @include menuStop{
+          width: 426px;
+        }
+      }
+      .last {
+        order: 3;
+        overflow: hidden;
+        @include desk {
+          margin: -5rem 0 0;
+        }
+        @include menuStop{
+          width: 426px;
+        }
+      }
+      .field-formatted-headline {
+        @include rollingSeal;
+        h2 {
+          @include styledHeader(true);
+          color: $white;
+          @include desk {
+            text-align: left;
+            p {
+              margin-bottom: $spaceMd;
             }
-            .program-search {
-              h3 {
-                 color: $white;
-              }
-              #program-search-form{
-               	position: relative;
-               	*{
-               		transform-style: unset;
-               	}
-               	#edit-program-search-submit{
-               		position: absolute;
-               		top: calc(50% - 12px);
-               		right: 20px;
-               		@include browserWipe;
-               		width: 24px;
-               		height: 24px;
-               		overflow: hidden;
-               		text-indent: -9000px;
-               		background-color: transparent;
-               		border: 0;
-               		background-image: url(../images/elements/search.svg);
-               		background-repeat: no-repeat;
-               		background-size: 100%;
-               		background-position: 0 0;
-               		&:hover,&:focus{
-               			opacity: .5;
-               			border-bottom: 1px solid $black;
-               		}
-               	}
-              }
+          }
+        }
+      }
+      .program-search {
+        h3 {
+          color: $white;
+          margin-bottom: $spaceXs;
+        }
+      }
+      .body {
+        @include auto;
+        color: $white;
+        font-size: 14px;
+        line-height: 2.1;
+        margin-bottom: $spaceMd;
+        max-width: 610px;
+        padding: 0 $siteMarginMobile;
+        @include desk {
+          border-bottom: 1px solid $warmGrey;
+          line-height: 2;
+          padding: 0 90px $spaceXl 0;
+          margin: 0 0 $spaceMd 0;
+          max-width: 540px;
+        }
+      }
+      .field-cta-image {
+        margin-bottom: $spaceSm;
+        @include desk {
+          margin-bottom: 0;
+        }
+        .media-item {
+          visibility: hidden;
+          left: 200vw;
+          position: relative;
+          transition: left .75s ease-out;
+          @include desk {
+            // No animation on desktop size, since the stripes fly in.
+            left: 0;
+            margin-bottom: -50px;
+            padding-top: 50px; // Fix to let stripes "break out" of top.
+            top: -50px;
+            visibility: visible;
+            &:before {
+              @include fatStripes($royal, 60px);
+              height: 440px;
+              left: auto;
+              right: -200vw;
+              top: -15px;
+              transition: right 1s ease-out;
+              width: 112px;
+              z-index: 2;
             }
-            .body {
-               color: $white;
-               margin-bottom: $spaceMd;
-            }
-            .field-cta-image {
-               max-width: 426px;
-               margin-bottom: $spaceMd;
-            }
-            .field-cta-links {
-               a {
-                  color: $white;
-               }
-            }
-         }//end first last
-      }//end CTA section inner
-   }//end CTA section
+          }
+        }
+        &.visible .media-item {
+          left: 0;
+          visibility: visible;
+          &:before {
+            right: -56px;
+          }
+        }
+      }
+      .field-cta-links {
+        margin-top: $spaceMd;
+        @include desk {
+          margin-top: $spaceXxs;
+        }
+        a {
+          @include linkArrow(white, lg);
+          color: $white;
+          margin-bottom: 2.5rem;
+          min-height: 5rem;
+        }
+      }//end first last
+      &:after {
+        @include desk {
+          background: url("../images/elements/swirl-vertical-wide-ice.svg");
+          bottom: -80%;
+          content: '';
+          height: 610px;
+          max-width: 1040px;
+          position: absolute;
+          width: 100%;
+        }
+      }
+    }//end CTA section inner
+  }//end CTA section
+  #program-search-form {
+    position: relative;
+    max-width: 520px;
+    @include desk {
+      max-width: 330px;
+    }
+    * {
+      transform-style: unset;
+    }
+    input[type="text"] {
+      background: $white;
+      border: 0;
+      border-radius: 30px;
+      font-size: 2rem;
+      font-family: $bodyText;
+      font-weight: $regular;
+      min-height: 50px;
+      padding: 9px 50px 9px 20px;
+    }
+    #edit-program-search-submit {
+      @include browserWipe;
+      background: url(../images/elements/search.svg) center / 21px no-repeat transparent;
+      border: 0;
+      border-radius: 100%;
+      height: 40px;
+      overflow: hidden;
+      position: absolute;
+      right: 5px;
+      text-indent: -9000px;
+      top: calc(50% - 20px);
+      width: 40px;
+      &:hover,&:focus{
+        background-color: lighten($ice,1%);
+        background-image: url('../images/elements/search-blue.svg');
+      }
+    }
+  }
   .angle-cut{
     position: absolute;
     bottom: -1px;
@@ -129,8 +368,7 @@
     width: 100vw;
     height: 29vw;
     clip-path: polygon(100% 0%, 0% 100%, 100% 100%);
-    background: $siteBack;    
-    z-index: 1;
+    background: $siteBack;
+    z-index: 0;
   }
 }//end block page-structured-section
-

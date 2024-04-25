@@ -1,0 +1,21 @@
+@use '../../../00-base/base' as *;
+
+.node-teaser-job{
+	margin-bottom:4rem;
+
+	.field,
+	.field-campus>div{
+		display:inline-block;
+	}
+	.job-meta{
+		.field{
+			display:block;
+			@include desk{
+				display:inline-block;
+				&:not(:first-child){
+					margin-left:3rem;
+				}
+			}
+		}
+	}
+}

@@ -8,6 +8,7 @@ dependencies:
     - field.field.paragraph.wayfinding.field_image
     - field.field.paragraph.wayfinding.field_link
     - field.field.paragraph.wayfinding.field_link_multi
+    - field.field.paragraph.wayfinding.field_no_background
     - field.field.paragraph.wayfinding.field_text_placement
     - field.field.paragraph.wayfinding.field_version
     - paragraphs.paragraphs_type.wayfinding
@@ -64,6 +65,16 @@ content:
       target: ''
     third_party_settings: {  }
     weight: 1
+    region: content
+  field_no_background:
+    type: boolean
+    label: hidden
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 6
     region: content
   field_text_placement:
     type: list_key

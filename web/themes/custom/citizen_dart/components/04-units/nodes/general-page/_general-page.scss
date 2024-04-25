@@ -7,393 +7,806 @@
 
 /* PAGE CONTENT */
 .node-page{
+  //nug up to footer at larger screen sizes
+  @include contentStop{
+    margin-bottom: -5vw;
+  }
+  @media screen and (min-width: 1600px){
+    margin-bottom: -5.5vw;
+  }
+  @media screen and (min-width: 1800px){
+    margin-bottom: -6vw;
+  }
+  @media screen and (min-width: 2000px){
+    margin-bottom: -6.5vw;
+  }
+  @media screen and (min-width: 2300px){
+    margin-bottom: -7vw;
+  }
+  @media screen and (min-width: 2500px){
+    margin-bottom: -8vw;
+  }
+  @media screen and (min-width: 2900px){
+    margin-bottom: -9vw;
+  }
+  //remove contextual stuff
 	&.contextual-region{
 		position: static;
 		& > .contextual{
 			display: none;
 		}
-		.page-header-wrapper{
-			margin-top: -216px;
-			padding-top: 216px;
-			@include desk{
-				margin-top: -170px;
-				padding-top: 170px;
-			}
-		}
-	}
+	}// contextual region
 	.block-nid {
 		margin-bottom: 0;
 	}
-	.node-intro-simple{
-		@include heroSimpleBackground;
-	}//end intro simple
-	.layout--twocol-sideleft{
-		max-width: 100%;
-	}
-	//page header section
+
 	#node-section-1{
-		transform-style: preserve-3d !important;
 		.hero-video &,.hero-full_image &,.hero-background &{
 			position: static;
 		}
-		// *{
-		// 	transform-style: unset;
-		// }
+    .hero-video &{
+      background: $royal;
+      @include edgeToEdge;
+    }
+    .hero-image &{
+      padding-bottom: $spaceLg;
+    }
 	}
+
 	//hero setups
 	.page-header-wrapper{
 		position: relative;
 		z-index: 0;
-		margin-left: -$siteMarginMobile;
-		margin-top: -205px;
-		padding-top: 205px;
-		width: 100vw;
-		min-height: 100vh;
-		.field-links {
-			max-width: 1000px;
-			@include auto;
-			position: relative;
-			.hero-links {
-				position: absolute;
-				right: 0;
-				bottom: -50px;
-				z-index: 1;
-				li {
-					@include safeFlex(row,nowrap,center,start);
-					margin-bottom: 1.5rem;
-				}
-				.link-arrow {
-					display: inline-block;
-					border-radius: 50%;
-					border: 1px solid $white;
-					height: 25px;
-					width: 25px;
-					position: absolute;
-					left: 5px;
-					margin-top: 2px;
-					&:after {
-						content: '';
-						display: block;
-						-webkit-mask: url(../images/arrows/right-arrow-white-sm.svg) no-repeat 50% 50%;
-						mask: url(../images/arrows/right-arrow-white-sm.svg) no-repeat 50% 50%;
-						-webkit-mask-size: contain;
-						mask-size: contain;
-						background-color:$white;
-						width: 15px;
-						height: 15px;
-						margin-left: 5px;
-						margin-top: 4px;
-					}
-				}
-			}
-			a {
-				color: $white;
-				font-family: $header;
-				font-size: 2rem;
-				&:hover {
-					@include dottedLink($white);
-				}
-			}
-		}
-		@include desk{
-			margin-top: -114px;
-			padding-top: 114px;
-		}
-		.breadcrumb{
-			a{
-				color: $white;
-			}
-		}
-		.hero-image &,.hero-background_image &{
-			@include safeFlex(row,wrap,start,start);
-			background: $brightBlue;
-		}
-		.hero-pattern &{
-			background: $royal;
-			&:before{
-				content: '';
-				display: block;
-				position: absolute;
-				bottom: 30vh;
-				left: -50vw;
-				width: 200vw;
-				height: 500vh;
-				z-index: -1;
-				background: $brightBlue;
-				@include rotate(-16);
-			}
-		}
-		&.page-hero-full-image {
-			&:before {
-				content: '';
-				display: block;
-				position: absolute;
-				height: 100%;
-				width: 100%;
-				z-index: 1;
-				top: 0;
-				background: linear-gradient(180deg, rgba(217, 217, 217, 0) 0%, #06233D 100%);
-			}
-			.hero-background {
-				background-color: $brightBlue;
-				& > article {
-					max-width: 1920px;
-					@include auto;
-				}
-			}
-			.blue-triangle {
-				position: absolute;
-				bottom: 0px;
-				right: 67px;
-				height: 150px;
-				width: 521px;
-				clip-path: polygon(100% 0%, 0% 100%, 100% 100%);
-				background: $brightBlue;
-				overflow: hidden;
-				z-index: 1;
-				@include desk{
-					background: $white;
-					&:after{
-						content: '';
-						display: block;
-						height: 500%;
-						width: 100%;
-						position: absolute;
-						bottom: -2px;
-						right: 0;
-						background: $brightBlue;
-						z-index: 5;
-					}
-				}
-			}//end after
+		
+    /* PATTERN HERO */
+		&.page-hero-pattern{
+      @include patternHero;
+      margin-bottom: $elementSpace;
+      @include largeTab{
+        margin-bottom: 60px;
+      }
+      @include desk{
+        margin-bottom: 70px;
+      }
+      .hero-pattern:not(.hero-pattern-links) &{
+        @include largeTab{
+          margin-bottom: 80px;
+        }
+        @include desk{
+          margin-bottom: 90px;
+        }
+        @include menuStop{
+          margin-bottom: 100px;
+        }
+      }
+      //set a shield to prevent swirl from interfering the page title at small screens
+      &:before{
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: $brightBlue;
+        width: 100vw;
+        height: 25%;
+        z-index: 1;
+        @include desk{
+          height: 30%;
+        }
+      }
+      &:after{
+        @include patternHeroSwirl;
+      }
+      .page-header-text{
+        @include heroBlue;
+        @include desk{
+          .hide-nav &{
+            padding-top: 60px;
+          }
+          .page-header-text-inner > .field:last-child{
+            @include stripesRoyalNarrow;
+          }
+        }
+        .hero-pattern:not(.hero-pattern-links) &{
+          margin-bottom: 115px;
+        }
+        .page-header-text-inner{
+          max-width: $textMax;
+          padding-left: 20px;
+          padding-right: 20px;
+          @include auto;
+          position: relative;
+          z-index: 5;
+          @include desk{
+            padding-left: 0;
+            padding-right: 0;
+            &:last-child:not(.node-title){
+              @include stripesRoyalNarrow;
+            }
+          }
+          .node-body{
+            a{
+              font-weight: $heavy;
+              @include dottedLink($white);
+              &:hover,&:focus{
+                background-image: none;
+                opacity: .7;
+              }
+            }
+          }
+        }//end pattern page header text inner
+      }//end page header text when pattern
+      .field-links{
+        @include smallTab{
+          padding-top: 120px;
+        }
+        @include desk{
+          padding-top: 40px;
+        }
+      }
+		}//end hero pattern
 
-		}
-		&.page-hero-pattern {
-			.page-header-text {
-				margin-top: 0 !important;
-				.page-header-text-inner {
-					@include auto;
-					max-width: 650px;
-					margin-top: 4rem;
-					.stripes {
-						position: absolute;
-						bottom: -100px;
-						z-index: -1;
-						left: 120px;
-					}
-				}
-				.field:not(.title) {
-					margin-left: 0 !important;
-					margin-right: 0 !important;
-					color: $white;
-				}
-				.field.title {
-					margin-bottom: 4rem !important;
-				}
-				.field-subtitle {
-					font-family: $header;
-					font-size: 3rem;
-					margin-bottom: 1rem;
-				}
-			}
-		}
-		.page-header-text{
-			position: relative;
-			z-index: 10;
-			//when a video hero
-			.hero-video &{
-				width: 100%;
-				height: 100%;
-				@include safeFlex(column,nowrap,center,center);
-				position: absolute;
-				top: 50%;
-				left: 50%;
-				@include translate(-50%,-50%);
-				h1.formatted-title{
-					color: $white;
-					font-size: 150px;
-					font-style: italic;
-					text-transform: uppercase;
-					letter-spacing: 5%;
-					strong{
-						display: block;
-						@include desk {
-							display: inline;
-						}
-						font-style: normal;
-						font-family: $header;
-						font-size: 161px;
-						letter-spacing: unset;
-					}
-				}
-			}
-			//when no hero
-			.hero-none &{
-				.page-header-text-inner{
-					@include centeredHeaderText;
-					&:after{
-						content: '';
-						display: block;
-						position: absolute;
-						top: 0;
-						left: 0;
-						width: 100%;
-						height: 400px;
-						z-index: -1;
-						background: $siteBack;
-					}//end after
-				}//end page header text inner
-			}//end no hero
-			// when pattern hero
-			.hero-pattern &{
-				@include centeredHeaderText;
-				h1.formatted-title{
-					color: $white;
-				}
-			}
-			//when image right or background hero{
-			.hero-image &,.hero-background_image &{
-				@include desk{
-					width: 50%;
-				}
-				.field{
-					color: $white;
-				}
-			}
-			//when full image
-			.hero-full_image &{
-				height: calc(100vh - 114px);
-				max-width: 1000px;
-				@include auto;
-				@include safeFlex(column,nowrap,end,start);
-				padding-bottom: 100px;
-				position: relative;
-				.page-header-text-inner{
-					.page-title {
-						color: $white;
-					}
-				}
-			}
-		}//end page header text
-		.hero-background{
-			position: absolute;
-			top: 0;
-			right: 0;
-			bottom: 0;
-			left: 0;
-			z-index: -1;
-			& *{
-				height: 100%;
-			}
-			img{
-				object-fit: cover;
-			}
-		}//end hero background
-		.swirl-pattern{
-			position: absolute;
-			right: 0;
-			top: 0;
-		}
-		.video-hero{
-			position: absolute;
-		  top: 50px;
-		  left: 0;
-		  right: 0;
-		  bottom: 0;
-		  display: flex;
-		  align-items: center;
-			justify-content: center;
-			.stripes-first {
-				position: absolute;
-				bottom: 0;
-				left: -100px;
-				transform: scale(-1, -1);
-				z-index: 1;
-			}
-			.stripes-last {
-				position: absolute;
-				top: -100px;
-				right: -100px;
-				z-index: 1;
-			}
-			.video-hero-mask{
-				width: 100vw;
-        max-width: 700px;
-				height: 66vw;
-        max-height: 466px;
-				position: relative;
-        margin-top: 150px;
-        @include smallTab{
-          margin-top: 80px;
+    /* HERO IMAGE RIGHT HALF */
+		&.page-hero-image{
+      @include heroRightImage;
+      @include desk{
+        margin-bottom: 11vw;
+      }
+      @include menuStop{
+        margin-bottom: 16vw;
+      }
+      @include contentStopMargin{
+        margin-bottom: 23vw;
+      }
+      @include contentStop{
+        margin-bottom: 20vw;
+      }
+      @media screen and (min-width: 1600px){
+        margin-bottom: 17vw;
+      }
+      @media screen and (min-width: 1900px){
+        margin-bottom: 16vw;
+      }
+      @media screen and (min-width: 2400px){
+        margin-bottom: 14vw;
+      }
+      .page-header-text{
+        margin-bottom: 0;
+        @include desk{
+          .hide-nav &{
+            padding-top: 80px;
+          }
         }
-			}
-			.video-mask-inner{
-				position: absolute;
-			  top: 0;
-			  left: -20vw;
-			  right: -20vw;
-			  bottom: 0;
-			  display: flex;
-			  align-items: center;
-			  justify-content: center;
-        @include rotate(-16);
-        clip-path: inset(0 0 0 0);
-        @include smallTab{
+        .breadcrumb{
+          padding-left: 20px;
+          padding-right: 20px;
+        }
+        .page-header-text-inner{
+          .node-title{
+            margin-bottom: $spaceMd;
+          }
+          .node-subtitle,.node-body{
+            @include onlyMobile{
+              padding-left: 20px;
+              padding-right: 20px;
+            }
+            a{
+              font-weight: $heavy;
+              @include dottedLink($white);
+              &:hover,&:focus{
+                background-image: none;
+                opacity: .7;
+              }
+            }
+          }//end subtitle/body
+        }//end page header text inner
+      }//end page header text
+      .field-links{
+        padding-left: 40px;
+        max-width: 1092px;
+        @include desk{
+          align-items: flex-start;
+          padding-left: 20px;
+          margin-top: 20px;
+        }
+      }
+    }//end page hero image
+
+    /* BACKGROUND PATTERNED HERO WITH IMAGE RIGHT HALF */
+		&.page-hero-background-image {
+      @include heroRightImage;
+      overflow: hidden;
+      padding-bottom: 29vw;
+      background-size: 1273px 958px !important;
+      background-position: left -250px bottom -70px !important;
+      @include heroHeaderInvade;
+      @include onlyMobile{
+        margin-bottom: $elementSpace;
+      }
+      @include smallTab{
+        background-size: cover !important;
+        background-position: center !important;
+      }
+      @include desk{
+        margin-bottom: 2rem;
+        padding-bottom: 29vw;
+      }
+      @include contentStopMargin{
+        margin-bottom: 0;
+      }
+      @media screen and (min-width: 1600px){
+        margin-bottom: -2vw;
+      }
+      @media screen and (min-width: 1900px){
+        margin-bottom: -4vw;
+      }
+      @media screen and (min-width: 2400px){
+        margin-bottom: -6vw;
+      }
+      &:before{
+        top: auto;
+        bottom: -1px;
+        background: $siteBack;
+        z-index: 1;
+        clip-path: polygon(100% 0, 100% 100%, 0 100%,);
+        @include desk{
+          content: '';
+          display: block;
+          position: absolute;
           left: 0;
-          right: 0;
+          height: 29vw;
+          width: 100vw;
         }
-        & > *{
-          @include rotate(16);
+      }
+      .hero-image{
+        .image-right{
+          @include desk{
+            top: 100px;
+            @include animation('fadeIn 1.25s 1');
+          }
+          @include menuStop{
+            top: 120px; 
+          }
+          &:before{
+            @include animation('fadeInDelay 1s 1');
+            content: '';
+            position: absolute;
+            bottom: -195px;
+            z-index: 0;
+            width: 72px;
+            height: 128px;
+            background-image: url(../images/elements/fat-stripes-blue.svg);
+            background-repeat: no-repeat;
+            background-size: 100%;
+            @keyframes heroSwirlSlideImage {
+              from {
+                right: -200vw;
+              }
+              to {
+                right: 0;
+              }
+            }
+            animation: heroSwirlSlideImage 1.5s forwards;
+            @include smallTab{
+              bottom: -68px;
+            }
+            @include desk{
+              bottom: -20px;
+              z-index: -1;
+              width: 150px;
+              height: 242px;
+              background-position: bottom left;
+              right: auto;
+              @keyframes heroSwirlSlideImage {
+                from {
+                  left: 200vw;
+                }
+                to {
+                  left: -30px;
+                }
+              }
+              animation: heroSwirlSlideImage 1.5s forwards;
+            }//end desk
+            @include contentStop{
+              width: 222px;
+              height: 344px;
+              bottom: -35px;
+            }//end content stop
+          }//end image before
+          &:after{
+            content: none;
+          }
+        }//end image right
+      }//end hero image
+      .page-header-text{
+        margin-bottom: 0;
+        @include desk{
+          background: none;
+          .hide-nav &{
+            padding-top: 80px;
+          }
+          &:after{
+            content: none;
+          }
         }
-			}
-		}//end hero video
-		.image-right{
-			@include desk{
-				width: 50%;
-				order: 2;
-			}
-		}
-		.scroll-link{
-			position: absolute;
-			bottom: 150px;
-			right: 300px;
-			z-index: 10;
-			font-family: $header;
-			a{
-				color: $gold;
-				text-transform: uppercase;
-				.link-arrow {
-						width: 40px;
-						height: 40px;
-						border: 1px solid $gold;
-						border-radius: 50%;
-						display: block;
-						@include auto;
-					span {
-						@include visuallyHidden;
-					}
-					&:after {
-						content: '';
-						display: block;
-						-webkit-mask: url(../images/arrows/right-arrow-gold-sm.svg) no-repeat 50% 50%;
-						mask: url(../images/arrows/right-arrow-gold-sm.svg) no-repeat 50% 50%;
-						-webkit-mask-size: contain;
-						mask-size: contain;
-						background-color:currentColor;
-						margin-left: .5em;
-						width: 25px;
-						height: 25px;
-						transform: rotate(90deg);
-						margin-top: 5px;
-						margin-left: 7px;
-					}
-				}
-			}
-		}
+        .breadcrumb{
+          padding-left: 20px;
+          padding-right: 20px;
+        }
+        .page-header-text-inner{
+          .node-title{
+            margin-bottom: $spaceMd;
+          }
+          .node-subtitle,.node-body{
+            @include onlyMobile{
+              padding-left: 20px;
+              padding-right: 20px;
+            }
+            a{
+              font-weight: $heavy;
+              @include dottedLink($white);
+              &:hover,&:focus{
+                background-image: none;
+                opacity: .7;
+              }
+            }
+          }//end subtitle/body
+        }//end page header text inner
+      }//end page header text
+      .field-links{
+        padding-left: 40px;
+        max-width: 1092px;
+        @include desk{
+          align-items: flex-start;
+          padding-left: 20px;
+          margin-top: 20px;
+        }
+      }
+    }//end background hero
+
+    /* FULL WIDTH IMAGE HERO */
+		&.page-hero-full-image {
+      @include heroFullWidthImage;
+      margin-top: -88px;
+      padding-top: -88px;
+      .page-header-text{
+        .page-header-text-inner{
+          .in-main-menu &{
+            @include menuStop{
+              .node-title{
+                margin-bottom: 100px;
+              }
+            }
+          }
+        }//end page header text inner
+      }//end page header test
+		}//end full image
+
+    /* VIDEO HERO */
+    &.page-hero-video{
+      @include heroHeaderInvade;
+      @include edgeToEdge;
+      padding-left: 40px;
+      padding-right: 40px;
+      padding-top: 88px;
+      color: $white;
+      min-height: calc(100vh + 88px);
+      margin-top: -88px;
+      background-size: 1440px 1024px !important;
+      background-position: left 40% bottom -70px !important;
+      @include tab{
+        background-size: cover !important;
+        background-position: center !important;
+      }
+      @media screen and (min-width: 2000px){
+        background-size: 2000px auto !important;
+      }
+      .page-header-text{
+        .page-header-text-inner{
+          width: 100%;
+          height: calc(100vh - 88px);
+          @include safeFlex(column,nowrap,end,start);
+          position: relative;
+          z-index: 5;
+          @include desk{
+            height: calc(100vh - 100px);
+            justify-content: center;
+            align-items: center;
+          }
+          @include menuStop{
+            height: calc(100vh - 110px);
+          }
+          .node-title{
+            @include desk{
+              margin-bottom: 0;
+            }
+            h1.formatted-title{
+              color: $white;
+              font-size: 74px;
+              font-style: italic;
+              text-transform: uppercase;
+              letter-spacing: .05em;
+              line-height: 1;
+              @include desk{
+                font-size: 100px;
+              }
+              @include contentStop{
+                font-size: 150px;
+              }
+              strong{
+                display: block;
+                font-size: 78px;
+                font-style: normal;
+                font-family: $header;
+                letter-spacing: unset;
+                @include desk {
+                  display: inline;
+                  font-size: 106px;
+                }
+                @include contentStop{
+                  font-size: 161px;
+                }
+              }//end strong
+            }//end formatted title
+          }//end node-title
+          .scroll-link{
+            text-align: center;
+            font-family: $header;
+            @include auto;
+            margin-bottom: $spaceMd;
+            max-width: 1104px;
+            @include smallTab{
+              margin-right: 0;
+            }
+            @include desk{
+              position: absolute;
+              top: calc(100vh - 210px);
+              right: 0;
+              margin-left: 0;
+            }
+            @media screen and (min-width: 1144px){
+              right:calc(50% - 502px);
+            }
+            a{
+              color: $gold;
+              text-transform: uppercase;
+              font-size: 21px;
+              line-height: 1.2;
+              letter-spacing: .05em;
+              .link-arrow {
+                width: 40px;
+                height: 40px;
+                border: 1px solid $gold;
+                border-radius: 50%;
+                display: block;
+                @include auto;
+                margin-top: 6px;
+                span {
+                  @include visuallyHidden;
+                }
+                &:after {
+                  content: '';
+                  display: block;
+                  -webkit-mask: url(../images/arrows/right-arrow-gold-sm.svg) no-repeat 50% 50%;
+                  mask: url(../images/arrows/right-arrow-gold-sm.svg) no-repeat 50% 50%;
+                  -webkit-mask-size: contain;
+                  mask-size: contain;
+                  background-color:currentColor;
+                  margin-left: .5em;
+                  width: 25px;
+                  height: 25px;
+                  transform: rotate(90deg);
+                  margin-top: 5px;
+                  margin-left: 7px;
+                }
+              }//end link arrow
+            }//emnd a
+          }//end video scroll link
+        }// end video page header text inner
+      }//end video page header text
+
+      .video-hero{
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .video-hero-mask{
+          width: 100vw;
+          max-width: 620px;
+          height: 78vw;
+          max-height: 425px;
+          position: relative;
+          @include desk{
+            .logged-in &{
+              top: 20px;
+            }
+            &:before{
+              content: url(../images/elements/stripes-narrow-gold.svg);
+              display: block;
+              width: 263px;
+              height: 171px;
+              position: absolute;
+              top: -50px;
+              right: -60px;
+              @include animation('fadeInDelay 1.5s 1 forwards');
+              z-index: 1;
+            }
+            &:after{
+              content: url(../images/elements/stripes-narrow-gold.svg);
+              display: block;
+              width: 263px;
+              height: 171px;
+              position: absolute;
+              bottom: -60px;
+              left: -60px;
+              @include rotate(180);
+              @include animation('fadeInDelay 1.5s 1 forwards');
+              z-index: 1;
+            }
+          }//end desk
+        }//end video mask
+        .video-mask-inner{
+          position: absolute;
+          top: -58px;
+          left: -20vw;
+          right: -20vw;
+          bottom: 0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          @include rotate(-16);
+          clip-path: inset(0 0 0 0);
+          @include smallTab{
+            top: 1vw;
+            left: 0;
+            right: 0;
+          }
+          @include menuStop{
+            top: 25px;
+          }
+          & > *{
+            @include rotate(16);
+          }
+        }//end video mask inner
+      }//end hero video
+      #scroll-anchor{
+        position: absolute;
+        bottom: 10px;
+        left: 0;
+      }
+    }//end video hero
+
+    /* GLOBAL HEADER TEXT & FIELD THEMING */
+    .page-header-text{
+      .page-header-text-inner{
+        .node-title{
+          margin-bottom: 8rem;
+        }
+        .node-subtitle{
+          margin-bottom: $spaceSm;
+        }
+      }//end page header text inner
+    }//end page header text
+
+    .field-links{
+      padding: 120px 20px 40px;
+      max-width: 984px;
+      position: relative;
+      z-index: 1;
+      @include auto;
+      @include smallTab{
+        padding-top: 40px;
+        padding-right: 0;
+        @include safeFlex(column,nowrap,end,end);
+        & > div{
+          width: 210px;
+        }
+      }
+      @include desk {
+        margin-top: 10vw;
+        margin-bottom: 0;
+      }
+      @media screen and (min-width: 1650px){
+        margin-top: 11vw;
+      }
+      @media screen and (min-width: 2100px){
+        margin-top: 12vw;
+      }
+      @media screen and (min-width: 2500px){
+        margin-top: 13vw;
+      }
+    }//end field links
+
+    .block-system-breadcrumb-block{
+      display: none;
+      @include desk{
+        position: relative;
+        z-index: 1;
+        margin-bottom: $elementSpace;
+        display: block;
+      }
+    }//end block
 	}//end page-header-wrapper
 
+  /* WHEN THERE IS NO HERO */
+  .hero-none &{
+    .main-node-content{
+      position: relative;
+    }
+    .node-intro-simple{
+      @include heroSimpleBackground;
+      left: -20px;
+      top: -10px;
+    }//end intro simple
+    .page-header-text{
+      .block-system-breadcrumb-block{
+        max-width: 1116px;
+        @include auto;
+        margin-bottom: $spaceMd;
+      }
+      .page-header-text-inner{
+        margin-top: 10px;
+        position: relative;
+        z-index: 1;
+        max-width: 1116px;
+        @include auto;
+        padding: 80px $siteMarginMobile 60px;
+        &:first-child{
+          @include desk{
+            border-top: 40px solid $brightBlue;
+          }
+        }
+        &:after{
+          content: '';
+          display: block;
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          background: $white;
+          height: calc(100vh - 120px);
+          z-index: -1;
+        }
+        .node-title{
+          margin-bottom: 0;
+          max-width: 867px;
+          @include auto;
+          h1.page-title{
+            color: $brightBlue;
+            @include tab{
+              font-size: 6.5rem;
+              line-height: 1.1;
+            }
+          }
+        }
+        .field:not(.title){
+          max-width: $textMax;
+          @include auto;
+        }
+      }//end page header text inner
+    }//end page header text when no hero
+  }//end no hero
+  .logged-in.hero-none &{
+    .main-node-content{
+      padding-top: 10px;
+    }
+  }
+  //adjust some elements when there is no hero but the page is in the menu
+  .hero-none.in-main-menu:not(.hide-nav) &{
+    .page-header-text{
+      .page-header-text-inner{
+        .node-title{
+          max-width: $textMax;
+          @include contentStop{
+            max-width: 867px;
+          }
+        }
+      }
+    }//end page header text
+  }//end hero none in menu
+
+  #node-section-2{
+    .layout--twocol-sideleft{
+      position: relative;
+      .layout__region--content{
+        padding-left: 20px;
+        padding-right: 20px;
+        @include desk{
+          width: 100%;
+        }
+        @include menuStop{
+          &:not(:only-child){
+            width: 100%;
+            @include auto;
+          }
+        }
+        //hide alternate breadcrumb/body/subsitle for pages with heros that have that content in the hero
+        .hero-pattern &,.hero-background_image &,.hero-image &{
+          .block-system-breadcrumb-block,.block-field-subtitle,.block-field.block-body{
+            display: none;
+          }
+        }
+        .hero-none &{
+          @include menuStop{
+            &:after{
+              content: '';
+              display: block;
+              position: absolute;
+              top: 0;
+              left: calc(50% - 558px);
+              height: 100%;
+              z-index: -10;
+              background: $siteBack;
+              width: 1116px;
+            }
+          }
+          .block-system-breadcrumb-block{
+            display: none;
+          }
+        }
+        //set widths for alternate bread/subtitle/body when shown
+        .block-system-breadcrumb-block{
+          max-width: 1092px;
+          @include auto;
+          margin-top: -60px;
+          .in-main-menu &{
+            @include menuStop{
+              max-width: $textMax;
+              margin-left: 19.5vw;
+            }
+            @include contentStop{
+              max-width: $largeTab;
+              margin-left: auto;
+            }
+          }
+        }
+        .block-field-subtitle{
+          max-width: $textMax;
+          @include auto;
+          margin-bottom: $spaceSm;
+        }
+        .block-field.block-body{
+          max-width: $textMax;
+          @include auto;
+        }
+      }//end layout region content
+    }//end two column side left
+    //when breadcrumbs are in the main content (full image & video heros)
+    .block-system-breadcrumb-block{
+      display: none;
+      @include desk{
+        display: block;
+      }
+      .breadcrumb{
+        li{
+          color: $navy;
+          a{
+            color: $navy;
+            &:hover,&:focus{
+              @include dottedLink($navy);
+            }
+          }
+        }
+      }//end breadcrumb
+    }//end breadcrumb block
+  }//end node section 2;
+  #node-section-3{
+    .widget.layout-section:last-child{
+      .paragraph:last-child{
+        @include contentStop{
+          margin-bottom: 0;
+        }
+      }
+    }
+  }//end node section 3
 	.block-field-page-family{
-		max-width: 914px;
+		max-width: $breakoutWidth;
 		@include auto;
 	}
+  .node-section:last-child >.layout >.layout__region:last-child{
+    margin-bottom: 0;
+  }
 }//end basic page

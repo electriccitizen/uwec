@@ -70,14 +70,19 @@ Drupal.behaviors.smoothAnchorator = {
         if (link.getAttribute('href').match(/^#[a-zA-Z]/)) {
           link.addEventListener('click', function(event) {
           event.preventDefault();
-
+          
           const targetId = link.getAttribute('href').substring(1);
           const targetElement = document.getElementById(targetId);
-      
+
+          let scrollPosition = 'center';
+          if(targetId == 'scroll-anchor'){
+            scrollPosition = 'start';
+          }
+
           if (targetElement) {
             targetElement.scrollIntoView({
               behavior: 'smooth',
-              block: 'center',
+              block: scrollPosition,
             });
           }
         });

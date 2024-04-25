@@ -12,6 +12,7 @@
 @forward 'video-card/video-card-views';
 @forward 'facts/facts-views';
 @forward 'departments/department-views';
+@forward 'jobs/job-search';
 
 @use '../../00-base/base' as *;
 

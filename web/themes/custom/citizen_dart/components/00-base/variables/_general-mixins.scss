@@ -191,15 +191,6 @@
   @include u.menuStop{
     min-height: calc(100vh - 110px);
   }
-  .logged-in &{
-    min-height: calc(100vh - 137px);
-    @media screen and (min-width: 976px){
-      min-height: calc(100vh - 216px);
-    }
-    @include u.menuStop{
-      min-height: calc(100vh - 226px);
-    }
-  }//end logged in min heights
 }//end height 100
 
 /*  STYLE MIXINS
@@ -378,6 +369,42 @@
 	height: #{$height};
 }
 
+@mixin rollingSeal {
+  padding-top: 8rem;
+  position: relative;
+  margin: 0 auto -3rem;
+  max-width: 400px;
+  &:before {
+    background: url("../images/logos-badges/seal.svg") no-repeat transparent;
+    content: '';
+    display: none;
+    height: 125px;
+    position: absolute;
+    right: 200vw;
+    top: 1rem;
+    width: 125px;
+    z-index: -1;
+  }
+  &.visible:before {
+    @include animation('sealRollRight 1s');
+    display: block;
+    right: 8%;
+  }
+  @include u.desk {
+    max-width: 100%;
+    margin-bottom: 0;
+    &:before {
+      top: 20px;
+      width: 152px;
+      height: 152px;
+    }
+    &.visible:before {
+      @include animation('sealRollRightDesk 1s');
+      right: 86%;
+    }
+  }
+}
+
 @mixin narrowStripes($stripeColor){
 	content: '';
 	display: block;
@@ -397,7 +424,7 @@
 	clip-path: polygon(0 0, 100% 0, 100% 43%, 0 100%);
 }
 
-@mixin fatStripes($stripeColor){
+@mixin fatStripes($stripeColor, $size: 40px){
 	content: '';
 	display: block;
 	position: absolute;
@@ -408,10 +435,10 @@
 	z-index: -1;
 	background: repeating-linear-gradient(
 	  0deg,
-	  #{$stripeColor},
-	  #{$stripeColor} 40px,
-	  transparent 40px,
-	  transparent 80px
+	  $stripeColor,
+	  $stripeColor $size,
+	  transparent $size,
+	  transparent calc($size * 2)
 	);
 	@include skew(0,-16);
 }
@@ -487,6 +514,7 @@
   $hover-border: c.$navy;
   $back: transparent;
   $hover-back: $arrow;
+  $dots: c.$brightBlue;
 
   $dotted-padding: 2px;
 
@@ -494,6 +522,7 @@
     $arrow-invert: navy;
     $hover-back: c.$white;
     $hover-border: c.$white;
+    $dots: c.$white;
   }
   @if $theme == brightBlue {
     $arrow: c.$brightBlue;
@@ -507,6 +536,7 @@
     $arrow-string: royal;
     $border: c.$royal;
     $hover-back: $arrow;
+    $dots: c.$royal;
   }
   @if $theme == white {
     $arrow: c.$white;
@@ -515,6 +545,7 @@
     $arrow-invert: royal;
     $hover-border: $arrow;
     $hover-back: $arrow;
+    $dots: c.$white;
   }
   @if $theme == gold {
     $arrow: c.$gold;
@@ -523,8 +554,8 @@
     $hover-border: c.$white;
     $arrow-invert: navy;
     $hover-back: c.$white;
+    $dots: c.$white;
   }
-
   @if $size == sm {
     $dotted-padding: 1px;
   }
@@ -545,7 +576,7 @@
       @include rightArrow($arrow-invert, $hover-back, $hover-border, $size);
     }
     #{$dotted-selector} {
-      @include dottedLink($hover-border);
+      @include dottedLink($dots);
       padding-bottom: $dotted-padding;
     }
   }
@@ -590,6 +621,9 @@
 }
 
 @mixin factsGrid{
+  .fact {
+    min-width: 33%;
+  }
 	.fact-1{
 		grid-column-start: 3;
     grid-column-end: 4;
@@ -1213,6 +1247,28 @@
 	100%{
 		opacity: 1;
 	}
+}
+
+@include keyframes(sealRollRight) {
+  from {
+    right: 200vw;
+    transform: rotateZ(-360deg);
+  }
+  to {
+    right: 10%;
+    transform: rotateZ(0);
+  }
+}
+
+@include keyframes(sealRollRightDesk) {
+  from {
+    right: 200vw;
+    transform: rotateZ(-360deg);
+  }
+  to {
+    right: 85%;
+    transform: rotateZ(0);
+  }
 }
 
 .fadeIn {

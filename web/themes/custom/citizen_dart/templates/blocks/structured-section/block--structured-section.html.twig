@@ -10,32 +10,34 @@
  */
 #}
 
-
 {% extends 'block.html.twig' %}
-
 
 {% block blockContent %}
 
+  {{ attach_library('citizen_dart/page-structured-section') }}
+
   {{ content|without('field_formatted_headline', 'body', 'field_program_finder', 'field_cta_image', 'field_cta_links')}}
-   
+
   <div class="cta-section">
     {% if bgImageUrl %} <img src="{{ bgImageUrl }}" alt="" class="bg-image" />{% endif %}
     <div class="cta-section-inner">
-      <div class="first">
+      <div class="column first">
         {{ content.field_formatted_headline }}
         {{ content.body }}
         {% if content.field_program_finder.0['#markup'] == "On" %}
           <div class="program-search">
-            <h3>What do you want to study?</h3>
+            <h3>{% trans %}What do you want to study?{% endtrans %}</h3>
             {{ drupal_block('program_search') }}
           </div>
         {% endif %}
       </div>
-      <div class="last">
+      <div class="column cta-image">
         {{ content.field_cta_image }}
+      </div>
+      <div class="column last">
         {{ content.field_cta_links }}
       </div>
     </div>
-  </div>  
+  </div>
   <div class="angle-cut"></div>
 {% endblock %}

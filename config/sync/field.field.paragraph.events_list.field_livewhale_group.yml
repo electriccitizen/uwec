@@ -12,7 +12,7 @@ field_name: field_livewhale_group
 entity_type: paragraph
 bundle: events_list
 label: 'Livewhale Group'
-description: ''
+description: 'To request a new event feed, please email imc@uwec.edu.'
 required: false
 translatable: false
 default_value: {  }

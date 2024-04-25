@@ -58,9 +58,6 @@
 }
 
 /* FEATURED NEWS */
-.news.all-news{
-  @include paragraphSnug;
-}
 .news.featured-stories{
   padding-bottom: $spaceXl;
   max-width: $largeTab;
@@ -194,11 +191,14 @@
   position: relative;
   max-width: $contentStopMargin;
   @include auto;
-  &:after{
+  &:after {
     @include fullBack($brightBlue);
-    height: 100vh;
+    height: 50vw;
     z-index: -3;
     top: 100%;
+    @include desk {
+      height: 31vw;
+    }
   }
   h2.block-title{
     color: $white;
