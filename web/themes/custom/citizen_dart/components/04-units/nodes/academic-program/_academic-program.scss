@@ -83,6 +83,9 @@
   }
   .block-field-degree-types {
     margin-bottom: 3px;
+    &:last-child{
+      margin-bottom: $elementSpace;
+    }
   }
   .program-details-wrapper, .accreditation-wrapper {
     @include auto;
