@@ -123,6 +123,10 @@
     @include desk{
       padding: 0 20px 60px;
     }
+    & > ul:first-child,& > ol:first-child{
+      margin-top: 0;
+      padding-top: 2rem;
+    }
 	}
 
 	//active accordion
