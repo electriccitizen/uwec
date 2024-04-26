@@ -283,6 +283,15 @@
     .contact-wrapper{
       padding-top: 56px;
       padding-bottom: 50px;
+      @include menuStop{
+        min-height: 20vw;
+      }
+      @media screen and (min-width: 1800px){
+        min-height: 18vw;
+      }
+      @media screen and (min-width: 2100px){
+        min-height: 15vw;
+      }
     }
     .contact-title{
       @include contactTitle;
