@@ -1,10 +1,8 @@
-uuid: 5c3d4dc8-6e81-4522-adb7-9b5758a321d2
+uuid: 508fa1d7-56bc-4fe6-9a86-e3b21c447de9
 langcode: en
 status: true
 dependencies:
   config:
-    - filter.format.limited_html
-    - filter.format.short_text_formatted_html
     - media.type.document
     - media.type.image
     - media.type.remote_video
@@ -14,6 +12,7 @@ dependencies:
     - node.type.contact
     - node.type.department
     - node.type.hours
+    - node.type.job
     - node.type.news
     - node.type.page
     - workflows.workflow.non_moderated
@@ -23,38 +22,31 @@ dependencies:
     - domain
     - domain_access
     - domain_alias
-    - file
-    - filter
     - media
     - node
     - paragraphs_type_permissions
     - responsive_preview
     - shortcut
     - smart_date_recur
-    - system
-    - toolbar
     - view_unpublished
     - workbench_access
-_core:
-  default_config_hash: EXd6odxtI3ATSRa8lIDzgMFLGlfXgkm31FsS0ncrzl8
-id: editor
-label: Editor
-weight: 4
+id: jobs_and_editor
+label: 'Jobs and Editor'
+weight: 10
 is_admin: null
 permissions:
-  - 'access administration pages'
   - 'access content overview'
   - 'access media overview'
   - 'access responsive preview'
   - 'access shortcuts'
-  - 'access toolbar'
   - 'cancel smart date recur instances'
   - 'create contact content'
   - 'create document media'
   - 'create hours content'
   - 'create image media'
+  - 'create job content'
+  - 'create job content on assigned domains'
   - 'create remote_video media'
-  - 'delete own files'
   - 'delete paragraph content external_articles'
   - 'delete paragraph content external_articles_item'
   - 'edit any bios content'
@@ -62,6 +54,7 @@ permissions:
   - 'edit any document media'
   - 'edit any hours content'
   - 'edit any image media'
+  - 'edit any job content'
   - 'edit any page content'
   - 'edit any remote_video media'
   - 'edit own bios content'
@@ -69,6 +62,7 @@ permissions:
   - 'edit own document media'
   - 'edit own hours content'
   - 'edit own image media'
+  - 'edit own job content'
   - 'edit own page content'
   - 'edit own remote_video media'
   - 'make smart dates recur'
@@ -79,6 +73,7 @@ permissions:
   - 'update bios content on assigned domains'
   - 'update contact content on assigned domains'
   - 'update hours content on assigned domains'
+  - 'update job content on assigned domains'
   - 'update page content on assigned domains'
   - 'update paragraph content external_articles'
   - 'update paragraph content external_articles_item'
@@ -87,8 +82,6 @@ permissions:
   - 'use non_moderated transition archive'
   - 'use non_moderated transition create_new_draft'
   - 'use non_moderated transition publish'
-  - 'use text format limited_html'
-  - 'use text format short_text_formatted_html'
   - 'use workbench access'
   - 'view any unpublished academic_program content'
   - 'view any unpublished bios content'
@@ -102,8 +95,8 @@ permissions:
   - 'view contact revisions'
   - 'view domain aliases'
   - 'view hours revisions'
+  - 'view job revisions'
   - 'view own unpublished content'
   - 'view page revisions'
-  - 'view the administration theme'
   - 'view unpublished domain content'
   - 'view workbench access information'

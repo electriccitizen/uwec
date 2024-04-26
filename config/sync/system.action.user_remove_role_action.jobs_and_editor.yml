@@ -1,0 +1,14 @@
+uuid: 71b4d3e5-717d-4efc-ae2f-3f013d3d8bd6
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.jobs_and_editor
+  module:
+    - user
+id: user_remove_role_action.jobs_and_editor
+label: 'Remove the Jobs and Editor role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: jobs_and_editor
