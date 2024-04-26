@@ -5,6 +5,10 @@
 @use '../../../00-base/base' as *;
 @use '../node-mixins' as *;
 
+$videoHeight: 65vh;
+$videoWidth: $videoHeight * 1.4153;
+
+
 /* PAGE CONTENT */
 .node-page{
   //nug up to footer at larger screen sizes
@@ -515,10 +519,18 @@
         justify-content: center;
         .video-hero-mask{
           width: 100vw;
-          max-width: 620px;
           height: 78vw;
-          max-height: 425px;
+          max-width: $videoWidth;
+          max-height: $videoHeight;
           position: relative;
+          margin-top: -15vw;
+          @include smallTab{
+            margin-top: 0;
+            width: $videoWidth;
+            height: $videoHeight;
+            max-width: 892px;
+            max-height: 630px;
+          }
           @include desk{
             .logged-in &{
               top: 20px;
@@ -711,9 +723,11 @@
   #node-section-2{
     .layout--twocol-sideleft{
       position: relative;
-      .layout__region--content{
-        padding-left: 20px;
-        padding-right: 20px;
+      & > .layout__region--content{ 
+        & > .block-field:not(.block-field-paragraphs){
+          padding-left: 20px;
+          padding-right: 20px;
+        }
         @include desk{
           width: 100%;
         }

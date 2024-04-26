@@ -9,7 +9,7 @@
   position: relative;
   padding: 35px 0;
   @include menuStop{
-    padding: 60px 0 80px;
+    padding: 60px 20px 80px;
   }
   &:after{
     @include fullBack($lightGrey);
@@ -17,10 +17,13 @@
   .node-type-page & {
     @include menuStop {
       @include auto;
-      max-width: 750px;
+      max-width: 54vw;
       &:after {
         display: none;
       }
+    }
+    @include contentStop{
+      max-width: 914px;
     }
   }
   .widget-section > .layout--onecol &{
@@ -119,6 +122,10 @@
 		border-right: 1px solid $accordContentBorder;
     @include desk{
       padding: 0 20px 60px;
+    }
+    & > ul:first-child,& > ol:first-child{
+      margin-top: 0;
+      padding-top: 2rem;
     }
 	}
 

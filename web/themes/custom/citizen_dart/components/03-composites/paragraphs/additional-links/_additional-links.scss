@@ -12,12 +12,10 @@
 		@include safeFlex(row,wrap,center,stretch);
 		@include bleed(padding,20px);
     &.links-count-left {
-      @include safeFlex(row, wrap, start, stretch);
+      @include desk {
+        @include safeFlex(row, wrap, start, stretch);
+      }
     }
-    @include desk {
-      @include safeFlex(row, wrap, start, stretch);
-    }
-
 		.widget-section > .layout:not(.layout--onecol) &{
 			@include smallTab{
 				@include safeFlex(row,wrap,center,stretch);
