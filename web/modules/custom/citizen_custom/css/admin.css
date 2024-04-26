@@ -23,7 +23,11 @@ button[disabled]:hover,button.disabled:hover{
 	z-index: 1261 !important;
 }
 
-.role-personnel .ck.ck-button.ck-source-editing-button,.role-editor .ck.ck-button.ck-source-editing-button,.role-marketing_editor .ck.ck-button.ck-source-editing-button,.role-section_manager .ck.ck-button.ck-source-editing-button{
+.role-personnel .ck.ck-button.ck-source-editing-button,
+.role-editor .ck.ck-button.ck-source-editing-button,
+.role-jobs_and_editor .ck.ck-button.ck-source-editing-button,
+.role-marketing_editor .ck.ck-button.ck-source-editing-button,
+.role-section_manager .ck.ck-button.ck-source-editing-button{
 	display: none;
 }
 
@@ -233,6 +237,9 @@ button[disabled]:hover,button.disabled:hover{
 .role-editor fieldset[data-drupal-selector="edit-layout-paragraphs-layout"],
 .role-editor .form-item--layout-paragraphs-config-column-widths,
 .role-editor .lpb-duplicate,
+.role-jobs_and_editor fieldset[data-drupal-selector="edit-layout-paragraphs-layout"],
+.role-jobs_and_editor .form-item--layout-paragraphs-config-column-widths,
+.role-jobs_and_editor .lpb-duplicate,
 .role-marketing_editor fieldset[data-drupal-selector="edit-layout-paragraphs-layout"],
 .role-marketing_editor .form-item--layout-paragraphs-config-column-widths,
 .role-marketing_editor .lpb-duplicate,
@@ -267,6 +274,7 @@ button[disabled]:hover,button.disabled:hover{
 	min-height: 3.4rem;
 }
 .role-editor .field--name-field-formatted-title .ck.ck-editor__top,
+.role-jobs_and_editor .field--name-field-formatted-title .ck.ck-editor__top,
 .role-marketing_editor .field--name-field-formatted-title .ck.ck-editor__top,
 .role-section_manager .field--name-field-formatted-title .ck.ck-editor__top,
 .role-site_manager .field--name-field-formatted-title .ck.ck-editor__top,

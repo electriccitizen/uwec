@@ -40,9 +40,9 @@
 {% extends 'field.html.twig' %}
 
 {% block fieldSingleNo %}
-	{% if element['#object'].field_first_name.0 or element['#object'].field_last_name.0 %}
-		<h1>{{- element['#object'].field_first_name.0.value }} {{ element['#object'].field_last_name.0.value -}}</h1>
-	{% endif %}
+  {% if element['#object'].field_first_name.0 or element['#object'].field_last_name.0 %}
+    <h1>{{- element['#object'].field_first_name.0.value }} {{ element['#object'].field_last_name.0.value -}}</h1>
+  {% endif %}
 
   <div class="user-meta-wrapper">
     <div class="meta-left">
@@ -53,24 +53,9 @@
       <div class="user-info">
         <div class="user-roles">
           <span class="inline-label">Role(s): </span>
-          {%- if 'administrator' in element['#object'].getroles -%}
-            <span class="role">Administrator</span>
-          {%- endif -%}
-          {%- if 'site_admin' in element['#object'].getroles -%}
-            <span class="role">Site Admin</span>
-          {%- endif -%}
-          {%- if 'section_manager' in element['#object'].getroles -%}
-            <span class="role">Section Manager</span>
-          {%- endif -%}
-          {%- if 'marketing_editor' in element['#object'].getroles -%}
-            <span class="role">Marketing Editor</span>
-          {%- endif -%}
-          {%- if 'editor' in element['#object'].getroles -%}
-            <span class="role">Editor</span>
-          {%- endif -%}
-          {%- if 'personnel' in element['#object'].getroles -%}
-            <span class="role">Personnel</span>
-          {%- endif -%}
+          {%- for role in element['#object'].getroles | filter(r => r != 'authenticated') -%}
+            <span class="role"> {{ role|replace({'_':' '})|title }} </span>
+          {%- endfor -%}
         </div>
       </div>
     </div>

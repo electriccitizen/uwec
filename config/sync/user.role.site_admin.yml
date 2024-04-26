@@ -111,6 +111,7 @@ permissions:
   - 'assign domain editors'
   - 'assign editor role'
   - 'assign editors to any domain'
+  - 'assign jobs_and_editor role'
   - 'assign marketing_editor role'
   - 'assign personnel role'
   - 'assign section_manager role'
