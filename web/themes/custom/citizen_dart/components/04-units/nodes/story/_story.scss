@@ -146,6 +146,9 @@
     .block-field-image {
       margin-bottom: $elementSpace;
       position: relative;
+      @include desk{
+        margin-bottom: 10rem;
+      }
       &:before {
         background-color: $navy;
         content: '';
