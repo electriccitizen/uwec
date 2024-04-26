@@ -36,6 +36,7 @@
       padding: 0;
       @include desk {
         display: block;
+        margin-top: -0.5rem;
       }
       li,
       li a {
