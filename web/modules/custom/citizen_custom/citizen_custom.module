@@ -176,7 +176,7 @@ function citizen_custom_form_node_form_alter(&$form, FormStateInterface $form_st
   $node = $form_state->getFormObject()->getEntity();
   $user = \Drupal::currentUser();
   $userRole = $user->getRoles();
-  if((in_array('editor', $userRole)) || (in_array('section_manager', $userRole)) || (in_array('marketing_editor', $userRole))){
+  if((in_array('editor', $userRole)) || (in_array('jobs_and_editor', $userRole)) || (in_array('section_manager', $userRole)) || (in_array('marketing_editor', $userRole))){
     $form['field_hide_nav']['#access'] = FALSE;
     $form['field_exclude_search']['#access'] = FALSE;
   }else{
