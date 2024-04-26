@@ -97,7 +97,7 @@
     color: $menuBlockTitle;
     @include menuStop{
       pointer-events: none;
-      display: none;
+      display: none !important;
     }
     .toggle-label {
       max-width: calc(100% - 112px);
