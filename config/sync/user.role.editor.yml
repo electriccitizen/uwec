@@ -50,7 +50,6 @@ permissions:
   - 'access toolbar'
   - 'cancel smart date recur instances'
   - 'create contact content'
-  - 'create document media'
   - 'create hours content'
   - 'create image media'
   - 'create remote_video media'

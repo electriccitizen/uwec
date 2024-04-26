@@ -41,7 +41,6 @@ permissions:
   - 'access shortcuts'
   - 'cancel smart date recur instances'
   - 'create contact content'
-  - 'create document media'
   - 'create hours content'
   - 'create image media'
   - 'create job content'
