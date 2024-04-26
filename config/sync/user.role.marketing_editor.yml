@@ -29,6 +29,7 @@ dependencies:
     - filter
     - media
     - node
+    - paragraphs_type_permissions
     - responsive_preview
     - shortcut
     - smart_date_recur
@@ -52,6 +53,8 @@ permissions:
   - 'create image media'
   - 'create news content'
   - 'create news content on assigned domains'
+  - 'create paragraph content external_articles'
+  - 'create paragraph content external_articles_item'
   - 'create remote_video media'
   - 'create snapshot content'
   - 'create snapshot content on assigned domains'
@@ -59,6 +62,8 @@ permissions:
   - 'create testimonial content on assigned domains'
   - 'create video_card content'
   - 'create video_card content on assigned domains'
+  - 'delete paragraph content external_articles'
+  - 'delete paragraph content external_articles_item'
   - 'edit any bios content'
   - 'edit any document media'
   - 'edit any fact content'
@@ -94,6 +99,8 @@ permissions:
   - 'update fact content on assigned domains'
   - 'update news content on assigned domains'
   - 'update page content on assigned domains'
+  - 'update paragraph content external_articles'
+  - 'update paragraph content external_articles_item'
   - 'update snapshot content on assigned domains'
   - 'update testimonial content on assigned domains'
   - 'update video_card content on assigned domains'

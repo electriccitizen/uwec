@@ -231,6 +231,13 @@ function citizen_custom_form_program_search_form_alter(&$form, FormStateInterfac
   $form['form_id']['#access'] = FALSE;
 }
 
+// I don't know what this does but I'm copying program_search so I'll add it here for funzies.
+function citizen_custom_for_job_search_form_alter(&$form, FormStateInterface $form_state){
+	$form['form_build_id']['#access'] = false;
+	$form['form_token']['#access'] = false;
+	$form['form_id']['#access'] = false;
+}
+
 function citizen_custom_form_views_exposed_form_alter(&$form, FormStateInterface $form_state, $form_id) {
 
     /* Build custom select filters from node references for program search */

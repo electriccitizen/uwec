@@ -128,6 +128,9 @@ button[disabled]:hover,button.disabled:hover{
 .lpb-component-list .lpb-component-list__group > .lpb-component-list__group--content > .type-events_list > a:before{
   background-image: url('../icons/paragraphs/events-list.svg');
 }
+.lpb-component-list .lpb-component-list__group > .lpb-component-list__group--content > .type-external_articles > a:before{
+  background-image: url('../icons/paragraphs/external-articles.svg');
+}
 .lpb-component-list .lpb-component-list__group > .lpb-component-list__group--content > .type-facts_list > a:before{
   background-image: url('../icons/paragraphs/facts-list.svg');
 }
@@ -160,6 +163,9 @@ button[disabled]:hover,button.disabled:hover{
 }
 .lpb-component-list .lpb-component-list__group > .lpb-component-list__group--content > .type-program_search > a:before{
   background-image: url('../icons/paragraphs/program-search.svg');
+}
+.lpb-component-list .lpb-component-list__group > .lpb-component-list__group--content > .type-quick_links > a:before{
+  background-image: url('../icons/paragraphs/quick-links.svg');
 }
 .lpb-component-list .lpb-component-list__group > .lpb-component-list__group--content > .type-quote > a:before{
   background-image: url('../icons/paragraphs/quote.svg');
