@@ -10,6 +10,7 @@ dependencies:
     - node.type.academic_program
     - node.type.bios
     - node.type.college
+    - node.type.contact
     - node.type.department
     - node.type.fact
     - node.type.hours
@@ -29,6 +30,7 @@ dependencies:
     - filter
     - media
     - node
+    - paragraphs_type_permissions
     - responsive_preview
     - shortcut
     - smart_date_recur
@@ -52,6 +54,18 @@ permissions:
   - 'create image media'
   - 'create news content'
   - 'create news content on assigned domains'
+  - 'create paragraph content external_articles'
+  - 'create paragraph content external_articles_item'
+  - 'create paragraph content facts_list'
+  - 'create paragraph content fauxfile'
+  - 'create paragraph content fauxfile_item'
+  - 'create paragraph content quote'
+  - 'create paragraph content select_item'
+  - 'create paragraph content select_type'
+  - 'create paragraph content snapshot_list'
+  - 'create paragraph content stories_video_list'
+  - 'create paragraph content testimonial_placer'
+  - 'create paragraph content wayfinding'
   - 'create remote_video media'
   - 'create snapshot content'
   - 'create snapshot content on assigned domains'
@@ -59,7 +73,27 @@ permissions:
   - 'create testimonial content on assigned domains'
   - 'create video_card content'
   - 'create video_card content on assigned domains'
+  - 'delete any document media'
+  - 'delete paragraph content accordion_item'
+  - 'delete paragraph content accordions'
+  - 'delete paragraph content block_placer'
+  - 'delete paragraph content cta_item'
+  - 'delete paragraph content ctas'
+  - 'delete paragraph content custom_embed'
+  - 'delete paragraph content external_articles'
+  - 'delete paragraph content external_articles_item'
+  - 'delete paragraph content facts_list'
+  - 'delete paragraph content fauxfile'
+  - 'delete paragraph content fauxfile_item'
+  - 'delete paragraph content quote'
+  - 'delete paragraph content select_item'
+  - 'delete paragraph content select_type'
+  - 'delete paragraph content snapshot_list'
+  - 'delete paragraph content stories_video_list'
+  - 'delete paragraph content testimonial_placer'
+  - 'delete paragraph content wayfinding'
   - 'edit any bios content'
+  - 'edit any contact content'
   - 'edit any document media'
   - 'edit any fact content'
   - 'edit any hours content'
@@ -71,6 +105,7 @@ permissions:
   - 'edit any testimonial content'
   - 'edit any video_card content'
   - 'edit own bios content'
+  - 'edit own contact content'
   - 'edit own document media'
   - 'edit own fact content'
   - 'edit own hours content'
@@ -85,8 +120,11 @@ permissions:
   - 'publish to any assigned domain'
   - 'reschedule smart date recur instances'
   - 'revert bios revisions'
+  - 'revert contact revisions'
   - 'revert fact revisions'
+  - 'revert hours revisions'
   - 'revert news revisions'
+  - 'revert page revisions'
   - 'revert snapshot revisions'
   - 'revert testimonial revisions'
   - 'revert video_card revisions'
@@ -94,6 +132,9 @@ permissions:
   - 'update fact content on assigned domains'
   - 'update news content on assigned domains'
   - 'update page content on assigned domains'
+  - 'update paragraph content external_articles'
+  - 'update paragraph content external_articles_item'
+  - 'update paragraph content quote'
   - 'update snapshot content on assigned domains'
   - 'update testimonial content on assigned domains'
   - 'update video_card content on assigned domains'
@@ -115,10 +156,13 @@ permissions:
   - 'view any unpublished page content'
   - 'view assigned domains'
   - 'view bios revisions'
+  - 'view contact revisions'
   - 'view domain aliases'
   - 'view fact revisions'
+  - 'view hours revisions'
   - 'view news revisions'
   - 'view own unpublished content'
+  - 'view page revisions'
   - 'view snapshot revisions'
   - 'view testimonial revisions'
   - 'view the administration theme'

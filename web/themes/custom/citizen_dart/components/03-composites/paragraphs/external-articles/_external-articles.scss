@@ -1,0 +1,39 @@
+@use '../../../00-base/base' as *;
+
+.paragraph--type--external-articles{
+	max-width: 1320px;
+	@include auto;
+
+	@include desk{
+		.field-external-articles-items{
+			@include safeFlex(row, wrap, start, start);
+			@include bleed(padding, 20px);
+			>div{
+				width:33.33%;
+				opacity:0;
+				&.external-articles-visible{
+					@include animation('fadeIn 1s 1 forwards');
+				}
+			}
+		}
+	}
+
+	a{
+		display:inline-block;
+		margin-top:2rem;
+		@include arrowLinkAfter($navy);
+
+		&:after{
+			@include rightArrow(navy, transparent, $navy, sm);
+		}
+		&:hover, &:focus{
+			&:after{
+				@include rightArrow(white, $navy, $navy, sm);
+			}
+			span{
+				@include dottedLink($navy);
+				padding-bottom:1px;
+			}
+		}
+	}
+}

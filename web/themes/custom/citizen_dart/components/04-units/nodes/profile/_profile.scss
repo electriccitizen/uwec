@@ -5,6 +5,30 @@
 @use '../../../00-base/base' as *;
 @use '../node-mixins' as *;
 
+@mixin profileSwirlAnimation{
+  @keyframes profileSwirlSlide {
+    from {
+      left: 200vw;
+    }
+    to {
+      left: 73vw;
+    }
+  }
+  animation: profileSwirlSlide 1.5s forwards;
+  @include contentStop{
+    left: auto;
+    @keyframes profileSwirlSlide {
+      from {
+        right: -200vw;
+      }
+      to {
+        right: -74px;
+      }
+    }
+    animation: profileSwirlSlide 1.5s forwards;
+  }
+}
+
 //bio node
 .node-bios{
 	#node-section-1{
@@ -77,6 +101,7 @@
       .image-wrapper {
         position: relative;
         margin-bottom: 2.5rem;
+        @include animation('fadeInDelay 1.5s 1');
         &:before {
           background-image: url(../images/elements/fat-stripes-gold.svg);
           content: '';
@@ -217,14 +242,10 @@
     .blue-swirl{
       position: absolute;
       bottom: -92px;
-      left: 73vw;
       z-index: 5;
+      @include profileSwirlAnimation;
       @include menuStop{
         bottom: -100px;
-      }
-      @include contentStop{
-        left: auto;
-        right: -74px;
       }
       svg{
         path{
@@ -262,6 +283,15 @@
     .contact-wrapper{
       padding-top: 56px;
       padding-bottom: 50px;
+      @include menuStop{
+        min-height: 20vw;
+      }
+      @media screen and (min-width: 1800px){
+        min-height: 18vw;
+      }
+      @media screen and (min-width: 2100px){
+        min-height: 15vw;
+      }
     }
     .contact-title{
       @include contactTitle;

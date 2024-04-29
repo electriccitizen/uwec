@@ -46,6 +46,10 @@ events-list:
   version: 1.0
   js:
     components/03-composites/paragraphs/events-list/events-list.js: {}
+external-articles:
+  version: 1.0
+  js:
+    components/03-composites/paragraphs/external-articles/external-articles.js: {}
 facts-list:
   version: 1.0
   js:
@@ -119,6 +123,10 @@ profiles-slider:
   version: 1.0
   js:
     components/03-composites/views/profiles/profiles-slider.js: {}
+quick-links:
+  version: 1.0
+  js:
+    components/03-composites/paragraphs/quick-links/quick-links.js: {}
 search-block:
   version: 1.0
   js:

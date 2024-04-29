@@ -1,0 +1,14 @@
+uuid: a60f93fa-2554-45e1-97be-011fdb1c8e8e
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.jobs_and_editor
+  module:
+    - user
+id: user_add_role_action.jobs_and_editor
+label: 'Add the Jobs and Editor role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: jobs_and_editor

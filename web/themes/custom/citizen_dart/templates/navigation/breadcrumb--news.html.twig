@@ -10,17 +10,6 @@
 
 {% extends 'breadcrumb.html.twig' %}
 	{% block trail %}
-		{% for item in breadcrumb %}
-			{% if loop.first %}
-				<li>
-					{% if item.url %}
-						<a href="{{- item.url -}}">{{- item.text -}}</a>
-					{% else %}
-						{{- item.text -}}
-					{% endif %}
-				</li>
-			{% endif %}
-		{% endfor %}
     <li><a href="{{ path('entity.node.canonical', {'node':'55'}) }}">View all stories</a></li>
   {% endblock %}
   {% block current %}{% endblock %}

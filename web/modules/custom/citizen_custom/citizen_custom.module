@@ -176,7 +176,7 @@ function citizen_custom_form_node_form_alter(&$form, FormStateInterface $form_st
   $node = $form_state->getFormObject()->getEntity();
   $user = \Drupal::currentUser();
   $userRole = $user->getRoles();
-  if((in_array('editor', $userRole)) || (in_array('section_manager', $userRole)) || (in_array('marketing_editor', $userRole))){
+  if((in_array('editor', $userRole)) || (in_array('jobs_and_editor', $userRole)) || (in_array('section_manager', $userRole)) || (in_array('marketing_editor', $userRole))){
     $form['field_hide_nav']['#access'] = FALSE;
     $form['field_exclude_search']['#access'] = FALSE;
   }else{
@@ -229,6 +229,13 @@ function citizen_custom_form_program_search_form_alter(&$form, FormStateInterfac
   $form['form_build_id']['#access'] = FALSE;
   $form['form_token']['#access'] = FALSE;
   $form['form_id']['#access'] = FALSE;
+}
+
+// I don't know what this does but I'm copying program_search so I'll add it here for funzies.
+function citizen_custom_for_job_search_form_alter(&$form, FormStateInterface $form_state){
+	$form['form_build_id']['#access'] = false;
+	$form['form_token']['#access'] = false;
+	$form['form_id']['#access'] = false;
 }
 
 function citizen_custom_form_views_exposed_form_alter(&$form, FormStateInterface $form_state, $form_id) {
