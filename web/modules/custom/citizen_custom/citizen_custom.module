@@ -168,6 +168,10 @@ function citizen_custom_form_media_library_add_form_upload_alter(&$form, \Drupal
 	}
 }
 
+function citizen_custom_form_media_image_add_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id){
+	$form['name']['widget'][0]['value']['#description'] = \Drupal\Core\Field\FieldFilteredMarkup::create(t('Name the image file in this format: YYYYMMDD_subject<br>e.g., 20240218_Schofield in the snow'));
+}
+
 
 /**
  * Implements hook_node_form_alter().
