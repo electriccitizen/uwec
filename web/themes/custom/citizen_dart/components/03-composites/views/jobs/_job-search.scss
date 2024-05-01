@@ -1,7 +1,21 @@
 @use '../../../00-base/base' as *;
 
 .node-teaser-job{
-	margin-bottom:4rem;
+	margin:0 auto 4rem;
+	max-width:894px;
+	border-bottom:1px solid $lightGrey;
+
+	h2 a{
+		border-bottom:1px dashed $brightBlue;
+		&:hover{
+			border-bottom:none;
+		}
+	}
+
+	.job-campus,
+	.job-types{
+		font-size:80%;
+	}
 
 	.field,
 	.field-campus>div{

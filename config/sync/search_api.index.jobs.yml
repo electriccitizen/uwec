@@ -33,11 +33,27 @@ field_settings:
     dependencies:
       config:
         - field.storage.node.field_employment_category
+  field_employment_category_1:
+    label: 'Category (fulltext)'
+    datasource_id: 'entity:node'
+    property_path: field_employment_category
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_employment_category
   field_employment_type:
     label: Type
     datasource_id: 'entity:node'
     property_path: field_employment_type
     type: string
+    dependencies:
+      config:
+        - field.storage.node.field_employment_type
+  field_employment_type_1:
+    label: 'Type (fulltext)'
+    datasource_id: 'entity:node'
+    property_path: field_employment_type
+    type: text
     dependencies:
       config:
         - field.storage.node.field_employment_type
@@ -55,6 +71,14 @@ field_settings:
     datasource_id: 'entity:node'
     property_path: field_page_family
     type: string
+    dependencies:
+      config:
+        - field.storage.node.field_page_family
+  field_page_family_1:
+    label: 'Page Family (fulltext)'
+    datasource_id: 'entity:node'
+    property_path: field_page_family
+    type: text
     dependencies:
       config:
         - field.storage.node.field_page_family
@@ -107,9 +131,12 @@ processor_settings:
     fields:
       - body
       - field_employment_category
+      - field_employment_category_1
       - field_employment_type
+      - field_employment_type_1
       - field_official_title
       - field_page_family
+      - field_page_family_1
       - title
     ignorable: "['¿¡!?,.:;]"
     ignorable_classes:
@@ -128,9 +155,12 @@ processor_settings:
     fields:
       - body
       - field_employment_category
+      - field_employment_category_1
       - field_employment_type
+      - field_employment_type_1
       - field_official_title
       - field_page_family
+      - field_page_family_1
       - title
   language_with_fallback: {  }
   rendered_item: {  }
@@ -141,7 +171,10 @@ processor_settings:
     all_fields: true
     fields:
       - body
+      - field_employment_category_1
+      - field_employment_type_1
       - field_official_title
+      - field_page_family_1
       - title
     exceptions:
       mexican: mexic
@@ -153,7 +186,10 @@ processor_settings:
     all_fields: true
     fields:
       - body
+      - field_employment_category_1
+      - field_employment_type_1
       - field_official_title
+      - field_page_family_1
       - title
     spaces: ''
     ignored: ._-
@@ -167,9 +203,12 @@ processor_settings:
     fields:
       - body
       - field_employment_category
+      - field_employment_category_1
       - field_employment_type
+      - field_employment_type_1
       - field_official_title
       - field_page_family
+      - field_page_family_1
       - title
 tracker_settings:
   default:
