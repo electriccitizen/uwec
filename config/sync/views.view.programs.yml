@@ -5,10 +5,6 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - node.type.academic_program
-    - taxonomy.vocabulary.program_types
-  content:
-    - 'taxonomy_term:program_types:7dd01a43-ed58-44ec-805b-f31aadae6dee'
-    - 'taxonomy_term:program_types:8f02622e-fa12-4935-99c9-b34c42ca4f2a'
   module:
     - node
     - options
@@ -239,53 +235,7 @@ display:
           plugin_id: bundle
           value:
             academic_program: academic_program
-        field_program_type_target_id:
-          id: field_program_type_target_id
-          table: node__field_program_type
-          field: field_program_type_target_id
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: taxonomy_index_tid
-          operator: or
-          value:
-            16: 16
-            17: 17
           group: 1
-          exposed: false
-          expose:
-            operator_id: ''
-            label: ''
-            description: ''
-            use_operator: false
-            operator: ''
-            operator_limit_selection: false
-            operator_list: {  }
-            identifier: ''
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-            reduce: false
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          reduce_duplicates: false
-          vid: program_types
-          type: select
-          hierarchy: false
-          limit: true
-          error_message: true
       filter_groups:
         operator: AND
         groups:
@@ -315,7 +265,6 @@ display:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url
-        - user
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }
