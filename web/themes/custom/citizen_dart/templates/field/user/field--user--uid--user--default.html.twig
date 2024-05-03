@@ -40,7 +40,7 @@
 {% extends 'field.html.twig' %}
 
 {% block fieldSingleNo %}
-  <div class="user-actions">
+	<div class="user-actions">
 		<div class="edit-link">
 			<a href="/user/{{ element['#object'].uid.0.value }}/edit">Edit User</a>
 		</div>
@@ -50,11 +50,12 @@
 	</div>
 
 	<div class="action-buttons">
+		{% if profile_nid %}
+			<a href="{{ path('entity.node.edit_form', {'node':profile_nid}) }}" class="ec-button">Edit Profile</a>
+		{% endif %}
 		<a href="/admin/content" class="ec-button view-admin-content">View Content</a>
 		<a href="/node/add" class="ec-button add-node-content">+ Add Content</a>
 		<a href="{{ path('entity.node.canonical', {'node':'28'}) }}" class="ec-button view-support-book">Support Book</a>
-    <a href="{{ path('entity.node.canonical', {'node':'78'}) }}" class="ec-button view-content-book">Content Strategy Book</a>
+		<a href="{{ path('entity.node.canonical', {'node':'78'}) }}" class="ec-button view-content-book">Content Strategy Book</a>
 	</div>
 {% endblock %}
-         
-
