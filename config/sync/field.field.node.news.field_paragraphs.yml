@@ -5,29 +5,23 @@ dependencies:
   config:
     - field.storage.node.field_paragraphs
     - node.type.news
-    - paragraphs.paragraphs_type.accordions
     - paragraphs.paragraphs_type.block_placer
     - paragraphs.paragraphs_type.button
     - paragraphs.paragraphs_type.ctas
     - paragraphs.paragraphs_type.custom_embed
     - paragraphs.paragraphs_type.events_list
-    - paragraphs.paragraphs_type.facts_list
-    - paragraphs.paragraphs_type.fauxfile
     - paragraphs.paragraphs_type.gallery
     - paragraphs.paragraphs_type.highlight_box
     - paragraphs.paragraphs_type.image
     - paragraphs.paragraphs_type.layout_section
     - paragraphs.paragraphs_type.links_files
-    - paragraphs.paragraphs_type.profiles_list
     - paragraphs.paragraphs_type.quote
-    - paragraphs.paragraphs_type.select_type
     - paragraphs.paragraphs_type.snapshot_list
     - paragraphs.paragraphs_type.social_media_links
     - paragraphs.paragraphs_type.steps
     - paragraphs.paragraphs_type.testimonial_placer
     - paragraphs.paragraphs_type.text
     - paragraphs.paragraphs_type.video
-    - paragraphs.paragraphs_type.wayfinding
   module:
     - entity_reference_revisions
 id: node.news.field_paragraphs
@@ -44,29 +38,23 @@ settings:
   handler: 'default:paragraph'
   handler_settings:
     target_bundles:
-      accordions: accordions
       links_files: links_files
       block_placer: block_placer
       button: button
       ctas: ctas
       custom_embed: custom_embed
       events_list: events_list
-      facts_list: facts_list
-      fauxfile: fauxfile
       gallery: gallery
       highlight_box: highlight_box
       image: image
       layout_section: layout_section
-      profiles_list: profiles_list
       quote: quote
-      select_type: select_type
       snapshot_list: snapshot_list
       social_media_links: social_media_links
       steps: steps
       testimonial_placer: testimonial_placer
       text: text
       video: video
-      wayfinding: wayfinding
     negate: 0
     target_bundles_drag_drop:
       accordion_item:
@@ -74,7 +62,7 @@ settings:
         enabled: false
       accordions:
         weight: -76
-        enabled: true
+        enabled: false
       block_placer:
         weight: -74
         enabled: true
@@ -99,12 +87,18 @@ settings:
       events_list:
         weight: -70
         enabled: true
+      external_articles:
+        weight: 55
+        enabled: false
+      external_articles_item:
+        weight: 56
+        enabled: false
       facts_list:
         weight: -68
-        enabled: true
+        enabled: false
       fauxfile:
         weight: -67
-        enabled: true
+        enabled: false
       fauxfile_item:
         weight: -49
         enabled: false
@@ -140,9 +134,18 @@ settings:
         enabled: true
       profiles_list:
         weight: -62
-        enabled: true
+        enabled: false
       program_search:
         weight: -44
+        enabled: false
+      programs_list:
+        weight: 71
+        enabled: false
+      quick_links:
+        weight: 73
+        enabled: false
+      quick_links_item:
+        weight: 74
         enabled: false
       quote:
         weight: -61
@@ -152,7 +155,10 @@ settings:
         enabled: false
       select_type:
         weight: -60
-        enabled: true
+        enabled: false
+      slate_form:
+        weight: 78
+        enabled: false
       snapshot_list:
         weight: -59
         enabled: true
@@ -182,5 +188,5 @@ settings:
         enabled: false
       wayfinding:
         weight: -53
-        enabled: true
+        enabled: false
 field_type: entity_reference_revisions
