@@ -104,20 +104,28 @@ function citizen_profile_sync_form_node_bios_edit_form_alter(&$form, $form_state
 
 function citizen_profile_sync_form_user_form_alter(&$form, $form_state, $form_id) {
   $user = \Drupal::currentUser();
-  if (!in_array('administrator', $user->getRoles())) {
-    $form['account']['mail']['#disabled'] = TRUE;
-    $form['account']['name']['#disabled'] = TRUE;
 
-    $sync_fields = [
-      'field_first_name',
-      'field_last_name',
-      'field_last_imported',
-      'field_athena_id',
-    ];
+  // don't disable any fields for administrators
+  if(in_array('administrator', $user->getRoles())) return;
 
-    foreach ($sync_fields as $field_name) {
-      if (isset($form[$field_name])) {
-        $form[$field_name]['#disabled'] = TRUE;
+  // if the athena_id is set, disable athena feed fields
+  if(isset($form['field_athena_id'])){
+    $athena_id = $form['field_athena_id']['widget'][0]['value']['#default_value'];
+    if(!empty($athena_id)){
+      $form['account']['mail']['#disabled'] = TRUE;
+      $form['account']['name']['#disabled'] = TRUE;
+
+      $sync_fields = [
+        'field_first_name',
+        'field_last_name',
+        'field_last_imported',
+        'field_athena_id',
+      ];
+
+      foreach ($sync_fields as $field_name) {
+        if (isset($form[$field_name])) {
+          $form[$field_name]['#disabled'] = TRUE;
+        }
       }
     }
   }
