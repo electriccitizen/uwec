@@ -618,6 +618,40 @@ function citizen_custom_preprocess_paragraph(&$variables) {
 }
 
 
+// load the bios nid so we can link to the Edit Profile page for this user
+// Profile = "bios" bundle
+function citizen_custom_preprocess_field__user__uid(&$variables){
+	if(!isset($variables['user'])) return;
+	$user_id = $variables['user']->id();
+	$user = \Drupal\user\Entity\User::load($user_id);
+
+	$athena_id_list = $user->field_athena_id->first();
+
+	// if this user does not have an athena_id, there is no profile, so do nothing.
+	if($athena_id_list === null) return;
+
+	$athena_id = $athena_id_list->getValue()['value'];
+
+	// try to load a profile with this athena_id
+	$nodeStorage = \Drupal::entityTypeManager()->getStorage('node');
+	$nid = $nodeStorage->getQuery()
+		->accessCheck(true)
+		->condition('type', 'bios')
+		->condition('field_athena_id', $athena_id)
+		->execute();
+	
+	// if it couldn't find a profile, do nothing.
+	if(empty($nid)) return;
+
+	// grab the actual nid value from the returned array
+	$nid = reset($nid);
+
+	// put nid in $variables so we can access it in the twig template
+	// which is at templates/field/user/field--user--uid--user--default.html.twig
+	$variables['profile_nid'] = $nid;
+}
+
+
 function citizen_custom_node_access(\Drupal\Core\Entity\EntityInterface $entity, $operation, \Drupal\Core\Session\AccountInterface $account){
 	// ignore all permissions stuff for super users
 	if(in_array('administrator', $account->getRoles())){
