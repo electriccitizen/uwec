@@ -681,3 +681,13 @@ function citizen_custom_node_access(\Drupal\Core\Entity\EntityInterface $entity,
 	// this means this hook has no opinion on access:
 	return AccessResult::neutral();
 }
+
+
+// remove two links from the way top-right corner "user toolbar" menu
+// so if somebody hovers over their username they will only get the "log out" link
+// this was done so users don't confuse their "profile" with their user account page
+// not to mention their user account page doesn't have any fields for users anyways.
+function citizen_custom_preprocess_links__toolbar_user(&$vars){
+	if(isset($vars['links']['account'])) unset($vars['links']['account']);
+	if(isset($vars['links']['account_edit'])) unset($vars['links']['account_edit']);
+}
