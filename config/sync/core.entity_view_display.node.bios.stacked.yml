@@ -43,6 +43,8 @@ dependencies:
     - field.field.node.bios.field_pronouns
     - field.field.node.bios.field_publications
     - field.field.node.bios.field_short_bio
+    - field.field.node.bios.field_show_email
+    - field.field.node.bios.field_show_phone
     - field.field.node.bios.field_suffixes
     - field.field.node.bios.field_username
     - field.field.node.bios.layout_builder__layout
@@ -218,6 +220,8 @@ hidden:
   field_prefixes: true
   field_programs: true
   field_publications: true
+  field_show_email: true
+  field_show_phone: true
   field_suffixes: true
   field_username: true
   layout_builder__layout: true

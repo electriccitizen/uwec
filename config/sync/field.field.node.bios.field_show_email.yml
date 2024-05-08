@@ -1,0 +1,23 @@
+uuid: 08d71bd2-df63-4e83-9349-31a907bdd854
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_show_email
+    - node.type.bios
+id: node.bios.field_show_email
+field_name: field_show_email
+entity_type: node
+bundle: bios
+label: 'Show Email'
+description: 'Show my email address on the website?'
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: Show
+  off_label: Hide
+field_type: boolean

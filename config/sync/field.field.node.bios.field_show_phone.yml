@@ -1,0 +1,23 @@
+uuid: bae5f0c0-2990-4c44-8f53-b36176cf702d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_show_phone
+    - node.type.bios
+id: node.bios.field_show_phone
+field_name: field_show_phone
+entity_type: node
+bundle: bios
+label: 'Show Phone'
+description: 'Show my phone number on the website?'
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: Show
+  off_label: Hide
+field_type: boolean

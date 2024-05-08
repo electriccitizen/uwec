@@ -42,6 +42,8 @@ dependencies:
     - field.field.node.bios.field_pronouns
     - field.field.node.bios.field_publications
     - field.field.node.bios.field_short_bio
+    - field.field.node.bios.field_show_email
+    - field.field.node.bios.field_show_phone
     - field.field.node.bios.field_suffixes
     - field.field.node.bios.field_username
     - field.field.node.bios.layout_builder__layout
@@ -175,6 +177,42 @@ third_party_settings:
                     description: ''
                 third_party_settings: {  }
             weight: 3
+            additional: {  }
+          3b1a343e-cb37-48f5-b2a9-1ac67f154a2f:
+            uuid: 3b1a343e-cb37-48f5-b2a9-1ac67f154a2f
+            region: first
+            configuration:
+              id: 'field_block:node:bios:field_show_phone'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: boolean
+                label: above
+                settings:
+                  format: default
+                  format_custom_false: ''
+                  format_custom_true: ''
+                third_party_settings: {  }
+            weight: 1
+            additional: {  }
+          c1893da5-87af-4b59-90ab-cb24178b5061:
+            uuid: c1893da5-87af-4b59-90ab-cb24178b5061
+            region: first
+            configuration:
+              id: 'field_block:node:bios:field_show_email'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: boolean
+                label: above
+                settings:
+                  format: default
+                  format_custom_false: ''
+                  format_custom_true: ''
+                third_party_settings: {  }
+            weight: 2
             additional: {  }
         third_party_settings: {  }
       -
@@ -710,6 +748,26 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: 130
+    region: first
+  field_show_email:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 137
+    region: first
+  field_show_phone:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 136
     region: first
   field_suffixes:
     type: string
