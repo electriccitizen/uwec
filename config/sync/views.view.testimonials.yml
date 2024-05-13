@@ -142,19 +142,6 @@ display:
             field_identifier: ''
           exposed: false
           granularity: day
-        field_image_target_id:
-          id: field_image_target_id
-          table: node__field_image
-          field: field_image_target_id
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: standard
-          order: ASC
-          expose:
-            label: 'College Image (field_image)'
-            field_identifier: field_image_target_id
-          exposed: true
       arguments: {  }
       filters:
         status:
@@ -207,7 +194,6 @@ display:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url.query_args
-        - 'url.query_args:sort_by'
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }
@@ -584,7 +570,6 @@ display:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url
-        - 'url.query_args:sort_by'
         - user
         - 'user.node_grants:view'
         - user.permissions
@@ -1359,7 +1344,6 @@ display:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url
-        - 'url.query_args:sort_by'
         - 'user.node_grants:view'
         - user.permissions
       tags:
@@ -2676,7 +2660,6 @@ display:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url
-        - 'url.query_args:sort_by'
         - 'user.node_grants:view'
         - user.permissions
       tags:
