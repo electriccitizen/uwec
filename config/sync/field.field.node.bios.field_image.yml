@@ -14,7 +14,7 @@ entity_type: node
 bundle: bios
 label: Headshot
 description: '<strong>Optimal image size:</strong> 852x1016px.<br>If you need a headshot scheduled, please email <a href="mailto:photo@uwec.edu">photo@uwec.edu</a>'
-required: true
+required: false
 translatable: true
 default_value: {  }
 default_value_callback: ''
