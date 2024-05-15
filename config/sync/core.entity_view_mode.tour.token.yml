@@ -8,5 +8,6 @@ _core:
   default_config_hash: 2yEcKwYGFtvcsbTeAxNieNVd4YIDhm1eJzKGxZrTMPA
 id: tour.token
 label: Token
+description: ''
 targetEntityType: tour
 cache: true

@@ -13,6 +13,30 @@ name: 'Basic HTML'
 format: basic_html
 weight: 0
 filters:
+  editor_file_reference:
+    id: editor_file_reference
+    provider: editor
+    status: false
+    weight: -47
+    settings: {  }
+  filter_align:
+    id: filter_align
+    provider: filter
+    status: false
+    weight: -50
+    settings: {  }
+  filter_autop:
+    id: filter_autop
+    provider: filter
+    status: false
+    weight: -40
+    settings: {  }
+  filter_caption:
+    id: filter_caption
+    provider: filter
+    status: false
+    weight: -39
+    settings: {  }
   filter_html:
     id: filter_html
     provider: filter
@@ -22,23 +46,11 @@ filters:
       allowed_html: '<br> <p id class> <h2 id class> <h3 id class> <h4 id class> <h5 id class> <h6 id class> <cite> <dl> <dt> <dd> <figcaption> <picture> <small> <mark> <blockquote cite> <span class> <img srcset typeof src alt height width data-entity-type data-entity-uuid data-entity-substitution data-align data-caption> <source srcset media type> <div id data-* class> <iframe src title frameborder aria-describedby tabindex allowtransparency width height class> <drupal-entity data-* alt title> <article data-* class> <a hreflang target id title class name href data-entity-type data-entity-uuid data-entity-substitution> <ul type class> <ol type class start> <drupal-media data-caption title> <strong> <em> <sub> <sup> <li> <hr> <table> <tr> <td rowspan colspan> <th rowspan colspan> <thead> <tbody> <tfoot> <caption>'
       filter_html_help: false
       filter_html_nofollow: false
-  filter_align:
-    id: filter_align
+  filter_html_escape:
+    id: filter_html_escape
     provider: filter
     status: false
-    weight: -50
-    settings: {  }
-  filter_caption:
-    id: filter_caption
-    provider: filter
-    status: false
-    weight: -39
-    settings: {  }
-  editor_file_reference:
-    id: editor_file_reference
-    provider: editor
-    status: false
-    weight: -47
+    weight: -41
     settings: {  }
   filter_html_image_secure:
     id: filter_html_image_secure
@@ -46,31 +58,18 @@ filters:
     status: false
     weight: -38
     settings: {  }
-  filter_autop:
-    id: filter_autop
-    provider: filter
-    status: false
-    weight: -40
-    settings: {  }
   filter_htmlcorrector:
     id: filter_htmlcorrector
     provider: filter
     status: true
     weight: -43
     settings: {  }
-  filter_html_escape:
-    id: filter_html_escape
+  filter_image_lazy_load:
+    id: filter_image_lazy_load
     provider: filter
     status: false
-    weight: -41
-    settings: {  }
-  filter_url:
-    id: filter_url
-    provider: filter
-    status: true
     weight: -46
-    settings:
-      filter_url_length: 72
+    settings: {  }
   filter_pathologic:
     id: filter_pathologic
     provider: pathologic
@@ -81,6 +80,13 @@ filters:
       local_settings:
         protocol_style: full
         local_paths: ''
+  filter_url:
+    id: filter_url
+    provider: filter
+    status: true
+    weight: -46
+    settings:
+      filter_url_length: 72
   linkit:
     id: linkit
     provider: linkit
@@ -98,9 +104,3 @@ filters:
       allowed_view_modes:
         default: default
       allowed_media_types: {  }
-  filter_image_lazy_load:
-    id: filter_image_lazy_load
-    provider: filter
-    status: false
-    weight: -46
-    settings: {  }

@@ -24,6 +24,7 @@ dependencies:
     - domain_access
     - domain_alias
     - filter
+    - help
     - media
     - node
     - paragraphs_type_permissions
@@ -40,6 +41,7 @@ is_admin: null
 permissions:
   - 'access administration pages'
   - 'access content overview'
+  - 'access help pages'
   - 'access media overview'
   - 'access responsive preview'
   - 'access shortcuts'

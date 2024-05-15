@@ -6,5 +6,6 @@ dependencies:
     - media
 id: media.program_teaser
 label: 'Program teaser'
+description: ''
 targetEntityType: media
 cache: true

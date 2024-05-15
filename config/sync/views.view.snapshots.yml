@@ -15,10 +15,6 @@ dependencies:
     - user.role.administrator
     - user.role.marketing_editor
     - user.role.site_admin
-  content:
-    - 'taxonomy_term:page_families:9f5d1d79-0dde-4a9d-8942-6be310a0a391'
-    - 'taxonomy_term:placement_tags:479d2dfa-0914-41c7-90c9-7897ba00491d'
-    - 'taxonomy_term:snapshot_types:998ab7d7-f9fb-43f8-8ca6-5a49834898df'
   module:
     - datetime
     - node
@@ -151,7 +147,6 @@ display:
           default_argument_type: fixed
           default_argument_options:
             argument: ''
-          default_argument_skip_url: false
           summary_options:
             base_path: ''
             count: true
@@ -376,7 +371,6 @@ display:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url
-        - user
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }
@@ -747,7 +741,6 @@ display:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url
-        - user
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }
@@ -784,7 +777,6 @@ display:
           default_argument_type: fixed
           default_argument_options:
             argument: ''
-          default_argument_skip_url: false
           summary_options:
             base_path: ''
             count: true
@@ -1621,7 +1613,6 @@ display:
           default_argument_type: fixed
           default_argument_options:
             argument: ''
-          default_argument_skip_url: false
           summary_options:
             base_path: ''
             count: true

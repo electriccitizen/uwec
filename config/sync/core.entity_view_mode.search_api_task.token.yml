@@ -8,5 +8,6 @@ _core:
   default_config_hash: L_HycZE3khdu9-Evb7v1PK_nZo9GT9_CVUM4M7S4sug
 id: search_api_task.token
 label: Token
+description: ''
 targetEntityType: search_api_task
 cache: true

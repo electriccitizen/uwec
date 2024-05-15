@@ -8,5 +8,6 @@ _core:
   default_config_hash: VRhtPxpHkPmuDiuhRXkseF_l_IlO6bjOxxB6sTbmjwQ
 id: taxonomy_term.token
 label: Token
+description: ''
 targetEntityType: taxonomy_term
 cache: true

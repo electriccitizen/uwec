@@ -11,5 +11,6 @@ _core:
   default_config_hash: _HSj3tsmBmTPH6W3q4LhHRJS5ns0kttYdazslXJwve0
 id: media.media_library
 label: 'Media library'
+description: ''
 targetEntityType: media
 cache: true
