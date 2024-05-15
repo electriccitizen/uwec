@@ -67,7 +67,7 @@ class ProfileSyncService {
         }
       } else {
         // todo exclude emeritus?
-        $user = $this->createUser($profile);
+        $user = $this->createUser($profile, $existingNode);
         // create authmap record
         $this->createOrUpdateAuthMapRecord($user);
       }
@@ -274,7 +274,7 @@ class ProfileSyncService {
    * @return \Drupal\Core\Entity\ContentEntityBase|\Drupal\Core\Entity\EntityBase|\Drupal\Core\Entity\EntityInterface|\Drupal\user\Entity\User
    * @throws \Drupal\Core\Entity\EntityStorageException
    */
-  protected function createUser($profile) {
+  protected function createUser($profile, $existingNode = false) {
     $newuser = [
       'name' => $profile->username,
       'mail' => $profile->email,
@@ -284,7 +284,7 @@ class ProfileSyncService {
       'field_last_imported' => $this->getUpdateTime(),
       // Generate random password
       'pass' => \Drupal::service('password_generator')->generate(),
-      'status' => 0, // Set to 0 for inactive users.
+      'status' => $existingNode instanceof NodeInterface ? 1 : 0,
       'roles' => ['personnel'],
     ];
 
@@ -292,6 +292,12 @@ class ProfileSyncService {
 
     //todo try-catch for failures
     $user->save();
+
+    //todo test in the morning!
+    if ($existingNode instanceof NodeInterface) {
+      $existingNode->setOwnerId($user->id());
+      $existingNode->save();
+    }
 
     return $user;
   }
