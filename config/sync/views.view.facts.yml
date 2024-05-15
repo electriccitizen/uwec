@@ -14,8 +14,6 @@ dependencies:
     - user.role.administrator
     - user.role.marketing_editor
     - user.role.site_admin
-  content:
-    - 'taxonomy_term:placement_tags:479d2dfa-0914-41c7-90c9-7897ba00491d'
   module:
     - datetime
     - node
@@ -1368,30 +1366,41 @@ display:
           field: field_date_value
           relationship: none
           group_type: group
-          admin_label: ''
+          admin_label: 'Expiration Date'
           plugin_id: datetime
           operator: '<'
           value:
             min: ''
             max: ''
-            value: now
+            value: '9999-12-31'
             type: date
           group: 1
-          exposed: false
+          exposed: true
           expose:
-            operator_id: ''
-            label: ''
+            operator_id: field_date_value_op
+            label: 'Expiration Date'
             description: ''
-            use_operator: false
-            operator: ''
-            operator_limit_selection: false
-            operator_list: {  }
-            identifier: ''
+            use_operator: true
+            operator: field_date_value_op
+            operator_limit_selection: true
+            operator_list:
+              '<': '<'
+              '>': '>'
+              between: between
+            identifier: field_date_value
             required: false
             remember: false
             multiple: false
             remember_roles:
               authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              editor: '0'
+              site_admin: '0'
+              section_manager: '0'
+              marketing_editor: '0'
+              personnel: '0'
+              jobs_and_editor: '0'
             min_placeholder: ''
             max_placeholder: ''
             placeholder: ''
