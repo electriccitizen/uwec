@@ -9,6 +9,7 @@ label: Live
 description: 'Config split for Live.'
 weight: 0
 stackable: false
+no_patching: false
 storage: folder
 folder: ../config/live
 module: {  }
