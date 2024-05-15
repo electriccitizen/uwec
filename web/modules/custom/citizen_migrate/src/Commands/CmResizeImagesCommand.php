@@ -37,6 +37,7 @@ class CmResizeImagesCommand extends DrushCommands {
     $finder = new Finder();
     $finder->files()->in($directory)->size('> ' . $threshold);
 
+
     // Ensure the backup directory exists
     $backupDir = $directory . '/backup';
     if (!$filesystem->exists($backupDir)) {
