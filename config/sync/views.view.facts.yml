@@ -1372,7 +1372,7 @@ display:
           value:
             min: ''
             max: ''
-            value: '9999-12-31'
+            value: ''
             type: date
           group: 1
           exposed: true
