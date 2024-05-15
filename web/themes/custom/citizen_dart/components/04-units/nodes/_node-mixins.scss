@@ -11,11 +11,33 @@
       right: -200vw;
     }
     to {
-      right: -28px;
+      right: -240px;
     }
   }
   animation: heroSwirlSlide 1.5s forwards;
   @include smallTab{
+    @keyframes heroSwirlSlide {
+      from {
+        right: -200vw;
+      }
+      to {
+        right: -220px;
+      }
+    }
+    animation: heroSwirlSlide 1.5s forwards;
+  }
+  @include menuStop{
+    @keyframes heroSwirlSlide {
+      from {
+        right: -200vw;
+      }
+      to {
+        right: -80px;
+      }
+    }
+    animation: heroSwirlSlide 1.5s forwards;
+  }
+  @include contentStop{
     @keyframes heroSwirlSlide {
       from {
         right: -200vw;
@@ -412,6 +434,14 @@
       .field-intro{
         padding-left: 20px;
         padding-right: 20px;
+        a{
+          font-weight: $heavy;
+          @include dottedLink($white);
+          &:hover,&:focus{
+            background-image: none;
+            opacity: .7;
+          }
+        }
         @include desk{
           padding-left: 0;
           padding-right: 0;
@@ -492,6 +522,16 @@
       background-image: none;
     }
   }
+  .field-intro-text{
+    a{
+      font-weight: $heavy;
+      @include dottedLink($white);
+      &:hover,&:focus{
+        background-image: none;
+        opacity: .7;
+      }
+    }
+  }
   .field-links a{
     display: inline-block;
     @include linkArrow(white, sm, "span");
@@ -504,7 +544,6 @@
   content: '';
   position: absolute;
   bottom: -8px;
-  animation: heroSwirlSlideMobileRight 1.5s forwards;
   z-index: 0;
   width: 308px;
   height: 572px;
@@ -613,22 +652,6 @@
 		margin-bottom: $spaceXs;
 	}
 }//end page header text
-
-@mixin centeredHeaderText{
-	margin-top: 80px;
-	position: relative;
-	z-index: 1;
-	max-width: 1000px;
-	@include auto;
-	padding: 60px $siteMarginMobile;
-	.field.title{
-		margin-bottom: 60px;
-	}
-	.field:not(.title){
-		max-width: $textMax;
-		@include auto;
-	}
-}
 
 @mixin heroCornerSlice {
   margin-left: -$siteMarginMobile;

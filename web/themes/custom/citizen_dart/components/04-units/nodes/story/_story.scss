@@ -27,12 +27,16 @@
     .block-system-breadcrumb-block,
     .block-field-story-categories {
       margin: $spaceSm 0;
+      @include desk {
+        flex: 1 1 50%;
+      }
     }
     .breadcrumb {
       display: none;
       padding: 0;
       @include desk {
         display: block;
+        margin-top: -0.5rem;
       }
       li,
       li a {
@@ -43,17 +47,28 @@
       }
     }
     .block-field-story-categories {
-      @include tag;
       color: $navy;
-      line-height: 2.625;
+      @include menuStop{
+        width: 100%;
+        margin-right: -12vw;
+      }
+      @include contentStopMargin{
+        margin-right: -16vw;
+      }
+      @include contentStop{
+        margin-right: -400px;
+      }
       .field-story-categories {
-        @include safeFlex(row, wrap, start, start);
+        @include safeFlex(row, wrap, end, start);
         min-height: 31px;
         @include desk {
-          @include safeFlex(row, wrap, end, start);
+          @include safeFlex(row, wrap, start, start);
         }
       }
       .category {
+        font-size: 1.5rem;
+        line-height: 2;
+        text-transform: uppercase;
         &:after {
           content: "|";
           margin-right: .5rem;
@@ -88,8 +103,7 @@
     // Text-based fields have extra-wide margins on mobile.
     .field-authors,
     .field-created,
-    .block-field-intro-text,
-    .block-field-paragraphs .paragraph--type--text {
+    .block-field-intro-text{
       padding: 0 $siteMarginMobile;
       @include desk {
         padding: 0;
@@ -100,7 +114,7 @@
       @include safeFlex(row,wrap,start,start);
     }
     .block-created {
-      margin-bottom: $spaceMd;
+      margin-bottom: $spaceLg;
       .field-created {
         @include heading2;
         display: block;
@@ -109,11 +123,11 @@
       }
       .mobile-title {
         @include heading1;
+        margin-bottom: $spaceMd;
+        margin-right: $spaceMd;
         @include desk {
           display: none;
         }
-        margin-bottom: $spaceSm;
-        margin-right: $spaceMd;
       }
     }
     .block-field-intro-text {
@@ -132,6 +146,9 @@
     .block-field-image {
       margin-bottom: $elementSpace;
       position: relative;
+      @include desk{
+        margin-bottom: 10rem;
+      }
       &:before {
         background-color: $navy;
         content: '';

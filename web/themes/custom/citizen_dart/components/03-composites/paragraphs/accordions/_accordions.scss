@@ -4,15 +4,27 @@
 @use '../../../00-base/base' as *;
 
 .paragraph--type--accordions{
-	@include textConstrain;
   //and background for the accordions depending on layout section
+  background: $lightGrey;
   position: relative;
   padding: 35px 0;
   @include menuStop{
-    padding: 60px 0 80px;
+    padding: 60px 20px 80px;
   }
   &:after{
     @include fullBack($lightGrey);
+  }
+  .node-type-page & {
+    @include menuStop {
+      @include auto;
+      max-width: 54vw;
+      &:after {
+        display: none;
+      }
+    }
+    @include contentStop{
+      max-width: 914px;
+    }
   }
   .widget-section > .layout--onecol &{
     @include desk{
@@ -45,6 +57,10 @@
         padding-top: 60px;
         padding-bottom: 70px;
       }
+  }
+
+  .widget-wrapper {
+	  @include textConstrain;
   }
 }//end paragraph type accordions
 
@@ -107,6 +123,10 @@
     @include desk{
       padding: 0 20px 60px;
     }
+    & > ul:first-child,& > ol:first-child{
+      margin-top: 0;
+      padding-top: 2rem;
+    }
 	}
 
 	//active accordion
@@ -142,4 +162,3 @@
 	}
 
 }//end accordion-item
-

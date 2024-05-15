@@ -2,14 +2,17 @@
 
 Drupal.behaviors.sectionMenu = {
 	attach: function (context, settings) {
-		$(once('section-menu', '#section-menu-wrapper', context)).each(function(){
+    $(once('section-menu', '#section-menu-wrapper', context)).each(function() {
+      const wrapper = $(this);
 			//mobile toggle
 			$('.section-menu-toggle').click(function(e){
 				e.preventDefault();
         if($(this).is('.active-nav')){
-          $(this).attr('aria-expanded', 'false').removeClass('active-nav').find('span').text('Explore Section').removeClass('expanded').closest('#section-menu-title').next('#section-menu-wrapper').attr('aria-hidden', 'true').slideUp(500);
+          $(this).attr('aria-expanded', 'false').removeClass('active-nav').find('.expand-label').text('Explore Section').removeClass('expanded');
+          wrapper.attr('aria-hidden', 'true').slideUp(500);
         }else{
-          $(this).attr('aria-expanded', 'true').addClass('active-nav').find('span').text('Close').addClass('expanded').closest('#section-menu-title').next('#section-menu-wrapper').attr('aria-hidden', 'false').slideDown(500);
+          $(this).attr('aria-expanded', 'true').addClass('active-nav').find('.expand-label').text('Close').addClass('expanded');
+          wrapper.attr('aria-hidden', 'false').slideDown(500);
         }
 			});
 
@@ -59,7 +62,7 @@ Drupal.behaviors.navPosition = {
       }
       $(document).ready(function() {
         var windowWidth = $(window).outerWidth();
-        var $targetElement = $('.layout--twocol-sideleft'); 
+        var $targetElement = $('.layout--twocol-sideleft');
         var $titleHeight = $('#section-menu-title').outerHeight();
         var viewportBottom = $(window).scrollTop() + $(window).height();
         var elementTop = $targetElement.offset().top;

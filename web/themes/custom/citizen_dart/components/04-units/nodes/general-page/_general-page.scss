@@ -5,8 +5,35 @@
 @use '../../../00-base/base' as *;
 @use '../node-mixins' as *;
 
+$videoHeight: 65vh;
+$videoWidth: $videoHeight * 1.4153;
+
+
 /* PAGE CONTENT */
 .node-page{
+  //nug up to footer at larger screen sizes
+  @include contentStop{
+    margin-bottom: -5vw;
+  }
+  @media screen and (min-width: 1600px){
+    margin-bottom: -5.5vw;
+  }
+  @media screen and (min-width: 1800px){
+    margin-bottom: -6vw;
+  }
+  @media screen and (min-width: 2000px){
+    margin-bottom: -6.5vw;
+  }
+  @media screen and (min-width: 2300px){
+    margin-bottom: -7vw;
+  }
+  @media screen and (min-width: 2500px){
+    margin-bottom: -8vw;
+  }
+  @media screen and (min-width: 2900px){
+    margin-bottom: -9vw;
+  }
+  //remove contextual stuff
 	&.contextual-region{
 		position: static;
 		& > .contextual{
@@ -100,6 +127,16 @@
               @include stripesRoyalNarrow;
             }
           }
+          .node-body{
+            a{
+              font-weight: $heavy;
+              @include dottedLink($white);
+              &:hover,&:focus{
+                background-image: none;
+                opacity: .7;
+              }
+            }
+          }
         }//end pattern page header text inner
       }//end page header text when pattern
       .field-links{
@@ -156,7 +193,15 @@
               padding-left: 20px;
               padding-right: 20px;
             }
-          }
+            a{
+              font-weight: $heavy;
+              @include dottedLink($white);
+              &:hover,&:focus{
+                background-image: none;
+                opacity: .7;
+              }
+            }
+          }//end subtitle/body
         }//end page header text inner
       }//end page header text
       .field-links{
@@ -300,7 +345,15 @@
               padding-left: 20px;
               padding-right: 20px;
             }
-          }
+            a{
+              font-weight: $heavy;
+              @include dottedLink($white);
+              &:hover,&:focus{
+                background-image: none;
+                opacity: .7;
+              }
+            }
+          }//end subtitle/body
         }//end page header text inner
       }//end page header text
       .field-links{
@@ -466,10 +519,18 @@
         justify-content: center;
         .video-hero-mask{
           width: 100vw;
-          max-width: 680px;
           height: 78vw;
-          max-height: 466px;
+          max-width: $videoWidth;
+          max-height: $videoHeight;
           position: relative;
+          margin-top: -15vw;
+          @include smallTab{
+            margin-top: 0;
+            width: $videoWidth;
+            height: $videoHeight;
+            max-width: 892px;
+            max-height: 630px;
+          }
           @include desk{
             .logged-in &{
               top: 20px;
@@ -530,30 +591,6 @@
       }
     }//end video hero
 
-    /* SIMPLE BACKGROUND FOR WHEN NO HERO */
-    .node-intro-simple{
-      @include heroSimpleBackground;
-    }//end intro simple
-    //when no hero
-    .hero-none{
-      .page-header-text{
-        .page-header-text-inner{
-          @include centeredHeaderText;
-          &:after{
-            content: '';
-            display: block;
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 400px;
-            z-index: -1;
-            background: $siteBack;
-          }//end after
-        }//end page header text inner
-      }//end page header text when no hero
-    }//end no hero
-
     /* GLOBAL HEADER TEXT & FIELD THEMING */
     .page-header-text{
       .page-header-text-inner{
@@ -606,12 +643,91 @@
     }//end block
 	}//end page-header-wrapper
 
+  /* WHEN THERE IS NO HERO */
+  .hero-none &{
+    .main-node-content{
+      position: relative;
+    }
+    .node-intro-simple{
+      @include heroSimpleBackground;
+      left: -20px;
+      top: -10px;
+    }//end intro simple
+    .page-header-text{
+      .block-system-breadcrumb-block{
+        max-width: 1116px;
+        @include auto;
+        margin-bottom: $spaceMd;
+      }
+      .page-header-text-inner{
+        margin-top: 10px;
+        position: relative;
+        z-index: 1;
+        max-width: 1116px;
+        @include auto;
+        padding: 80px $siteMarginMobile 60px;
+        &:first-child{
+          @include desk{
+            border-top: 40px solid $brightBlue;
+          }
+        }
+        &:after{
+          content: '';
+          display: block;
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          background: $white;
+          height: calc(100vh - 120px);
+          z-index: -1;
+        }
+        .node-title{
+          margin-bottom: 0;
+          max-width: 867px;
+          @include auto;
+          h1.page-title{
+            color: $brightBlue;
+            @include tab{
+              font-size: 6.5rem;
+              line-height: 1.1;
+            }
+          }
+        }
+        .field:not(.title){
+          max-width: $textMax;
+          @include auto;
+        }
+      }//end page header text inner
+    }//end page header text when no hero
+  }//end no hero
+  .logged-in.hero-none &{
+    .main-node-content{
+      padding-top: 10px;
+    }
+  }
+  //adjust some elements when there is no hero but the page is in the menu
+  .hero-none.in-main-menu:not(.hide-nav) &{
+    .page-header-text{
+      .page-header-text-inner{
+        .node-title{
+          max-width: $textMax;
+          @include contentStop{
+            max-width: 867px;
+          }
+        }
+      }
+    }//end page header text
+  }//end hero none in menu
+
   #node-section-2{
     .layout--twocol-sideleft{
       position: relative;
-      .layout__region--content{
-        padding-left: 20px;
-        padding-right: 20px;
+      & > .layout__region--content{ 
+        & > .block-field:not(.block-field-paragraphs){
+          padding-left: 20px;
+          padding-right: 20px;
+        }
         @include desk{
           width: 100%;
         }
@@ -624,6 +740,24 @@
         //hide alternate breadcrumb/body/subsitle for pages with heros that have that content in the hero
         .hero-pattern &,.hero-background_image &,.hero-image &{
           .block-system-breadcrumb-block,.block-field-subtitle,.block-field.block-body{
+            display: none;
+          }
+        }
+        .hero-none &{
+          @include menuStop{
+            &:after{
+              content: '';
+              display: block;
+              position: absolute;
+              top: 0;
+              left: calc(50% - 558px);
+              height: 100%;
+              z-index: -10;
+              background: $siteBack;
+              width: 1116px;
+            }
+          }
+          .block-system-breadcrumb-block{
             display: none;
           }
         }
@@ -673,9 +807,20 @@
       }//end breadcrumb
     }//end breadcrumb block
   }//end node section 2;
-
+  #node-section-3{
+    .widget.layout-section:last-child{
+      .paragraph:last-child{
+        @include contentStop{
+          margin-bottom: 0;
+        }
+      }
+    }
+  }//end node section 3
 	.block-field-page-family{
 		max-width: $breakoutWidth;
 		@include auto;
 	}
+  .node-section:last-child >.layout >.layout__region:last-child{
+    margin-bottom: 0;
+  }
 }//end basic page

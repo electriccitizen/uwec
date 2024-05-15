@@ -1,0 +1,20 @@
+{% extends 'node--teaser.html.twig' %}
+
+{% block nodeContent %}
+	<div class="job-campus">UW-Eau Claire - 
+		{% for campus in content.field_campus['#items'] %}
+			{{- campus.entity.label -}}
+			{% if not loop.last %}, {% endif %}
+		{% endfor %}
+		campus{{ (content.field_campus['#items']|length == 1) ? '' : 'es' }}
+	</div>
+	<div class="job-types">
+		{{ content.field_employment_type.0['#plain_text'] ~ ',' }}
+		{{ content.field_employment_category }}
+	</div>
+	<div class="job-meta">
+		{{ content.field_official_title }}
+		{{ content.field_job_id }}
+		{{ content.field_posted_on }}
+	</div>
+{% endblock %}

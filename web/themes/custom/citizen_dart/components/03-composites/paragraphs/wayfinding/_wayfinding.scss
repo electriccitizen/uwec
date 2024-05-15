@@ -6,6 +6,22 @@
 @use '../../../01-parts/buttons/button-mixins' as *;
 
 .paragraph--type--wayfinding{
+  &.wf-single.wf-has-background + .wf-single.wf-has-background{
+    margin-top: calc(-8rem - 2px);
+    @include menuStop{
+      margin-top: calc(-15rem - 2px);
+    }
+  }
+  &.wf-single.wf-no-background{
+    .wayfinding.single{
+      padding-top: 0 !important;
+      padding-bottom: 0 !important;
+      background: none;
+      &:after{
+        content: none;
+      }
+    }
+  }
   .widget-wrapper{
     padding-top: 1px;
     padding-bottom: 1px;
@@ -160,8 +176,12 @@
             padding-bottom: 20px;
           }
           .wayfinding-links{
-            @include safeFlex(row,nowrap,center,start);
+            @include safeFlex(row,nowrap,center,center);
             @include bleed(padding, 80px);
+            @include desk{
+              padding-left: 40px;
+              padding-right: 40px;
+            }
             .wayfinding-link{
               position: relative;
               &:not(:last-child){
@@ -187,7 +207,9 @@
         }//end desk
         @include menuStop{
           .wayfinding-links{
-            @include bleed(padding, 152px);
+            @include bleed(padding, 120px);
+            padding-left: 60px;
+            padding-right: 60px;
           }
         }
       }//end layout logic check
@@ -212,14 +234,14 @@
           .field-media-image,.gold-stripes-narrow{
             opacity: 1;
             transition: opacity 1s ease-out;
-            transition-delay: 1.25s;
+            transition-delay: 0.25s;
           }
         }
       }//end wayfinding visible
       .widget-section > .layout--onecol &,.node-support-book &{
         @include desk{
           padding: 90px 0;
-          max-width: 930px;
+          max-width: 890px;
           @include safeFlex(row,nowrap,start,start);
           &.left{
             .field-image{

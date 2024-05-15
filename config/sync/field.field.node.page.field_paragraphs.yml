@@ -12,6 +12,7 @@ dependencies:
     - paragraphs.paragraphs_type.ctas
     - paragraphs.paragraphs_type.custom_embed
     - paragraphs.paragraphs_type.events_list
+    - paragraphs.paragraphs_type.external_articles
     - paragraphs.paragraphs_type.facts_list
     - paragraphs.paragraphs_type.fauxfile
     - paragraphs.paragraphs_type.gallery
@@ -23,6 +24,7 @@ dependencies:
     - paragraphs.paragraphs_type.profiles_list
     - paragraphs.paragraphs_type.program_search
     - paragraphs.paragraphs_type.programs_list
+    - paragraphs.paragraphs_type.quick_links
     - paragraphs.paragraphs_type.select_type
     - paragraphs.paragraphs_type.slate_form
     - paragraphs.paragraphs_type.snapshot_list
@@ -61,6 +63,7 @@ settings:
       ctas: ctas
       custom_embed: custom_embed
       events_list: events_list
+      external_articles: external_articles
       fauxfile: fauxfile
       facts_list: facts_list
       gallery: gallery
@@ -70,6 +73,7 @@ settings:
       profiles_list: profiles_list
       programs_list: programs_list
       program_search: program_search
+      quick_links: quick_links
       select_type: select_type
       slate_form: slate_form
       snapshot_list: snapshot_list
@@ -84,123 +88,135 @@ settings:
     negate: 0
     target_bundles_drag_drop:
       accordion_item:
-        weight: -79
+        weight: -83
         enabled: false
       accordions:
-        weight: -80
+        weight: -84
         enabled: true
       block_placer:
-        weight: -77
-        enabled: true
-      button:
-        weight: -76
-        enabled: true
-      contact_placer:
-        weight: -75
-        enabled: true
-      content_carousel:
-        weight: -74
-        enabled: false
-      cta_item:
-        weight: -46
-        enabled: false
-      ctas:
-        weight: -73
-        enabled: true
-      custom_embed:
-        weight: -72
-        enabled: true
-      events_list:
-        weight: -71
-        enabled: true
-      facts_list:
-        weight: -69
-        enabled: true
-      fauxfile:
-        weight: -70
-        enabled: true
-      fauxfile_item:
-        weight: -45
-        enabled: false
-      gallery:
-        weight: -68
-        enabled: true
-      gallery_item:
-        weight: -48
-        enabled: false
-      hallmark:
-        weight: -67
-        enabled: false
-      hero:
-        weight: -44
-        enabled: false
-      highlight_box:
-        weight: -66
-        enabled: true
-      hours_placer:
-        weight: -65
-        enabled: true
-      hours_set:
-        weight: -47
-        enabled: false
-      image:
-        weight: -64
-        enabled: true
-      layout_section:
         weight: -81
         enabled: true
-      links_files:
+      button:
+        weight: -80
+        enabled: true
+      contact_placer:
+        weight: -79
+        enabled: true
+      content_carousel:
         weight: -78
+        enabled: false
+      cta_item:
+        weight: -49
+        enabled: false
+      ctas:
+        weight: -77
+        enabled: true
+      custom_embed:
+        weight: -76
+        enabled: true
+      events_list:
+        weight: -75
+        enabled: true
+      external_articles:
+        weight: -74
+        enabled: true
+      external_articles_item:
+        weight: -44
+        enabled: false
+      facts_list:
+        weight: -72
+        enabled: true
+      fauxfile:
+        weight: -73
+        enabled: true
+      fauxfile_item:
+        weight: -48
+        enabled: false
+      gallery:
+        weight: -71
+        enabled: true
+      gallery_item:
+        weight: -51
+        enabled: false
+      hallmark:
+        weight: -70
+        enabled: false
+      hero:
+        weight: -47
+        enabled: false
+      highlight_box:
+        weight: -69
+        enabled: true
+      hours_placer:
+        weight: -68
+        enabled: true
+      hours_set:
+        weight: -50
+        enabled: false
+      image:
+        weight: -67
+        enabled: true
+      layout_section:
+        weight: -85
+        enabled: true
+      links_files:
+        weight: -82
         enabled: true
       profiles_list:
-        weight: -63
+        weight: -66
         enabled: true
       program_search:
-        weight: -61
+        weight: -64
         enabled: true
       programs_list:
-        weight: -62
+        weight: -65
         enabled: true
+      quick_links:
+        weight: -64
+        enabled: true
+      quick_links_item:
+        weight: -44
+        enabled: false
       quote:
-        weight: -60
+        weight: -63
         enabled: false
       select_item:
-        weight: -43
+        weight: -46
         enabled: false
       select_type:
-        weight: -59
+        weight: -62
         enabled: true
       slate_form:
-        weight: -58
+        weight: -61
         enabled: true
       snapshot_list:
-        weight: -57
+        weight: -60
         enabled: true
       social_media_links:
-        weight: -56
+        weight: -59
         enabled: true
       step_item:
-        weight: -42
+        weight: -45
         enabled: false
       steps:
-        weight: -55
+        weight: -58
         enabled: true
       stories_video_list:
-        weight: -54
+        weight: -57
         enabled: true
       testimonial_placer:
-        weight: -52
+        weight: -55
         enabled: true
       text:
-        weight: -53
+        weight: -56
         enabled: true
       video:
-        weight: -51
+        weight: -54
         enabled: true
       view_placer:
-        weight: -50
+        weight: -53
         enabled: true
       wayfinding:
-        weight: -49
+        weight: -52
         enabled: true
 field_type: entity_reference_revisions

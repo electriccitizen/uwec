@@ -168,6 +168,10 @@ function citizen_custom_form_media_library_add_form_upload_alter(&$form, \Drupal
 	}
 }
 
+function citizen_custom_form_media_image_add_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id){
+	$form['name']['widget'][0]['value']['#description'] = \Drupal\Core\Field\FieldFilteredMarkup::create(t('Name the image file in this format: YYYYMMDD_subject<br>e.g., 20240218_Schofield in the snow'));
+}
+
 
 /**
  * Implements hook_node_form_alter().
@@ -176,7 +180,7 @@ function citizen_custom_form_node_form_alter(&$form, FormStateInterface $form_st
   $node = $form_state->getFormObject()->getEntity();
   $user = \Drupal::currentUser();
   $userRole = $user->getRoles();
-  if((in_array('editor', $userRole)) || (in_array('section_manager', $userRole)) || (in_array('marketing_editor', $userRole))){
+  if((in_array('editor', $userRole)) || (in_array('jobs_and_editor', $userRole)) || (in_array('section_manager', $userRole)) || (in_array('marketing_editor', $userRole))){
     $form['field_hide_nav']['#access'] = FALSE;
     $form['field_exclude_search']['#access'] = FALSE;
   }else{
@@ -229,6 +233,13 @@ function citizen_custom_form_program_search_form_alter(&$form, FormStateInterfac
   $form['form_build_id']['#access'] = FALSE;
   $form['form_token']['#access'] = FALSE;
   $form['form_id']['#access'] = FALSE;
+}
+
+// I don't know what this does but I'm copying program_search so I'll add it here for funzies.
+function citizen_custom_for_job_search_form_alter(&$form, FormStateInterface $form_state){
+	$form['form_build_id']['#access'] = false;
+	$form['form_token']['#access'] = false;
+	$form['form_id']['#access'] = false;
 }
 
 function citizen_custom_form_views_exposed_form_alter(&$form, FormStateInterface $form_state, $form_id) {
@@ -607,6 +618,40 @@ function citizen_custom_preprocess_paragraph(&$variables) {
 }
 
 
+// load the bios nid so we can link to the Edit Profile page for this user
+// Profile = "bios" bundle
+function citizen_custom_preprocess_field__user__uid(&$variables){
+	if(!isset($variables['user'])) return;
+	$user_id = $variables['user']->id();
+	$user = \Drupal\user\Entity\User::load($user_id);
+
+	$athena_id_list = $user->field_athena_id->first();
+
+	// if this user does not have an athena_id, there is no profile, so do nothing.
+	if($athena_id_list === null) return;
+
+	$athena_id = $athena_id_list->getValue()['value'];
+
+	// try to load a profile with this athena_id
+	$nodeStorage = \Drupal::entityTypeManager()->getStorage('node');
+	$nid = $nodeStorage->getQuery()
+		->accessCheck(true)
+		->condition('type', 'bios')
+		->condition('field_athena_id', $athena_id)
+		->execute();
+	
+	// if it couldn't find a profile, do nothing.
+	if(empty($nid)) return;
+
+	// grab the actual nid value from the returned array
+	$nid = reset($nid);
+
+	// put nid in $variables so we can access it in the twig template
+	// which is at templates/field/user/field--user--uid--user--default.html.twig
+	$variables['profile_nid'] = $nid;
+}
+
+
 function citizen_custom_node_access(\Drupal\Core\Entity\EntityInterface $entity, $operation, \Drupal\Core\Session\AccountInterface $account){
 	// ignore all permissions stuff for super users
 	if(in_array('administrator', $account->getRoles())){
@@ -635,4 +680,14 @@ function citizen_custom_node_access(\Drupal\Core\Entity\EntityInterface $entity,
 
 	// this means this hook has no opinion on access:
 	return AccessResult::neutral();
+}
+
+
+// remove two links from the way top-right corner "user toolbar" menu
+// so if somebody hovers over their username they will only get the "log out" link
+// this was done so users don't confuse their "profile" with their user account page
+// not to mention their user account page doesn't have any fields for users anyways.
+function citizen_custom_preprocess_links__toolbar_user(&$vars){
+	if(isset($vars['links']['account'])) unset($vars['links']['account']);
+	if(isset($vars['links']['account_edit'])) unset($vars['links']['account_edit']);
 }

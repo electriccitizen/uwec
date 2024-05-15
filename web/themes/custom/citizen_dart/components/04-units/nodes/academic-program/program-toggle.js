@@ -3,6 +3,8 @@
   Drupal.behaviors.programToggle = {
     attach: function (context, settings) {
       $(once('program', '.academic-program-teaser', context)).each(function(){
+        const teaserHeight = $(this).outerHeight() + 'px';
+        $(this).css('min-height',teaserHeight);
         $('.program-toggle',this).click(function(e){
           e.preventDefault();
           if($(this).hasClass('open')){

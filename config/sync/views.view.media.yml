@@ -685,7 +685,7 @@ display:
           reduce_duplicates: true
           vid: media_tags
           type: select
-          hierarchy: false
+          hierarchy: true
           limit: true
           error_message: true
       filter_groups:

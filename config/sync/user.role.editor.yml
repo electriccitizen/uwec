@@ -14,7 +14,6 @@ dependencies:
     - node.type.contact
     - node.type.department
     - node.type.hours
-    - node.type.job
     - node.type.news
     - node.type.page
     - workflows.workflow.non_moderated
@@ -28,6 +27,7 @@ dependencies:
     - filter
     - media
     - node
+    - paragraphs_type_permissions
     - responsive_preview
     - shortcut
     - smart_date_recur
@@ -49,20 +49,32 @@ permissions:
   - 'access shortcuts'
   - 'access toolbar'
   - 'cancel smart date recur instances'
-  - 'create contact content'
-  - 'create document media'
-  - 'create hours content'
   - 'create image media'
-  - 'create job content'
-  - 'create job content on assigned domains'
   - 'create remote_video media'
+  - 'delete any document media'
   - 'delete own files'
+  - 'delete paragraph content accordion_item'
+  - 'delete paragraph content accordions'
+  - 'delete paragraph content block_placer'
+  - 'delete paragraph content cta_item'
+  - 'delete paragraph content ctas'
+  - 'delete paragraph content custom_embed'
+  - 'delete paragraph content external_articles'
+  - 'delete paragraph content external_articles_item'
+  - 'delete paragraph content facts_list'
+  - 'delete paragraph content fauxfile'
+  - 'delete paragraph content fauxfile_item'
+  - 'delete paragraph content select_item'
+  - 'delete paragraph content select_type'
+  - 'delete paragraph content snapshot_list'
+  - 'delete paragraph content stories_video_list'
+  - 'delete paragraph content testimonial_placer'
+  - 'delete paragraph content wayfinding'
   - 'edit any bios content'
   - 'edit any contact content'
   - 'edit any document media'
   - 'edit any hours content'
   - 'edit any image media'
-  - 'edit any job content'
   - 'edit any page content'
   - 'edit any remote_video media'
   - 'edit own bios content'
@@ -70,18 +82,21 @@ permissions:
   - 'edit own document media'
   - 'edit own hours content'
   - 'edit own image media'
-  - 'edit own job content'
   - 'edit own page content'
   - 'edit own remote_video media'
   - 'make smart dates recur'
   - 'publish to any assigned domain'
   - 'reschedule smart date recur instances'
   - 'revert bios revisions'
+  - 'revert contact revisions'
+  - 'revert hours revisions'
+  - 'revert page revisions'
   - 'update bios content on assigned domains'
   - 'update contact content on assigned domains'
   - 'update hours content on assigned domains'
-  - 'update job content on assigned domains'
   - 'update page content on assigned domains'
+  - 'update paragraph content external_articles'
+  - 'update paragraph content external_articles_item'
   - 'use add another'
   - 'use domain nav block'
   - 'use non_moderated transition archive'
@@ -102,8 +117,8 @@ permissions:
   - 'view contact revisions'
   - 'view domain aliases'
   - 'view hours revisions'
-  - 'view job revisions'
   - 'view own unpublished content'
+  - 'view page revisions'
   - 'view the administration theme'
   - 'view unpublished domain content'
   - 'view workbench access information'

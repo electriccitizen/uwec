@@ -1,0 +1,21 @@
+uuid: ebebee23-3784-41d2-8533-417f85d68a96
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_no_background
+    - paragraphs.paragraphs_type.wayfinding
+id: paragraph.wayfinding.field_no_background
+field_name: field_no_background
+entity_type: paragraph
+bundle: wayfinding
+label: 'No Background'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

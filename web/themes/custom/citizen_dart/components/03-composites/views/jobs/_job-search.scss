@@ -1,0 +1,35 @@
+@use '../../../00-base/base' as *;
+
+.node-teaser-job{
+	margin:0 auto 4rem;
+	max-width:894px;
+	border-bottom:1px solid $lightGrey;
+
+	h2 a{
+		border-bottom:1px dashed $brightBlue;
+		&:hover{
+			border-bottom:none;
+		}
+	}
+
+	.job-campus,
+	.job-types{
+		font-size:80%;
+	}
+
+	.field,
+	.field-campus>div{
+		display:inline-block;
+	}
+	.job-meta{
+		.field{
+			display:block;
+			@include desk{
+				display:inline-block;
+				&:not(:first-child){
+					margin-left:3rem;
+				}
+			}
+		}
+	}
+}

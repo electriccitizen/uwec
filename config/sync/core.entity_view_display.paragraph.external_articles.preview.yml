@@ -1,0 +1,31 @@
+uuid: 2131ff5a-082f-4902-a7b9-342b6f4e18b6
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.preview
+    - field.field.paragraph.external_articles.field_external_articles_items
+    - paragraphs.paragraphs_type.external_articles
+  module:
+    - entity_reference_revisions
+    - layout_builder
+third_party_settings:
+  layout_builder:
+    enabled: false
+    allow_custom: false
+id: paragraph.external_articles.preview
+targetEntityType: paragraph
+bundle: external_articles
+mode: preview
+content:
+  field_external_articles_items:
+    type: entity_reference_revisions_entity_view
+    label: hidden
+    settings:
+      view_mode: preview
+      link: ''
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  search_api_excerpt: true

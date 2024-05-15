@@ -8,6 +8,7 @@ dependencies:
     - field.field.paragraph.wayfinding.field_image
     - field.field.paragraph.wayfinding.field_link
     - field.field.paragraph.wayfinding.field_link_multi
+    - field.field.paragraph.wayfinding.field_no_background
     - field.field.paragraph.wayfinding.field_text_placement
     - field.field.paragraph.wayfinding.field_version
     - paragraphs.paragraphs_type.wayfinding
@@ -61,6 +62,13 @@ content:
       placeholder_title: ''
       linkit_profile: default
       linkit_auto_link_text: false
+    third_party_settings: {  }
+  field_no_background:
+    type: boolean_checkbox
+    weight: 7
+    region: content
+    settings:
+      display_label: true
     third_party_settings: {  }
   field_text_placement:
     type: options_select

@@ -1,0 +1,48 @@
+uuid: 90bbbec7-8ec2-41b1-be02-0106d234ff69
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.preview
+    - field.field.paragraph.external_articles_item.field_image
+    - field.field.paragraph.external_articles_item.field_link
+    - image.style.paragraph_preview
+    - paragraphs.paragraphs_type.external_articles_item
+  module:
+    - lazy
+    - link
+    - media
+id: paragraph.external_articles_item.preview
+targetEntityType: paragraph
+bundle: external_articles_item
+mode: preview
+content:
+  field_image:
+    type: media_thumbnail
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: paragraph_preview
+      image_loading:
+        attribute: lazy
+    third_party_settings:
+      lazy:
+        lazy_image: '0'
+        placeholder_style: ''
+        data_uri: false
+    weight: 0
+    region: content
+  field_link:
+    type: link
+    label: hidden
+    settings:
+      trim_length: null
+      url_only: false
+      url_plain: false
+      rel: '0'
+      target: '0'
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  search_api_excerpt: true

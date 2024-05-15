@@ -370,8 +370,10 @@
 }
 
 @mixin rollingSeal {
-  padding-top: u.$spaceLg;
+  padding-top: 8rem;
   position: relative;
+  margin: 0 auto -3rem;
+  max-width: 400px;
   &:before {
     background: url("../images/logos-badges/seal.svg") no-repeat transparent;
     content: '';
@@ -379,22 +381,26 @@
     height: 125px;
     position: absolute;
     right: 200vw;
-    top: 0;
+    top: 1rem;
     width: 125px;
     z-index: -1;
   }
   &.visible:before {
     @include animation('sealRollRight 1s');
     display: block;
-    right: 18%;
+    right: 8%;
   }
   @include u.desk {
+    max-width: 100%;
+    margin-bottom: 0;
     &:before {
       top: 20px;
+      width: 152px;
+      height: 152px;
     }
     &.visible:before {
       @include animation('sealRollRightDesk 1s');
-      right: 85%;
+      right: 86%;
     }
   }
 }
@@ -615,6 +621,9 @@
 }
 
 @mixin factsGrid{
+  .fact {
+    min-width: 33%;
+  }
 	.fact-1{
 		grid-column-start: 3;
     grid-column-end: 4;
@@ -1246,7 +1255,7 @@
     transform: rotateZ(-360deg);
   }
   to {
-    right: 18%;
+    right: 10%;
     transform: rotateZ(0);
   }
 }

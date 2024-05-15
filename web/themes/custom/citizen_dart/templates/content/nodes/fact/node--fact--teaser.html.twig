@@ -81,7 +81,11 @@
 	<article{{ attributes.addClass(classes) }}>
 	    {% block nodeTitle %}
 	    	{{ title_prefix }}
-	      <div class="teaser-title">
+        {% set title_classes = [
+          "teaser-title",
+          label.0['#context'].value|first == '#' ? "teaser-title-hashtag" : "",
+        ]|join(' ')|trim %}
+        <div class="{{ title_classes }}">
 	        {{- label.0['#context'].value -}}
 	      </div>
 	      {{ title_suffix }}
