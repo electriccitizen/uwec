@@ -107,25 +107,6 @@ third_party_settings:
                 third_party_settings: {  }
             weight: 2
             additional: {  }
-          fe437057-96d4-4f75-bec5-b70742f6bcfb:
-            uuid: fe437057-96d4-4f75-bec5-b70742f6bcfb
-            region: content
-            configuration:
-              id: 'field_block:node:bios:field_departments'
-              label: Department
-              label_display: visible
-              provider: layout_builder
-              context_mapping:
-                entity: layout_builder.entity
-                view_mode: view_mode
-              formatter:
-                type: entity_reference_label
-                label: hidden
-                settings:
-                  link: true
-                third_party_settings: {  }
-            weight: 4
-            additional: {  }
           0dc33970-4b1b-40ad-bdaf-cc21041c88bc:
             uuid: 0dc33970-4b1b-40ad-bdaf-cc21041c88bc
             region: content
@@ -175,6 +156,25 @@ third_party_settings:
                   link: false
                 third_party_settings: {  }
             weight: 1
+            additional: {  }
+          050ea0b2-cef0-40d8-8d72-7411845e492d:
+            uuid: 050ea0b2-cef0-40d8-8d72-7411845e492d
+            region: content
+            configuration:
+              id: 'field_block:node:bios:type'
+              label: 'Content type'
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: entity_reference_label
+                label: hidden
+                settings:
+                  link: false
+                third_party_settings: {  }
+            weight: 5
             additional: {  }
         third_party_settings: {  }
       -

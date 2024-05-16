@@ -195,7 +195,8 @@
       }
     }//end block field positions
 
-    .block-field-departments {
+    //departments & page families -- need type placeholder field because neither is required
+    .block-field.block-type {
       margin-top: 6rem;
       h2.block-title{
         font-family: $bodyText;
@@ -206,7 +207,7 @@
         letter-spacing: unset;
         margin-bottom: 0.5rem;
       }//end block title
-      .field-departments {
+      .departments-offices {
         a {
           @include blockArrow(gold,sm);
           font-family: $bodyText;
@@ -217,6 +218,12 @@
             color: $gold;
           }
         }//end a
+        .office{
+          font-family: $bodyText;
+          font-size: 2rem;
+          line-height: 1.875;
+          font-weight: $heavy;
+        }
       }//end field departments
     }//end departments block
     .blue-triangle {
