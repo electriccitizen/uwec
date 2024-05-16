@@ -160,3 +160,6 @@ upstream/web/
 
 # Ignore log files
 *.log
+
+# Ignore sql files
+*.sql
