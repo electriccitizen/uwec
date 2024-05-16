@@ -37,21 +37,20 @@
  */
 #}
 
-{% extends 'field.html.twig' %}
 
-{% block fieldMultiNoClasses %}
-  <div{{ attributes.addClass(classes) }}>
-    {% block fieldMultiNoItems %}
-      {%- for item in items -%}
-        <div{{ item.attributes }}>
-          {% block fieldMultiNo %}
-            <a href="{{ item.content['#url'] }}">
-              <span>{{ item.content['#title']}}</span>
-            </a>
-          {% endblock %}
-        </div>
-      {%- endfor -%}
-    {% endblock %}
+{% if element['#object'].field_departments.0 or element['#object'].field_page_families.0 %}
+  <h2 class="block-title">Department/Office</h2>
+  <div class="departments-offices">
+    {%- for department in element['#object'].field_departments -%}
+      <div class="department">
+        <a href="{{ path('entity.node.canonical',{'node':department.entity.nid.0.value}) }}">
+          <span>{{ department.entity.title.0.value }}</span>
+        </a>
+      </div>
+    {%- endfor -%}
+    {%- for family in element['#object'].field_page_families -%}
+      <div class="office">{{ family.entity.name.0.value }}</div>
+    {%- endfor -%}
   </div>
-{% endblock %}
+{% endif %}
           

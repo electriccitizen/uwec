@@ -69,25 +69,6 @@ third_party_settings:
           label: ''
           context_mapping: {  }
         components:
-          da69263f-8129-4557-ae64-9aac6a561d43:
-            uuid: da69263f-8129-4557-ae64-9aac6a561d43
-            region: first
-            configuration:
-              id: 'field_block:node:bios:field_image'
-              label: 'Bio Image'
-              label_display: '0'
-              provider: layout_builder
-              context_mapping:
-                entity: layout_builder.entity
-                view_mode: view_mode
-              formatter:
-                type: entity_reference_entity_view
-                label: hidden
-                settings:
-                  view_mode: 426x508
-                third_party_settings: {  }
-            weight: 0
-            additional: {  }
           309fb6a3-f256-4d0e-8b0a-c3eb31997687:
             uuid: 309fb6a3-f256-4d0e-8b0a-c3eb31997687
             region: content
@@ -126,25 +107,6 @@ third_party_settings:
                 third_party_settings: {  }
             weight: 2
             additional: {  }
-          fe437057-96d4-4f75-bec5-b70742f6bcfb:
-            uuid: fe437057-96d4-4f75-bec5-b70742f6bcfb
-            region: content
-            configuration:
-              id: 'field_block:node:bios:field_departments'
-              label: Department
-              label_display: visible
-              provider: layout_builder
-              context_mapping:
-                entity: layout_builder.entity
-                view_mode: view_mode
-              formatter:
-                type: entity_reference_label
-                label: hidden
-                settings:
-                  link: true
-                third_party_settings: {  }
-            weight: 4
-            additional: {  }
           0dc33970-4b1b-40ad-bdaf-cc21041c88bc:
             uuid: 0dc33970-4b1b-40ad-bdaf-cc21041c88bc
             region: content
@@ -175,6 +137,44 @@ third_party_settings:
                     description: ''
                 third_party_settings: {  }
             weight: 3
+            additional: {  }
+          bed31bca-ed7d-48a5-aee0-9005e0dd89f3:
+            uuid: bed31bca-ed7d-48a5-aee0-9005e0dd89f3
+            region: first
+            configuration:
+              id: 'field_block:node:bios:uid'
+              label: 'Authored by'
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: entity_reference_label
+                label: hidden
+                settings:
+                  link: false
+                third_party_settings: {  }
+            weight: 1
+            additional: {  }
+          050ea0b2-cef0-40d8-8d72-7411845e492d:
+            uuid: 050ea0b2-cef0-40d8-8d72-7411845e492d
+            region: content
+            configuration:
+              id: 'field_block:node:bios:type'
+              label: 'Content type'
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: entity_reference_label
+                label: hidden
+                settings:
+                  link: false
+                third_party_settings: {  }
+            weight: 5
             additional: {  }
         third_party_settings: {  }
       -
@@ -418,7 +418,6 @@ third_party_settings:
         - 'Lists (Views)'
         - Menus
         - 'Responsive Preview'
-        - 'Site Search'
         - Superfish
         - User
         - core
