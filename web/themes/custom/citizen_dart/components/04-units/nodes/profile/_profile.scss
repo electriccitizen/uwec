@@ -90,10 +90,11 @@
       }//end layout region
 		}//end layout two column even
 
-    .block-field-image {
+    //image - but need to use uid (authored by) field because of logic needed when no image
+    .block-field.block-uid {
       max-width: 426px;
       margin: 0 auto;
-      .field-image{
+      .field-uid{
         @include desk{
           @include safeFlex(row,wrap,end,start);
         }
@@ -120,12 +121,12 @@
             height: 340px;
           }
         }//end before
-        .field-media-image {
+        .field-media-image,.favicon-image {
           position: relative;
           z-index: 15;
         }
-      }//end field image
-    }//end image block
+      }//end field uid (image)
+    }//end uid block (image block)
 
     .emeriti-wrapper {
       color: $white;
@@ -207,11 +208,14 @@
       }//end block title
       .field-departments {
         a {
-          @include blockArrow(gold);
+          @include blockArrow(gold,sm);
           font-family: $bodyText;
           font-size: 2rem;
           line-height: 1.875;
           font-weight: $heavy;
+          span{
+            color: $gold;
+          }
         }//end a
       }//end field departments
     }//end departments block
