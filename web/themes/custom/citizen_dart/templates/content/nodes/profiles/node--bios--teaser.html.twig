@@ -82,7 +82,25 @@
 
 	<article{{ attributes.addClass(classes) }}>
 
-    {{ content.field_image }}
+    {% if content.field_image.0 %}
+      {{ content.field_image }}
+    {% else %}
+      <div class="field-image profile-favicon">
+        {% set imagePath = '/themes/custom/citizen_dart/images/logos-badges/profile-favicon' %}
+        <picture>
+          <!--[if IE 9]><video style="display: none;"><![endif]-->
+          <source 
+            srcset="{{ imagePath }}/profile-favicon-360-360.jpg 1x, {{ imagePath }}/profile-favicon-360-360-2.jpg 2x, {{ imagePath }}/profile-favicon-360-360-1-5.jpg 1.5x" 
+            type="image/jpg" 
+            width="360" 
+            height="360">
+          <img 
+            loading="eager" 
+            src="{{ imagePath }}/profile-favicon-360-360.jpg" 
+            alt="UWEC wordlogo stacked as a placeholder image">
+        </picture>
+      </div>
+    {% endif %}
 
     <div class="teaser-title">
       <a href="{{ path('entity.node.canonical', {'node':node.nid.0.value}) }}">
