@@ -280,7 +280,7 @@ display:
           exposed: true
           expose:
             operator_id: field_page_family_op
-            label: 'Page Family'
+            label: 'Department or Office'
             description: ''
             use_operator: false
             operator: field_page_family_op
@@ -299,6 +299,7 @@ display:
               section_manager: '0'
               marketing_editor: '0'
               personnel: '0'
+              jobs_and_editor: '0'
             reduce: false
           is_grouped: false
           group_info:
