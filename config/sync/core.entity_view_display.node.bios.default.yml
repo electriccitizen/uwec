@@ -310,7 +310,7 @@ third_party_settings:
             region: content
             configuration:
               id: 'field_block:node:bios:field_interests'
-              label: 'Teaching Interests'
+              label: 'Teaching and Research Interests'
               label_display: visible
               provider: layout_builder
               context_mapping:
