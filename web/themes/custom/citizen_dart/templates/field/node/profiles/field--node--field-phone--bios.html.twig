@@ -56,6 +56,6 @@
 
 	</div>
 	<div class="field-content">
-		<a href="{{ item.content['#url'].uri|replace({'tel:':'tel:+1','-':'',' ':'','(':'',')':'','%28':'','%29':'','.':''}) }}">{{ item.content['#title'] }}</a>
+		<a href="{{ item.content['#url'].uri|replace({'tel:':'tel:+1','-':'',' ':'','(':'',')':'','%28':'','%29':'','.':''}) }}">{{ item.content['#title']|phone }}</a>
 	</div>
 {% endblock %}
