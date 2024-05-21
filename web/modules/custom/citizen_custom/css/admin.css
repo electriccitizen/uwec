@@ -36,6 +36,15 @@ button[disabled]:hover,button.disabled:hover{
 #media-library-wrapper{
 	padding-top: 20px;
 }
+#media-library-wrapper .media-library-item--grid .media-library-item__content,.views-live-preview .media-library-item--grid .media-library-item__content{
+  flex-direction: column;
+}
+#media-library-wrapper .media-library-item--grid .media-library-item__content .dimensions,.views-live-preview .media-library-item--grid .media-library-item__content .dimensions{
+  font-size: 12px;
+  width: 100%;
+  padding-left: 8px;
+  margin-top: -8px;
+}
 
 /* hide additional buttons added by infinite scroll in media library
 ----------------------------------------- */
