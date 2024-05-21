@@ -5157,17 +5157,17 @@
         },
         {
             "name": "drupal/media_entity_file_replace",
-            "version": "1.1.0",
+            "version": "1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/media_entity_file_replace.git",
-                "reference": "8.x-1.1"
+                "reference": "8.x-1.2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/media_entity_file_replace-8.x-1.1.zip",
-                "reference": "8.x-1.1",
-                "shasum": "4462d41e80de7880e556eb677cd1831a44470dac"
+                "url": "https://ftp.drupal.org/files/projects/media_entity_file_replace-8.x-1.2.zip",
+                "reference": "8.x-1.2",
+                "shasum": "e5e1aa2519c3e3f65e8a8291c324bc527f649147"
             },
             "require": {
                 "drupal/core": "^9 || ^10"
@@ -5175,8 +5175,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-1.1",
-                    "datestamp": "1665518899",
+                    "version": "8.x-1.2",
+                    "datestamp": "1701092779",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -5191,6 +5191,10 @@
                 {
                     "name": "bkosborne",
                     "homepage": "https://www.drupal.org/user/788032"
+                },
+                {
+                    "name": "joevagyok",
+                    "homepage": "https://www.drupal.org/user/2876343"
                 }
             ],
             "description": "Allows content editors to easily replace source files associated with any file-based media entity, preserving the original filename.",
