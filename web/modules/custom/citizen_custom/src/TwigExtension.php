@@ -22,6 +22,12 @@ class TwigExtension extends AbstractExtension {
 		];
 	}
 
+	public function getFunctions(){
+		return [
+			new TwigFunction('indefinite_article', [$this, 'indefinite_article']),
+		];
+	}
+
 	public function shuffleArray($list) {
 		if (!is_array($list)) return $list;
 		$keys = array_keys($list);
@@ -51,5 +57,21 @@ class TwigExtension extends AbstractExtension {
 
 		// if we got a weird number of numbers, just return them for display
 		return $num;
+	}
+
+	// returns either "a" or "an" based on the following, given, noun.
+	// this does *not* return the given noun.
+	public function indefinite_article($noun){
+		// just default to "a" if we have nothing to go on.
+		if(empty($noun)) return 'a';
+
+		// grab the first character, lowercased
+		$first = strtolower(substr(trim($noun), 0, 1));
+
+		// if it's a vowel, we want "an"
+		if(in_array($first, ['a', 'e', 'i', 'o', 'u'])) return 'an';
+
+		// otherwise just assume "a"
+		return 'a';
 	}
 }
