@@ -3,18 +3,21 @@
 ===================== */
 @use '../../../00-base/base' as *;
 #block-section-menu{
-  margin-bottom: 0;
+  @include transition(top, .3s, ease-in-out);
   @include edgeToEdge;
+  background-color: $menuBack;
+  margin-bottom: 0;
   @include menuStop{
     @include edgeReset;
-    position: absolute;
-    top: -200px !important;
-    left: -10px;
-    z-index: 20;
+    @include transition(left, .3s, ease-in-out);
+    height: 100vh;
+    left: -$sideBar;
+    position: fixed;
+    top: 0;
     width: $sideBar;
-    opacity: 0;
-    &.show-nav{
-      @include animation('fadeInDelay 1s 1 forwards');
+    z-index: 20;
+    &.active-nav{
+      left: 0;
     }
     .logged-in &{
       left: -15px;
@@ -33,48 +36,21 @@
     .hero-none.in-main-menu &{
       top: 0 !important;
     }
-  }
-  @media screen and (min-width: 1480px){
-    left: calc(50% - 730px);
+    &:after {
+      // A mask to cover the shadow of the toggle/tab;
+      content: "";
+      width: 100%;
+      height: 100%;
+      background-color: $menuBack;
+      position: absolute;
+      right: 0;
+      top: 0;
+      z-index: 1;
+    }
   }
   .hide-nav &{
 		display: none;
 	}
-  &.post-intro{
-    @include mobileMenu{
-      @include edgeReset;
-      position: fixed;
-      left: 0;
-      bottom: 0;
-      z-index: 9999;
-      max-height: 100vw;
-      width: 100%;
-      //override potential interference from desktop position
-      top: auto !important;
-      z-index: 20;
-      border-top: 1px solid rgba($white,0.4);
-    }
-    @include menuStop{
-      position: absolute;
-      top: -200px !important;
-      left: -10px;
-      width: $sideBar;
-      z-index: 20;
-      .node-type-support-book &{
-        position: static;
-      }
-    }
-    .logged-in &{
-      @include desk{
-        left: 60px;
-        width: calc(100% - 60px);
-      }
-      @include menuStop{
-        left: -15px;
-        width: 259px;
-      }
-    }
-  }//end is fixed
 	h2.block-title{
     padding: 10px 10px 10px 30px;
 		position: relative;
@@ -90,6 +66,29 @@
     @include menuStop{
       background: $ice;
       padding: 10px;
+    }
+  }
+  a.section-menu-toggle {
+    @include safeFlex(row, nowrap, end, center);
+    background-color: $menuBack;
+    border-radius: 50%;
+    box-shadow: 2px 2px 6px 0 $transGrey;
+    cursor: pointer;
+    height: 200px;
+    position: absolute;
+    right: -100px;
+    top: calc(50vh - 100px);
+    width: 200px;
+    .section-menu-toggle-title {
+      font-family: $header;
+      font-size: 14px;
+      font-weight: $heavy;
+      line-height: 1.3;
+      padding: 0 14px 0 8px;
+      position: relative;
+      width: 50%;
+      text-transform: uppercase;
+      z-index: 25;
     }
   }
   h2.section-menu-toggle {
@@ -147,7 +146,9 @@
 	display: none;
 	background: $menuBack;
 	padding: 0 15px 100px;
+  position: relative;
   overflow-y: auto;
+  z-index: 5;
 	@include menuStop{
 		display: block !important;
     padding: 0 10px 20px;
