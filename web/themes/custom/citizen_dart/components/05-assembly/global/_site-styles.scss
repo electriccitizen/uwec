@@ -11,10 +11,18 @@
 	}//end body
 }
 
+body.sidebar-open {
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
 .overflow-guard{
+  @include transition(left, .3s, ease-in-out);
 	overflow-x: hidden;
 	background: $siteBack;
+  left: 0;
   width: 100%;
+  position: absolute;
 	.unpublished &{
 		background: $unpub;
 	}
@@ -28,6 +36,11 @@
 	.main-page-content{
 		padding: 0;
 	}
+  .sidebar-open & {
+    @include menuStop {
+      left: $sideBar;
+    }
+  }
 }//end overflow guard
 
 .container-inline div{
@@ -68,5 +81,3 @@
 		opacity: 1;
 	}
 }
-
-
