@@ -39,6 +39,7 @@ dependencies:
     - taxonomy.vocabulary.employment_type
     - taxonomy.vocabulary.eyebrows
     - taxonomy.vocabulary.media_tags
+    - taxonomy.vocabulary.offices
     - taxonomy.vocabulary.page_families
     - taxonomy.vocabulary.placement_tags
     - taxonomy.vocabulary.program_types
@@ -199,6 +200,7 @@ permissions:
   - 'create terms in employment_type'
   - 'create terms in eyebrows'
   - 'create terms in media_tags'
+  - 'create terms in offices'
   - 'create terms in page_families'
   - 'create terms in placement_tags'
   - 'create terms in program_types'
@@ -319,6 +321,7 @@ permissions:
   - 'delete terms in employment_type'
   - 'delete terms in eyebrows'
   - 'delete terms in media_tags'
+  - 'delete terms in offices'
   - 'delete terms in page_families'
   - 'delete terms in placement_tags'
   - 'delete terms in program_types'
@@ -383,6 +386,7 @@ permissions:
   - 'edit terms in employment_type'
   - 'edit terms in eyebrows'
   - 'edit terms in media_tags'
+  - 'edit terms in offices'
   - 'edit terms in page_families'
   - 'edit terms in placement_tags'
   - 'edit terms in program_types'
