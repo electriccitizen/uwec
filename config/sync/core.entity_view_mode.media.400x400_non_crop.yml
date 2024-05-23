@@ -6,5 +6,6 @@ dependencies:
     - media
 id: media.400x400_non_crop
 label: '400x400 non-crop'
+description: ''
 targetEntityType: media
 cache: true

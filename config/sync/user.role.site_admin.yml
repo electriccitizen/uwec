@@ -59,6 +59,7 @@ dependencies:
     - domain_alias
     - entity_usage
     - filter
+    - help
     - layout_builder
     - media
     - menu_admin_per_menu
@@ -86,6 +87,7 @@ permissions:
   - 'access content overview'
   - 'access contextual links'
   - 'access entity usage statistics'
+  - 'access help pages'
   - 'access media overview'
   - 'access responsive preview'
   - 'access shortcuts'

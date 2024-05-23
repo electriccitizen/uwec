@@ -8,5 +8,6 @@ _core:
   default_config_hash: 2kOcFOuJ-vvxI0d4UgO4YqJh3pxWMHy8BH1QsNa-d6Q
 id: media.token
 label: Token
+description: ''
 targetEntityType: media
 cache: true

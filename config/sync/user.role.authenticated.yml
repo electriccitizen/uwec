@@ -10,6 +10,7 @@ dependencies:
     - content_moderation
     - file
     - filter
+    - help
     - media
     - paragraphs_type_permissions
     - system
@@ -23,6 +24,7 @@ is_admin: false
 permissions:
   - 'access administration pages'
   - 'access content'
+  - 'access help pages'
   - 'access toolbar'
   - 'create paragraph content button'
   - 'create paragraph content contact_placer'

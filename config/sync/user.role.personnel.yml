@@ -18,6 +18,7 @@ dependencies:
     - domain_access
     - domain_alias
     - filter
+    - help
     - media
     - node
     - system
@@ -29,6 +30,7 @@ is_admin: null
 permissions:
   - 'access administration pages'
   - 'access content overview'
+  - 'access help pages'
   - 'access media overview'
   - 'create image media'
   - 'edit any bios content'

@@ -8,5 +8,6 @@ _core:
   default_config_hash: nankC-TA9WaJ9Jpc_H9eI1EVP6IkmNp5hBNlTc53X68
 id: block_content.full
 label: Full
+description: ''
 targetEntityType: block_content
 cache: true

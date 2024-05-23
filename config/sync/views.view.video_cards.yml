@@ -11,9 +11,6 @@ dependencies:
     - node.type.video_card
     - taxonomy.vocabulary.page_families
     - taxonomy.vocabulary.placement_tags
-  content:
-    - 'taxonomy_term:page_families:e660eb6f-fc22-4daf-9d7f-bd93e363607b'
-    - 'taxonomy_term:placement_tags:479d2dfa-0914-41c7-90c9-7897ba00491d'
   module:
     - node
     - options
@@ -268,7 +265,6 @@ display:
           default_argument_type: fixed
           default_argument_options:
             argument: ''
-          default_argument_skip_url: false
           summary_options:
             base_path: ''
             count: true
@@ -521,7 +517,6 @@ display:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url
-        - user
         - 'user.node_grants:view'
         - user.permissions
       tags:
@@ -863,7 +858,6 @@ display:
           default_argument_type: fixed
           default_argument_options:
             argument: ''
-          default_argument_skip_url: false
           summary_options:
             base_path: ''
             count: true
@@ -1427,7 +1421,6 @@ display:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url
-        - user
         - 'user.node_grants:view'
         - user.permissions
       tags:
@@ -1769,7 +1762,6 @@ display:
           default_argument_type: fixed
           default_argument_options:
             argument: ''
-          default_argument_skip_url: false
           summary_options:
             base_path: ''
             count: true

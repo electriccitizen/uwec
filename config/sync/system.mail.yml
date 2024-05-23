@@ -2,3 +2,10 @@ _core:
   default_config_hash: ltYecFPW8jYMnRFNQ7sQNovmMvfwCdcGMVDjYszRUQI
 interface:
   default: php_mail
+mailer_dsn:
+  scheme: sendmail
+  host: default
+  user: null
+  password: null
+  port: null
+  options: {  }

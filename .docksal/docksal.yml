@@ -18,7 +18,7 @@ services:
   db:
     image: docksal/mariadb:10.6
   cli:
-    image: docksal/cli:php8.1
+    image: docksal/cli:php8.2-3.7
     # Uncomment to add support for xdebug - see http://docksal.readthedocs.io/en/master/tools/xdebug/.
     environment:
       - PANTHEON_SITE_ENV

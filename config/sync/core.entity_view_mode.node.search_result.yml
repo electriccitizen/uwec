@@ -8,5 +8,6 @@ _core:
   default_config_hash: 9KX4k0VX0uEoqxb2Z2w4imvuSZqtAluZ3Kb_MSEQRP4
 id: node.search_result
 label: 'Search result highlighting input'
+description: ''
 targetEntityType: node
 cache: true
