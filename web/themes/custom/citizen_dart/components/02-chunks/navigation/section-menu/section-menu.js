@@ -3,17 +3,15 @@
 Drupal.behaviors.sectionMenu = {
 	attach: function (context, settings) {
     $(once('section-menu', '#block-section-menu', context)).each(function() {
-      console.log("block once");
       const wrapper = $(this);
 			//toggle
 			$('.section-menu-toggle').click(function(e){
-        console.log("clicked");
 				e.preventDefault();
-        if(wrapper.is('.active-nav')){
-          wrapper.attr('aria-expanded', 'false').removeClass('active-nav').find('.expand-label').text('Explore Section').removeClass('expanded');
+        if (wrapper.is('.active-nav')){
+          wrapper.attr('aria-expanded', 'false').removeClass('active-nav').find('.toggle-label').text('In This Section').removeClass('expanded');
           $("body").removeClass("sidebar-open");
         }else{
-          wrapper.attr('aria-expanded', 'true').addClass('active-nav').find('.expand-label').text('Close').addClass('expanded');
+          wrapper.attr('aria-expanded', 'true').addClass('active-nav').find('.toggle-label').text('Close Menu').addClass('expanded');
           $("body").addClass("sidebar-open");
         }
 			});

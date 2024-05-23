@@ -37,7 +37,9 @@ body.sidebar-open {
 		padding: 0;
 	}
   .sidebar-open & {
-    left: $sideBar;
+    @include menuStop {
+      left: $sideBar;
+    }
   }
 }//end overflow guard
 

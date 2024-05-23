@@ -2,20 +2,27 @@
 	 SECTION MENU
 ===================== */
 @use '../../../00-base/base' as *;
-#block-section-menu{
-  @include transition(top, .3s, ease-in-out);
+#block-section-menu {
+  @include transition(max-height, .3s, ease-in-out);
   @include edgeToEdge;
   background-color: $menuBack;
+  bottom: 0;
   margin-bottom: 0;
-  @include menuStop{
+  max-height: 0;
+  position: fixed;
+  z-index: 20;
+  &.active-nav {
+    max-height: 100vh;
+  }
+  @include menuStop {
     @include edgeReset;
     @include transition(left, .3s, ease-in-out);
+    bottom: auto;
     height: 100vh;
     left: -$sideBar;
-    position: fixed;
+    max-height: 100%;
     top: 0;
     width: $sideBar;
-    z-index: 20;
     &.active-nav{
       left: 0;
     }
@@ -51,77 +58,66 @@
   .hide-nav &{
 		display: none;
 	}
-	h2.block-title{
-    padding: 10px 10px 10px 30px;
-		position: relative;
-		display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: space-between;
-    align-items: center;
-		color: $menuBlockTitle;
-		max-width: none;
-		margin-bottom: 0;
-		text-align: left;
-    @include menuStop{
-      background: $ice;
-      padding: 10px;
-    }
-  }
-  a.section-menu-toggle {
-    @include safeFlex(row, nowrap, end, center);
+  .section-menu-toggle {
+    @include safeFlex(column, nowrap, end, center);
     background-color: $menuBack;
     border-radius: 50%;
     box-shadow: 2px 2px 6px 0 $transGrey;
+    color: $link;
     cursor: pointer;
     height: 200px;
+    left: calc(50vw - 100px);
     position: absolute;
-    right: -100px;
-    top: calc(50vh - 100px);
+    text-align: center;
+    top: -100px;
     width: 200px;
-    .section-menu-toggle-title {
+    @include menuStop {
+      @include safeFlex(row, nowrap, end, center);
+      left: auto;
+      right: -100px;
+      text-align: left;
+      top: calc(50vh - 100px);
+    }
+    &:hover {
+      color: $hoverLink;
+    }
+    .toggle-label {
       font-family: $header;
       font-size: 14px;
       font-weight: $heavy;
       line-height: 1.3;
+      margin-bottom: 50%;
       padding: 0 14px 0 8px;
       position: relative;
-      width: 50%;
       text-transform: uppercase;
+      top: -12px; // To balance out the absolutely-positioned arrow, below.
+      width: 50%;
       z-index: 25;
-    }
-  }
-  h2.section-menu-toggle {
-		background: $menuBlockTitleBack;
-    color: $menuBlockTitle;
-    @include menuStop{
-      pointer-events: none;
-      display: none !important;
-    }
-    .toggle-label {
-      max-width: calc(100% - 112px);
-      width: 100%;
-    }
-    a span{
-      font-family: $bodyText;
-      font-weight: $regular;
-      font-size: 14px;
-      text-transform: none;
-      letter-spacing: 0;
-      text-indent: -9000px;
-      display: block;
-      width: 52px;
-      height: 40px;
-      background-image: url(../images/elements/caret-down-mobile-main-nav.svg);
-      background-repeat: no-repeat;
-      background-position: center;
-      @include rotate(180);
-      &.expanded{
-        @include rotate(0);
-        transition: transform .3s ease-in-out;
+      &:after {
+        @include materialIconOutline(\f1e3);
+        @include transition(transform, .3s, ease-in-out);
+        bottom: 10px;
+        right: -16px;
+        position: absolute;
+        transform: rotate(-135deg);
+      }
+      @include menuStop {
+        margin-bottom: 0;
+        &:after {
+          bottom: -24px;
+          left: 8px;
+          right: auto;
+          transform: rotate(-45deg);
+        }
       }
     }
-  }//end section menu toggle
+  }
+  &.active-nav .section-menu-toggle .toggle-label:after {
+    transform: rotate(-45deg);
+    @include menuStop {
+      transform: rotate(45deg);
+    }
+  }
 	h2.block-page-title	{
     padding-left: 0;
     a {
@@ -143,17 +139,18 @@
 
 //top level
 #section-menu-wrapper{
-	display: none;
 	background: $menuBack;
-	padding: 0 15px 100px;
+	padding: 30px 15px 100px;
   position: relative;
   overflow-y: auto;
+  width: 100vw;
   z-index: 5;
-	@include menuStop{
+	@include menuStop {
 		display: block !important;
-    padding: 0 10px 20px;
     margin-bottom: $spaceLg;
-    .layout-builder__layout &{
+    padding: 89px 10px 20px;
+    width: auto;
+    .layout-builder__layout & {
       display: none !important;
     }
 	}
