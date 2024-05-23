@@ -293,7 +293,6 @@ class ProfileSyncService {
     //todo try-catch for failures
     $user->save();
 
-    //todo test in the morning!
     if ($existingNode instanceof NodeInterface) {
       $existingNode->setOwnerId($user->id());
       $existingNode->save();
