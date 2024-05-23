@@ -1,0 +1,31 @@
+uuid: 68b2ea1f-513a-44ec-ba97-b3aecc665a93
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.offices.field_general_page
+    - taxonomy.vocabulary.offices
+  module:
+    - text
+id: taxonomy_term.offices.default
+targetEntityType: taxonomy_term
+bundle: offices
+mode: default
+content:
+  description:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_general_page:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  search_api_excerpt: true
