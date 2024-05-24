@@ -25,9 +25,12 @@
     width: $sideBar;
     &.active-nav{
       left: 0;
+      .logged-in & {
+        left: 65px;
+      }
     }
-    .logged-in &{
-      left: -15px;
+    .logged-in & {
+      left: 65px - $sideBar;
     }
     .layout-builder__layout &{
       position: relative !important;
