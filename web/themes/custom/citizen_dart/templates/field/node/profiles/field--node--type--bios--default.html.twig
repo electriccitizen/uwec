@@ -48,8 +48,17 @@
         </a>
       </div>
     {%- endfor -%}
-    {%- for family in element['#object'].field_page_families -%}
-      <div class="office">{{ family.entity.name.0.value }}</div>
+    {%- for office in element['#object'].field_offices -%}
+      {% set office_general_page_nid = office.entity.field_general_page.target_id %}
+      <div class="office">
+        {%- if office_general_page_nid -%}
+          <a href="{{ path('entity.node.canonical', {'node': office_general_page_nid}) }}">
+            {{ office.entity.name.0.value }}
+          </a>
+        {%- else -%}
+          {{ office.entity.name.0.value }}
+        {%- endif -%}
+      </div>
     {%- endfor -%}
   </div>
 {% endif %}
