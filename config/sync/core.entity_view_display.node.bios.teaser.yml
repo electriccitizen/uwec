@@ -33,6 +33,7 @@ dependencies:
     - field.field.node.bios.field_middle_name
     - field.field.node.bios.field_office
     - field.field.node.bios.field_office_hours
+    - field.field.node.bios.field_offices
     - field.field.node.bios.field_page_families
     - field.field.node.bios.field_phone
     - field.field.node.bios.field_platforms
@@ -118,6 +119,7 @@ hidden:
   field_middle_name: true
   field_office: true
   field_office_hours: true
+  field_offices: true
   field_page_families: true
   field_phone: true
   field_platforms: true
