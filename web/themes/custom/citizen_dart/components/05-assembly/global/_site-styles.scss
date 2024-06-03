@@ -23,6 +23,10 @@ body.sidebar-open {
   left: 0;
   width: 100%;
   position: absolute;
+  .logged-in &{
+    padding-left: 66px;
+    width: calc(100% - 66px);
+  }
 	.unpublished &{
 		background: $unpub;
 	}
