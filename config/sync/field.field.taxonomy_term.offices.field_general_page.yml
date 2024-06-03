@@ -10,7 +10,7 @@ id: taxonomy_term.offices.field_general_page
 field_name: field_general_page
 entity_type: taxonomy_term
 bundle: offices
-label: 'General Page'
+label: 'Home Page'
 description: ''
 required: false
 translatable: false
