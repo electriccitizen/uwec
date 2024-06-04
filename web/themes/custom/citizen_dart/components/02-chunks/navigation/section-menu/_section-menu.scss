@@ -26,11 +26,11 @@
     &.active-nav{
       left: 0;
       max-height: 100vh;
-      .logged-in & {
+      .toolbar-fixed & {
         left: 65px;
       }
     }
-    .logged-in & {
+    .toolbar-fixed & {
       left: 65px - $sideBar;
     }
     .layout-builder__layout &{
