@@ -25,11 +25,12 @@
     width: $sideBar;
     &.active-nav{
       left: 0;
-      .logged-in & {
+      max-height: 100vh;
+      .toolbar-fixed & {
         left: 65px;
       }
     }
-    .logged-in & {
+    .toolbar-fixed & {
       left: 65px - $sideBar;
     }
     .layout-builder__layout &{
@@ -133,6 +134,8 @@
   }
 	h2.block-page-title {
     margin-bottom: $spaceSm;
+    margin-left: 0;
+    margin-right: 0;
     padding-left: 0;
     text-align: left;
     a {
