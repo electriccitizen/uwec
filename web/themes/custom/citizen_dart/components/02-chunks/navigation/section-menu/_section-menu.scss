@@ -25,6 +25,7 @@
     width: $sideBar;
     &.active-nav{
       left: 0;
+      max-height: 100vh;
       .logged-in & {
         left: 65px;
       }
@@ -133,6 +134,8 @@
   }
 	h2.block-page-title {
     margin-bottom: $spaceSm;
+    margin-left: 0;
+    margin-right: 0;
     padding-left: 0;
     text-align: left;
     a {
