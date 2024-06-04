@@ -12,7 +12,7 @@
   position: fixed;
   z-index: 20;
   &.active-nav {
-    max-height: 100vh;
+    max-height: 75vh;
   }
   @include menuStop {
     @include edgeReset;
