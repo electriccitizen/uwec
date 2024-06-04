@@ -131,7 +131,8 @@
       transform: rotate(45deg);
     }
   }
-	h2.block-page-title	{
+	h2.block-page-title {
+    margin-bottom: $spaceSm;
     padding-left: 0;
     text-align: left;
     a {
