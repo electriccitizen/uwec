@@ -284,7 +284,7 @@ class ProfileSyncService {
       'field_last_imported' => $this->getUpdateTime(),
       // Generate random password
       'pass' => \Drupal::service('password_generator')->generate(),
-      'status' => $existingNode instanceof NodeInterface ? 1 : 0,
+      'status' => 1,
       'roles' => ['personnel'],
     ];
 
