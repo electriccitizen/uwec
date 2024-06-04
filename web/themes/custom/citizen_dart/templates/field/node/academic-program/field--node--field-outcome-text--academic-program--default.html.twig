@@ -28,9 +28,12 @@
 	'#format': element['#object'].field_outcome_text.0.format
 } %}
 
+{% set title = element['#object'].title.0.value %}
+{% set title_indefinite_article = indefinite_article(title) %}
+
 {% block fieldSingleNo %}
 	<div class="outcomes">
-    <h2>{% trans %}What can I do with a {{ element['#object'].title.0.value }} degree?{% endtrans %}</h2>
+    <h2>{% trans %}What can I do with {{ title_indefinite_article }} {{ title }} degree?{% endtrans %}</h2>
     {{ outcomeText }}
 	</div>
   {% if element['#object'].field_example_careers|length > 0 %}

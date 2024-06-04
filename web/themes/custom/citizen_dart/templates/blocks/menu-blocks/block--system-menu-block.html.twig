@@ -40,7 +40,9 @@
 {{ attach_library('citizen_dart/menu-block') }}
 <nav aria-labelledby="{{ heading_id }}" id="{{ heading_id }}"{{ attributes|without('role', 'aria-labelledby', 'id').addClass(blockTitle,heading_id) }}>
   {# Label. If not displayed, we still provide it for screen readers. #}
-  <h2 class="block-title{% if not configuration.label_display %} visually-hidden{% endif %}">{{ configuration.label }}</h2>
+  {% block blockLabel %}
+    <h2 class="block-title{% if not configuration.label_display %} visually-hidden{% endif %}">{{ configuration.label }}</h2>
+  {% endblock %}
   {{ title_suffix }}
   {# Menu. #}
   {% block content %}

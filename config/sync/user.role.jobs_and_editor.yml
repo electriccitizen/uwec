@@ -22,6 +22,7 @@ dependencies:
     - domain
     - domain_access
     - domain_alias
+    - entity_usage
     - media
     - node
     - paragraphs_type_permissions
@@ -36,6 +37,7 @@ weight: 10
 is_admin: null
 permissions:
   - 'access content overview'
+  - 'access entity usage statistics'
   - 'access media overview'
   - 'access responsive preview'
   - 'access shortcuts'

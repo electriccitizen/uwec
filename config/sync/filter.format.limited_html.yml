@@ -19,19 +19,24 @@ filters:
     status: false
     weight: -46
     settings: {  }
-  filter_html_image_secure:
-    id: filter_html_image_secure
+  filter_align:
+    id: filter_align
     provider: filter
     status: false
-    weight: -42
+    weight: -45
     settings: {  }
-  filter_url:
-    id: filter_url
+  filter_autop:
+    id: filter_autop
     provider: filter
-    status: true
-    weight: -50
-    settings:
-      filter_url_length: 72
+    status: false
+    weight: -44
+    settings: {  }
+  filter_caption:
+    id: filter_caption
+    provider: filter
+    status: false
+    weight: -43
+    settings: {  }
   filter_html:
     id: filter_html
     provider: filter
@@ -41,23 +46,17 @@ filters:
       allowed_html: '<br> <p> <h2> <h3> <h4> <h5> <h6> <strong> <em> <sub> <sup> <a href data-entity-type data-entity-uuid data-entity-substitution> <ul> <ol start> <li>'
       filter_html_help: true
       filter_html_nofollow: false
-  filter_autop:
-    id: filter_autop
+  filter_html_escape:
+    id: filter_html_escape
     provider: filter
     status: false
-    weight: -44
+    weight: -47
     settings: {  }
-  filter_align:
-    id: filter_align
+  filter_html_image_secure:
+    id: filter_html_image_secure
     provider: filter
     status: false
-    weight: -45
-    settings: {  }
-  filter_caption:
-    id: filter_caption
-    provider: filter
-    status: false
-    weight: -43
+    weight: -42
     settings: {  }
   filter_htmlcorrector:
     id: filter_htmlcorrector
@@ -65,12 +64,30 @@ filters:
     status: true
     weight: -41
     settings: {  }
-  filter_html_escape:
-    id: filter_html_escape
+  filter_image_lazy_load:
+    id: filter_image_lazy_load
     provider: filter
     status: false
-    weight: -47
+    weight: -45
     settings: {  }
+  filter_pathologic:
+    id: filter_pathologic
+    provider: pathologic
+    status: true
+    weight: -40
+    settings:
+      settings_source: global
+      local_settings:
+        protocol_style: full
+        local_paths: ''
+        keep_language_prefix: false
+  filter_url:
+    id: filter_url
+    provider: filter
+    status: true
+    weight: -50
+    settings:
+      filter_url_length: 72
   linkit:
     id: linkit
     provider: linkit
@@ -87,19 +104,3 @@ filters:
       default_view_mode: default
       allowed_view_modes: {  }
       allowed_media_types: {  }
-  filter_pathologic:
-    id: filter_pathologic
-    provider: pathologic
-    status: true
-    weight: -40
-    settings:
-      settings_source: global
-      local_settings:
-        protocol_style: full
-        local_paths: ''
-  filter_image_lazy_load:
-    id: filter_image_lazy_load
-    provider: filter
-    status: false
-    weight: -45
-    settings: {  }

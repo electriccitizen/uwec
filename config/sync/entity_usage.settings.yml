@@ -1,10 +1,18 @@
 _core:
   default_config_hash: 6_Tz7giF4ccYYGx3Nz9I-YsSzWSnht5K5wP1817MbTo
 local_task_enabled_entity_types:
-  - paragraphs_library_item
+  - media
+track_enabled_source_entity_types:
+  - node
+  - block_content
+  - paragraph
+track_enabled_target_entity_types:
+  - media
+track_enabled_plugins:
+  - dynamic_entity_reference
+  - entity_reference
 track_enabled_base_fields: false
-edit_warning_message_entity_types:
-  - paragraphs_library_item
-delete_warning_message_entity_types:
-  - paragraphs_library_item
+site_domains: {  }
+edit_warning_message_entity_types: {  }
+delete_warning_message_entity_types: {  }
 usage_controller_items_per_page: 25

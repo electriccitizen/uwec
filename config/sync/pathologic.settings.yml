@@ -1,9 +1,10 @@
 _core:
   default_config_hash: 2KYuv8QNCny6W4bH20pmet4fpnZB6V9nx4DSo6tpcr4
-scheme_whitelist:
+scheme_allow_list:
   - http
   - https
   - files
   - internal
 protocol_style: full
 local_paths: "http://uwec.docksal.site/\r\nhttps://dev-uwec.pantheonsite.io/\r\nhttps://test-uwec.pantheonsite.io/\r\nhttps://live-uwec.pantheonsite.io/\r\nhttps://www.uwec.edu/"
+keep_language_prefix: false

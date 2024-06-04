@@ -1,0 +1,30 @@
+uuid: 49ef851e-8872-463c-a41f-98370a19d7ac
+langcode: en
+status: true
+dependencies:
+  config:
+    - image.style.200x266
+    - image.style.200x266_1_5x
+    - image.style.200x266_2x
+  theme:
+    - citizen_dart
+id: headshot
+label: Headshot
+image_style_mappings:
+  -
+    image_mapping_type: image_style
+    image_mapping: 200x266
+    breakpoint_id: citizen_dart.desk
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: 200x266
+    breakpoint_id: citizen_dart.mobile
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: 200x266_1_5x
+    breakpoint_id: citizen_dart.mobile
+    multiplier: 1.5x
+breakpoint_group: citizen_dart
+fallback_image_style: 200x266_2x

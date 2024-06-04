@@ -19,10 +19,10 @@ default_value:
   -
     attributes: {  }
     uri: 'entity:node/83'
-    title: ''
+    title: 'See admissions requirements'
     options: {  }
 default_value_callback: ''
 settings:
-  title: 0
+  title: 2
   link_type: 17
 field_type: link

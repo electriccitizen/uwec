@@ -8,5 +8,6 @@ _core:
   default_config_hash: rVhkdWCkR_sUSlHDa3WmzaDOlbx0WBOdnvjbGQZcyxk
 id: paragraph.preview
 label: Preview
+description: ''
 targetEntityType: paragraph
 cache: true

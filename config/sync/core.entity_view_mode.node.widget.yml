@@ -6,5 +6,6 @@ dependencies:
     - node
 id: node.widget
 label: Widget
+description: ''
 targetEntityType: node
 cache: true

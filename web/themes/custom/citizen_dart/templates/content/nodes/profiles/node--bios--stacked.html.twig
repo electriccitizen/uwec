@@ -83,7 +83,25 @@
 	<article{{ attributes.addClass(classes) }}>
 
     <div class="stacked-intro">
-      {{ content.field_image }}
+      {% if content.field_image.0 %}
+        {{ content.field_image }}
+      {% else %}
+        <div class="field-image profile-favicon">
+          {% set imagePath = '/themes/custom/citizen_dart/images/logos-badges/profile-favicon' %}
+          <picture>
+            <!--[if IE 9]><video style="display: none;"><![endif]-->
+            <source
+              srcset="{{ imagePath }}/profile-favicon-360-480.jpg 1x, {{ imagePath }}/profile-favicon-360-480-2.jpg 2x, {{ imagePath }}/profile-favicon-360-480-1-5.jpg 1.5x"
+              type="image/jpg"
+              width="360"
+              height="480">
+            <img
+              loading="eager"
+              src="{{ imagePath }}/profile-favicon-360-480.jpg"
+              alt="UWEC wordlogo stacked as a placeholder image">
+          </picture>
+        </div>
+      {% endif %}
 
       {% if content.field_is_alumni.0['#markup'] == 'Alumnus' or content.field_emeriti_status.0['#markup'] != 'not_emeritus' %}
         <div class="profile-stacked-icons">
@@ -103,7 +121,7 @@
                   </defs>
                 </svg>
               </div>
-              <div class="field field-is-alumni list-string">Alumnus</div>
+              <div class="field field-is-alumni list-string">Alum</div>
             </div>
           {% endif %}
 

@@ -2,17 +2,17 @@
 
 Drupal.behaviors.sectionMenu = {
 	attach: function (context, settings) {
-    $(once('section-menu', '#section-menu-wrapper', context)).each(function() {
+    $(once('section-menu', '#block-section-menu', context)).each(function() {
       const wrapper = $(this);
-			//mobile toggle
+			//toggle
 			$('.section-menu-toggle').click(function(e){
 				e.preventDefault();
-        if($(this).is('.active-nav')){
-          $(this).attr('aria-expanded', 'false').removeClass('active-nav').find('.expand-label').text('Explore Section').removeClass('expanded');
-          wrapper.attr('aria-hidden', 'true').slideUp(500);
+        if (wrapper.is('.active-nav')){
+          wrapper.attr('aria-expanded', 'false').removeClass('active-nav').find('.toggle-label').text('In This Section').removeClass('expanded');
+          $("body").removeClass("sidebar-open");
         }else{
-          $(this).attr('aria-expanded', 'true').addClass('active-nav').find('.expand-label').text('Close').addClass('expanded');
-          wrapper.attr('aria-hidden', 'false').slideDown(500);
+          wrapper.attr('aria-expanded', 'true').addClass('active-nav').find('.toggle-label').text('Close Menu').addClass('expanded');
+          $("body").addClass("sidebar-open");
         }
 			});
 
@@ -54,44 +54,44 @@ function mobileSectionnav() {
 ------------------ */
 Drupal.behaviors.navPosition = {
   attach: function (context, settings) {
-  	$(once('navPosition', '.layout--twocol-sideleft:not(.layout-builder__layout)', context)).each(function(){
-      if($('#block-section-menu .menu-item',this).length){
-        $('#block-section-menu',this).addClass('show-nav');
-      }else{
-        $('.layout__region--first',this).remove();
-      }
-      $(document).ready(function() {
-        var windowWidth = $(window).outerWidth();
-        var $targetElement = $('.layout--twocol-sideleft');
-        var $titleHeight = $('#section-menu-title').outerHeight();
-        var viewportBottom = $(window).scrollTop() + $(window).height();
-        var elementTop = $targetElement.offset().top;
-        if (viewportBottom > elementTop) {
-          $('#block-section-menu',$targetElement).addClass('post-intro');
-        } else {
-          $('#block-section-menu',$targetElement).removeClass('post-intro');
-        }
-        if(windowWidth > 1199){
-          $('#block-section-menu',$targetElement).css('top','calc(100% - ' + $titleHeight + 'px)');
-          // find menu height minus offset & spacing so can make sure there is enough body height to push down paragraphs
-          var menuHeight = $('#block-section-menu',$targetElement).outerHeight() - 280;
-          if(menuHeight > 0){
-            $('.layout--twocol-sideleft:not(.layout-builder__layout) .block-field.block-body:only-child').css('min-height',menuHeight + 'px');
-          }
-        }else{
-          $('#block-section-menu',$targetElement).css('top','auto');
-        }
-        $(window).scroll(function() {
-          var viewportBottom = $(window).scrollTop() + $(window).height();
-          var elementTop = $targetElement.offset().top;
-          if (viewportBottom > elementTop) {
-            $('#block-section-menu',$targetElement).addClass('post-intro');
-          } else {
-            $('#block-section-menu',$targetElement).removeClass('post-intro');
-          }
-        });
-      });
-    });
+  	// $(once('navPosition', '.layout--twocol-sideleft:not(.layout-builder__layout)', context)).each(function(){
+    //   if($('#block-section-menu .menu-item',this).length){
+    //     $('#block-section-menu',this).addClass('show-nav');
+    //   }else{
+    //     $('.layout__region--first',this).remove();
+    //   }
+    //   $(document).ready(function() {
+    //     var windowWidth = $(window).outerWidth();
+    //     var $targetElement = $('.layout--twocol-sideleft');
+    //     var $titleHeight = $('#section-menu-title').outerHeight();
+    //     var viewportBottom = $(window).scrollTop() + $(window).height();
+    //     var elementTop = $targetElement.offset().top;
+    //     if (viewportBottom > elementTop) {
+    //       $('#block-section-menu',$targetElement).addClass('post-intro');
+    //     } else {
+    //       $('#block-section-menu',$targetElement).removeClass('post-intro');
+    //     }
+    //     if(windowWidth > 1199){
+    //       $('#block-section-menu',$targetElement).css('top','calc(100% - ' + $titleHeight + 'px)');
+    //       // find menu height minus offset & spacing so can make sure there is enough body height to push down paragraphs
+    //       var menuHeight = $('#block-section-menu',$targetElement).outerHeight() - 280;
+    //       if(menuHeight > 0){
+    //         $('.layout--twocol-sideleft:not(.layout-builder__layout) .block-field.block-body:only-child').css('min-height',menuHeight + 'px');
+    //       }
+    //     }else{
+    //       $('#block-section-menu',$targetElement).css('top','auto');
+    //     }
+    //     $(window).scroll(function() {
+    //       var viewportBottom = $(window).scrollTop() + $(window).height();
+    //       var elementTop = $targetElement.offset().top;
+    //       if (viewportBottom > elementTop) {
+    //         $('#block-section-menu',$targetElement).addClass('post-intro');
+    //       } else {
+    //         $('#block-section-menu',$targetElement).removeClass('post-intro');
+    //       }
+    //     });
+    //   });
+    // });
   }
 }
 

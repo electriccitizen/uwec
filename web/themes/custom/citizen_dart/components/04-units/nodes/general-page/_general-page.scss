@@ -45,6 +45,7 @@ $videoWidth: $videoHeight * 1.4153;
 	}
 
 	#node-section-1{
+    z-index: 1;
 		.hero-video &,.hero-full_image &,.hero-background &{
 			position: static;
 		}
@@ -61,7 +62,7 @@ $videoWidth: $videoHeight * 1.4153;
 	.page-header-wrapper{
 		position: relative;
 		z-index: 0;
-		
+
     /* PATTERN HERO */
 		&.page-hero-pattern{
       @include patternHero;
@@ -235,7 +236,7 @@ $videoWidth: $videoHeight * 1.4153;
         padding-bottom: 29vw;
       }
       @include contentStopMargin{
-        margin-bottom: 0;
+        margin-bottom: $elementSpace;
       }
       @media screen and (min-width: 1600px){
         margin-bottom: -2vw;
@@ -268,7 +269,7 @@ $videoWidth: $videoHeight * 1.4153;
             @include animation('fadeIn 1.25s 1');
           }
           @include menuStop{
-            top: 120px; 
+            top: 120px;
           }
           &:before{
             @include animation('fadeInDelay 1s 1');
@@ -720,10 +721,11 @@ $videoWidth: $videoHeight * 1.4153;
     }//end page header text
   }//end hero none in menu
 
-  #node-section-2{
+  #node-section-2 {
+    z-index: 2;
     .layout--twocol-sideleft{
       position: relative;
-      & > .layout__region--content{ 
+      & > .layout__region--content{
         & > .block-field:not(.block-field-paragraphs){
           padding-left: 20px;
           padding-right: 20px;

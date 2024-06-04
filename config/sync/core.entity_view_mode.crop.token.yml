@@ -8,5 +8,6 @@ _core:
   default_config_hash: swSyyYzePedUV7ia6nUp2sUY-HNCLZKsJT6hJF2Zz8U
 id: crop.token
 label: Token
+description: ''
 targetEntityType: crop
 cache: true
