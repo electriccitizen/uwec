@@ -10,6 +10,7 @@ dependencies:
     - field.field.paragraph.profiles_list.field_limit_list
     - field.field.paragraph.profiles_list.field_list_type
     - field.field.paragraph.profiles_list.field_list_widget
+    - field.field.paragraph.profiles_list.field_office
     - field.field.paragraph.profiles_list.field_page_family
     - field.field.paragraph.profiles_list.field_profiles
     - field.field.paragraph.profiles_list.field_program
@@ -49,6 +50,7 @@ hidden:
   field_faculty_staff: true
   field_limit_list: true
   field_list_widget: true
+  field_office: true
   field_page_family: true
   field_profiles: true
   field_program: true

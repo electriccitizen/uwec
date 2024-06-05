@@ -11,6 +11,7 @@ dependencies:
     - field.storage.node.field_last_name
     - field.storage.node.field_last_override
     - field.storage.node.field_middle_name
+    - field.storage.node.field_offices
     - field.storage.node.field_programs
     - field.storage.node.field_position
     - field.storage.node.field_position_override
@@ -114,6 +115,16 @@ field_settings:
     dependencies:
       config:
         - field.storage.node.field_position_override
+  offices:
+    label: Offices
+    datasource_id: 'entity:node'
+    property_path: 'field_offices:entity:name'
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_offices
+      module:
+        - taxonomy
   programs:
     label: Program(s)
     datasource_id: 'entity:node'
@@ -156,6 +167,7 @@ datasource_settings:
 processor_settings:
   add_url: {  }
   aggregated_field: {  }
+  custom_value: {  }
   entity_status: {  }
   entity_type: {  }
   ignore_character:
@@ -174,6 +186,7 @@ processor_settings:
       - field_middle_name
       - field_position
       - field_position_override
+      - offices
       - programs
       - title
       - title_1
@@ -202,6 +215,7 @@ processor_settings:
       - field_middle_name
       - field_position
       - field_position_override
+      - offices
       - programs
       - title
       - title_1
@@ -259,6 +273,7 @@ processor_settings:
       - field_middle_name
       - field_position
       - field_position_override
+      - offices
       - programs
       - title
       - title_1
