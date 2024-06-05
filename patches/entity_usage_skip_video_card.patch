@@ -1,0 +1,163 @@
+Index: src/EntityUsageBatchManager.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/EntityUsageBatchManager.php b/src/EntityUsageBatchManager.php
+--- a/src/EntityUsageBatchManager.php	
++++ b/src/EntityUsageBatchManager.php	(date 1717620000154)
+@@ -170,6 +170,7 @@
+ 
+     $entity_ids = $entity_storage->getQuery()
+       ->condition($entity_type_key, $context['sandbox']['current_id'], $op)
++      ->condition('type', 'video_card', '<>')
+       ->range(0, 1)
+       ->accessCheck(FALSE)
+       ->sort($entity_type_key)
+@@ -178,76 +179,81 @@
+ 
+     if (isset($entity_id) && $entity = $entity_storage->load($entity_id)) {
+       /** @var \Drupal\Core\Entity\EntityInterface $entity */
+-      try {
+-        if ($entity->getEntityType()->isRevisionable()) {
+-          // We cannot query the revisions due to this bug
+-          // https://www.drupal.org/project/drupal/issues/2766135
+-          // so we will use offsets.
+-          $start = $context['sandbox']['batch_entity_revision']['start'];
+-          // Track all revisions and translations of the source entity. Sources
+-          // are tracked as if they were new entities.
+-          $result = $entity_storage->getQuery()->allRevisions()
+-            ->condition($entity->getEntityType()->getKey('id'), $entity->id())
+-            ->accessCheck(FALSE)
+-            ->sort($entity->getEntityType()->getKey('revision'), 'DESC')
+-            ->range($start, static::REVISION_BATCH_SIZE)
+-            ->execute();
+-          $revision_ids = array_keys($result);
+-          if (count($revision_ids) === static::REVISION_BATCH_SIZE) {
+-            $context['sandbox']['batch_entity_revision'] = [
+-              'status' => 1,
+-              'current_vid' => min($revision_ids),
+-              'start' => $start + static::REVISION_BATCH_SIZE,
+-            ];
+-          }
+-          else {
+-            $context['sandbox']['batch_entity_revision'] = [
+-              'status' => 0,
+-              'current_vid' => 0,
+-              'start' => 0,
+-            ];
+-          }
++      $bundle = $entity->bundle();
++        try {
++          if ($entity->getEntityType()->isRevisionable()) {
++            // We cannot query the revisions due to this bug
++            // https://www.drupal.org/project/drupal/issues/2766135
++            // so we will use offsets.
++            $start = $context['sandbox']['batch_entity_revision']['start'];
++            // Track all revisions and translations of the source entity. Sources
++            // are tracked as if they were new entities.
++            $result = $entity_storage->getQuery()->allRevisions()
++              ->condition($entity->getEntityType()->getKey('id'), $entity->id())
++              ->accessCheck(FALSE)
++              ->sort($entity->getEntityType()->getKey('revision'), 'DESC')
++              ->range($start, static::REVISION_BATCH_SIZE)
++              ->execute();
++            $revision_ids = array_keys($result);
++            if (count($revision_ids) === static::REVISION_BATCH_SIZE) {
++              $context['sandbox']['batch_entity_revision'] = [
++                'status' => 1,
++                'current_vid' => min($revision_ids),
++                'start' => $start + static::REVISION_BATCH_SIZE,
++              ];
++            }
++            else {
++              $context['sandbox']['batch_entity_revision'] = [
++                'status' => 0,
++                'current_vid' => 0,
++                'start' => 0,
++              ];
++            }
+ 
+-          foreach ($revision_ids as $revision_id) {
+-            /** @var \Drupal\Core\Entity\EntityInterface $entity_revision */
+-            if (!$entity_revision = $entity_storage->loadRevision($revision_id)) {
+-              continue;
+-            }
++            foreach ($revision_ids as $revision_id) {
++              /** @var \Drupal\Core\Entity\EntityInterface $entity_revision */
++              if (!$entity_revision = $entity_storage->loadRevision($revision_id)) {
++                continue;
++              }
+ 
+-            \Drupal::service('entity_usage.entity_update_manager')->trackUpdateOnCreation($entity_revision);
+-          }
+-        }
+-        else {
+-          // Sources are tracked as if they were new entities.
+-          \Drupal::service('entity_usage.entity_update_manager')->trackUpdateOnCreation($entity);
+-        }
+-      }
+-      catch (\Exception $e) {
+-        watchdog_exception('entity_usage.batch', $e);
+-      }
++              \Drupal::service('entity_usage.entity_update_manager')
++                ->trackUpdateOnCreation($entity_revision);
++            }
++          }
++          else {
++            // Sources are tracked as if they were new entities.
++            \Drupal::service('entity_usage.entity_update_manager')
++              ->trackUpdateOnCreation($entity);
++          }
++        } catch (\Exception $e) {
++          watchdog_exception('entity_usage.batch', $e);
++        }
+ 
+-      if (
+-        $context['sandbox']['batch_entity_revision']['status'] === 0 ||
+-        intval($context['sandbox']['progress']) === 0
+-      ) {
+-        $context['sandbox']['progress']++;
+-      }
+-      $context['sandbox']['current_id'] = $entity->id();
+-      $context['results'][] = $entity_type_id . ':' . $entity->id();
+-    }
++        if (
++          $context['sandbox']['batch_entity_revision']['status'] === 0 ||
++          intval($context['sandbox']['progress']) === 0
++        ) {
++          $context['sandbox']['progress']++;
++        }
++        $context['sandbox']['current_id'] = $entity->id();
++        $context['results'][] = $entity_type_id . ':' . $entity->id();
++
+ 
+-    if ($context['sandbox']['progress'] < $context['sandbox']['total']) {
+-      $context['finished'] = $context['sandbox']['progress'] / $context['sandbox']['total'];
+-    }
+-    else {
+-      $context['finished'] = 1;
+-    }
++      if ($context['sandbox']['progress'] < $context['sandbox']['total']) {
++        $context['finished'] = $context['sandbox']['progress'] / $context['sandbox']['total'];
++      }
++      else {
++        $context['finished'] = 1;
++      }
+ 
+-    $context['message'] = t('Updating entity usage for @entity_type: @current of @total', [
+-      '@entity_type' => $entity_type_id,
+-      '@current' => $context['sandbox']['progress'],
+-      '@total' => $context['sandbox']['total'],
+-    ]);
++      $context['message'] = t('Updating entity usage for @entity_type|@bundle|@entity_id: @current of @total', [
++        '@entity_type' => $entity_type_id,
++        '@bundle' => $bundle,
++        '@entity_id' => $entity_id,
++        '@current' => $context['sandbox']['progress'],
++        '@total' => $context['sandbox']['total'],
++      ]);
++    }
+   }
+ 
+   /**
