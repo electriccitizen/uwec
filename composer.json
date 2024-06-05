@@ -146,7 +146,8 @@
       	"D10 compatibility patch": "https://www.drupal.org/files/issues/2023-01-18/3299991-drupal-10-compatibility-fixes-7.patch"
       },
       "drupal/entity_usage": {
-      	"Undefined array key bug": "https://www.drupal.org/files/issues/2023-11-29/3383042-3-re-rolling-undefined-array-key.patch"
+      	"Undefined array key bug": "https://www.drupal.org/files/issues/2023-11-29/3383042-3-re-rolling-undefined-array-key.patch",
+        "Skip the video_card node type": "patches/entity_usage_skip_video_card_node.patch"
       },
       "drupal/lazy": {
         "php 8.2 deprecations warnings": "https://www.drupal.org/files/issues/2023-08-28/3340222-6.patch"
