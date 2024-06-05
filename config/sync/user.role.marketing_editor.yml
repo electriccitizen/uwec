@@ -27,6 +27,7 @@ dependencies:
     - domain
     - domain_access
     - domain_alias
+    - entity_usage
     - filter
     - help
     - media
@@ -45,6 +46,7 @@ is_admin: null
 permissions:
   - 'access administration pages'
   - 'access content overview'
+  - 'access entity usage statistics'
   - 'access help pages'
   - 'access media overview'
   - 'access responsive preview'
