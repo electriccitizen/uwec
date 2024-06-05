@@ -31,21 +31,9 @@
  * http://www.w3.org/TR/WCAG-TECHS/H42.html for more information.
  */
 #}
-{% set heading_id = 'block-' ~ content['#menu_name'] ~ '-menu' %}
-{% set attributes = attributes.addClass('block--system-menu') %}
+{% extends 'block--system-menu-block.html.twig' %}
 
-{% if configuration.label %}
-  {% set blockTitle = configuration.label|clean_class %}
-{% endif %}
-{{ attach_library('citizen_dart/menu-block') }}
-<nav aria-labelledby="{{ heading_id }}" id="{{ heading_id }}"{{ attributes|without('role', 'aria-labelledby', 'id').addClass(blockTitle,heading_id) }}>
-  {# Label. If not displayed, we still provide it for screen readers. #}
-  {% block blockLabel %}
-    <h2 class="block-title{% if not configuration.label_display %} visually-hidden{% endif %}">{{ configuration.label }}</h2>
-  {% endblock %}
-  {{ title_suffix }}
-  {# Menu. #}
-  {% block content %}
-    {{ content }}
-  {% endblock %}
-</nav>
+{% block blockLabel %}
+  <span class="block-title{% if not configuration.label_display %} visually-hidden{% endif %}">{{ configuration.label }}</span>
+{% endblock %}
+ 

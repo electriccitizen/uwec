@@ -9,6 +9,7 @@ dependencies:
     - field.field.paragraph.profiles_list.field_limit_list
     - field.field.paragraph.profiles_list.field_list_type
     - field.field.paragraph.profiles_list.field_list_widget
+    - field.field.paragraph.profiles_list.field_office
     - field.field.paragraph.profiles_list.field_page_family
     - field.field.paragraph.profiles_list.field_profiles
     - field.field.paragraph.profiles_list.field_program
@@ -59,7 +60,7 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_page_family:
+  field_office:
     type: entity_reference_autocomplete
     weight: 5
     region: content
@@ -107,4 +108,5 @@ content:
 hidden:
   created: true
   field_list_widget: true
+  field_page_family: true
   status: true

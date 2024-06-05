@@ -236,7 +236,7 @@ $videoWidth: $videoHeight * 1.4153;
         padding-bottom: 29vw;
       }
       @include contentStopMargin{
-        margin-bottom: 0;
+        margin-bottom: $elementSpace;
       }
       @media screen and (min-width: 1600px){
         margin-bottom: -2vw;

@@ -10,7 +10,7 @@
 
 {% if breadcrumb %}
 	<nav class="breadcrumb">
-		<h2 class="visually-hidden">{{ 'Breadcrumb'|t }}</h2>
+		<span class="visually-hidden">{{ 'Breadcrumb'|t }}</span>
 		<ol class="breadcrumb-list">
 			{% block trail %}
 				{% for item in breadcrumb %}

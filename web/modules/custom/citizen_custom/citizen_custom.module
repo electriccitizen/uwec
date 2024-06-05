@@ -415,6 +415,7 @@ function citizen_custom_views_pre_view($view, $display_id, &$args) {
             unset($filters['field_placement_tags_target_id']);
           }
         }//end placement tags filter
+
         if(isset($paragraph->field_page_family[0])){
           //make an array out of the page family set in the paragraph
           $families = [];
@@ -429,6 +430,19 @@ function citizen_custom_views_pre_view($view, $display_id, &$args) {
             unset($filters['field_page_families_target_id']);
           }
         }//end page families filter
+
+        // pass office selection to view filter, or unset it if nothing is selected.
+        if(isset($paragraph->field_office[0])){
+          $ids = [];
+          foreach ($paragraph->field_office as $delta => $selection) {
+            $ids[] = $selection->target_id;
+          }
+          $filters['field_offices_target_id']['value'] = $ids;
+        } else {
+          if (isset($filters['field_offices_target_id'])) {
+            unset($filters['field_offices_target_id']);
+          }
+        }
 
         if(isset($paragraph->field_type[0])){
           //make an array out of the type set in the paragraph
