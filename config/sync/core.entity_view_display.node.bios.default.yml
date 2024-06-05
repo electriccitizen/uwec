@@ -32,6 +32,7 @@ dependencies:
     - field.field.node.bios.field_middle_name
     - field.field.node.bios.field_office
     - field.field.node.bios.field_office_hours
+    - field.field.node.bios.field_offices
     - field.field.node.bios.field_page_families
     - field.field.node.bios.field_phone
     - field.field.node.bios.field_platforms
@@ -629,6 +630,14 @@ content:
     third_party_settings: {  }
     weight: 122
     region: content
+  field_offices:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 136
+    region: first
   field_page_families:
     type: entity_reference_label
     label: above
