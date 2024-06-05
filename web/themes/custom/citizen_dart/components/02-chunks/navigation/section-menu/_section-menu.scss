@@ -26,11 +26,11 @@
     &.active-nav{
       left: 0;
       max-height: 100vh;
-      .gin--vertical-toolbar & {
+      .gin--vertical-toolbar:not(.responsive-preview-frame) & {
         left: 65px;
       }
     }
-    .gin--vertical-toolbar & {
+    .gin--vertical-toolbar:not(.responsive-preview-frame) & {
       left: 65px - $sideBar;
     }
     .layout-builder__layout &{
