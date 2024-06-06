@@ -665,7 +665,7 @@
   }
   @include desk {
     background-color: $brightBlue;
-    .logged-in &{
+    .gin--vertical-toolbar:not(.responsive-preview-frame) &{
       width: calc(100vw - 66px);
     }
   }
