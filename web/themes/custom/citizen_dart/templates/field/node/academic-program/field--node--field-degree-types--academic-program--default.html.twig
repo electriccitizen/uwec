@@ -73,6 +73,24 @@
         </div>
       {% endif %}
 
+      {% if element['#object'].field_college.0 %}
+        <div class="program-detail college">
+          <span class="label">{% trans %}College{% endtrans %}</span>
+          <a href="{{ path('entity.node.canonical',{'node':element['#object'].field_college.entity.nid.0.value}) }}" class="arrow-link"><span>{{ element['#object'].field_college.entity.label }}</span></a>
+        </div>
+      {% endif %}
+
+      {% if element['#object'].field_departments|length > 0 %}
+       <div class="program-detail departments">
+          <span class="label">{{ element['#object'].field_departments|length > 1 ? 'Departments'|t : 'Department'|t }}</span>
+           {%- for department in element['#object'].field_departments -%}
+            <div class="department">
+              <a href="{{ path('entity.node.canonical',{'node':department.entity.nid.0.value}) }}" class="arrow-link"><span>{{- department.entity.label -}}</span></a>
+             </div>
+          {%- endfor -%}
+        </div>
+      {% endif %}
+
       {% if element['#object'].field_delivery_mode.0 %}
         <div class="program-detail delivery-modes">
           <span class="label">{% trans %}In-person or online{% endtrans %}</span>
@@ -91,23 +109,6 @@
         </div>
       {% endif %}
 
-      {% if element['#object'].field_college.0 %}
-        <div class="program-detail college">
-          <span class="label">{% trans %}College{% endtrans %}</span>
-          <a href="{{ path('entity.node.canonical',{'node':element['#object'].field_college.entity.nid.0.value}) }}" class="arrow-link"><span>{{ element['#object'].field_college.entity.label }}</span></a>
-        </div>
-      {% endif %}
-
-      {% if element['#object'].field_departments|length > 0 %}
-       <div class="program-detail departments">
-          <span class="label">{{ element['#object'].field_departments|length > 1 ? 'Departments'|t : 'Department'|t }}</span>
-           {%- for department in element['#object'].field_departments -%}
-            <div class="department">
-              <a href="{{ path('entity.node.canonical',{'node':department.entity.nid.0.value}) }}" class="arrow-link"><span>{{- department.entity.label -}}</span></a>
-             </div>
-          {%- endfor -%}
-        </div>
-      {% endif %}
     </div>{# end last #}
   </div>{# end program details #}
 </div>{# end program details wrapper #}
