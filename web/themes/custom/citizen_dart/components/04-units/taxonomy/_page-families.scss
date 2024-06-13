@@ -26,6 +26,7 @@
     }
 		@include tab{
 			width: 50%;
+      margin-bottom: $spaceLg;
 		}
   }
   & > .field-platforms{
