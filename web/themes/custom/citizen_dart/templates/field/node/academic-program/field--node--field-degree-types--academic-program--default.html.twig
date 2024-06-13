@@ -49,7 +49,7 @@
           {%- for type in element['#object'].field_program_type -%}
             {% if not loop.first and loop.last %} {% trans %}or{% endtrans %} {% endif %}
             {{- type.entity.label -}}
-            {% if (loop.length != 2) and not loop.last %},{% endif %}
+            {% if (loop.length != 2) and not loop.last %}, {% endif %}
           {%- endfor -%}
         </div>
       {% endif %}
