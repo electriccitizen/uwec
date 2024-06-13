@@ -233,7 +233,7 @@
         .field-image{
           .field-media-image,.gold-stripes-narrow{
             opacity: 1;
-            transition: opacity 1s ease-out;
+            transition: opacity .67s ease-out;
             transition-delay: 0.25s;
           }
         }
