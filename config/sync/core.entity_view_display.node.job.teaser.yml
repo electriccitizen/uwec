@@ -15,6 +15,7 @@ dependencies:
     - field.field.node.job.field_employment_category
     - field.field.node.job.field_employment_type
     - field.field.node.job.field_job_id
+    - field.field.node.job.field_office_term
     - field.field.node.job.field_official_title
     - field.field.node.job.field_page_family
     - field.field.node.job.field_posted_on
@@ -86,6 +87,7 @@ hidden:
   field_domain_all_affiliates: true
   field_domain_source: true
   field_editorial_sections: true
+  field_office_term: true
   field_page_family: true
   links: true
   search_api_excerpt: true
