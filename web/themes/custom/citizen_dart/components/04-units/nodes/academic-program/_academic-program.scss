@@ -266,6 +266,11 @@
         .grad {
           flex: 0 0 50%;
           box-sizing: border-box;
+          line-height: 1.4;
+          strong{
+            display: inline-block;
+            margin-bottom: $spaceXxs;
+          }
           &:nth-child(odd){
             padding-right: 32px;
           }
