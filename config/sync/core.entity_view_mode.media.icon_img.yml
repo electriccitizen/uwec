@@ -1,0 +1,11 @@
+uuid: 636b42ff-942a-45e2-a907-982ca3b4fec2
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+id: media.icon_img
+label: 'Icon Img'
+description: ''
+targetEntityType: media
+cache: true
