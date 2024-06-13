@@ -810,6 +810,15 @@ $videoWidth: $videoHeight * 1.4153;
     }//end breadcrumb block
   }//end node section 2;
   #node-section-3{
+    @include contentStop{
+      &:last-child{
+        .block-field-paragraphs{
+          &:last-child{
+            padding-bottom: $elementSpace;
+          }
+        }
+      }
+    }
     .widget.layout-section:last-child{
       .paragraph:last-child{
         @include contentStop{
