@@ -266,12 +266,19 @@
         .grad {
           flex: 0 0 50%;
           box-sizing: border-box;
+          &:nth-child(odd){
+            padding-right: 32px;
+          }
           @include desk {
             flex: 0 0 33.33%;
+            padding-right: 32px;
+            &:nth-child(3n+3){
+              padding-right: 0;
+            }
           }
         }
-      }
-    }
+      }//end grads
+    }//end recent grads
     &.outcomes-image {
       &:after {
         right: var(--animation-start-wide);

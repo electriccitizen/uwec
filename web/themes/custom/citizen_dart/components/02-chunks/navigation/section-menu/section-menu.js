@@ -19,7 +19,6 @@ Drupal.behaviors.sectionMenu = {
           let allowedHeight = 0;
           if($(window).outerWidth() < 1200){
             allowedHeight = $(window).outerHeight() * .75 - menuTitleHeight;  
-            console.log($(window).outerHeight(),menuTitleHeight);  
           }else{
             allowedHeight = $(window).outerHeight() - menuTitleHeight - 89;
           }
