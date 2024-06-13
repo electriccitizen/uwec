@@ -55,24 +55,6 @@
       {% endif %}
     </div>{# end first #}
     <div class="last">
-      {% if element['#object'].field_program_length.0.value %}
-        <div class="program-detail program-length">
-          <span class="label">{% trans %}Program Length{% endtrans %}</span>
-          {{ element['#object'].field_program_length.0.value }}
-        </div>
-      {% endif %}
-
-      {% if element['#object'].field_campus.0 %}
-        <div class="program-detail campuses">
-          <span class="label">{% trans %}Campus{% endtrans %}</span>
-          {% for campus in element['#object'].field_campus %}
-            <div class="campus">
-              {{- campus.entity.label -}}
-            </div>
-          {% endfor %}
-        </div>
-      {% endif %}
-
       {% if element['#object'].field_college.0 %}
         <div class="program-detail college">
           <span class="label">{% trans %}College{% endtrans %}</span>
@@ -88,6 +70,24 @@
               <a href="{{ path('entity.node.canonical',{'node':department.entity.nid.0.value}) }}" class="arrow-link"><span>{{- department.entity.label -}}</span></a>
              </div>
           {%- endfor -%}
+        </div>
+      {% endif %}
+      
+      {% if element['#object'].field_program_length.0.value %}
+        <div class="program-detail program-length">
+          <span class="label">{% trans %}Program Length{% endtrans %}</span>
+          {{ element['#object'].field_program_length.0.value }}
+        </div>
+      {% endif %}
+
+      {% if element['#object'].field_campus.0 %}
+        <div class="program-detail campuses">
+          <span class="label">{% trans %}Campus{% endtrans %}</span>
+          {% for campus in element['#object'].field_campus %}
+            <div class="campus">
+              {{- campus.entity.label -}}
+            </div>
+          {% endfor %}
         </div>
       {% endif %}
 
