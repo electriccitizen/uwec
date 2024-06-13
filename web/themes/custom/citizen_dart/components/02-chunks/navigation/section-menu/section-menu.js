@@ -13,6 +13,19 @@ Drupal.behaviors.sectionMenu = {
         }else{
           wrapper.attr('aria-expanded', 'true').addClass('active-nav').find('.toggle-label').text('Close Menu').addClass('expanded');
           $("body").addClass("sidebar-open");
+          //detect height of menu Ul vs screen and add scroll for extra menu links if needed
+          const menuTitleHeight = $('#section-menu-wrapper > .block-page-title').outerHeight() + 24
+          const menuHeight = $('#section-menu-wrapper > ul').outerHeight();
+          let allowedHeight = 0;
+          if($(window).outerWidth() < 1200){
+            allowedHeight = $(window).outerHeight() * .75 - menuTitleHeight;  
+            console.log($(window).outerHeight(),menuTitleHeight);  
+          }else{
+            allowedHeight = $(window).outerHeight() - menuTitleHeight - 89;
+          }
+          if(menuHeight > allowedHeight){
+            $('#section-menu-wrapper > ul').css({'max-height':allowedHeight + 'px','overflow-y':'scroll'});
+          }
         }
 			});
 
@@ -27,6 +40,15 @@ Drupal.behaviors.sectionMenu = {
       if($('body.node-type-page').length){
 				$('body.node-type-page').addClass('in-main-menu');
 			}
+
+      //constrain support book menu height if needed
+      if($('body.node-type-support-book').length){
+        const supportHeight = $('.node-support-book #node-section-2').outerHeight() - 100;
+        const supportMenuHeight = $('.node-support-book #section-menu-wrapper > ul').outerHeight();
+        if(supportMenuHeight > supportHeight){
+          $('.node-support-book #section-menu-wrapper > ul').css({'max-height':supportHeight + 'px','overflow-y':'scroll'});
+        }
+      }
 		});
 	}//end context attach
 }//end section menu function

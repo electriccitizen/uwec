@@ -25,7 +25,7 @@
     width: $sideBar;
     &.active-nav{
       left: 0;
-      max-height: 100vh;
+      height: 100vh;
       .gin--vertical-toolbar:not(.responsive-preview-frame) & {
         left: 65px;
       }
@@ -40,9 +40,6 @@
     }
     .node-type-support-book &{
       position: static;
-    }
-    .hero-full_image.in-main-menu &{
-      top: -110px !important;
     }
     .hero-none.in-main-menu &{
       top: 0 !important;
@@ -176,6 +173,7 @@
 	& > ul:not(.contextual-links){
 		@include listReset;
 		@include auto;
+    padding-bottom: $elementSpace;
     ul{
       @include listReset;
       display: none;
