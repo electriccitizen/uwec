@@ -5,11 +5,12 @@ dependencies:
   config:
     - field.storage.node.body
     - field.storage.node.field_employment_category
+    - field.storage.node.field_office_term
     - field.storage.node.field_official_title
-    - field.storage.node.field_page_family
     - field.storage.node.field_employment_type
     - search_api.server.local
   module:
+    - taxonomy
     - node
     - search_api
 id: jobs
@@ -66,22 +67,24 @@ field_settings:
     dependencies:
       config:
         - field.storage.node.field_official_title
-  field_page_family:
-    label: 'Page Family'
+  office:
+    label: Office
     datasource_id: 'entity:node'
-    property_path: field_page_family
-    type: string
+    property_path: field_office_term
+    type: integer
     dependencies:
       config:
-        - field.storage.node.field_page_family
-  field_page_family_1:
-    label: 'Page Family (fulltext)'
+        - field.storage.node.field_office_term
+  office_fulltext:
+    label: 'Office (fulltext)'
     datasource_id: 'entity:node'
-    property_path: field_page_family
+    property_path: 'field_office_term:entity:name'
     type: text
     dependencies:
       config:
-        - field.storage.node.field_page_family
+        - field.storage.node.field_office_term
+      module:
+        - taxonomy
   title:
     label: 'Working Title'
     datasource_id: 'entity:node'
@@ -103,6 +106,7 @@ datasource_settings:
 processor_settings:
   add_url: {  }
   aggregated_field: {  }
+  custom_value: {  }
   entity_status: {  }
   entity_type: {  }
   html_filter:
@@ -135,8 +139,7 @@ processor_settings:
       - field_employment_type
       - field_employment_type_1
       - field_official_title
-      - field_page_family
-      - field_page_family_1
+      - office_fulltext
       - title
     ignorable: "['¿¡!?,.:;]"
     ignorable_classes:
@@ -159,8 +162,7 @@ processor_settings:
       - field_employment_type
       - field_employment_type_1
       - field_official_title
-      - field_page_family
-      - field_page_family_1
+      - office_fulltext
       - title
   language_with_fallback: {  }
   rendered_item: {  }
@@ -174,7 +176,7 @@ processor_settings:
       - field_employment_category_1
       - field_employment_type_1
       - field_official_title
-      - field_page_family_1
+      - office_fulltext
       - title
     exceptions:
       mexican: mexic
@@ -189,7 +191,7 @@ processor_settings:
       - field_employment_category_1
       - field_employment_type_1
       - field_official_title
-      - field_page_family_1
+      - office_fulltext
       - title
     spaces: ''
     ignored: ._-
@@ -207,8 +209,7 @@ processor_settings:
       - field_employment_type
       - field_employment_type_1
       - field_official_title
-      - field_page_family
-      - field_page_family_1
+      - office_fulltext
       - title
 tracker_settings:
   default:

@@ -7,7 +7,7 @@ dependencies:
     - search_api.index.jobs
     - taxonomy.vocabulary.employment_category
     - taxonomy.vocabulary.employment_type
-    - taxonomy.vocabulary.page_families
+    - taxonomy.vocabulary.offices
   module:
     - search_api
     - text
@@ -266,59 +266,6 @@ display:
           hierarchy: false
           limit: true
           error_message: true
-        field_page_family:
-          id: field_page_family
-          table: search_api_index_jobs
-          field: field_page_family
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: search_api_term
-          operator: or
-          value: {  }
-          group: 1
-          exposed: true
-          expose:
-            operator_id: field_page_family_op
-            label: 'Department or Office'
-            description: ''
-            use_operator: false
-            operator: field_page_family_op
-            operator_limit_selection: false
-            operator_list: {  }
-            identifier: field_page_family
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-              editor: '0'
-              site_admin: '0'
-              section_manager: '0'
-              marketing_editor: '0'
-              personnel: '0'
-              jobs_and_editor: '0'
-            reduce: false
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          reduce_duplicates: false
-          vid: page_families
-          type: select
-          hierarchy: false
-          limit: true
-          error_message: true
         field_employment_type:
           id: field_employment_type
           table: search_api_index_jobs
@@ -371,6 +318,62 @@ display:
           hierarchy: false
           limit: true
           error_message: true
+        office:
+          id: office
+          table: search_api_index_jobs
+          field: office
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api_string
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: office_op
+            label: Office
+            description: ''
+            use_operator: false
+            operator: office_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: office
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              editor: '0'
+              site_admin: '0'
+              section_manager: '0'
+              marketing_editor: '0'
+              personnel: '0'
+              jobs_and_editor: '0'
+            min_placeholder: ''
+            max_placeholder: ''
+            placeholder: ''
+            reduce: 0
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: 0
+          type: select
+          limit: true
+          vid: offices
+          hierarchy: 0
+          error_message: 1
       style:
         type: default
         options:
@@ -412,7 +415,6 @@ display:
         - 'languages:language_interface'
         - url
         - url.query_args
-        - user
         - 'user.node_grants:view'
       tags:
         - 'config:field.storage.node.body'
