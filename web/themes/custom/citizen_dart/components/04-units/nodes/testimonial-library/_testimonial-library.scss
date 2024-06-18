@@ -28,9 +28,15 @@
     margin-bottom: $elementSpace;
 		border-bottom: 1px solid $borderRule;
 		padding-bottom: $elementSpace;
+    .field-eyebrow{
+      font-size: 1.5rem;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
     .field-image{
        width: 240px;
        max-width: 100%;
+       margin-bottom: $spaceSm;
     }
     .block-title {
        margin-left: 0;
@@ -38,6 +44,9 @@
        h1 {
          @include heading2;
        }
+    }
+    .field-major{
+      font-size: 2rem;
     }
   }
   .body-wrapper{
@@ -59,26 +68,100 @@
 
 //testimonial teasers
 .node-teaser-testimonial{
-  @include safeFlex(row,wrap,justify,start);
-  @include bleed (padding, 15px);
+  position: relative;
+  background: $lightGrey;
+  padding: 72px 0 60px;
+  @include tab{
+    @include safeFlex(row,wrap,start,start);
+    padding-top: 32px;
+    padding-bottom: 80px;
+  }
+  @include desk{
+    &:before{
+      content: '';
+      display: block;
+      position: absolute;
+      bottom: 0;
+      left: calc(100% - 5vw);
+      height: 29vw;
+      width: 100vw;
+      z-index: 1;
+      background: $white;
+      clip-path: polygon(0 100%, 100% 100%, 100% 0);
+    }
+  }
+  @include contentStop{
+    &:before{
+      left: 100%;
+    }
+  }
+  &:after{
+    @include fullBack($lightGrey);
+  }
   .field.body{
   	max-width: 650px;
+    @include auto;
+    @include tab{
+      margin: 0;
+      width: calc(100% - 240px);
+      padding-top: 100px;
+      padding-right: 80px;
+    }
   	.body-wrapper{
 			@include quote;
+      font-size: 3rem;
+      line-height: 1.5;
+      @include contentStop{
+        font-size: 4rem;
+      }
 		}
-  }
+  }//end field body
   .testimonial-details{
-  	@include desk{
+    position: relative;
+    max-width: 259px;
+    @include auto;
+    margin-top: 4rem;
+    @include tab{
   		width: 240px;
+      margin: 0;
   	}
-  }
-	.field-image{
-		max-width: 240px;
-	}
-	.testimonial-title{
-		@include heading2;
-	}
-}
+    .stripes{
+      position: absolute;
+      top: -46px;
+      left: -57px;
+      z-index: 0;
+      opacity: 0;
+      .testimonial-visible &{
+        opacity: 1;
+        transition: opacity 1s ease-out;
+      }
+    }
+    .testimonial-details-inner{
+      background: $lightGrey;
+      padding: 28px 28px 0;
+      position: relative;
+      z-index: 1;
+      min-height: 175px;
+      .testimonial-eyebrow{
+        font-size: 1.5rem;
+        text-transform: uppercase;
+        margin-bottom: 1.5rem;
+      }
+      .field-image{
+        max-width: 240px;
+        margin-bottom: $spaceMd;
+      }
+      .testimonial-title{
+        @include heading2;
+        margin-bottom: $spaceXs;
+      }
+      .testimonial-major{
+        font-size: 2rem;
+        line-height: 2;
+      }
+    }//end details inner
+  }//end testimonial details
+}//end testimonial teaser
 
 /* TESTIMONIAL WIDGET (content carousel) */
 .node-widget-testimonial{
