@@ -612,6 +612,14 @@
       line-height: 1.33;
       color: $navy;
       margin-bottom: $spaceXxs;
+      a{
+        @include linkArrow(navy, sm);
+        &:hover,&:focus{
+          span{
+            @include dottedLink($brightBlue);
+          }
+        }
+      }
     }
   }//end program intro
   .program-meta{
