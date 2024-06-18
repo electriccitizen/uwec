@@ -2,7 +2,7 @@
 	 SECTION MENU
 ===================== */
 @use '../../../00-base/base' as *;
-#block-section-menu {
+#block-section-menu:not(.js-layout-builder-block) {
   @include transition(max-height, .3s, ease-in-out);
   @include edgeToEdge;
   background-color: $menuBack;
@@ -20,12 +20,12 @@
     bottom: auto;
     height: 100vh;
     left: -$sideBar;
-    max-height: 100%;
+    max-height: 100vh;
     top: 0;
     width: $sideBar;
     &.active-nav{
       left: 0;
-      height: 100vh;
+      max-height: 100vh;
       .gin--vertical-toolbar:not(.responsive-preview-frame) & {
         left: 65px;
       }
@@ -166,9 +166,6 @@
     margin-bottom: $spaceLg;
     padding: 89px 10px 20px;
     width: auto;
-    .layout-builder__layout & {
-      display: none !important;
-    }
 	}
 	& > ul:not(.contextual-links){
 		@include listReset;

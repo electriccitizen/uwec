@@ -82,21 +82,30 @@
 {% block nodeContent %}
   {{ content.body}}
 	<div class="testimonial-details">
-    {%- if content.field_eyebrow.0['#plain_text']  -%}
-      <div class="testimonial-eyebrow">{{- content.field_eyebrow.0['#plain_text'] -}}</div>
-    {%- endif -%}
-    {% if content.field_image %}
-      <div class="testimonial-image">{{ content.field_image }}</div>
-    {% endif %}
-		<div class="testimonial-title">{{- label.0['#context'].value -}}</div>
-    {%- if content.field_position.0['#context'].value -%}
-      <div class="testimonial-positions">{{- content.field_position.0['#context'].value -}}</div>
-    {%- endif -%}
-    {%- if content.field_major.0['#context'].value -%}
-      <div class="testimonial-major">{{- content.field_major.0['#context'].value -}}</div>
-    {%- endif -%}
-    {%- if content.field_grad_year.0['#context'].value -%}
-      <div class="testimonial-grad-year">{{- content.field_grad_year.0['#context'].value -}}</div>
-    {%- endif -%}
+    <div class="stripes">
+      <svg width="169" height="225" viewBox="0 0 169 225" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M170.986 140.195L-11.7559 192.596L-2.50916 224.843L180.233 172.442L170.986 140.195Z" fill="#26B1ED"/>
+        <path d="M170.992 70.4805L-11.75 122.881L-2.5033 155.128L180.239 102.728L170.992 70.4805Z" fill="#26B1ED"/>
+        <path d="M170.994 0.757832L-11.748 53.1582L-2.50134 85.4053L180.24 33.0049L170.994 0.757832Z" fill="#26B1ED"/>
+      </svg>
+    </div>
+    <div class="testimonial-details-inner">
+      {%- if content.field_eyebrow.0['#plain_text']  -%}
+        <div class="testimonial-eyebrow">{{- content.field_eyebrow.0['#plain_text'] -}}</div>
+      {%- endif -%}
+      {% if content.field_image %}
+        <div class="testimonial-image">{{ content.field_image }}</div>
+      {% endif %}
+      <div class="testimonial-title">{{- label.0['#context'].value -}}</div>
+      {%- if content.field_position.0['#context'].value -%}
+        <div class="testimonial-positions">{{- content.field_position.0['#context'].value -}}</div>
+      {%- endif -%}
+      {%- if content.field_major.0['#context'].value -%}
+        <div class="testimonial-major">{{- content.field_major.0['#context'].value -}}</div>
+      {%- endif -%}
+      {%- if content.field_grad_year.0['#context'].value -%}
+        <div class="testimonial-grad-year">{{- content.field_grad_year.0['#context'].value -}}</div>
+      {%- endif -%}
+    </div>
 	</div>
 {% endblock %}
