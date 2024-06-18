@@ -2,13 +2,13 @@
 
 Drupal.behaviors.sectionMenu = {
 	attach: function (context, settings) {
-    $(once('section-menu', '#block-section-menu', context)).each(function() {
+    $(once('section-menu', '#block-section-menu:not(.js-layout-builder-block)', context)).each(function() {
       const wrapper = $(this);
 			//toggle
 			$('.section-menu-toggle').click(function(e){
 				e.preventDefault();
         if (wrapper.is('.active-nav')){
-          wrapper.attr('aria-expanded', 'false').removeClass('active-nav').find('.toggle-label').text('In This Section').removeClass('expanded');
+          wrapper.attr('aria-expanded', 'false').removeClass('active-nav').find('.toggle-label').text('Section Menu').removeClass('expanded');
           $("body").removeClass("sidebar-open");
         }else{
           wrapper.attr('aria-expanded', 'true').addClass('active-nav').find('.toggle-label').text('Close Menu').addClass('expanded');
