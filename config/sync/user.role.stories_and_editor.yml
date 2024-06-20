@@ -1,4 +1,4 @@
-uuid: 508fa1d7-56bc-4fe6-9a86-e3b21c447de9
+uuid: daa7fb82-84dc-4b49-b448-a5b54e691fee
 langcode: en
 status: true
 dependencies:
@@ -12,7 +12,6 @@ dependencies:
     - node.type.contact
     - node.type.department
     - node.type.hours
-    - node.type.job
     - node.type.news
     - node.type.page
     - workflows.workflow.non_moderated
@@ -31,9 +30,9 @@ dependencies:
     - smart_date_recur
     - view_unpublished
     - workbench_access
-id: jobs_and_editor
-label: 'Jobs and Editor'
-weight: 10
+id: stories_and_editor
+label: 'Stories and Editor'
+weight: 11
 is_admin: null
 permissions:
   - 'access content overview'
@@ -43,8 +42,6 @@ permissions:
   - 'access shortcuts'
   - 'cancel smart date recur instances'
   - 'create image media'
-  - 'create job content'
-  - 'create job content on assigned domains'
   - 'create paragraph content accordion_item'
   - 'create remote_video media'
   - 'delete any document media'
@@ -71,7 +68,6 @@ permissions:
   - 'edit any document media'
   - 'edit any hours content'
   - 'edit any image media'
-  - 'edit any job content'
   - 'edit any page content'
   - 'edit any remote_video media'
   - 'edit own bios content'
@@ -79,7 +75,6 @@ permissions:
   - 'edit own document media'
   - 'edit own hours content'
   - 'edit own image media'
-  - 'edit own job content'
   - 'edit own page content'
   - 'edit own remote_video media'
   - 'make smart dates recur'
@@ -88,12 +83,11 @@ permissions:
   - 'revert bios revisions'
   - 'revert contact revisions'
   - 'revert hours revisions'
-  - 'revert job revisions'
   - 'revert page revisions'
   - 'update bios content on assigned domains'
   - 'update contact content on assigned domains'
   - 'update hours content on assigned domains'
-  - 'update job content on assigned domains'
+  - 'update news content on assigned domains'
   - 'update page content on assigned domains'
   - 'update paragraph content external_articles'
   - 'update paragraph content external_articles_item'
@@ -111,12 +105,10 @@ permissions:
   - 'view any unpublished department content'
   - 'view any unpublished news content'
   - 'view any unpublished page content'
-  - 'view assigned domains'
   - 'view bios revisions'
   - 'view contact revisions'
   - 'view domain aliases'
   - 'view hours revisions'
-  - 'view job revisions'
   - 'view own unpublished content'
   - 'view page revisions'
   - 'view unpublished domain content'
