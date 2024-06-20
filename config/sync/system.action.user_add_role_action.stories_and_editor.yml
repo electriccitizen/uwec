@@ -1,0 +1,14 @@
+uuid: f86790f6-96a2-442f-9d2e-0d8dc6283904
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.stories_and_editor
+  module:
+    - user
+id: user_add_role_action.stories_and_editor
+label: 'Add the Stories and Editor role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: stories_and_editor
