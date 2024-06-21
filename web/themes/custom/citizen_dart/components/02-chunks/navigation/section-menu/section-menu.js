@@ -30,6 +30,12 @@ Drupal.behaviors.sectionMenu = {
 
 			$(window).on('resize', debounce(mobileSectionnav, 150)).trigger('resize');
 
+      // hide top level non-active items if offices & services menu
+      if(($(this).attr('data-menu') == 'offices-services') && ($('h2.block-page-title > a',this).attr('data-drupal-link-system-path') == 'node/9583')){
+        console.log('offices top level');
+        $('#section-menu-wrapper',this).addClass('hide-non-active-top');
+      }
+
 			//remove nav region if nav is hidden
 			if($('body.hide-nav').length){
 				$('#node-section-2 > .layout--twocol-sideleft > .layout__region--first').remove();

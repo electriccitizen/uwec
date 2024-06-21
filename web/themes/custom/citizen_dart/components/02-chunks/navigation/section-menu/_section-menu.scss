@@ -214,10 +214,10 @@
 				}//end a
 			}//end child items
 		}//end global li
-    [data-menu="offices-services"] &{
-      li.item-level-1:not(.menu-item--active-trail){
-        display: none;
-      }
-    }
 	}//end first level ul
+  &.hide-non-active-top{
+    li.item-level-1:not(.menu-item--active-trail){
+      display: none;
+    }
+  }
 }//end section menu wrapper
