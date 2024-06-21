@@ -1,0 +1,50 @@
+{#
+/**
+ * @file
+ * Theme override for a field.
+ *
+ * To override output, copy the "field.html.twig" from the templates directory
+ * to your theme's directory and customize it, just like customizing other
+ * Drupal templates such as page.html.twig or node.html.twig.
+ *
+ * Instead of overriding the theming for all fields, you can also just override
+ * theming for a subset of fields using
+ * @link themeable Theme hook suggestions. @endlink For example,
+ * here are some theme hook suggestions that can be used for a field_foo field
+ * on an article node type:
+ * - field--node--field-foo--article.html.twig
+ * - field--node--field-foo.html.twig
+ * - field--node--article.html.twig
+ * - field--field-foo.html.twig
+ * - field--text-with-summary.html.twig
+ * - field.html.twig
+ *
+ * Available variables:
+ * - attributes: HTML attributes for the containing element.
+ * - label_hidden: Whether to show the field label or not.
+ * - title_attributes: HTML attributes for the title.
+ * - label: The label for the field.
+ * - multiple: TRUE if a field can contain multiple items.
+ * - items: List of all the field items. Each item contains:
+ *   - attributes: List of HTML attributes for each item.
+ *   - content: The field item's content.
+ * - entity_type: The entity type to which the field belongs.
+ * - field_name: The name of the field.
+ * - field_type: The type of the field.
+ * - label_display: The display settings for the label.
+ *
+ * @see template_preprocess_field()
+ */
+#}
+
+{% extends 'field.html.twig' %}
+
+{% block fieldSingleNo %}
+  <div class="icon-wrapper">
+    <svg id="fax-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.4 14.3"><defs><style>.cls-1{fill:#0160f2;stroke-width:0px;}.cls-2{fill:none;stroke:#0160f2;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.2px;}</style></defs><g id="Layer_1-2"><line class="cls-2" x1="14" y1="10.6" x2="11.4" y2="10.6"/><polyline class="cls-2" points=".6 3.5 .6 2.9 14.8 2.9 14.8 10.6 14 10.6"/><polyline class="cls-2" points="4 10.6 .6 10.6 .6 6.5"/><polyline class="cls-2" points="4 2.9 4 .6 11.4 .6 11.4 2.9"/><polyline class="cls-2" points="11.4 7.2 11.4 13.7 4 13.7 4 7.2"/><line class="cls-2" x1="2.9" y1="7.2" x2="12.5" y2="7.2"/><line class="cls-2" x1="6" y1="11.7" x2="9.4" y2="11.7"/><line class="cls-2" x1="6" y1="9.8" x2="9.4" y2="9.8"/><circle class="cls-1" cx="2.9" cy="5" r=".6"/></g></svg>
+  </div>
+  <div class="field-content">
+    <a href="fax:+{{ item.content['#context'].value }}">{{- item.content['#context'].value -}}</a>
+  </div>
+{% endblock %}
+          

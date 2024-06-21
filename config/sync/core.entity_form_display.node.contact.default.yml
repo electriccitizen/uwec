@@ -10,6 +10,7 @@ dependencies:
     - field.field.node.contact.field_domain_source
     - field.field.node.contact.field_editorial_sections
     - field.field.node.contact.field_email
+    - field.field.node.contact.field_fax
     - field.field.node.contact.field_phone
     - field.field.node.contact.layout_builder__layout
     - node.type.contact
@@ -31,7 +32,7 @@ third_party_settings:
       label: Access
       region: content
       parent_name: ''
-      weight: 6
+      weight: 7
       format_type: details_sidebar
       format_settings:
         classes: ''
@@ -54,26 +55,26 @@ content:
     third_party_settings: {  }
   field_domain_access:
     type: options_buttons
-    weight: 24
+    weight: 29
     region: content
     settings: {  }
     third_party_settings: {  }
   field_domain_all_affiliates:
     type: boolean_checkbox
-    weight: 26
+    weight: 31
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   field_domain_source:
     type: options_select
-    weight: 25
+    weight: 30
     region: content
     settings: {  }
     third_party_settings: {  }
   field_editorial_sections:
     type: options_buttons
-    weight: 22
+    weight: 28
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -85,6 +86,14 @@ content:
       placeholder: 'Ex: email@website.com'
       size: 60
     third_party_settings: {  }
+  field_fax:
+    type: string_textfield
+    weight: 4
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
   field_phone:
     type: telephone_default
     weight: 2
@@ -94,19 +103,19 @@ content:
     third_party_settings: {  }
   moderation_state:
     type: moderation_state_default
-    weight: 7
+    weight: 8
     region: content
     settings: {  }
     third_party_settings: {  }
   path:
     type: path
-    weight: 4
+    weight: 5
     region: content
     settings: {  }
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 5
+    weight: 6
     region: content
     settings:
       display_label: true

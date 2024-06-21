@@ -287,6 +287,9 @@
       }
     }
 	}//end field phone
+  .field-fax{
+    @extend .field-phone;
+  }
 }//end contact contnet
 
 @mixin hoursHolder{

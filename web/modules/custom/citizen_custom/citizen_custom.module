@@ -433,11 +433,11 @@ function citizen_custom_views_pre_view($view, $display_id, &$args) {
 
         // pass office selection to view filter, or unset it if nothing is selected.
         if(isset($paragraph->field_office[0])){
-          $ids = [];
-          foreach ($paragraph->field_office as $delta => $selection) {
-            $ids[] = $selection->target_id;
+          $offices = [];
+          foreach ($paragraph->field_office as $delta => $office) {
+            $offices[] = $office->target_id;
           }
-          $filters['field_offices_target_id']['value'] = $ids;
+          $filters['field_offices_target_id']['value'] = $offices;
         } else {
           if (isset($filters['field_offices_target_id'])) {
             unset($filters['field_offices_target_id']);
