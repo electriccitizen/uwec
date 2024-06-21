@@ -7,11 +7,12 @@ Drupal.behaviors.viewsExposed = {
     $(once('wasSearched', '.views-exposed-form', context)).each(function(){
       //check if searched and scroll to if so
       var urlCurrent = window.location.href;
-      if((urlCurrent.indexOf("?f") > -1) || (urlCurrent.indexOf("?c") > -1) || (urlCurrent.indexOf("?s") > -1)){
+      if((urlCurrent.indexOf("?f") > -1) || (urlCurrent.indexOf("?c") > -1) || (urlCurrent.indexOf("?p") > -1) || (urlCurrent.indexOf("?s") > -1)){
 				$(document).ready(function(){
 					setTimeout(function() {
+            const formHeight = $('.views-exposed-form').outerHeight() - 100;
 			   		$('html,body').animate({
-							scrollTop: $('.views-exposed-form').offset().top - 10
+							scrollTop: $('.views-exposed-form').offset().top + formHeight
 			   			});
 			   			$('.results-tally').delay(300).fadeIn(500);
 		   			}, 300);
