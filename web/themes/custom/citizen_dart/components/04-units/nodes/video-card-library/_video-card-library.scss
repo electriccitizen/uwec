@@ -63,14 +63,9 @@
   }
   .teaser-title{
     margin-bottom: $spaceXxs;
-    a {
-      @include blockArrow(navy, sm);
-      &:hover,&:focus{
-        span{
-          @include dottedLink($brightBlue);
-        }
-      }
-    }//end a
+    font-family: $header;
+    font-size: 2rem;
+    line-height: 1.2;
   }
   .field.body{
     line-height: 1.5;
