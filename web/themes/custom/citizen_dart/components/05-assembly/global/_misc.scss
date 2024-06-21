@@ -58,3 +58,12 @@ iframe.npc-frame{
     display: none !important;
   }
 }
+
+/* SEE HIGHER LEARNING IFRAME
+----------------- */
+iframe.see-higher{
+  width: 150px;
+  display: block;
+  @include auto;
+  border: 0;
+}
