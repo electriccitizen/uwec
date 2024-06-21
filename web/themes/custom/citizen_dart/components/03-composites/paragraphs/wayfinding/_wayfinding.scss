@@ -242,7 +242,7 @@
         @include desk{
           padding: 90px 0;
           max-width: 890px;
-          @include safeFlex(row,nowrap,start,start);
+          @include safeFlex(row,nowrap,start,stretch);
           &.left{
             .field-image{
               @include safeFlexOrder(2);
@@ -266,9 +266,9 @@
           }
           .wayfinding-info{
             flex: 1 1;
-            padding-top: 15px;
             padding-left: 0;
             padding-right: 0;
+            @include safeFlex(column,nowrap,center,start);
           }
           .wayfinding-headline{
             font-size: 4rem;
