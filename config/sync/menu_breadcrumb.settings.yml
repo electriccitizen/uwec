@@ -35,7 +35,7 @@ menu_breadcrumb_menus:
     taxattach: 0
     langhandle: 0
   departments:
-    enabled: 0
+    enabled: 1
     weight: 0
     taxattach: 0
     langhandle: 0
@@ -70,7 +70,7 @@ menu_breadcrumb_menus:
     taxattach: 0
     langhandle: 0
   offices-services:
-    enabled: 0
+    enabled: 1
     weight: 0
     taxattach: 0
     langhandle: 0
