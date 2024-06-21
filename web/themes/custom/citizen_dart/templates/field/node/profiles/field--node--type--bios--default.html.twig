@@ -38,9 +38,16 @@
 #}
 
 
-{% if element['#object'].field_departments.0 or element['#object'].field_page_families.0 %}
+{% if element['#object'].field_colleges.0 or element['#object'].field_departments.0 or element['#object'].field_page_families.0 %}
   <h2 class="block-title">Department/Office</h2>
   <div class="departments-offices">
+    {%- for college in element['#object'].field_colleges -%}
+      <div class="college">
+        <a href="{{ path('entity.node.canonical',{'node':college.entity.nid.0.value}) }}">
+          <span>{{ college.entity.title.0.value }}</span>
+        </a>
+      </div>
+    {%- endfor -%}
     {%- for department in element['#object'].field_departments -%}
       <div class="department">
         <a href="{{ path('entity.node.canonical',{'node':department.entity.nid.0.value}) }}">
