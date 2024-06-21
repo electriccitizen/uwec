@@ -35,7 +35,7 @@ menu_breadcrumb_menus:
     taxattach: 0
     langhandle: 0
   departments:
-    enabled: 1
+    enabled: 0
     weight: 0
     taxattach: 0
     langhandle: 0
@@ -74,17 +74,17 @@ menu_breadcrumb_menus:
     weight: 0
     taxattach: 0
     langhandle: 0
-  secondary:
-    enabled: 0
-    weight: 0
-    taxattach: 0
-    langhandle: 0
   support-book:
     enabled: 0
     weight: 0
     taxattach: 0
     langhandle: 0
   tools:
+    enabled: 0
+    weight: 0
+    taxattach: 0
+    langhandle: 0
+  secondary:
     enabled: 0
     weight: 0
     taxattach: 0
