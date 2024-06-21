@@ -36,7 +36,7 @@
 
 {% set attributes = attributes|without('role', 'aria-labelledby', 'id') %}
 
-<nav aria-label="section-menu" id="block-section-menu"{{ attributes }} class="block--system-menu section-menu">
+<nav aria-label="section-menu" id="block-section-menu"{{ attributes }} class="block--system-menu section-menu" data-menu="{{ elements.content['#menu_name'] }}">
   <h2 id="section-menu-title" class="block-title section-menu-toggle">
     <span class="toggle-label">{% trans %}Section Menu{% endtrans %}</span>
   </h2>

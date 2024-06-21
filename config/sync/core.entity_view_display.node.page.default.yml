@@ -129,7 +129,9 @@ third_party_settings:
               depth: 3
               expand_all_items: false
               parent: 'offices-services:'
+              render_parent: false
               suggestion: section_menu_offices_services
+              hide_on_nonactive: false
             weight: 2
             additional: {  }
           5ab5fb8d-237e-4879-804d-32322bc0c94d:
