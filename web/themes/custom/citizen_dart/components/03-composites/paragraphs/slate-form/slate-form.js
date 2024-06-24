@@ -22,9 +22,10 @@ Drupal.behaviors.slateAnimate = {
       observer.observe(this);
     });
     $(once('slateAnimations', '.slate-right', context)).each(function(){
-      //find option selected so can change the color of slate select
+      //find option selected so can change the color of slate select and fix broken aria attr
       $(document).ready(function(){
         setTimeout(function() {
+          $('.form_question input[type="tel"]').removeAttr('aria-invalid');
           $('.slate-right select').change(function () {
             const selected = $(this).find('option:selected').val();
             if(selected != ''){
