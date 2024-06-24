@@ -19,4 +19,16 @@ Drupal.behaviors.additionalLinksCleanup = {
   }
 }
 
+Drupal.behaviors.heroAdjustments = {
+  attach: function (context, settings) {
+    $(once('heroTweaks', '.page-header-wrapper.has-hero', context)).each(function(){
+      const windowW = $(window).outerWidth();
+      const windowH = $(window).outerHeight();
+      if(windowH > windowW){
+        $(this).addClass('vertical-window');
+      }
+    });
+  }
+}
+
 })(jQuery, Drupal, once);

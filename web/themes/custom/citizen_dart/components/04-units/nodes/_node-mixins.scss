@@ -320,6 +320,34 @@
   @include desk{
     padding-bottom: 1px;
   }
+  &.vertical-window{
+    @include desk{
+      min-height: 828px;
+      .image-right{
+        img{
+          min-height: 0;
+          height: calc(100vh - 82px);
+          max-height: 828px;
+        }
+      }
+    }
+    @include contentStopMargin{
+      height: calc(100vh - 100px);
+      .image-right{
+        img{
+          height: calc(100vh - 100px);
+        }
+      }
+    }
+    @include contentStop{
+      height: calc(100vh - 100px);
+      .image-right{
+        img{
+          height: calc(100vh - 110px);
+        }
+      }
+    }
+  }//end vertical window
   .image-right{
     max-width: 520px;
     @include auto;

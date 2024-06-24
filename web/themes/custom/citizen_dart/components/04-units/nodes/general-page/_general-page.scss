@@ -224,6 +224,11 @@ $videoWidth: $videoHeight * 1.4153;
       background-size: 1273px 958px !important;
       background-position: left -250px bottom -70px !important;
       @include heroHeaderInvade;
+      &.vertical-window{
+        @include desk{
+          min-height: 1030px;
+        }
+      }
       @include onlyMobile{
         margin-bottom: $elementSpace;
       }
