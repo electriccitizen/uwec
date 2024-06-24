@@ -13,7 +13,9 @@ dependencies:
     - field.storage.node.body
     - field.storage.node.field_example_careers
     - field.storage.node.field_intro_text
+    - field.storage.node.field_meta_description
     - field.storage.node.field_program_length
+    - field.storage.node.field_keywords
     - search_api.server.local
   module:
     - taxonomy
@@ -135,6 +137,24 @@ field_settings:
     dependencies:
       config:
         - field.storage.node.field_example_careers
+  field_keywords:
+    label: 'Search Keywords'
+    datasource_id: 'entity:node'
+    property_path: field_keywords
+    type: text
+    boost: 21.0
+    dependencies:
+      config:
+        - field.storage.node.field_keywords
+  field_meta_description:
+    label: 'Meta Description'
+    datasource_id: 'entity:node'
+    property_path: field_meta_description
+    type: text
+    boost: 13.0
+    dependencies:
+      config:
+        - field.storage.node.field_meta_description
   intro_text:
     label: 'Intro text'
     datasource_id: 'entity:node'
@@ -232,6 +252,8 @@ processor_settings:
       - delivery_mode_filter
       - departments
       - example_careers
+      - field_keywords
+      - field_meta_description
       - intro_text
       - program_length
       - program_type
@@ -264,6 +286,8 @@ processor_settings:
       - delivery_mode_filter
       - departments
       - example_careers
+      - field_keywords
+      - field_meta_description
       - intro_text
       - program_length
       - program_type
@@ -284,6 +308,8 @@ processor_settings:
       - delivery_mode
       - departments
       - example_careers
+      - field_keywords
+      - field_meta_description
       - intro_text
       - program_length
       - program_type
@@ -304,6 +330,8 @@ processor_settings:
       - delivery_mode
       - departments
       - example_careers
+      - field_keywords
+      - field_meta_description
       - intro_text
       - program_length
       - program_type
@@ -330,6 +358,8 @@ processor_settings:
       - delivery_mode_filter
       - departments
       - example_careers
+      - field_keywords
+      - field_meta_description
       - intro_text
       - program_length
       - program_type
