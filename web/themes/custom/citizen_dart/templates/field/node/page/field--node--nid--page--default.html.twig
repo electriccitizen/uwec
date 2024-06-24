@@ -54,7 +54,7 @@
 		{% if element['#object'].field_hero.0.entity.field_hero_type.0.value == 'full_image' %}
 			{% if element['#object'].field_hero.0.entity.field_background_image.0 %}
 				<div class="hero-background">
-					{{ drupal_entity('media',element['#object'].field_hero.0.entity.field_background_image.0.target_id,'1920x1445') }}
+					{{ drupal_entity('media',element['#object'].field_hero.0.entity.field_background_image.0.target_id,'banner') }}
 				</div>
 			{% endif %}
 		{% endif %}
