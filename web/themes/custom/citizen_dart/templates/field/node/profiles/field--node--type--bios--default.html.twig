@@ -38,8 +38,7 @@
 #}
 
 
-{% if element['#object'].field_colleges.0 or element['#object'].field_departments.0 or element['#object'].field_page_families.0 %}
-  <h2 class="block-title">Department/Office</h2>
+{% if element['#object'].field_colleges.0 or element['#object'].field_departments.0 or element['#object'].field_offices.0 %}
   <div class="departments-offices">
     {%- for college in element['#object'].field_colleges -%}
       <div class="college">
