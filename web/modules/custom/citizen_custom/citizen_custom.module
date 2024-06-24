@@ -635,8 +635,9 @@ function citizen_custom_preprocess_paragraph(&$variables) {
 // load the bios nid so we can link to the Edit Profile page for this user
 // Profile = "bios" bundle
 function citizen_custom_preprocess_field__user__uid(&$variables){
-	if(!isset($variables['user'])) return;
-	$user_id = $variables['user']->id();
+	$user_id = intval($variables['element'][0]['#markup']) ?? 0;
+	if(empty($user_id)) return;
+
 	$user = \Drupal\user\Entity\User::load($user_id);
 
 	$athena_id_list = $user->field_athena_id->first();
