@@ -678,6 +678,7 @@
       height: 100vh;
       @include auto;
       max-width: $ultraWidescreen;
+      max-height: 1000px;
     }
     &:after { // Right gold stripes.
       content: '';
@@ -753,8 +754,8 @@
     opacity: 0; // Hide on mobile but still be screen-reader accessible.
     @include desk {
       @include safeFlex(row, no-wrap, start, end);
-      height: 100%;
-      min-height: 100vh;
+      max-height: 1000px;
+      height: 100vh;
       padding-bottom: 138px;
       opacity: 1;
     }
@@ -802,7 +803,8 @@
   padding-left: $siteMarginMobile;
   padding-right: $siteMarginMobile;
   color: $white;
-  min-height: 100vh;
+  height: 100vh;
+  max-height: 1000px;
   margin-bottom: $elementSpace;
   @include safeFlex(column,nowrap,end,start);
   @media screen and (min-width: 2001px){
@@ -859,6 +861,7 @@
       height: 100%;
       img{
         object-fit: cover;
+        object-position: top center;
       }
     }
     .field-media-image{
