@@ -11,7 +11,7 @@ third_party_settings:
 name: 'Academic Program'
 type: academic_program
 description: 'Add program pages for majors and minors.'
-help: ''
+help: null
 new_revision: true
 preview_mode: 1
 display_submitted: false

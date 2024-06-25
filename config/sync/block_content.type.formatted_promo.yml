@@ -4,5 +4,5 @@ status: true
 dependencies: {  }
 id: formatted_promo
 label: 'Formatted Promo'
-revision: 0
+revision: false
 description: 'Add promo text with a link and formatted header.'

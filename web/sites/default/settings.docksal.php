@@ -35,3 +35,4 @@ $settings['skip_permissions_hardening'] = TRUE;
 $settings['file_temporary_path'] = '/tmp';
 $settings['file_public_path'] = 'sites/default/files';
 $settings['file_private_path'] = 'sites/default/files/private';
+$settings['uwec_api_key'] = '36dadd0fab31edb063666ef8f43e595d';

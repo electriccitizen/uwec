@@ -86,4 +86,5 @@ settings:
           weight: 3
           search: '<a name="OLE_LINK[^"]*">(.*?)<\/a>'
           replace: $1
-image_upload: {  }
+image_upload:
+  status: false

@@ -6,3 +6,4 @@ name: 'Editorial sections'
 vid: editorial_sections
 description: 'Assign sections to control editorial content access'
 weight: 0
+new_revision: false

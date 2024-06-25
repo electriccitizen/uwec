@@ -22,3 +22,4 @@ name: 'Degree Types'
 vid: degree_types
 description: 'Degree types for programs.'
 weight: 0
+new_revision: false

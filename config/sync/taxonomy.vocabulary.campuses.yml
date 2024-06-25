@@ -6,3 +6,4 @@ name: Campuses
 vid: campuses
 description: 'Campuses for programs, departments, etc.'
 weight: 0
+new_revision: false

@@ -6,3 +6,4 @@ name: 'Placement Tags'
 vid: placement_tags
 description: 'Add tags for referencing and grouping content.'
 weight: 0
+new_revision: false

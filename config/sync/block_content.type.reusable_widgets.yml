@@ -4,5 +4,5 @@ status: true
 dependencies: {  }
 id: reusable_widgets
 label: 'Reusable Widgets'
-revision: 0
+revision: false
 description: 'Add widgets for reuse around the site.'
