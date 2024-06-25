@@ -5,21 +5,23 @@
 @use '../../../00-base/base' as *;
 
 .paragraph--type--social-media-links{
-  padding: 32px 50px;
-  background: $ice;
-  max-width: $breakoutWidth;
-  @include auto;
-  .field-platforms{
-    .platform-links{
-      justify-content: center;
-      li{
-        a{
-          &:hover,&:focus{
-            background: darken($ice,3%);
-            border-radius: 4px;
+  .widget-wrapper{
+    padding: 32px 50px;
+    background: $ice;
+    max-width: $breakoutWidth;
+    @include auto;
+    .field-platforms{
+      .platform-links{
+        justify-content: center;
+        li{
+          a{
+            &:hover,&:focus{
+              background: darken($ice,3%);
+              border-radius: 4px;
+            }
           }
         }
-      }
-    }//end platform links
-  }//ennd field platforms
+      }//end platform links
+    }//ennd field platforms
+  }//end widget wrapper
 }//end social media widget

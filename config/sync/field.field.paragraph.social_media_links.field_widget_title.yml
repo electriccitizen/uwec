@@ -1,0 +1,19 @@
+uuid: 7dec33de-0839-4586-9703-7cf3d02728c7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_widget_title
+    - paragraphs.paragraphs_type.social_media_links
+id: paragraph.social_media_links.field_widget_title
+field_name: field_widget_title
+entity_type: paragraph
+bundle: social_media_links
+label: 'Social Title'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

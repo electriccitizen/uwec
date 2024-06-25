@@ -135,6 +135,20 @@ $h6: 2.25rem;
   }
 }
 
+@mixin widgetTitleStandard{
+  @include heading2;
+  text-align: center;
+  max-width: $textMax;
+	@include auto;
+  margin-bottom: $spaceSm;
+}
+
+@mixin widgetTitleAlt{
+  @include blockTitle;
+	letter-spacing: .05em;
+	margin-bottom: $spaceSm;
+}
+
 @mixin metaText{
 	font-size: 2rem;
 	font-style: italic;

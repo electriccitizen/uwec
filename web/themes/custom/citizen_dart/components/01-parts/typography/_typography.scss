@@ -63,9 +63,7 @@ h2.section-title{
 	max-width: $textMax + 40px;
 }
 .widget-title,.field-widget-title{
-	@include blockTitle;
-	letter-spacing: .05em;
-	margin-bottom: $spaceSm;
+	@include widgetTitleStandard;
 }
 
 /* TEXT STYLES

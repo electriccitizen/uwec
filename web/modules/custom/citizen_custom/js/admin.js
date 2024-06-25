@@ -115,20 +115,22 @@
       
       let barField = $('.field--name-field-cta-bar');
       let trioField = $('.field--name-field-cta-items');
+      let titleField = $('.field--name-field-widget-title');
 
       $(this).closest('.layout-paragraphs-component-form').find(trioField).hide();
+      $(this).closest('.layout-paragraphs-component-form').find(titleField).hide();
 
        $(document).ajaxComplete(function () {
 
        	//when an existing wayfind is opened, ckeck the version and set show the correct fields
        	if($('.field--name-field-is-trio .form-boolean--type-checkbox', this).is(':checked')){
-       		console.log('checked');
 	       	$('.layout-paragraphs-component-form').find(trioField).show();
 	       	$('.layout-paragraphs-component-form').find(barField).hide();
+          $('.layout-paragraphs-component-form').find(titleField).show();
 	      }else{
-	      	console.log('checked');
 	      	$('.layout-paragraphs-component-form').find(trioField).hide();
 	       	$('.layout-paragraphs-component-form').find(barField).show();
+          $('.layout-paragraphs-component-form').find(titleField).hide();
 	      }
 
         // detect the chosen list type and show the proper select or manual field options
@@ -139,9 +141,11 @@
             if($(this).is(':checked')){
             	$(this).closest('.paragraphs-subform,.layout-paragraphs-component-form').find(trioField).show();
 	       			$(this).closest('.paragraphs-subform,.layout-paragraphs-component-form').find(barField).hide();
+              $(this).closest('.paragraphs-subform,.layout-paragraphs-component-form').find(titleField).show();
             }else{
             	$(this).closest('.paragraphs-subform,.layout-paragraphs-component-form').find(trioField).hide();
 	       			$(this).closest('.paragraphs-subform,.layout-paragraphs-component-form').find(barField).show();
+              $(this).closest('.paragraphs-subform,.layout-paragraphs-component-form').find(titleField).hide();
             }
 
           });

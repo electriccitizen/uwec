@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.paragraph.steps.field_step_items
     - field.field.paragraph.steps.field_use_icon
+    - field.field.paragraph.steps.field_widget_title
     - paragraphs.paragraphs_type.steps
   module:
     - paragraphs
@@ -15,7 +16,7 @@ mode: default
 content:
   field_step_items:
     type: paragraphs
-    weight: 1
+    weight: 2
     region: content
     settings:
       title: Paragraph
@@ -34,10 +35,18 @@ content:
     third_party_settings: {  }
   field_use_icon:
     type: boolean_checkbox
-    weight: 0
+    weight: 1
     region: content
     settings:
       display_label: true
+    third_party_settings: {  }
+  field_widget_title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
 hidden:
   created: true

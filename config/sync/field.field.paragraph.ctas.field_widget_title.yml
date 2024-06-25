@@ -1,0 +1,19 @@
+uuid: 54178f6f-3a57-4a41-afe9-d086f3c6b2ae
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_widget_title
+    - paragraphs.paragraphs_type.ctas
+id: paragraph.ctas.field_widget_title
+field_name: field_widget_title
+entity_type: paragraph
+bundle: ctas
+label: 'CTAs Title'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

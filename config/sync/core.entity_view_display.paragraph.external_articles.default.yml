@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.paragraph.external_articles.field_external_articles_items
+    - field.field.paragraph.external_articles.field_widget_title
     - paragraphs.paragraphs_type.external_articles
   module:
     - entity_reference_revisions
@@ -18,6 +19,14 @@ content:
     settings:
       view_mode: default
       link: ''
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_widget_title:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
     third_party_settings: {  }
     weight: 0
     region: content

@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.paragraph.contact_placer.field_contact_info
+    - field.field.paragraph.contact_placer.field_widget_title
     - paragraphs.paragraphs_type.contact_placer
 id: paragraph.contact_placer.default
 targetEntityType: paragraph
@@ -12,11 +13,19 @@ mode: default
 content:
   field_contact_info:
     type: entity_reference_autocomplete
-    weight: 0
+    weight: 1
     region: content
     settings:
       match_operator: CONTAINS
       match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_widget_title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
