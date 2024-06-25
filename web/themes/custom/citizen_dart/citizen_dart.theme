@@ -286,6 +286,9 @@ function citizen_dart_preprocess_breadcrumb(&$variables) {
         ], ['fragment' => 'node-section-2']);
         $variables['links'][] = Link::fromTextAndUrl($degree_level_label, $degree_level_url);
 
+        // vary cache on path
+        $variables['#cache']['contexts'][] = 'url.path';
+
         break;
     }
   }
