@@ -5,6 +5,7 @@ dependencies:
   config:
     - core.entity_view_mode.paragraph.preview
     - field.field.paragraph.contact_placer.field_contact_info
+    - field.field.paragraph.contact_placer.field_widget_title
     - paragraphs.paragraphs_type.contact_placer
   module:
     - layout_builder
@@ -22,6 +23,14 @@ content:
     label: hidden
     settings:
       link: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_widget_title:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
     third_party_settings: {  }
     weight: 0
     region: content

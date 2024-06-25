@@ -1,0 +1,19 @@
+uuid: 3cc57aee-f736-4735-8597-6ca5d197ca54
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_widget_title
+    - paragraphs.paragraphs_type.hours_placer
+id: paragraph.hours_placer.field_widget_title
+field_name: field_widget_title
+entity_type: paragraph
+bundle: hours_placer
+label: 'Hours Title'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

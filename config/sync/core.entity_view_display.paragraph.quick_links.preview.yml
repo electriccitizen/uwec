@@ -5,6 +5,7 @@ dependencies:
   config:
     - core.entity_view_mode.paragraph.preview
     - field.field.paragraph.quick_links.field_quick_links_items
+    - field.field.paragraph.quick_links.field_widget_title
     - paragraphs.paragraphs_type.quick_links
   module:
     - entity_reference_revisions
@@ -24,6 +25,14 @@ content:
     settings:
       view_mode: preview
       link: ''
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_widget_title:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
     third_party_settings: {  }
     weight: 0
     region: content

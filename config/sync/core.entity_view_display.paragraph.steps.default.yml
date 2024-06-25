@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.paragraph.steps.field_step_items
     - field.field.paragraph.steps.field_use_icon
+    - field.field.paragraph.steps.field_widget_title
     - paragraphs.paragraphs_type.steps
   module:
     - entity_reference_revisions
@@ -31,6 +32,14 @@ content:
       format_custom_true: ''
     third_party_settings: {  }
     weight: 1
+    region: content
+  field_widget_title:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
     region: content
 hidden:
   search_api_excerpt: true

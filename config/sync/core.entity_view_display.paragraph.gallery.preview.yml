@@ -6,6 +6,7 @@ dependencies:
     - core.entity_view_mode.paragraph.preview
     - field.field.paragraph.gallery.field_gallery_items
     - field.field.paragraph.gallery.field_gallery_style
+    - field.field.paragraph.gallery.field_widget_title
     - paragraphs.paragraphs_type.gallery
   module:
     - entity_reference_revisions
@@ -29,12 +30,20 @@ content:
       view_mode: preview
       link: ''
     third_party_settings: {  }
-    weight: 1
+    weight: 2
     region: content
   field_gallery_style:
     type: list_default
     label: inline
     settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_widget_title:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
     third_party_settings: {  }
     weight: 0
     region: content

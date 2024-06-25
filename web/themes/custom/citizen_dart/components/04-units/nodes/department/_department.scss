@@ -172,6 +172,11 @@
       &:after{
         @include fullBack($lightGrey);
       }
+      .paragraph--type--accordions{
+        .widget-title{
+          @include widgetTitleAlt;
+        }
+      }
     }
   }//end node section 3
 

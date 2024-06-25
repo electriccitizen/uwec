@@ -6,6 +6,7 @@ dependencies:
     - field.field.paragraph.ctas.field_cta_bar
     - field.field.paragraph.ctas.field_cta_items
     - field.field.paragraph.ctas.field_is_trio
+    - field.field.paragraph.ctas.field_widget_title
     - paragraphs.paragraphs_type.ctas
   module:
     - entity_reference_revisions
@@ -21,7 +22,7 @@ content:
       view_mode: default
       link: ''
     third_party_settings: {  }
-    weight: 1
+    weight: 2
     region: content
   field_cta_items:
     type: entity_reference_revisions_entity_view
@@ -29,6 +30,14 @@ content:
     settings:
       view_mode: default
       link: ''
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_widget_title:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
     third_party_settings: {  }
     weight: 0
     region: content

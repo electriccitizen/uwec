@@ -7,6 +7,9 @@
 
 .paragraph--type--steps{
   @include edgeToEdge;
+  .widget-title{
+    text-align: left;
+  }
   .step {
     border-bottom: 1px solid $borderRule;
     padding: 6rem 40px;

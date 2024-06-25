@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.paragraph.contact_placer.field_contact_info
+    - field.field.paragraph.contact_placer.field_widget_title
     - paragraphs.paragraphs_type.contact_placer
 id: paragraph.contact_placer.default
 targetEntityType: paragraph
@@ -16,6 +17,14 @@ content:
     settings:
       view_mode: widget
       link: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_widget_title:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
     third_party_settings: {  }
     weight: 0
     region: content

@@ -8,7 +8,7 @@
 
 .paragraph--type--program-search{
 	@include exposedForm;
-	#program-search-form{
+	form{
 		@include safeFlex(row,nowrap,start,center);
 		@include bleed(padding,20px);
 		.form-item{
@@ -17,6 +17,9 @@
 		.form-actions{
 			input.form-submit.button{
 				@include submitButton;
+        color: $navy;
+        height: 56px;
+        border-width: 2px;
 				margin: 0;
 			}
 		}//end form actions

@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.paragraph.social_media_links.field_platforms
+    - field.field.paragraph.social_media_links.field_widget_title
     - paragraphs.paragraphs_type.social_media_links
   module:
     - link
@@ -21,6 +22,14 @@ content:
       url_plain: true
       rel: '0'
       target: '0'
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_widget_title:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
     third_party_settings: {  }
     weight: 0
     region: content

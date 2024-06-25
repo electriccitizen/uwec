@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.paragraph.gallery.field_gallery_items
     - field.field.paragraph.gallery.field_gallery_style
+    - field.field.paragraph.gallery.field_widget_title
     - paragraphs.paragraphs_type.gallery
   module:
     - paragraphs
@@ -39,6 +40,14 @@ content:
     weight: 3
     region: content
     settings: {  }
+    third_party_settings: {  }
+  field_widget_title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
 hidden:
   created: true

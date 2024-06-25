@@ -4,6 +4,9 @@
 @use '../../../00-base/base' as *;
 
 .paragraph--type--block-placer{
+  .widget-title{
+    text-align: left;
+  }
 	.block-basic{
 		@include textConstrain;
 	}
