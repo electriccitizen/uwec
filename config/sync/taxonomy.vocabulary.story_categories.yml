@@ -22,3 +22,4 @@ name: 'Story Categories'
 vid: story_categories
 description: 'Categories for story nodes used for filtering'
 weight: 0
+new_revision: false

@@ -35,7 +35,7 @@ _core:
 name: 'General Page'
 type: page
 description: 'Use general pages for all high level landing pages, marketing pages and text-heavy informational pages.'
-help: ''
+help: null
 new_revision: true
 preview_mode: 1
 display_submitted: false

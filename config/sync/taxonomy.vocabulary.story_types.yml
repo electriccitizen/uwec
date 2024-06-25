@@ -6,3 +6,4 @@ name: 'Story Types'
 vid: story_types
 description: 'Define the intent of story nodes.'
 weight: 0
+new_revision: false

@@ -4,5 +4,5 @@ status: true
 dependencies: {  }
 id: structured_section
 label: 'Page Structured Section'
-revision: 0
+revision: false
 description: 'Add a highly structured blue secondary section for use on the home page or campaign pages.'

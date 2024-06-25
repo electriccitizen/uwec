@@ -247,6 +247,7 @@ display:
             offset: false
             offset_label: Offset
           quantity: 5
+          pagination_heading_level: h4
       exposed_form:
         type: basic
         options:
@@ -720,6 +721,7 @@ display:
             offset: false
             offset_label: Offset
           quantity: 5
+          pagination_heading_level: h4
       empty: {  }
       sorts:
         field_last_name_value:

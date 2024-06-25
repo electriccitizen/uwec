@@ -27,7 +27,7 @@ _core:
 name: 'Story Library'
 type: news
 description: 'Add time sensitive story content.'
-help: ''
+help: null
 new_revision: true
 preview_mode: 1
 display_submitted: false

@@ -11,7 +11,7 @@ third_party_settings:
 name: 'Hours Library'
 type: hours
 description: 'Add hours for department and general pages.'
-help: ''
+help: null
 new_revision: true
 preview_mode: 1
 display_submitted: false

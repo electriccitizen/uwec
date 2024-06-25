@@ -6,3 +6,4 @@ name: 'Modes of Delivery'
 vid: delivery_modes
 description: 'How programs are delivered to students.'
 weight: 0
+new_revision: false

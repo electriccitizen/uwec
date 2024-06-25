@@ -1,5 +1,6 @@
 _core:
   default_config_hash: DUAndJEFzlSboPD7_9Exq_TmDYjG-6TS7tMGJ9NPRMI
+langcode: en
 extlink_use_external_js_file: false
 extlink_exclude_admin_routes: false
 extlink_target: true

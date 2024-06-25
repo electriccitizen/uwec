@@ -6,3 +6,4 @@ name: 'Snapshot Types'
 vid: snapshot_types
 description: 'Used differentiate types of snapshots.'
 weight: 0
+new_revision: false

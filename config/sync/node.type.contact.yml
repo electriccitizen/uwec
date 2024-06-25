@@ -11,7 +11,7 @@ third_party_settings:
 name: 'Contact Library'
 type: contact
 description: 'Add contact information for department and general pages.'
-help: ''
+help: null
 new_revision: true
 preview_mode: 1
 display_submitted: false

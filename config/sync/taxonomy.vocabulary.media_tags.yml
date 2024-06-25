@@ -6,3 +6,4 @@ name: 'Media Tags'
 vid: media_tags
 description: 'Used for categorizing images and video for searching in the medai library.'
 weight: 0
+new_revision: false

@@ -1,6 +1,5 @@
 _core:
   default_config_hash: wZfYSd-4x0YOHYc4YC4uiatyniq2ANRXR_OhqWPJ9Ac
-langcode: en
 items:
   view_mode: rss
   limit: 10

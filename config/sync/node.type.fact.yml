@@ -11,7 +11,7 @@ third_party_settings:
 name: 'Fact Library'
 type: fact
 description: 'Add facts to be used around the site.'
-help: ''
+help: null
 new_revision: true
 preview_mode: 1
 display_submitted: false

@@ -22,3 +22,4 @@ name: 'Employment Type'
 vid: employment_type
 description: 'For Job Postings'
 weight: 0
+new_revision: false

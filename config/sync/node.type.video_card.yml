@@ -11,7 +11,7 @@ third_party_settings:
 name: 'Video Card Library'
 type: video_card
 description: 'Add curated videos for placement around the site.'
-help: ''
+help: null
 new_revision: true
 preview_mode: 1
 display_submitted: false

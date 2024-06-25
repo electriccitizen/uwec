@@ -6,3 +6,4 @@ name: Author
 vid: author
 description: 'Define story authors.'
 weight: 0
+new_revision: false

@@ -22,3 +22,4 @@ name: 'Slate Form Types'
 vid: slate_script_tag_types
 description: 'Select either simple or dynamic Slate script tag'
 weight: 0
+new_revision: false

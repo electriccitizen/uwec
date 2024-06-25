@@ -6,3 +6,4 @@ name: 'Page Families'
 vid: page_families
 description: 'Used for grouping pages to place data.'
 weight: 0
+new_revision: false
