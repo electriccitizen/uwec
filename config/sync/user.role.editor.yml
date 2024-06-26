@@ -55,6 +55,7 @@ permissions:
   - 'cancel smart date recur instances'
   - 'create image media'
   - 'create paragraph content accordion_item'
+  - 'create paragraph content fauxfile_item'
   - 'create remote_video media'
   - 'delete any document media'
   - 'delete own files'
