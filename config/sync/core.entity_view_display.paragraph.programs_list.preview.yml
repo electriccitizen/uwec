@@ -4,10 +4,13 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.paragraph.preview
+    - field.field.paragraph.programs_list.field_campus
+    - field.field.paragraph.programs_list.field_degree_type
     - field.field.paragraph.programs_list.field_department
     - field.field.paragraph.programs_list.field_limit_list
     - field.field.paragraph.programs_list.field_list_type
     - field.field.paragraph.programs_list.field_list_widget
+    - field.field.paragraph.programs_list.field_program_type
     - field.field.paragraph.programs_list.field_programs
     - paragraphs.paragraphs_type.programs_list
   module:
@@ -30,8 +33,11 @@ content:
     weight: 0
     region: content
 hidden:
+  field_campus: true
+  field_degree_type: true
   field_department: true
   field_limit_list: true
   field_list_widget: true
+  field_program_type: true
   field_programs: true
   search_api_excerpt: true

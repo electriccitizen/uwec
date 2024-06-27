@@ -5,6 +5,13 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - node.type.academic_program
+    - taxonomy.vocabulary.campuses
+    - taxonomy.vocabulary.degree_types
+    - taxonomy.vocabulary.program_types
+  content:
+    - 'taxonomy_term:campuses:a89504b5-0889-47c7-b016-4e31ac48db41'
+    - 'taxonomy_term:degree_types:cc4f8eee-479e-4b60-85fe-71e1f4e4ed58'
+    - 'taxonomy_term:program_types:edf19291-8d41-4270-8761-0a25b43103c6'
   module:
     - node
     - options
@@ -421,6 +428,144 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
+        field_program_type_target_id:
+          id: field_program_type_target_id
+          table: node__field_program_type
+          field: field_program_type_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: taxonomy_index_tid
+          operator: or
+          value:
+            42: 42
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: true
+          vid: program_types
+          type: select
+          hierarchy: false
+          limit: true
+          error_message: true
+        field_campus_target_id:
+          id: field_campus_target_id
+          table: node__field_campus
+          field: field_campus_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: taxonomy_index_tid
+          operator: or
+          value:
+            12: 12
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: true
+          vid: campuses
+          type: select
+          hierarchy: false
+          limit: true
+          error_message: true
+        field_degree_types_target_id:
+          id: field_degree_types_target_id
+          table: node__field_degree_types
+          field: field_degree_types_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: taxonomy_index_tid
+          operator: or
+          value:
+            146: 146
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          vid: degree_types
+          type: select
+          hierarchy: false
+          limit: true
+          error_message: true
       filter_groups:
         operator: AND
         groups:

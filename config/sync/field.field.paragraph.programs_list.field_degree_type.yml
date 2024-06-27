@@ -1,0 +1,29 @@
+uuid: 694c82a5-506d-46a2-8414-76a4a17f1d3c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_degree_type
+    - paragraphs.paragraphs_type.programs_list
+    - taxonomy.vocabulary.degree_types
+id: paragraph.programs_list.field_degree_type
+field_name: field_degree_type
+entity_type: paragraph
+bundle: programs_list
+label: 'By Degree Type'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      degree_types: degree_types
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference
