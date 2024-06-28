@@ -417,6 +417,16 @@ content:
       placeholder: ''
       show_summary: false
     third_party_settings: {  }
+  field_list_widget:
+    type: entity_reference_autocomplete
+    weight: 25
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
   field_meta_description:
     type: string_textfield
     weight: 1
@@ -452,7 +462,9 @@ content:
     weight: 12
     region: content
     settings:
+      view_mode: default
       preview_view_mode: preview
+      form_display_mode: default
       nesting_depth: 0
       require_layouts: 1
       empty_message: ''
@@ -544,7 +556,6 @@ content:
     third_party_settings: {  }
 hidden:
   created: true
-  field_list_widget: true
   field_metatags: true
   layout_builder__layout: true
   promote: true
