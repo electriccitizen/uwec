@@ -11,7 +11,7 @@ field_name: field_departments
 entity_type: node
 bundle: bios
 label: 'Academic Department(s)'
-description: ''
+description: 'If you work within an academic department on campus (e.g., Biology), enter that information here. This information will pull into your profile.'
 required: false
 translatable: false
 default_value: {  }

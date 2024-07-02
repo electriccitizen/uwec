@@ -11,7 +11,7 @@ field_name: field_programs
 entity_type: node
 bundle: bios
 label: 'Academic Program(s)'
-description: ''
+description: 'If you teach within a certain academic program on campus (e.g., Accounting), enter that information here. This information allows you to be featured as a faculty member on our academic program pages but will not pull into your profile.'
 required: false
 translatable: false
 default_value: {  }
