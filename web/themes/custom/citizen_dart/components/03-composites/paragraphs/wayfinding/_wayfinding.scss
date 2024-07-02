@@ -101,6 +101,10 @@
             width: 297px;
             margin-right: 76px;
             margin-bottom: 0;
+            img{
+              max-width: 297px;
+              max-height: 297px;
+            }
           }
           .wayfinding-info{
             padding-left: 0;
@@ -296,6 +300,10 @@
         z-index: -2;
       }
       .field-image{
+        img{
+          max-width: 426px;
+          max-height: 426px;
+        }
         .field-media-image{
           opacity: 0;
         }
