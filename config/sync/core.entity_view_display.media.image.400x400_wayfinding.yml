@@ -1,0 +1,51 @@
+uuid: f2338bf4-0d51-451f-b4c3-a04991dbbb79
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.media.400x400_wayfinding
+    - field.field.media.image.field_media_image
+    - field.field.media.image.field_media_tags
+    - image.style.400x400_wayfinding
+    - media.type.image
+  module:
+    - layout_builder
+    - lazy
+    - svg_image
+third_party_settings:
+  layout_builder:
+    enabled: false
+    allow_custom: false
+_core:
+  default_config_hash: F4l6lf5TjGDG3G-vVhEnbel7zfHUU2oNDiNwmlUgABc
+id: media.image.400x400_wayfinding
+targetEntityType: media
+bundle: image
+mode: 400x400_wayfinding
+content:
+  field_media_image:
+    type: image
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: 400x400_wayfinding
+      image_loading:
+        attribute: eager
+      svg_attributes:
+        width: null
+        height: null
+      svg_render_as_image: false
+    third_party_settings:
+      lazy:
+        lazy_image: '0'
+        placeholder_style: ''
+        data_uri: false
+    weight: 0
+    region: content
+hidden:
+  created: true
+  field_media_tags: true
+  name: true
+  search_api_excerpt: true
+  thumbnail: true
+  uid: true

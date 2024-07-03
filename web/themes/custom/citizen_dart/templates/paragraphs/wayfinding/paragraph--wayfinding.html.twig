@@ -65,8 +65,8 @@
       </div>
     {% endif %}
     {% if version != 'combo' and paragraph.field_image is not empty %}
-      <div class="field-image">
-        {{ drupal_entity('media', paragraph.field_image.entity.id, imageStyle) }}
+      <div class="wf-image">
+        {{ content.field_image }}
         {% if version == 'single' %}
           <div class="gold-stripes-narrow">
             <svg width="264" height="172" viewBox="0 0 264 172" fill="none" xmlns="http://www.w3.org/2000/svg">

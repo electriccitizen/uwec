@@ -33,7 +33,7 @@
     position: relative;
     max-width: 440px;
     @include auto;
-    .field-image{
+    .wf-image{
       margin-bottom: 5rem;
       position: relative;
       z-index: 1;
@@ -97,7 +97,7 @@
               transition: all 1s ease-out;
             }
           }
-          .field-image{
+          .wf-image{
             width: 297px;
             margin-right: 76px;
             margin-bottom: 0;
@@ -234,7 +234,7 @@
     &.single{
       padding: 50px 0;
       &.wayfinding-visible{
-        .field-image{
+        .wf-image{
           .field-media-image,.gold-stripes-narrow{
             opacity: 1;
             transition: opacity .67s ease-out;
@@ -248,7 +248,7 @@
           max-width: 890px;
           @include safeFlex(row,nowrap,start,stretch);
           &.left{
-            .field-image{
+            .wf-image{
               @include safeFlexOrder(2);
               margin-right: 0;
               margin-left: 50px;
@@ -260,7 +260,7 @@
               }
             }//end field image
           }//end left
-          .field-image{
+          .wf-image{
             flex: 0 0 400px;
             margin-right: 50px;
             margin-bottom: 0;
@@ -299,7 +299,7 @@
         @include fullBack($lightGrey);
         z-index: -2;
       }
-      .field-image{
+      .wf-image{
         img{
           max-width: 426px;
           max-height: 426px;
