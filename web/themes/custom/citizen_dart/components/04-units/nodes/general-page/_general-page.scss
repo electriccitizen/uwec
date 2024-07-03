@@ -664,6 +664,15 @@ $videoWidth: $videoHeight * 1.4153;
         max-width: 1116px;
         @include auto;
         margin-bottom: $spaceMd;
+        .breadcrumb{
+          li{
+            a{
+              &:hover,&:focus{
+                color: $white;
+              }
+            }
+          }
+        }
       }
       .page-header-text-inner{
         margin-top: 10px;
