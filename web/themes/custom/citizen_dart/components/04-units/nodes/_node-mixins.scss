@@ -420,14 +420,6 @@
         max-width: 1096px;
         padding-top: 62px;
         margin-bottom: 40px;
-        @include desk{
-          .breadcrumb-list{
-            max-width: calc(50% - 80px);
-            body:not(.hero-has-image) &{
-              max-width: 100%;
-            }
-          }
-        }
         @include menuStop{
           margin-bottom: 80px;
         }

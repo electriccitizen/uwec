@@ -184,6 +184,14 @@ $videoWidth: $videoHeight * 1.4153;
         .breadcrumb{
           padding-left: 20px;
           padding-right: 20px;
+          @include desk{
+            .breadcrumb-list{
+              max-width: calc(50% - 80px);
+              body:not(.hero-has-image) &{
+                max-width: 100%;
+              }
+            }
+          }
         }
         .page-header-text-inner{
           .node-title{
@@ -341,6 +349,14 @@ $videoWidth: $videoHeight * 1.4153;
         .breadcrumb{
           padding-left: 20px;
           padding-right: 20px;
+          @include desk{
+            .breadcrumb-list{
+              max-width: calc(50% - 80px);
+              body:not(.hero-has-image) &{
+                max-width: 100%;
+              }
+            }
+          }
         }
         .page-header-text-inner{
           .node-title{
