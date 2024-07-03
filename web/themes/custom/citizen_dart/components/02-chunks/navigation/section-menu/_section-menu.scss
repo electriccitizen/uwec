@@ -66,6 +66,7 @@
     @include safeFlex(column, nowrap, end, center);
     background-color: $menuBack;
     border-radius: 50%;
+    border: 2px solid $navy;
     box-shadow: 2px 2px 6px 0 $transGrey;
     color: $link;
     cursor: pointer;
@@ -104,10 +105,10 @@
       &:after {
         @include materialIconOutline(\f1e3);
         @include transition(transform, .3s, ease-in-out);
-        bottom: 10px;
+        bottom: 7px;
         right: -22px;
         position: absolute;
-        transform: rotate(-135deg);
+        transform: rotate(0);
       }
       @include menuStop {
         font-size: 14px;
@@ -118,17 +119,39 @@
           bottom: -24px;
           left: 8px;
           right: auto;
-          transform: rotate(-45deg);
+          transform: rotate(-90deg);
         }
       }
     }
   }
-  &.active-nav .section-menu-toggle .toggle-label:after {
-    transform: rotate(-45deg);
-    @include menuStop {
-      transform: rotate(45deg);
+  &.active-nav{
+    &:before{
+      content: '';
+      display: block;
+      width: 100%;
+      height: 2px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 6;
+      background: linear-gradient(to right, $navy 0, $navy calc(50% - 73px), transparent calc(50% - 73px), transparent calc(50% + 73px), $navy calc(50% + 73px), $navy 100%);
+      @include menuStop{
+        left: auto;
+        right: 0;
+        width: 2px;
+        height: 100%;
+        background: linear-gradient(to bottom, $navy 0, $navy calc(50% - 98px), transparent calc(50% - 98px), transparent calc(50% + 98px), $navy calc(50% + 98px), $navy 100%);
+      }
     }
-  }
+    .section-menu-toggle{
+      .toggle-label:after {
+        transform: rotate(180deg);
+        @include menuStop {
+          transform: rotate(90deg);
+        }
+      }
+    }//end section menu toggle
+  }//end active nav
 	h2.block-page-title {
     margin-bottom: $spaceSm;
     margin-left: 0;
