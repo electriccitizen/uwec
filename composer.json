@@ -145,6 +145,9 @@
       "drupal/entity_usage": {
       	"Undefined array key bug": "https://www.drupal.org/files/issues/2023-11-29/3383042-3-re-rolling-undefined-array-key.patch",
         "Skip the video_card node type": "patches/entity_usage_skip_video_card.patch"
+      },
+      "drupal/linkit": {
+        "Link to file encoding issue": "https://www.drupal.org/files/issues/2024-04-11/3436733-5-linkit-link-field-with-php81-deprecation.patch"
       }
     },
     "composer-exit-on-patch-failure": true,
