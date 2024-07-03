@@ -728,6 +728,13 @@ $videoWidth: $videoHeight * 1.4153;
 
   #node-section-2 {
     z-index: 2;
+    @include contentStop{
+      &:last-child{
+        .logged-in &{
+          padding-bottom: $spaceXs;
+        }
+      }
+    }
     .layout--twocol-sideleft{
       position: relative;
       & > .layout__region--content{
