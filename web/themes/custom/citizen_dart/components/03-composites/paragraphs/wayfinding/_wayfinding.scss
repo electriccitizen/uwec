@@ -243,20 +243,8 @@
 
     /* SINGLE WAYFINDING */
     &.single{
-<<<<<<< HEAD
       padding: 50px 0 40px;
       margin-top: 0;
-      &.wayfinding-visible{
-        .field-image{
-          .field-media-image,.gold-stripes-narrow{
-            opacity: 1;
-            transition: opacity .67s ease-out;
-            transition-delay: 0.25s;
-          }
-        }
-      }//end wayfinding visible
-=======
-      padding: 50px 0;
       // &.wayfinding-visible{
       //   .wf-image{
       //     .field-media-image,.gold-stripes-narrow{
@@ -266,7 +254,6 @@
       //     }
       //   }
       // }//end wayfinding visible
->>>>>>> UWEC-wayfinding-images
       .widget-section > .layout--onecol &,.node-support-book &{
         @include desk{
           padding: 90px 0;
