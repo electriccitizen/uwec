@@ -16,12 +16,23 @@
     .wayfinding.single{
       padding-top: 0 !important;
       padding-bottom: 0 !important;
-      background: none;
+      background: transparent !important;
       &:after{
         content: none;
       }
     }
   }
+  &.wf-single{
+    .layout.layout--threecol-section &,.layout.layout--twocol-section{
+      @include tab{
+        height: calc(100% - 6rem);
+        .wayfinding.single{
+          height: 100%;
+          margin: 0;
+        }
+      }
+    }//end multicolumn layouts
+  }//end single in multi columns
   .widget-wrapper{
     padding-top: 1px;
     padding-bottom: 1px;
@@ -228,7 +239,8 @@
 
     /* SINGLE WAYFINDING */
     &.single{
-      padding: 50px 0;
+      padding: 50px 0 40px;
+      margin-top: 0;
       &.wayfinding-visible{
         .field-image{
           .field-media-image,.gold-stripes-narrow{

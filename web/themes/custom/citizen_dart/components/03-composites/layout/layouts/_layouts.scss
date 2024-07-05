@@ -62,7 +62,9 @@
 			&:not(:only-child){
 				width: calc(100% - #{$sideBar});
 				&:not(.layout-builder__region){
-					padding-left: $sectionGutter;
+          .node-support-book &{
+					  padding-left: $sectionGutter;
+          }
 				}
 			}
 		}
@@ -321,7 +323,8 @@
 .layout.layout--threecol-section{
 	@include bleed(padding,40px);
 	//33/33/33 layout
-	&.layout--three-section--33-33-33{
+	&.layout--threecol-section--33-34-33{
+    align-items: stretch;
 		& > .layout__region{
 			@include safeFlexSize(0,0,100%);
 			@include tab{

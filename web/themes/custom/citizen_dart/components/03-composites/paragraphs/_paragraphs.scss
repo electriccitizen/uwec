@@ -84,7 +84,10 @@
         margin-bottom: -$siteBottomSpace;
       }
     }//end background
-    .paragraph{
+    .paragraph:not(.paragraph--type--layout-section){
+      @include tab{
+        margin-bottom: 8rem;
+      }
       @include menuStop{
         margin-bottom: 10rem;
       }
