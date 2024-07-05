@@ -1,15 +1,17 @@
 uuid: 6644263c-7f1a-4a3e-a55a-fe3b7caf7662
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  module:
+    - focal_point
 name: 400x400_wayfinding
 label: 400x400_wayfinding
 effects:
-  ee70001b-b887-4ee7-880d-9d5240edf1c8:
-    uuid: ee70001b-b887-4ee7-880d-9d5240edf1c8
-    id: image_scale_and_crop
+  d8efd5f8-36e5-4810-9029-c59ca603cfda:
+    uuid: d8efd5f8-36e5-4810-9029-c59ca603cfda
+    id: focal_point_scale_and_crop
     weight: 1
     data:
       width: 400
       height: 400
-      anchor: center-center
+      crop_type: focal_point
