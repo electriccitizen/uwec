@@ -2,6 +2,7 @@
 
 ## ABOUT CITIZEN DART THEME
 
+Force refresh 
 For Drupal 10, Citizen Dart uses the Stable theme starting place, and is meant to expand on that to theme this website.
 
 This theme is compiled using Dart Sass via the Dart VM. This is the fastest, cleanest, most modern way of using Sass. All Sass is written in partial _scss files which are forwarded to a single _index.scss file in each folder of the theme. These index files are then compiled in the main style.scss file and ouput to compressed CSS using the command line.
