@@ -44,7 +44,7 @@
     position: relative;
     max-width: 440px;
     @include auto;
-    .field-image{
+    .wf-image{
       margin-bottom: 5rem;
       position: relative;
       z-index: 1;
@@ -108,10 +108,14 @@
               transition: all 1s ease-out;
             }
           }
-          .field-image{
+          .wf-image{
             width: 297px;
             margin-right: 76px;
             margin-bottom: 0;
+            img{
+              max-width: 297px;
+              max-height: 297px;
+            }
           }
           .wayfinding-info{
             padding-left: 0;
@@ -239,6 +243,7 @@
 
     /* SINGLE WAYFINDING */
     &.single{
+<<<<<<< HEAD
       padding: 50px 0 40px;
       margin-top: 0;
       &.wayfinding-visible{
@@ -250,13 +255,25 @@
           }
         }
       }//end wayfinding visible
+=======
+      padding: 50px 0;
+      // &.wayfinding-visible{
+      //   .wf-image{
+      //     .field-media-image,.gold-stripes-narrow{
+      //       opacity: 1;
+      //       transition: opacity .67s ease-out;
+      //       transition-delay: 0.25s;
+      //     }
+      //   }
+      // }//end wayfinding visible
+>>>>>>> UWEC-wayfinding-images
       .widget-section > .layout--onecol &,.node-support-book &{
         @include desk{
           padding: 90px 0;
           max-width: 890px;
           @include safeFlex(row,nowrap,start,stretch);
           &.left{
-            .field-image{
+            .wf-image{
               @include safeFlexOrder(2);
               margin-right: 0;
               margin-left: 50px;
@@ -268,8 +285,8 @@
               }
             }//end field image
           }//end left
-          .field-image{
-            flex: 0 0 400px;
+          .wf-image{
+            width: 400px;
             margin-right: 50px;
             margin-bottom: 0;
             .gold-stripes-narrow{
@@ -307,9 +324,35 @@
         @include fullBack($lightGrey);
         z-index: -2;
       }
-      .field-image{
+      .wf-image{
+        max-width: 440px;
+        @include desk{
+          max-width: 400px;
+        }
+        .image._00x400-wayfinding{
+          position: relative;
+          width: 100%;
+          padding-bottom: 100%;
+        }
         .field-media-image{
-          opacity: 0;
+          opacity: 1;
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          img{
+            max-width: 440px;
+            max-height: 440px;
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            object-position: center;
+            @include desk{
+              max-width: 400px;
+              max-height: 400px;
+            }
+          }
         }
         .gold-stripes-narrow{
           @include rotate(180);
@@ -317,7 +360,7 @@
           bottom: -20px;
           left: -110px;
           z-index: -1;
-          opacity: 0;
+          opacity: 1;
         }
       }//end field image
       .wayfinding-headline{

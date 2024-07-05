@@ -1,0 +1,11 @@
+uuid: ddaee3a0-944c-49be-b7a4-0598e3e73e2d
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+id: media.400x400_wayfinding
+label: 400x400_wayfinding
+description: ''
+targetEntityType: media
+cache: true
