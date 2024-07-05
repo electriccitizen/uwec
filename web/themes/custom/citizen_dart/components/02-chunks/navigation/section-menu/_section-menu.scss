@@ -66,7 +66,7 @@
     @include safeFlex(column, nowrap, end, center);
     background-color: $menuBack;
     border-radius: 50%;
-    border: 2px solid $navy;
+    border: 5px solid $royal;
     box-shadow: 2px 2px 6px 0 $transGrey;
     color: $link;
     cursor: pointer;
@@ -78,12 +78,12 @@
     width: 150px;
     @include menuStop {
       @include safeFlex(row, nowrap, end, center);
-      height: 200px;
+      height: 206px;
       left: auto;
-      right: -100px;
+      right: -103px;
       text-align: left;
-      top: calc(50vh - 100px);
-      width: 200px;
+      top: calc(50vh - 103px);
+      width: 206px;
     }
     &:hover {
       color: $hoverLink;
@@ -125,24 +125,24 @@
     }
   }
   &.active-nav{
-    &:before{
-      content: '';
-      display: block;
-      width: 100%;
-      height: 2px;
-      position: absolute;
-      top: 0;
-      left: 0;
-      z-index: 6;
-      background: linear-gradient(to right, $navy 0, $navy calc(50% - 73px), transparent calc(50% - 73px), transparent calc(50% + 73px), $navy calc(50% + 73px), $navy 100%);
-      @include menuStop{
-        left: auto;
-        right: 0;
-        width: 2px;
-        height: 100%;
-        background: linear-gradient(to bottom, $navy 0, $navy calc(50% - 98px), transparent calc(50% - 98px), transparent calc(50% + 98px), $navy calc(50% + 98px), $navy 100%);
-      }
-    }
+    // &:before{
+    //   content: '';
+    //   display: block;
+    //   width: 100%;
+    //   height: 2px;
+    //   position: absolute;
+    //   top: 0;
+    //   left: 0;
+    //   z-index: 6;
+    //   background: linear-gradient(to right, $navy 0, $navy calc(50% - 73px), transparent calc(50% - 73px), transparent calc(50% + 73px), $navy calc(50% + 73px), $navy 100%);
+    //   @include menuStop{
+    //     left: auto;
+    //     right: 0;
+    //     width: 2px;
+    //     height: 100%;
+    //     background: linear-gradient(to bottom, $navy 0, $navy calc(50% - 98px), transparent calc(50% - 98px), transparent calc(50% + 98px), $navy calc(50% + 98px), $navy 100%);
+    //   }
+    // }
     .section-menu-toggle{
       .toggle-label:after {
         transform: rotate(180deg);
