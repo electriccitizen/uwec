@@ -10,7 +10,6 @@ Drupal.behaviors.eventsList = {
           $('.events-list').each(function(){
             let $listView = $(this);
             if(!($listView.children().length)){
-              console.log('List removed', this);
               $listView.closest('.paragraph--type--events-list').remove();
             }
           });

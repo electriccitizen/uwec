@@ -32,7 +32,6 @@ Drupal.behaviors.sectionMenu = {
 
       // hide top level non-active items if offices & services menu
       if(($(this).attr('data-menu') == 'offices-services') && ($('h2.block-page-title > a',this).attr('data-drupal-link-system-path') == 'node/9583')){
-        console.log('offices top level');
         $('#section-menu-wrapper',this).addClass('hide-non-active-top');
       }
 
@@ -76,50 +75,5 @@ function mobileSectionnav() {
     $('#section-menu-wrapper').removeAttr('aria-hidden');
   }
 };
-
-/* DETECT POSITION & HEIGHT
------------------- */
-Drupal.behaviors.navPosition = {
-  attach: function (context, settings) {
-  	// $(once('navPosition', '.layout--twocol-sideleft:not(.layout-builder__layout)', context)).each(function(){
-    //   if($('#block-section-menu .menu-item',this).length){
-    //     $('#block-section-menu',this).addClass('show-nav');
-    //   }else{
-    //     $('.layout__region--first',this).remove();
-    //   }
-    //   $(document).ready(function() {
-    //     var windowWidth = $(window).outerWidth();
-    //     var $targetElement = $('.layout--twocol-sideleft');
-    //     var $titleHeight = $('#section-menu-title').outerHeight();
-    //     var viewportBottom = $(window).scrollTop() + $(window).height();
-    //     var elementTop = $targetElement.offset().top;
-    //     if (viewportBottom > elementTop) {
-    //       $('#block-section-menu',$targetElement).addClass('post-intro');
-    //     } else {
-    //       $('#block-section-menu',$targetElement).removeClass('post-intro');
-    //     }
-    //     if(windowWidth > 1199){
-    //       $('#block-section-menu',$targetElement).css('top','calc(100% - ' + $titleHeight + 'px)');
-    //       // find menu height minus offset & spacing so can make sure there is enough body height to push down paragraphs
-    //       var menuHeight = $('#block-section-menu',$targetElement).outerHeight() - 280;
-    //       if(menuHeight > 0){
-    //         $('.layout--twocol-sideleft:not(.layout-builder__layout) .block-field.block-body:only-child').css('min-height',menuHeight + 'px');
-    //       }
-    //     }else{
-    //       $('#block-section-menu',$targetElement).css('top','auto');
-    //     }
-    //     $(window).scroll(function() {
-    //       var viewportBottom = $(window).scrollTop() + $(window).height();
-    //       var elementTop = $targetElement.offset().top;
-    //       if (viewportBottom > elementTop) {
-    //         $('#block-section-menu',$targetElement).addClass('post-intro');
-    //       } else {
-    //         $('#block-section-menu',$targetElement).removeClass('post-intro');
-    //       }
-    //     });
-    //   });
-    // });
-  }
-}
 
 })(jQuery, Drupal, once);
