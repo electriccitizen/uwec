@@ -82,12 +82,12 @@
     width: 150px;
     @include menuStop {
       @include safeFlex(row, nowrap, end, center);
-      height: 206px;
+      height: 215px;
       left: auto;
       right: -103px;
       text-align: left;
       top: calc(50vh - 103px);
-      width: 206px;
+      width: 215px;
     }
     &:hover {
       color: $hoverLink;
@@ -117,11 +117,11 @@
       @include menuStop {
         font-size: 14px;
         margin-bottom: 0;
-        padding: 0 14px 0 8px;
-        top: -12px;
+        padding: 0 14px 0 14px;
+        top: 0px;
         &:after {
           bottom: -24px;
-          left: 8px;
+          left: 14px;
           right: auto;
           transform: rotate(-90deg);
         }
