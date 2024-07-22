@@ -4,13 +4,20 @@ status: true
 dependencies:
   module:
     - focal_point
+    - image_effects
 name: 400x400_wayfinding
 label: 400x400_wayfinding
 effects:
-  d8efd5f8-36e5-4810-9029-c59ca603cfda:
-    uuid: d8efd5f8-36e5-4810-9029-c59ca603cfda
-    id: focal_point_scale_and_crop
+  1c24b9c9-d046-4ac0-8437-ce14e78b1974:
+    uuid: 1c24b9c9-d046-4ac0-8437-ce14e78b1974
+    id: image_effects_auto_orient
     weight: 1
+    data:
+      scan_exif: true
+  c3c61ff7-43ef-499a-8232-8f60c71917cb:
+    uuid: c3c61ff7-43ef-499a-8232-8f60c71917cb
+    id: focal_point_scale_and_crop
+    weight: 2
     data:
       width: 400
       height: 400

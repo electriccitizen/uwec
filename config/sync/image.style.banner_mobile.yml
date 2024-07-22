@@ -4,6 +4,7 @@ status: true
 dependencies:
   module:
     - focal_point
+    - image_effects
 _core:
   default_config_hash: rDXqU3Ji72_c9NmFyaZk5JK3ddXKAQJzA0nNrHEKIZ4
 name: banner_mobile
@@ -12,14 +13,20 @@ effects:
   fdfeb6af-9755-441c-a73c-c14fb7bb50c3:
     uuid: fdfeb6af-9755-441c-a73c-c14fb7bb50c3
     id: focal_point_scale_and_crop
-    weight: 1
+    weight: -9
     data:
       width: 393
       height: 262
       crop_type: focal_point
-  c5f14e92-264e-4456-8a8d-3547a87e12a3:
-    uuid: c5f14e92-264e-4456-8a8d-3547a87e12a3
+  8b962db3-aa83-4c48-a295-12e979d28f2b:
+    uuid: 8b962db3-aa83-4c48-a295-12e979d28f2b
+    id: image_effects_auto_orient
+    weight: -10
+    data:
+      scan_exif: true
+  d8893477-5642-403e-811a-33ad99c68143:
+    uuid: d8893477-5642-403e-811a-33ad99c68143
     id: image_convert
-    weight: 2
+    weight: -8
     data:
       extension: webp

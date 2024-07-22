@@ -4,13 +4,20 @@ status: true
 dependencies:
   module:
     - focal_point
+    - image_effects
 name: 42x42_non_webp
 label: '42x42 Non-webp'
 effects:
-  7c677d44-8248-480f-9ffd-1ab444e8188d:
-    uuid: 7c677d44-8248-480f-9ffd-1ab444e8188d
-    id: focal_point_scale_and_crop
+  53f22ea6-c908-4a1c-97a1-6eb0d8422946:
+    uuid: 53f22ea6-c908-4a1c-97a1-6eb0d8422946
+    id: image_effects_auto_orient
     weight: 1
+    data:
+      scan_exif: true
+  ad371210-7bcd-41a6-8a50-bb3bb9d510a5:
+    uuid: ad371210-7bcd-41a6-8a50-bb3bb9d510a5
+    id: focal_point_scale_and_crop
+    weight: 2
     data:
       width: 42
       height: 42

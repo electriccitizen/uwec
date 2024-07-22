@@ -1,7 +1,9 @@
 uuid: fff46e49-2d4f-48c7-95f2-48f692b76107
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  module:
+    - image_effects
 _core:
   default_config_hash: HbASDWg-urAV40ZrRk1BvDOr3K18AAxZdgct6rX7Vqg
 name: maxwidth_1200
@@ -10,7 +12,7 @@ effects:
   ae5ff580-1b59-44dc-8edb-65b722fb37b1:
     uuid: ae5ff580-1b59-44dc-8edb-65b722fb37b1
     id: image_scale
-    weight: 1
+    weight: -9
     data:
       width: 1200
       height: null
@@ -18,6 +20,12 @@ effects:
   382b88b1-ca3a-4167-9123-1cbf14b24c5f:
     uuid: 382b88b1-ca3a-4167-9123-1cbf14b24c5f
     id: image_convert
-    weight: 2
+    weight: -8
     data:
       extension: webp
+  a00adaba-827d-4d41-a7d1-517c8c8898eb:
+    uuid: a00adaba-827d-4d41-a7d1-517c8c8898eb
+    id: image_effects_auto_orient
+    weight: -10
+    data:
+      scan_exif: true

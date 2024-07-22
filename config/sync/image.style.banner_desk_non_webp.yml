@@ -4,16 +4,23 @@ status: true
 dependencies:
   module:
     - focal_point
+    - image_effects
 _core:
   default_config_hash: ONnmufgoyEiyLIMFlrX5HMZFgomqOKuKXJCw5NDKgGw
 name: banner_desk_non_webp
 label: 'Banner Desk Non-WebP'
 effects:
-  81e70c9c-e4bc-4eb2-9422-7d499c23879b:
-    uuid: 81e70c9c-e4bc-4eb2-9422-7d499c23879b
+  6ebf6f0a-e2c4-4060-9a10-b7cb27579200:
+    uuid: 6ebf6f0a-e2c4-4060-9a10-b7cb27579200
     id: focal_point_scale_and_crop
-    weight: 1
+    weight: -9
     data:
       width: 1194
       height: 786
       crop_type: focal_point
+  7b6cda7c-7463-49fe-a0a2-6cb92c5376fc:
+    uuid: 7b6cda7c-7463-49fe-a0a2-6cb92c5376fc
+    id: image_effects_auto_orient
+    weight: -10
+    data:
+      scan_exif: true

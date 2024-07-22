@@ -1,14 +1,22 @@
 uuid: a6bdd9ac-0003-419b-b5f1-0bfe5ca8765a
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  module:
+    - image_effects
 name: 200x200_non_crop_non_webp
 label: '200x200 Non-crop Non-webp'
 effects:
-  eba5adf4-9302-44d0-8756-a2bc64d64541:
-    uuid: eba5adf4-9302-44d0-8756-a2bc64d64541
-    id: image_scale
+  55e92d10-b2ea-4b8a-8124-4195e6809669:
+    uuid: 55e92d10-b2ea-4b8a-8124-4195e6809669
+    id: image_effects_auto_orient
     weight: 1
+    data:
+      scan_exif: true
+  81bbaa18-8ee3-469c-bd77-7fc995f9306b:
+    uuid: 81bbaa18-8ee3-469c-bd77-7fc995f9306b
+    id: image_scale
+    weight: 2
     data:
       width: 200
       height: 200

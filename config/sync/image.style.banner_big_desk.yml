@@ -4,6 +4,7 @@ status: true
 dependencies:
   module:
     - focal_point
+    - image_effects
 _core:
   default_config_hash: ogW7r0FHHB0LQXxtcUhVQjU2yg8Sk5OJsKusTsGtAwY
 name: banner_big_desk
@@ -12,14 +13,20 @@ effects:
   d6f529cf-6197-43e2-bd87-a9346cea6a94:
     uuid: d6f529cf-6197-43e2-bd87-a9346cea6a94
     id: focal_point_scale_and_crop
-    weight: 1
+    weight: -9
     data:
       width: 1680
       height: 1120
       crop_type: focal_point
-  9edc22c2-ca46-40eb-9e6e-cb474cef5524:
-    uuid: 9edc22c2-ca46-40eb-9e6e-cb474cef5524
+  3e720c91-2dd2-4948-8308-e447a2352461:
+    uuid: 3e720c91-2dd2-4948-8308-e447a2352461
     id: image_convert
-    weight: 2
+    weight: -8
     data:
       extension: webp
+  b443f3c1-fef7-4185-bd02-ada831d0a7a4:
+    uuid: b443f3c1-fef7-4185-bd02-ada831d0a7a4
+    id: image_effects_auto_orient
+    weight: -10
+    data:
+      scan_exif: true

@@ -4,6 +4,7 @@ status: true
 dependencies:
   module:
     - focal_point
+    - image_effects
 _core:
   default_config_hash: MQRsuBcv6kHFNNRLTeYGRt9qh5o2A6PSeSjQZBJqxns
 name: banner_desk
@@ -12,14 +13,20 @@ effects:
   c0870a73-b881-407a-b709-78f972f7bd56:
     uuid: c0870a73-b881-407a-b709-78f972f7bd56
     id: focal_point_scale_and_crop
-    weight: 1
+    weight: -9
     data:
       width: 1194
       height: 786
       crop_type: focal_point
-  b042006b-0962-4f94-85a9-9f971615cc3c:
-    uuid: b042006b-0962-4f94-85a9-9f971615cc3c
+  50c72f95-f0d9-4823-bd83-3a55c35577df:
+    uuid: 50c72f95-f0d9-4823-bd83-3a55c35577df
+    id: image_effects_auto_orient
+    weight: -10
+    data:
+      scan_exif: true
+  8f44cca4-1654-44ec-bd20-400d0b43de76:
+    uuid: 8f44cca4-1654-44ec-bd20-400d0b43de76
     id: image_convert
-    weight: 2
+    weight: -8
     data:
       extension: webp

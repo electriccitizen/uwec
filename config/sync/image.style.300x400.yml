@@ -4,13 +4,20 @@ status: true
 dependencies:
   module:
     - focal_point
+    - image_effects
 name: 300x400
 label: '300x400 (3:4)'
 effects:
-  c6eef388-c720-4805-a9d7-e9f12ce03cb0:
-    uuid: c6eef388-c720-4805-a9d7-e9f12ce03cb0
-    id: focal_point_scale_and_crop
+  ce0d1777-ded6-4b32-9c34-90b1eebfff93:
+    uuid: ce0d1777-ded6-4b32-9c34-90b1eebfff93
+    id: image_effects_auto_orient
     weight: 1
+    data:
+      scan_exif: true
+  20af0aee-cf18-4e73-9902-aee00efce808:
+    uuid: 20af0aee-cf18-4e73-9902-aee00efce808
+    id: focal_point_scale_and_crop
+    weight: 2
     data:
       width: 300
       height: 400
