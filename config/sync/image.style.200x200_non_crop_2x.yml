@@ -1,21 +1,29 @@
 uuid: 855d0bdc-ec00-47c7-98d1-5dd3358f426f
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  module:
+    - image_effects
 name: 200x200_non_crop_2x
 label: '200x200 Non-crop 2x'
 effects:
   aa4fe1b7-eb56-438f-be57-c37dd8a6721d:
     uuid: aa4fe1b7-eb56-438f-be57-c37dd8a6721d
     id: image_scale
-    weight: 1
+    weight: -9
     data:
       width: 400
       height: 400
       upscale: true
-  d0c7a0f5-7c57-4bb1-8d11-47af96bf3653:
-    uuid: d0c7a0f5-7c57-4bb1-8d11-47af96bf3653
+  0f7984f5-a43e-496e-b68e-17859b8ac04d:
+    uuid: 0f7984f5-a43e-496e-b68e-17859b8ac04d
+    id: image_effects_auto_orient
+    weight: -10
+    data:
+      scan_exif: true
+  6f8bfb2e-2500-445f-8c4b-ba1749cf859e:
+    uuid: 6f8bfb2e-2500-445f-8c4b-ba1749cf859e
     id: image_convert
-    weight: 2
+    weight: -8
     data:
       extension: webp

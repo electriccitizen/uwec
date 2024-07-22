@@ -4,20 +4,27 @@ status: true
 dependencies:
   module:
     - focal_point
+    - image_effects
 name: 1680x1680
 label: 1680x1680
 effects:
   9b712cdb-936b-4544-90f7-724115b6c963:
     uuid: 9b712cdb-936b-4544-90f7-724115b6c963
     id: focal_point_scale_and_crop
-    weight: 1
+    weight: -9
     data:
       width: 1680
       height: 1680
       crop_type: focal_point
-  6562b6bf-41a2-4961-a042-163efd6451e8:
-    uuid: 6562b6bf-41a2-4961-a042-163efd6451e8
+  16ec8676-6be7-4ecd-bd88-a34ba809d81d:
+    uuid: 16ec8676-6be7-4ecd-bd88-a34ba809d81d
+    id: image_effects_auto_orient
+    weight: -10
+    data:
+      scan_exif: true
+  be99cf3b-af0a-471a-9009-0b01b09006ae:
+    uuid: be99cf3b-af0a-471a-9009-0b01b09006ae
     id: image_convert
-    weight: 2
+    weight: -8
     data:
       extension: webp

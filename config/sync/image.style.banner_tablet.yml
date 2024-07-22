@@ -4,6 +4,7 @@ status: true
 dependencies:
   module:
     - focal_point
+    - image_effects
 _core:
   default_config_hash: YP9we9QgumUseA0ixEeJjyWY7SGG3NSGoPmpvQ9439Y
 name: banner_tablet
@@ -12,7 +13,7 @@ effects:
   7c8d50b9-2a0d-4447-a58c-6287d99f5833:
     uuid: 7c8d50b9-2a0d-4447-a58c-6287d99f5833
     id: focal_point_scale_and_crop
-    weight: 1
+    weight: -9
     data:
       width: 786
       height: 524
@@ -20,6 +21,12 @@ effects:
   0ee03fc4-cf4e-438d-a281-8d408dabe4b6:
     uuid: 0ee03fc4-cf4e-438d-a281-8d408dabe4b6
     id: image_convert
-    weight: 2
+    weight: -8
     data:
       extension: webp
+  0b8d66ee-16fc-4e0d-9fcb-8e316a141b60:
+    uuid: 0b8d66ee-16fc-4e0d-9fcb-8e316a141b60
+    id: image_effects_auto_orient
+    weight: -10
+    data:
+      scan_exif: true

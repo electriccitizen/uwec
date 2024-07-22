@@ -4,6 +4,7 @@ status: true
 dependencies:
   module:
     - focal_point
+    - image_effects
 _core:
   default_config_hash: G37-nODwKUifoz5G0pMDQMEf0Vm9uQJdARQWqOe5pow
 name: banner_middesk
@@ -12,14 +13,20 @@ effects:
   4ba8a57c-f644-4732-b0e5-ec57faf4d0f4:
     uuid: 4ba8a57c-f644-4732-b0e5-ec57faf4d0f4
     id: focal_point_scale_and_crop
-    weight: 1
+    weight: -9
     data:
       width: 1440
       height: 960
       crop_type: focal_point
-  29cc94c9-8915-43b5-8785-14e21d290704:
-    uuid: 29cc94c9-8915-43b5-8785-14e21d290704
+  a59ca618-681a-43a7-bb47-f9ae6e968af4:
+    uuid: a59ca618-681a-43a7-bb47-f9ae6e968af4
     id: image_convert
-    weight: 2
+    weight: -8
     data:
       extension: webp
+  7dc6228d-8cf2-41e0-89f7-6cf1385c0feb:
+    uuid: 7dc6228d-8cf2-41e0-89f7-6cf1385c0feb
+    id: image_effects_auto_orient
+    weight: -10
+    data:
+      scan_exif: true

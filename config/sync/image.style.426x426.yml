@@ -4,20 +4,27 @@ status: true
 dependencies:
   module:
     - focal_point
+    - image_effects
 name: 426x426
 label: 426x426
 effects:
   ee474f7c-5ce7-4648-a209-83f40471986a:
     uuid: ee474f7c-5ce7-4648-a209-83f40471986a
     id: focal_point_scale_and_crop
-    weight: 1
+    weight: -9
     data:
       width: 426
       height: 426
       crop_type: focal_point
-  de214032-4f1d-49f6-b0a4-e261d92b6e71:
-    uuid: de214032-4f1d-49f6-b0a4-e261d92b6e71
+  8afa9c13-3fb1-44a3-87fb-82817f06e20c:
+    uuid: 8afa9c13-3fb1-44a3-87fb-82817f06e20c
+    id: image_effects_auto_orient
+    weight: -10
+    data:
+      scan_exif: true
+  daced41b-b27a-4133-9632-39f1b6da873a:
+    uuid: daced41b-b27a-4133-9632-39f1b6da873a
     id: image_convert
-    weight: 2
+    weight: -8
     data:
       extension: webp

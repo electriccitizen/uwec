@@ -1,15 +1,23 @@
 uuid: 439a1473-65dd-4dd7-ad47-c74b81a71e76
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  module:
+    - image_effects
 name: social_share
 label: 'Social Share'
 effects:
   b325d311-df5e-4baa-a7ef-cc05ccfbdc4f:
     uuid: b325d311-df5e-4baa-a7ef-cc05ccfbdc4f
     id: image_scale_and_crop
-    weight: 1
+    weight: -9
     data:
       width: 1200
       height: 628
       anchor: center-center
+  5e008f47-96ac-427c-8f90-3b7a8c74044e:
+    uuid: 5e008f47-96ac-427c-8f90-3b7a8c74044e
+    id: image_effects_auto_orient
+    weight: -10
+    data:
+      scan_exif: true

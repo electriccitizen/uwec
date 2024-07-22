@@ -4,14 +4,21 @@ status: true
 dependencies:
   module:
     - focal_point
+    - image_effects
 name: 758x428_non_webp
 label: '758x428 Non-webp'
 effects:
-  878aee32-27d6-4c70-93fa-9651ebd3a3c3:
-    uuid: 878aee32-27d6-4c70-93fa-9651ebd3a3c3
+  bd2d9a89-31b3-435f-a218-f631d4e38bc1:
+    uuid: bd2d9a89-31b3-435f-a218-f631d4e38bc1
     id: focal_point_scale_and_crop
-    weight: 1
+    weight: -9
     data:
       width: 758
       height: 428
       crop_type: focal_point
+  a40837ea-f614-4e4d-aaea-5eca7b29e5e0:
+    uuid: a40837ea-f614-4e4d-aaea-5eca7b29e5e0
+    id: image_effects_auto_orient
+    weight: -10
+    data:
+      scan_exif: true

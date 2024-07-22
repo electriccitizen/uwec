@@ -4,6 +4,7 @@ status: true
 dependencies:
   module:
     - focal_point
+    - image_effects
 _core:
   default_config_hash: OfdJCapWQLVdXN8ohcsiSnIItUrE729SqTEGFcUoaOM
 name: 360x360
@@ -12,14 +13,20 @@ effects:
   4eacf54c-5ef7-4582-8299-4f19f39fc395:
     uuid: 4eacf54c-5ef7-4582-8299-4f19f39fc395
     id: focal_point_scale_and_crop
-    weight: 1
+    weight: -9
     data:
       width: 360
       height: 360
       crop_type: focal_point
-  3a288162-6516-42c7-a095-88855ec78360:
-    uuid: 3a288162-6516-42c7-a095-88855ec78360
+  cfa0b8ed-203c-4137-8fd2-a2595060bb8c:
+    uuid: cfa0b8ed-203c-4137-8fd2-a2595060bb8c
+    id: image_effects_auto_orient
+    weight: -10
+    data:
+      scan_exif: true
+  d3e2e855-fa25-4317-a346-63f4ed908f25:
+    uuid: d3e2e855-fa25-4317-a346-63f4ed908f25
     id: image_convert
-    weight: 2
+    weight: -8
     data:
       extension: webp

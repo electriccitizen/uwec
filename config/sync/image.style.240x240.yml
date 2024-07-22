@@ -4,20 +4,27 @@ status: true
 dependencies:
   module:
     - focal_point
+    - image_effects
 name: 240x240
 label: 240x240
 effects:
   ab5616d3-06bd-405f-832e-076a9c1c8c4e:
     uuid: ab5616d3-06bd-405f-832e-076a9c1c8c4e
     id: focal_point_scale_and_crop
-    weight: 1
+    weight: -9
     data:
       width: 240
       height: 240
       crop_type: focal_point
-  9cc56365-020b-42e1-ab3d-3bd8559a1393:
-    uuid: 9cc56365-020b-42e1-ab3d-3bd8559a1393
+  ff5df595-1c4b-4a30-85cc-fec7ceb34955:
+    uuid: ff5df595-1c4b-4a30-85cc-fec7ceb34955
+    id: image_effects_auto_orient
+    weight: -10
+    data:
+      scan_exif: true
+  f7f8d490-47b5-48d3-842b-f3d85280ceb2:
+    uuid: f7f8d490-47b5-48d3-842b-f3d85280ceb2
     id: image_convert
-    weight: 2
+    weight: -8
     data:
       extension: webp

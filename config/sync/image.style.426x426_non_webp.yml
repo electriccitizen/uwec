@@ -4,13 +4,20 @@ status: true
 dependencies:
   module:
     - focal_point
+    - image_effects
 name: 426x426_non_webp
 label: '426x426 Non-webp'
 effects:
-  22f50fe2-b4ee-4114-9649-7b050c9e8b05:
-    uuid: 22f50fe2-b4ee-4114-9649-7b050c9e8b05
-    id: focal_point_scale_and_crop
+  28220741-bead-4080-92d1-a2bd4e3178d5:
+    uuid: 28220741-bead-4080-92d1-a2bd4e3178d5
+    id: image_effects_auto_orient
     weight: 1
+    data:
+      scan_exif: true
+  266ec8c2-c889-48e6-a659-eb652723900e:
+    uuid: 266ec8c2-c889-48e6-a659-eb652723900e
+    id: focal_point_scale_and_crop
+    weight: 2
     data:
       width: 426
       height: 426
