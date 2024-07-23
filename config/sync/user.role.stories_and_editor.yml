@@ -42,6 +42,7 @@ permissions:
   - 'access shortcuts'
   - 'cancel smart date recur instances'
   - 'create image media'
+  - 'create news content on assigned domains'
   - 'create paragraph content accordion_item'
   - 'create paragraph content fauxfile_item'
   - 'create remote_video media'
