@@ -14,6 +14,7 @@ dependencies:
     - node.type.hours
     - node.type.news
     - node.type.page
+    - workflows.workflow.marketing
     - workflows.workflow.non_moderated
   module:
     - addanother
@@ -96,6 +97,10 @@ permissions:
   - 'update paragraph content profiles_list'
   - 'use add another'
   - 'use domain nav block'
+  - 'use marketing transition archive'
+  - 'use marketing transition create_new_draft'
+  - 'use marketing transition publish'
+  - 'use marketing transition review'
   - 'use non_moderated transition archive'
   - 'use non_moderated transition create_new_draft'
   - 'use non_moderated transition publish'
@@ -107,6 +112,7 @@ permissions:
   - 'view any unpublished department content'
   - 'view any unpublished news content'
   - 'view any unpublished page content'
+  - 'view assigned domains'
   - 'view bios revisions'
   - 'view contact revisions'
   - 'view domain aliases'
