@@ -1,0 +1,31 @@
+{#
+/**
+ * @file
+ * Theme override for a breadcrumb trail.
+ *
+ * Available variables:
+ * - breadcrumb: Breadcrumb trail items.
+ */
+#}
+
+{% extends 'breadcrumb.html.twig' %}
+
+{% block trail %}
+  {% if parentNode.bundle == 'department' %}
+    <li>
+      <a href="/">Home</a>
+    </li>
+    <li>
+      <a href="{{ path('entity.node.canonical', {'node':'9164'}) }}">Academics</a>
+    </li>
+    {# <li>  PARENS DEPARTMENT COLLEGE WILL GO HERE
+      <a href="{{ path('entity.node.canonical', {'node':'9164'}) }}">Academics</a>
+    </li> #}
+    <li>
+      <a href="{{ path('entity.node.canonical', {'node':parentNode.nid.0.value}) }}">{{ parentNode.title.0.value }}</a>
+    </li>
+  {% else %}
+    {{ parent() }}
+  {% endif %}
+{% endblock %}
+      
