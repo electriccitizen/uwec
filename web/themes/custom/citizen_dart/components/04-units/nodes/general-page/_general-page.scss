@@ -154,22 +154,29 @@ $videoWidth: $videoHeight * 1.4153;
 		&.page-hero-image{
       @include heroRightImage;
       @include desk{
-        margin-bottom: 11vw;
-      }
-      @include menuStop{
-        margin-bottom: 12vw;
+        margin-bottom: 2rem;
+        padding-bottom: 29vw;
+        &.vertical-window{
+          margin-bottom: 6vw;
+        }
       }
       @include contentStopMargin{
-        margin-bottom: 10vw;
-      }
-      @include contentStop{
-        margin-bottom: 9vw;
+        margin-bottom: $elementSpace;
+        &.vertical-window{
+          margin-bottom: 4vw;
+        }
       }
       @media screen and (min-width: 1600px){
-        margin-bottom: 9.5vw;
+        margin-bottom: -2vw;
+        &.vertical-window{
+          margin-bottom: 4vw;
+        }
       }
       @media screen and (min-width: 1900px){
-        margin-bottom: 8vw;
+        margin-bottom: -6vw;
+      }
+      @media screen and (min-width: 2400px){
+        margin-bottom: -8vw;
       }
       .page-header-text{
         margin-bottom: 0;
