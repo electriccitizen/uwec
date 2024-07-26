@@ -19,8 +19,19 @@
                     .removeClass('open-program');
             });
           }else{
+            $('.program-toggle.open').attr('aria-expanded', "false")
+            .removeClass('open')
+            .closest('.program-types')
+            .prev('.program-body')
+            .slideUp(300, function() {
+              // This function is called after the slideUp animation completes
+              $(this).attr('aria-hidden', "true")
+                  .closest('.academic-program-teaser')
+                  .removeClass('open-program');
+            });
             $(this).closest('.academic-program-teaser').addClass('open-program');
             $(this).attr('aria-expanded', "true").addClass('open').closest('.program-types').prev('.program-body').slideDown(300).attr('aria-hidden', "false");
+            
           }
         });
       });
