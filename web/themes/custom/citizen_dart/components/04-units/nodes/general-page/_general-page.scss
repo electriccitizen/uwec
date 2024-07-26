@@ -157,22 +157,19 @@ $videoWidth: $videoHeight * 1.4153;
         margin-bottom: 11vw;
       }
       @include menuStop{
-        margin-bottom: 16vw;
+        margin-bottom: 12vw;
       }
       @include contentStopMargin{
-        margin-bottom: 23vw;
+        margin-bottom: 10vw;
       }
       @include contentStop{
-        margin-bottom: 20vw;
+        margin-bottom: 9vw;
       }
       @media screen and (min-width: 1600px){
-        margin-bottom: 17vw;
+        margin-bottom: 9.5vw;
       }
       @media screen and (min-width: 1900px){
-        margin-bottom: 16vw;
-      }
-      @media screen and (min-width: 2400px){
-        margin-bottom: 14vw;
+        margin-bottom: 8vw;
       }
       .page-header-text{
         margin-bottom: 0;
