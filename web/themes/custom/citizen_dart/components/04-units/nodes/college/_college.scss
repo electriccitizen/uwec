@@ -21,6 +21,9 @@
       z-index: 5;
       margin-top: 4vw;
     }
+    @include contentStopMargin{
+      margin-top: 0;
+    }
     @include contentStop{
       margin-top: -2vw;
     }
