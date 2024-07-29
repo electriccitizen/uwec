@@ -59,12 +59,15 @@
         }
       }
 
-      .field-image {
+      .wf-image {
         margin: 0 auto;
         max-width: 440px;
         order: 2;
+        width: 100%;
         @include desk {
           margin: 0;
+          max-width: 426x;
+
         }
 
         .gold-stripes-narrow {

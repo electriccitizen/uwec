@@ -37,7 +37,7 @@
  */
 #}
 
-<div{{ attributes|without('class') }} class="paragraph paragraph--type--{{ paragraph.bundle|clean_class  }}{% if id %} paragraphs-item-{{ paragraph.id.value }}{% endif %}">
+<div{{ attributes|without('class') }} class="paragraph paragraph--type--{{ paragraph.bundle|clean_class  }}{% if id %} paragraphs-item-{{ paragraph.id.value }}{% endif %}" id="paragraph-{{ paragraph.id() }}">
 	{% block widget %}
 		{% block widgetTitle %}
 			{% if content.field_widget_title.0 %}

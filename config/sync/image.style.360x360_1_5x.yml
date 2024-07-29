@@ -4,6 +4,7 @@ status: true
 dependencies:
   module:
     - focal_point
+    - image_effects
     - image_style_quality
 _core:
   default_config_hash: unFuIKBs-JkVSkABAD3BXbjDFqtZ7fWktNL7g6Ni50E
@@ -13,7 +14,7 @@ effects:
   51537abe-6b79-448d-a699-dd76de8da716:
     uuid: 51537abe-6b79-448d-a699-dd76de8da716
     id: focal_point_scale_and_crop
-    weight: 1
+    weight: -9
     data:
       width: 540
       height: 540
@@ -21,12 +22,18 @@ effects:
   9079ea92-81a6-4d8c-a8b8-13426365482a:
     uuid: 9079ea92-81a6-4d8c-a8b8-13426365482a
     id: image_style_quality
-    weight: 2
+    weight: -8
     data:
       quality: 40
-  cc1b6ebf-371b-487f-9365-3caff552556b:
-    uuid: cc1b6ebf-371b-487f-9365-3caff552556b
+  561493d1-5cac-488a-8a3f-e5dfb8d0f95b:
+    uuid: 561493d1-5cac-488a-8a3f-e5dfb8d0f95b
+    id: image_effects_auto_orient
+    weight: -10
+    data:
+      scan_exif: true
+  6d815f86-f472-4787-8041-45b0f69a3062:
+    uuid: 6d815f86-f472-4787-8041-45b0f69a3062
     id: image_convert
-    weight: 3
+    weight: -7
     data:
       extension: webp

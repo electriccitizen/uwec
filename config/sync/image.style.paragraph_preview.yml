@@ -1,7 +1,9 @@
 uuid: b6f89438-a323-4df5-8fcb-91713aafbe5c
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  module:
+    - image_effects
 _core:
   default_config_hash: m8miT_yytdxsGGP0bitWLct0wHby4FJg356LK_SP_-s
 name: paragraph_preview
@@ -10,7 +12,7 @@ effects:
   6266b94f-2afc-4a2d-bc3f-849e849ac6e5:
     uuid: 6266b94f-2afc-4a2d-bc3f-849e849ac6e5
     id: image_scale_and_crop
-    weight: 1
+    weight: -9
     data:
       width: 50
       height: 30
@@ -18,6 +20,12 @@ effects:
   b3b6b091-5e3e-4cd1-80e5-73a90f3a1b7d:
     uuid: b3b6b091-5e3e-4cd1-80e5-73a90f3a1b7d
     id: image_convert
-    weight: 2
+    weight: -8
     data:
       extension: webp
+  4daa09f9-7898-4aa5-b67b-808082b640a7:
+    uuid: 4daa09f9-7898-4aa5-b67b-808082b640a7
+    id: image_effects_auto_orient
+    weight: -10
+    data:
+      scan_exif: true

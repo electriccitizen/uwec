@@ -1,4 +1,3 @@
-version: "3.9"
 services:
   # Adds a Solr container with version 3.x of Solr - see
   #  http://docksal.readthedocs.io/en/master/tools/apache-solr/ and

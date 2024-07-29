@@ -96,6 +96,7 @@ display:
         type: full
         options:
           offset: 0
+          pagination_heading_level: h4
           items_per_page: 12
           total_pages: null
           id: 0
@@ -113,7 +114,6 @@ display:
             offset: false
             offset_label: Offset
           quantity: 5
-          pagination_heading_level: h4
       exposed_form:
         type: basic
         options:
@@ -273,14 +273,14 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-        title_1:
-          id: title_1
+        program_id:
+          id: program_id
           table: search_api_index_profiles
-          field: title_1
+          field: program_id
           relationship: none
           group_type: group
           admin_label: ''
-          plugin_id: search_api_string
+          plugin_id: search_api_numeric
           operator: '='
           value:
             min: ''
@@ -289,14 +289,14 @@ display:
           group: 1
           exposed: true
           expose:
-            operator_id: title_1_op
-            label: 'Program(s) Prefilter'
+            operator_id: program_id_op
+            label: 'Program ID'
             description: ''
             use_operator: false
-            operator: title_1_op
+            operator: program_id_op
             operator_limit_selection: false
             operator_list: {  }
-            identifier: title_1
+            identifier: program_id
             required: false
             remember: false
             multiple: false
@@ -309,6 +309,8 @@ display:
               section_manager: '0'
               marketing_editor: '0'
               personnel: '0'
+              jobs_and_editor: '0'
+              stories_and_editor: '0'
             min_placeholder: ''
             max_placeholder: ''
             placeholder: ''

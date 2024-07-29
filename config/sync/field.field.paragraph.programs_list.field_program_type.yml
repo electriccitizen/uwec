@@ -1,0 +1,29 @@
+uuid: af845b1b-57a3-45ca-8bfd-1ee683b508d2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_program_type
+    - paragraphs.paragraphs_type.programs_list
+    - taxonomy.vocabulary.program_types
+id: paragraph.programs_list.field_program_type
+field_name: field_program_type
+entity_type: paragraph
+bundle: programs_list
+label: 'By Program Type'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      program_types: program_types
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

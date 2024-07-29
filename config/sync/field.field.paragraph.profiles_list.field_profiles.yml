@@ -11,7 +11,7 @@ field_name: field_profiles
 entity_type: paragraph
 bundle: profiles_list
 label: Profiles
-description: ''
+description: 'Search for profiles by username/email prefix.'
 required: false
 translatable: false
 default_value: {  }

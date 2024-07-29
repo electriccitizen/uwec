@@ -125,6 +125,16 @@ field_settings:
         - field.storage.node.field_offices
       module:
         - taxonomy
+  program_id:
+    label: 'Program ID'
+    datasource_id: 'entity:node'
+    property_path: 'field_programs:entity:nid'
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_programs
+      module:
+        - node
   programs:
     label: Program(s)
     datasource_id: 'entity:node'
@@ -143,16 +153,6 @@ field_settings:
     dependencies:
       config:
         - field.storage.node.field_departments
-      module:
-        - node
-  title_1:
-    label: 'Program(s) Prefilter'
-    datasource_id: 'entity:node'
-    property_path: 'field_programs:entity:title'
-    type: string
-    dependencies:
-      config:
-        - field.storage.node.field_programs
       module:
         - node
 datasource_settings:
@@ -189,7 +189,6 @@ processor_settings:
       - offices
       - programs
       - title
-      - title_1
     ignorable: "['¿¡!?,.:;]"
     ignorable_classes:
       - Pc
@@ -218,7 +217,6 @@ processor_settings:
       - offices
       - programs
       - title
-      - title_1
   language_with_fallback: {  }
   rendered_item: {  }
   stemmer:
@@ -276,7 +274,6 @@ processor_settings:
       - offices
       - programs
       - title
-      - title_1
 tracker_settings:
   default:
     indexing_order: fifo

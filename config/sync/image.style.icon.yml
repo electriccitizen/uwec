@@ -1,15 +1,23 @@
 uuid: 957e5437-3f50-4c92-af5f-217b9180a394
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  module:
+    - image_effects
 name: icon
 label: Icon
 effects:
   85f94d16-70f7-428f-b5a7-add809552b76:
     uuid: 85f94d16-70f7-428f-b5a7-add809552b76
     id: image_scale
-    weight: 1
+    weight: -9
     data:
       width: 32
       height: 32
       upscale: true
+  65a96811-fd44-4160-af84-5643c6ea4bc1:
+    uuid: 65a96811-fd44-4160-af84-5643c6ea4bc1
+    id: image_effects_auto_orient
+    weight: -10
+    data:
+      scan_exif: true

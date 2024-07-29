@@ -11,6 +11,7 @@
 @forward 'contact-placer/contact-placer';
 @forward 'content-carousel/content-carousel';
 @forward 'ctas/ctas';
+@forward 'custom-embed/custom-embed';
 @forward 'events-list/events-list';
 @forward 'external-articles/external-articles';
 @forward 'facts-list/facts-list';
@@ -84,7 +85,10 @@
         margin-bottom: -$siteBottomSpace;
       }
     }//end background
-    .paragraph{
+    .paragraph:not(.paragraph--type--layout-section){
+      @include tab{
+        margin-bottom: 8rem;
+      }
       @include menuStop{
         margin-bottom: 10rem;
       }

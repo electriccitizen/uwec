@@ -11,6 +11,8 @@
   max-height: 0;
   position: fixed;
   z-index: 20;
+  border-top:5px solid $gold;
+  bottom:-5px;
   &.active-nav {
     max-height: 75vh;
   }
@@ -23,6 +25,8 @@
     max-height: 100vh;
     top: 0;
     width: $sideBar;
+    border-top:none;
+    border-right:5px solid $gold;
     &.active-nav{
       left: 0;
       max-height: 100vh;
@@ -66,6 +70,7 @@
     @include safeFlex(column, nowrap, end, center);
     background-color: $menuBack;
     border-radius: 50%;
+    border: 5px solid $gold;
     box-shadow: 2px 2px 6px 0 $transGrey;
     color: $link;
     cursor: pointer;
@@ -73,16 +78,16 @@
     left: calc(50vw - 75px);
     position: absolute;
     text-align: center;
-    top: -75px;
+    top: -80px;
     width: 150px;
     @include menuStop {
       @include safeFlex(row, nowrap, end, center);
-      height: 200px;
+      height: 215px;
       left: auto;
-      right: -100px;
+      right: -103px;
       text-align: left;
-      top: calc(50vh - 100px);
-      width: 200px;
+      top: calc(50vh - 103px);
+      width: 215px;
     }
     &:hover {
       color: $hoverLink;
@@ -98,37 +103,59 @@
       margin-bottom: 50%;
       position: relative;
       text-transform: uppercase;
-      top: -6px; // To balance out the absolutely-positioned arrow, below.
+      top: -15px; // To balance out the absolutely-positioned arrow, below.
       width: 50%;
       z-index: 25;
       &:after {
         @include materialIconOutline(\f1e3);
         @include transition(transform, .3s, ease-in-out);
-        bottom: 10px;
+        bottom: 7px;
         right: -22px;
         position: absolute;
-        transform: rotate(-135deg);
+        transform: rotate(0);
       }
       @include menuStop {
         font-size: 14px;
         margin-bottom: 0;
-        padding: 0 14px 0 8px;
-        top: -12px;
+        padding: 0 14px 0 14px;
+        top: 0px;
         &:after {
           bottom: -24px;
-          left: 8px;
+          left: 14px;
           right: auto;
-          transform: rotate(-45deg);
+          transform: rotate(-90deg);
         }
       }
     }
   }
-  &.active-nav .section-menu-toggle .toggle-label:after {
-    transform: rotate(-45deg);
-    @include menuStop {
-      transform: rotate(45deg);
-    }
-  }
+  &.active-nav{
+    // &:before{
+    //   content: '';
+    //   display: block;
+    //   width: 100%;
+    //   height: 2px;
+    //   position: absolute;
+    //   top: 0;
+    //   left: 0;
+    //   z-index: 6;
+    //   background: linear-gradient(to right, $navy 0, $navy calc(50% - 73px), transparent calc(50% - 73px), transparent calc(50% + 73px), $navy calc(50% + 73px), $navy 100%);
+    //   @include menuStop{
+    //     left: auto;
+    //     right: 0;
+    //     width: 2px;
+    //     height: 100%;
+    //     background: linear-gradient(to bottom, $navy 0, $navy calc(50% - 98px), transparent calc(50% - 98px), transparent calc(50% + 98px), $navy calc(50% + 98px), $navy 100%);
+    //   }
+    // }
+    .section-menu-toggle{
+      .toggle-label:after {
+        transform: rotate(180deg);
+        @include menuStop {
+          transform: rotate(90deg);
+        }
+      }
+    }//end section menu toggle
+  }//end active nav
 	h2.block-page-title {
     margin-bottom: $spaceSm;
     margin-left: 0;

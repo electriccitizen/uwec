@@ -23,6 +23,9 @@
   .view-content{
 	  @include tab{
   		@include threeColumnStartStretch;
+      &.center-programs{
+        justify-content: center;
+      }
   	}// end programs-wrapper
     @include desk{
       & > *{

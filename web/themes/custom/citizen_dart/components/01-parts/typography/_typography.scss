@@ -89,6 +89,10 @@ p{
 	&:not(:last-child){
 		margin-bottom: $spaceSm;
 	}
+
+	a{
+		word-wrap:break-word;
+	}
 }
 
 a {

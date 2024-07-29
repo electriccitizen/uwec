@@ -2,6 +2,8 @@ uuid: da7c0f42-da51-472f-9ffb-c4f45661ebf5
 langcode: en
 status: true
 dependencies:
+  module:
+    - image_effects
   enforced:
     module:
       - responsive_image
@@ -13,7 +15,7 @@ effects:
   04caae9a-fa3e-4ea6-ae09-9c26aec7d308:
     uuid: 04caae9a-fa3e-4ea6-ae09-9c26aec7d308
     id: image_scale
-    weight: 1
+    weight: -9
     data:
       width: 1300
       height: 1300
@@ -21,6 +23,12 @@ effects:
   b198fd31-b277-4abc-9a52-7e246f5447ec:
     uuid: b198fd31-b277-4abc-9a52-7e246f5447ec
     id: image_convert
-    weight: 2
+    weight: -8
     data:
       extension: webp
+  292d2702-c05e-43e1-a748-ad4855e7ba1b:
+    uuid: 292d2702-c05e-43e1-a748-ad4855e7ba1b
+    id: image_effects_auto_orient
+    weight: -10
+    data:
+      scan_exif: true

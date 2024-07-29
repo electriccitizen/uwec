@@ -25,7 +25,7 @@ Follow these steps to install a local development environment.
 
 `cd uwec`
 
-`composer install`
+`fin composer install`
 
 `fin start`
 

@@ -4,13 +4,20 @@ status: true
 dependencies:
   module:
     - focal_point
+    - image_effects
 name: 200x266
 label: '200x266 (3:4)'
 effects:
-  b3e04db4-ffab-4142-b186-11ab3bb88af6:
-    uuid: b3e04db4-ffab-4142-b186-11ab3bb88af6
-    id: focal_point_scale_and_crop
+  1560571d-1fac-44a0-a93f-e82848d9bee0:
+    uuid: 1560571d-1fac-44a0-a93f-e82848d9bee0
+    id: image_effects_auto_orient
     weight: 1
+    data:
+      scan_exif: true
+  aa8baedd-6999-4df5-bf0b-4dfbd40e8434:
+    uuid: aa8baedd-6999-4df5-bf0b-4dfbd40e8434
+    id: focal_point_scale_and_crop
+    weight: 2
     data:
       width: 200
       height: 266

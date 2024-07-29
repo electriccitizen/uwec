@@ -3,10 +3,13 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.paragraph.programs_list.field_campus
+    - field.field.paragraph.programs_list.field_degree_type
     - field.field.paragraph.programs_list.field_department
     - field.field.paragraph.programs_list.field_limit_list
     - field.field.paragraph.programs_list.field_list_type
     - field.field.paragraph.programs_list.field_list_widget
+    - field.field.paragraph.programs_list.field_program_type
     - field.field.paragraph.programs_list.field_programs
     - paragraphs.paragraphs_type.programs_list
 id: paragraph.programs_list.default
@@ -14,9 +17,21 @@ targetEntityType: paragraph
 bundle: programs_list
 mode: default
 content:
+  field_campus:
+    type: options_select
+    weight: 4
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_degree_type:
+    type: options_select
+    weight: 2
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   field_department:
     type: entity_reference_autocomplete
-    weight: 2
+    weight: 1
     region: content
     settings:
       match_operator: CONTAINS
@@ -34,6 +49,12 @@ content:
   field_list_type:
     type: options_select
     weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_program_type:
+    type: options_select
+    weight: 3
     region: content
     settings: {  }
     third_party_settings: {  }

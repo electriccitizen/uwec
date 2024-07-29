@@ -4,13 +4,14 @@ status: true
 dependencies:
   module:
     - focal_point
+    - image_effects
 name: banner_wide_desk
 label: 'Banner Wide Desk'
 effects:
   9028b045-42ca-4422-aacb-fc9544489662:
     uuid: 9028b045-42ca-4422-aacb-fc9544489662
     id: focal_point_scale_and_crop
-    weight: 1
+    weight: -9
     data:
       width: 1920
       height: 1280
@@ -18,6 +19,12 @@ effects:
   ec9db5a7-9001-438c-b102-08716518f308:
     uuid: ec9db5a7-9001-438c-b102-08716518f308
     id: image_convert
-    weight: 2
+    weight: -8
     data:
       extension: webp
+  f56d2026-6cfc-47c2-a19a-50195f76f01c:
+    uuid: f56d2026-6cfc-47c2-a19a-50195f76f01c
+    id: image_effects_auto_orient
+    weight: -10
+    data:
+      scan_exif: true

@@ -385,6 +385,51 @@ function citizen_custom_views_pre_view($view, $display_id, &$args) {
             unset($filters['field_departments_target_id']);
           }
         }//end departments filter
+        //unset or alter degree type filter
+        if(isset($paragraph->field_degree_type[0])){
+          //make an array out of the degrees set in the paragraph
+          $degrees = [];
+          foreach ($paragraph->field_degree_type as $delta => $degree) {
+            $degrees[] = $degree->target_id;
+          }
+          // replace the degree type ttarget id filter with the paragraph degree
+          $filters['field_degree_types_target_id']['value'] = $degrees;
+        } else {
+          //if the degree type field is not used, then unset the degree filter
+          if (isset($filters['field_degree_types_target_id'])) {
+            unset($filters['field_degree_types_target_id']);
+          }
+        }//end degree type filter
+        //unset or alter program type filter
+        if(isset($paragraph->field_program_type[0])){
+          //make an array out of the program set in the paragraph
+          $programs = [];
+          foreach ($paragraph->field_program_type as $delta => $program) {
+            $programs[] = $program->target_id;
+          }
+          // replace the program type ttarget id filter with the paragraph program
+          $filters['field_program_type_target_id']['value'] = $programs;
+        } else {
+          //if the program type field is not used, then unset the program filter
+          if (isset($filters['field_program_type_target_id'])) {
+            unset($filters['field_program_type_target_id']);
+          }
+        }//end program type filter
+        //unset or alter campus filter
+        if(isset($paragraph->field_campus[0])){
+          //make an array out of the campus set in the paragraph
+          $campuses = [];
+          foreach ($paragraph->field_campus as $delta => $campus) {
+            $campuses[] = $campus->target_id;
+          }
+          // replace the campus type ttarget id filter with the paragraph program
+          $filters['field_campus_target_id']['value'] = $campuses;
+        } else {
+          //if the campus field is not used, then unset the campus filter
+          if (isset($filters['field_campus_target_id'])) {
+            unset($filters['field_campus_target_id']);
+          }
+        }//end campus filter
         //unset or alter programs tag filter
         if(isset($paragraph->field_program[0])){
           //make an array out of the program set in the paragraph

@@ -11,7 +11,7 @@ field_name: field_colleges
 entity_type: node
 bundle: bios
 label: College(s)
-description: ''
+description: 'If you are directly affiliated with a college, please enter that information here. This information will pull into your profile.'
 required: false
 translatable: false
 default_value: {  }

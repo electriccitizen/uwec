@@ -137,4 +137,132 @@ function mobileMenuInsert() {
 	}
 }
 
+
+// GPA Calculator and "Raise your GPA"
+Drupal.behaviors.gpaCalculator = {
+  attach: function (context, settings) {
+
+	// GPA Estimator
+	$('#gpa-estimator input').keyup(function(e) {
+
+		// Ignore arrows
+		switch (e.which) {
+			case 37: case 38: case 39: case 40:
+			return;
+		}
+
+		// These will contain our accumulating values
+		var totalCredits = 0, totalPoints = 0;
+
+		// Get all values
+		$('#gpa-estimator tbody tr').each(function() {
+
+			// Grab the grade value
+			var gradeVal = parseFloat($(this).find('td:nth-child(2)').text());
+
+			// Grab and update the credits value
+			var input = $(this).find('input');
+			var creditVal = parseInt(input.val());
+			if (!isNaN(creditVal)) {
+
+				// Put parsed value back (and make sure it's positive)
+				if (creditVal < 0) creditVal = 0;
+				input.val(creditVal);
+
+				// Accumulate credits
+				totalCredits += creditVal;
+
+				// Accumulate points
+				totalPoints += creditVal * gradeVal;
+			}
+		});
+
+		// Calculate the final GPA
+		var totalGPA = (totalCredits > 0)? (totalPoints / totalCredits).toFixed(2) : 'x.xx';
+		var totalPoints = totalPoints.toFixed(2);
+
+		// Display stuff
+		$('#gpa-probable').html(totalGPA);
+		$('#gpa-points').html(totalPoints);
+	});
+
+	// Raise Your GPA
+	$('#gpa-raise input').keyup(function(e) {
+
+		// Ignore arrows
+		switch (e.which) {
+			case 37: case 38: case 39: case 40:
+			return;
+		}
+
+		// Clear messages / classes
+		$('#gpa-needed,#gpa-current').removeClass('unattainable');
+		$('#gpa-error').html('');
+
+		// Get all values
+		var vals = {};
+		$('#gpa-raise tbody input').each(function() {
+			var input = $(this);
+
+			// Get and validate this input value
+			var val = input.val();
+			if (val != '') {
+				val = parseFloat(val);
+				if (isNaN(val) || val < 0) val = 0;
+				if (val != input.val()) input.val(val); // Send back to form
+			}
+
+			// Save it for later
+			vals[input.attr('name')] = (val=='')? 0 : val;
+		});
+
+		// Check desired GPA value
+		if (vals.wantedGPA > 4) {
+			vals.wantedGPA = 4;
+			$('input[name="wantedGPA"]').val('4.00');
+			$('#gpa-error').append('Your desired GPA cannot be higher than 4.00.<br />');
+		}
+
+		// Calculate current GPA
+		if (vals.totalCredits > 0) {
+			var currentGPA = vals.totalPoints / vals.totalCredits;
+			if (currentGPA < 0 || currentGPA > 4) {
+				$('#gpa-current').addClass('unattainable');
+				$('#gpa-error').append('Your current GPA is not actually possible.  Please double-check your credits and grade points.<br />');
+			}
+			$('#gpa-current').html(currentGPA.toFixed(2));
+		} else {
+			$('#gpa-current').html('x.xx');
+		}
+
+		// Only continue with calcualtions if there are credits to be taken yet
+		if (vals.futureCredits > 0) {
+
+			// Calculate the required grade point average
+			var wantedPoints = (vals.totalCredits + vals.futureCredits - vals.repeatCredits) * vals.wantedGPA;
+			var neededGPA = ((wantedPoints - vals.totalPoints + vals.repeatPoints) / vals.futureCredits).toFixed(2);
+
+			// Make sure the needed GPA is reasonable
+			if (neededGPA <= 0) {
+				neededGPA = '0.00';
+				$('#gpa-error').append('With the credits you will be taking, you are guaranteed to attain your desired GPA.  Breathe easy!');
+			} else if (neededGPA > 4) {
+				$('#gpa-needed').addClass('unattainable');
+				$('#gpa-error').append('The GPA you would need is not attainable with the given credits, so please contact your advisor to discuss your options.');
+			}
+
+			// Display stuff
+			$('#gpa-needed').html(neededGPA);
+
+		} else {
+			$('#gpa-needed').html('x.xx');
+			if ($('input[name="futureCredits"]').val()!='') {
+				$('#gpa-error').append('Please enter the number of credits you will be taking.  You can\'t raise your GPA without credits!');
+			}
+		}
+	});
+  }
+}
+
+
 })(jQuery, Drupal, once);

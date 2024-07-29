@@ -6,7 +6,6 @@ dependencies:
     - image.style.360x360
     - image.style.360x360_1_5x
     - image.style.360x360_2x
-    - image.style.426x426
     - image.style.426x426_1_5x
     - image.style.426x426_2x
     - image.style.426x426_non_webp
@@ -17,7 +16,7 @@ label: 426x426
 image_style_mappings:
   -
     image_mapping_type: image_style
-    image_mapping: 426x426
+    image_mapping: 426x426_non_webp
     breakpoint_id: citizen_dart.tab
     multiplier: 1x
   -

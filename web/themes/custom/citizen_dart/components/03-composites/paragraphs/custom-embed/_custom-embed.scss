@@ -1,0 +1,7 @@
+@use '../../../00-base/base' as *;
+@use '../../../01-parts/tables/table-mixins' as *;
+
+table.gpa-calc{
+	@include table;
+	margin-bottom:4rem;
+}
