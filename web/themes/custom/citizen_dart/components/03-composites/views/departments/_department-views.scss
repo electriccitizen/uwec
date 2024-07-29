@@ -8,14 +8,30 @@
 /* DEPARTMENTS BY COLLEGE
 --------------- */
 .departments.by-college{
+  @include desk{
+    max-width: 900px;
+    @include auto;
+  }
+  @include contentStop{
+    max-width: 1094px;
+  }
   .view-content{
     @include safeFlex(row,wrap,start,stretch);
     @include bleed(padding,20px);
+    &.center-departments{
+      @include smallTab{
+        justify-content: center;
+      }
+    }
+    @include contentStop{
+      @include bleed(padding,40px);
+    }
   }
   .views-row{
     max-width: 335px;
     @include smallTab{
       width: 50%;
+      max-width: 100%;
     }
     @include desk{
       width: 33.33%;

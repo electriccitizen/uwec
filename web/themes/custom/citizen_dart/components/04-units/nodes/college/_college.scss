@@ -18,7 +18,8 @@
     @include desk{
       padding-top: 0;
       position: relative;
-      z-index: 1;
+      z-index: 5;
+      margin-top: 4vw;
     }
     @include contentStop{
       margin-top: -2vw;
@@ -42,17 +43,8 @@
         }
         @include menuStop{
           &:not(:only-child){
-            width: calc(100% - 259px);
-            max-width: 1045px;
-            margin-left: auto;
-            .block-field.block-body{
-              margin-left: 0;
-            }
-          }
-        }
-        @include contentStopMargin{
-          &:not(:only-child){
-            margin-right: 40px;
+            width: 100%;
+            @include auto;
           }
         }
       }//end layout region content
