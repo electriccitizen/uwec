@@ -26,7 +26,7 @@ Drupal.behaviors.eventsList = {
       let gid = ele.dataset.gid;
       if(!gid) return;
 
-      fetch('http://calendar.uwec.edu/live/json/groups/id/'+gid)
+      fetch('https://calendar.uwec.edu/live/json/groups/id/'+gid)
       .then(response => response.json())
       .then(json => {
         if(json.length > 0){
