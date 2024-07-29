@@ -305,9 +305,7 @@ display:
           admin_label: ''
           plugin_id: search_api_options
           operator: or
-          value:
-            undergraduate: undergraduate
-            graduate: graduate
+          value: {  }
           group: 1
           exposed: true
           expose:
@@ -331,6 +329,8 @@ display:
               section_manager: '0'
               marketing_editor: '0'
               personnel: '0'
+              jobs_and_editor: '0'
+              stories_and_editor: '0'
             reduce: false
           is_grouped: false
           group_info:
