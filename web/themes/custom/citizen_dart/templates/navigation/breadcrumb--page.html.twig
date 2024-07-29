@@ -11,38 +11,36 @@
 {% extends 'breadcrumb.html.twig' %}
 
 {% block trail %}
-  {# this setup works for 2nd level pages #}
-  {% if parentNode.bundle == 'department' %}
+  {# Alter the trail if the page is the department menu #}
+  {% if deptNode.nid.0.value %}
+    {# set the home, academics college and department crumbs #}
     <li>
       <a href="/">Home</a>
     </li>
     <li>
       <a href="{{ path('entity.node.canonical', {'node':'9164'}) }}">Academics</a>
     </li>
-    {# <li>  PARENS DEPARTMENT COLLEGE WILL GO HERE
-      <a href="{{ path('entity.node.canonical', {'node':'9164'}) }}">Academics</a>
-    </li> #}
     <li>
-      <a href="{{ path('entity.node.canonical', {'node':parentNode.nid.0.value}) }}">{{ parentNode.title.0.value }}</a>
+      <a href="{{ path('entity.node.canonical', {'node':deptNode.field_college.entity.nid.0.value}) }}">{{ deptNode.field_college.entity.title.0.value }}</a>
     </li>
-  {% elseif '' %}
-  {# here's where we need the logic for menuRoot department -- the setup for 3rd level and below general pages #}
-  <li>
-    <a href="/">Home</a>
-  </li>
-  <li>
-    <a href="{{ path('entity.node.canonical', {'node':'9164'}) }}">Academics</a>
-  </li>
-  {# <li>  PARENS DEPARTMENT COLLEGE WILL GO HERE
-    <a href="{{ path('entity.node.canonical', {'node':'9164'}) }}">Academics</a>
-  </li> #}
-  <li>
-    <a href="MENUROOTDEPARTMENT">MENU ROOT DEPARTMENT TITLE</a>
-  </li>
-  <li>
-    WE'LL REINSTERT THE REGULAR MENU BREADCRUMB TRAIL ( but without Home link) HERE SO LOWER LEVEL PAGES GET THE CORRECT TRAIL.
-  </li>
-  {# we need this logic so the breadcrumbs don't change for generals around the site that are not in the departments menu #}
+    <li>
+      <a href="{{ path('entity.node.canonical', {'node':deptNode.nid.0.value}) }}">{{ deptNode.title.0.value }}</a>
+    </li>
+    {# add in the parent menu item if the node is third level #}
+    {% if parentNode.bundle == 'page' %}
+      <li>
+        <a href="{{ path('entity.node.canonical', {'node':parentNode.nid.0.value}) }}">{{ parentNode.title.0.value }}</a>
+      </li>
+    {% endif %}
+    {# rebuild the regular menu trail without the home link #}
+    {% for item in breadcrumb %}
+      {% if not loop.first %}
+        <li>
+          <a href="{{- item.url -}}">{{- item.text -}}</a>
+        </li>
+      {% endif %}
+      </li>
+    {% endfor %}
   {% else %}
     {{ parent() }}
   {% endif %}
