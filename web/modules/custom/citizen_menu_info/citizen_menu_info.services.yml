@@ -1,0 +1,4 @@
+services:
+  citizen_menu_info.menu_info_service:
+    class: Drupal\citizen_menu_info\MenuInfo
+    arguments: ['@entity_type.manager', '@menu.link_tree', '@menu.default_tree_manipulators', '@current_route_match']

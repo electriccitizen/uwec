@@ -5,6 +5,7 @@
  */
 
 use Drupal\Core\Template\Attribute;
+use Drupal\node\NodeInterface;
 use Drupal\taxonomy\Entity\Term;
 use Drupal\image\Entity\ImageStyle;
 use Drupal\Core\Form\FormStateInterface;
@@ -25,7 +26,7 @@ function citizen_dart_preprocess_html(&$variables) {
       $node = \Drupal::entityTypeManager()->getStorage('node')->loadRevision($vid);
     }
     //set published or unpublished
-    if($node->status[0]->value == '1'){
+    if($node->isPublished()){
       $variables['attributes']['class'][] = 'published';
     } else {
       $variables['attributes']['class'][] = 'unpublished';
@@ -256,6 +257,11 @@ function citizen_dart_preprocess_breadcrumb(&$variables) {
       $node = \Drupal::entityTypeManager()->getStorage('node')->loadRevision($vid);
     }
     $variables['currentNode'] = $node;
+
+    // Get parent node.
+    $menu_info_service = \Drupal::service('citizen_menu_info.menu_info_service');
+    $variables['parentNode'] = $menu_info_service->getParentNode($node);
+    $variables['deptNode'] = $menu_info_service->getDepartmentNode($node);
 
     // Node type-specific updates.
     switch ($node->getType()) {
