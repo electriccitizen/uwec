@@ -65,7 +65,7 @@ third_party_settings:
                 entity: layout_builder.entity
                 view_mode: view_mode
               formatter:
-                type: address_plain
+                type: address_default
                 label: hidden
                 settings: {  }
                 third_party_settings: {  }
