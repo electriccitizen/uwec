@@ -40,11 +40,15 @@
 			});
 			// Masonry
 			$(once('masonry', '.gallery-style.masonry', context)).each(function(){
-				$(this).masonry({
+				let masonryGrid = $(this).masonry({
 					// options
 					itemSelector: '.masonry-item',
 					columnWidth: 315,
 					gutter: 20
+				});
+				// tell masonry to re-layout when images are done loading
+				masonryGrid.imagesLoaded().progress(function(){
+					masonryGrid.masonry('layout');
 				});
 			});
 		}

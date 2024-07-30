@@ -107,6 +107,7 @@ masonry:
   version: 4.2.2
   js:
     components-addons/masonry/masonry.min.js: { minified: true }
+    components-addons/masonry/imagesloaded.min.js: { minified: true }
 modal:
   version: 1.0
   js:
