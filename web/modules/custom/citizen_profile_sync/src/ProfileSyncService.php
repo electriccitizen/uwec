@@ -138,12 +138,8 @@ class ProfileSyncService {
 
     $node = Node::create($node_values);
     $node->setOwnerId($userId);
+    $node->set('moderation_state', 'published');
     $node->save();
-
-    //todo enable when Adam says ok
-    //todo figure out why this doesn't work
-//    $node->set('status', NodeInterface::PUBLISHED);
-//    $node->save();
 
     return $node;
   }
@@ -168,8 +164,7 @@ class ProfileSyncService {
     // todo office location No per Adam https://ecitizen.atlassian.net/browse/UWEC-64
     $existingNode->set('field_position', $profileData->hrs_title_formatted);
     $existingNode->set('field_import_date', $this->getUpdateTime());
-    //todo enable when Adam says ok
-//    $existingNode->set('status', NodeInterface::PUBLISHED);
+    $existingNode->set('moderation_state', 'published');
 
     $existingNode->save();
   }
@@ -205,7 +200,7 @@ class ProfileSyncService {
           if (strtotime($athenaUpdateTime) >= strtotime($drupalImportTime)) {
             $existingNode->set('field_active', 0);
             $existingNode->set('field_import_date', $this->getUpdateTime());
-            $existingNode->set('status', NodeInterface::NOT_PUBLISHED);
+            $existingNode->set('moderation_state', 'archived');
             $existingNode->save();
           }
         }
