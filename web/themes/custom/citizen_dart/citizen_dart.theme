@@ -245,6 +245,9 @@ function citizen_dart_preprocess_field__node__field_story_categories(&$variables
  * Implements template_preprocess_breadcrumb().
  */
 function citizen_dart_preprocess_breadcrumb(&$variables) {
+  // Always vary breadcrumb cache on URL Path
+  $variables['#cache']['contexts'][] = 'url.path';
+
   $node = \Drupal::routeMatch()->getParameter('node');
   $node_revision = \Drupal::routeMatch()->getParameter('node_revision');
 
@@ -287,9 +290,6 @@ function citizen_dart_preprocess_breadcrumb(&$variables) {
           'degree_level_filter' => $degree_level,
         ], ['fragment' => 'node-section-2']);
         $variables['links'][] = Link::fromTextAndUrl($degree_level_label, $degree_level_url);
-
-        // vary cache on path
-        $variables['#cache']['contexts'][] = 'url.path';
 
         break;
     }
