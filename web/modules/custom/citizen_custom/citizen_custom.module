@@ -387,12 +387,12 @@ function citizen_custom_views_pre_view($view, $display_id, &$args) {
         }//end departments filter
         //unset or alter degree type filter
         if(isset($paragraph->field_degree_type[0])){
-          //make an array out of the degrees set in the paragraph
+          //make an array out of the degree types set in the paragraph
           $degrees = [];
           foreach ($paragraph->field_degree_type as $delta => $degree) {
             $degrees[] = $degree->target_id;
           }
-          // replace the degree type ttarget id filter with the paragraph degree
+          // replace the degree type target id filter with the paragraph degree
           $filters['field_degree_types_target_id']['value'] = $degrees;
         } else {
           //if the degree type field is not used, then unset the degree filter
@@ -400,6 +400,20 @@ function citizen_custom_views_pre_view($view, $display_id, &$args) {
             unset($filters['field_degree_types_target_id']);
           }
         }//end degree type filter
+        if(isset($paragraph->field_degree_level[0])){
+          //make an array out of the degree levels set in the paragraph
+          $degreeLevels = [];
+          foreach ($paragraph->field_degree_level as $delta => $degreeLevel) {
+            $degreeLevels[] = $degreeLevel->value;
+          }
+          // replace the degree level filter with the paragraph degree
+          $filters['field_degree_level_value']['value'] = $degreeLevels;
+        } else {
+          //if the degree level field is not used, then unset the degree filter
+          if (isset($filters['field_degree_level_value'])) {
+            unset($filters['field_degree_level_value']);
+          }
+        }//end degree level
         //unset or alter program type filter
         if(isset($paragraph->field_program_type[0])){
           //make an array out of the program set in the paragraph

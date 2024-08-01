@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.paragraph.programs_list.field_campus
+    - field.field.paragraph.programs_list.field_degree_level
     - field.field.paragraph.programs_list.field_degree_type
     - field.field.paragraph.programs_list.field_department
     - field.field.paragraph.programs_list.field_limit_list
@@ -11,6 +12,7 @@ dependencies:
     - field.field.paragraph.programs_list.field_list_widget
     - field.field.paragraph.programs_list.field_program_type
     - field.field.paragraph.programs_list.field_programs
+    - field.field.paragraph.programs_list.field_widget_title
     - paragraphs.paragraphs_type.programs_list
 id: paragraph.programs_list.default
 targetEntityType: paragraph
@@ -19,19 +21,25 @@ mode: default
 content:
   field_campus:
     type: options_select
+    weight: 6
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_degree_level:
+    type: options_select
     weight: 4
     region: content
     settings: {  }
     third_party_settings: {  }
   field_degree_type:
     type: options_select
-    weight: 2
+    weight: 3
     region: content
     settings: {  }
     third_party_settings: {  }
   field_department:
     type: entity_reference_autocomplete
-    weight: 1
+    weight: 2
     region: content
     settings:
       match_operator: CONTAINS
@@ -41,30 +49,38 @@ content:
     third_party_settings: {  }
   field_limit_list:
     type: number
-    weight: 5
+    weight: 7
     region: content
     settings:
       placeholder: ''
     third_party_settings: {  }
   field_list_type:
     type: options_select
-    weight: 0
+    weight: 1
     region: content
     settings: {  }
     third_party_settings: {  }
   field_program_type:
     type: options_select
-    weight: 3
+    weight: 5
     region: content
     settings: {  }
     third_party_settings: {  }
   field_programs:
     type: entity_reference_autocomplete
-    weight: 6
+    weight: 8
     region: content
     settings:
       match_operator: CONTAINS
       match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_widget_title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
