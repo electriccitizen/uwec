@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.paragraph.programs_list.field_campus
+    - field.field.paragraph.programs_list.field_degree_level
     - field.field.paragraph.programs_list.field_degree_type
     - field.field.paragraph.programs_list.field_department
     - field.field.paragraph.programs_list.field_limit_list
@@ -11,6 +12,7 @@ dependencies:
     - field.field.paragraph.programs_list.field_list_widget
     - field.field.paragraph.programs_list.field_program_type
     - field.field.paragraph.programs_list.field_programs
+    - field.field.paragraph.programs_list.field_widget_title
     - paragraphs.paragraphs_type.programs_list
   module:
     - options
@@ -24,6 +26,13 @@ content:
     label: hidden
     settings: {  }
     third_party_settings: {  }
+    weight: 6
+    region: content
+  field_degree_level:
+    type: list_key
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
     weight: 4
     region: content
   field_degree_type:
@@ -31,21 +40,21 @@ content:
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 2
+    weight: 3
     region: content
   field_department:
     type: entity_reference_entity_id
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 1
+    weight: 2
     region: content
   field_limit_list:
     type: number_unformatted
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 5
+    weight: 7
     region: content
   field_list_type:
     type: list_key
@@ -59,7 +68,7 @@ content:
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 3
+    weight: 5
     region: content
   field_programs:
     type: entity_reference_entity_view
@@ -68,7 +77,15 @@ content:
       view_mode: teaser
       link: false
     third_party_settings: {  }
-    weight: 6
+    weight: 8
+    region: content
+  field_widget_title:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
     region: content
 hidden:
   field_list_widget: true

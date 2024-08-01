@@ -1,0 +1,21 @@
+uuid: 1d6d6333-9530-4abf-915c-230029dad060
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_degree_level
+    - paragraphs.paragraphs_type.programs_list
+  module:
+    - options
+id: paragraph.programs_list.field_degree_level
+field_name: field_degree_level
+entity_type: paragraph
+bundle: programs_list
+label: 'By Degree Level'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string
