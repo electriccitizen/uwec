@@ -141,25 +141,15 @@
   width: 100%;
 	ul:not(.contextual-links){
 		@include listReset;
-    @include safeFlex(row,wrap,center,center);
-		@include bleed(padding,30px);
+    
+    @include smallTab{
+      @include safeFlex(row,wrap,center,center);
+		  @include bleed(padding,30px);
+    }
 		li{
 			padding-bottom: $spaceXxs;
       position: relative;
-      width: 50%;
-      max-width: 185px;
-      &:nth-child(odd){
-        &:not(:last-child){
-          text-align: right;
-        }
-        &:last-child{
-          text-align: center;
-        }
-      }
-      @include smallTab{
-        width: auto;
-        max-width: auto;
-      }
+      text-align: center;
       @include desk{
         &:not(:last-child){
           &:after{
