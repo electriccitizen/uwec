@@ -245,9 +245,6 @@ function citizen_dart_preprocess_field__node__field_story_categories(&$variables
  * Implements template_preprocess_breadcrumb().
  */
 function citizen_dart_preprocess_breadcrumb(&$variables) {
-  // Always vary breadcrumb cache on URL Path
-  $variables['#cache']['contexts'][] = 'url.path';
-
   $node = \Drupal::routeMatch()->getParameter('node');
   $node_revision = \Drupal::routeMatch()->getParameter('node_revision');
 
@@ -265,6 +262,9 @@ function citizen_dart_preprocess_breadcrumb(&$variables) {
     $menu_info_service = \Drupal::service('citizen_menu_info.menu_info_service');
     $variables['parentNode'] = $menu_info_service->getParentNode($node);
     $variables['deptNode'] = $menu_info_service->getDepartmentNode($node);
+
+    // Always vary breadcrumb cache on URL Path
+    $variables['#cache']['contexts'][] = 'url.path';
 
     // Node type-specific updates.
     switch ($node->getType()) {
