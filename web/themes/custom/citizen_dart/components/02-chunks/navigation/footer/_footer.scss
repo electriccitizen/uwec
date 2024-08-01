@@ -149,7 +149,12 @@
       width: 50%;
       max-width: 185px;
       &:nth-child(odd){
-        text-align: right;
+        &:not(:last-child){
+          text-align: right;
+        }
+        &:last-child{
+          text-align: center;
+        }
       }
       @include smallTab{
         width: auto;
