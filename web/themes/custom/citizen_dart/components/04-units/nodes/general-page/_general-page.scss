@@ -161,7 +161,6 @@ $videoWidth: $videoHeight * 1.4153;
         }
       }
       @include contentStopMargin{
-        margin-bottom: $elementSpace;
         &.vertical-window{
           margin-bottom: 4vw;
         }
