@@ -25,6 +25,11 @@
 		}
 	}
 
+	.widget-wrapper{
+		max-width:1000px;
+		margin:0 auto;
+	}
+
 	.field-quick-links-items{
 		display:flex;
 		flex-flow:row wrap;
