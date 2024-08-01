@@ -35,8 +35,12 @@ Drupal.behaviors.eventsList = {
 
           let a = document.createElement('a');
           a.href = 'https://calendar.uwec.edu/all/groups/'+groupName;
-          a.innerText = 'View all '+groupName+' events';
           a.target = '_blank';
+
+          // wrap the text in a span for the dotted underline
+          let span = document.createElement('span');
+          span.innerText = 'View all '+groupName+' events';
+          a.appendChild(span);
 
           ele.appendChild(a);
         }

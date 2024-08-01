@@ -111,5 +111,9 @@
   .livewhale-view-all{
     display:block;
     text-align:center;
+    padding-top:2rem;
+    a{
+      @include linkArrow();
+    }
   }
 }//end events-list widget
