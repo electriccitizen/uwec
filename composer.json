@@ -148,6 +148,9 @@
       },
       "drupal/linkit": {
         "Link to file encoding issue": "https://www.drupal.org/files/issues/2024-04-11/3436733-5-linkit-link-field-with-php81-deprecation.patch"
+      },
+      "drupal/domain": {
+        "WSOD Undefined method Drupal\\domain\\DomainListBuilder::formBuilder": "https://www.drupal.org/files/issues/2024-05-29/3450485-domain-form-builder.patch"
       }
     },
     "composer-exit-on-patch-failure": true,
