@@ -2,8 +2,8 @@ _core:
   default_config_hash: VkmNK2bqJ4n8Q5sX8kaBxrtLanE6KBx0YJ5SI1H5fm4
 langcode: en
 uuid: 2cb943b6-0991-4906-8c73-b9ef807a14ea
-name: UWEC
-mail: no-reply@electriccitizen.com
+name: 'UW-Eau Claire'
+mail: webteam@uwec.edu
 slogan: ''
 page:
   403: ''

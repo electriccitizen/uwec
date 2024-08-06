@@ -1,0 +1,9 @@
+uuid: 68d09d61-c095-4260-a8c8-cc8260853a73
+langcode: en
+status: true
+dependencies: {  }
+id: dev_uwec_pantheonsite_io
+domain_id: uwec_docksal_site
+pattern: dev-uwec.pantheonsite.io
+redirect: 0
+environment: development
