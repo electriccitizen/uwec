@@ -157,4 +157,3 @@ Run `fin restart` to restart the Docksal project.
 # Backstop Testing
 
 Refer to [EC-BACKSTOP.md](/tests/backstop/EC-BACKSTOP.md) for complete instructions for Visual Regression Testing using Backstop JS. 
-
