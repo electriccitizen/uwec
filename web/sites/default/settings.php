@@ -7,11 +7,13 @@
  if (isset($_ENV['PANTHEON_ENVIRONMENT'])) {
   switch ($_ENV['PANTHEON_ENVIRONMENT']) {
     case 'live':
+      $settings['container_yamls'][] = __DIR__ . '/services.yml';
+      break;
     case 'test':
       $settings['container_yamls'][] = __DIR__ . '/test.services.yml';
       break;
     case 'dev':
-      $settings['container_yamls'][] = __DIR__ . '/services.yml';
+      $settings['container_yamls'][] = __DIR__ . '/dev.services.yml';
       break;
     default:
       $settings['container_yamls'][] = __DIR__ . '/multidev.services.yml';
