@@ -1,9 +1,3 @@
-adding:
-  cache:
-    page:
-      max_age: 10800
+adding: {  }
 removing:
-  cache:
-    page:
-      max_age: 0
   stale_file_threshold: 2592000
