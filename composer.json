@@ -150,6 +150,9 @@
       },
       "drupal/domain": {
         "WSOD Undefined method Drupal\\domain\\DomainListBuilder::formBuilder": "https://www.drupal.org/files/issues/2024-05-29/3450485-domain-form-builder.patch"
+      },
+      "drupal/scheduler_content_moderation_integration": {
+        "10.3 makes terms moderatable so makes this module need to provide an update path": "https://www.drupal.org/files/issues/2024-08-05/10.3-makes-terms-moderatable-3447266.patch"
       }
     },
     "composer-exit-on-patch-failure": true,
