@@ -62,4 +62,36 @@ final class CitizenCustomCommands extends DrushCommands {
 		$this->logger()->success('Done! Assigned '.$campus_count.' campuses and published '.$publish_count.' profiles.');
 	}
 
+	#[CLI\Command(name: 'citizen_custom:default_show_email_phone')]
+	public function default_show_email_phone(){
+		// load all bios to set the default on
+		$nodes = \Drupal::entityTypeManager()->getStorage('node')->loadByProperties([
+			'type'=>'bios',
+		]);
+
+		$count = 0;
+		foreach($nodes as $node){
+			$needs_save = false;
+
+			// if there is no value for field_show_email, set one
+			if($node->get('field_show_email')->isEmpty()){
+				$node->set('field_show_email', 1);
+				$needs_save = true;
+			}
+
+			// same for field_show_phone
+			if($node->get('field_show_phone')->isEmpty()){
+				$node->set('field_show_phone', 1);
+				$needs_save = true;
+			}
+
+			if($needs_save){
+				echo 'Setting defaults on node ('.$node->id().')'."\n";
+				$node->save();
+				$count++;
+			}
+		}
+
+		$this->logger()->success('Set defaults on '.$count.' profiles.');
+	}
 }

@@ -1,0 +1,23 @@
+uuid: 64e55ee5-7e10-4cb6-93ba-86f1a67825ac
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_show_phone
+    - node.type.bios
+id: node.bios.field_show_phone
+field_name: field_show_phone
+entity_type: node
+bundle: bios
+label: 'Show Phone'
+description: 'If this is enabled, your phone number will be visible to users.'
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: Visible
+  off_label: Hidden
+field_type: boolean

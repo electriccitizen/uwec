@@ -43,6 +43,8 @@ dependencies:
     - field.field.node.bios.field_pronouns
     - field.field.node.bios.field_publications
     - field.field.node.bios.field_short_bio
+    - field.field.node.bios.field_show_email
+    - field.field.node.bios.field_show_phone
     - field.field.node.bios.field_suffixes
     - field.field.node.bios.field_username
     - field.field.node.bios.layout_builder__layout
@@ -63,7 +65,9 @@ third_party_settings:
       children:
         - field_office
         - field_phone
+        - field_show_phone
         - field_email
+        - field_show_email
         - field_office_hours
         - field_cv
         - field_links
@@ -185,7 +189,7 @@ content:
     third_party_settings: {  }
   field_cv:
     type: file_generic
-    weight: 36
+    weight: 38
     region: content
     settings:
       progress_indicator: throbber
@@ -229,7 +233,7 @@ content:
     third_party_settings: {  }
   field_email:
     type: email_default
-    weight: 34
+    weight: 35
     region: content
     settings:
       placeholder: 'Ex: email@website.com'
@@ -317,7 +321,7 @@ content:
     third_party_settings: {  }
   field_links:
     type: link_default
-    weight: 37
+    weight: 39
     region: content
     settings:
       placeholder_url: ''
@@ -341,7 +345,7 @@ content:
     third_party_settings: {  }
   field_office_hours:
     type: string_textarea
-    weight: 35
+    weight: 37
     region: content
     settings:
       rows: 5
@@ -366,7 +370,7 @@ content:
     third_party_settings: {  }
   field_platforms:
     type: link_default
-    weight: 38
+    weight: 40
     region: content
     settings:
       placeholder_url: ''
@@ -429,6 +433,20 @@ content:
     settings:
       rows: 5
       placeholder: ''
+    third_party_settings: {  }
+  field_show_email:
+    type: boolean_checkbox
+    weight: 36
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_show_phone:
+    type: boolean_checkbox
+    weight: 34
+    region: content
+    settings:
+      display_label: true
     third_party_settings: {  }
   field_suffixes:
     type: string_textfield

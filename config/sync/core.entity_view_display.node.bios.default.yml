@@ -43,6 +43,8 @@ dependencies:
     - field.field.node.bios.field_pronouns
     - field.field.node.bios.field_publications
     - field.field.node.bios.field_short_bio
+    - field.field.node.bios.field_show_email
+    - field.field.node.bios.field_show_phone
     - field.field.node.bios.field_suffixes
     - field.field.node.bios.field_username
     - field.field.node.bios.layout_builder__layout
@@ -718,6 +720,26 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: 130
+    region: first
+  field_show_email:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 138
+    region: first
+  field_show_phone:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 137
     region: first
   field_suffixes:
     type: string

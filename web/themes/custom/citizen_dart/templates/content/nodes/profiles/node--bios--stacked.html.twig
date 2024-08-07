@@ -78,10 +78,9 @@
 
 {% if elements['#node'].published %}
 
-	{{ attach_library('citizen_dart/list-view') }}
+  {{ attach_library('citizen_dart/list-view') }}
 
-	<article{{ attributes.addClass(classes) }}>
-
+  <article{{ attributes.addClass(classes) }}>
     <div class="stacked-intro">
       {% if content.field_image.0 %}
         {{ content.field_image }}
@@ -185,13 +184,19 @@
       <div class="stacked-text-contact">
         <div class="stacked-contact-left">
           {{ content.field_office }}
-          {{ content.field_phone }}
-          {{ content.field_email }}
+
+          {% if node.field_show_phone.string %}
+            {{ content.field_phone }}
+          {% endif %}
+
+          {% if node.field_show_email.string %}
+            {{ content.field_email }}
+          {% endif %}
         </div>
         {{ content.field_office_hours }}
       </div>
       {{ content.field_short_bio }}
     </div> {# end profile stacked text #}
-	</article>
+  </article>
 
 {% endif %}

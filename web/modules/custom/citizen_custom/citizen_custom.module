@@ -726,6 +726,30 @@ function citizen_custom_preprocess_field__user__uid(&$variables){
 }
 
 
+// adds "should_show" to bios email field
+function citizen_custom_preprocess_field__node__field_email(&$variables){
+	if(isset($variables['element']['#object'])){
+		$node = $variables['element']['#object'];
+		$val = $node->field_show_email;
+		if($val){
+			$variables['items'][0]['content']['#should_show'] = boolval($val->getString());
+		}
+	}
+}
+
+
+// adds "should_show" to bios phone field
+function citizen_custom_preprocess_field__node__field_phone(&$variables){
+	if(isset($variables['element']['#object'])){
+		$node = $variables['element']['#object'];
+		$val = $node->field_show_phone;
+		if($val){
+			$variables['items'][0]['content']['#should_show'] = boolval($val->getString());
+		}
+	}
+}
+
+
 function citizen_custom_node_access(\Drupal\Core\Entity\EntityInterface $entity, $operation, \Drupal\Core\Session\AccountInterface $account){
 	// ignore all permissions stuff for super users
 	if(in_array('administrator', $account->getRoles())){

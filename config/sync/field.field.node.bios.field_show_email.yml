@@ -1,0 +1,23 @@
+uuid: eb97ee0d-3066-49b1-b6b4-a5368a81831b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_show_email
+    - node.type.bios
+id: node.bios.field_show_email
+field_name: field_show_email
+entity_type: node
+bundle: bios
+label: 'Show Email'
+description: 'If this is enabled, your email address will be visible to users.'
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: Visible
+  off_label: Hidden
+field_type: boolean
