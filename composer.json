@@ -85,7 +85,7 @@
     "drupal/search_api": "^1.18",
     "drupal/smart_date": "^4.0",
     "drupal/stable": "^2.0",
-    "drupal/stage_file_proxy": "^2.0",
+    "drupal/stage_file_proxy": "^3.1",
     "drupal/superfish": "1.x-dev@dev",
     "drupal/svg_image": "^3.0",
     "drupal/token": "^1.7",
@@ -143,14 +143,16 @@
         "Require jquery_ui_draggable": "https://www.drupal.org/files/issues/2023-04-03/3351521-2.patch"
       },
       "drupal/entity_usage": {
-      	"Undefined array key bug": "https://www.drupal.org/files/issues/2023-11-29/3383042-3-re-rolling-undefined-array-key.patch",
-        "Skip the video_card node type": "patches/entity_usage_skip_video_card.patch"
+      	"Undefined array key bug": "https://www.drupal.org/files/issues/2023-11-29/3383042-3-re-rolling-undefined-array-key.patch"
       },
       "drupal/linkit": {
         "Link to file encoding issue": "https://www.drupal.org/files/issues/2024-04-11/3436733-5-linkit-link-field-with-php81-deprecation.patch"
       },
       "drupal/domain": {
         "WSOD Undefined method Drupal\\domain\\DomainListBuilder::formBuilder": "https://www.drupal.org/files/issues/2024-05-29/3450485-domain-form-builder.patch"
+      },
+      "drupal/scheduler_content_moderation_integration": {
+        "10.3 makes terms moderatable so makes this module need to provide an update path": "https://www.drupal.org/files/issues/2024-08-05/10.3-makes-terms-moderatable-3447266.patch"
       }
     },
     "composer-exit-on-patch-failure": true,
