@@ -1,0 +1,33 @@
+uuid: c72e78ed-8caf-4d51-805f-6d83c14c57e2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_campus
+    - paragraphs.paragraphs_type.profiles_list
+    - taxonomy.vocabulary.campuses
+  content:
+    - 'taxonomy_term:campuses:a89504b5-0889-47c7-b016-4e31ac48db41'
+id: paragraph.profiles_list.field_campus
+field_name: field_campus
+entity_type: paragraph
+bundle: profiles_list
+label: 'By Campus'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    target_uuid: a89504b5-0889-47c7-b016-4e31ac48db41
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      campuses: campuses
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

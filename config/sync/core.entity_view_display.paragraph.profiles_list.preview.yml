@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.paragraph.preview
+    - field.field.paragraph.profiles_list.field_campus
     - field.field.paragraph.profiles_list.field_college
     - field.field.paragraph.profiles_list.field_department
     - field.field.paragraph.profiles_list.field_faculty_staff
@@ -45,6 +46,7 @@ content:
     weight: 0
     region: content
 hidden:
+  field_campus: true
   field_college: true
   field_department: true
   field_faculty_staff: true

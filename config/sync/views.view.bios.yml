@@ -8,8 +8,10 @@ dependencies:
     - field.storage.node.field_image
     - field.storage.node.field_position
     - node.type.bios
+    - taxonomy.vocabulary.campuses
     - taxonomy.vocabulary.offices
   content:
+    - 'taxonomy_term:campuses:a89504b5-0889-47c7-b016-4e31ac48db41'
     - 'taxonomy_term:offices:01090b98-9abe-422c-8726-8370f3e88b07'
   module:
     - node
@@ -1106,6 +1108,52 @@ display:
             group_items: {  }
           reduce_duplicates: true
           vid: offices
+          type: select
+          hierarchy: false
+          limit: true
+          error_message: true
+        field_campus_target_id:
+          id: field_campus_target_id
+          table: node__field_campus
+          field: field_campus_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: taxonomy_index_tid
+          operator: or
+          value:
+            12: 12
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          vid: campuses
           type: select
           hierarchy: false
           limit: true

@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.paragraph.profiles_list.field_campus
     - field.field.paragraph.profiles_list.field_college
     - field.field.paragraph.profiles_list.field_department
     - field.field.paragraph.profiles_list.field_faculty_staff
@@ -21,6 +22,12 @@ targetEntityType: paragraph
 bundle: profiles_list
 mode: default
 content:
+  field_campus:
+    type: options_select
+    weight: 5
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   field_college:
     type: entity_reference_autocomplete
     weight: 2
@@ -43,13 +50,13 @@ content:
     third_party_settings: {  }
   field_faculty_staff:
     type: options_select
-    weight: 6
+    weight: 7
     region: content
     settings: {  }
     third_party_settings: {  }
   field_limit_list:
     type: number
-    weight: 8
+    weight: 9
     region: content
     settings:
       placeholder: ''
@@ -62,7 +69,7 @@ content:
     third_party_settings: {  }
   field_office:
     type: entity_reference_autocomplete
-    weight: 5
+    weight: 6
     region: content
     settings:
       match_operator: CONTAINS
@@ -72,7 +79,7 @@ content:
     third_party_settings: {  }
   field_profiles:
     type: entity_reference_autocomplete
-    weight: 7
+    weight: 8
     region: content
     settings:
       match_operator: CONTAINS
@@ -92,7 +99,7 @@ content:
     third_party_settings: {  }
   field_randomize:
     type: boolean_checkbox
-    weight: 9
+    weight: 10
     region: content
     settings:
       display_label: true
