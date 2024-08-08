@@ -12,7 +12,8 @@ stackable: false
 no_patching: false
 storage: folder
 folder: ../config/live
-module: {  }
+module:
+  pantheon_advanced_page_cache: 0
 theme: {  }
 complete_list: {  }
 partial_list:
