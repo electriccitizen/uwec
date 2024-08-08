@@ -35,7 +35,7 @@ final class CitizenCustomCommands extends DrushCommands {
 			$nid = $node->id();
 
 			// if they have no campus, give them Eau Claire
-			if($node->get('field_campus')->isEmpty()){
+			if($node->get('field_campus')->isEmpty() || $node->get('field_campus')->getString() == '0'){
 				// 12 = Eau Claire (campus)
 				$node->set('field_campus', [12]);
 				$node->save();
