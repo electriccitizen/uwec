@@ -1,0 +1,4 @@
+adding:
+  error_level: hide
+removing:
+  error_level: verbose
