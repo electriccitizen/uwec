@@ -196,10 +196,12 @@
       }
     }//end accred details
     .licensure-details {
-      margin-top: 2rem;
       max-width: $textMax;
-      @include desk {
-        margin-top: 8.875rem;
+      &:not(:first-child){
+        margin-top: 2rem;
+        @include desk {
+          margin-top: 8.875rem;
+        }
       }
     }
   }// end accreditation-wrapper
