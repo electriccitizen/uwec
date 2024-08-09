@@ -76,6 +76,7 @@
     "drupal/office_hours": "^1.11",
     "drupal/pantheon_advanced_page_cache": "^2.2",
     "drupal/paragraphs": "^1.12",
+    "drupal/path_redirect_import": "^2.0",
     "drupal/pathauto": "^1.8",
     "drupal/pathologic": "^2.0",
     "drupal/quicklink": "^2.0",
