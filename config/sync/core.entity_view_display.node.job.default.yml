@@ -7,7 +7,6 @@ dependencies:
     - field.field.node.job.body
     - field.field.node.job.field_apply_by
     - field.field.node.job.field_campus
-    - field.field.node.job.field_department
     - field.field.node.job.field_domain_access
     - field.field.node.job.field_domain_all_affiliates
     - field.field.node.job.field_domain_source
@@ -297,14 +296,6 @@ content:
       link: true
     third_party_settings: {  }
     weight: 7
-    region: content
-  field_department:
-    type: entity_reference_label
-    label: inline
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 5
     region: content
   field_employment_category:
     type: entity_reference_label

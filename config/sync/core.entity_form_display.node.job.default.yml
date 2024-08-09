@@ -6,7 +6,6 @@ dependencies:
     - field.field.node.job.body
     - field.field.node.job.field_apply_by
     - field.field.node.job.field_campus
-    - field.field.node.job.field_department
     - field.field.node.job.field_domain_access
     - field.field.node.job.field_domain_all_affiliates
     - field.field.node.job.field_domain_source
@@ -72,16 +71,6 @@ content:
     weight: 1
     region: content
     settings: {  }
-    third_party_settings: {  }
-  field_department:
-    type: entity_reference_autocomplete
-    weight: 9
-    region: content
-    settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
     third_party_settings: {  }
   field_domain_access:
     type: options_buttons

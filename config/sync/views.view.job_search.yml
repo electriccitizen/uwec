@@ -333,7 +333,7 @@ display:
           exposed: true
           expose:
             operator_id: office_op
-            label: Office
+            label: Department
             description: ''
             use_operator: false
             operator: office_op
@@ -353,6 +353,7 @@ display:
               marketing_editor: '0'
               personnel: '0'
               jobs_and_editor: '0'
+              stories_and_editor: '0'
             min_placeholder: ''
             max_placeholder: ''
             placeholder: ''
