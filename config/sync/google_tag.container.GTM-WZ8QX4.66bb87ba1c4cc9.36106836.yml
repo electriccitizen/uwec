@@ -25,7 +25,7 @@ dimensions_metrics: {  }
 conditions:
   response_code:
     id: response_code
-    negate: false
+    negate: true
     response_codes: |-
       403
       404
