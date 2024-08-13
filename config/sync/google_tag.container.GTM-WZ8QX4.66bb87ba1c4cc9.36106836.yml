@@ -9,11 +9,11 @@ id: GTM-WZ8QX4.66bb87ba1c4cc9.36106836
 label: GTM-WZ8QX4
 weight: 0
 tag_container_ids:
-  - GTM-WZ8QX4
+  - GTM-NV4W8GM3
 advanced_settings:
   consent_mode: false
   gtm:
-    GTM-WZ8QX4:
+    GTM-NV4W8GM3:
       data_layer: dataLayer
       include_classes: false
       allowlist_classes: ''
