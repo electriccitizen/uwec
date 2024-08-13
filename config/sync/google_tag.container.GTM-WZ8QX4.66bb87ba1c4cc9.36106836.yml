@@ -1,0 +1,58 @@
+uuid: babfcbc1-7161-49ed-a22b-aa1c2df12390
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+    - user
+id: GTM-WZ8QX4.66bb87ba1c4cc9.36106836
+label: GTM-WZ8QX4
+weight: 0
+tag_container_ids:
+  - GTM-WZ8QX4
+advanced_settings:
+  consent_mode: false
+  gtm:
+    GTM-WZ8QX4:
+      data_layer: dataLayer
+      include_classes: false
+      allowlist_classes: ''
+      blocklist_classes: ''
+      include_environment: false
+      environment_id: ''
+      environment_token: ''
+dimensions_metrics: {  }
+conditions:
+  response_code:
+    id: response_code
+    negate: false
+    response_codes: |-
+      403
+      404
+  request_path:
+    id: request_path
+    negate: true
+    pages: "/admin*\r\n/batch*\r\n/node/add*\r\n/node/*/edit\r\n/node/*/delete\r\n/user/*/edit*\r\n/user/*/cancel*"
+  user_role:
+    id: user_role
+    negate: true
+    context_mapping:
+      user: '@user.current_user_context:current_user'
+    roles:
+      administrator: administrator
+      editor: editor
+      site_admin: site_admin
+      section_manager: section_manager
+      marketing_editor: marketing_editor
+      jobs_and_editor: jobs_and_editor
+      stories_and_editor: stories_and_editor
+events:
+  generate_lead:
+    value: ''
+    currency: ''
+  search: {  }
+  custom: {  }
+  login:
+    method: CMS
+  sign_up:
+    method: CMS
