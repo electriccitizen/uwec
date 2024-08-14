@@ -6,6 +6,6 @@ id: uwec_docksal_site
 domain_id: 3438991
 hostname: www.uwec.edu
 name: UWEC
-scheme: https
+scheme: variable
 weight: 1
 is_default: true
