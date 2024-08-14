@@ -12,7 +12,7 @@ entity_type: node
 bundle: page
 label: 'Domain Source'
 description: 'Select the canonical domain for this content.'
-required: false
+required: true
 translatable: true
 default_value:
   -
