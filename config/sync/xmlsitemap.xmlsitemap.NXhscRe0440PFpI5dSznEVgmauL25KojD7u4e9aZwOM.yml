@@ -1,7 +1,7 @@
-uuid: 4d143fe5-102b-46d9-86ba-039aa45f0696
+uuid: 4502d3a9-1bef-4305-aa94-4703d112e980
 langcode: en
 status: true
 dependencies: {  }
 id: NXhscRe0440PFpI5dSznEVgmauL25KojD7u4e9aZwOM
-label: 'http://www.uwec.edu'
+label: www.uwec.edu
 context: {  }
