@@ -4,8 +4,8 @@ status: true
 dependencies: {  }
 id: uwec_docksal_site
 domain_id: 3438991
-hostname: live-uwec.pantheonsite.io
+hostname: www.uwec.edu
 name: UWEC
-scheme: variable
+scheme: https
 weight: 1
 is_default: true
