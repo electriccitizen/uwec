@@ -8,3 +8,12 @@
     options: '-p 2222 -o "AddressFamily inet"'
     tty: false
 
+'live':
+  host: appserver.${env-name}.dfeadf45-ac5d-48f4-a701-c121589cff0e.drush.in
+  paths:
+    files: files
+  uri: www.uwec.edu
+  user: ${env-name}.dfeadf45-ac5d-48f4-a701-c121589cff0e
+  ssh:
+    options: '-p 2222 -o "AddressFamily inet"'
+    tty: false
