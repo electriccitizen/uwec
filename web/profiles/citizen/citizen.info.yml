@@ -95,7 +95,6 @@ dependencies:
   - views_bulk_operations
   - views_infinite_scroll
   - views_ui
-  - xmlsitemap
 
 themes:
   - stable9
