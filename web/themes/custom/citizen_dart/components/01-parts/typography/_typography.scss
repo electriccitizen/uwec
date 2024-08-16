@@ -161,6 +161,12 @@ blockquote{
 	article:not(:last-child){
 		margin-bottom: $spaceMd;
 	}
+  a{
+    &:focus{
+      color: $royal;
+      @include dottedLink($royal);
+    }
+  }
 }//end text-with-summary,text-long
 
 /* ICONS

@@ -43,6 +43,43 @@ PAGERS
 	}
 }
 
+%firstLast{
+  border: 1px solid $buttonText;
+  border-radius: 25px;
+  color: $buttonText;
+  line-height: 1;
+  height: 30px;
+  width: 100px;
+  @include safeFlex(column,nowrap,center,end);
+  text-decoration: none;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: $header;
+  font-size: $button;
+  position: relative;
+  @include onlySmall{
+    display: none;
+  }
+  &:hover,&:focus{
+    background: $navy;
+    color: $white;
+    svg{
+      path,g{
+        stroke: $white;
+      }
+    }
+  }
+  svg{
+    height: 12px;
+    position: absolute;
+    top: calc(50% - 7px);
+    path,g{
+      fill: none;
+      stroke: $baseText;
+    }
+  }
+}
+
 /* GLOBAL PAGER STYLING
 -------------------- */
 .js-pager__items{
@@ -100,6 +137,27 @@ PAGERS
 			margin-left: 2rem;
 			& > a{
 				@include nextLink;
+			}
+		}
+    &.pager__item--first{
+			margin-right: 2rem;
+			& > a{
+				@extend %firstLast;
+        padding-right: 1.75rem;
+        svg{
+          left: 1.75rem;
+        }
+			}
+		}
+		&.pager__item--last{
+			margin-left: 2rem;
+			& > a{
+        @extend %firstLast;
+        align-items: flex-start;
+        padding-left: 2rem;
+        svg{
+          right: 2rem;
+        }
 			}
 		}
 	}//end page number items
