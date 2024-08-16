@@ -9,11 +9,11 @@ id: GTM-WZ8QX4.66bb87ba1c4cc9.36106836
 label: GTM-WZ8QX4
 weight: 0
 tag_container_ids:
-  - GTM-NV4W8GM3
+  - GTM-WZ8QX4
 advanced_settings:
   consent_mode: false
   gtm:
-    GTM-NV4W8GM3:
+    GTM-WZ8QX4:
       data_layer: dataLayer
       include_classes: false
       allowlist_classes: ''
@@ -47,12 +47,12 @@ conditions:
       jobs_and_editor: jobs_and_editor
       stories_and_editor: stories_and_editor
 events:
-  generate_lead:
-    value: ''
-    currency: ''
-  search: {  }
+  sign_up:
+    method: CMS
   custom: {  }
   login:
     method: CMS
-  sign_up:
-    method: CMS
+  search: {  }
+  generate_lead:
+    value: ''
+    currency: ''
