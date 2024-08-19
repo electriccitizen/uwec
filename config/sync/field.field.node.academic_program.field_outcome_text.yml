@@ -13,7 +13,7 @@ field_name: field_outcome_text
 entity_type: node
 bundle: academic_program
 label: 'What can I do'
-description: 'Always start with an H2 headline.'
+description: ''
 required: false
 translatable: false
 default_value: {  }

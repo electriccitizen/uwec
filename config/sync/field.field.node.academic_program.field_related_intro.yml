@@ -1,0 +1,19 @@
+uuid: ae001030-cb19-484e-a992-65c7ae0ec769
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_related_intro
+    - node.type.academic_program
+id: node.academic_program.field_related_intro
+field_name: field_related_intro
+entity_type: node
+bundle: academic_program
+label: 'Related Programs Intro'
+description: '<strong>Example:</strong> Thinking about studying business administration? You might also be interested in exploring these related programs.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
