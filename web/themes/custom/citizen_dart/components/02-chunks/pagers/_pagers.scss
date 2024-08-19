@@ -50,7 +50,7 @@ PAGERS
   line-height: 1;
   height: 30px;
   width: 100px;
-  @include safeFlex(column,nowrap,center,end);
+  @include safeFlex(column,nowrap,center,center);
   text-decoration: none;
   text-align: center;
   text-transform: uppercase;
@@ -70,13 +70,14 @@ PAGERS
     }
   }
   svg{
-    height: 12px;
-    position: absolute;
-    top: calc(50% - 7px);
-    path,g{
-      fill: none;
-      stroke: $baseText;
-    }
+    display: none;
+    // height: 12px;
+    // position: absolute;
+    // top: calc(50% - 7px);
+    // path,g{
+    //   fill: none;
+    //   stroke: $baseText;
+    // }
   }
 }
 
@@ -140,24 +141,24 @@ PAGERS
 			}
 		}
     &.pager__item--first{
-			margin-right: 2rem;
+			margin-right: 2.5rem;
 			& > a{
 				@extend %firstLast;
-        padding-right: 1.75rem;
-        svg{
-          left: 1.75rem;
-        }
+        // padding-right: 1.75rem;
+        // svg{
+        //   left: 1.75rem;
+        // }
 			}
 		}
 		&.pager__item--last{
-			margin-left: 2rem;
+			margin-left: 2.5rem;
 			& > a{
         @extend %firstLast;
-        align-items: flex-start;
-        padding-left: 2rem;
-        svg{
-          right: 2rem;
-        }
+        //align-items: flex-start;
+        // padding-left: 2rem;
+        // svg{
+        //   right: 2rem;
+        // }
 			}
 		}
 	}//end page number items
