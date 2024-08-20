@@ -36,6 +36,7 @@ permissions:
   - 'access media overview'
   - 'create image media'
   - 'edit any bios content'
+  - 'edit any image media'
   - 'edit own bios content'
   - 'edit own image media'
   - 'publish to any assigned domain'
