@@ -118,10 +118,11 @@
 
 					{# Render the shuffled items #}
 					{%- for itemWithClass in shuffledItems -%}
-							{% set image_id = itemWithClass.item['#paragraph'].field_image.0.target_id %}
-							<div class="masonry-item {{ itemWithClass.class }}">
-									{{ drupal_entity('media', image_id) }}
-							</div>
+						{% set image_id = itemWithClass.item['#paragraph'].field_image.0.target_id %}
+						{% set image_style = (itemWithClass.class == 'small') ? '200x200_non_crop' : '600x600_non_crop' %}
+						<div class="masonry-item {{ itemWithClass.class }}">
+							{{ drupal_entity('media', image_id, image_style) }}
+						</div>
 					{%- endfor -%}
 				{% endblock %}
 	    {% endif %}
