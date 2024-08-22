@@ -32,7 +32,9 @@
 
 {% block fieldSingleNo %}
 	<div class="outcomes">
-    <h2>{% trans %}Where can the {{ title }} program lead me after graduation?{% endtrans %}</h2>
+    {% if element['#object'].field_outcomes_headline.0 %}
+      <h2>{{ element['#object'].field_outcomes_headline.0.value }}</h2>
+    {% endif %}
     {{ outcomeText }}
 	</div>
   {% if element['#object'].field_example_careers|length > 0 %}

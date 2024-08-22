@@ -26,7 +26,9 @@
   {% set title = element['#object'].title.0.value|lower %}
 	<div class="related-intro">
 		<h2>Related Programs</h2>
-		<p>{% trans %}Thinking about studying {{ title }}? You might also be interested in exploring these related programs.{% endtrans %}</p>
+    {% if element['#object'].field_related_intro.0 %}
+		  <p>{{ element['#object'].field_related_intro.0.value }}</p>
+    {% endif %}
 	</div>
   <div class="related-items">
     {%- for item in items -%}
