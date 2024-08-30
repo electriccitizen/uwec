@@ -221,7 +221,7 @@
       font-size: 22px;
       line-height: 1;
       &:hover,&:focus {
-        color: $link !important;
+        color: inherit !important;
       }
     }
 
@@ -398,6 +398,10 @@
       color: $navy !important;
       background-image: none;
     }//end hover, focus
+    b {
+    	font-size:inherit;
+    	color:inherit !important;
+    }
 	}//end title link
 	.gsc-url-top{
     margin-bottom: $spaceXxs;
