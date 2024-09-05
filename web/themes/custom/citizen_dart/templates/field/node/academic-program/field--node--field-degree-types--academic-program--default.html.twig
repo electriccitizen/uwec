@@ -93,7 +93,7 @@
 
       {% if element['#object'].field_delivery_mode.0 %}
         <div class="program-detail delivery-modes">
-          <span class="label">{% trans %}In-person or online{% endtrans %}</span>
+          <span class="label">{% trans %}Offered{% endtrans %}</span>
           {% for mode in element['#object'].field_delivery_mode %}
             <div class="delivery-modes">
               {{- mode.entity.label -}}
