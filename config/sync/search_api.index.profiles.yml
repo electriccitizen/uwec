@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.storage.node.field_campus
+    - field.storage.node.field_colleges
     - field.storage.node.field_departments
     - field.storage.node.field_faculty_staff
     - field.storage.node.field_first_name
@@ -35,6 +36,16 @@ field_settings:
         - field.storage.node.field_campus
       module:
         - taxonomy
+  college_title:
+    label: College
+    datasource_id: 'entity:node'
+    property_path: 'field_colleges:entity:title'
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_colleges
+      module:
+        - node
   departments:
     label: Department(s)
     datasource_id: 'entity:node'
@@ -116,10 +127,20 @@ field_settings:
       config:
         - field.storage.node.field_position_override
   offices:
-    label: Offices
+    label: 'Offices Filter'
     datasource_id: 'entity:node'
     property_path: 'field_offices:entity:name'
     type: string
+    dependencies:
+      config:
+        - field.storage.node.field_offices
+      module:
+        - taxonomy
+  offices_name:
+    label: Offices
+    datasource_id: 'entity:node'
+    property_path: 'field_offices:entity:name'
+    type: text
     dependencies:
       config:
         - field.storage.node.field_offices
@@ -177,6 +198,7 @@ processor_settings:
     all_fields: true
     fields:
       - campus
+      - college_title
       - departments
       - field_faculty_staff
       - field_first_name
@@ -187,6 +209,7 @@ processor_settings:
       - field_position
       - field_position_override
       - offices
+      - offices_name
       - programs
       - title
     ignorable: "['¿¡!?,.:;]"
@@ -205,6 +228,7 @@ processor_settings:
     all_fields: true
     fields:
       - campus
+      - college_title
       - departments
       - field_faculty_staff
       - field_first_name
@@ -215,6 +239,7 @@ processor_settings:
       - field_position
       - field_position_override
       - offices
+      - offices_name
       - programs
       - title
   language_with_fallback: {  }
@@ -226,6 +251,7 @@ processor_settings:
     all_fields: true
     fields:
       - campus
+      - college_title
       - departments
       - field_faculty_staff
       - field_first_name
@@ -235,6 +261,7 @@ processor_settings:
       - field_middle_name
       - field_position
       - field_position_override
+      - offices_name
       - programs
     exceptions:
       mexican: mexic
@@ -262,6 +289,7 @@ processor_settings:
     all_fields: true
     fields:
       - campus
+      - college_title
       - departments
       - field_faculty_staff
       - field_first_name
@@ -272,6 +300,7 @@ processor_settings:
       - field_position
       - field_position_override
       - offices
+      - offices_name
       - programs
       - title
 tracker_settings:
