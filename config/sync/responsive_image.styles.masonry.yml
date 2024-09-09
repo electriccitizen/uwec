@@ -1,0 +1,31 @@
+uuid: f5e8457a-1f59-49e8-9b09-6625ec01f0d2
+langcode: en
+status: true
+dependencies:
+  config:
+    - image.style.masonry
+    - image.style.masonry_1_5x
+    - image.style.masonry_2x
+    - image.style.masonry_non_webp
+  theme:
+    - citizen_dart
+id: masonry
+label: Masonry
+image_style_mappings:
+  -
+    image_mapping_type: image_style
+    image_mapping: masonry
+    breakpoint_id: citizen_dart.mobile
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: masonry_1_5x
+    breakpoint_id: citizen_dart.mobile
+    multiplier: 1.5x
+  -
+    image_mapping_type: image_style
+    image_mapping: masonry_2x
+    breakpoint_id: citizen_dart.mobile
+    multiplier: 2x
+breakpoint_group: citizen_dart
+fallback_image_style: masonry_non_webp

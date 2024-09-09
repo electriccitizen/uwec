@@ -1,0 +1,36 @@
+uuid: f13321ff-1936-4fad-bf1b-455e79fee152
+langcode: en
+status: true
+dependencies:
+  module:
+    - image_effects
+    - image_style_quality
+name: masonry
+label: Masonry
+effects:
+  4ab1d302-2c95-447f-985f-4b0f0a3c9fc6:
+    uuid: 4ab1d302-2c95-447f-985f-4b0f0a3c9fc6
+    id: image_effects_auto_orient
+    weight: -10
+    data:
+      scan_exif: true
+  9efcaebf-fd7d-477e-a8b5-a7cf50a028d4:
+    uuid: 9efcaebf-fd7d-477e-a8b5-a7cf50a028d4
+    id: image_scale
+    weight: -9
+    data:
+      width: null
+      height: 300
+      upscale: true
+  5035edda-9568-4ce3-a1c7-9c9141bfe48f:
+    uuid: 5035edda-9568-4ce3-a1c7-9c9141bfe48f
+    id: image_convert
+    weight: -7
+    data:
+      extension: webp
+  d164012c-da35-426c-9e22-fc67e9f6813b:
+    uuid: d164012c-da35-426c-9e22-fc67e9f6813b
+    id: image_style_quality
+    weight: -8
+    data:
+      quality: 80
