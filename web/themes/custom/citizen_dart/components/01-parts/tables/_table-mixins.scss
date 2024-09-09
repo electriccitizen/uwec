@@ -158,29 +158,32 @@
 		}
 		tbody{
 			tr{
+        max-width: 100%;
         &:nth-child(odd){
           td:before{
             background: lighten($tableRowHeaderBack,6%);
           }
         }
-        &:last-child{
-          td:not(:last-child){
-            border-bottom: 1px solid $borderRule;
+        &:nth-child(even){
+          td:first-child:before{
+            border-bottom: 1px solid darken($borderRule,6%);
           }
         }
 			}
 			td{
 				padding: 0 !important;
+        line-height: 1.4;
 				&:before{
 					content: attr(data-th);
 					border-right: 1px solid $borderRule;
 					background: $tableRowHeaderBack;
 					color: $tableRowHeaderText;
-					padding: 1rem 3rem;
-          line-height: 1.4;
+					padding: 1rem 1.5rem;
+          width: 50%;
+          max-width: 6.5em;
 				}
 				span.bt-content{
-					padding: 1rem 3rem;
+					padding: 1rem 1.5rem;
 				}
 			}//end td
 		}//end tbody
