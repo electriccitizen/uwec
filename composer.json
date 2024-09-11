@@ -202,6 +202,9 @@
       ".\/vendor\/bin\/phpcs --standard=Drupal --extensions=php,module,inc,install,test,profile,theme,css,info,txt,md --ignore=node_modules,bower_components,vendor .\/web\/themes\/custom",
       ".\/vendor\/bin\/phpcs --standard=DrupalPractice --extensions=php,module,inc,install,test,profile,theme,css,info,txt,md --ignore=node_modules,bower_components,vendor .\/web\/modules\/custom",
       ".\/vendor\/bin\/phpcs --standard=DrupalPractice --extensions=php,module,inc,install,test,profile,theme,css,info,txt,md --ignore=node_modules,bower_components,vendor .\/web\/themes\/custom"
+    ],
+    "post-drupal-scaffold-cmd": [
+      "cd web && patch -p2 < ../patches/robots.txt.patch"
     ]
   },
   "require-dev": {

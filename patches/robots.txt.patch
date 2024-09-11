@@ -1,0 +1,13 @@
+diff --git a/web/robots.txt b/web/robots.txt
+index 3ad8e2e8..4a0df173 100644
+--- a/web/robots.txt
++++ b/web/robots.txt
+@@ -35,7 +35,7 @@ Allow: /profiles/*.png
+ Allow: /profiles/*.svg
+ # Directories
+ Disallow: /core/
+-Disallow: /profiles/
++Disallow: /profiles/citizen/
+ # Files
+ Disallow: /README.md
+ Disallow: /composer/Metapackage/README.txt
