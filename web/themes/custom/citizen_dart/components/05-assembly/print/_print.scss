@@ -7,25 +7,32 @@
 @media print{
 
 	/* hide extraneous settings */
-	#block-citizen-dart-mainnavigation,.block-system-breadcrumb-block,#block-secondary-menu,#block-page-menu,#block-search-form,.paragraph--type--video,.body ul.social-links,.views-exposed-form,.block-addtoany-block,.block-local-tasks-block{
+	#block-citizen-dart-mainnavigation,.block-system-breadcrumb-block,#block-secondary-menu,#block-page-menu,#block-search-form,.paragraph--type--video,.body ul.social-links,.views-exposed-form,.block-addtoany-block,.block-local-tasks-block,#block-section-menu,#block-footer-for-menu,#block-footer-menu,#block-citizen-dart-socialmedia,#block-footer-ancillary-menu,section.prefooter-wrapper,footer.site-footer{
 		display: none;
 	}
 
 	/* header styles */
 	.site-header{
 		border-bottom: 1px solid $borderRule;
+    background: none !important;
 		.block-system-branding-block{
-			max-width: 200px;
+			max-width: 600px;
+      &:before{
+        content: 'University of Wisconsin - Eau Claire';
+        color: $black;
+        font-size: 24px;
+        display: block;
+        font-family: $displayHeader;
+        border-bottom: 1px solid $black;
+      }
+      a{
+        display: none;
+      }
 		}
 	}
 
 	/* ACCORDIONS */
 	.accordion-item .field-long-text{
 		display: block !important;
-	}
-
-	/* FOOTER */
-	footer .footer-inner .block:not(:last-child){
-		margin-bottom: 0;
 	}
 }// end print
