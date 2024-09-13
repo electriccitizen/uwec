@@ -1,0 +1,9 @@
+uuid: d61d0876-2c90-4ae9-a401-e0194a96b2c5
+langcode: en
+status: true
+dependencies: {  }
+id: masonry_uwec_pantheonsite_io
+domain_id: uwec_docksal_site
+pattern: masonry-uwec.pantheonsite.io
+redirect: 0
+environment: development
