@@ -553,8 +553,8 @@ $videoWidth: $videoHeight * 1.4153;
             margin-top: 0;
             width: $videoWidth;
             height: $videoHeight;
-            max-width: 892px;
-            max-height: 630px;
+            max-width: 862px;
+            max-height: 611px;
           }
           @include desk{
             .logged-in &{
@@ -606,6 +606,8 @@ $videoWidth: $videoHeight * 1.4153;
           }
           & > *{
             @include rotate(16);
+            max-width: 1400px;
+            height: auto;
           }
         }//end video mask inner
       }//end hero video
