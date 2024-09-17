@@ -197,6 +197,10 @@ function citizen_dart_preprocess_responsive_image(&$variables) {
       $img_width = 1920;
       $img_height = 1920;
       break;
+    case 'masonry':
+      $img_width = 300;
+      $img_height = 300;
+      break;
     default:
       $img_width = 'default';
       $img_height = 'default';
