@@ -1,0 +1,11 @@
+uuid: d8a0fa80-eb4d-4a1c-a9ba-d08a34fe4288
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+id: media.masonry
+label: Masonry
+description: 'Displays an image in the Gallery paragraph when Masonry is selected.'
+targetEntityType: media
+cache: true

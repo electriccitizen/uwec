@@ -97,34 +97,34 @@
 								</div>
 							{% endif %}
 						{% endfor %}
-					</div>	
+					</div>
 	      {% endblock %}
       {% elseif 'masonry' in galleryStyle %}
-				{% block masonryContent %}
-					{{ attach_library('citizen_dart/masonry') }}
-					{# Initialize an empty array to store items with size class #}
-					{% set itemsWithClass = [] %}
+		{% block masonryContent %}
+			{# gather valid items #}
+			{% set items = [] %}
+			{%- for key, item in content.field_gallery_items -%}
+				{%- if key|first != '#' and item['#paragraph'].field_image.0.target_id > 0 -%}
+					{% set items = items|merge([item]) %}
+				{%- endif -%}
+			{%- endfor -%}
 
-					{# Assign size class to each item and add to the array #}
-					{%- for key, item in content.field_gallery_items -%}
-						{%- if key|first != '#' and item['#paragraph'].field_image.0.target_id > 0 -%}
-							{% set size_class = (loop.index is odd) ? 'small' : 'large' %}
-							{% set itemsWithClass = itemsWithClass|merge([{ 'item': item, 'class': size_class }]) %}
-						{%- endif -%}
+			{# shuffle items #}
+			{% set items = items|shuffle %}
+
+			{# Render the shuffled items #}
+			{% if items is not empty %}
+				<ul>
+					{%- for item in items -%}
+						{%- set image_id = item['#paragraph'].field_image.0.target_id -%}
+						<li>
+							{{ drupal_entity('media', image_id, 'masonry') }}
+						</li>
 					{%- endfor -%}
-
-					{# Shuffle the array of items with their assigned classes #}
-					{% set shuffledItems = itemsWithClass|shuffle %}
-
-					{# Render the shuffled items #}
-					{%- for itemWithClass in shuffledItems -%}
-							{% set image_id = itemWithClass.item['#paragraph'].field_image.0.target_id %}
-							<div class="masonry-item {{ itemWithClass.class }}">
-									{{ drupal_entity('media', image_id) }}
-							</div>
-					{%- endfor -%}
-				{% endblock %}
-	    {% endif %}
+				</ul>
+			{% endif %}
+		{% endblock %}
+      {% endif %}
 	  </div>
 	</div>
 {% endblock %}
