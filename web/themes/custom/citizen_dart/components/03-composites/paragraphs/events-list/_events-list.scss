@@ -108,6 +108,24 @@
     }
   }//end event
 
+  // one event on wider screens can use more width
+  @media screen and (min-width: 784px){
+    .event:only-child{
+	  display:grid;
+	  grid-template-columns:1fr 1fr;
+	  grid-auto-rows: min-content;
+	  min-width:750px;
+	  column-gap:30px;
+
+	  .image{
+	    grid-row:1/7;
+	  }
+	  .title,.summary,.time,.until,.location{
+	    grid-column:2/3;
+	  }
+	}
+  }
+
   .livewhale-view-all{
     display:block;
     text-align:center;
