@@ -1,0 +1,7 @@
+@use '../../../00-base/base' as *;
+
+.env_banner{
+	background-color:$red;
+	color:$white;
+	padding:2rem;
+}
