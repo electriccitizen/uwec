@@ -8,6 +8,9 @@ Drupal.behaviors.removeEmptyRegions = {
       if(!$(this).children().length){
         $(this).remove();
       }
+      $(document).on('click', 'a#layout-content', function(e) {
+        e.preventDefault(); 
+    });
     });
     $(once('removeEmptyContact', '.node-bios #node-section-2,.node-department #node-section-4,.node-college #node-section-4', context)).each(function(){
       if(!$('.field',this).length){
