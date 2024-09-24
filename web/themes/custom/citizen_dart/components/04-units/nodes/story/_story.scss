@@ -87,39 +87,26 @@
     }
   }//end section 2
 
-  #node-section-3 {
-
-    // Set each field and blocks's width individually so that child elements can
-    // more easily "break out" to the wider width.
-    .field-authors,
-    .block-created,
-    .block-field-intro-text,
-    .block-field-image,
-    .field-paragraphs > .widget > .paragraph:not(.paragraph--type--layout-section) {
-      @include auto;
-      max-width: $textMax;
-    }
-
-    // Text-based fields have extra-wide margins on mobile.
-    .field-authors,
-    .field-created,
-    .block-field-intro-text{
-      padding: 0 $siteMarginMobile;
-      @include desk {
-        padding: 0;
+  #node-section-3{
+    max-width: $textMax;
+    @include auto;
+    @include tab{
+      .layout__region--content{
+        @include safeFlex(row,wrap,justify,start);
       }
     }
-
-    .field-authors {
-      @include safeFlex(row,wrap,start,start);
-    }
     .block-created {
-      margin-bottom: $spaceLg;
+      margin-bottom: $spaceSm;
       .field-created {
         @include heading2;
         display: block;
         font-size: $h5;
         line-height: 1.2;
+        padding: 0 $siteMarginMobile;
+        @include desk {
+          padding: 0;
+          margin-bottom: $spaceLg;
+        }
       }
       .mobile-title {
         @include heading1;
@@ -129,6 +116,46 @@
           display: none;
         }
       }
+    }//end created
+    .block-social-share{
+      h2.block-title{
+        font-size: $baseSize;
+        font-family: $bodyText;
+        font-weight: $regular;
+        text-transform: none;
+        letter-spacing: 0;
+        line-height: 1.875;
+        text-align: left;
+      }
+      .social-share{
+        padding: 0 $siteMarginMobile;
+        @include desk{
+          padding: 0;
+        }
+      }
+    }
+  }//end node section 3
+
+  #node-section-4 {
+    .field-authors,
+    .block-field-intro-text,
+    .block-field-image,
+    .field-paragraphs > .widget > .paragraph:not(.paragraph--type--layout-section) {
+      @include auto;
+      max-width: $textMax;
+    }
+
+    // Text-based fields have extra-wide margins on mobile.
+    .field-authors,
+    .block-field-intro-text{
+      padding: 0 $siteMarginMobile;
+      @include desk {
+        padding: 0;
+      }
+    }
+
+    .field-authors {
+      @include safeFlex(row,wrap,start,start);
     }
     .block-field-intro-text {
       font-size: 20px;
@@ -168,9 +195,9 @@
         @include linkArrow(navy, sm);
       }
     }
-  }//end node section 3
+  }//end node section 4
 
-  #node-section-4 {
+  #node-section-5 {
     color: $white;
     position: relative;
 
@@ -257,7 +284,7 @@
         }
       }
     }
-  }//end node section 4
+  }//end node section 5
 }//end news
 
 
