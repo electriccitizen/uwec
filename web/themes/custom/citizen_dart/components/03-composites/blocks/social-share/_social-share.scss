@@ -11,8 +11,14 @@
 		&.facebook-share{
 			color: #4267B2;
 		}
-		&.twitter-share{
-			color: #1DA1F2;
+		&.x-share{
+			color: #000000;
+      svg{
+        width: 23px;
+      }
+      .cls-1{
+        fill: currentColor;
+      }
 		}
 		&.linkedin-share{
 			color: #2867B2;
@@ -22,6 +28,11 @@
 		}
 		&:hover,&:focus{
 			color: $hoverLink;
+      &.x-share{
+        .cls-1{
+          color: #777;
+        }
+      }
 		}
 		&:last-child {
 			padding-right: 0;

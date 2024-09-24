@@ -10,6 +10,7 @@ Drupal.behaviors.sectionMenu = {
         if (wrapper.is('.active-nav')){
           wrapper.attr('aria-expanded', 'false').removeClass('active-nav').find('.toggle-label').text('Section Menu').removeClass('expanded');
           $("body").removeClass("sidebar-open");
+          $('#layout-content').focus();
         }else{
           wrapper.attr('aria-expanded', 'true').addClass('active-nav').find('.toggle-label').text('Close Menu').addClass('expanded');
           $("body").addClass("sidebar-open");
