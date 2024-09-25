@@ -327,26 +327,13 @@
 
 	/* Add paragraph preview labels
 	----------------------- */
-	Drupal.behaviors.previewLabel = {
-		attach: function (context, settings) {
-			$(once('isParaPreview', '.lp-builder .paragraph--view-mode--preview', context)).each(function(){
-				let paragraph = this;
-
-				// these paragraph previews must be built by some other js that is trying to run at the same time.
-				// because without this setTimeout,
-				// it is unable to find the .lpb-controls-label element.
-				setTimeout(function(){
-					let labelEle = paragraph.querySelector('.lpb-controls-label');
-					if(labelEle){
-						let previewLabel = document.createElement('div');
-						previewLabel.classList.add('para-preview-label');
-						previewLabel.innerHTML = labelEle.innerHTML + ' Component';
-						paragraph.insertBefore(previewLabel, paragraph.children[0]);
-					}
-				}, 0);
-			});
-		}
-	};
+	$(document).ajaxComplete(function(){
+		// select all paragraph previews that do not already have a preview label
+		$('.lp-builder .paragraph--view-mode--preview:not(:has(.para-preview-label))').each(function(){
+			let label = $(this).find('.lpb-controls-label').html();
+			$(this).prepend('<div class="para-preview-label">'+label+' Component</div>');
+		});
+	});
 
    /* ADVANCED FILTER DRAWERS
   ----------------------- */
