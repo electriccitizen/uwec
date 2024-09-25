@@ -242,10 +242,9 @@
   
          $(document).ajaxComplete(function () {
   
-           //when an existing whero is opened, ckeck the version and show the correct fields
+           //when an existing hero is opened, check the version and show the correct fields
            if($('.field--name-field-hero-type .js-form-type-select', this).find("option:selected").val()){
             var chosen = $('.field--name-field-hero-type .js-form-type-select', this).find("option:selected").val().replace(/_/g, '-');
-            console.log(chosen);
             if (chosen == 'image'){
               bgImageFields.hide();
               fullImageFields.hide();
@@ -326,18 +325,15 @@
   };//end cta
   
 
-  /* Add paragraph preview labels
-  ----------------------- */
-  Drupal.behaviors.previewLabel = {
-    attach: function (context, settings) {
-    	$(once('isParaPreview', '.lp-builder .paragraph--view-mode--preview', context)).each(function(){
-    		var label = $(this).attr('data-type');
-    		if (typeof label !== 'undefined') {
-	    		$(this).prepend('<div class="para-preview-label">' + label.replace(/_/g, ' ') + ' component</div>');
-	    	}
-    	});
-    }
-  };
+	/* Add paragraph preview labels
+	----------------------- */
+	$(document).ajaxComplete(function(){
+		// select all paragraph previews that do not already have a preview label
+		$('.lp-builder .paragraph--view-mode--preview:not(:has(.para-preview-label))').each(function(){
+			let label = $(this).find('.lpb-controls-label').html();
+			$(this).prepend('<div class="para-preview-label">'+label+' Component</div>');
+		});
+	});
 
    /* ADVANCED FILTER DRAWERS
   ----------------------- */
