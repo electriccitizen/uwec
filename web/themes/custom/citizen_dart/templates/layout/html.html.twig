@@ -45,8 +45,8 @@
 		<head-placeholder token="{{ placeholder_token|raw }}">
 		<title>{{ head_title|safe_join(' | ') }}</title>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="stylesheet" media="all" href="/themes/custom/citizen_dart/dist/critical.css">
-    <link rel="stylesheet" href="https://use.typekit.net/qyk7ugw.css">
+		<link rel="stylesheet" media="all" href="/themes/custom/citizen_dart/dist/critical.css?mtime={{ critical_css_mtime }}">
+		<link rel="stylesheet" href="https://use.typekit.net/qyk7ugw.css">
 		<js-placeholder token="{{ placeholder_token|raw }}">
 		{% block headInsert %}
 			{# place for any site or page specific <head> additions #}
