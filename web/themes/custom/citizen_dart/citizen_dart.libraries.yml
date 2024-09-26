@@ -163,6 +163,10 @@ snapshot-list:
   version: 1.0
   js:
     components/03-composites/paragraphs/snapshot-list/snapshot-list.js: {}
+social-share:
+  version: 1.0
+  js:
+    components/03-composites/blocks/social-share/social-share.js: {}
 steps:
   version: 1.0
   js:

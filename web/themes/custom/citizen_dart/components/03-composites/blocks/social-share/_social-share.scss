@@ -5,6 +5,7 @@
 
 .social-share{
 	@include safeFlex(row,wrap,start,start);
+
 	a{
 		display: block;
 		padding-right: 8px;
@@ -40,6 +41,28 @@
 		svg{
 			width: 32px;
 			height: 32px;
+		}
+	}
+
+	.link-share{
+		/* allow .toast to be relative to this link */
+		position:relative;
+	}
+
+	.toast{
+		background-color:$navy;
+		color:white;
+		position:absolute;
+		top:-30px;
+		right:0;
+		padding:2px 4px;
+		white-space:nowrap;
+		border-left:2px solid $gold;
+		opacity:1;
+		box-shadow:2px 2px 2px rgba(0,0,0,0.2);
+		transition:opacity .5s ease;
+		&.fade{
+			opacity:0;
 		}
 	}
 }//end social share
