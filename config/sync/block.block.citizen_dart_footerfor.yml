@@ -27,5 +27,7 @@ settings:
   depth: 1
   expand_all_items: false
   parent: 'footer-for:'
+  render_parent: false
   suggestion: footer_for
+  hide_on_nonactive: false
 visibility: {  }
