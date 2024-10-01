@@ -4,29 +4,32 @@ Drupal.behaviors.sectionMenu = {
 	attach: function (context, settings) {
     $(once('section-menu', '#block-section-menu:not(.js-layout-builder-block)', context)).each(function() {
       const wrapper = $(this);
-			//toggle
+			//toggle open
 			$('.section-menu-toggle').click(function(e){
 				e.preventDefault();
-        if (wrapper.is('.active-nav')){
-          wrapper.attr('aria-expanded', 'false').removeClass('active-nav').find('.toggle-label').text('Section Menu').removeClass('expanded');
-          $("body").removeClass("sidebar-open");
-          $('#layout-content').focus();
+        wrapper.attr('aria-expanded', 'true').addClass('active-nav').find('.section-menu-toggle > .toggle-label').addClass('expanded');
+        $('#section-menu-wrapper').show(0);
+        $("body").addClass("sidebar-open");
+        //detect height of menu Ul vs screen and add scroll for extra menu links if needed
+        const menuTitleHeight = $('#section-menu-wrapper > .block-page-title').outerHeight() + 24
+        const menuHeight = $('#section-menu-wrapper > ul').outerHeight();
+        let allowedHeight = 0;
+        if($(window).outerWidth() < 1200){
+          allowedHeight = $(window).outerHeight() * .75 - menuTitleHeight;  
         }else{
-          wrapper.attr('aria-expanded', 'true').addClass('active-nav').find('.toggle-label').text('Close Menu').addClass('expanded');
-          $("body").addClass("sidebar-open");
-          //detect height of menu Ul vs screen and add scroll for extra menu links if needed
-          const menuTitleHeight = $('#section-menu-wrapper > .block-page-title').outerHeight() + 24
-          const menuHeight = $('#section-menu-wrapper > ul').outerHeight();
-          let allowedHeight = 0;
-          if($(window).outerWidth() < 1200){
-            allowedHeight = $(window).outerHeight() * .75 - menuTitleHeight;  
-          }else{
-            allowedHeight = $(window).outerHeight() - menuTitleHeight - 89;
-          }
-          if(menuHeight > allowedHeight){
-            $('#section-menu-wrapper > ul').css({'max-height':allowedHeight + 'px','overflow-y':'scroll'});
-          }
+          allowedHeight = $(window).outerHeight() - menuTitleHeight - 89;
         }
+        if(menuHeight > allowedHeight){
+          $('#section-menu-wrapper > ul').css({'max-height':allowedHeight + 'px','overflow-y':'scroll'});
+        }
+			});
+
+      //toggle close
+			$('.close-section-toggle').click(function(e){
+				e.preventDefault();
+          wrapper.attr('aria-expanded', 'false').removeClass('active-nav').find('.section-menu-toggle > .toggle-label').removeClass('expanded');
+          $("body").removeClass("sidebar-open");
+          $('#section-menu-wrapper').delay(500).hide(0);
 			});
 
 			$(window).on('resize', debounce(mobileSectionnav, 150)).trigger('resize');

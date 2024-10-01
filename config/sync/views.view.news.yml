@@ -786,8 +786,20 @@ display:
         fields: false
         filters: false
         filter_groups: false
+        header: false
         footer: false
       display_description: ''
+      header:
+        result:
+          id: result
+          table: views
+          field: result
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: result
+          empty: false
+          content: "<div class=\"results-tally\">\r\nThere are @total results\r\n</div>"
       footer: {  }
       display_extenders: {  }
     cache_metadata:

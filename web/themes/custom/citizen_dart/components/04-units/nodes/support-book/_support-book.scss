@@ -5,6 +5,13 @@
 @use '../../../00-base/base' as *;
 
 .node-support-book{
+  .layout--twocol-sideleft{
+    .layout__region--first{
+      @include onlyMobile{
+        order: 2;
+      }
+    }
+  }
   .block-system-breadcrumb-block{
     .breadcrumb{
       li{

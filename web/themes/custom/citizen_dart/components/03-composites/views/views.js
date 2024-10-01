@@ -18,18 +18,6 @@ Drupal.behaviors.viewsExposed = {
 		   			}, 300);
 		 		});
       }
-
-      let vars = '';
-			$('.views-exposed-form input:not(#edit-submit-profile-search):not(#edit-submit-program-search):not(#edit-reset):not([type="submit"])').each((i, v) => {
-			  var isLastElement = i == v.length -1;
-			  if (isLastElement) {
-			    vars += $(v).val();
-			  }else{
-			  	if ($(v).val() != ''){
-			  		vars += '<span class="search-term">' + $(v).val() + '</span>';
-			  	}
-			  }
-			})
       $('.view-header .search-terms').append(vars);
     });
   }

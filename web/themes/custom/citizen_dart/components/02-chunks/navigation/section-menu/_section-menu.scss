@@ -16,6 +16,12 @@
   &.active-nav {
     max-height: 75vh;
   }
+  .node-type-support-book &{
+    position: relative;
+    max-height: 100%;
+    margin: 0;
+    border-top: none;
+  }
   @include menuStop {
     @include edgeReset;
     @include transition(left, .3s, ease-in-out);
@@ -27,6 +33,9 @@
     width: $sideBar;
     border-top:none;
     border-right:5px solid $gold;
+    .node-type-support-book &{
+      border-right: none;
+    }
     &.active-nav{
       left: 0;
       max-height: 100vh;
@@ -66,7 +75,7 @@
   .hide-nav &{
 		display: none;
 	}
-  .section-menu-toggle {
+  .section-menu-toggle,.close-section-toggle {
     @include safeFlex(column, nowrap, end, center);
     background-color: $menuBack;
     border-radius: 50%;
@@ -95,7 +104,7 @@
     .node-type-support-book &{
       display: none;
     }
-    .toggle-label {
+    .toggle-label,.menu-close-toggle {
       font-family: $header;
       font-size: 12px;
       font-weight: $heavy;
@@ -128,27 +137,16 @@
       }
     }
   }
+  .close-section-toggle{
+    display: none;
+  }
   &.active-nav{
-    // &:before{
-    //   content: '';
-    //   display: block;
-    //   width: 100%;
-    //   height: 2px;
-    //   position: absolute;
-    //   top: 0;
-    //   left: 0;
-    //   z-index: 6;
-    //   background: linear-gradient(to right, $navy 0, $navy calc(50% - 73px), transparent calc(50% - 73px), transparent calc(50% + 73px), $navy calc(50% + 73px), $navy 100%);
-    //   @include menuStop{
-    //     left: auto;
-    //     right: 0;
-    //     width: 2px;
-    //     height: 100%;
-    //     background: linear-gradient(to bottom, $navy 0, $navy calc(50% - 98px), transparent calc(50% - 98px), transparent calc(50% + 98px), $navy calc(50% + 98px), $navy 100%);
-    //   }
-    // }
     .section-menu-toggle{
-      .toggle-label:after {
+      display: none;
+    }
+    .close-section-toggle{
+      display: flex;
+      .menu-close-toggle:after {
         transform: rotate(180deg);
         @include menuStop {
           transform: rotate(90deg);
@@ -188,11 +186,18 @@
   overflow-y: auto;
   width: 100vw;
   z-index: 5;
+  .node-type-support-book &{
+    width: auto;
+  }
 	@include menuStop {
-		display: block !important;
+    display: none;
     margin-bottom: $spaceLg;
     padding: 89px 10px 20px;
     width: auto;
+    .node-type-support-book &{
+      padding: 20px 10px; 
+      display: block !important;
+    }
 	}
 	& > ul:not(.contextual-links){
 		@include listReset;
