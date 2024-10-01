@@ -588,7 +588,7 @@ display:
           admin_label: ''
           plugin_id: result
           empty: false
-          content: "<div class=\"results-tally\">\r\nThere are @total results for <div class=\"search-terms\"></div>\r\n</div>"
+          content: "<div class=\"results-tally\">\r\nThere are @total results\r\n</div>"
       footer: {  }
       display_extenders: {  }
     cache_metadata:

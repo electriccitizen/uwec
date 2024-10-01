@@ -167,6 +167,9 @@
       }
     }
 	}//end exposed form
+  .view-header .results-tally{
+    max-width: 874px;
+  }
 	.view-content{
 		@include bleed(padding,20px);
 		& > .views-row{
