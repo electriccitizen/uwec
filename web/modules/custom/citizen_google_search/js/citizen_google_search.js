@@ -1,65 +1,94 @@
 (function($, Drupal) {
   Drupal.behaviors.googleCustomSearch = {
     attach: function (context, settings) {
-    	$(once('hasSearch', '.google-search', context)).each(function(){
-	      document.onreadystatechange = function () {
-	        if (document.readyState === 'complete') {
+      $(once('hasSearch', '.google-search', context)).each(function(){
+        document.onreadystatechange = function () {
+          if (document.readyState === 'complete') {
+            let form = document.querySelector('form.gsc-search-box');
+            let input = document.querySelector('input.gsc-input');
 
-	          // The full host in the URL.
-	          var host = this.location.host;
-	          // The pattern to check for.
-	          var site_pattern = /(\w+)\./;
-	          // Isolate the domain/subdomain.
-	          var site = host.match(site_pattern);
-	          // The name of the site determined below.
-	          var site_name;
-
-	          // Determine which site is being viewed.
-	          switch (site[1]) {
-	            case 'example':
-	              site_name = 'Fancy Example';
-	              break;
-	            default:
-	              site_name = 'UW-Eau Claire';
-	              break;
-	          }
-	         
-	          var form = document.querySelector('form.gsc-search-box');
-	          var input = document.querySelector('input.gsc-input');
-	          var placeholder = 'What are you searching for?';
-						var label = document.createElement("Label");
-
-	          label.htmlFor = 'gsc-i-id1';
-	          label.innerHTML = 'Search the ' + site_name + ' Website';
-	          
-	          form.prepend(label);
-	          input.setAttribute('placeholder', placeholder);
-	          input.style.backgroundImage = 'none';
-	          document.querySelector('button.gsc-search-button svg').remove();
-	          document.querySelector('button.gsc-search-button').append('Search');
-	        }
-	      };
-	    });
+            let label = document.createElement("label");
+            label.htmlFor = 'gsc-i-id1';
+            label.innerHTML = 'Search the UW-Eau Claire Website';
+            
+            form.prepend(label);
+            input.setAttribute('placeholder', 'What are you searching for?');
+            input.style.backgroundImage = 'none';
+            document.querySelector('button.gsc-search-button svg').remove();
+            document.querySelector('button.gsc-search-button').append('Search');
+          }
+        };
+      });
     }
   };
+
+	function setHeaderSearchVisible(visible){
+		let $container = $('.google-search-container');
+		let $tSearch = $('.t-search');
+
+		if(visible){
+			$container.addClass('expanded');
+			$container.attr('aria-hidden', 'false');
+			$tSearch.addClass('close-search');
+			$tSearch.find('span').text('Close search');
+
+			// auto focus on the search input
+			setTimeout(function(){
+				$('.gsc-input').focus();
+			}, 100);
+		}else{
+			$container.removeClass('expanded');
+			$container.attr('aria-hidden', 'true');
+			$tSearch.removeClass('close-search');
+			$tSearch.find('span').text('Search');
+		}
+	}
 
 	//search toggle
 	Drupal.behaviors.searchToggle = {
 		attach: function (context, settings) {
 		 	$(once('tSearch', '.block-citizen-google-search-block', context)).each(function(){
-		 		//find the top position of the site header and position the fixed search box to that if we're on desktop 
+				$('.search-form-container').on('focusout', function(e){
+					// ignore this event if nothing is receiving focus
+					// in other words, if somebody clicks in empty space, do nothing
+					if(e.relatedTarget == null) return;
+
+					// if focus goes outside the container, hide the container
+					// this is so the newly focused element is not obscured after tabbing out of the container.
+					if(!this.contains(e.relatedTarget)){
+						setHeaderSearchVisible(false);
+					}
+				});
+
+				// close the header search if they click out
+				let searchContainer = document.querySelector('.google-search-container');
+				document.addEventListener('click', function(e){
+					// ignore this if it's already closed
+					if(!searchContainer.classList.contains('expanded')) return;
+
+					// ignore this if we are clicking the open/close button
+					if(e.target.classList.contains('t-search')) return;
+
+					// if this click it outside the search container, close
+					if(!searchContainer.contains(e.target)){
+						setHeaderSearchVisible(false);
+					}
+				});
+
+
+		 		// find the top position of the site header and position the fixed search box to that if we're on desktop 
 		 		if($('window').outerWidth() > 1199){
 		 			var headerPosition = $('header.site-header').offset().top();
 		 			$('#header-search').css('top',headerPosition);
 		 		}
+
+				// toggle nav on click on search icon (or close search icon)
 		 		$('.t-search', this).click(function(e){
 		 			e.preventDefault();
 					if($(this).hasClass('close-search')) {
-						$(this).removeClass('close-search').find('span').text('Open Search');
-		 				$('.google-search-container').slideUp(400).attr('aria-hidden', 'true');
+						setHeaderSearchVisible(false);
 					} else {
-						$(this).addClass('close-search').find('span').text('Close Search');
-						$('.google-search-container').slideDown(400).attr('aria-hidden', 'false');
+						setHeaderSearchVisible(true);
 					}
 		 		});
 			});
