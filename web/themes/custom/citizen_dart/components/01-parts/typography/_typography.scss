@@ -180,3 +180,11 @@ svg{
 	}
 }
 
+/* TEMP MATT CACHE TEST */
+.matt-test-critical::after{
+	display:inline-block;
+	background:rgba(0,0,0,0.3);
+	border:1px solid black;
+	padding:2rem;
+	content:"1";
+}
