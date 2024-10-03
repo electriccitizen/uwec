@@ -1,5 +1,4 @@
 global:
-  version: 1.0
   header: false
   css:
     theme:
@@ -13,49 +12,38 @@ global:
     - core/jquery
     - core/once
 academic-program-toggle:
-  version: 1.0
   js:
     components/04-units/nodes/academic-program/program-toggle.js: {}
 academic-program-animate:
-  version: 1.0
   js:
     components/04-units/nodes/academic-program/program-animate.js: {}
 accordion:
-  version: 1.0
   js:
     components/03-composites/paragraphs/accordions/accordions.js: {}
 announcements:
-  version: 1.0
   js:
     components/03-composites/blocks/announcements/ajax.js: {}
 content-carousel:
-  version: 1.0
   js:
     components/03-composites/paragraphs/content-carousel/content-carousel.js: {}
   dependencies:
     - citizen_dart/slick
 ctas:
-  version: 1.0
   js:
     components/03-composites/paragraphs/ctas/ctas.js: {}
 drawers:
-  version: 1.0
   js:
     components/02-chunks/drawers/drawers.js: {}
 events-list:
-  version: 1.0
   js:
     components/03-composites/paragraphs/events-list/events-list.js: {}
 external-articles:
-  version: 1.0
   js:
     components/03-composites/paragraphs/external-articles/external-articles.js: {}
 facts-list:
-  version: 1.0
   js:
     components/03-composites/paragraphs/facts-list/facts-list.js: {}
 featherlight:
-  version: 1.7.13
   css:
     theme:
       components-addons/featherlight/featherlight.css: {}
@@ -68,79 +56,60 @@ fonts:
     theme:
       https://fonts.googleapis.com/css?family=Open+Sans:ital,wght@0,400;;0,700;1,400: { type: external, preprocess: false }
 formatted-promo:
-  version: 1.0
   js:
     components/03-composites/blocks/formatted-promo/formatted-promo.js: {}
 forms:
-  version: 1.0
   js:
     components/01-parts/forms/forms.js: {}
 galleries:
-  version: 1.0
   js:
     components/03-composites/paragraphs/gallery/gallery.js: {}
 general-page:
-  version: 1.0
   js:
     components/04-units/nodes/general-page/general-page.js: {}
 hallmark:
-  version: 1.0
   js:
     components/03-composites/paragraphs/hallmark/hallmark.js: {}
 hours:
-  version: 1.0
   js:
     components/03-composites/paragraphs/hours-set/hours-set.js: {}
 image:
-  version: 1.0
   js:
     components/03-composites/paragraphs/image/image.js: {}
 layout:
-  version: 1.0
   js:
     components/03-composites/layout/layouts/layouts.js: {}
 list-view:
-  version: 1.0
   js:
     components/03-composites/views/list-view.js: {}
 modal:
-  version: 1.0
   js:
     components/02-chunks/modals/modals.js: {}
 omnilert:
-  version: 1.0
   js:
     components/03-composites/blocks/omnilert/omnilert.js: {}
 page-structured-section:
-  version: 1.0
   js:
     components/03-composites/blocks/page-structured-section/page-structured-section-animate.js: {}
 profiles-slider:
-  version: 1.0
   js:
     components/03-composites/views/profiles/profiles-slider.js: {}
 quick-links:
-  version: 1.0
   js:
     components/03-composites/paragraphs/quick-links/quick-links.js: {}
 search-block:
-  version: 1.0
   js:
     components/03-composites/blocks/search/search-block.js: {}
 search-page:
-  version: 1.0
   js:
     components/04-units/pages/search.js: {}
 section-menu:
-  version: 1.0
   js:
     components/02-chunks/navigation/section-menu/section-menu.js: {}
 select-type:
-  version: 1.0
   js:
     components/03-composites/paragraphs/select-type/select-type.js: {}
 select:
-  version: 4.0.3
   css:
     theme:
       components-addons/select2/select2.min.css: { minified: true }
@@ -148,11 +117,9 @@ select:
     components-addons/select2/select2.min.js: { minified: true }
     components/01-parts/forms/forms.js: {}
 slate-form:
-  version: 1.0
   js:
     components/03-composites/paragraphs/slate-form/slate-form.js: {}
 slick:
-  version: 1.8.1
   css:
     theme:
       components-addons/slick/slick.css: {}
@@ -160,23 +127,18 @@ slick:
   js:
     components-addons/slick/slick.min.js: { minified: true }
 snapshot-list:
-  version: 1.0
   js:
     components/03-composites/paragraphs/snapshot-list/snapshot-list.js: {}
 social-share:
-  version: 1.0
   js:
     components/03-composites/blocks/social-share/social-share.js: {}
 steps:
-  version: 1.0
   js:
     components/03-composites/paragraphs/steps/steps.js: {}
 stories-video-list:
-  version: 1.0
   js:
     components/03-composites/paragraphs/stories-video-list/stories-video-list.js: {}
 table:
-  version: 1.0
   css:
     theme:
       components-addons/basictable/basictable.css: {}
@@ -184,18 +146,14 @@ table:
     components/01-parts/tables/tables.js: {}
     components-addons/basictable/jquery.basictable.min.js: { minified: true }
 testimonial-placer:
-  version: 1.0
   js:
     components/03-composites/paragraphs/testimonial-placer/testimonial-placer.js: {}
 video:
-  version: 1.0
   js:
     components/03-composites/paragraphs/video/video.js: {}
 views:
-  version: 1.0
   js:
     components/03-composites/views/views.js: {}
 wayfinding:
-  version: 1.0
   js:
     components/03-composites/paragraphs/wayfinding/wayfinding.js: {}
