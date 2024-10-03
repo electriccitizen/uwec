@@ -10,7 +10,7 @@ Drupal.behaviors.heroVideo = {
     const pause_lang = Drupal.t("Pause video");
     const play_lang = Drupal.t("Play video");
 
-    $(once('heroVideo', '.page-hero-video .video-hero', context)).each(function() {
+    $(once('heroVideo', '.page-hero-video .video-hero-mask', context)).each(function() {
       const video = $("video", this).get(0);
       const videoWrapper = $(this);
       const videoCookie = cookies.get('heroVideoPlay');

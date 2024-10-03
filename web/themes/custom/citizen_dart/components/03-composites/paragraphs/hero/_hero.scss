@@ -6,12 +6,23 @@
 
   .video-button {
     background-color: white;
+    -webkit-mask-image: url("../images/elements/pause.svg");
+    mask-image: url("../images/elements/pause.svg");
+    mask-position: center center;
+    mask-repeat: no-repeat;
+    mask-size: 100% 100%;
+    opacity: 70%;
     display: block;
-    height: 60px;
-    width: 60px;
+    height: 24px;
+    width: 24px;
     position: absolute;
-    left: 0;
-    bottom: 0;
+    left: -50px;
+    bottom: -100px;
     z-index: 10;
+  }
+
+  .video-hero-mask.paused .video-button {
+    -webkit-mask-image: url("../images/elements/play.svg");
+    mask-image: url("../images/elements/play.svg");
   }
 }
