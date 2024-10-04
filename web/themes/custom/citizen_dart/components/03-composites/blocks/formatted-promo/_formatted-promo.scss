@@ -13,10 +13,7 @@
     padding: 0;
   }
   &.visible .field-formatted-headline strong {
-    opacity: 1;
-    body.animations-playing & {
       @include animation('breatheFadeIn 1.5s 1 forwards');
-    }
   }
   .field-formatted-headline {
     @include styledHeader(true);

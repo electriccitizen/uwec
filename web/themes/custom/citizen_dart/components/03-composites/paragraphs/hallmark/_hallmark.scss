@@ -85,41 +85,31 @@
     .hallmark-image{
       .stripes-before,.stripes-after{
         opacity: 1;
+        transition: opacity .5s ease-in;
         transition-delay: 1.5s;
-        body.animations-playing & {
-          transition: opacity .5s ease-in;
-        }
       }
     }
     &.left{
       @include tab{
         .hallmark-image{
-          body.animations-playing & {
-            @include animation('hallmarkDeskLeft 1.5s 1 forwards');
-          }
+          @include animation('hallmarkDeskLeft 1.5s 1 forwards');
         }
       }
       @include contentStopMargin{
         .hallmark-image{
-          body.animations-playing & {
-            @include animation('hallmarkDeskLeftMax 1.5s 1 forwards');
-          }
+          @include animation('hallmarkDeskLeftMax 1.5s 1 forwards');
         }
       }
     }//end left
     &.right{
       @include tab{
         .hallmark-image{
-          body.animations-playing & {
-            @include animation('hallmarkDeskRight 1.5s 1 forwards');
-          }
+          @include animation('hallmarkDeskRight 1.5s 1 forwards');
         }
       }
       @include contentStopMargin{
         .hallmark-image{
-          body.animations-playing & {
-            @include animation('hallmarkDeskRightMax 1.5s 1 forwards');
-          }
+          @include animation('hallmarkDeskRightMax 1.5s 1 forwards');
         }
       }
     }//end right

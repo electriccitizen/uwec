@@ -58,7 +58,7 @@
 	{% block pageAdmin %}
 		{% if page.admin %}
 			<section class="admin-wrapper" role="complementary">
-				<div class="admin-inner">
+				<div class="admin-inner">	
 					{% block adminContent %}
 						{{ page.admin }}
 					{% endblock %}
@@ -66,11 +66,11 @@
 			</section>
 		{% endif %}
 	{% endblock %}
-
+	
 	{% block pageAlert %}
 		{% if page.alert %}
 			<section class="alert-wrapper" role="complementary">
-				<div class="alert-inner">
+				<div class="alert-inner">	
 					{% block alertContent %}
 						{{ page.alert }}
 					{% endblock %}
@@ -98,7 +98,7 @@
 						{% endblock %}
 				</div>{# /.layout-content #}
 			{% endblock %}
-
+			
 		</main>
 	{% endblock %}
 
@@ -111,7 +111,7 @@
 							<svg width="41" height="49" viewBox="0 0 41 49" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20.2866 48.9609L20.2866 1.60872" stroke="#232C99" stroke-width="2" stroke-miterlimit="10"/><path d="M39.4922 20.8145L20.2866 1.60889L1.09219 20.8145" stroke="#232C99" stroke-width="2" stroke-miterlimit="10"/></svg>
 						</a>
 					</div>
-					<div class="prefooter-inner">
+					<div class="prefooter-inner">	
 						{% block prefooterContent %}
 							{{ page.prefooter }}
 						{% endblock %}
@@ -124,7 +124,7 @@
 	{% block pageFooter %}
 		{% if page.footer %}
 			<footer role="contentinfo" class="site-footer">
-			<div class="footer-inner">
+			<div class="footer-inner">	
 				{% block footerContent %}
 					{{ page.footer }}
 				{% endblock %}

@@ -8,11 +8,8 @@
 .paragraph--type--image{
   max-width: 1104px;
   @include auto;
-  &.image-visible .image-wrapper {
-    body.animations-paused & {
-      opacity: 1;
-    }
-    body.animations-playing & {
+  &.image-visible{
+    .image-wrapper{
       @include animation('fadeIn 1.5s 1 forwards');
     }
   }

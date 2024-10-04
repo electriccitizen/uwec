@@ -11,7 +11,6 @@ global:
     - core/drupalSettings
     - core/jquery
     - core/once
-    - core/js-cookie
 academic-program-toggle:
   js:
     components/04-units/nodes/academic-program/program-toggle.js: {}
