@@ -28,7 +28,7 @@ iframe.npc-frame{
     height: 760px;
   }
   @include contentStop{
-    padding-left: 120px;
+    padding-left: 120px; 
     height: 680px;
   }
 }//end net price calculator
@@ -66,28 +66,4 @@ iframe.see-higher{
   display: block;
   @include auto;
   border: 0;
-}
-
-/* PAUSE ANIMATIONS BUTTON
------------------ */
-.animations-button {
-  bottom: 24px;
-  background: url("../images/elements/pause-white.svg") center center / 24px 24px no-repeat $royal;
-  border-radius: 50%;
-  display: block;
-  height: 28px;
-  opacity: .7;
-  position: fixed;
-  right: 40px;
-  width: 28px;
-  z-index: 10;
-  &:hover,
-  &:focus {
-    background-color: $navy;
-    opacity: 1;
-  }
-
-  body.animations-paused & {
-    background-image: url("../images/elements/play-white.svg");
-  }
 }

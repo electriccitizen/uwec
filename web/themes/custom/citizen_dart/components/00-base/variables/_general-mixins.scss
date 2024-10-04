@@ -386,9 +386,7 @@
     z-index: -1;
   }
   &.visible:before {
-    body.animations-playing & {
-      @include animation('sealRollRight 1s');
-    }
+    @include animation('sealRollRight 1s');
     display: block;
     right: 8%;
   }
@@ -401,9 +399,7 @@
       height: 152px;
     }
     &.visible:before {
-      body.animations-playing & {
-        @include animation('sealRollRightDesk 1s');
-      }
+      @include animation('sealRollRightDesk 1s');
       right: 86%;
     }
   }
@@ -1276,10 +1272,5 @@
 }
 
 .fadeIn {
-  body.animations-paused & {
-    opacity: 1;
-  }
-  body.animations-playing & {
-	  @include animation('fadeIn 1.5s 1');
-  }
+	@include animation('fadeIn 1.5s 1');
 }

@@ -576,12 +576,7 @@
 }//end patternHero
 
 @mixin patternHeroSwirl{
-  body.animations-paused & {
-    opacity: 1;
-  }
-  body.animations-playing & {
-    @include animation('fadeInDelay 1s 1');
-  }
+  @include animation('fadeInDelay 1s 1');
   content: '';
   position: absolute;
   bottom: -8px;
@@ -754,12 +749,7 @@
       z-index: -1;
     }
     &:before { // Top gradient.
-      body.animations-paused & {
-        opacity: 1;
-      }
-      body.animations-playing & {
-        @include animation('fadeIn 1.25s 1');
-      }
+      @include animation('fadeIn 1.25s 1');
       @include fullBack(transparent); // BG will be replaced by gradient.
       @include gradient('top', #{$navy}ff, 0, #d9d9d900);
       height: 110px;
@@ -770,12 +760,7 @@
     }
     &:after { // Bottom gradient, only exists on desktop.
       @include desk {
-        body.animations-paused & {
-          opacity: 1;
-        }
-        body.animations-playing & {
-          @include animation('fadeIn 1.25s 1');
-        }
+        @include animation('fadeIn 1.25s 1');
         @include fullBack(transparent); // BG will be replaced by gradient.
         @include gradient('bottom', #{$navy}ff, 0, #d9d9d900);
         bottom: 0;
@@ -879,12 +864,7 @@
       top: 0;
       left: 0;
       background: linear-gradient(0deg, rgba(#d9d9d9, 0) 0%, $navy 100%);
-      body.animations-paused & {
-        opacity: 1;
-      }
-      body.animations-playing & {
-        @include animation('fadeIn 1.25s 1');
-      }
+      @include animation('fadeIn 1.25s 1');
       @include desk{
         height: 160px;
       }
@@ -902,12 +882,7 @@
       bottom: 0;
       left: 0;
       background: linear-gradient(180deg, rgba(#d9d9d9, 0) 0%, $navy 100%);
-      body.animations-paused & {
-        opacity: 1;
-      }
-      body.animations-playing & {
-        @include animation('fadeIn 1.25s 1');
-      }
+      @include animation('fadeIn 1.25s 1');
       @include desk{
         height: calc(100% - 160px);
       }
@@ -1033,7 +1008,7 @@
     @include safeFlex(row,nowrap,start,start);
     padding-right: 20px;
     .icon-wrapper{
-      width: 16px;
+			width: 16px;
 			margin-right: 12px;
 		}
 		.field-content{
@@ -1068,12 +1043,7 @@
 }//end profileTeaser
 
 @mixin goldSwirl{
-  body.animations-paused & {
-    opacity: 1;
-  }
-  body.animations-playing & {
-    @include animation('fadeInDelay 1s 1');
-  }
+  @include animation('fadeInDelay 1s 1');
   content: '';
   position: absolute;
   bottom: -83px;
@@ -1099,12 +1069,7 @@
 }//end gold swirl
 
 @mixin royalSwirl{
-  body.animations-paused & {
-    opacity: 1;
-  }
-  body.animations-playing & {
-    @include animation('fadeInDelay 1s 1');
-  }
+  @include animation('fadeInDelay 1s 1');
   content: '';
   position: absolute;
   top: 212px;
@@ -1132,12 +1097,7 @@
 @mixin stripesRoyalNarrow{
   position: relative;
   &:before{
-    body.animations-paused & {
-      opacity: 1;
-    }
-    body.animations-playing & {
-      @include animation('fadeInDelay 1s 1');
-    }
+    @include animation('fadeInDelay 1s 1');
     content: url(../images/elements/stripes-narrow-royal.svg);
     position: absolute;
     top: calc(100% - 22px);

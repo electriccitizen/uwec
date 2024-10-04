@@ -14,7 +14,11 @@ Drupal.behaviors.heroVideo = {
       const video = $("video", this).get(0);
       const videoWrapper = $(this);
       const videoCookie = cookies.get('heroVideoPlay');
-      let defaultState = videoCookie ? videoCookie : "playing";
+      let defaultState = "playing";
+
+      if (videoCookie) {
+        defaultState = videoCookie;
+      }
 
       if (video) {
         const videoButton = $(`<a href="#" class="video-button" title="${pickButtonLanguage(defaultState)}" aria-label="${pickButtonLanguage(defaultState)}"></a>`);

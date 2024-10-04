@@ -133,9 +133,7 @@
       opacity: 0;
       .testimonial-visible &{
         opacity: 1;
-        body.animations-playing & {
-          transition: opacity 1s ease-out;
-        }
+        transition: opacity 1s ease-out;
       }
     }
     .testimonial-details-inner{
