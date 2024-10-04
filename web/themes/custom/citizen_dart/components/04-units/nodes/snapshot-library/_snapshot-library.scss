@@ -66,15 +66,21 @@
     .field-image{
       &:after{
         right: -130px;
-        transition: right 1s ease-out;
+        body.animations-playing & {
+          transition: right 1s ease-out;
+          @include desk {
+            transition: right .001s ease-out;
+          }
+        }
         @include desk{
           right: -40px;
-          transition: right .001s ease-out;
         }
       }
       article img{
         opacity: 1;
-        transition: opacity 0.5s ease-in;
+        body.animations-playing & {
+          transition: opacity 0.5s ease-in;
+        }
       }
     }//end field image
   }//end snapshot visible

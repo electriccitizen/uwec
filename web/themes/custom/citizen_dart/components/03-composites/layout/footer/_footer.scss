@@ -135,12 +135,16 @@
     .back-anchor a{
       opacity: 1;
       @include rotate(0);
-      transition: opacity 0.5s ease-in, transform .5s ease-in-out;
+      body.animations-playing & {
+        transition: opacity 0.5s ease-in, transform .5s ease-in-out;
+      }
     }
     .block-2{
       @include desk{
         left: 60px;
-        transition: left 0.75s ease-in;
+        body.animations-playing & {
+          transition: left 0.75s ease-in;
+        }
       }
     }
   }//end visible

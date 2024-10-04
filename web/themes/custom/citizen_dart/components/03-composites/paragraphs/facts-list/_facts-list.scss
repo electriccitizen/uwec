@@ -19,7 +19,9 @@
   &.facts-visible{
     .node-teaser-fact{
       opacity: 1;
-      transition: opacity .5s ease-in;
+      body.animations-playing & {
+        transition: opacity .5s ease-in;
+      }
     }
     .fact-2{
       .node-teaser-fact{

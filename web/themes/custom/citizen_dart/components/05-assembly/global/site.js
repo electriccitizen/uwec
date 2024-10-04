@@ -28,11 +28,15 @@ Drupal.behaviors.footerAnimate = {
       // Function to handle the intersection observer callback
       function handleIntersection(entries, observer) {
         entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              //add class when target is visible
-              entry.target.classList.add('visible');
-              observer.unobserve(entry.target); // Stop observing once the class is added
-            }
+          if ($("body").hasClass("animations-paused")) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+          else if (entry.isIntersecting) {
+            //add class when target is visible
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target); // Stop observing once the class is added
+          }
         });
       }
       // Create an intersection observer
@@ -275,11 +279,10 @@ Drupal.behaviors.pauseAnimations = {
     $(once('animationsState', 'body', context)).each(function() {
       const animationCookie = cookies.get('uwecAnimationsPlay');
       const contentWrapper = $(".main-page-content", this);
-      let defaultState = "playing";
+      let defaultState = animationCookie ? animationCookie : "playing";
 
-      if (animationCookie) {
-        defaultState = animationCookie;
-      }
+      console.log("animations are " + defaultState);
+
       const animationsButton = $(`<a href="#" class="animations-button" title="${pickButtonLanguage(defaultState)}" aria-label="${pickButtonLanguage(defaultState)}"></a>`);
 
       $(this).addClass("animations-" + defaultState);
@@ -289,7 +292,9 @@ Drupal.behaviors.pauseAnimations = {
         e.stopPropagation();
         // Simply toggle the state onclick. Everything else is keyed from this
         // one thing.
-        defaultState === "playing" ? "paused" : "playing";
+        console.log("defaultState currently " + defaultState);
+        defaultState = defaultState === "playing" ? "paused" : "playing";
+        console.log("setting cookie to " + defaultState);
         cookies.set("uwecAnimationsPlay", defaultState);
         $(this).toggleClass("animations-paused");
         $(this).toggleClass("animations-playing");
