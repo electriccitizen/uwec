@@ -21,7 +21,7 @@ Drupal.behaviors.heroVideo = {
       }
 
       if (video) {
-        const videoButton = $(`<a href="#" class="video-button" aria-label="${pickButtonLanguage(defaultState)}"></a>`);
+        const videoButton = $(`<a href="#" class="video-button" title="${pickButtonLanguage(defaultState)}" aria-label="${pickButtonLanguage(defaultState)}"></a>`);
 
         // Set the initial state of the video (and the wrapper class) based off
         // of if we had a cookie telling us to pause.
@@ -47,6 +47,7 @@ Drupal.behaviors.heroVideo = {
 
           // Don't forget to update the ARIA language.
           videoButton.attr("aria-label", pickButtonLanguage(defaultState));
+          videoButton.attr("title", pickButtonLanguage(defaultState));
         });
         $(this).append(videoButton);
       }

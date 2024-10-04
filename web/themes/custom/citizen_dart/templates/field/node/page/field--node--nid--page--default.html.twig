@@ -58,36 +58,6 @@
         </div>
       {% endif %}
     {% endif %}
-    {# set an area with breadcrumbs and header text content #}
-    <div class="page-header-text">
-      {% if element['#object'].field_hide_nav.0.value == '0' and (element['#object'].field_hero.0.entity.field_hero_type.0.value != 'full_image' and element['#object'].field_hero.0.entity.field_hero_type.0.value != 'video') %}
-        {{ drupal_block('system_breadcrumb_block') }}
-      {% endif %}
-      <div class="page-header-text-inner">
-        <div class="node-title">
-          <h1 class="page-title formatted-title">{{ formattedTitle|render|striptags('<strong>')|trim|raw }}</h1>
-        </div>
-        {% if element['#object'].field_subtitle.0 and (element['#object'].field_hero.0.entity.field_hero_type.0.value == 'pattern' or element['#object'].field_hero.0.entity.field_hero_type.0.value == 'image' or element['#object'].field_hero.0.entity.field_hero_type.0.value == 'background_image') %}
-          <h2 class="node-subtitle">
-            {{ element['#object'].field_subtitle.0.value }}
-          </h2>
-        {% endif %}
-        {% if element['#object'].body.0 and (element['#object'].field_hero.0.entity.field_hero_type.0.value == 'pattern' or element['#object'].field_hero.0.entity.field_hero_type.0.value == 'image' or element['#object'].field_hero.0.entity.field_hero_type.0.value == 'background_image') %}
-          <div class="node-body">
-            {{ bodyText }}
-          </div>
-        {% endif %}
-        {% if element['#object'].field_hero.0.entity.field_hero_type.0.value == 'video' %}
-          <div class="scroll-link">
-            <a href="#home-cta">Here you can
-              <span class="link-arrow">
-                <span>scroll to content</span>
-              </span>
-            </a>
-          </div>
-        {% endif %}
-      </div>
-    </div>
 
     {# render the video and arrow link if its a video hero #}
     {% if element['#object'].field_hero.0.entity.field_hero_type.0.value ==
@@ -121,5 +91,35 @@
       {% endif %}
     </div>
     {# end page header wrapper #}
+        {# set an area with breadcrumbs and header text content #}
+    <div class="page-header-text">
+      {% if element['#object'].field_hide_nav.0.value == '0' and (element['#object'].field_hero.0.entity.field_hero_type.0.value != 'full_image' and element['#object'].field_hero.0.entity.field_hero_type.0.value != 'video') %}
+        {{ drupal_block('system_breadcrumb_block') }}
+      {% endif %}
+      <div class="page-header-text-inner">
+        <div class="node-title">
+          <h1 class="page-title formatted-title">{{ formattedTitle|render|striptags('<strong>')|trim|raw }}</h1>
+        </div>
+        {% if element['#object'].field_subtitle.0 and (element['#object'].field_hero.0.entity.field_hero_type.0.value == 'pattern' or element['#object'].field_hero.0.entity.field_hero_type.0.value == 'image' or element['#object'].field_hero.0.entity.field_hero_type.0.value == 'background_image') %}
+          <h2 class="node-subtitle">
+            {{ element['#object'].field_subtitle.0.value }}
+          </h2>
+        {% endif %}
+        {% if element['#object'].body.0 and (element['#object'].field_hero.0.entity.field_hero_type.0.value == 'pattern' or element['#object'].field_hero.0.entity.field_hero_type.0.value == 'image' or element['#object'].field_hero.0.entity.field_hero_type.0.value == 'background_image') %}
+          <div class="node-body">
+            {{ bodyText }}
+          </div>
+        {% endif %}
+        {% if element['#object'].field_hero.0.entity.field_hero_type.0.value == 'video' %}
+          <div class="scroll-link">
+            <a href="#home-cta" tabindex=0>Here you can
+              <span class="link-arrow">
+                <span>scroll to content</span>
+              </span>
+            </a>
+          </div>
+        {% endif %}
+      </div>
+    </div>
     <div id="scroll-anchor"></div>
   {% endblock %}
