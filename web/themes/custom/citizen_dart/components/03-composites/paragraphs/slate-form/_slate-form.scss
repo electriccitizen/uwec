@@ -39,8 +39,13 @@
 		}//end slate-left,slate-right
 	}//end widget wrapper
   .slate-left.slate-visible{
-    .field-formatted-headline strong{
-      @include animation('breatheFadeIn 1.5s 1 forwards');
+    .field-formatted-headline strong {
+      body.animations-paused & {
+        opacity: 1;
+      }
+      body.animations-playing & {
+        @include animation('breatheFadeIn 1.5s 1 forwards');
+      }
     }
   }
 	.field-formatted-headline{

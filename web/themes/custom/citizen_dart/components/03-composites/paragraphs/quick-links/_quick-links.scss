@@ -18,7 +18,9 @@
 			height: 100%;
 			background: linear-gradient(to right, transparent 0%, rgba(255,255,255,0.15) 60%, transparent 100%);
 			transform: skewX(-16deg);
-			transition: 1s;
+      body.animations-playing & {
+			  transition: 1s;
+      }
 		}
 		&.quick-links-visible:before{
 			left:100vw;

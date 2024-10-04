@@ -295,14 +295,21 @@
     &.outcomes-image {
       &:after {
         right: var(--animation-start-wide);
-        transition: right 1s ease-in-out;
+        body.animations-playing & {
+          transition: right 1s ease-in-out;
+        }
         @include desk {
           @include royalSwirl;
           @include animation('none'); // Make sure this doesn't fade in until.
         }
       }
       &.visible:after {
-        @include animation('fadeInDelay 1s 1');
+        body.animations-paused & {
+          opacity: 1;
+        }
+        body.animations-playing & {
+          @include animation('fadeInDelay 1s 1');
+        }
         right: var(--animation-end-wide);
       }
     }
@@ -400,7 +407,12 @@
         }
         &.slate-visible{
           h2 strong{
-            @include animation('breatheFadeIn 1.5s 1 forwards');
+            body.animations-paused & {
+              opacity: 1;
+            }
+            body.animations-playing & {
+              @include animation('breatheFadeIn 1.5s 1 forwards');
+            }
           }
         }
         h2{
