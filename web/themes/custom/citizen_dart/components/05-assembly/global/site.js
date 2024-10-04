@@ -1,6 +1,6 @@
-(function($, Drupal, once) {
+(function($, Drupal, once, cookies) {
 
-/* LAYOUT 
+/* LAYOUT
 ------------------ */
 Drupal.behaviors.removeEmptyRegions = {
   attach: function (context, settings) {
@@ -9,7 +9,7 @@ Drupal.behaviors.removeEmptyRegions = {
         $(this).remove();
       }
       $(document).on('click', 'a#layout-content', function(e) {
-        e.preventDefault(); 
+        e.preventDefault();
     });
     });
     $(once('removeEmptyContact', '.node-bios #node-section-2,.node-department #node-section-4,.node-college #node-section-4', context)).each(function(){
@@ -73,7 +73,7 @@ Drupal.behaviors.smoothAnchorator = {
         if (link.getAttribute('href').match(/^#[a-zA-Z]/)) {
           link.addEventListener('click', function(event) {
           event.preventDefault();
-          
+
           const targetId = link.getAttribute('href').substring(1);
           const targetElement = document.getElementById(targetId);
 
@@ -139,7 +139,6 @@ function mobileMenuInsert() {
 		}
 	}
 }
-
 
 // GPA Calculator and "Raise your GPA"
 Drupal.behaviors.gpaCalculator = {
@@ -267,5 +266,48 @@ Drupal.behaviors.gpaCalculator = {
   }
 }
 
+// GPA Calculator and "Raise your GPA"
+Drupal.behaviors.pauseAnimations = {
+  attach: function (context, settings) {
+    const pause_lang = Drupal.t("Pause all animations");
+    const play_lang = Drupal.t("Play all animations");
 
-})(jQuery, Drupal, once);
+    $(once('animationsState', 'body', context)).each(function() {
+      const animationCookie = cookies.get('uwecAnimationsPlay');
+      const contentWrapper = $(".main-page-content", this);
+      let defaultState = "playing";
+
+      if (animationCookie) {
+        defaultState = animationCookie;
+      }
+      const animationsButton = $(`<a href="#" class="animations-button" title="${pickButtonLanguage(defaultState)}" aria-label="${pickButtonLanguage(defaultState)}"></a>`);
+
+      $(this).addClass("animations-" + defaultState);
+
+      animationsButton.on("click", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        // Simply toggle the state onclick. Everything else is keyed from this
+        // one thing.
+        defaultState === "playing" ? "paused" : "playing";
+        cookies.set("uwecAnimationsPlay", defaultState);
+        $(this).toggleClass("animations-paused");
+        $(this).toggleClass("animations-playing");
+
+        // Don't forget to update the ARIA language.
+        animationsButton.attr("aria-label", pickButtonLanguage(defaultState));
+        animationsButton.attr("title", pickButtonLanguage(defaultState));
+      });
+      contentWrapper.append(animationsButton);
+    });
+
+    // Return the pause/play language based off of the current state.
+    // Expects the state to be "playing" if the video is currently playing, or
+    // any other state if it's paused.
+    function pickButtonLanguage(state) {
+      return state === "playing" ? pause_lang : play_lang;
+    }
+  }
+}
+
+})(jQuery, Drupal, once, window.Cookies);
