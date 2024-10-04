@@ -270,18 +270,24 @@ Drupal.behaviors.gpaCalculator = {
   }
 }
 
-// GPA Calculator and "Raise your GPA"
+// "Pause Animations" button
 Drupal.behaviors.pauseAnimations = {
   attach: function (context, settings) {
     const pause_lang = Drupal.t("Pause all animations");
     const play_lang = Drupal.t("Play all animations");
 
+    // All animations are controlled via classes in the body tag.
+    // Generally, .animations-paused is checked by the various JS files that add
+    // some sort of "visible" class on scroll. If animations are paused, that
+    // class is added immediately insteead of waiting.
+    // On the other hand, .animations-playing is checked by the CSS to see if
+    // they should play various fade-in animations, or if they should just be
+    // opaque by default.
+
     $(once('animationsState', 'body', context)).each(function() {
       const animationCookie = cookies.get('uwecAnimationsPlay');
       const contentWrapper = $(".main-page-content", this);
       let defaultState = animationCookie ? animationCookie : "playing";
-
-      console.log("animations are " + defaultState);
 
       const animationsButton = $(`<a href="#" class="animations-button" title="${pickButtonLanguage(defaultState)}" aria-label="${pickButtonLanguage(defaultState)}"></a>`);
 
@@ -292,10 +298,7 @@ Drupal.behaviors.pauseAnimations = {
         e.stopPropagation();
         // Simply toggle the state onclick. Everything else is keyed from this
         // one thing.
-        console.log("defaultState currently " + defaultState);
         defaultState = defaultState === "playing" ? "paused" : "playing";
-        console.log("setting cookie to " + defaultState);
-        cookies.set("uwecAnimationsPlay", defaultState);
         $(this).toggleClass("animations-paused");
         $(this).toggleClass("animations-playing");
 
