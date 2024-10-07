@@ -302,7 +302,7 @@
         }
       }
       &.visible:after {
-        body.animations-paused & {
+        html.animations-paused & {
           opacity: 1;
         }
         @include animation('fadeInDelay 1s 1');
@@ -403,7 +403,7 @@
         }
         &.slate-visible{
           h2 strong{
-            body.animations-paused & {
+            html.animations-paused & {
               opacity: 1;
             }
             @include animation('breatheFadeIn 1.5s 1 forwards');

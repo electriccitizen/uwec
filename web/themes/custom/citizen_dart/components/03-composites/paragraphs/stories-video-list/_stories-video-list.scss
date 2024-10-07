@@ -50,7 +50,7 @@
   .node-teaser{
     opacity: 0;
     &.story-video-visible {
-      body.animations-paused & {
+      html.animations-paused & {
         opacity: 1;
       }
       @include animation('fadeIn 1s 1 forwards');

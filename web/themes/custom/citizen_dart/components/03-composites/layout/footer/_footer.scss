@@ -135,7 +135,7 @@
     .back-anchor a{
       opacity: 1;
       @include rotate(0);
-      body.animations-playing & {
+      html.animations-playing & {
         transition: opacity 0.5s ease-in, transform .5s ease-in-out;
       }
     }

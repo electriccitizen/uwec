@@ -87,7 +87,7 @@ iframe.see-higher{
     opacity: 1;
   }
 
-  body.animations-paused & {
+  html.animations-paused & {
     background-image: url("../images/elements/play-white.svg");
   }
 }

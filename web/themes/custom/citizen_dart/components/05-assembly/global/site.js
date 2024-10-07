@@ -276,6 +276,8 @@ Drupal.behaviors.pauseAnimations = {
     const pause_lang = Drupal.t("Pause all animations");
     const play_lang = Drupal.t("Play all animations");
 
+    const animation_cookie = "uwecAnimationsPlay";
+
     // All animations are controlled via classes in the body tag.
     // Generally, .animations-paused is checked by the various JS files that add
     // some sort of "visible" class on scroll. If animations are paused, that
@@ -284,8 +286,8 @@ Drupal.behaviors.pauseAnimations = {
     // they should play various fade-in animations, or if they should just be
     // opaque by default.
 
-    $(once('animationsState', 'body', context)).each(function() {
-      const animationCookie = cookies.get('uwecAnimationsPlay');
+    $(once('animationsState', 'html', context)).each(function() {
+      const animationCookie = cookies.get(animation_cookie);
       const contentWrapper = $(".main-page-content", this);
       let defaultState = animationCookie ? animationCookie : "playing";
 
@@ -299,6 +301,7 @@ Drupal.behaviors.pauseAnimations = {
         // Simply toggle the state onclick. Everything else is keyed from this
         // one thing.
         defaultState = defaultState === "playing" ? "paused" : "playing";
+        cookies.set(animation_cookie, defaultState);
         $(this).toggleClass("animations-paused");
         $(this).toggleClass("animations-playing");
 

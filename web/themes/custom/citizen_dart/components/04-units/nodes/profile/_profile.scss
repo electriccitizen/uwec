@@ -102,7 +102,7 @@
       .image-wrapper {
         position: relative;
         margin-bottom: 2.5rem;
-        body.animations-paused & {
+        html.animations-paused & {
           opacity: 1;
         }
         @include animation('fadeInDelay 1.5s 1');

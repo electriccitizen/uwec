@@ -14,7 +14,7 @@
       right: -240px;
     }
   }
-  body.animations-playing & {
+  html.animations-playing & {
     animation: heroSwirlSlide 1.5s forwards;
   }
   @include smallTab{
@@ -26,7 +26,7 @@
         right: -220px;
       }
     }
-    body.animations-playing & {
+    html.animations-playing & {
       animation: heroSwirlSlide 1.5s forwards;
     }
   }
@@ -39,7 +39,7 @@
         right: -80px;
       }
     }
-    body.animations-playing & {
+    html.animations-playing & {
       animation: heroSwirlSlide 1.5s forwards;
     }
   }
@@ -52,7 +52,7 @@
         right: 0;
       }
     }
-    body.animations-playing & {
+    html.animations-playing & {
       animation: heroSwirlSlide 1.5s forwards;
     }
   }
@@ -60,6 +60,9 @@
 
 @mixin swirlAnimationRightImage{
   left: auto;
+  html.animations-paused & {
+    right: -12px;
+  }
   @keyframes heroSwirlSlideImage {
     from {
       right: -200vw;
@@ -68,10 +71,11 @@
       right: -12px;
     }
   }
-  body.animations-playing & {
-    animation: heroSwirlSlideImage 1.5s forwards;
-  }
+  @include animation("heroSwirlSlideImage 1.5s forwards");
   @include smallTab{
+    html.animations-paused & {
+      right: -30px;
+    }
     @keyframes heroSwirlSlideImage {
       from {
         right: -200vw;
@@ -80,12 +84,13 @@
         right: -30px;
       }
     }
-    body.animations-playing & {
-      animation: heroSwirlSlideImage 1.5s forwards;
-    }
+    @include animation("heroSwirlSlideImage 1.5s forwards");
   }
   @include desk{
     right: auto;
+    html.animations-paused & {
+      left: -80px;
+    }
     @keyframes heroSwirlSlideImage {
       from {
         left: 200vw;
@@ -94,9 +99,7 @@
         left: -80px;
       }
     }
-    body.animations-playing & {
-      animation: heroSwirlSlideImage 1.5s forwards;
-    }
+    @include animation("heroSwirlSlideImage 1.5s forwards");
   }
 }//end swirlAnimationRightImage
 
@@ -120,7 +123,7 @@
         right: -60px;
       }
     }
-    body.animations-playing & {
+    html.animations-playing & {
       animation: heroSwirlSlideFullImage 1.5s forwards;
     }
   }
@@ -133,7 +136,7 @@
         right: -70px;
       }
     }
-    body.animations-playing & {
+    html.animations-playing & {
       animation: heroSwirlSlideFullImage 1.5s forwards;
     }
   }
@@ -146,7 +149,7 @@
         right: -100px;
       }
     }
-    body.animations-playing & {
+    html.animations-playing & {
       animation: heroSwirlSlideFullImage 1.5s forwards;
     }
   }
@@ -405,7 +408,9 @@
       @include contentStop{
         bottom: -146px;
       }
-      .hero-image &,.node-type-college.hero-has-image &,.node-type-academic-program &{
+      .hero-image &,
+      .node-type-college.hero-has-image &,
+      .node-type-academic-program & {
         @include swirlAnimationRightImage;
       }
     }//end after swirl
@@ -596,10 +601,10 @@
 }//end patternHero
 
 @mixin patternHeroSwirl{
-  body.animations-paused & {
+  html.animations-paused & {
     opacity: 1;
   }
-  body.animations-playing & {
+  html.animations-playing & {
     @include animation('fadeInDelay 1s 1');
   }
   content: '';
@@ -774,10 +779,10 @@
       z-index: -1;
     }
     &:before { // Top gradient.
-      body.animations-paused & {
+      html.animations-paused & {
         opacity: 1;
       }
-      body.animations-playing & {
+      html.animations-playing & {
         @include animation('fadeIn 1.25s 1');
       }
       @include fullBack(transparent); // BG will be replaced by gradient.
@@ -790,10 +795,10 @@
     }
     &:after { // Bottom gradient, only exists on desktop.
       @include desk {
-        body.animations-paused & {
+        html.animations-paused & {
           opacity: 1;
         }
-        body.animations-playing & {
+        html.animations-playing & {
           @include animation('fadeIn 1.25s 1');
         }
         @include fullBack(transparent); // BG will be replaced by gradient.
@@ -899,10 +904,10 @@
       top: 0;
       left: 0;
       background: linear-gradient(0deg, rgba(#d9d9d9, 0) 0%, $navy 100%);
-      body.animations-paused & {
+      html.animations-paused & {
         opacity: 1;
       }
-      body.animations-playing & {
+      html.animations-playing & {
         @include animation('fadeIn 1.25s 1');
       }
       @include desk{
@@ -922,10 +927,10 @@
       bottom: 0;
       left: 0;
       background: linear-gradient(180deg, rgba(#d9d9d9, 0) 0%, $navy 100%);
-      body.animations-paused & {
+      html.animations-paused & {
         opacity: 1;
       }
-      body.animations-playing & {
+      html.animations-playing & {
         @include animation('fadeIn 1.25s 1');
       }
       @include desk{
@@ -1088,10 +1093,10 @@
 }//end profileTeaser
 
 @mixin goldSwirl{
-  body.animations-paused & {
+  html.animations-paused & {
     opacity: 1;
   }
-  body.animations-playing & {
+  html.animations-playing & {
     @include animation('fadeInDelay 1s 1');
   }
   content: '';
@@ -1119,10 +1124,10 @@
 }//end gold swirl
 
 @mixin royalSwirl{
-  body.animations-paused & {
+  html.animations-paused & {
     opacity: 1;
   }
-  body.animations-playing & {
+  html.animations-playing & {
     @include animation('fadeInDelay 1s 1');
   }
   content: '';
@@ -1152,10 +1157,10 @@
 @mixin stripesRoyalNarrow{
   position: relative;
   &:before{
-    body.animations-paused & {
+    html.animations-paused & {
       opacity: 1;
     }
-    body.animations-playing & {
+    html.animations-playing & {
       @include animation('fadeInDelay 1s 1');
     }
     content: url(../images/elements/stripes-narrow-royal.svg);

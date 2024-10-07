@@ -40,7 +40,7 @@
 	}//end widget wrapper
   .slate-left.slate-visible{
     .field-formatted-headline strong {
-      body.animations-paused & {
+      html.animations-paused & {
         opacity: 1;
       }
       @include animation('breatheFadeIn 1.5s 1 forwards');

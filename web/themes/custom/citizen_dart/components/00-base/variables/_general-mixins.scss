@@ -1147,7 +1147,7 @@
 /* ANIMATION MIXINS
 --------------------- */
 @mixin transition-animate($transition...) {
-  body.animations-playing & {
+  html.animations-playing & {
     @include transition($transition...);
   }
 }
@@ -1163,7 +1163,7 @@
 			$animations: #{$animations + ", "};
 		}
 	}
-  body.animations-playing & {
+  html.animations-playing & {
     -webkit-animation: $animations;
     -moz-animation:    $animations;
     -o-animation:      $animations;
@@ -1280,7 +1280,7 @@
 }
 
 .fadeIn {
-  body.animations-paused & {
+  html.animations-paused & {
     opacity: 1;
   }
   @include animation('fadeIn 1.5s 1');
