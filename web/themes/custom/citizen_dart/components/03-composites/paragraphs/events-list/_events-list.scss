@@ -5,7 +5,12 @@
 @use '../../../00-base/base' as *;
 
 .paragraph--type--events-list{
-  @include animation('fadeInDelay 1.5s 1 forwards');
+  body.animations-paused & {
+    opacity: 1;
+  }
+  body.animations-playing & {
+    @include animation('fadeInDelay 1.5s 1 forwards');
+  }
   .events-title{
     @include styledHeader;
     text-align: left;

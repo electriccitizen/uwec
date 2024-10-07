@@ -49,7 +49,11 @@
 				// Function to handle the intersection observer callback
 				function handleIntersection(entries, observer) {
 					entries.forEach(entry => {
-						if (entry.isIntersecting) {
+						if ($("body").hasClass("animations-paused")) {
+              entry.target.classList.add('gallery-visible');
+              observer.unobserve(entry.target);
+            }
+            else if (entry.isIntersecting) {
 							//add class when target is visible
 							entry.target.classList.add('gallery-visible');
 							observer.unobserve(entry.target); // Stop observing once the class is added

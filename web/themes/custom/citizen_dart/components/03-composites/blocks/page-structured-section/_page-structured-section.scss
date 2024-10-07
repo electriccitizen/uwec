@@ -132,7 +132,9 @@
       }
     }
     &.visible:before {
-      @include animation('flipRight .5s');
+      body.animations-playing & {
+        @include animation('flipRight .5s');
+      }
       visibility: visible;
     }
   }
@@ -288,9 +290,11 @@
               left: auto;
               right: -200vw;
               top: -15px;
-              transition: right 1s ease-out;
               width: 112px;
               z-index: 2;
+              body.animations-playing & {
+                transition: right 1s ease-out;
+              }
             }
           }
         }
