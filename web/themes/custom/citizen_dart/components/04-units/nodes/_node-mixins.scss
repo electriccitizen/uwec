@@ -14,7 +14,9 @@
       right: -240px;
     }
   }
-  animation: heroSwirlSlide 1.5s forwards;
+  body.animations-playing & {
+    animation: heroSwirlSlide 1.5s forwards;
+  }
   @include smallTab{
     @keyframes heroSwirlSlide {
       from {
@@ -24,7 +26,9 @@
         right: -220px;
       }
     }
-    animation: heroSwirlSlide 1.5s forwards;
+    body.animations-playing & {
+      animation: heroSwirlSlide 1.5s forwards;
+    }
   }
   @include menuStop{
     @keyframes heroSwirlSlide {
@@ -35,7 +39,9 @@
         right: -80px;
       }
     }
-    animation: heroSwirlSlide 1.5s forwards;
+    body.animations-playing & {
+      animation: heroSwirlSlide 1.5s forwards;
+    }
   }
   @include contentStop{
     @keyframes heroSwirlSlide {
@@ -46,7 +52,9 @@
         right: 0;
       }
     }
-    animation: heroSwirlSlide 1.5s forwards;
+    body.animations-playing & {
+      animation: heroSwirlSlide 1.5s forwards;
+    }
   }
 }//end swirlAnimationNoImage
 
@@ -60,7 +68,9 @@
       right: -12px;
     }
   }
-  animation: heroSwirlSlideImage 1.5s forwards;
+  body.animations-playing & {
+    animation: heroSwirlSlideImage 1.5s forwards;
+  }
   @include smallTab{
     @keyframes heroSwirlSlideImage {
       from {
@@ -70,7 +80,9 @@
         right: -30px;
       }
     }
-    animation: heroSwirlSlideImage 1.5s forwards;
+    body.animations-playing & {
+      animation: heroSwirlSlideImage 1.5s forwards;
+    }
   }
   @include desk{
     right: auto;
@@ -82,7 +94,9 @@
         left: -80px;
       }
     }
-    animation: heroSwirlSlideImage 1.5s forwards;
+    body.animations-playing & {
+      animation: heroSwirlSlideImage 1.5s forwards;
+    }
   }
 }//end swirlAnimationRightImage
 
@@ -106,7 +120,9 @@
         right: -60px;
       }
     }
-    animation: heroSwirlSlideFullImage 1.5s forwards;
+    body.animations-playing & {
+      animation: heroSwirlSlideFullImage 1.5s forwards;
+    }
   }
   @include desk{
     @keyframes heroSwirlSlideFullImage {
@@ -117,7 +133,9 @@
         right: -70px;
       }
     }
-    animation: heroSwirlSlideFullImage 1.5s forwards;
+    body.animations-playing & {
+      animation: heroSwirlSlideFullImage 1.5s forwards;
+    }
   }
   @include contentStop{
     @keyframes heroSwirlSlideFullImage {
@@ -128,7 +146,9 @@
         right: -100px;
       }
     }
-    animation: heroSwirlSlideFullImage 1.5s forwards;
+    body.animations-playing & {
+      animation: heroSwirlSlideFullImage 1.5s forwards;
+    }
   }
 }//end swirlAnimationRightImage
 

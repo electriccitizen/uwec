@@ -142,9 +142,7 @@
     .block-2{
       @include desk{
         left: 60px;
-        body.animations-playing & {
-          transition: left 0.75s ease-in;
-        }
+        @include transition-animate(left, 0.75s, ease-in);
       }
     }
   }//end visible

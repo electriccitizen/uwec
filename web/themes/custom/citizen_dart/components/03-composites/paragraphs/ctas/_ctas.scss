@@ -14,24 +14,18 @@
       .node-support-book &{
         @include tab{
           opacity: 1;
-          body.animations-playing & {
-            transition: opacity 0.5s ease-in;
-          }
+          @include transition-animate(opacity, 0.5s, ease-in);
         }
       }
     }
     .cta-bar{
       .gold-stripes{
         right: -20px;
-        body.animations-playing & {
-          transition: right 1s ease-out;
-        }
+        @include transition-animate(right, 1s, ease-out);
       }
       .cta-item-inner article .field-media-image img{
         opacity: .3;
-        body.animations-playing & {
-          transition: opacity 0.75s ease-in;
-        }
+        @include transition-animate(opacity, 0.75s, ease-in);
       }
     }
   }

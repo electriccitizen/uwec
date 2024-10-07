@@ -15,9 +15,7 @@
           body.animations-paused & {
             opacity: 1;
           }
-          body.animations-playing & {
-					  @include animation('fadeIn 1s 1 forwards');
-          }
+          @include animation('fadeIn 1s 1 forwards');
 				}
 			}
 		}

@@ -285,9 +285,7 @@ $videoWidth: $videoHeight * 1.4153;
             body.animations-paused & {
               opacity: 1;
             }
-            body.animations-playing & {
-              @include animation('fadeIn 1.25s 1');
-            }
+            @include animation('fadeIn 1.25s 1');
           }
           @include menuStop{
             top: 120px;
@@ -296,9 +294,7 @@ $videoWidth: $videoHeight * 1.4153;
             body.animations-paused & {
               opacity: 1;
             }
-            body.animations-playing & {
-              @include animation('fadeInDelay 1s 1');
-            }
+            @include animation('fadeInDelay 1s 1');
             content: '';
             position: absolute;
             bottom: -195px;
@@ -581,9 +577,7 @@ $videoWidth: $videoHeight * 1.4153;
               body.animations-paused & {
                 opacity: 1;
               }
-              body.animations-playing & {
-                @include animation('fadeInDelay 1.5s 1 forwards');
-              }
+              @include animation('fadeInDelay 1.5s 1 forwards');
               z-index: 1;
             }
             &:after{
@@ -598,9 +592,7 @@ $videoWidth: $videoHeight * 1.4153;
               body.animations-paused & {
                 opacity: 1;
               }
-              body.animations-playing & {
-                @include animation('fadeInDelay 1.5s 1 forwards');
-              }
+              @include animation('fadeInDelay 1.5s 1 forwards');
               z-index: 1;
             }
           }//end desk

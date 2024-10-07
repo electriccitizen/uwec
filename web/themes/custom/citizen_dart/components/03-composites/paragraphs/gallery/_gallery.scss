@@ -23,9 +23,7 @@
 	&.gallery-visible{
 		.tiles .gallery-wrapper .square,.masonry li{
 			opacity: 1;
-      body.animations-playing & {
-			  transition: opacity .5s ease-in;
-      }
+      @include transition-animate(opacity, .5s, ease-in);
 		}
 		.image-gal{
 			&:nth-child(3n+1) {

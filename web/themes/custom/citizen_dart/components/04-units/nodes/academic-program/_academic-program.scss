@@ -295,9 +295,7 @@
     &.outcomes-image {
       &:after {
         right: var(--animation-start-wide);
-        body.animations-playing & {
-          transition: right 1s ease-in-out;
-        }
+        @include transition-animate(right, 1s, ease-in-out);
         @include desk {
           @include royalSwirl;
           @include animation('none'); // Make sure this doesn't fade in until.
@@ -307,9 +305,7 @@
         body.animations-paused & {
           opacity: 1;
         }
-        body.animations-playing & {
-          @include animation('fadeInDelay 1s 1');
-        }
+        @include animation('fadeInDelay 1s 1');
         right: var(--animation-end-wide);
       }
     }
@@ -410,9 +406,7 @@
             body.animations-paused & {
               opacity: 1;
             }
-            body.animations-playing & {
-              @include animation('breatheFadeIn 1.5s 1 forwards');
-            }
+            @include animation('breatheFadeIn 1.5s 1 forwards');
           }
         }
         h2{
