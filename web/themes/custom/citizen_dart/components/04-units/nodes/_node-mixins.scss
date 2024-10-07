@@ -4,8 +4,11 @@
 
 @use '../../00-base/base' as *;
 
-@mixin swirlAnimationNoImage{
+@mixin swirlAnimationNoImage {
   left: auto;
+  html.animations-paused & {
+    right: -240px;
+  }
   @keyframes heroSwirlSlide {
     from {
       right: -200vw;
@@ -14,10 +17,11 @@
       right: -240px;
     }
   }
-  html.animations-playing & {
-    animation: heroSwirlSlide 1.5s forwards;
-  }
-  @include smallTab{
+  @include animation("heroSwirlSlide 1.5s forwards");
+  @include smallTab {
+    html.animations-paused & {
+      right: -220px;
+    }
     @keyframes heroSwirlSlide {
       from {
         right: -200vw;
@@ -26,11 +30,12 @@
         right: -220px;
       }
     }
-    html.animations-playing & {
-      animation: heroSwirlSlide 1.5s forwards;
-    }
+    @include animation("heroSwirlSlide 1.5s forwards");
   }
-  @include menuStop{
+  @include menuStop {
+    html.animations-paused & {
+      right: -80px;
+    }
     @keyframes heroSwirlSlide {
       from {
         right: -200vw;
@@ -39,11 +44,12 @@
         right: -80px;
       }
     }
-    html.animations-playing & {
-      animation: heroSwirlSlide 1.5s forwards;
-    }
+    @include animation("heroSwirlSlide 1.5s forwards");
   }
-  @include contentStop{
+  @include contentStop {
+    html.animations-paused & {
+      right: 0;
+    }
     @keyframes heroSwirlSlide {
       from {
         right: -200vw;
@@ -52,9 +58,7 @@
         right: 0;
       }
     }
-    html.animations-playing & {
-      animation: heroSwirlSlide 1.5s forwards;
-    }
+    @include animation("heroSwirlSlide 1.5s forwards");
   }
 }//end swirlAnimationNoImage
 
@@ -105,6 +109,9 @@
 
 @mixin swirlAnimationFullImage{
   left: auto;
+  html.animations-paused & {
+    right: -80px;
+  }
   @keyframes heroSwirlSlideFullImage {
     from {
       right: -200vw;
@@ -115,6 +122,9 @@
   }
   animation: heroSwirlSlideFullImage 1.5s forwards;
   @include smallTab{
+    html.animations-paused & {
+      right: -60px;
+    }
     @keyframes heroSwirlSlideFullImage {
       from {
         right: -200vw;
@@ -128,6 +138,9 @@
     }
   }
   @include desk{
+    html.animations-paused & {
+      right: -70px;
+    }
     @keyframes heroSwirlSlideFullImage {
       from {
         right: -200vw;
@@ -141,6 +154,9 @@
     }
   }
   @include contentStop{
+    html.animations-paused & {
+      right: -100px;
+    }
     @keyframes heroSwirlSlideFullImage {
       from {
         right: -200vw;
@@ -603,9 +619,6 @@
 @mixin patternHeroSwirl{
   html.animations-paused & {
     opacity: 1;
-  }
-  html.animations-playing & {
-    @include animation('fadeInDelay 1s 1');
   }
   content: '';
   position: absolute;
