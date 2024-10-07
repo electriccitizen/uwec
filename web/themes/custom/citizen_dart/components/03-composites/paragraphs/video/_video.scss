@@ -12,11 +12,12 @@
     article{
       opacity: 1;
       transition: opacity 1s ease-out;
-      transition-delay: .3s;
+      html.animations-playing & {
+        transition-delay: .3s;
+      }
     }
   }
 	article{
 		opacity: 0;
 	}
 }//end video widget
-

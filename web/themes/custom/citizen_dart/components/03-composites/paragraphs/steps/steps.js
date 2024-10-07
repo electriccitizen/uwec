@@ -8,7 +8,7 @@ Drupal.behaviors.stepsAnimate = {
       // Function to handle the intersection observer callback
       function handleIntersection(entries, observer) {
         entries.forEach(entry => {
-          if ($("body").hasClass("animations-paused")) {
+          if ($("html").hasClass("animations-paused")) {
             entry.target.classList.add('step-visible');
             observer.unobserve(entry.target);
           }

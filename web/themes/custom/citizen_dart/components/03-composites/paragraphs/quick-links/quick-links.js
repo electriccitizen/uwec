@@ -6,7 +6,7 @@ Drupal.behaviors.quickLinksAnimate = {
       // Function to handle the intersection observer callback
       function handleIntersection(entries, observer) {
         entries.forEach(entry => {
-          if ($("body").hasClass("animations-paused")) {
+          if ($("html").hasClass("animations-paused")) {
             entry.target.classList.add('quick-links-visible');
             observer.unobserve(entry.target);
           }

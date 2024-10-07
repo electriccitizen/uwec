@@ -5,7 +5,7 @@ Drupal.behaviors.externalArticlesAnimate = {
 		once('externalArticlesAnimations', '.paragraph--type--external-articles .field-external-articles-items>div', context).forEach(element => {
 			function handleIntersection(entries, observer) {
 				entries.forEach(entry => {
-          if ($("body").hasClass("animations-paused")) {
+          if ($("html").hasClass("animations-paused")) {
             entry.target.classList.add('external-articles-visible');
             observer.unobserve(entry.target);
           }

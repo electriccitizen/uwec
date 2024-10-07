@@ -28,29 +28,41 @@
 		.image-gal{
 			&:nth-child(3n+1) {
 				.square{
-					transition-delay: .25s;
+          html.animations-playing & {
+					  transition-delay: .25s;
+          }
 				}
 			}
 			&:nth-child(3n+2){
 				.square{
-					transition-delay: .5s;
+          html.animations-playing & {
+					  transition-delay: .5s;
+          }
 				}
 			}
 			&:nth-child(3n+2){
 				.square{
-					transition-delay: .75s;
+          html.animations-playing & {
+					  transition-delay: .75s;
+          }
 				}
 			}
 		}//end image gal
 		.masonry li{
 			&:nth-child(3n+1) {
-				transition-delay: .25s;
+        html.animations-playing & {
+				  transition-delay: .25s;
+        }
 			}
 			&:nth-child(3n+2){
-				transition-delay: .5s;
+        html.animations-playing & {
+				  transition-delay: .5s;
+        }
 			}
 			&:nth-child(3n+2){
-				transition-delay: .75s;
+        html.animations-playing & {
+				  transition-delay: .75s;
+        }
 			}
 		}//end masonry item
 	}//end gallery visible

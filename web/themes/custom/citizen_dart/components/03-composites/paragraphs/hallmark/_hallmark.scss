@@ -85,7 +85,9 @@
     .hallmark-image{
       .stripes-before,.stripes-after{
         opacity: 1;
-        transition-delay: 1.5s;
+        html.animations-playing & {
+          transition-delay: 1.5s;
+        }
         @include transition-animate(opacity, .5s, ease-in);
       }
     }
