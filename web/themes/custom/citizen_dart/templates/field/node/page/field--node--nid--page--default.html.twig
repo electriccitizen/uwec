@@ -74,24 +74,23 @@
               </video>
             </div>
           </div>
-        {% endif %}
+        </div>
       {% endif %}
+    {% endif %}
 
-      {# render the links field if it exists and if the hero is not video #}
-      {% if element['#object'].field_hero.0.entity.field_hero_type.0.value != 'video' %}
-        {% if element['#object'].field_hero.0.entity.field_links.0 %}
-          <div class="field field-links">
-            {% for link in element['#object'].field_hero.0.entity.field_links %}
-              <div>
-                <a href="{{ link.url }}"><span>{{ link.title }}</span></a>
-              </div>
-            {% endfor %}
-          </div>
-        {% endif %}
+    {# render the links field if it exists and if the hero is not video #}
+    {% if element['#object'].field_hero.0.entity.field_hero_type.0.value != 'video' %}
+      {% if element['#object'].field_hero.0.entity.field_links.0 %}
+        <div class="field field-links">
+          {% for link in element['#object'].field_hero.0.entity.field_links %}
+            <div>
+              <a href="{{ link.url }}"><span>{{ link.title }}</span></a>
+            </div>
+          {% endfor %}
+        </div>
       {% endif %}
-    </div>
-    {# end page header wrapper #}
-        {# set an area with breadcrumbs and header text content #}
+    {% endif %}
+    {# set an area with breadcrumbs and header text content #}
     <div class="page-header-text">
       {% if element['#object'].field_hide_nav.0.value == '0' and (element['#object'].field_hero.0.entity.field_hero_type.0.value != 'full_image' and element['#object'].field_hero.0.entity.field_hero_type.0.value != 'video') %}
         {{ drupal_block('system_breadcrumb_block') }}
@@ -121,5 +120,7 @@
         {% endif %}
       </div>
     </div>
-    <div id="scroll-anchor"></div>
+  </div>
+  {# end page header wrapper #}
+  <div id="scroll-anchor"></div>
   {% endblock %}
