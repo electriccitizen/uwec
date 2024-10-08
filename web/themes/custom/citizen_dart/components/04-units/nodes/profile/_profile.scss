@@ -102,6 +102,9 @@
       .image-wrapper {
         position: relative;
         margin-bottom: 2.5rem;
+        html.animations-paused & {
+          opacity: 1;
+        }
         @include animation('fadeInDelay 1.5s 1');
         &:before {
           background-image: url(../images/elements/fat-stripes-gold.svg);

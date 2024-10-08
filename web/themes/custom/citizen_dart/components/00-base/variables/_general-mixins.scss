@@ -1146,6 +1146,12 @@
 
 /* ANIMATION MIXINS
 --------------------- */
+@mixin transition-animate($transition...) {
+  html.animations-playing & {
+    @include transition($transition...);
+  }
+}
+
 @mixin animation($animate...) {
 	$max: length($animate);
 	$animations: '';
@@ -1157,10 +1163,12 @@
 			$animations: #{$animations + ", "};
 		}
 	}
-	-webkit-animation: $animations;
-	-moz-animation:    $animations;
-	-o-animation:      $animations;
-	animation:         $animations;
+  html.animations-playing & {
+    -webkit-animation: $animations;
+    -moz-animation:    $animations;
+    -o-animation:      $animations;
+    animation:         $animations;
+  }
 }
 
 @mixin keyframes($animationName) {
@@ -1272,5 +1280,8 @@
 }
 
 .fadeIn {
-	@include animation('fadeIn 1.5s 1');
+  html.animations-paused & {
+    opacity: 1;
+  }
+  @include animation('fadeIn 1.5s 1');
 }

@@ -31,7 +31,7 @@
     &:first-child{
       border-top: 1px solid $borderRule;
     }
-    &.step-visible{
+    &.step-visible {
       .step-number{
         span{
           @include animation('flipRight .5s 1 forwards');

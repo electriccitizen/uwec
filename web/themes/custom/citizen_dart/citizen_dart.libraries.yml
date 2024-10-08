@@ -11,6 +11,7 @@ global:
     - core/drupalSettings
     - core/jquery
     - core/once
+    - core/js-cookie
 academic-program-toggle:
   js:
     components/04-units/nodes/academic-program/program-toggle.js: {}
@@ -70,6 +71,13 @@ general-page:
 hallmark:
   js:
     components/03-composites/paragraphs/hallmark/hallmark.js: {}
+hero:
+  version: 1.0
+  js:
+    components/03-composites/paragraphs/hero/hero.js: {}
+  dependencies:
+    - core/once
+    - core/js-cookie
 hours:
   js:
     components/03-composites/paragraphs/hours-set/hours-set.js: {}

@@ -85,11 +85,19 @@
     .hallmark-image{
       .stripes-before,.stripes-after{
         opacity: 1;
-        transition: opacity .5s ease-in;
-        transition-delay: 1.5s;
+        html.animations-playing & {
+          transition-delay: 1.5s;
+        }
+        @include transition-animate(opacity, .5s, ease-in);
       }
     }
     &.left{
+      .hallmark-image {
+        html.animations-paused & {
+          right: -60px;
+          z-index: 2;
+        }
+      }
       @include tab{
         .hallmark-image{
           @include animation('hallmarkDeskLeft 1.5s 1 forwards');
@@ -102,6 +110,12 @@
       }
     }//end left
     &.right{
+      .hallmark-image {
+        html.animations-paused & {
+          left: -60px;
+          z-index: 2;
+        }
+      }
       @include tab{
         .hallmark-image{
           @include animation('hallmarkDeskRight 1.5s 1 forwards');

@@ -1,0 +1,41 @@
+/* ===============
+   HERO PARAGRAPH WIDGET
+================== */
+@use '../../../00-base/base' as *;
+
+.page-hero-video {
+
+  .video-button {
+    bottom: 0px;
+    display: block;
+    // -webkit-mask-image: url("../images/elements/pause-white.svg");
+    background-image: url("../images/elements/pause-white.svg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    height: 24px;
+    opacity: .7;
+    position: absolute;
+    right: 40px;
+    width: 24px;
+    z-index: 10;
+    &:hover,
+    &:focus {
+      opacity: 1;
+    }
+
+    @include smallTab {
+      bottom: 40px;
+    }
+
+    @include tab {
+      bottom: -40px;
+      left: 30px;
+      right: auto;
+    }
+  }
+
+  .video-hero-mask.paused .video-button {
+    background-image: url("../images/elements/play-white.svg");
+  }
+}

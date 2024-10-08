@@ -4,8 +4,11 @@
 
 @use '../../00-base/base' as *;
 
-@mixin swirlAnimationNoImage{
+@mixin swirlAnimationNoImage {
   left: auto;
+  html.animations-paused & {
+    right: -240px;
+  }
   @keyframes heroSwirlSlide {
     from {
       right: -200vw;
@@ -14,8 +17,11 @@
       right: -240px;
     }
   }
-  animation: heroSwirlSlide 1.5s forwards;
-  @include smallTab{
+  @include animation("heroSwirlSlide 1.5s forwards");
+  @include smallTab {
+    html.animations-paused & {
+      right: -220px;
+    }
     @keyframes heroSwirlSlide {
       from {
         right: -200vw;
@@ -24,9 +30,12 @@
         right: -220px;
       }
     }
-    animation: heroSwirlSlide 1.5s forwards;
+    @include animation("heroSwirlSlide 1.5s forwards");
   }
-  @include menuStop{
+  @include menuStop {
+    html.animations-paused & {
+      right: -80px;
+    }
     @keyframes heroSwirlSlide {
       from {
         right: -200vw;
@@ -35,9 +44,12 @@
         right: -80px;
       }
     }
-    animation: heroSwirlSlide 1.5s forwards;
+    @include animation("heroSwirlSlide 1.5s forwards");
   }
-  @include contentStop{
+  @include contentStop {
+    html.animations-paused & {
+      right: 0;
+    }
     @keyframes heroSwirlSlide {
       from {
         right: -200vw;
@@ -46,12 +58,15 @@
         right: 0;
       }
     }
-    animation: heroSwirlSlide 1.5s forwards;
+    @include animation("heroSwirlSlide 1.5s forwards");
   }
 }//end swirlAnimationNoImage
 
 @mixin swirlAnimationRightImage{
   left: auto;
+  html.animations-paused & {
+    right: -12px;
+  }
   @keyframes heroSwirlSlideImage {
     from {
       right: -200vw;
@@ -60,8 +75,11 @@
       right: -12px;
     }
   }
-  animation: heroSwirlSlideImage 1.5s forwards;
+  @include animation("heroSwirlSlideImage 1.5s forwards");
   @include smallTab{
+    html.animations-paused & {
+      right: -30px;
+    }
     @keyframes heroSwirlSlideImage {
       from {
         right: -200vw;
@@ -70,10 +88,13 @@
         right: -30px;
       }
     }
-    animation: heroSwirlSlideImage 1.5s forwards;
+    @include animation("heroSwirlSlideImage 1.5s forwards");
   }
   @include desk{
     right: auto;
+    html.animations-paused & {
+      left: -80px;
+    }
     @keyframes heroSwirlSlideImage {
       from {
         left: 200vw;
@@ -82,12 +103,15 @@
         left: -80px;
       }
     }
-    animation: heroSwirlSlideImage 1.5s forwards;
+    @include animation("heroSwirlSlideImage 1.5s forwards");
   }
 }//end swirlAnimationRightImage
 
 @mixin swirlAnimationFullImage{
   left: auto;
+  html.animations-paused & {
+    right: -80px;
+  }
   @keyframes heroSwirlSlideFullImage {
     from {
       right: -200vw;
@@ -98,6 +122,9 @@
   }
   animation: heroSwirlSlideFullImage 1.5s forwards;
   @include smallTab{
+    html.animations-paused & {
+      right: -60px;
+    }
     @keyframes heroSwirlSlideFullImage {
       from {
         right: -200vw;
@@ -106,9 +133,14 @@
         right: -60px;
       }
     }
-    animation: heroSwirlSlideFullImage 1.5s forwards;
+    html.animations-playing & {
+      animation: heroSwirlSlideFullImage 1.5s forwards;
+    }
   }
   @include desk{
+    html.animations-paused & {
+      right: -70px;
+    }
     @keyframes heroSwirlSlideFullImage {
       from {
         right: -200vw;
@@ -117,9 +149,14 @@
         right: -70px;
       }
     }
-    animation: heroSwirlSlideFullImage 1.5s forwards;
+    html.animations-playing & {
+      animation: heroSwirlSlideFullImage 1.5s forwards;
+    }
   }
   @include contentStop{
+    html.animations-paused & {
+      right: -100px;
+    }
     @keyframes heroSwirlSlideFullImage {
       from {
         right: -200vw;
@@ -128,7 +165,9 @@
         right: -100px;
       }
     }
-    animation: heroSwirlSlideFullImage 1.5s forwards;
+    html.animations-playing & {
+      animation: heroSwirlSlideFullImage 1.5s forwards;
+    }
   }
 }//end swirlAnimationRightImage
 
@@ -385,7 +424,9 @@
       @include contentStop{
         bottom: -146px;
       }
-      .hero-image &,.node-type-college.hero-has-image &,.node-type-academic-program &{
+      .hero-image &,
+      .node-type-college.hero-has-image &,
+      .node-type-academic-program & {
         @include swirlAnimationRightImage;
       }
     }//end after swirl
@@ -576,7 +617,9 @@
 }//end patternHero
 
 @mixin patternHeroSwirl{
-  @include animation('fadeInDelay 1s 1');
+  html.animations-paused & {
+    opacity: 1;
+  }
   content: '';
   position: absolute;
   bottom: -8px;
@@ -749,7 +792,12 @@
       z-index: -1;
     }
     &:before { // Top gradient.
-      @include animation('fadeIn 1.25s 1');
+      html.animations-paused & {
+        opacity: 1;
+      }
+      html.animations-playing & {
+        @include animation('fadeIn 1.25s 1');
+      }
       @include fullBack(transparent); // BG will be replaced by gradient.
       @include gradient('top', #{$navy}ff, 0, #d9d9d900);
       height: 110px;
@@ -760,7 +808,12 @@
     }
     &:after { // Bottom gradient, only exists on desktop.
       @include desk {
-        @include animation('fadeIn 1.25s 1');
+        html.animations-paused & {
+          opacity: 1;
+        }
+        html.animations-playing & {
+          @include animation('fadeIn 1.25s 1');
+        }
         @include fullBack(transparent); // BG will be replaced by gradient.
         @include gradient('bottom', #{$navy}ff, 0, #d9d9d900);
         bottom: 0;
@@ -864,7 +917,12 @@
       top: 0;
       left: 0;
       background: linear-gradient(0deg, rgba(#d9d9d9, 0) 0%, $navy 100%);
-      @include animation('fadeIn 1.25s 1');
+      html.animations-paused & {
+        opacity: 1;
+      }
+      html.animations-playing & {
+        @include animation('fadeIn 1.25s 1');
+      }
       @include desk{
         height: 160px;
       }
@@ -882,7 +940,12 @@
       bottom: 0;
       left: 0;
       background: linear-gradient(180deg, rgba(#d9d9d9, 0) 0%, $navy 100%);
-      @include animation('fadeIn 1.25s 1');
+      html.animations-paused & {
+        opacity: 1;
+      }
+      html.animations-playing & {
+        @include animation('fadeIn 1.25s 1');
+      }
       @include desk{
         height: calc(100% - 160px);
       }
@@ -1008,7 +1071,7 @@
     @include safeFlex(row,nowrap,start,start);
     padding-right: 20px;
     .icon-wrapper{
-			width: 16px;
+      width: 16px;
 			margin-right: 12px;
 		}
 		.field-content{
@@ -1043,7 +1106,12 @@
 }//end profileTeaser
 
 @mixin goldSwirl{
-  @include animation('fadeInDelay 1s 1');
+  html.animations-paused & {
+    opacity: 1;
+  }
+  html.animations-playing & {
+    @include animation('fadeInDelay 1s 1');
+  }
   content: '';
   position: absolute;
   bottom: -83px;
@@ -1069,7 +1137,12 @@
 }//end gold swirl
 
 @mixin royalSwirl{
-  @include animation('fadeInDelay 1s 1');
+  html.animations-paused & {
+    opacity: 1;
+  }
+  html.animations-playing & {
+    @include animation('fadeInDelay 1s 1');
+  }
   content: '';
   position: absolute;
   top: 212px;
@@ -1097,7 +1170,12 @@
 @mixin stripesRoyalNarrow{
   position: relative;
   &:before{
-    @include animation('fadeInDelay 1s 1');
+    html.animations-paused & {
+      opacity: 1;
+    }
+    html.animations-playing & {
+      @include animation('fadeInDelay 1s 1');
+    }
     content: url(../images/elements/stripes-narrow-royal.svg);
     position: absolute;
     top: calc(100% - 22px);

@@ -1,6 +1,6 @@
-(function($, Drupal, once) {
+(function($, Drupal, once, cookies) {
 
-/* LAYOUT 
+/* LAYOUT
 ------------------ */
 Drupal.behaviors.removeEmptyRegions = {
   attach: function (context, settings) {
@@ -9,7 +9,7 @@ Drupal.behaviors.removeEmptyRegions = {
         $(this).remove();
       }
       $(document).on('click', 'a#layout-content', function(e) {
-        e.preventDefault(); 
+        e.preventDefault();
     });
     });
     $(once('removeEmptyContact', '.node-bios #node-section-2,.node-department #node-section-4,.node-college #node-section-4', context)).each(function(){
@@ -28,11 +28,15 @@ Drupal.behaviors.footerAnimate = {
       // Function to handle the intersection observer callback
       function handleIntersection(entries, observer) {
         entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              //add class when target is visible
-              entry.target.classList.add('visible');
-              observer.unobserve(entry.target); // Stop observing once the class is added
-            }
+          if ($("html").hasClass("animations-paused")) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+          else if (entry.isIntersecting) {
+            //add class when target is visible
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target); // Stop observing once the class is added
+          }
         });
       }
       // Create an intersection observer
@@ -73,7 +77,7 @@ Drupal.behaviors.smoothAnchorator = {
         if (link.getAttribute('href').match(/^#[a-zA-Z]/)) {
           link.addEventListener('click', function(event) {
           event.preventDefault();
-          
+
           const targetId = link.getAttribute('href').substring(1);
           const targetElement = document.getElementById(targetId);
 
@@ -139,7 +143,6 @@ function mobileMenuInsert() {
 		}
 	}
 }
-
 
 // GPA Calculator and "Raise your GPA"
 Drupal.behaviors.gpaCalculator = {
@@ -267,5 +270,55 @@ Drupal.behaviors.gpaCalculator = {
   }
 }
 
+// "Pause Animations" button
+Drupal.behaviors.pauseAnimations = {
+  attach: function (context, settings) {
+    const pause_lang = Drupal.t("Pause all animations");
+    const play_lang = Drupal.t("Play all animations");
 
-})(jQuery, Drupal, once);
+    const animation_cookie = "uwecAnimationsPlay";
+
+    // All animations are controlled via classes in the body tag.
+    // Generally, .animations-paused is checked by the various JS files that add
+    // some sort of "visible" class on scroll. If animations are paused, that
+    // class is added immediately insteead of waiting.
+    // On the other hand, .animations-playing is checked by the CSS to see if
+    // they should play various fade-in animations, or if they should just be
+    // opaque by default.
+
+    $(once('animationsState', 'html', context)).each(function() {
+      const animationCookie = cookies.get(animation_cookie);
+      const contentWrapper = $(".main-page-content", this);
+      let defaultState = animationCookie ? animationCookie : "playing";
+
+      const animationsButton = $(`<a href="#" class="animations-button" title="${pickButtonLanguage(defaultState)}" aria-label="${pickButtonLanguage(defaultState)}"></a>`);
+
+      $(this).addClass("animations-" + defaultState);
+
+      animationsButton.on("click", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        // Simply toggle the state onclick. Everything else is keyed from this
+        // one thing.
+        defaultState = defaultState === "playing" ? "paused" : "playing";
+        cookies.set(animation_cookie, defaultState);
+        $(this).toggleClass("animations-paused");
+        $(this).toggleClass("animations-playing");
+
+        // Don't forget to update the ARIA language.
+        animationsButton.attr("aria-label", pickButtonLanguage(defaultState));
+        animationsButton.attr("title", pickButtonLanguage(defaultState));
+      });
+      contentWrapper.append(animationsButton);
+    });
+
+    // Return the pause/play language based off of the current state.
+    // Expects the state to be "playing" if the video is currently playing, or
+    // any other state if it's paused.
+    function pickButtonLanguage(state) {
+      return state === "playing" ? pause_lang : play_lang;
+    }
+  }
+}
+
+})(jQuery, Drupal, once, window.Cookies);

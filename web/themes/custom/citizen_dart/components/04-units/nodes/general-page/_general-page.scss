@@ -282,13 +282,19 @@ $videoWidth: $videoHeight * 1.4153;
         .image-right{
           @include desk{
             top: 100px;
+            html.animations-paused & {
+              opacity: 1;
+            }
             @include animation('fadeIn 1.25s 1');
           }
           @include menuStop{
             top: 120px;
           }
           &:before{
-            @include animation('fadeInDelay 1s 1');
+            html.animations-paused & {
+              opacity: 1;
+              right: 0;
+            }
             content: '';
             position: absolute;
             bottom: -195px;
@@ -306,7 +312,7 @@ $videoWidth: $videoHeight * 1.4153;
                 right: 0;
               }
             }
-            animation: heroSwirlSlideImage 1.5s forwards;
+            @include animation('heroSwirlSlideImage 1.5s forwards');
             @include smallTab{
               bottom: -68px;
             }
@@ -317,6 +323,9 @@ $videoWidth: $videoHeight * 1.4153;
               height: 242px;
               background-position: bottom left;
               right: auto;
+              html.animations-paused & {
+                left: -30px;
+              }
               @keyframes heroSwirlSlideImage {
                 from {
                   left: 200vw;
@@ -325,7 +334,7 @@ $videoWidth: $videoHeight * 1.4153;
                   left: -30px;
                 }
               }
-              animation: heroSwirlSlideImage 1.5s forwards;
+              @include animation('heroSwirlSlideImage 1.5s forwards');
             }//end desk
             @include contentStop{
               width: 222px;
@@ -568,6 +577,9 @@ $videoWidth: $videoHeight * 1.4153;
               position: absolute;
               top: -50px;
               right: -60px;
+              html.animations-paused & {
+                opacity: 1;
+              }
               @include animation('fadeInDelay 1.5s 1 forwards');
               z-index: 1;
             }
@@ -580,6 +592,9 @@ $videoWidth: $videoHeight * 1.4153;
               bottom: -60px;
               left: -60px;
               @include rotate(180);
+              html.animations-paused & {
+                opacity: 1;
+              }
               @include animation('fadeInDelay 1.5s 1 forwards');
               z-index: 1;
             }

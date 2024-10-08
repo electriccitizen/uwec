@@ -70,12 +70,12 @@
         .gold-stripes-before{
           top: -50px;
           right: -67px;
-          transition: all 1s ease-out;
+          @include transition-animate(all, 1s, ease-out);
         }
         .gold-stripes-after{
           bottom: -50px;
           left: -67px;
-          transition: all 1s ease-out;
+          @include transition-animate(all, 1s, ease-out);
         }
       }
       .widget-section > .layout--onecol &,
@@ -100,12 +100,12 @@
             .gold-stripes-before{
               right: -30px;
               top: -30px;
-              transition: all 1s ease-out;
+              @include transition-animate(all, 1s, ease-out);
             }
             .gold-stripes-after{
               bottom: -30px;
               left: -30px;
-              transition: all 1s ease-out;
+              @include transition-animate(all, 1s, ease-out);
             }
           }
           .wf-image{
@@ -152,12 +152,12 @@
         .gold-stripes-before{
           top: -50px;
           right: -67px;
-          transition: all 1s ease-out;
+          @include transition-animate(all, 1s, ease-out);
         }
         .gold-stripes-after{
           bottom: -50px;
           left: -67px;
-          transition: all 1s ease-out;
+          @include transition-animate(all, 1s, ease-out);
         }
       }
       .widget-section > .layout--onecol &,.node-support-book &{
@@ -177,12 +177,12 @@
             .gold-stripes-before{
               right: -30px;
               top: -30px;
-              transition: all 1s ease-out;
+              @include transition-animate(all, 1s, ease-out);
             }
             .gold-stripes-after{
               bottom: -30px;
               left: -30px;
-              transition: all 1s ease-out;
+              @include transition-animate(all, 1s, ease-out);
             }
           }
           .wayfinding-text-wrapper{
@@ -245,15 +245,6 @@
     &.single{
       padding: 50px 0 40px;
       margin-top: 0;
-      // &.wayfinding-visible{
-      //   .wf-image{
-      //     .field-media-image,.gold-stripes-narrow{
-      //       opacity: 1;
-      //       transition: opacity .67s ease-out;
-      //       transition-delay: 0.25s;
-      //     }
-      //   }
-      // }//end wayfinding visible
       .widget-section > .layout--onecol &,.node-support-book &{
         @include desk{
           padding: 90px 0;

@@ -49,9 +49,11 @@
   //stories video list animation
   .node-teaser{
     opacity: 0;
-    &.story-video-visible{
+    &.story-video-visible {
+      html.animations-paused & {
+        opacity: 1;
+      }
       @include animation('fadeIn 1s 1 forwards');
     }
   }
 }//end stories video list widget
-

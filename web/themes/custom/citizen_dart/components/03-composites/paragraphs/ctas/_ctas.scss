@@ -14,18 +14,18 @@
       .node-support-book &{
         @include tab{
           opacity: 1;
-          transition: opacity 0.5s ease-in;
+          @include transition-animate(opacity, 0.5s, ease-in);
         }
       }
     }
     .cta-bar{
       .gold-stripes{
         right: -20px;
-        transition: right 1s ease-out;
+        @include transition-animate(right, 1s, ease-out);
       }
       .cta-item-inner article .field-media-image img{
         opacity: .3;
-        transition: opacity 0.75s ease-in;
+        @include transition-animate(opacity, 0.75s, ease-in);
       }
     }
   }
@@ -131,7 +131,7 @@
 
 	.cta-bar{
 		max-width: 1094px;
-		@include auto; 
+		@include auto;
     position: relative;
     padding-top: 70px;
     @include tab{
@@ -216,7 +216,7 @@
 					z-index: -2;
 					img{
 						width: 100%;
-				    height: 100%; 
+				    height: 100%;
 				    filter: grayscale(100%);
 						position: relative;
 						z-index: -3;
@@ -257,7 +257,7 @@
         .cta-text{
           line-height: 2;
         }
-        
+
 				.cta-text-right{
 					a{
             //change button padding and padding in a layout wide enough on a screen large enough

@@ -288,9 +288,9 @@
               left: auto;
               right: -200vw;
               top: -15px;
-              transition: right 1s ease-out;
               width: 112px;
               z-index: 2;
+              @include transition-animate(right, 1s, ease-out);
             }
           }
         }

@@ -11,8 +11,11 @@
 			>div{
 				width:33.33%;
 				opacity:0;
-				&.external-articles-visible{
-					@include animation('fadeIn 1s 1 forwards');
+				&.external-articles-visible {
+          html.animations-paused & {
+            opacity: 1;
+          }
+          @include animation('fadeIn 1s 1 forwards');
 				}
 			}
 		}

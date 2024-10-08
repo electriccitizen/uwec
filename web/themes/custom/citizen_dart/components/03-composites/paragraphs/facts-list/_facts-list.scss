@@ -19,26 +19,34 @@
   &.facts-visible{
     .node-teaser-fact{
       opacity: 1;
-      transition: opacity .5s ease-in;
+      @include transition-animate(opacity, .5s, ease-in);
     }
     .fact-2{
       .node-teaser-fact{
-        transition-delay: .25s;
+        html.animations-playing & {
+          transition-delay: .25s;
+        }
       }
     }
     .fact-3{
       .node-teaser-fact{
+        html.animations-playing & {
         transition-delay: .5s;
+        }
       }
     }
     .fact-4{
       .node-teaser-fact{
+        html.animations-playing & {
         transition-delay: .75s;
+        }
       }
     }
     .fact-5{
       .node-teaser-fact{
+        html.animations-playing & {
         transition-delay: 1s;
+        }
       }
     }
   }

@@ -23,102 +23,104 @@
 {% extends 'field.html.twig' %}
 
 {% set formattedTitle = {
-	'#type': 'processed_text',
-	'#text': element['#object'].field_formatted_title.0.value,
-	'#format': element['#object'].field_formatted_title.0.format
+  '#type': 'processed_text',
+  '#text': element['#object'].field_formatted_title.0.value,
+  '#format': element['#object'].field_formatted_title.0.format
 } %}
 {% set bodyText = {
-	'#type': 'processed_text',
-	'#text': element['#object'].body.0.value,
-	'#format': element['#object'].body.0.format
+  '#type': 'processed_text',
+  '#text': element['#object'].body.0.value,
+  '#format': element['#object'].body.0.format
 } %}
 
 {% block fieldSingleNo %}
 
-	<div class="page-header-wrapper{% if element['#object'].field_hero.0 %} has-hero page-hero-{{ element['#object'].field_hero.0.entity.field_hero_type.0.value|clean_class }}{% endif %}"{% if element['#object'].field_hero.0.entity.field_hero_type.0.value == 'background_image' or element['#object'].field_hero.0.entity.field_hero_type.0.value == 
+  <div class="page-header-wrapper{% if element['#object'].field_hero.0 %} has-hero page-hero-{{ element['#object'].field_hero.0.entity.field_hero_type.0.value|clean_class }}{% endif %}"{% if element['#object'].field_hero.0.entity.field_hero_type.0.value == 'background_image' or element['#object'].field_hero.0.entity.field_hero_type.0.value ==
   'video' %} style="background:url({{ file_url(element['#object'].field_hero.0.entity.field_background_image.0.entity.field_media_image.entity.fileuri) }}) no-repeat"{% endif %}>
 
-		{# render a large version image for certain heros #}
-		{% if element['#object'].field_hero.0.entity.field_hero_type.0.value == 
-		'image' or element['#object'].field_hero.0.entity.field_hero_type.0.value == 'background_image' %}
-			{% if element['#object'].field_hero.0.entity.field_image.0 %}
+    {# render a large version image for certain heros #}
+    {% if element['#object'].field_hero.0.entity.field_hero_type.0.value ==
+    'image' or element['#object'].field_hero.0.entity.field_hero_type.0.value == 'background_image' %}
+      {% if element['#object'].field_hero.0.entity.field_image.0 %}
         <div class="hero-image">
           <div class="image-right">
             {{ drupal_entity('media',element['#object'].field_hero.0.entity.field_image.0.target_id,'730x840') }}
           </div>
         </div>
-			{% endif %}
-		{% endif %}
+      {% endif %}
+    {% endif %}
 
-		{# add a background/full image for certain heros #}
-		{% if element['#object'].field_hero.0.entity.field_hero_type.0.value == 'full_image' %}
-			{% if element['#object'].field_hero.0.entity.field_background_image.0 %}
-				<div class="hero-background">
-					{{ drupal_entity('media',element['#object'].field_hero.0.entity.field_background_image.0.target_id,'banner') }}
-				</div>
-			{% endif %}
-		{% endif %}
-		{# set an area with breadcrumbs and header text content #}
-		<div class="page-header-text">
-			{% if element['#object'].field_hide_nav.0.value == '0' and (element['#object'].field_hero.0.entity.field_hero_type.0.value != 'full_image' and element['#object'].field_hero.0.entity.field_hero_type.0.value != 'video') %}
-				{{ drupal_block('system_breadcrumb_block') }}
-			{% endif %}
-			<div class="page-header-text-inner">
-				<div class="node-title">
-					<h1 class="page-title formatted-title">{{ formattedTitle|render|striptags('<strong>')|trim|raw }}</h1>
-				</div>
-				{% if element['#object'].field_subtitle.0 and (element['#object'].field_hero.0.entity.field_hero_type.0.value == 'pattern' or element['#object'].field_hero.0.entity.field_hero_type.0.value == 'image' or element['#object'].field_hero.0.entity.field_hero_type.0.value == 'background_image') %}
-					<h2 class="node-subtitle">
-						{{ element['#object'].field_subtitle.0.value }}
+    {# add a background/full image for certain heros #}
+    {% if element['#object'].field_hero.0.entity.field_hero_type.0.value == 'full_image' %}
+      {% if element['#object'].field_hero.0.entity.field_background_image.0 %}
+        <div class="hero-background">
+          {{ drupal_entity('media',element['#object'].field_hero.0.entity.field_background_image.0.target_id,'banner') }}
+        </div>
+      {% endif %}
+    {% endif %}
+
+    {# render the video and arrow link if its a video hero #}
+    {% if element['#object'].field_hero.0.entity.field_hero_type.0.value ==
+    'video' %}
+      {% if element['#object'].field_hero.0.entity.field_hero_video.0 %}
+        {{ attach_library('citizen_dart/hero') }}
+        <div class="video-hero">
+          <div class="video-hero-mask">
+            <div class="video-mask-inner">
+              <video playsinline autoplay muted loop {% if element['#object'].field_hero.0.entity.field_video_poster.0 %} poster="{{ element['#object'].field_hero.0.entity.field_video_poster.0.entity.field_media_image.0.entity.uri.0.value|replace({'public://':'/sites/default/files/'}) }}{% endif %}">
+                {% for video in element['#object'].field_hero.0.entity.field_hero_video %}
+                  <source src="{{ video.entity.uri.0.value|replace({'public://':'/sites/default/files/'}) }}" type="{{ video.entity.filemime.0.value }}"/>
+                {% endfor %}
+              </video>
+            </div>
+          </div>
+        </div>
+      {% endif %}
+    {% endif %}
+
+    {# render the links field if it exists and if the hero is not video #}
+    {% if element['#object'].field_hero.0.entity.field_hero_type.0.value != 'video' %}
+      {% if element['#object'].field_hero.0.entity.field_links.0 %}
+        <div class="field field-links">
+          {% for link in element['#object'].field_hero.0.entity.field_links %}
+            <div>
+              <a href="{{ link.url }}"><span>{{ link.title }}</span></a>
+            </div>
+          {% endfor %}
+        </div>
+      {% endif %}
+    {% endif %}
+    {# set an area with breadcrumbs and header text content #}
+    <div class="page-header-text">
+      {% if element['#object'].field_hide_nav.0.value == '0' and (element['#object'].field_hero.0.entity.field_hero_type.0.value != 'full_image' and element['#object'].field_hero.0.entity.field_hero_type.0.value != 'video') %}
+        {{ drupal_block('system_breadcrumb_block') }}
+      {% endif %}
+      <div class="page-header-text-inner">
+        <div class="node-title">
+          <h1 class="page-title formatted-title">{{ formattedTitle|render|striptags('<strong>')|trim|raw }}</h1>
+        </div>
+        {% if element['#object'].field_subtitle.0 and (element['#object'].field_hero.0.entity.field_hero_type.0.value == 'pattern' or element['#object'].field_hero.0.entity.field_hero_type.0.value == 'image' or element['#object'].field_hero.0.entity.field_hero_type.0.value == 'background_image') %}
+          <h2 class="node-subtitle">
+            {{ element['#object'].field_subtitle.0.value }}
           </h2>
-				{% endif %}
-				{% if element['#object'].body.0 and (element['#object'].field_hero.0.entity.field_hero_type.0.value == 'pattern' or element['#object'].field_hero.0.entity.field_hero_type.0.value == 'image' or element['#object'].field_hero.0.entity.field_hero_type.0.value == 'background_image') %}
-					<div class="node-body">
-						{{ bodyText }}
-					</div>
-				{% endif %}
+        {% endif %}
+        {% if element['#object'].body.0 and (element['#object'].field_hero.0.entity.field_hero_type.0.value == 'pattern' or element['#object'].field_hero.0.entity.field_hero_type.0.value == 'image' or element['#object'].field_hero.0.entity.field_hero_type.0.value == 'background_image') %}
+          <div class="node-body">
+            {{ bodyText }}
+          </div>
+        {% endif %}
         {% if element['#object'].field_hero.0.entity.field_hero_type.0.value == 'video' %}
           <div class="scroll-link">
-            <a href="#home-cta">Here you can
+            <a href="#home-cta" tabindex=0>Here you can
               <span class="link-arrow">
                 <span>scroll to content</span>
               </span>
             </a>
           </div>
         {% endif %}
-			</div>
-		</div>
-
-		{# render the video and arrow link if its a video hero #}
-		{% if element['#object'].field_hero.0.entity.field_hero_type.0.value == 
-		'video' %}
-			{% if element['#object'].field_hero.0.entity.field_hero_video.0 %}
-				<div class="video-hero">
-					<div class="video-hero-mask">
-						<div class="video-mask-inner">
-							<video playsinline autoplay muted loop {% if element['#object'].field_hero.0.entity.field_video_poster.0 %} poster="{{ element['#object'].field_hero.0.entity.field_video_poster.0.entity.field_media_image.0.entity.uri.0.value|replace({'public://':'/sites/default/files/'}) }}{% endif %}">
-								{% for video in element['#object'].field_hero.0.entity.field_hero_video %}
-									<source src="{{ video.entity.uri.0.value|replace({'public://':'/sites/default/files/'}) }}" type="{{ video.entity.filemime.0.value }}"/>
-								{% endfor %}
-							</video>
-						</div>
-					</div>
-				{% endif %}
-			{% endif %}
-
-			{# render the links field if it exists and if the hero is not video #}
-			{% if element['#object'].field_hero.0.entity.field_hero_type.0.value != 'video' %}
-				{% if element['#object'].field_hero.0.entity.field_links.0 %}
-					<div class="field field-links">
-            {% for link in element['#object'].field_hero.0.entity.field_links %}
-              <div>
-                <a href="{{ link.url }}"><span>{{ link.title }}</span></a>
-              </div>
-            {% endfor %}
-					</div>
-				{% endif %}
-			{% endif %}
-		</div>
-		{# end page header wrapper #}
-    <div id="scroll-anchor"></div>
-	{% endblock %}
+      </div>
+    </div>
+  </div>
+  {# end page header wrapper #}
+  <div id="scroll-anchor"></div>
+  {% endblock %}
