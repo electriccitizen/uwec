@@ -1,6 +1,5 @@
 # Custom module library for general purposes.
 migration-status-css:
-  version: 1.x
   css:
     theme:
       css/citizen_migrate.css: {}

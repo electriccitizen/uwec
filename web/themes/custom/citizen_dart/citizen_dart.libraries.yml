@@ -72,7 +72,6 @@ hallmark:
   js:
     components/03-composites/paragraphs/hallmark/hallmark.js: {}
 hero:
-  version: 1.0
   js:
     components/03-composites/paragraphs/hero/hero.js: {}
   dependencies:
