@@ -43,6 +43,8 @@ permissions:
   - 'view paragraph content highlight_box'
   - 'view paragraph content hours_placer'
   - 'view paragraph content hours_set'
+  - 'view paragraph content icon_with_link'
+  - 'view paragraph content icon_with_link_item'
   - 'view paragraph content image'
   - 'view paragraph content layout_section'
   - 'view paragraph content links_files'

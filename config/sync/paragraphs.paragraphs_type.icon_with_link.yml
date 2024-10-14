@@ -1,0 +1,10 @@
+uuid: bf8d1ecf-2e3e-4d1f-a853-25ef2f5ad707
+langcode: en
+status: true
+dependencies: {  }
+id: icon_with_link
+label: 'Icon with Link'
+icon_uuid: null
+icon_default: null
+description: 'One or more icons that can also have a heading, body, and a link.'
+behavior_plugins: {  }

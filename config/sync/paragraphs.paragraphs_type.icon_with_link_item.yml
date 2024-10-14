@@ -1,0 +1,10 @@
+uuid: 15bea5fb-f47d-4feb-8eae-d2aae537a87b
+langcode: en
+status: true
+dependencies: {  }
+id: icon_with_link_item
+label: 'Icon with Link Item'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

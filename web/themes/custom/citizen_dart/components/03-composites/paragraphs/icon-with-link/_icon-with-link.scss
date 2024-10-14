@@ -1,0 +1,36 @@
+@use '../../../00-base/base' as *;
+
+.paragraph--type--icon-with-link{
+	text-align:center;
+	h2{
+		margin-bottom:2rem;
+	}
+}
+
+.paragraph--type--icon-with-link-item{
+	margin-bottom:8rem;
+	.icon{
+		display:inline-block;
+		width:16rem;
+	}
+}
+
+.paragraph--type--icon-with-link-item .field-link{
+	margin-top:2rem;
+	a{
+		@include linkArrow($navy, lg);
+	}
+}
+
+/* this weird selector selects each item's main div. which is, weirdly, a classless div. */
+.field-icon-with-link-items>div{
+	display:inline-block;
+	vertical-align:top;
+	width:100%;
+	@include tab{
+		width:50%;
+	}
+	@include desk{
+		width:33%;
+	}
+}

@@ -162,6 +162,9 @@ button[disabled]:hover,button.disabled:hover{
 .lpb-component-list .lpb-component-list__group > .lpb-component-list__group--content > .type-hours_placer > a:before{
   background-image: url('../icons/paragraphs/hours-placer.svg');
 }
+.lpb-component-list .lpb-component-list__group > .lpb-component-list__group--content > .type-icon_with_link> a:before{
+  background-image: url('../icons/paragraphs/icon-with-link.svg');
+}
 .lpb-component-list .lpb-component-list__group > .lpb-component-list__group--content > .type-image > a:before{
   background-image: url('../icons/paragraphs/image.svg');
 }

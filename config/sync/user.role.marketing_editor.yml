@@ -89,6 +89,8 @@ permissions:
   - 'delete paragraph content facts_list'
   - 'delete paragraph content fauxfile'
   - 'delete paragraph content fauxfile_item'
+  - 'delete paragraph content icon_with_link'
+  - 'delete paragraph content icon_with_link_item'
   - 'delete paragraph content quote'
   - 'delete paragraph content select_item'
   - 'delete paragraph content select_type'

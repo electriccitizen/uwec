@@ -1,0 +1,9 @@
+{% extends 'field.html.twig' %}
+
+{% block fieldSingleNoClasses %}
+	<h3>
+		{%- for item in items -%}
+			{{- item.content -}}
+		{%- endfor -%}
+	</h3>
+{% endblock %}

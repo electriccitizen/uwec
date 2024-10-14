@@ -1,0 +1,19 @@
+uuid: 26698c49-f8cf-4ce9-ba07-fdf2932a30d7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_heading
+    - paragraphs.paragraphs_type.icon_with_link_item
+id: paragraph.icon_with_link_item.field_heading
+field_name: field_heading
+entity_type: paragraph
+bundle: icon_with_link_item
+label: 'Heading (h3)'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

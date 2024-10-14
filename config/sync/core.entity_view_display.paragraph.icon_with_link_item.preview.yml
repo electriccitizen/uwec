@@ -1,0 +1,29 @@
+uuid: 6e7bf4a7-2e16-4175-b278-11e998d0a7ed
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.preview
+    - field.field.paragraph.icon_with_link_item.field_body
+    - field.field.paragraph.icon_with_link_item.field_heading
+    - field.field.paragraph.icon_with_link_item.field_icon
+    - field.field.paragraph.icon_with_link_item.field_link
+    - paragraphs.paragraphs_type.icon_with_link_item
+id: paragraph.icon_with_link_item.preview
+targetEntityType: paragraph
+bundle: icon_with_link_item
+mode: preview
+content:
+  field_heading:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  field_body: true
+  field_icon: true
+  field_link: true
+  search_api_excerpt: true

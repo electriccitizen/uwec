@@ -1,0 +1,166 @@
+uuid: ad3dc4e9-5f13-4e85-a5d4-f5beae3c70f5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_icon_with_link_items
+    - paragraphs.paragraphs_type.icon_with_link
+    - paragraphs.paragraphs_type.icon_with_link_item
+  module:
+    - entity_reference_revisions
+id: paragraph.icon_with_link.field_icon_with_link_items
+field_name: field_icon_with_link_items
+entity_type: paragraph
+bundle: icon_with_link
+label: 'Icon with Link Items'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      icon_with_link_item: icon_with_link_item
+    negate: 0
+    target_bundles_drag_drop:
+      accordion_item:
+        weight: -93
+        enabled: false
+      accordions:
+        weight: -92
+        enabled: false
+      block_placer:
+        weight: -91
+        enabled: false
+      button:
+        weight: -90
+        enabled: false
+      contact_placer:
+        weight: -89
+        enabled: false
+      content_carousel:
+        weight: -88
+        enabled: false
+      cta_item:
+        weight: -87
+        enabled: false
+      ctas:
+        weight: -86
+        enabled: false
+      custom_embed:
+        weight: -85
+        enabled: false
+      events_list:
+        weight: -84
+        enabled: false
+      external_articles:
+        weight: -83
+        enabled: false
+      external_articles_item:
+        weight: -82
+        enabled: false
+      facts_list:
+        weight: -81
+        enabled: false
+      fauxfile:
+        weight: -80
+        enabled: false
+      fauxfile_item:
+        weight: -79
+        enabled: false
+      gallery:
+        weight: -78
+        enabled: false
+      gallery_item:
+        weight: -77
+        enabled: false
+      hallmark:
+        weight: -76
+        enabled: false
+      hero:
+        weight: -75
+        enabled: false
+      highlight_box:
+        weight: -74
+        enabled: false
+      hours_placer:
+        weight: -73
+        enabled: false
+      hours_set:
+        weight: -72
+        enabled: false
+      icon_with_link:
+        weight: -71
+        enabled: false
+      icon_with_link_item:
+        weight: -70
+        enabled: true
+      image:
+        weight: -69
+        enabled: false
+      layout_section:
+        weight: -68
+        enabled: false
+      links_files:
+        weight: -67
+        enabled: false
+      profiles_list:
+        weight: -66
+        enabled: false
+      program_search:
+        weight: -65
+        enabled: false
+      programs_list:
+        weight: -64
+        enabled: false
+      quick_links:
+        weight: -63
+        enabled: false
+      quick_links_item:
+        weight: -62
+        enabled: false
+      quote:
+        weight: -61
+        enabled: false
+      select_item:
+        weight: -60
+        enabled: false
+      select_type:
+        weight: -59
+        enabled: false
+      slate_form:
+        weight: -58
+        enabled: false
+      snapshot_list:
+        weight: -57
+        enabled: false
+      social_media_links:
+        weight: -56
+        enabled: false
+      step_item:
+        weight: -55
+        enabled: false
+      steps:
+        weight: -54
+        enabled: false
+      stories_video_list:
+        weight: -53
+        enabled: false
+      testimonial_placer:
+        weight: -52
+        enabled: false
+      text:
+        weight: -51
+        enabled: false
+      video:
+        weight: -50
+        enabled: false
+      view_placer:
+        weight: -49
+        enabled: false
+      wayfinding:
+        weight: -48
+        enabled: false
+field_type: entity_reference_revisions
