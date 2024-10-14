@@ -9,7 +9,6 @@ dependencies:
     - field.field.node.news.field_domain_access
     - field.field.node.news.field_domain_all_affiliates
     - field.field.node.news.field_domain_source
-    - field.field.node.news.field_editorial_sections
     - field.field.node.news.field_eyebrow
     - field.field.node.news.field_image
     - field.field.node.news.field_intro_text
@@ -336,14 +335,6 @@ content:
       link: true
     third_party_settings: {  }
     weight: 122
-    region: content
-  field_editorial_sections:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 107
     region: content
   field_eyebrow:
     type: entity_reference_label

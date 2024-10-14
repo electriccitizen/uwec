@@ -9,7 +9,6 @@ dependencies:
     - field.field.node.news.field_domain_access
     - field.field.node.news.field_domain_all_affiliates
     - field.field.node.news.field_domain_source
-    - field.field.node.news.field_editorial_sections
     - field.field.node.news.field_eyebrow
     - field.field.node.news.field_image
     - field.field.node.news.field_intro_text
@@ -114,12 +113,6 @@ content:
   field_domain_source:
     type: options_select
     weight: 23
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  field_editorial_sections:
-    type: options_buttons
-    weight: 20
     region: content
     settings: {  }
     third_party_settings: {  }
