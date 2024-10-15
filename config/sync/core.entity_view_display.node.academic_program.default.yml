@@ -44,6 +44,7 @@ dependencies:
     - field.field.node.academic_program.field_related_intro
     - field.field.node.academic_program.field_related_programs
     - field.field.node.academic_program.field_request_for_info
+    - field.field.node.academic_program.field_show_slate_delivery_mode
     - field.field.node.academic_program.field_slate_slug
     - field.field.node.academic_program.field_tuition_link
     - field.field.node.academic_program.field_whats_next
@@ -742,6 +743,16 @@ content:
       format_custom_true: ''
     third_party_settings: {  }
     weight: 136
+    region: content
+  field_show_slate_delivery_mode:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 149
     region: content
   field_slate_slug:
     type: string

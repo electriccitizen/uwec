@@ -4,7 +4,7 @@
 ------------------ */
 Drupal.behaviors.slateAnimate = {
   attach: function (context, settings) {
-  	$(once('slateAnimations', '.slate-left', context)).each(function(){
+    $(once('slateAnimations', '.slate-left', context)).each(function(){
       // Function to handle the intersection observer callback
       function handleIntersection(entries, observer) {
         entries.forEach(entry => {
@@ -25,6 +25,7 @@ Drupal.behaviors.slateAnimate = {
       // Start observing the target element
       observer.observe(this);
     });
+
     $(once('slateAnimations', '.slate-right', context)).each(function(){
       //find option selected so can change the color of slate select and fix broken aria attr
       $(document).ready(function(){
@@ -38,6 +39,15 @@ Drupal.behaviors.slateAnimate = {
               $(this).removeClass('selected');
             }
           });
+
+          // remove the "Delivery Mode" field, if we should
+          let slateRight = document.querySelector('.slate-right');
+          if(slateRight.dataset.showDeliveryMode != '1'){
+            let deliveryModeField = document.querySelector('.form_question_934bbcc8-0650-4aca-9b1f-9a84b8b011b6');
+            if(deliveryModeField){
+              deliveryModeField.remove();
+            }
+          }
         }, 500);
       });
     });

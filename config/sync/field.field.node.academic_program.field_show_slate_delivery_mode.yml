@@ -1,0 +1,23 @@
+uuid: b0a9a684-d5bf-4610-964d-80f9c76894d7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_show_slate_delivery_mode
+    - node.type.academic_program
+id: node.academic_program.field_show_slate_delivery_mode
+field_name: field_show_slate_delivery_mode
+entity_type: node
+bundle: academic_program
+label: 'Show Slate Delivery Mode'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: Show
+  off_label: Hide
+field_type: boolean

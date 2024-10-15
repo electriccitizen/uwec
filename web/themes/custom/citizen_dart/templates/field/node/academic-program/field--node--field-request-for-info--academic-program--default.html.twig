@@ -32,7 +32,7 @@
           <p>{% trans %}Sign up to receive additional information about our campus.{% endtrans %}</p>
         </div>
 
-        <div class="slate-right">
+        <div class="slate-right" data-show-delivery-mode="{{- element['#object'].field_show_slate_delivery_mode.0.value -}}">
           {% if element['#object'].field_degree_level.0.value == 'graduate' %}
             <div id="form_dbcd813f-8587-43ba-a301-cd0e0ba1c8ba">Loading...</div>
             <script>/*<![CDATA[*/var script = document.createElement('script'); script.async = 1; script.src = 'https://graduate.uwec.edu/register/?program_slug={{ element['#object'].field_slate_slug.value|url_encode  }}&id=dbcd813f-8587-43ba-a301-cd0e0ba1c8ba&output=embed&div=form_dbcd813f-8587-43ba-a301-cd0e0ba1c8ba' + ((location.search.length > 1) ? '&' + location.search.substring(1) : ''); var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);/*]]>*/</script>

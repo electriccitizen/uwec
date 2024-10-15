@@ -45,6 +45,7 @@ dependencies:
     - field.field.node.academic_program.field_related_intro
     - field.field.node.academic_program.field_related_programs
     - field.field.node.academic_program.field_request_for_info
+    - field.field.node.academic_program.field_show_slate_delivery_mode
     - field.field.node.academic_program.field_slate_slug
     - field.field.node.academic_program.field_tuition_link
     - field.field.node.academic_program.field_whats_next
@@ -117,6 +118,7 @@ hidden:
   field_related_intro: true
   field_related_programs: true
   field_request_for_info: true
+  field_show_slate_delivery_mode: true
   field_slate_slug: true
   field_tuition_link: true
   field_whats_next: true
