@@ -273,8 +273,8 @@ Drupal.behaviors.gpaCalculator = {
 // "Pause Animations" button
 Drupal.behaviors.pauseAnimations = {
   attach: function (context, settings) {
-    const pause_lang = Drupal.t("Pause all animations");
-    const play_lang = Drupal.t("Play all animations");
+    const pause_lang = Drupal.t("Pause Animation");
+    const play_lang = Drupal.t("Play Animations");
 
     const animation_cookie = "uwecAnimationsPlay";
 
@@ -288,10 +288,10 @@ Drupal.behaviors.pauseAnimations = {
 
     $(once('animationsState', 'html', context)).each(function() {
       const animationCookie = cookies.get(animation_cookie);
-      const contentWrapper = $(".main-page-content", this);
+      const contentWrapper = $("#block-citizen-dart-copyright", this);
       let defaultState = animationCookie ? animationCookie : "playing";
 
-      const animationsButton = $(`<a href="#" class="animations-button" title="${pickButtonLanguage(defaultState)}" aria-label="${pickButtonLanguage(defaultState)}"></a>`);
+      const animationsButton = $(`<a href="#" class="animations-button"><span>${pickButtonLanguage(defaultState)}</span></a>`);
 
       $(this).addClass("animations-" + defaultState);
 
@@ -306,8 +306,8 @@ Drupal.behaviors.pauseAnimations = {
         $(this).toggleClass("animations-playing");
 
         // Don't forget to update the ARIA language.
-        animationsButton.attr("aria-label", pickButtonLanguage(defaultState));
-        animationsButton.attr("title", pickButtonLanguage(defaultState));
+        animationsButton.find('span').text(pickButtonLanguage(defaultState));
+        animationsButton.find('span').text(pickButtonLanguage(defaultState));
       });
       contentWrapper.append(animationsButton);
     });

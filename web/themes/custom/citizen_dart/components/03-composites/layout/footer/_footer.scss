@@ -201,9 +201,9 @@
 		//copy right
 		.block-1{
 			width: 100%;
-			@include contentStopMargin{
-				width: 360px;
-			}
+			// @include contentStopMargin{
+			// 	width: 360px;
+			// }
 		}
 	}//end footer-inner
 }//end footer
