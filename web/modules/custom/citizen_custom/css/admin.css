@@ -55,11 +55,6 @@ button[disabled]:hover,button.disabled:hover{
 	bottom: 0;
 }
 
-/* ADJUST UI DIALOG CLOSE X */
-.ui-dialog.ui-widget .ui-dialog-titlebar-close.ui-button-icon-only{
-	top: 13px;
-}
-
 /* FIX CKE WRAPPING IN PARAGRAPH SUBFORMS
 -------------------------------*/
 .form-textarea-wrapper .ck.ck-toolbar.ck-toolbar_grouping > .ck-toolbar__items{
