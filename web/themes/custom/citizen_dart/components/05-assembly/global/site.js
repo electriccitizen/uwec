@@ -274,7 +274,7 @@ Drupal.behaviors.gpaCalculator = {
 Drupal.behaviors.pauseAnimations = {
   attach: function (context, settings) {
     const pause_lang = Drupal.t("Pause Animation");
-    const play_lang = Drupal.t("Play Animations");
+    const play_lang = Drupal.t("Play Animation");
 
     const animation_cookie = "uwecAnimationsPlay";
 
