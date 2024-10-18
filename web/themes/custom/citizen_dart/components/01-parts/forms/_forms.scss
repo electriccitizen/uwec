@@ -10,6 +10,7 @@
 @forward 'elements/radio';
 @forward 'elements/select';
 @forward 'elements/textfields';
+@forward 'slate-form';
 
 @use '../../00-base/base' as *;
 @use 'elements/form-mixins' as *;
@@ -410,5 +411,4 @@ details.form-wrapper{
 		}
 	}//end summary
 }//end details form-wrapper
-
 

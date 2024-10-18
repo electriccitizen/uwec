@@ -3,13 +3,10 @@
 ================== */
 
 @use '../../../00-base/base' as *;
+@use '../../../01-parts/forms/forms' as *;
 
 .paragraph--type--slate-form{
-	max-width: 1138px;
-	@include auto;
-	background: $ice;
-  color: $brightBlue;
-  padding: 40px 20px 30px;
+	@include slateFormContainer;
   .widget-section > .layout--onecol &,
   .widget-section > .layout--twocol-section--75-25 > .layout__region--first &,
   .widget-section > .layout--twocol-section--25-75 > .layout__region--second &,
@@ -21,6 +18,9 @@
 	.widget-wrapper{
 		@include safeFlex(row,wrap,start,start);
 		@include bleed(padding,60px);
+		.slate-right{
+		  @include slateRight;
+		}
 		.slate-left,.slate-right{
 			width: 100%;
       .widget-section > .layout--onecol &,
@@ -60,8 +60,5 @@
 	}
   .field-additional-text{
     margin-bottom: 2.5rem;
-  }
-  .field-slate-script-tag{
-    @include slateForm;
   }
 }//end slate form widget
