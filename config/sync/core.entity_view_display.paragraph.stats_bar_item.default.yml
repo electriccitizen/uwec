@@ -1,0 +1,32 @@
+uuid: f1d32482-cad3-46fe-a4ca-94957e33183b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.stats_bar_item.field_headline
+    - field.field.paragraph.stats_bar_item.field_long_text
+    - paragraphs.paragraphs_type.stats_bar_item
+  module:
+    - text
+id: paragraph.stats_bar_item.default
+targetEntityType: paragraph
+bundle: stats_bar_item
+mode: default
+content:
+  field_headline:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_long_text:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  search_api_excerpt: true

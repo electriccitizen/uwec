@@ -1,0 +1,10 @@
+uuid: 10651b2a-12ab-422c-8ba5-9ddfee8fad81
+langcode: en
+status: true
+dependencies: {  }
+id: stats_bar
+label: 'Stats Bar'
+icon_uuid: null
+icon_default: null
+description: 'Display stats in a bar format.'
+behavior_plugins: {  }

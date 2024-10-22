@@ -1,0 +1,10 @@
+uuid: 48851eb5-4493-4df8-9f95-a1a9989d41b7
+langcode: en
+status: true
+dependencies: {  }
+id: stats_bar_item
+label: 'Stats Bar Item'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

@@ -286,7 +286,7 @@
 	width: 100%;
 	height: 70%;
 	z-index: 1;
-	@include gradient(top,rgba(217, 217, 217, 0),0,$navy);
+	@include gradient(top,rgba(217, 217, 217, 0),0, c.$navy);
 }
 
 @mixin triangle($triDirection,$triHeight,$triWidth,$triColor){

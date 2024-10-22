@@ -1,0 +1,55 @@
+uuid: 1b336c36-f2f6-4b6a-80cb-e2fa7889daf8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.stats_bar.field_headline
+    - field.field.paragraph.stats_bar.field_image
+    - field.field.paragraph.stats_bar.field_stats_bar_items
+    - paragraphs.paragraphs_type.stats_bar
+  module:
+    - media_library
+    - paragraphs
+id: paragraph.stats_bar.default
+targetEntityType: paragraph
+bundle: stats_bar
+mode: default
+content:
+  field_headline:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_image:
+    type: media_library_widget
+    weight: 1
+    region: content
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+  field_stats_bar_items:
+    type: paragraphs
+    weight: 2
+    region: content
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: closed
+      closed_mode: preview
+      autocollapse: none
+      closed_mode_threshold: 0
+      add_mode: button
+      form_display_mode: default
+      default_paragraph_type: stats_bar_item
+      features:
+        add_above: '0'
+        collapse_edit_all: collapse_edit_all
+        convert: '0'
+        duplicate: '0'
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

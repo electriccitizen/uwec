@@ -190,6 +190,9 @@ button[disabled]:hover,button.disabled:hover{
 .lpb-component-list .lpb-component-list__group > .lpb-component-list__group--content > .type-snapshot_list > a:before{
   background-image: url('../icons/paragraphs/snapshot-list.svg');
 }
+.lpb-component-list .lpb-component-list__group > .lpb-component-list__group--content > .type-stats_bar > a:before{
+  background-image: url('../icons/paragraphs/stats-bar.svg');
+}
 .lpb-component-list .lpb-component-list__group > .lpb-component-list__group--content > .type-steps > a:before{
   background-image: url('../icons/paragraphs/steps.svg');
 }

@@ -1,0 +1,25 @@
+uuid: 960d94bb-ceaf-40bc-ae40-88c01ffd45e7
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.preview
+    - field.field.paragraph.stats_bar_item.field_headline
+    - field.field.paragraph.stats_bar_item.field_long_text
+    - paragraphs.paragraphs_type.stats_bar_item
+id: paragraph.stats_bar_item.preview
+targetEntityType: paragraph
+bundle: stats_bar_item
+mode: preview
+content:
+  field_headline:
+    type: string
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  field_long_text: true
+  search_api_excerpt: true

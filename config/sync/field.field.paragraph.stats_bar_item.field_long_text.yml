@@ -1,0 +1,24 @@
+uuid: 39a6adaa-c548-4fe1-b102-0af56b8a7ded
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_long_text
+    - filter.format.limited_html
+    - paragraphs.paragraphs_type.stats_bar_item
+  module:
+    - text
+id: paragraph.stats_bar_item.field_long_text
+field_name: field_long_text
+entity_type: paragraph
+bundle: stats_bar_item
+label: Text
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - limited_html
+field_type: text_long

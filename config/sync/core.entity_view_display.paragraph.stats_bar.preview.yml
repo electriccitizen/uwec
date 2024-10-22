@@ -1,0 +1,30 @@
+uuid: 0086cb16-92e1-4e4e-91c0-29f74704e6c3
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.preview
+    - field.field.paragraph.stats_bar.field_headline
+    - field.field.paragraph.stats_bar.field_image
+    - field.field.paragraph.stats_bar.field_stats_bar_items
+    - paragraphs.paragraphs_type.stats_bar
+  module:
+    - entity_reference_revisions
+id: paragraph.stats_bar.preview
+targetEntityType: paragraph
+bundle: stats_bar
+mode: preview
+content:
+  field_stats_bar_items:
+    type: entity_reference_revisions_entity_view
+    label: hidden
+    settings:
+      view_mode: preview
+      link: ''
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  field_headline: true
+  field_image: true
+  search_api_excerpt: true
