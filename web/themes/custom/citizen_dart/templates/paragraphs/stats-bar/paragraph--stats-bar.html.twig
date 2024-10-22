@@ -1,11 +1,11 @@
 {% extends 'paragraph.html.twig' %}
 
 {% block widgetContent %}
-	{% if paragraph.field_image.0 %}
-		<div class="background-image">
+	<div class="background-image">
+		{% if paragraph.field_image.0 %}
 			{{ drupal_entity('media', paragraph.field_image.0.target_id, '393x221') }}
-		</div>
-	{% endif %}
+		{% endif %}
+	</div>
 
 	{{ content }}
 {% endblock %}
