@@ -29,9 +29,6 @@
 			padding:2rem;
 		}
 	}
-	&:after{
-		//@include fullBack(rgba(0,0,255,0.3));
-	}
 
 	.paragraph--type--stats-bar-item{
 		margin:0 !important;
@@ -56,10 +53,8 @@
 			top:0;
 			left:0;
 			position:absolute;
-
-			// light version:
-			background:rgb(1,96,242);
-			background:linear-gradient(90deg, rgba(1,96,242,1) 0%, rgba(1,96,242,0.8) 33%, rgba(1,96,242,0.8) 100%);
+			background:rgb(6,35,61);
+			background:linear-gradient(90deg, rgba(6,35,61,1) 0%, rgba(6,35,61,0.8) 50%, rgba(6,35,61,0.8) 100%);
 		}
 	}
 
