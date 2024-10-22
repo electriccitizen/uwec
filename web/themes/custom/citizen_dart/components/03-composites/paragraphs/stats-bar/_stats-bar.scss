@@ -22,6 +22,11 @@
 
 	.field-stats-bar-items{
 		display:flex;
+		flex-direction:column;
+
+		@include tab{
+			flex-direction:row;
+		}
 
 		// each individual stat:
 		&>div{
@@ -46,6 +51,10 @@
 		margin-left:-50vw;
 		margin-right:-50vw;
 
+		img{
+			object-fit:cover;
+		}
+
 		&:after{
 			content:"";
 			width:100%;
@@ -64,6 +73,9 @@
 		align-items:center;
 		>article{
 			width:100vw;
+		}
+		.image,img{
+			height:100%;
 		}
 	}
 }
