@@ -5,10 +5,12 @@ dependencies:
   config:
     - field.field.paragraph.stats_bar.field_headline
     - field.field.paragraph.stats_bar.field_image
+    - field.field.paragraph.stats_bar.field_intro_text
     - field.field.paragraph.stats_bar.field_stats_bar_items
     - paragraphs.paragraphs_type.stats_bar
   module:
     - entity_reference_revisions
+    - text
 id: paragraph.stats_bar.default
 targetEntityType: paragraph
 bundle: stats_bar
@@ -22,6 +24,13 @@ content:
     third_party_settings: {  }
     weight: 0
     region: content
+  field_intro_text:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
   field_stats_bar_items:
     type: entity_reference_revisions_entity_view
     label: hidden
@@ -29,7 +38,7 @@ content:
       view_mode: default
       link: ''
     third_party_settings: {  }
-    weight: 1
+    weight: 2
     region: content
 hidden:
   field_image: true

@@ -15,7 +15,7 @@ mode: default
 content:
   field_headline:
     type: string_textfield
-    weight: 1
+    weight: 0
     region: content
     settings:
       size: 60

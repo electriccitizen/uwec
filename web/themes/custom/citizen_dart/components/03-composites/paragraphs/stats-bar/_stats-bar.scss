@@ -12,12 +12,15 @@
 		font-size:200%;
 	}
 	h3{
-		font-size:180%;
+		font-size:300%;
 	}
 
 	&>.widget-wrapper{
-		border-left:3px solid gold;
 		padding-left:2rem;
+	}
+
+	.field-intro-text{
+		margin:0 0 2rem 2rem;
 	}
 
 	.field-stats-bar-items{
@@ -76,6 +79,23 @@
 		}
 		.image,img{
 			height:100%;
+		}
+	}
+
+	// gold "thick hashes" on the left
+	&:before{
+		content:"";
+		display:block;
+		position:absolute;
+		width:112px;
+		height:300px;
+		top:0;
+		background:repeating-linear-gradient(0deg, #edac1a, #edac1a 60px, transparent 60px, transparent 120px);
+		transform:skew(0deg, -16deg);
+
+		right:100%;
+		@include largeScreen{
+			right:calc(100% + 4rem);
 		}
 	}
 }
