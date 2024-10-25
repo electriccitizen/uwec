@@ -125,6 +125,8 @@ permissions:
   - 'view paragraph content slate_form'
   - 'view paragraph content snapshot_list'
   - 'view paragraph content social_media_links'
+  - 'view paragraph content stats_bar'
+  - 'view paragraph content stats_bar_item'
   - 'view paragraph content step_item'
   - 'view paragraph content steps'
   - 'view paragraph content stories_video_list'

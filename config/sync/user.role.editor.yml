@@ -74,6 +74,8 @@ permissions:
   - 'delete paragraph content select_item'
   - 'delete paragraph content select_type'
   - 'delete paragraph content snapshot_list'
+  - 'delete paragraph content stats_bar'
+  - 'delete paragraph content stats_bar_item'
   - 'delete paragraph content stories_video_list'
   - 'delete paragraph content testimonial_placer'
   - 'delete paragraph content wayfinding'
