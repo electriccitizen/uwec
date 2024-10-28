@@ -331,7 +331,9 @@
 		// select all paragraph previews that do not already have a preview label
 		$('.lp-builder .paragraph--view-mode--preview:not(:has(.para-preview-label))').each(function(){
 			let label = $(this).find('.lpb-controls-label').html();
-			$(this).prepend('<div class="para-preview-label">'+label+' Component</div>');
+			if(label){
+				$(this).prepend('<div class="para-preview-label">'+label+' Component</div>');
+			}
 		});
 	});
 
