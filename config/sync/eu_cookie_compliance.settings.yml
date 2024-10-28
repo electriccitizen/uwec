@@ -28,7 +28,7 @@ popup_agreed:
   format: basic_html
 popup_find_more_button_message: 'More info'
 popup_hide_button_message: Hide
-popup_link: '<front>'
+popup_link: /privacy-statement
 popup_link_new_window: true
 popup_height: null
 popup_width: ''
