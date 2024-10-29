@@ -73,7 +73,7 @@
       {% endif %}
     {% endif %}
 
-    {# render the links field if it exists and if the hero is not video #}
+    {# render the links field if it exists. the video hero renders this later, below the body text. #}
     {% if hero_type != 'video' %}
       {% if element['#object'].field_hero.0.entity.field_links.0 %}
         <div class="field field-links">
@@ -85,6 +85,7 @@
         </div>
       {% endif %}
     {% endif %}
+
     {# set an area with breadcrumbs and header text content #}
     <div class="page-header-text">
       {% if element['#object'].field_hide_nav.0.value == '0' and (hero_type != 'full_image' and hero_type != 'video') %}
@@ -99,14 +100,24 @@
             {{ element['#object'].field_subtitle.0.value }}
           </h2>
         {% endif %}
-        {% if element['#object'].body.0 and (hero_type == 'pattern' or hero_type == 'image' or hero_type == 'background_image') %}
+        {% if element['#object'].body.0 and (hero_type == 'pattern' or hero_type == 'image' or hero_type == 'background_image' or hero_type == 'video') %}
           <div class="node-body">
             {{ bodyText }}
           </div>
         {% endif %}
+        {% if hero_type == 'video' %}
+          {% if element['#object'].field_hero.0.entity.field_links.0 %}
+            <div class="field field-links">
+              {% for link in element['#object'].field_hero.0.entity.field_links %}
+                <a href="{{ link.url }}">{{ link.title }}</a>
+              {% endfor %}
+            </div>
+          {% endif %}
+        {% endif %}
       </div>
     </div>
   </div>
+
   {# end page header wrapper #}
   <div id="scroll-anchor"></div>
-  {% endblock %}
+{% endblock %}

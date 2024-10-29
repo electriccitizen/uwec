@@ -4,6 +4,7 @@
 
 @use '../../../00-base/base' as *;
 @use '../node-mixins' as *;
+@use '../../../01-parts/buttons/_button-mixins.scss' as *;
 
 /* PAGE CONTENT */
 .node-page{
@@ -455,48 +456,34 @@
 
       .page-header-text{
         .page-header-text-inner{
-          width: 100%;
-          height: calc(100vh - 88px);
-          @include safeFlex(column,nowrap,end,start);
-          position: relative;
+          position:absolute;
+		  bottom:150px;
+		  left:250px;
           z-index: 5;
           @include desk{
-            height: calc(100vh - 100px);
-            justify-content: center;
-            align-items: center;
+			width:50%;
           }
-          @include menuStop{
-            height: calc(100vh - 110px);
-          }
+		  .node-body{
+		  	@include desk{
+				margin-bottom:4rem;
+			}
+		  }
           .node-title{
             @include desk{
-              margin-bottom: 0;
+              margin-bottom:4rem;
             }
             h1.formatted-title{
               color: $white;
-              font-size: 74px;
-              font-style: italic;
-              text-transform: uppercase;
-              letter-spacing: .05em;
-              line-height: 1;
+              font-size:40px;
               @include desk{
-                font-size: 100px;
-              }
-              @include contentStop{
-                font-size: 150px;
+                font-size: 54px;
               }
               strong{
-                display: block;
-                font-size: 78px;
+                font-size:44px;
                 font-style: normal;
                 font-family: $header;
-                letter-spacing: unset;
                 @include desk {
-                  display: inline;
-                  font-size: 106px;
-                }
-                @include contentStop{
-                  font-size: 161px;
+                  font-size: 58px;
                 }
               }//end strong
             }//end formatted title
@@ -519,6 +506,15 @@
         bottom: 10px;
         left: 0;
       }
+
+      .field-links{
+        position:relative;
+        a{
+          @include button;
+          color:white;
+          border-color:white;
+        }
+      }
     }
 
     /* GLOBAL HEADER TEXT & FIELD THEMING */
@@ -533,7 +529,7 @@
       }//end page header text inner
     }//end page header text
 
-    .field-links{
+    &:not(.page-hero-video) .field-links{
       padding: 120px 20px 40px;
       max-width: 984px;
       position: relative;
