@@ -10,19 +10,18 @@ Drupal.behaviors.heroVideo = {
     const pause_lang = Drupal.t("Pause video");
     const play_lang = Drupal.t("Play video");
 
-    $(once('heroVideo', '.page-hero-video .video-hero-mask', context)).each(function() {
+    $(once('heroVideo', '.page-hero-video', context)).each(function() {
       const video = $("video", this).get(0);
       const videoWrapper = $(this);
-      const videoCookie = cookies.get('heroVideoPlay');
-      let defaultState = videoCookie ? videoCookie : "playing";
+      let videoState = localStorage.getItem('heroVideoState') || 'playing';
 
       if (video) {
-        const videoButton = $(`<a href="#" class="video-button" title="${pickButtonLanguage(defaultState)}" aria-label="${pickButtonLanguage(defaultState)}"></a>`);
+        const videoButton = $(`<a href="#" class="video-button" title="${pickButtonLanguage(videoState)}" aria-label="${pickButtonLanguage(videoState)}">${getButtonText(videoState)}</a>`);
 
         // Set the initial state of the video (and the wrapper class) based off
         // of if we had a cookie telling us to pause.
-        videoWrapper.addClass(defaultState);
-        if (defaultState === "paused") {
+        videoWrapper.addClass(videoState);
+        if (videoState == "paused") {
           video.pause();
         }
 
@@ -31,19 +30,22 @@ Drupal.behaviors.heroVideo = {
           e.stopPropagation();
           if (videoWrapper.hasClass("playing")) {
             video.pause();
-            defaultState = "paused";
+            videoState = "paused";
           }
           else if (videoWrapper.hasClass("paused")) {
             video.play();
-            defaultState = "playing";
+            videoState = "playing";
           }
-          cookies.set("heroVideoPlay", defaultState);
+          localStorage.setItem('heroVideoState', videoState);
           videoWrapper.toggleClass("paused");
           videoWrapper.toggleClass("playing");
 
+          // update button text
+          videoButton.text(getButtonText(videoState));
+
           // Don't forget to update the ARIA language.
-          videoButton.attr("aria-label", pickButtonLanguage(defaultState));
-          videoButton.attr("title", pickButtonLanguage(defaultState));
+          videoButton.attr("aria-label", pickButtonLanguage(videoState));
+          videoButton.attr("title", pickButtonLanguage(videoState));
         });
         $(this).append(videoButton);
       }
@@ -54,6 +56,10 @@ Drupal.behaviors.heroVideo = {
     // any other state if it's paused.
     function pickButtonLanguage(state) {
       return state === "playing" ? pause_lang : play_lang;
+    }
+
+    function getButtonText(state){
+        return state == 'playing' ? 'Pause' : 'Play';
     }
   }
 }

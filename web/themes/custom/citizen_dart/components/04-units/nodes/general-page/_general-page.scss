@@ -5,10 +5,6 @@
 @use '../../../00-base/base' as *;
 @use '../node-mixins' as *;
 
-$videoHeight: 65vh;
-$videoWidth: $videoHeight * 1.4153;
-
-
 /* PAGE CONTENT */
 .node-page{
   //nug up to footer at larger screen sizes
@@ -34,21 +30,21 @@ $videoWidth: $videoHeight * 1.4153;
     margin-bottom: -9vw;
   }
   //remove contextual stuff
-	&.contextual-region{
-		position: static;
-		& > .contextual{
-			display: none;
-		}
-	}// contextual region
-	.block-nid {
-		margin-bottom: 0;
-	}
+  &.contextual-region{
+    position: static;
+    & > .contextual{
+      display: none;
+    }
+  }// contextual region
+  .block-nid {
+    margin-bottom: 0;
+  }
 
-	#node-section-1{
+  #node-section-1{
     z-index: 1;
-		.hero-video &,.hero-full_image &,.hero-background &{
-			position: static;
-		}
+    .hero-video &,.hero-full_image &,.hero-background &{
+      position: static;
+    }
     .hero-video &{
       background: $royal;
       @include edgeToEdge;
@@ -56,15 +52,15 @@ $videoWidth: $videoHeight * 1.4153;
     .hero-image &{
       padding-bottom: $spaceLg;
     }
-	}
+  }
 
-	//hero setups
-	.page-header-wrapper{
-		position: relative;
-		z-index: 0;
+  //hero setups
+  .page-header-wrapper{
+    position: relative;
+    z-index: 0;
 
     /* PATTERN HERO */
-		&.page-hero-pattern{
+    &.page-hero-pattern{
       @include patternHero;
       margin-bottom: $elementSpace;
       @include largeTab{
@@ -148,10 +144,10 @@ $videoWidth: $videoHeight * 1.4153;
           padding-top: 40px;
         }
       }
-		}//end hero pattern
+    }//end hero pattern
 
     /* HERO IMAGE RIGHT HALF */
-		&.page-hero-image{
+    &.page-hero-image{
       @include heroRightImage;
       @include desk{
         margin-bottom: 2rem;
@@ -228,7 +224,7 @@ $videoWidth: $videoHeight * 1.4153;
     }//end page hero image
 
     /* BACKGROUND PATTERNED HERO WITH IMAGE RIGHT HALF */
-		&.page-hero-background-image {
+    &.page-hero-background-image {
       @include heroRightImage;
       overflow: hidden;
       padding-bottom: 29vw;
@@ -402,7 +398,7 @@ $videoWidth: $videoHeight * 1.4153;
     }//end background hero
 
     /* FULL WIDTH IMAGE HERO */
-		&.page-hero-full-image {
+    &.page-hero-full-image {
       @include heroFullWidthImage;
       margin-top: -88px;
       padding-top: -88px;
@@ -417,7 +413,7 @@ $videoWidth: $videoHeight * 1.4153;
           }
         }//end page header text inner
       }//end page header test
-		}//end full image
+    }//end full image
 
     /* VIDEO HERO */
     &.page-hero-video{
@@ -431,6 +427,7 @@ $videoWidth: $videoHeight * 1.4153;
       margin-top: -88px;
       background-size: 1440px 1024px !important;
       background-position: left 40% bottom -70px !important;
+      position:relative;
       @include tab{
         background-size: cover !important;
         background-position: center !important;
@@ -438,6 +435,24 @@ $videoWidth: $videoHeight * 1.4153;
       @media screen and (min-width: 2000px){
         background-size: 2000px auto !important;
       }
+
+      video{
+        width:100vw;
+      }
+
+      // thick gold slashes in the top right corner, over video hero
+      &:after{
+        content:"";
+        display:block;
+        position:absolute;
+        width:112px;
+        height:300px;
+        top:120px;
+        right:0;
+        background:repeating-linear-gradient(0deg, #edac1a, #edac1a 40px, transparent 40px, transparent 80px);
+        transform:skew(0deg, -16deg);
+      }
+
       .page-header-text{
         .page-header-text-inner{
           width: 100%;
@@ -486,59 +501,6 @@ $videoWidth: $videoHeight * 1.4153;
               }//end strong
             }//end formatted title
           }//end node-title
-          .scroll-link{
-            text-align: center;
-            font-family: $header;
-            @include auto;
-            margin-bottom: $spaceMd;
-            max-width: 1104px;
-            @include smallTab{
-              margin-right: 0;
-            }
-            @include desk{
-              position: absolute;
-              top: calc(100vh - 210px);
-              right: 0;
-              margin-left: 0;
-            }
-            @media screen and (min-width: 1144px){
-              right:calc(50% - 502px);
-            }
-            a{
-              color: $gold;
-              text-transform: uppercase;
-              font-size: 21px;
-              line-height: 1.2;
-              letter-spacing: .05em;
-              .link-arrow {
-                width: 40px;
-                height: 40px;
-                border: 1px solid $gold;
-                border-radius: 50%;
-                display: block;
-                @include auto;
-                margin-top: 6px;
-                span {
-                  @include visuallyHidden;
-                }
-                &:after {
-                  content: '';
-                  display: block;
-                  -webkit-mask: url(../images/arrows/right-arrow-gold-sm.svg) no-repeat 50% 50%;
-                  mask: url(../images/arrows/right-arrow-gold-sm.svg) no-repeat 50% 50%;
-                  -webkit-mask-size: contain;
-                  mask-size: contain;
-                  background-color:currentColor;
-                  margin-left: .5em;
-                  width: 25px;
-                  height: 25px;
-                  transform: rotate(90deg);
-                  margin-top: 5px;
-                  margin-left: 7px;
-                }
-              }//end link arrow
-            }//emnd a
-          }//end video scroll link
         }// end video page header text inner
       }//end video page header text
 
@@ -551,87 +513,13 @@ $videoWidth: $videoHeight * 1.4153;
         display: flex;
         align-items: center;
         justify-content: center;
-        .video-hero-mask{
-          width: 100vw;
-          height: 78vw;
-          max-width: $videoWidth;
-          max-height: $videoHeight;
-          position: relative;
-          margin-top: -15vw;
-          @include smallTab{
-            margin-top: 0;
-            width: $videoWidth;
-            height: $videoHeight;
-            max-width: 862px;
-            max-height: 611px;
-          }
-          @include desk{
-            .logged-in &{
-              top: 20px;
-            }
-            &:before{
-              content: url(../images/elements/stripes-narrow-gold.svg);
-              display: block;
-              width: 263px;
-              height: 171px;
-              position: absolute;
-              top: -50px;
-              right: -60px;
-              html.animations-paused & {
-                opacity: 1;
-              }
-              @include animation('fadeInDelay 1.5s 1 forwards');
-              z-index: 1;
-            }
-            &:after{
-              content: url(../images/elements/stripes-narrow-gold.svg);
-              display: block;
-              width: 263px;
-              height: 171px;
-              position: absolute;
-              bottom: -60px;
-              left: -60px;
-              @include rotate(180);
-              html.animations-paused & {
-                opacity: 1;
-              }
-              @include animation('fadeInDelay 1.5s 1 forwards');
-              z-index: 1;
-            }
-          }//end desk
-        }//end video mask
-        .video-mask-inner{
-          position: absolute;
-          top: -58px;
-          left: -20vw;
-          right: -20vw;
-          bottom: 0;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          @include rotate(-16);
-          clip-path: inset(0 0 0 0);
-          @include smallTab{
-            top: 1vw;
-            left: 0;
-            right: 0;
-          }
-          @include menuStop{
-            top: 25px;
-          }
-          & > *{
-            @include rotate(16);
-            max-width: 1400px;
-            height: auto;
-          }
-        }//end video mask inner
-      }//end hero video
+      }
       #scroll-anchor{
         position: absolute;
         bottom: 10px;
         left: 0;
       }
-    }//end video hero
+    }
 
     /* GLOBAL HEADER TEXT & FIELD THEMING */
     .page-header-text{
@@ -683,7 +571,7 @@ $videoWidth: $videoHeight * 1.4153;
         display: block;
       }
     }//end block
-	}//end page-header-wrapper
+  }//end page-header-wrapper
 
   /* WHEN THERE IS NO HERO */
   .hero-none &{
@@ -867,6 +755,7 @@ $videoWidth: $videoHeight * 1.4153;
       }//end breadcrumb
     }//end breadcrumb block
   }//end node section 2;
+
   #node-section-3{
     z-index: 1;
     background: $white;
@@ -889,10 +778,10 @@ $videoWidth: $videoHeight * 1.4153;
       }
     }
   }//end node section 3
-	.block-field-page-family{
-		max-width: $breakoutWidth;
-		@include auto;
-	}
+  .block-field-page-family{
+    max-width: $breakoutWidth;
+    @include auto;
+  }
   .node-section:last-child >.layout >.layout__region:last-child{
     margin-bottom: 0;
   }
