@@ -12,17 +12,30 @@ Drupal.behaviors.heroVideo = {
 
     $(once('heroVideo', '.page-hero-video', context)).each(function() {
       const video = $("video", this).get(0);
-      const videoWrapper = $(this);
-      let videoState = localStorage.getItem('heroVideoState') || 'playing';
+
 
       if (video) {
+        const videoWrapper = $(this);
+        let videoState = localStorage.getItem('heroVideoState') || 'playing';
         const videoButton = $(`<a href="#" class="video-button" title="${pickButtonLanguage(videoState)}" aria-label="${pickButtonLanguage(videoState)}">${getButtonText(videoState)}</a>`);
+
+        if(window.matchMedia('(min-width:600px)')){
+          // we have a large screen, so show the video
+          let sourceTag = video.querySelector('source');
+          sourceTag.src = sourceTag.dataset.src;
+          video.load();
+        }else{
+          // we have a small screen, so don't do a video.
+          return;
+        }
 
         // Set the initial state of the video (and the wrapper class) based off
         // of if we had a cookie telling us to pause.
         videoWrapper.addClass(videoState);
         if (videoState == "paused") {
           video.pause();
+        }else{
+          video.play();
         }
 
         videoButton.on("click", (e) => {
