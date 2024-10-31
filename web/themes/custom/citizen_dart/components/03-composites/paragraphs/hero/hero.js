@@ -13,13 +13,12 @@ Drupal.behaviors.heroVideo = {
     $(once('heroVideo', '.page-hero-video', context)).each(function() {
       const video = $("video", this).get(0);
 
-
       if (video) {
         const videoWrapper = $(this);
         let videoState = localStorage.getItem('heroVideoState') || 'playing';
         const videoButton = $(`<a href="#" class="video-button" title="${pickButtonLanguage(videoState)}" aria-label="${pickButtonLanguage(videoState)}">${getButtonText(videoState)}</a>`);
 
-        if(window.matchMedia('(min-width:600px)')){
+        if(window.matchMedia('(min-width:600px)').matches){
           // we have a large screen, so show the video
           let sourceTag = video.querySelector('source');
           sourceTag.src = sourceTag.dataset.src;
