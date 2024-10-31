@@ -8,7 +8,9 @@ dependencies:
     - field.field.paragraph.hero.field_hero_video
     - field.field.paragraph.hero.field_image
     - field.field.paragraph.hero.field_links
+    - field.field.paragraph.hero.field_video_description
     - field.field.paragraph.hero.field_video_poster
+    - field.field.paragraph.hero.field_video_title
     - paragraphs.paragraphs_type.hero
   module:
     - file
@@ -73,4 +75,6 @@ content:
     weight: 5
     region: content
 hidden:
+  field_video_description: true
+  field_video_title: true
   search_api_excerpt: true

@@ -9,7 +9,9 @@ dependencies:
     - field.field.paragraph.hero.field_hero_video
     - field.field.paragraph.hero.field_image
     - field.field.paragraph.hero.field_links
+    - field.field.paragraph.hero.field_video_description
     - field.field.paragraph.hero.field_video_poster
+    - field.field.paragraph.hero.field_video_title
     - image.style.paragraph_preview
     - paragraphs.paragraphs_type.hero
   module:
@@ -39,7 +41,7 @@ content:
         lazy_image: '0'
         placeholder_style: ''
         data_uri: false
-    weight: 1
+    weight: 2
     region: content
   field_hero_type:
     type: list_default
@@ -57,7 +59,7 @@ content:
       image_loading:
         attribute: lazy
     third_party_settings: {  }
-    weight: 2
+    weight: 3
     region: content
   field_video_poster:
     type: media_thumbnail
@@ -72,9 +74,11 @@ content:
         lazy_image: '0'
         placeholder_style: ''
         data_uri: false
-    weight: 3
+    weight: 4
     region: content
 hidden:
   field_hero_video: true
   field_links: true
+  field_video_description: true
+  field_video_title: true
   search_api_excerpt: true
