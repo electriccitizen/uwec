@@ -437,6 +437,11 @@
         background-size: 2000px auto !important;
       }
 
+      video{
+        height:100%;
+        object-fit:cover;
+      }
+
       @include desk{
         video{
           width:100vw;
