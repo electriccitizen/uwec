@@ -249,7 +249,7 @@
           }else if(type == 'pattern'){
             $('.field--name-field-links').show();
           }else if(type == 'video'){
-            $('.field--name-field-background-image,.field--name-field-hero-video,.field--name-field-video-poster,.field--name-field-links').show();
+            $('.field--name-field-background-image,.field--name-field-hero-video,.field--name-field-video-poster,.field--name-field-video-title,.field--name-field-video-description,.field--name-field-links').show();
           }
         });
       }

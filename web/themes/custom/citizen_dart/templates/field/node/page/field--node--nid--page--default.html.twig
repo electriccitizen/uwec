@@ -22,11 +22,14 @@
 
 {% extends 'field.html.twig' %}
 
+{% set hero_type = element['#object'].field_hero.0.entity.field_hero_type.0.value %}
+
 {% set formattedTitle = {
   '#type': 'processed_text',
-  '#text': element['#object'].field_formatted_title.0.value,
+  '#text': (hero_type == 'video') ? element['#object'].field_hero.0.entity.field_video_title.0.value : element['#object'].field_formatted_title.0.value,
   '#format': element['#object'].field_formatted_title.0.format
 } %}
+
 {% set bodyText = {
   '#type': 'processed_text',
   '#text': element['#object'].body.0.value,
@@ -34,8 +37,6 @@
 } %}
 
 {% block fieldSingleNo %}
-  {% set hero_type = element['#object'].field_hero.0.entity.field_hero_type.0.value %}
-
   <div class="page-header-wrapper{% if element['#object'].field_hero.0 %} has-hero page-hero-{{ hero_type|clean_class }}{% endif %}"{% if hero_type == 'background_image' or hero_type ==
   'video' %} style="background:url({{ file_url(element['#object'].field_hero.0.entity.field_background_image.0.entity.field_media_image.entity.fileuri) }}) no-repeat"{% endif %}>
 
@@ -100,12 +101,13 @@
             {{ element['#object'].field_subtitle.0.value }}
           </h2>
         {% endif %}
-        {% if element['#object'].body.0 and (hero_type == 'pattern' or hero_type == 'image' or hero_type == 'background_image' or hero_type == 'video') %}
+        {% if element['#object'].body.0 and (hero_type == 'pattern' or hero_type == 'image' or hero_type == 'background_image') %}
           <div class="node-body">
             {{ bodyText }}
           </div>
         {% endif %}
         {% if hero_type == 'video' %}
+          {{ element['#object'].field_hero.0.entity.field_video_description.0.value|raw }}
           {% if element['#object'].field_hero.0.entity.field_links.0 %}
             <div class="field field-links">
               {% for link in element['#object'].field_hero.0.entity.field_links %}

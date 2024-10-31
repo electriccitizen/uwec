@@ -443,6 +443,15 @@
         }
       }
 
+      @keyframes videoHeroSlashAnim{
+        0%{
+          right:-92px;
+        }
+        100%{
+          right:0;
+        }
+      }
+
       // thick gold slashes in the top right corner, over video hero
       &:after{
         content:"";
@@ -451,9 +460,11 @@
         width:112px;
         height:300px;
         top:120px;
-        right:0;
+        right:-92px;
         background:repeating-linear-gradient(0deg, #edac1a, #edac1a 40px, transparent 40px, transparent 80px);
         transform:skew(0deg, -16deg);
+        animation:.5s ease .4s 1 videoHeroSlashAnim;
+        animation-fill-mode:forwards;
       }
 
       .page-header-text{
@@ -463,7 +474,7 @@
 
           width:70%;
           left:40px;
-          bottom:50px;
+          bottom:100px;
           @include tab{
             left:100px;
           }
@@ -472,8 +483,10 @@
             left:200px;
             bottom:150px;
           }
-          @include largeScreen{
-            left:250px;
+
+          // align left edge with left edge of top nav on large screens
+          @include contentStop{
+            left:calc((100vw - 1280px) / 2.0);
             width:40%;
           }
           .node-body{
@@ -482,6 +495,7 @@
             }
           }
           .node-title{
+            margin-bottom:2rem;
             @include desk{
               margin-bottom:4rem;
             }
@@ -547,6 +561,11 @@
           @include button;
           color:white;
           border-color:white;
+          margin-right:2rem;
+          &:hover{
+            color:black;
+            background-color:white;
+          }
         }
       }
     }
