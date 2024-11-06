@@ -1,5 +1,4 @@
 <?php
-
 namespace Drupal\citizen_profile_sync;
 
 use Drupal\Core\Datetime\DrupalDateTime;
@@ -14,9 +13,6 @@ use Drupal\Core\Database\Database;
  * Syncs Drupal users and their profiles with Athena profiles endpoint data
  */
 class ProfileSyncService {
-
-  const IGNORE_BEFORE_DATE = '2023-11-01 00:00:00';
-
   /**
    * Active database connection.
    *
@@ -52,34 +48,44 @@ class ProfileSyncService {
     foreach ($profiles as $athenaId => $profile) {
       $user = $this->findExistingUser($athenaId);
       $existingNode = $this->findExistingProfile($athenaId);
+      $athenaUpdateTime = strtotime($profile->updated_at);
 
-      if ($user ||  $existingNode) {
-        $athenaUpdateTime = $this->convertToUTC($profile->updated_at);
-      }
+	  // TODO delete this line after running on live.
+	  // this counter-acts a previous timezone bug.
+	  // we should only need to run this once on live.
+	  // it won't hurt anything if it runs multiple times with this.
+	  // worst case scenario is some profiles get updated with no changes.
+	  $athenaUpdateTime += 60 * 60 * 6;
 
+
+      // create or update User
       if ($user) {
         // Update existing User entity, if endpoint data has been updated since last import
         $userUpdateTime = $user->get('field_last_imported')->getString();
-        if (strtotime($athenaUpdateTime) >= strtotime($userUpdateTime)) {
+        if ($athenaUpdateTime >= strtotime($userUpdateTime)) {
           $user = $this->updateUser($user, $profile);
-          // create authmap record
           $this->createOrUpdateAuthMapRecord($user);
         }
       } else {
-        // todo exclude emeritus?
-        $user = $this->createUser($profile, $existingNode);
-        // create authmap record
-        $this->createOrUpdateAuthMapRecord($user);
+        // no User exists. create one if this profile is active.
+        if($profile->isactive){
+          $user = $this->createUser($profile, $existingNode);
+          $this->createOrUpdateAuthMapRecord($user);
+        }
       }
 
+      // create or update Profile
       if ($existingNode) {
         // Update existing Profile node, if endpoint data has been updated since last import
-         $drupalImportTime = $existingNode->get('field_import_date')->getString();
-        if (strtotime($athenaUpdateTime) >= strtotime($drupalImportTime)) {
+        $drupalImportTime = $existingNode->get('field_import_date')->getString();
+        if ($athenaUpdateTime >= strtotime($drupalImportTime)) {
           $this->updateProfile($existingNode, $profile);
         }
       } else {
-        $this->createProfile($profile, $athenaId, $user->id());
+        // no profile node exists. create one if this profile is active
+        if($profile->isactive){
+          $this->createProfile($profile, $athenaId, $user->id());
+        }
       }
     }
   }
@@ -124,21 +130,26 @@ class ProfileSyncService {
     $node_values = [
       'type' => 'bios',
       'field_athena_id' => $athenaId,
-      'field_active' => 1,
+      'field_active' => $profileData->isactive,
       'field_username' => $profileData->username,
       'field_email' => $profileData->email,
       'field_phone' => $profileData->preferred_phone,
       'field_first_name' => $profileData->first_name,
       'field_last_name' => $profileData->last_name,
-      // todo department? No per Adam https://ecitizen.atlassian.net/browse/UWEC-64
-      // todo office location? No per Adam https://ecitizen.atlassian.net/browse/UWEC-64
       'field_position' => $profileData->hrs_title_formatted,
-      'field_import_date' => $this->getUpdateTime(),
+      'field_import_date' => $profileData->updated_at,
     ];
 
     $node = Node::create($node_values);
     $node->setOwnerId($userId);
-    $node->set('moderation_state', 'published');
+
+    // set moderation state based on athena's "isactive" field
+    if($profileData->isactive){
+      $node->set('moderation_state', 'published');
+    }else{
+      $node->set('moderation_state', 'archived');
+    }
+
     $node->save();
 
     return $node;
@@ -154,59 +165,25 @@ class ProfileSyncService {
    * @throws \Drupal\Core\Entity\EntityStorageException
    */
   protected function updateProfile(Node $existingNode, $profileData) {
-    $existingNode->set('field_active', true);
+    $existingNode->set('field_active', boolval($profileData->isactive));
     $existingNode->set('field_username', $profileData->username);
     $existingNode->set('field_email', $profileData->email);
     $existingNode->set('field_phone', $profileData->preferred_phone);
     $existingNode->set('field_first_name', $profileData->first_name);
     $existingNode->set('field_last_name', $profileData->last_name);
-    // todo department No per Adam https://ecitizen.atlassian.net/browse/UWEC-64
-    // todo office location No per Adam https://ecitizen.atlassian.net/browse/UWEC-64
     $existingNode->set('field_position', $profileData->hrs_title_formatted);
-    $existingNode->set('field_import_date', $this->getUpdateTime());
-    $existingNode->set('moderation_state', 'published');
+    $existingNode->set('field_import_date', $profileData->updated_at);
+
+    // set moderation state based on athena's "isactive" field
+    if($profileData->isactive){
+      $existingNode->set('moderation_state', 'published');
+    }else{
+      $existingNode->set('moderation_state', 'archived');
+    }
 
     $existingNode->save();
   }
 
-  /**
-   * Unpublish existing profiles for users who have been flagged as inactive in Athena.
-   *
-   * @param $profiles
-   *
-   * @return void
-   * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
-   * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
-   * @throws \Drupal\Core\Entity\EntityStorageException
-   */
-  public function deactivateProfiles($profiles) {
-    foreach ($profiles as $athenaId => $profile) {
-      $athenaUpdateTime = $this->convertToUTC($profile->updated_at);
-      //Skip all with updated_at datetimes before current dev date
-      //todo adjust the date constant before launch
-      if (strtotime($athenaUpdateTime) > strtotime(self::IGNORE_BEFORE_DATE)) {
-        $existingActiveUser = $this->findExistingUser($athenaId, true);
-
-        if ($existingActiveUser) {
-          $existingActiveUser->block();
-          $existingActiveUser->set('field_last_imported', $this->getUpdateTime());
-          $existingActiveUser->save();
-        }
-
-        $existingNode = $this->findExistingProfile($athenaId);
-
-        if ($existingNode) {
-          $drupalImportTime = $existingNode->get('field_import_date')->getString();
-          if (strtotime($athenaUpdateTime) >= strtotime($drupalImportTime)) {
-            $existingNode->set('field_active', 0);
-            $existingNode->set('field_import_date', $this->getUpdateTime());
-            $existingNode->set('moderation_state', 'archived');
-            $existingNode->save();
-          }
-        }
-      }
-    }
-  }
 
   /**
    * Get current UTC datetime and format to ISO 8601 (no offset).
@@ -221,20 +198,6 @@ class ProfileSyncService {
   }
 
   /**
-   * Convert CST/CDT datetime string to UTC.
-   *
-   * @param $datetimeStringCST
-   *
-   * @return string
-   */
-  protected function convertToUTC($datetimeStringCST) {
-    $datetimeCST = new DrupalDateTime($datetimeStringCST, 'America/Chicago');
-    $datetimeCST->setTimezone(new \DateTimeZone('UTC'));
-
-    return $datetimeCST->format('Y-m-d H:i:s');
-  }
-
-  /**
    * Find existing Drupal user by Athena username field value.
    *
    * @param $athenaId
@@ -242,14 +205,10 @@ class ProfileSyncService {
    *
    * @return \Drupal\Core\Entity\EntityBase|\Drupal\Core\Entity\EntityInterface|\Drupal\user\Entity\User|\Drupal\user\UserInterface|false
    */
-  protected function findExistingUser($athenaId, bool $activeOnly = false) {
+  protected function findExistingUser($athenaId) {
     $query = \Drupal::entityQuery('user')
       ->condition('field_athena_id', $athenaId)
       ->range(0, 1);
-
-    if ($activeOnly) {
-      $query->condition('status', 1);
-    }
 
     $uids = $query->accessCheck(false)->execute();
 

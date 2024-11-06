@@ -14,37 +14,14 @@ use GuzzleHttp\Exception\GuzzleException;
 function citizen_profile_sync_cron() {
   $profileSyncService = \Drupal::service('citizen_profile_sync.profile_sync_service');
   $http_client = \Drupal::httpClient();
-  $url = "https://athena.apps.uwec.edu/api/profiles.json";
-  $apikey = '36dadd0fab31edb063666ef8f43e595d';
-  $query_string = '?apikey=' . $apikey;
-  $active_query_string = $query_string . '&isactive=1';
+  $url = 'https://athena.apps.uwec.edu/api/profiles.json?apikey=36dadd0fab31edb063666ef8f43e595d';
   try {
-    $response = $http_client->get($url . $active_query_string);
+    $response = $http_client->get($url);
     if ($response->getStatusCode() == 200) {
       $data = json_decode($response->getBody());
       $profiles = (array) $data;
       $profileSyncService->syncProfiles($profiles);
-    }
-    else {
-      \Drupal::logger('citizen_profile_sync')
-        ->error('Error accessing API: @code - @message', [
-          '@code' => $response->getStatusCode(),
-          '@message' => $response->getReasonPhrase(),
-        ]);
-    }
-  } catch (GuzzleException $e) {
-    \Drupal::logger('citizen_profile_sync', 'Athena endpoint connection failure due to "%error".')
-      ->error($e->getMessage());
-  }
-  $inactive_query_string = $query_string . '&isactive=0';
-  try {
-    $response = $http_client->get($url . $inactive_query_string);
-    if ($response->getStatusCode() == 200) {
-      $data = json_decode($response->getBody());
-      $inactive_profiles = (array) $data;
-      $profileSyncService->deactivateProfiles($inactive_profiles);
-    }
-    else {
+    }else{
       \Drupal::logger('citizen_profile_sync')
         ->error('Error accessing API: @code - @message', [
           '@code' => $response->getStatusCode(),
