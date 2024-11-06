@@ -50,14 +50,6 @@ class ProfileSyncService {
       $existingNode = $this->findExistingProfile($athenaId);
       $athenaUpdateTime = strtotime($profile->updated_at);
 
-	  // TODO delete this line after running on live.
-	  // this counter-acts a previous timezone bug.
-	  // we should only need to run this once on live.
-	  // it won't hurt anything if it runs multiple times with this.
-	  // worst case scenario is some profiles get updated with no changes.
-	  $athenaUpdateTime += 60 * 60 * 6;
-
-
       // create or update User
       if ($user) {
         // Update existing User entity, if endpoint data has been updated since last import
