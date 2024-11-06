@@ -1,4 +1,4 @@
-(function($, Drupal, once, cookies) {
+(function($, Drupal, once) {
 
 /* LAYOUT
 ------------------ */
@@ -275,39 +275,39 @@ Drupal.behaviors.pauseAnimations = {
   attach: function (context, settings) {
     const pause_lang = Drupal.t("Pause Animation");
     const play_lang = Drupal.t("Play Animation");
-
-    const animation_cookie = "uwecAnimationsPlay";
+    const animationStorageKey = "uwecAnimationsPlay";
 
     // All animations are controlled via classes in the body tag.
     // Generally, .animations-paused is checked by the various JS files that add
     // some sort of "visible" class on scroll. If animations are paused, that
-    // class is added immediately insteead of waiting.
+    // class is added immediately instead of waiting.
     // On the other hand, .animations-playing is checked by the CSS to see if
     // they should play various fade-in animations, or if they should just be
     // opaque by default.
 
     $(once('animationsState', 'html', context)).each(function() {
-      const animationCookie = cookies.get(animation_cookie);
+      let animationState = localStorage.getItem(animationStorageKey) || 'playing';
       const contentWrapper = $("#block-citizen-dart-copyright", this);
-      let defaultState = animationCookie ? animationCookie : "playing";
 
-      const animationsButton = $(`<a href="#" class="animations-button"><span>${pickButtonLanguage(defaultState)}</span></a>`);
-
-      $(this).addClass("animations-" + defaultState);
+      const animationsButton = $(`<a href="#" class="animations-button"><span>${pickButtonLanguage(animationState)}</span></a>`);
+      $(this).addClass("animations-" + animationState);
 
       animationsButton.on("click", (e) => {
         e.preventDefault();
         e.stopPropagation();
-        // Simply toggle the state onclick. Everything else is keyed from this
-        // one thing.
-        defaultState = defaultState === "playing" ? "paused" : "playing";
-        cookies.set(animation_cookie, defaultState);
-        $(this).toggleClass("animations-paused");
-        $(this).toggleClass("animations-playing");
+        // Simply toggle the state on click. Everything else is keyed from this one variable.
+        animationState = animationState == "playing" ? "paused" : "playing";
+        localStorage.setItem(animationStorageKey, animationState);
+        if(animationState == 'playing'){
+          $(this).addClass('animations-playing');
+          $(this).removeClass('animations-paused');
+        }else{
+          $(this).addClass('animations-paused');
+          $(this).removeClass('animations-playing');
+        }
 
         // Don't forget to update the ARIA language.
-        animationsButton.find('span').text(pickButtonLanguage(defaultState));
-        animationsButton.find('span').text(pickButtonLanguage(defaultState));
+        animationsButton.find('span').text(pickButtonLanguage(animationState));
       });
       contentWrapper.append(animationsButton);
     });
@@ -321,4 +321,4 @@ Drupal.behaviors.pauseAnimations = {
   }
 }
 
-})(jQuery, Drupal, once, window.Cookies);
+})(jQuery, Drupal, once);
