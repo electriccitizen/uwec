@@ -110,7 +110,7 @@ class Courses extends BlockBase{
 						}
 					}elseif($childClass == 'courseblockdescription'){
 						if(!empty($child->firstChild)){
-							$courseData['description'] = trim($child->firstChild->data);
+							$courseData['description'] = $this->sanitizeDescription($child->firstChild->data);
 						}
 					}
 				}
@@ -195,5 +195,14 @@ class Courses extends BlockBase{
 		$title = trim($title);
 
 		return $title;
+	}
+
+	// returns a sanitized version of the given $description.
+	protected function sanitizeDescription($description){
+		// trim whitespace
+		$description = trim($description);
+
+		// i don't exactly follow why this works but it fixes a weird smart quote situation in bcom 309.
+		return utf8_decode($description);
 	}
 }
