@@ -203,6 +203,6 @@ class Courses extends BlockBase{
 		$description = trim($description);
 
 		// i don't exactly follow why this works but it fixes a weird smart quote situation in bcom 309.
-		return utf8_decode($description);
+		return mb_convert_encoding($description, 'ISO-8859-1', 'UTF-8');
 	}
 }
