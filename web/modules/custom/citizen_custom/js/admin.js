@@ -229,100 +229,44 @@
 
   Drupal.behaviors.hero = {
     attach: function (context, settings) {
-      $(once('isHero', '.field--name-field-hero-type .js-form-type-select', context)).each(function(){
-      
-        let imageRightFields = $('.field--name-field-image,.field--name-field-links');
-        let bgImageFields = $('.field--name-field-background-image,.field--name-field-image,.field--name-field-links');
-        let fullImageFields = $('.field--name-field-background-image,.field--name-field-links');
-        let videoFields = $('.field--name-field-background-image,.field--name-field-hero-video,.field--name-field-video-poster');
-        let patternFields = $('.field--name-field-links');
-  
-        //hide all fields by default
-        $(this).closest('.paragraphs-subform').find('.field--name-field-hero-type').siblings().hide();
-  
-         $(document).ajaxComplete(function () {
-  
-           //when an existing hero is opened, check the version and show the correct fields
-           if($('.field--name-field-hero-type .js-form-type-select', this).find("option:selected").val()){
-            var chosen = $('.field--name-field-hero-type .js-form-type-select', this).find("option:selected").val().replace(/_/g, '-');
-            if (chosen == 'image'){
-              bgImageFields.hide();
-              fullImageFields.hide();
-              videoFields.hide();
-              patternFields.hide();
-              imageRightFields.show();
-            } else if (chosen == 'background-image'){
-              imageRightFields.hide();
-              fullImageFields.hide();
-              videoFields.hide();
-              patternFields.hide();
-              bgImageFields.show();
-            } else if (chosen == 'full-image'){
-              imageRightFields.hide();
-              bgImageFields.hide();
-              videoFields.hide();
-              patternFields.hide();
-              fullImageFields.show();
-            } else if (chosen == 'pattern'){
-              imageRightFields.hide();
-              bgImageFields.hide();
-              videoFields.hide();
-              fullImageFields.hide();
-              patternFields.show();
-            } else if (chosen == 'video'){
-              imageRightFields.hide();
-              bgImageFields.hide();
-              fullImageFields.hide();
-              patternFields.hide();
-              videoFields.show();
-            }
+
+      // shows and hides fields based on the selected hero type
+      function updateHeroFields(){
+        $('.field--name-field-hero-type').each(function(){
+          let typeField = $(this);
+
+          // hide all fields
+          typeField.siblings().hide();
+
+          // show fields if they are relevant to the selected type
+          let type = typeField.find('option:selected').val();
+          if(type == 'image'){
+            $('.field--name-field-image,.field--name-field-links').show();
+          }else if(type == 'background_image'){
+            $('.field--name-field-background-image,.field--name-field-image,.field--name-field-links').show();
+          }else if(type == 'full_image'){
+            $('.field--name-field-background-image,.field--name-field-links').show();
+          }else if(type == 'pattern'){
+            $('.field--name-field-links').show();
+          }else if(type == 'video'){
+            $('.field--name-field-background-image,.field--name-field-hero-video,.field--name-field-video-poster,.field--name-field-video-title,.field--name-field-video-description,.field--name-field-links').show();
           }
-  
-          // detect the chosen list type and show the proper select or manual field options
-          $('.field--name-field-hero-type .js-form-type-select').each(function () {
-            //when the content type select is changed
-            $(this).find('select').change(function () {
-              //get the option
-              var choice = $(this).find("option:selected").val().replace(/_/g, '-');
-              
-              if (choice == 'image'){
-                bgImageFields.hide();
-                fullImageFields.hide();
-                videoFields.hide();
-                patternFields.hide();
-                imageRightFields.show();
-              } else if (choice == 'background-image'){
-                imageRightFields.hide();
-                fullImageFields.hide();
-                videoFields.hide();
-                patternFields.hide();
-                bgImageFields.show();
-              } else if (choice == 'full-image'){
-                imageRightFields.hide();
-                bgImageFields.hide();
-                videoFields.hide();
-                patternFields.hide();
-                fullImageFields.show();
-              } else if (choice == 'pattern'){
-                imageRightFields.hide();
-                bgImageFields.hide();
-                videoFields.hide();
-                fullImageFields.hide();
-                patternFields.show();
-              } else if (choice == 'video'){
-                imageRightFields.hide();
-                bgImageFields.hide();
-                fullImageFields.hide();
-                patternFields.hide();
-                videoFields.show();
-              }
-            });
-          });
-         
-       });//end ajax complete
+        });
+      }
+
+      $(once('isHero', '.field--name-field-hero-type', context)).each(function(){
+        // update fields on ajax complete, for the initial "edit" click
+        $(document).ajaxComplete(function(){
+          updateHeroFields($(this));
+        });
+
+        // also update fields whenever the user changes the hero type
+        $(this).find('select').change(function(){
+          updateHeroFields($(this));
+        });
      });
     }
-  };//end cta
+  };
   
 
 	/* Add paragraph preview labels
