@@ -1,0 +1,6 @@
+uwec_reports.index:
+  title: 'UWEC Reports'
+  description: 'UWEC Reports index page'
+  parent: system.admin_reports
+  route_name: uwec_reports.index
+  weight: 1

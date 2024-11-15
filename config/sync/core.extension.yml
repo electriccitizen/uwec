@@ -119,6 +119,7 @@ module:
   tour: 0
   twig_tweak: 0
   user: 0
+  uwec_reports: 0
   view_unpublished: 0
   views_bulk_operations: 0
   views_infinite_scroll: 0

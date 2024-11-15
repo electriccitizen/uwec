@@ -1,0 +1,7 @@
+uwec_reports.index:
+  path: '/admin/reports/uwec'
+  defaults:
+    _controller: '\Drupal\uwec_reports\Controller\IndexController::show'
+    _title: 'UWEC Reports'
+  requirements:
+    _permission: 'access content'
