@@ -1,7 +1,15 @@
 uwec_reports.index:
   path: '/admin/reports/uwec'
   defaults:
-    _controller: '\Drupal\uwec_reports\Controller\IndexController::show'
+    _controller: '\Drupal\system\Controller\SystemController::systemAdminMenuBlockPage'
     _title: 'UWEC Reports'
   requirements:
-    _permission: 'access content'
+    _permission: 'view uwec reports'
+
+uwec_reports.testimonials:
+  path: '/admin/reports/uwec/testimonials'
+  defaults:
+    _controller: '\Drupal\uwec_reports\Controller\TestimonialsController::show'
+    _title: 'Testimonials Report'
+  requirements:
+    _permission: 'view uwec reports'

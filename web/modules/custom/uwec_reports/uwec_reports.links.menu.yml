@@ -4,3 +4,10 @@ uwec_reports.index:
   parent: system.admin_reports
   route_name: uwec_reports.index
   weight: 1
+
+uwec_reports.testimonials:
+  title: 'Testimonials'
+  description: 'Lists all testimonials'
+  parent: uwec_reports.index
+  route_name: uwec_reports.testimonials
+  weight: 1
