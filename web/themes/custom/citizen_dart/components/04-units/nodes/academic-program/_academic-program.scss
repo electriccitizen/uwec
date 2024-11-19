@@ -588,6 +588,7 @@
       margin-bottom: $spaceXxs;
       a{
         @include linkArrow(navy, sm);
+        padding-bottom:0.65rem;
         &:hover,&:focus{
           span{
             @include dottedLink($brightBlue);
