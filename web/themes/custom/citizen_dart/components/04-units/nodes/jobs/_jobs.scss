@@ -102,45 +102,6 @@
         margin-bottom: 0;
       }
     }
-    .social{
-      width: 100%;
-      @include safeFlex(row,nowrap,center,center);
-      @include largeTab{
-        width: auto;
-        justify-content: flex-start;
-        margin-left: 32px;
-      }
-      span{
-        margin-right: .5rem;
-      }
-      a{
-        @include safeFlex(column,nowrap,center,center);
-        width: 36px;
-        height: 36px;
-        &:hover,&:focus{
-          background: $lightGrey;
-          svg#facebook,svg#twitter,svg#linkedin{
-            path{
-              fill: $navy;
-            }
-          }
-          svg#email{
-            rect,path{
-              stroke: $navy;
-              fill: none;
-            }
-          }
-        }//end hover focus
-        svg{
-          width: 16px;
-          height: 16px;
-          &#facebook,&#email{
-            width: 18px;
-            height: 18px;
-          }
-        }
-      }//end a 
-    }//end social
   }//end field nid
   .block-field.block-body{
     @include textContent;
