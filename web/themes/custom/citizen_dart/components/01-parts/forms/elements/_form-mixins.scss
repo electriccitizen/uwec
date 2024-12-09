@@ -6,19 +6,7 @@
 
 @mixin placeholder{
 	$placeTint: 1;
-	&::-webkit-placeholder{
-		opacity: $placeTint;
-		color: $placeColor;
-	}
-	&::-moz-placeholder{
-		opacity: $placeTint;
-		color: $placeColor;
-	}
-	&:-ms-input-placeholder{
-		opacity: $placeTint;
-		color: $placeColor;
-	}
-	&::-webkit-input-placeholder{
+	&::placeholder{
 		opacity: $placeTint;
 		color: $placeColor;
 	}
@@ -26,19 +14,7 @@
 
 @mixin placeholderFocus{
 	$placeFocusTint: .2;
-	&::-webkit-placeholder{
-		opacity: $placeFocusTint;
-		color: $placeFocusColor;
-	}
-	&::-moz-placeholder{
-		opacity: $placeFocusTint;
-		color: $placeFocusColor;
-	}
-	&:-ms-input-placeholder{
-		opacity: $placeFocusTint;
-		color: $placeFocusColor;
-	}
-	&::-webkit-input-placeholder{
+	&::placeholder{
 		opacity: $placeFocusTint;
 		color: $placeFocusColor;
 	}
