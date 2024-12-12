@@ -5,14 +5,13 @@ dependencies:
   config:
     - field.storage.node.body
     - field.storage.node.field_employment_category
+    - field.storage.node.field_employment_type
     - field.storage.node.field_office_term
     - field.storage.node.field_official_title
-    - field.storage.node.field_employment_type
     - search_api.server.local
   module:
-    - taxonomy
     - node
-    - search_api
+    - taxonomy
 id: jobs
 name: Jobs
 description: ''
