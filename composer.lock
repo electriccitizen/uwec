@@ -6869,7 +6869,7 @@
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/superfish.git",
-                "reference": "3cbc2db5900ce5c093e6d8343402d38e305fc5a7"
+                "reference": "18fbca3e24f54c6b7a882659653f0d8610d6d497"
             },
             "require": {
                 "drupal/core": "^8 || ^9 || ^10",
@@ -6881,8 +6881,8 @@
                     "dev-1.x": "1.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-1.7+1-dev",
-                    "datestamp": "1710674856",
+                    "version": "8.x-1.7+3-dev",
+                    "datestamp": "1721290576",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Dev releases are not covered by Drupal security advisories."
