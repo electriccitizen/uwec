@@ -7367,27 +7367,30 @@
         },
         {
             "name": "drupal/workbench_menu_access",
-            "version": "2.0.0",
+            "version": "2.1.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/workbench_menu_access.git",
-                "reference": "2.0.0"
+                "reference": "2.1.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/workbench_menu_access-2.0.0.zip",
-                "reference": "2.0.0",
-                "shasum": "459ebe13752cd4214129dc79e0b84c5302e3b55c"
+                "url": "https://ftp.drupal.org/files/projects/workbench_menu_access-2.1.0.zip",
+                "reference": "2.1.0",
+                "shasum": "255dfb55863ab9fc1e3829aea21fae2259a1e9a1"
             },
             "require": {
-                "drupal/core": "^9.1 || ^10",
+                "drupal/core": "^10 || ^11",
+                "drupal/workbench_access": "*"
+            },
+            "require-dev": {
                 "drupal/workbench_access": "*"
             },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "2.0.0",
-                    "datestamp": "1673474308",
+                    "version": "2.1.0",
+                    "datestamp": "1731698438",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
