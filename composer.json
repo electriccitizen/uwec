@@ -60,7 +60,7 @@
     "drupal/jquery_ui_draggable": "^2.0",
     "drupal/layout_builder_restrictions": "^2.7",
     "drupal/layout_paragraphs": "^2.0",
-    "drupal/lazy": "3.x-dev@dev",
+    "drupal/lazy": "^4.0",
     "drupal/linkit": "^6.0@beta",
     "drupal/masquerade": "^2.0@RC",
     "drupal/media_entity_file_replace": "^1.0",
