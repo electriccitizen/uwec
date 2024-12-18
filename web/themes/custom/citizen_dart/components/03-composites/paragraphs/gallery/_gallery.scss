@@ -23,27 +23,27 @@
 	&.gallery-visible{
 		.tiles .gallery-wrapper .square,.masonry li{
 			opacity: 1;
-      @include transition-animate(opacity, .5s, ease-in);
+			@include transition-animate(opacity, .5s, ease-in);
 		}
 		.image-gal{
 			&:nth-child(3n+1) {
 				.square{
+					html.animations-playing & {
+						transition-delay: .25s;
+					}
+				}
+			}
+			&:nth-child(3n+2){
+				.square{
           html.animations-playing & {
-					  transition-delay: .25s;
+						transition-delay: .5s;
           }
 				}
 			}
 			&:nth-child(3n+2){
 				.square{
           html.animations-playing & {
-					  transition-delay: .5s;
-          }
-				}
-			}
-			&:nth-child(3n+2){
-				.square{
-          html.animations-playing & {
-					  transition-delay: .75s;
+						transition-delay: .75s;
           }
 				}
 			}
@@ -79,7 +79,7 @@
 			}
 		}
 		.gallery-wrapper{
-			@include safeFlex(row,wrap,start,start);
+			@include safeFlex(row,wrap,center,start);
 			@include bleed(padding,20px);
 			margin-bottom: 20px;
 			.square{
@@ -242,6 +242,7 @@
 			}//end slick arrow
 		}//end slick slider
 	}//end slider
+
 	.masonry {
 		max-width: 1340px;
 		@include auto;
@@ -255,9 +256,5 @@
 			justify-content:center;
 			gap:20px;
 		}
-		//li {
-			//@include onlyPhone{
-			//}
-		//}//end masonry item
-	}//ende masonry
+	}
 }//end gallery paragraph
