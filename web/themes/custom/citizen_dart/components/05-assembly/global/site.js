@@ -251,7 +251,7 @@ Drupal.behaviors.gpaCalculator = {
 			// Make sure the needed GPA is reasonable
 			if (neededGPA <= 0) {
 				neededGPA = '0.00';
-				$('#gpa-error').append('With the credits you will be taking, you are guaranteed to attain your desired GPA.  Breathe easy!');
+				$('#gpa-error').append('The GPA you would need is attainable with the credits you will be taking.');
 			} else if (neededGPA > 4) {
 				$('#gpa-needed').addClass('unattainable');
 				$('#gpa-error').append('The GPA you would need is not attainable with the given credits, so please contact your advisor to discuss your options.');
