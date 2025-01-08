@@ -3,22 +3,21 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.storage.node.body
     - field.storage.node.field_campus
     - field.storage.node.field_college
     - field.storage.node.field_degree_level
     - field.storage.node.field_degree_types
     - field.storage.node.field_delivery_mode
     - field.storage.node.field_departments
-    - field.storage.node.body
     - field.storage.node.field_example_careers
     - field.storage.node.field_intro_text
+    - field.storage.node.field_keywords
     - field.storage.node.field_meta_description
     - field.storage.node.field_program_type
-    - field.storage.node.field_keywords
     - search_api.server.local
   module:
     - node
-    - search_api
 id: programs
 name: Programs
 description: ''

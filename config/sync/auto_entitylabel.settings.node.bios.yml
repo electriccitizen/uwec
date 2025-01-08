@@ -9,3 +9,4 @@ chunk: 50
 dependencies:
   config:
     - node.type.bios
+new_content_behavior: 1
