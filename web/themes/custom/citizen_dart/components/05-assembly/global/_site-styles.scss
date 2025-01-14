@@ -24,8 +24,10 @@ body.sidebar-open {
   width: 100%;
   position: absolute;
   .gin--vertical-toolbar:not(.responsive-preview-frame) &{
-    padding-left: 66px;
-    width: calc(100% - 66px);
+  	@media screen and (min-width:976px) {
+	    padding-left: 66px;
+  	  width: calc(100% - 66px);
+  	}
   }
 	.unpublished &{
 		background: $unpub;
