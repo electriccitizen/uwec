@@ -13,14 +13,13 @@ dependencies:
     - field.storage.node.field_last_override
     - field.storage.node.field_middle_name
     - field.storage.node.field_offices
-    - field.storage.node.field_programs
     - field.storage.node.field_position
     - field.storage.node.field_position_override
+    - field.storage.node.field_programs
     - search_api.server.local
   module:
-    - taxonomy
     - node
-    - search_api
+    - taxonomy
 id: profiles
 name: Profiles
 description: ''
