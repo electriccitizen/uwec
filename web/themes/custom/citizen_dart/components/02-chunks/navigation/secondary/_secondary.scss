@@ -52,6 +52,10 @@
 						right: 0;
 						top: calc(50% - 7px);
 					}
+					&::after {
+						content:' (opens in a new window)';
+						font-size:0;
+					}
 				}
 				&:hover,&:focus{
 					color: $secondMenuLinkHover;

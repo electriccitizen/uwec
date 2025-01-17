@@ -110,6 +110,10 @@ a {
 		}
 	}
 }
+a[target="_blank"]::after {
+	content:' (opens in a new window)';
+	font-size:0;
+}
 
 em{
 	font-style: italic;
