@@ -73,19 +73,6 @@
       {% endif %}
     {% endif %}
 
-    {# render the links field if it exists. the video hero renders this later, below the body text. #}
-    {% if hero_type != 'video' %}
-      {% if element['#object'].field_hero.0.entity.field_links.0 %}
-        <div class="field field-links">
-          {% for link in element['#object'].field_hero.0.entity.field_links %}
-            <div>
-              <a href="{{ link.url }}"><span>{{ link.title }}</span></a>
-            </div>
-          {% endfor %}
-        </div>
-      {% endif %}
-    {% endif %}
-
     {# set an area with breadcrumbs and header text content #}
     <div class="page-header-text">
       {% if element['#object'].field_hide_nav.0.value == '0' and (hero_type != 'full_image' and hero_type != 'video') %}
@@ -105,6 +92,8 @@
             {{ bodyText }}
           </div>
         {% endif %}
+
+        {# render links if this is a video hero #}
         {% if hero_type == 'video' %}
           {{ element['#object'].field_hero.0.entity.field_video_description.0.value|raw }}
           {% if element['#object'].field_hero.0.entity.field_links.0 %}

@@ -241,13 +241,13 @@
           // show fields if they are relevant to the selected type
           let type = typeField.find('option:selected').val();
           if(type == 'image'){
-            $('.field--name-field-image,.field--name-field-links').show();
+            $('.field--name-field-image').show();
           }else if(type == 'background_image'){
-            $('.field--name-field-background-image,.field--name-field-image,.field--name-field-links').show();
+            $('.field--name-field-background-image,.field--name-field-image').show();
           }else if(type == 'full_image'){
-            $('.field--name-field-background-image,.field--name-field-links').show();
+            $('.field--name-field-background-image').show();
           }else if(type == 'pattern'){
-            $('.field--name-field-links').show();
+            // none
           }else if(type == 'video'){
             $('.field--name-field-hero-video,.field--name-field-video-poster,.field--name-field-video-title,.field--name-field-video-description,.field--name-field-links').show();
           }
