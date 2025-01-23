@@ -82,23 +82,22 @@
   }//end field platforms
 }//end block social media
 
-//COPYRIGHT
+// copyright block (block-1)
 .block-1{
   text-align: center;
   position: relative;
-	.copyright{
-		text-align: center;
-		font-size: 1.5rem;
-		line-height: 24px;
-		text-transform: uppercase;
-		& > span:first-child{
-			padding-right: .25em;
-			& + *{
-				display: inline;
-			}
-		}
-		p{
-			margin: 0;
-		}
-	}//end copyright
-}//end footer-copyright
+  .copyright{
+    text-align: center;
+    font-size: 1.5rem;
+    line-height: 24px;
+    & > span:first-child{
+      padding-right: .25em;
+      & + *{
+        display: inline;
+      }
+    }
+    p{
+      margin: 0;
+    }
+  }
+}
