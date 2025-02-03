@@ -112,23 +112,33 @@ final class CitizenCustomCommands extends DrushCommands {
 			'type'=>$content_type,
 		]);
 
-		$this->io()->info('Found '.count($nodes).' "'.$content_type.'" nodes. I will now delete all non-current revisions on those.');
+		// only remember the nids
+		// we only want to load the node right before we use it,
+		// to reduce the chance that outside edits happen while this is running.
+		// I'm adding this after the fact because it's taking literally a week to run so it was not deleting the right revisions after awhile.
+		$nids = [];
+		foreach($nodes as $node){
+			$nids[] = $node->id();
+		}
+		$total_node_count = count($nids);
 
-		$this->io()->progressStart(count($nodes));
+		$this->io()->info('Found '.count($nodes).' "'.$content_type.'" nodes. I will now delete all non-current revisions on those.');
 
 		// load all revisions,
 		// and delete all of them, unless they're the default revision.
-		$total_delete_count = 0;
-		foreach($nodes as $node){
+		$node_num = 0;
+		foreach($nids as $nid){
 			$node_delete_count = 0;
+			$node_num++;
 
+			$node = $nodeStorage->load($nid);
 			$vids = $nodeStorage->revisionIds($node);
 			foreach($vids as $vid){
 				if($node->getLoadedRevisionId() != $vid){
 					try{
 						$nodeStorage->deleteRevision($vid);
 						$node_delete_count++;
-						$total_delete_count++;
+						$this->output->writeln('('.$node_num.'/'.$total_node_count.') Node '.$nid.': deleted revision '.$vid);
 					}catch(\Exception $e){
 						// tried to delete the default revision
 						$this->io()->warning('I was about to delete the current revision of node '.$node->id().' but I did not.');
@@ -136,11 +146,9 @@ final class CitizenCustomCommands extends DrushCommands {
 				}
 			}
 
-			$this->io()->progressAdvance();
+			$this->output->writeln('--- Finished node '.$nid.'. Deleted '.$node_delete_count.' revisions from this node. ');
 		}
 
-		$this->io()->progressFinish();
-
-		$this->io()->success('Done! Deleted '.$total_delete_count.' revisions in total.');
+		$this->io()->success('Done!');
 	}
 }
