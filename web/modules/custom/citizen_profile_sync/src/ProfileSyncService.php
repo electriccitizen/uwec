@@ -135,11 +135,11 @@ class ProfileSyncService {
     $node = Node::create($node_values);
     $node->setOwnerId($userId);
 
-    // set moderation state based on athena's "isactive" field
+    // set published or not based on athena's "isactive" field
     if($profileData->isactive){
-      $node->set('moderation_state', 'published');
+      $node->setPublished();
     }else{
-      $node->set('moderation_state', 'archived');
+      $node->setUnpublished();
     }
 
     $node->save();
@@ -166,11 +166,11 @@ class ProfileSyncService {
     $existingNode->set('field_position', $profileData->hrs_title_formatted);
     $existingNode->set('field_import_date', $profileData->updated_at);
 
-    // set moderation state based on athena's "isactive" field
+    // set published status based on athena's "isactive" field
     if($profileData->isactive){
-      $existingNode->set('moderation_state', 'published');
+      $existingNode->setPublished();
     }else{
-      $existingNode->set('moderation_state', 'archived');
+      $existingNode->setUnpublished();
     }
 
     $existingNode->save();
@@ -236,7 +236,6 @@ class ProfileSyncService {
 
     $user = User::create($newuser);
 
-    //todo try-catch for failures
     $user->save();
 
     if ($existingNode instanceof NodeInterface) {
