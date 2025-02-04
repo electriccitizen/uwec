@@ -5,7 +5,6 @@ dependencies:
   config:
     - node.type.academic_program
     - node.type.announcement
-    - node.type.bios
     - node.type.college
     - node.type.contact
     - node.type.department
@@ -64,7 +63,6 @@ type_settings:
     node:
       - academic_program
       - announcement
-      - bios
       - college
       - contact
       - department
