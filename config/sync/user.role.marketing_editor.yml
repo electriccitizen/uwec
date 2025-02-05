@@ -78,7 +78,6 @@ permissions:
   - 'create testimonial content on assigned domains'
   - 'create video_card content'
   - 'create video_card content on assigned domains'
-  - 'delete any document media'
   - 'delete paragraph content accordion_item'
   - 'delete paragraph content accordions'
   - 'delete paragraph content block_placer'

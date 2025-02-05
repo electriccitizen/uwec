@@ -62,7 +62,6 @@ permissions:
   - 'create paragraph content profiles_list'
   - 'create remote_video media'
   - 'delete all revisions'
-  - 'delete any document media'
   - 'delete paragraph content accordion_item'
   - 'delete paragraph content accordions'
   - 'delete paragraph content block_placer'
