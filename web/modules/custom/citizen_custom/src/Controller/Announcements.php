@@ -23,6 +23,9 @@ class Announcements extends ControllerBase{
 			$response->setContent($html);
 		}
 
+		// set noindex header
+		$response->headers->set('X-Robots-Tag','noindex');
+
 		return $response;
 	}
 
