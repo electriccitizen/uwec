@@ -8,7 +8,7 @@ dependencies:
     - paragraphs.paragraphs_type.links_files
   module:
     - layout_builder
-    - link
+    - linkit
 third_party_settings:
   layout_builder:
     enabled: false
@@ -21,7 +21,7 @@ bundle: links_files
 mode: default
 content:
   field_link_multi:
-    type: link
+    type: linkit
     label: hidden
     settings:
       trim_length: null
@@ -29,6 +29,7 @@ content:
       url_plain: false
       rel: '0'
       target: '0'
+      linkit_profile: wysiwyg
     third_party_settings: {  }
     weight: 1
     region: content
