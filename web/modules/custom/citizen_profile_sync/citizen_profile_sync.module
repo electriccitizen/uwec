@@ -12,9 +12,6 @@ use GuzzleHttp\Exception\GuzzleException;
  *  sync to Profiles content type
  */
 function citizen_profile_sync_cron() {
-  // TODO remove this after profile revisions have been deleted
-  return;
-
   $profileSyncService = \Drupal::service('citizen_profile_sync.profile_sync_service');
   $http_client = \Drupal::httpClient();
   $url = 'https://athena.apps.uwec.edu/api/profiles.json?apikey=36dadd0fab31edb063666ef8f43e595d';
