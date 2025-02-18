@@ -96,6 +96,13 @@ class Courses extends BlockBase{
 			$courseData = [];
 			$courseData['number'] = (string)$course['code'];
 
+			// validate subject
+			// this seems unecessary because we are already passing it to the api request as a filter,
+			// however the courseleaf api has a bug,
+			// where asking for subject "PH" returns "PH" courses
+			// but also "PHIL" and "PHYS" courses.
+			if(strtok($courseData['number'], ' ') != $slug) continue;
+
 			// default title and description, in case the search below fails
 			$courseData['title'] = $courseData['number'];
 			$courseData['description'] = '';
