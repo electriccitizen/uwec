@@ -54,4 +54,5 @@ permissions:
   - 'view assigned domains'
   - 'view domain aliases'
   - 'view own unpublished content'
+  - 'view page revisions'
   - 'view the administration theme'
