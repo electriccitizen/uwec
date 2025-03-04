@@ -2,6 +2,7 @@
 
 namespace Drupal\citizen_custom\Plugin\Block;
 
+use Drupal\Core\Block\Annotation\Block;
 use Drupal\node\NodeInterface;
 use Drupal\Core\Block\BlockBase;
 
@@ -40,4 +41,10 @@ class SocialShare extends BlockBase {
     ];
   }
 
+  /**
+   * {@inheritdoc}
+   */
+  public function getCacheMaxAge() {
+    return 0; // Disables caching for this block
+  }
 }
