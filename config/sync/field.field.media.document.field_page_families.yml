@@ -1,0 +1,29 @@
+uuid: afa3fb08-cedf-42cd-b5af-bdb0fca62544
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.media.field_page_families
+    - media.type.document
+    - taxonomy.vocabulary.page_families
+id: media.document.field_page_families
+field_name: field_page_families
+entity_type: media
+bundle: document
+label: 'Page Families'
+description: 'Select the page family that contains the webpage this document will live on. The page family selected does not display anywhere.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      page_families: page_families
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference
