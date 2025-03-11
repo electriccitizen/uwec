@@ -5,6 +5,7 @@ dependencies:
   config:
     - core.entity_view_mode.taxonomy_term.teaser
     - field.field.taxonomy_term.page_families.field_contact
+    - field.field.taxonomy_term.page_families.field_editors
     - field.field.taxonomy_term.page_families.field_hours
     - field.field.taxonomy_term.page_families.field_platforms
     - taxonomy.vocabulary.page_families
@@ -52,4 +53,5 @@ content:
     region: content
 hidden:
   description: true
+  field_editors: true
   search_api_excerpt: true

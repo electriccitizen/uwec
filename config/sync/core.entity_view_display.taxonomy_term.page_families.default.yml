@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.taxonomy_term.page_families.field_contact
+    - field.field.taxonomy_term.page_families.field_editors
     - field.field.taxonomy_term.page_families.field_hours
     - field.field.taxonomy_term.page_families.field_platforms
     - taxonomy.vocabulary.page_families
@@ -53,4 +54,5 @@ content:
     weight: 3
     region: content
 hidden:
+  field_editors: true
   search_api_excerpt: true

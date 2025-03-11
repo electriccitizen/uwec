@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.taxonomy_term.page_families.field_contact
+    - field.field.taxonomy_term.page_families.field_editors
     - field.field.taxonomy_term.page_families.field_hours
     - field.field.taxonomy_term.page_families.field_platforms
     - taxonomy.vocabulary.page_families
@@ -17,6 +18,16 @@ content:
   field_contact:
     type: entity_reference_autocomplete
     weight: 1
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_editors:
+    type: entity_reference_autocomplete
+    weight: 26
     region: content
     settings:
       match_operator: CONTAINS

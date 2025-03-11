@@ -1,0 +1,29 @@
+uuid: 229a721c-73ef-4f5e-a040-9c4a9b2657f8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_editors
+    - taxonomy.vocabulary.page_families
+id: taxonomy_term.page_families.field_editors
+field_name: field_editors
+entity_type: taxonomy_term
+bundle: page_families
+label: Editors
+description: 'Select the primary and secondary editors for the page family. This designation does not affect editorial access.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:user'
+  handler_settings:
+    target_bundles: null
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    filter:
+      type: _none
+    include_anonymous: false
+field_type: entity_reference
