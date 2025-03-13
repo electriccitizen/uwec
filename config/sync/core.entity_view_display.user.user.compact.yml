@@ -11,7 +11,6 @@ dependencies:
     - field.field.user.user.field_first_name
     - field.field.user.user.field_last_imported
     - field.field.user.user.field_last_name
-    - field.field.user.user.field_primary_editor
     - field.field.user.user.field_user_image
   module:
     - layout_builder
@@ -58,7 +57,6 @@ hidden:
   field_first_name: true
   field_last_imported: true
   field_last_name: true
-  field_primary_editor: true
   field_user_image: true
   member_for: true
   search_api_excerpt: true
