@@ -117,6 +117,11 @@ settings:
           weight: 3
           search: '<a name="OLE_LINK[^"]*">(.*?)<\/a>'
           replace: $1
+        -
+          enabled: true
+          weight: 4
+          search: '&nbsp;'
+          replace: ' '
     ckeditor5_sourceEditing:
       allowed_tags:
         - '<cite>'
