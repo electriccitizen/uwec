@@ -65,10 +65,8 @@ function citizen_dart_preprocess_html(&$variables) {
   //get the mtime of the critical.css file for cache-busting
   $variables['critical_css_mtime'] = filemtime(DRUPAL_ROOT.'/themes/custom/citizen_dart/dist/critical.css');
 
-
-
   //define the fallback image URL.
-  $fallback_image = Url::fromUri('internal:/themes/custom/citizen_dart/images/social-icons/social-share-logo.jpg', ['absolute' => TRUE])->toString();
+  $fallback_image = Url::fromUri('internal:/themes/custom/citizen_dart/logo.svg', ['absolute' => TRUE])->toString();
 
   //get the current route match and check for a content entity.
   $route_match = \Drupal::routeMatch();
@@ -148,6 +146,33 @@ function citizen_dart_preprocess_html(&$variables) {
               }
             }
           }
+        } else {
+          /** @var \Drupal\metatag\MetatagManagerInterface $metatag_manager */
+          $metatag_manager = \Drupal::service('metatag.manager');
+          // Get metatag values from the entity
+          $metatags = $metatag_manager->tagsFromEntity($entity);
+
+          // Set Open Graph and Twitter image meta tags
+          $variables['#attached']['html_head'][] = [
+            [
+              '#tag' => 'meta',
+              '#attributes' => [
+                'property' => 'og:image',
+                'content' => $fallback_image,
+              ],
+            ],
+            'og:image',
+          ];
+          $variables['#attached']['html_head'][] = [
+            [
+              '#tag' => 'meta',
+              '#attributes' => [
+                'property' => 'twitter:image',
+                'content' => $fallback_image,
+              ],
+            ],
+            'twitter:image',
+          ];
         }
       }
     }
