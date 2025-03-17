@@ -35,6 +35,8 @@ class Announcements extends ControllerBase{
 	private function getCurrentAnnouncementNids($path){
 		$query = \Drupal::entityQuery('node');
 
+    $query->accessCheck(FALSE);
+
 		// get a current timestamp in the right timezone and format for an entity query
 		$now = new DrupalDateTime('now');
 		// shame upon the Smart Date Range devs for storing the datetime values in the default timezone instead of GMT
@@ -66,8 +68,7 @@ class Announcements extends ControllerBase{
 			->condition('status', 1)
 			->condition($date_range_condition)
 			->condition($section_url_condition)
-			->sort('field_dates.value', 'DESC')
-			->accessCheck(false);
+			->sort('field_dates.value', 'DESC');
 
 		// the query returns an array with integer keys
 		// however, you can't put integer keys into a render array, I guess?
