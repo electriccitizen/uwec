@@ -2,7 +2,7 @@ name: Electric Citizen
 type: profile
 description: 'Pre-configured install for Electric Citizen site builds.'
 version: 1.0
-core_version_requirement: ^9 || ^10
+core_version_requirement: ^9 || ^10 || ^11
 dependencies:
   - address
   - addanother
