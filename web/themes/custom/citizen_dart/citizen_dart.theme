@@ -62,8 +62,96 @@ function citizen_dart_preprocess_html(&$variables) {
     }
   }
 
-  // get the mtime of the critical.css file for cache-busting
+  //get the mtime of the critical.css file for cache-busting
   $variables['critical_css_mtime'] = filemtime(DRUPAL_ROOT.'/themes/custom/citizen_dart/dist/critical.css');
+
+
+
+  //define the fallback image URL.
+  $fallback_image = Url::fromUri('internal:/themes/custom/citizen_dart/images/social-icons/social-share-logo.jpg', ['absolute' => TRUE])->toString();
+
+  //get the current route match and check for a content entity.
+  $route_match = \Drupal::routeMatch();
+  $entity = NULL;
+
+  //get current node
+  if ($route_match->getParameter('node') instanceof \Drupal\node\NodeInterface) {
+    $entity = $route_match->getParameter('node');
+  }
+
+  //default to null for OG image
+  $og_image = NULL;
+
+  //if entity exists
+  if ($entity) {
+    //if entity is the "page" content type
+    if ($entity->getType() == 'page') {
+      //if the Social Share Image field is empty
+      if ($entity->get('field_social_image')->isEmpty()) {
+        //if the Hero field is NOT empty
+        if (!$entity->get('field_hero')->isEmpty()) {
+
+          $hero_paragraphs = $entity->get('field_hero')->referencedEntities();
+
+          if (!empty($hero_paragraphs)) {
+            foreach ($hero_paragraphs as $hero_paragraph) {
+              // Determine which field to use (field_image or field_background_image)
+              $image_field = null;
+              if ($hero_paragraph->hasField('field_image') && !$hero_paragraph->get('field_image')->isEmpty()) {
+                $image_field = 'field_image';
+              } elseif ($hero_paragraph->hasField('field_background_image') && !$hero_paragraph->get('field_background_image')->isEmpty()) {
+                $image_field = 'field_background_image';
+              }
+
+              if ($image_field) {
+                // Get the media entity
+                $media_entity = $hero_paragraph->get($image_field)->entity;
+
+                if ($media_entity && $media_entity->hasField('field_media_image') && !$media_entity->get('field_media_image')->isEmpty()) {
+                  // Get the file entity from the media image field
+                  $file_entity = $media_entity->get('field_media_image')->entity;
+
+                  if ($file_entity) {
+                    // Get the file URI
+                    $image_uri = $file_entity->getFileUri();
+                    // Use the file_url_generator service to get the URL
+                    $image_url = \Drupal::service('file_url_generator')->generateAbsoluteString($image_uri);
+
+                    /** @var \Drupal\metatag\MetatagManagerInterface $metatag_manager */
+                    $metatag_manager = \Drupal::service('metatag.manager');
+                    // Get metatag values from the entity
+                    $metatags = $metatag_manager->tagsFromEntity($entity);
+
+                    // Set Open Graph and Twitter image meta tags
+                    $variables['#attached']['html_head'][] = [
+                      [
+                        '#tag' => 'meta',
+                        '#attributes' => [
+                          'property' => 'og:image',
+                          'content' => $image_url,
+                        ],
+                      ],
+                      'og:image',
+                    ];
+                    $variables['#attached']['html_head'][] = [
+                      [
+                        '#tag' => 'meta',
+                        '#attributes' => [
+                          'property' => 'twitter:image',
+                          'content' => $image_url,
+                        ],
+                      ],
+                      'twitter:image',
+                    ];
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }
 
 /**
