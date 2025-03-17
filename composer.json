@@ -133,8 +133,6 @@
     "patches": {
       "drupal/core": {
         "Media library won't allow media in two fields with the same name on nodes": "https://www.drupal.org/files/issues/2023-02-28/3345064.patch",
-        "Update module can get 'stuck' with 'no releases available', https://www.drupal.org/project/drupal/issues/2920285": "https://www.drupal.org/files/issues/2920285-update-status.patch",
-        "Required summary forces default value": "https://www.drupal.org/files/issues/2020-09-25/3167773-summary_required-8.patch",
         "Views bulk content moderation": "https://www.drupal.org/files/issues/2023-03-10/2797583-218.patch"
       },
       "drupal/focal_point": {
