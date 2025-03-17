@@ -141,7 +141,8 @@
         "Require jquery_ui_draggable": "https://www.drupal.org/files/issues/2023-04-03/3351521-2.patch"
       },
       "drupal/linkit": {
-        "Link to file encoding issue": "https://www.drupal.org/files/issues/2024-04-11/3436733-5-linkit-link-field-with-php81-deprecation.patch"
+        "Link to file encoding issue": "https://www.drupal.org/files/issues/2024-04-11/3436733-5-linkit-link-field-with-php81-deprecation.patch",
+        "WYSIWYG autocomplete position fix": "https://www.drupal.org/files/issues/2024-05-21/linkit-ckeditor-position-bug-2.patch"
       }
     },
     "composer-exit-on-patch-failure": true,
