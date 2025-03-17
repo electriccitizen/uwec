@@ -14,7 +14,7 @@ dependencies:
     - field.field.node.contact.field_phone
     - field.field.node.contact.layout_builder__layout
     - node.type.contact
-    - workflows.workflow.non_moderated
+    - workflows.workflow.marketing
   module:
     - address
     - content_moderation
@@ -51,7 +51,8 @@ content:
     type: address_default
     weight: 1
     region: content
-    settings: {  }
+    settings:
+      wrapper_type: details
     third_party_settings: {  }
   field_domain_access:
     type: options_buttons

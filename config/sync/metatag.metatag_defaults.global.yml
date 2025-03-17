@@ -10,7 +10,6 @@ tags:
   article_modified_time: '[node:changed:custom:c]'
   article_published_time: '[node:created:custom:c]'
   canonical_url: '[current-page:url:absolute]'
-  content_language: en
   generator: 'Drupal 10 (http://drupal.org)'
   geo_region: US-WI
   og_country_name: US
@@ -20,6 +19,5 @@ tags:
   og_url: '[current-page:url:absolute]'
   shortlink: '[current-page:url:unaliased]'
   title: '[current-page:title] | [site:name]'
-  twitter_cards_page_url: '[current-page:url:absolute]'
   twitter_cards_title: '[current-page:title]'
   twitter_cards_type: summary
