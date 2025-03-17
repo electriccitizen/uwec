@@ -68,7 +68,7 @@ content:
     weight: 1
     region: content
     settings:
-      collapsed: 0
+      collapsed: false
     third_party_settings: {  }
   field_set_title:
     type: string_textfield

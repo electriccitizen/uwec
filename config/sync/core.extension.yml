@@ -63,6 +63,7 @@ module:
   jquery_ui_autocomplete: 0
   jquery_ui_draggable: 0
   jquery_ui_menu: 0
+  js_cookie: 0
   layout_builder: 0
   layout_builder_restrictions: 0
   layout_discovery: 0
@@ -116,7 +117,6 @@ module:
   token: 0
   toolbar: 0
   twig_tweak: 0
-  upgrade_status: 0
   user: 0
   view_unpublished: 0
   views_bulk_operations: 0
