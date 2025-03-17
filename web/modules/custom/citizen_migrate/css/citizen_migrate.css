@@ -1,6 +1,0 @@
-a[data-migration-status=failed] {
-  background-color: rgba(250,0,0,.3);
-}
-img[data-migration-status=failed] {
-  border: 2px solid red;
-}

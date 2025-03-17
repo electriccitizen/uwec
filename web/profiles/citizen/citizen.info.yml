@@ -88,7 +88,6 @@ dependencies:
   - text
   - token
   - toolbar
-  - tour
   - twig_tweak
   - user
   - views
