@@ -153,18 +153,18 @@ section.admin-wrapper{
 
 /* OFF CANVAS */
 
-#drupal-off-canvas-wrapper{
+.ui-dialog.ui-dialog-off-canvas.ui-widget.ui-widget-content{
 	height: 100% !important;
 	top: 0 !important;
 	.button{
-		font-size: 14px;
+		font-size: 14px !important;
 		padding-top: 1rem;
 		padding-bottom: 1rem;
 		margin-bottom: $spaceSm;
 	}
 	.ui-dialog-titlebar{
 		.ui-dialog-title{
-			font-size: 15px;
+			font-size: 15px !important;
 			line-height: .75em;
 			font-weight: $regular;
 			&:before{
@@ -180,24 +180,23 @@ section.admin-wrapper{
 			}
 		}
 	}
-	#drupal-off-canvas{
-		font-size: 16px;
+	.ui-widget-content.ui-dialog-content{
+		font-size: 16px !important;
 		button,.ui-button,.button{
 			&:before,&:after{
 				content: none;
-				font-size: 14px;
 			}
 		}
 		summary,input:where(:not([type="checkbox"],[type="radio"],[type="file"])),textarea{
-			font-size: 14px;
+			font-size: 14px !important;
 		}
 		.form-actions{
 			margin-top: 10px;
 		}
 		select{
 			background-color: revert;
-			font-size: 14px;
-			background-size: .75em;
+			font-size: 14px !important;
+			background-size: .75em !important;
 		}
 		#formatter-settings-wrapper{
 			margin-bottom: 10px;

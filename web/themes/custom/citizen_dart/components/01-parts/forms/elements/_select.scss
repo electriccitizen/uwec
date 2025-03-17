@@ -24,7 +24,7 @@ optgroup:empty{
 }
 
 /* IN BODY AND OFF CANVAS */
-body,#drupal-off-canvas-wrapper-wrapper{
+body,.ui-dialog-off-canvas{
 	select{
 		background: none;
 		&:hover,&:focus{

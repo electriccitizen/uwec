@@ -11,7 +11,7 @@ global:
     - core/drupalSettings
     - core/jquery
     - core/once
-    - core/js-cookie
+    - js_cookie/js-cookie
 academic-program-toggle:
   js:
     components/04-units/nodes/academic-program/program-toggle.js: {}
@@ -76,7 +76,7 @@ hero:
     components/03-composites/paragraphs/hero/hero.js: {}
   dependencies:
     - core/once
-    - core/js-cookie
+    - js_cookie/js-cookie
 hours:
   js:
     components/03-composites/paragraphs/hours-set/hours-set.js: {}

@@ -84,8 +84,8 @@ fieldset{
 /* AUTOCOMPLETE DROPDOWN
 -------------------------- */
 .ui-autocomplete {
-	#drupal-off-canvas-wrapper-wrapper &{
-		background: $siteBack;
+	.ui-dialog-off-canvas &{
+		background: $siteBack !important;
 	}
 	.ui-menu-item-wrapper{
 		display: block;
