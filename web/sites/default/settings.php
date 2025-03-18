@@ -103,9 +103,5 @@ if (isset($_ENV['PANTHEON_ENVIRONMENT'])) {
 if(function_exists('pantheon_get_secret')){
   $config['samlauth.authentication']['sp_private_key'] = pantheon_get_secret('sp_private_key');
   $config['samlauth.authentication']['sp_x509_certificate'] = pantheon_get_secret('sp_x509_certificate');
-  $config['samlauth.authentication']['idp_certs'] = pantheon_get_secret('idp_certs');
-}else{
-  $config['samlauth.authentication']['sp_private_key'] = 'settings.php test 1';
-  $config['samlauth.authentication']['sp_x509_certificate'] = 'settings.php test 2';
-  $config['samlauth.authentication']['idp_certs'] = 'settings.php test 3';
+  $config['samlauth.authentication']['idp_certs'] = [pantheon_get_secret('idp_certs')];
 }
