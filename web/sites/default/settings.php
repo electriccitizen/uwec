@@ -77,7 +77,7 @@ if (isset($_ENV['PANTHEON_ENVIRONMENT'])) {
 
   }
 } else {
-    // LOCAL
+  // LOCAL
 
   $config['config_split.config_split.local']['status'] = TRUE;
 
@@ -86,7 +86,7 @@ if (isset($_ENV['PANTHEON_ENVIRONMENT'])) {
    */
   $docksal_settings = __DIR__ . "/settings.docksal.php";
   if (file_exists($docksal_settings)) {
-      include $docksal_settings;
+    include $docksal_settings;
   }
 
   /**
@@ -94,6 +94,18 @@ if (isset($_ENV['PANTHEON_ENVIRONMENT'])) {
    */
   $local_settings = __DIR__ . "/settings.local.php";
   if (file_exists($local_settings)) {
-      include $local_settings;
+    include $local_settings;
   }
+}
+
+
+// Load pantheon terminus secrets into config
+if(function_exists('pantheon_get_secret')){
+  $config['samlauth.authentication']['sp_private_key'] = pantheon_get_secret('sp_private_key');
+  $config['samlauth.authentication']['sp_x509_certificate'] = pantheon_get_secret('sp_x509_certificate');
+  $config['samlauth.authentication']['idp_certs'] = pantheon_get_secret('idp_certs');
+}else{
+  $config['samlauth.authentication']['sp_private_key'] = 'settings.php test 1';
+  $config['samlauth.authentication']['sp_x509_certificate'] = 'settings.php test 2';
+  $config['samlauth.authentication']['idp_certs'] = 'settings.php test 3';
 }
