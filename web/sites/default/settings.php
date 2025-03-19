@@ -89,9 +89,10 @@ if (isset($_ENV['PANTHEON_ENVIRONMENT'])) {
 }
 
 
-// Load pantheon terminus secrets into config
+// Load pantheon terminus secrets
 if(function_exists('pantheon_get_secret')){
   $config['samlauth.authentication']['sp_private_key'] = pantheon_get_secret('sp_private_key');
   $config['samlauth.authentication']['sp_x509_certificate'] = pantheon_get_secret('sp_x509_certificate');
   $config['samlauth.authentication']['idp_certs'] = [pantheon_get_secret('idp_certs')];
+  $settings['athena_api_key'] = pantheon_get_secret('athena_api_key');
 }

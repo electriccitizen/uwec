@@ -10,4 +10,5 @@
 Some secrets are stored in [Pantheon Terminus](https://docs.pantheon.io/terminus) using the [Secrets Manager Plugin](https://github.com/pantheon-systems/terminus-secrets-manager-plugin).
 To see the list of secrets, you can run `terminus secret:site:list uwec`.
 To set a secret, you can run a command like this `terminus secret:site:set --scope=web -- uwec SECRET_NAME "SECRET_VALUE_HERE"`.
-These secret values are injected into Drupal config in sites/default/settings.php.
+To update an existing secret, it's the same as the above command, but without the --scope=web
+These secret values are injected into Drupal in sites/default/settings.php.
