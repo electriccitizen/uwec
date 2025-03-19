@@ -7,16 +7,16 @@ _core:
 id: front
 label: 'Front page'
 tags:
-  abstract: '[site:slogan]'
+  abstract: '[node:field_meta_description]'
   article_modified_time: '[node:changed:custom:c]'
   article_published_time: '[node:created:custom:c]'
   canonical_url: '[site:url]'
   content_language: en
-  description: '[site:slogan]'
+  description: '[node:field_meta_description]'
   generator: 'Drupal 10 (http://drupal.org)'
   geo_region: US-WI
   og_country_name: US
-  og_description: '[site:slogan]'
+  og_description: '[node:field_meta_description]'
   og_image: '[node:field_image:entity:field_media_image]'
   og_site_name: '[site:name]'
   og_title: '[site:name]'
@@ -25,7 +25,7 @@ tags:
   og_url: '[site:url]'
   shortlink: '[site:url]'
   title: '[site:name]'
-  twitter_cards_description: '[site:slogan]'
+  twitter_cards_description: '[node:field_meta_description]'
   twitter_cards_image: '[node:field_image:entity:field_media_image]'
   twitter_cards_image_alt: '[node:field_image:entity:field_media_image]:alt'
   twitter_cards_page_url: '[site:url]'
