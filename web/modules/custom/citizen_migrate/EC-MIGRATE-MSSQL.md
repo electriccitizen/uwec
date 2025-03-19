@@ -1,7 +1,7 @@
-[comment]: <> (Author: David Kirkwood)
+[comment]: <> (Author: David Kirkwood circa 07/2022)
 
 # Citizen Migrate - MSSQL
-This document outlines the process of connecting to a Microsoft SQL server containing the legacy data.
+This document outlines the process of creating a local environment and connection to a Microsoft SQL server containing the legacy data.
 ## References
 The following articles were helpful in learning and troubleshooting:
 - _[How to install SQL Server on a Mac](https://database.guide/how-to-install-sql-server-on-a-mac/)_

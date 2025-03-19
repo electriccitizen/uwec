@@ -13,7 +13,7 @@ Dependencies are included in the module's `.info` file. For reference, the modul
 The _Migrate Source CSV_ module is listed as a dependency, but is only necessary if any of your migrations use a CSV file as a source. It's been included as a dependency
 because CSV sources are quite common even when the main data source is a database.
 
-### Additional MSSQL modules
+### Additional MSSQL modules (only for MSSQL data sources)
 For Microsoft data sources like MSSQL, you will two additional modules:
 * [Drupal Driver for SQL Server and SQL Azure](https://www.drupal.org/project/sqlsrv) `sqlsrv` (contrib)
 * [Custom SQL Migrate Source Plugin](https://www.drupal.org/project/custom_sql_migrate_source_plugin) `custom_sql_migrate_source_plugin` (contrib)
@@ -64,7 +64,7 @@ include:
 Shared configuration blocks can contain settings for the `source`, `process` and `destination` sections, either individually or together. The `node_defaults` block is an example of how to configure values for more than one section.
 ### Override a shared configuration setting
 If you need to override any of the individual settings for a particular migration, you can do so by setting the key in the migration file. For example, if you wanted to
-override the `log_data` value in the `cm_defaults` configuration block, your migration file would include this:
+override the `log_data` value in the `cm_defaults` shared configuration block, your migration file would include this:
 ```yaml
 include:
    - cm_defaults
