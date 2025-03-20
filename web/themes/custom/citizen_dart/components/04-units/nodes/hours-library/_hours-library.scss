@@ -70,13 +70,14 @@
       }
     }//end hours title
 
-	.additional-select{
-		margin-left:22px;
-		>label{
-			color:$brightBlue;
-			padding-left:6px;
-		}
-	}
+  .additional-select{
+    margin-left:22px;
+    >label{
+      color:$brightBlue;
+      padding-left:6px;
+      font-weight:bold;
+    }
+  }
 
-	}//end hours wrapper
+  }//end hours wrapper
 }//end hours widget
