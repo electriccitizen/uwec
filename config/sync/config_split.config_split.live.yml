@@ -13,10 +13,9 @@ no_patching: false
 storage: folder
 folder: ../config/live
 module:
-  simple_sitemap: 0
-  xmlsitemap: 1
   pantheon_advanced_page_cache: 0
   xmlsitemap_engines: 0
+  xmlsitemap: 1
 theme: {  }
 complete_list: {  }
 partial_list:
