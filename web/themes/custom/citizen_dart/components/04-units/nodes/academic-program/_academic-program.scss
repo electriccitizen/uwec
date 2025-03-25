@@ -381,7 +381,7 @@
   }//end field course links
 
   .more-info-wrapper{
-	@include slateFormContainer;
+    @include slateFormContainer;
     margin-bottom: 7.5rem;
     @include tab{
       padding: 60px 112px 45px;
@@ -428,7 +428,7 @@
       }//end slate left
 
       .slate-right{
-	    @include slateRight;
+        @include slateRight;
       }
     }//end more info
   }//end field request for info
@@ -577,8 +577,20 @@
     }
     .program-image{
       margin-bottom: $spaceSm;
+      position:relative;
       @include onlySmall{
         display: none;
+      }
+      .program-banner{
+        color:white;
+        position:absolute;
+        bottom:1rem;
+        left:1rem;
+        margin-right:1rem;
+        background:$brightBlue;
+        padding:0 2rem;
+        font-size:80%;
+        clip-path: polygon(4px 50%, 0% 100%, 100% 100%, calc(100% - 4px) 50%, 100% 0%, 0% 0%);
       }
     }
     .program-title{

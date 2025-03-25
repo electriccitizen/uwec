@@ -8,6 +8,7 @@ dependencies:
     - field.field.node.academic_program.field_accreditation
     - field.field.node.academic_program.field_accreditation_logo
     - field.field.node.academic_program.field_admissions_requirements
+    - field.field.node.academic_program.field_banner
     - field.field.node.academic_program.field_campus
     - field.field.node.academic_program.field_college
     - field.field.node.academic_program.field_content_carousel
@@ -87,6 +88,7 @@ hidden:
   field_accreditation: true
   field_accreditation_logo: true
   field_admissions_requirements: true
+  field_banner: true
   field_campus: true
   field_college: true
   field_content_carousel: true
