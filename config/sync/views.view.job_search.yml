@@ -128,8 +128,8 @@ display:
           reset_button_label: 'Clear Filters'
           exposed_sorts_label: 'Sort by'
           expose_sort_order: false
-          sort_asc_label: Asc
-          sort_desc_label: Desc
+          sort_asc_label: Ascending
+          sort_desc_label: Descending
       access:
         type: none
         options: {  }
@@ -162,15 +162,15 @@ display:
             label: ''
             field_identifier: ''
           exposed: false
-        title:
-          id: title
+        field_posted_on:
+          id: field_posted_on
           table: search_api_index_jobs
-          field: title
+          field: field_posted_on
           relationship: none
           group_type: group
           admin_label: ''
           plugin_id: search_api
-          order: ASC
+          order: DESC
           expose:
             label: ''
             field_identifier: ''
