@@ -105,7 +105,6 @@ permissions:
   - 'use marketing transition archive'
   - 'use marketing transition create_new_draft'
   - 'use marketing transition review'
-  - 'use non_moderated transition archive'
   - 'use non_moderated transition create_new_draft'
   - 'use non_moderated transition publish'
   - 'use workbench access'
