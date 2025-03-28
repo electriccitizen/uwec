@@ -207,6 +207,22 @@
     }
   }// end accreditation-wrapper
 
+  /* PROGRAM TRACKS */
+  .field-tracks {
+    position: relative;
+    z-index: 1;
+    max-width: $textMax;
+    @include auto;
+    &:after{
+      @include fullBack($lightGrey);
+    }
+    .paragraph--type--accordions{
+      .widget-title{
+        @include widgetTitleAlt;
+      }
+    }
+  }
+
   #node-section-5.outcomes-visible {
     @include edgeToEdge;
     background-color: $brightBlue;
