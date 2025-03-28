@@ -214,11 +214,16 @@
     max-width: $textMax;
     @include auto;
     &:after{
-      @include fullBack($lightGrey);
+      @include fullBack($warmGrey);
     }
     .paragraph--type--accordions{
+      background: $warmGrey;
       .widget-title{
         @include widgetTitleAlt;
+      }
+      .accordion-item > .accordion-header > a {
+        border-top-color: $navy;
+        border-bottom-color: $navy;
       }
     }
   }
