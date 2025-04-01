@@ -12,7 +12,6 @@ dependencies:
     - paragraphs.paragraphs_type.ctas
     - paragraphs.paragraphs_type.custom_embed
     - paragraphs.paragraphs_type.events_list
-    - paragraphs.paragraphs_type.external_articles
     - paragraphs.paragraphs_type.facts_list
     - paragraphs.paragraphs_type.fauxfile
     - paragraphs.paragraphs_type.gallery
@@ -64,7 +63,6 @@ settings:
       ctas: ctas
       custom_embed: custom_embed
       events_list: events_list
-      external_articles: external_articles
       fauxfile: fauxfile
       facts_list: facts_list
       gallery: gallery
@@ -121,7 +119,7 @@ settings:
         enabled: true
       external_articles:
         weight: -82
-        enabled: true
+        enabled: false
       external_articles_item:
         weight: -50
         enabled: false
