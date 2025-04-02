@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a955cfd72288ee5bbd89711f00422402",
+    "content-hash": "4a11d7b9bef2dd2429692c1f78bb6cb2",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -5500,6 +5500,10 @@
                     "homepage": "https://www.drupal.org/user/278450"
                 },
                 {
+                    "name": "pixelwhip",
+                    "homepage": "https://www.drupal.org/user/275292"
+                },
+                {
                     "name": "sethhill",
                     "homepage": "https://www.drupal.org/user/676480"
                 }
@@ -7891,61 +7895,61 @@
             },
             "type": "drupal-drush",
             "extra": {
+                "scenarios": {
+                    "drush8": {
+                        "config": {
+                            "platform": {
+                                "php": "7.0.8"
+                            }
+                        },
+                        "require-dev": {
+                            "drush/drush": "^8.3.3"
+                        }
+                    },
+                    "drupal9": {
+                        "config": {
+                            "platform": {
+                                "php": "7.3"
+                            }
+                        },
+                        "require-dev": {
+                            "drupal/core": "^9@rc",
+                            "drupal/core-recommended": "^9@rc",
+                            "drupal/core-composer-scaffold": "^9@rc",
+                            "pantheon-systems/drupal-integrations": "^9"
+                        }
+                    }
+                },
+                "drupal-scaffold": {
+                    "locations": {
+                        "web-root": "./sut/web"
+                    },
+                    "file-mapping": {
+                        "[project-root]/.editorconfig": false
+                    },
+                    "allowed-packages": [
+                        "pantheon-systems/drupal-integrations"
+                    ]
+                },
                 "installer-paths": {
                     "sut/web/core": [
                         "type:drupal-core"
                     ],
+                    "drush/Commands/{$name}": [
+                        "type:drupal-drush"
+                    ],
                     "sut/web/libraries/{$name}": [
                         "type:drupal-library"
+                    ],
+                    "sut/web/themes/contrib/{$name}": [
+                        "type:drupal-theme"
                     ],
                     "sut/web/modules/contrib/{$name}": [
                         "type:drupal-module"
                     ],
                     "sut/web/profiles/contrib/{$name}": [
                         "type:drupal-profile"
-                    ],
-                    "sut/web/themes/contrib/{$name}": [
-                        "type:drupal-theme"
-                    ],
-                    "drush/Commands/{$name}": [
-                        "type:drupal-drush"
                     ]
-                },
-                "drupal-scaffold": {
-                    "allowed-packages": [
-                        "pantheon-systems/drupal-integrations"
-                    ],
-                    "locations": {
-                        "web-root": "./sut/web"
-                    },
-                    "file-mapping": {
-                        "[project-root]/.editorconfig": false
-                    }
-                },
-                "scenarios": {
-                    "drush8": {
-                        "require-dev": {
-                            "drush/drush": "^8.3.3"
-                        },
-                        "config": {
-                            "platform": {
-                                "php": "7.0.8"
-                            }
-                        }
-                    },
-                    "drupal9": {
-                        "require-dev": {
-                            "drupal/core-recommended": "^9@rc",
-                            "drupal/core": "^9@rc",
-                            "drupal/core-composer-scaffold": "^9@rc",
-                            "pantheon-systems/drupal-integrations": "^9"
-                        },
-                        "config": {
-                            "platform": {
-                                "php": "7.3"
-                            }
-                        }
-                    }
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -8029,23 +8033,23 @@
                     "sut/libraries/{$name}": [
                         "type:drupal-library"
                     ],
+                    "sut/themes/unish/{$name}": [
+                        "drupal/empty_theme"
+                    ],
+                    "sut/drush/contrib/{$name}": [
+                        "type:drupal-drush"
+                    ],
                     "sut/modules/unish/{$name}": [
                         "drupal/devel"
                     ],
-                    "sut/themes/unish/{$name}": [
-                        "drupal/empty_theme"
+                    "sut/themes/contrib/{$name}": [
+                        "type:drupal-theme"
                     ],
                     "sut/modules/contrib/{$name}": [
                         "type:drupal-module"
                     ],
                     "sut/profiles/contrib/{$name}": [
                         "type:drupal-profile"
-                    ],
-                    "sut/themes/contrib/{$name}": [
-                        "type:drupal-theme"
-                    ],
-                    "sut/drush/contrib/{$name}": [
-                        "type:drupal-drush"
                     ]
                 }
             },
@@ -8882,11 +8886,11 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "4.x-dev",
-                    "dev-4.x": "4.x-dev",
-                    "dev-3.x": "3.x-dev",
+                    "dev-1.x": "1.x-dev",
                     "dev-2.x": "2.x-dev",
-                    "dev-1.x": "1.x-dev"
+                    "dev-3.x": "3.x-dev",
+                    "dev-4.x": "4.x-dev",
+                    "dev-master": "4.x-dev"
                 }
             },
             "autoload": {
@@ -9450,13 +9454,13 @@
                 "drupal-scaffold": {
                     "file-mapping": {
                         "[project-root]/.drush-lock-update": "assets/drush-lock-update",
-                        "[web-root]/sites/default/default.services.pantheon.preproduction.yml": "assets/default.services.pantheon.preproduction.yml",
-                        "[web-root]/sites/default/settings.pantheon.php": "assets/settings.pantheon.php",
                         "[web-root]/sites/default/settings.php": {
                             "mode": "replace",
                             "path": "assets/initial.settings.php",
                             "overwrite": false
-                        }
+                        },
+                        "[web-root]/sites/default/settings.pantheon.php": "assets/settings.pantheon.php",
+                        "[web-root]/sites/default/default.services.pantheon.preproduction.yml": "assets/default.services.pantheon.preproduction.yml"
                     }
                 }
             },
@@ -10388,12 +10392,12 @@
             ],
             "type": "library",
             "extra": {
-                "branch-alias": {
-                    "dev-main": "0.12.x-dev"
-                },
                 "bamarni-bin": {
                     "bin-links": false,
                     "forward-command": false
+                },
+                "branch-alias": {
+                    "dev-main": "0.12.x-dev"
                 }
             },
             "autoload": {
@@ -16262,8 +16266,8 @@
             "type": "symfony-bridge",
             "extra": {
                 "thanks": {
-                    "name": "phpunit/phpunit",
-                    "url": "https://github.com/sebastianbergmann/phpunit"
+                    "url": "https://github.com/sebastianbergmann/phpunit",
+                    "name": "phpunit/phpunit"
                 }
             },
             "autoload": {
