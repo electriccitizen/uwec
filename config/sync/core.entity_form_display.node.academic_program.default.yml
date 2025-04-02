@@ -7,6 +7,7 @@ dependencies:
     - field.field.node.academic_program.field_accreditation
     - field.field.node.academic_program.field_accreditation_logo
     - field.field.node.academic_program.field_admissions_requirements
+    - field.field.node.academic_program.field_banner
     - field.field.node.academic_program.field_campus
     - field.field.node.academic_program.field_college
     - field.field.node.academic_program.field_content_carousel
@@ -46,6 +47,7 @@ dependencies:
     - field.field.node.academic_program.field_request_for_info
     - field.field.node.academic_program.field_show_slate_delivery_mode
     - field.field.node.academic_program.field_slate_slug
+    - field.field.node.academic_program.field_tracks
     - field.field.node.academic_program.field_tuition_link
     - field.field.node.academic_program.field_whats_next
     - field.field.node.academic_program.layout_builder__layout
@@ -72,7 +74,7 @@ third_party_settings:
       label: Access
       region: content
       parent_name: ''
-      weight: 23
+      weight: 24
       format_type: details_sidebar
       format_settings:
         classes: ''
@@ -98,7 +100,7 @@ third_party_settings:
       label: 'Program Details'
       region: content
       parent_name: ''
-      weight: 8
+      weight: 9
       format_type: details
       format_settings:
         classes: ''
@@ -117,7 +119,7 @@ third_party_settings:
       label: Outcomes
       region: content
       parent_name: ''
-      weight: 13
+      weight: 15
       format_type: details
       format_settings:
         classes: ''
@@ -135,7 +137,7 @@ third_party_settings:
       label: Courses
       region: content
       parent_name: ''
-      weight: 14
+      weight: 16
       format_type: details
       format_settings:
         classes: ''
@@ -152,7 +154,7 @@ third_party_settings:
       label: 'More Info'
       region: content
       parent_name: ''
-      weight: 15
+      weight: 17
       format_type: details
       format_settings:
         classes: ''
@@ -168,7 +170,7 @@ third_party_settings:
       label: 'Related Programs'
       region: content
       parent_name: ''
-      weight: 17
+      weight: 19
       format_type: details
       format_settings:
         classes: ''
@@ -185,7 +187,7 @@ mode: default
 content:
   body:
     type: text_textarea_with_summary
-    weight: 7
+    weight: 8
     region: content
     settings:
       rows: 9
@@ -212,11 +214,19 @@ content:
     third_party_settings: {  }
   field_admissions_requirements:
     type: link_default
-    weight: 5
+    weight: 6
     region: content
     settings:
       placeholder_url: ''
       placeholder_title: ''
+    third_party_settings: {  }
+  field_banner:
+    type: string_textfield
+    weight: 4
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
   field_campus:
     type: options_select
@@ -236,7 +246,7 @@ content:
     third_party_settings: {  }
   field_content_carousel:
     type: paragraphs
-    weight: 10
+    weight: 12
     region: content
     settings:
       title: Paragraph
@@ -265,7 +275,7 @@ content:
     third_party_settings: {  }
   field_courseleaf_slug:
     type: string_textfield
-    weight: 25
+    weight: 26
     region: content
     settings:
       size: 60
@@ -273,7 +283,7 @@ content:
     third_party_settings: {  }
   field_courses:
     type: string_textfield
-    weight: 26
+    weight: 27
     region: content
     settings:
       size: 60
@@ -323,7 +333,7 @@ content:
     third_party_settings: {  }
   field_domain_all_affiliates:
     type: boolean_checkbox
-    weight: 4
+    weight: 5
     region: content
     settings:
       display_label: true
@@ -342,7 +352,7 @@ content:
     third_party_settings: {  }
   field_example_careers:
     type: string_textfield
-    weight: 31
+    weight: 32
     region: content
     settings:
       size: 60
@@ -350,7 +360,7 @@ content:
     third_party_settings: {  }
   field_facts_list:
     type: paragraphs
-    weight: 11
+    weight: 13
     region: content
     settings:
       title: Paragraph
@@ -369,7 +379,7 @@ content:
     third_party_settings: {  }
   field_faculty_link:
     type: linkit
-    weight: 16
+    weight: 18
     region: content
     settings:
       placeholder_url: ''
@@ -379,7 +389,7 @@ content:
     third_party_settings: {  }
   field_grads:
     type: text_textarea
-    weight: 32
+    weight: 33
     region: content
     settings:
       rows: 5
@@ -387,7 +397,7 @@ content:
     third_party_settings: {  }
   field_hallmarks:
     type: paragraphs
-    weight: 9
+    weight: 11
     region: content
     settings:
       title: Paragraph
@@ -423,7 +433,7 @@ content:
     third_party_settings: {  }
   field_keywords:
     type: string_textfield
-    weight: 19
+    weight: 21
     region: content
     settings:
       size: 60
@@ -441,7 +451,7 @@ content:
     third_party_settings: {  }
   field_list_widget:
     type: entity_reference_autocomplete
-    weight: 26
+    weight: 27
     region: content
     settings:
       match_operator: CONTAINS
@@ -489,7 +499,7 @@ content:
     third_party_settings: {  }
   field_paragraphs:
     type: layout_paragraphs
-    weight: 12
+    weight: 14
     region: content
     settings:
       view_mode: default
@@ -509,7 +519,7 @@ content:
     third_party_settings: {  }
   field_program_type:
     type: options_select
-    weight: 4
+    weight: 5
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -553,9 +563,29 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+  field_tracks:
+    type: paragraphs
+    weight: 10
+    region: content
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: closed
+      closed_mode: preview
+      autocollapse: none
+      closed_mode_threshold: 0
+      add_mode: button
+      form_display_mode: default
+      default_paragraph_type: _none
+      features:
+        add_above: '0'
+        collapse_edit_all: collapse_edit_all
+        convert: '0'
+        duplicate: duplicate
+    third_party_settings: {  }
   field_tuition_link:
     type: link_default
-    weight: 6
+    weight: 7
     region: content
     settings:
       placeholder_url: ''
@@ -563,25 +593,25 @@ content:
     third_party_settings: {  }
   field_whats_next:
     type: options_select
-    weight: 18
+    weight: 20
     region: content
     settings: {  }
     third_party_settings: {  }
   moderation_state:
     type: moderation_state_default
-    weight: 24
+    weight: 25
     region: content
     settings: {  }
     third_party_settings: {  }
   path:
     type: path
-    weight: 21
+    weight: 22
     region: content
     settings: {  }
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 22
+    weight: 23
     region: content
     settings:
       display_label: true
@@ -595,7 +625,7 @@ content:
       placeholder: ''
     third_party_settings: {  }
   url_redirects:
-    weight: 25
+    weight: 26
     region: content
     settings: {  }
     third_party_settings: {  }

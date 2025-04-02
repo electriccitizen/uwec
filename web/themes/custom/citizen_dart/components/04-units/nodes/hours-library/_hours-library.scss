@@ -69,5 +69,15 @@
         }
       }
     }//end hours title
-	}//end hours wrapper
+
+  .additional-select{
+    margin-left:22px;
+    >label{
+      color:$brightBlue;
+      padding-left:6px;
+      font-weight:bold;
+    }
+  }
+
+  }//end hours wrapper
 }//end hours widget

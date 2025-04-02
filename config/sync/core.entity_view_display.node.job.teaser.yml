@@ -69,11 +69,11 @@ content:
     weight: 3
     region: content
   field_posted_on:
-    type: datetime_default
+    type: datetime_custom
     label: inline
     settings:
       timezone_override: ''
-      format_type: medium
+      date_format: m/d/Y
     third_party_settings: {  }
     weight: 5
     region: content

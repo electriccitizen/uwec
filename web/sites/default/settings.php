@@ -47,16 +47,6 @@ include __DIR__ . "/settings.pantheon.php";
 $settings['config_sync_directory'] = "../config/sync";
 
 /**
- * Get api key.
- */
-$settings['uwec_api_key'] = 'default';
-$secretsFile = $_SERVER['HOME'] . '/files/private/secrets.json';
-if (file_exists($secretsFile)) {
-  $secrets = json_decode(file_get_contents($secretsFile), 1);
-  $settings['uwec_api_key'] = $secrets['uwec_api_key'];
-}
-
-/**
  * Set up config splits
  */
 if (isset($_ENV['PANTHEON_ENVIRONMENT'])) {
@@ -77,7 +67,7 @@ if (isset($_ENV['PANTHEON_ENVIRONMENT'])) {
 
   }
 } else {
-    // LOCAL
+  // LOCAL
 
   $config['config_split.config_split.local']['status'] = TRUE;
 
@@ -86,7 +76,7 @@ if (isset($_ENV['PANTHEON_ENVIRONMENT'])) {
    */
   $docksal_settings = __DIR__ . "/settings.docksal.php";
   if (file_exists($docksal_settings)) {
-      include $docksal_settings;
+    include $docksal_settings;
   }
 
   /**
@@ -94,6 +84,15 @@ if (isset($_ENV['PANTHEON_ENVIRONMENT'])) {
    */
   $local_settings = __DIR__ . "/settings.local.php";
   if (file_exists($local_settings)) {
-      include $local_settings;
+    include $local_settings;
   }
+}
+
+
+// Load pantheon terminus secrets
+if(function_exists('pantheon_get_secret')){
+  $config['samlauth.authentication']['sp_private_key'] = pantheon_get_secret('sp_private_key');
+  $config['samlauth.authentication']['sp_x509_certificate'] = pantheon_get_secret('sp_x509_certificate');
+  $config['samlauth.authentication']['idp_certs'] = [pantheon_get_secret('idp_certs')];
+  $settings['athena_api_key'] = pantheon_get_secret('athena_api_key');
 }

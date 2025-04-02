@@ -5,5 +5,8 @@ dependencies: {  }
 id: node__bios
 label: 'Content: Profile'
 tags:
-  abstract: '[node:field_short_bio]'
+  abstract: '[node:field_position:0:value] [node:field_offices:0:entity:name] [node:field_colleges:0:entity:title] [node:field_departments:0:entity:title]'
+  description: '[node:field_position:0:value] [node:field_offices:0:entity:name] [node:field_colleges:0:entity:title] [node:field_departments:0:entity:title]'
+  og_description: '[node:field_position:0:value] [node:field_offices:0:entity:name] [node:field_colleges:0:entity:title] [node:field_departments:0:entity:title]'
   title: '[node:field_first_name] [node:field_last_name] | [site:name]'
+  twitter_cards_description: '[node:field_position:0:value] [node:field_offices:0:entity:name] [node:field_colleges:0:entity:title] [node:field_departments:0:entity:title]'

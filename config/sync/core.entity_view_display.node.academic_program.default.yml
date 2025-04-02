@@ -7,6 +7,7 @@ dependencies:
     - field.field.node.academic_program.field_accreditation
     - field.field.node.academic_program.field_accreditation_logo
     - field.field.node.academic_program.field_admissions_requirements
+    - field.field.node.academic_program.field_banner
     - field.field.node.academic_program.field_campus
     - field.field.node.academic_program.field_college
     - field.field.node.academic_program.field_content_carousel
@@ -46,6 +47,7 @@ dependencies:
     - field.field.node.academic_program.field_request_for_info
     - field.field.node.academic_program.field_show_slate_delivery_mode
     - field.field.node.academic_program.field_slate_slug
+    - field.field.node.academic_program.field_tracks
     - field.field.node.academic_program.field_tuition_link
     - field.field.node.academic_program.field_whats_next
     - field.field.node.academic_program.layout_builder__layout
@@ -201,7 +203,7 @@ third_party_settings:
                 settings:
                   view_mode: default
                 third_party_settings: {  }
-            weight: 0
+            weight: 1
             additional: {  }
           2835dace-ffb4-475b-abad-f4cd030df624:
             uuid: 2835dace-ffb4-475b-abad-f4cd030df624
@@ -220,7 +222,7 @@ third_party_settings:
                 settings:
                   view_mode: default
                 third_party_settings: {  }
-            weight: 1
+            weight: 2
             additional: {  }
           fc9164d0-a94e-4bd7-8594-ce6a6d673d05:
             uuid: fc9164d0-a94e-4bd7-8594-ce6a6d673d05
@@ -259,6 +261,25 @@ third_party_settings:
                   view_mode: default
                 third_party_settings: {  }
             weight: 3
+            additional: {  }
+          da381f07-fdc8-4fed-adb9-9b62b658f221:
+            uuid: da381f07-fdc8-4fed-adb9-9b62b658f221
+            region: content
+            configuration:
+              id: 'field_block:node:academic_program:field_tracks'
+              label: Tracks
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: entity_reference_revisions_entity_view
+                label: hidden
+                settings:
+                  view_mode: default
+                third_party_settings: {  }
+            weight: 0
             additional: {  }
         third_party_settings: {  }
       -
@@ -488,6 +509,14 @@ content:
       target: ''
     third_party_settings: {  }
     weight: 111
+    region: content
+  field_banner:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 150
     region: content
   field_campus:
     type: entity_reference_label
@@ -761,6 +790,15 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     weight: 137
+    region: content
+  field_tracks:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 151
     region: content
   field_tuition_link:
     type: link

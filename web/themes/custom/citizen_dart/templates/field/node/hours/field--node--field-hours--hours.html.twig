@@ -46,21 +46,41 @@
     {% block fieldMultiNoClasses %}
       {{ attach_library('citizen_dart/hours') }}
       <div{{ attributes.addClass(classes) }} >
-      	{% set count = 0 %}
-      	{%- for index, item in items -%}
-      		{% set currentDay = 'now'|date('U') %}
-        	{% set displayStart = item.content['#paragraph'].field_display_range.0.value %}
-        	{% set displayEnd = item.content['#paragraph'].field_display_range.0.end_value %}
-        	{% if displayStart %}
-        		{% if currentDay > displayStart and currentDay < displayEnd %}
-        			{% set count = count + 1 %}
-        		{% endif %}
-        	{% else %}
-        		{% set count = count + 1 %}
-        	{% endif %}
-      	{% endfor %}
-          {%- if count > 1 -%}
-            <label for="panel-select-{{ u }}" hidden>Change the visible hours.</label>
+        {% set count = 0 %}
+        {%- for index, item in items -%}
+          {% set currentDay = 'now'|date('U') %}
+          {% set displayStart = item.content['#paragraph'].field_display_range.0.value %}
+          {% set displayEnd = item.content['#paragraph'].field_display_range.0.end_value %}
+          {% if displayStart %}
+            {% if currentDay > displayStart and currentDay < displayEnd %}
+              {% set count = count + 1 %}
+            {% endif %}
+          {% else %}
+            {% set count = count + 1 %}
+          {% endif %}
+        {% endfor %}
+        {% block fieldMultiNoItems %}
+          {%- for index, item in items -%}
+            {% set currentDay = 'now'|date('U') %}
+            {% set displayStart = item.content['#paragraph'].field_display_range.0.value %}
+            {% set displayEnd = item.content['#paragraph'].field_display_range.0.end_value %}
+            {% if displayStart%}
+              {% if currentDay > displayStart and currentDay < displayEnd %}
+                <div{{ item.attributes.addClass('select-panel select-panel-' ~ u ~ '-'~ index) }}>
+                  {{- item.content -}}
+                </div>
+              {% endif %}
+            {% else %}
+              <div{{ item.attributes.addClass('select-panel select-panel-' ~ u ~ '-'~ index) }}>
+                {{- item.content -}}
+              </div>
+            {% endif %}
+          {%- endfor -%}
+        {% endblock %}
+
+        {%- if count > 1 -%}
+          <div class="additional-select">
+            <label for="panel-select-{{ u }}">View additional hours</label>
             <select class="panel-select" id="panel-select-{{ u }}">
               {%- for index, item in items -%}
                 {% set currentDay = 'now'|date('U') %}
@@ -75,24 +95,7 @@
                 {% endif %}
               {%- endfor -%}
             </select>
-          {%- endif -%}
-        {% block fieldMultiNoItems %}
-          {%- for index, item in items -%}
-          	{% set currentDay = 'now'|date('U') %}
-          	{% set displayStart = item.content['#paragraph'].field_display_range.0.value %}
-          	{% set displayEnd = item.content['#paragraph'].field_display_range.0.end_value %}
-          	{% if displayStart%}
-          		{% if currentDay > displayStart and currentDay < displayEnd %}
-	          		<div{{ item.attributes.addClass('select-panel select-panel-' ~ u ~ '-'~ index) }}>
-		              {{- item.content -}}
-		            </div>
-		          {% endif %}
-          	{% else %}
-	            <div{{ item.attributes.addClass('select-panel select-panel-' ~ u ~ '-'~ index) }}>
-	              {{- item.content -}}
-	            </div>
-	          {% endif %}
-          {%- endfor -%}
-        {% endblock %}
+          </div>
+        {%- endif -%}
       </div>
     {% endblock %}

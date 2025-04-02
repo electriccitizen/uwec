@@ -24,8 +24,8 @@ class Courses extends BlockBase{
 		}
 
 		// grab the courseleaf slug
-		$courseLeafSlug = $this->getCourseLeafSlug($program);
-		if(empty($courseLeafSlug)){
+		$courseLeafSlugs = $this->getCourseLeafSlugs($program);
+		if(empty($courseLeafSlugs)){
 			return ['#markup'=>''];
 		}
 
@@ -33,24 +33,27 @@ class Courses extends BlockBase{
 		$manualCourseNumbers = $this->getManualCourseNumbers($program);
 
 		// get courses from CourseLeaf
-		$courses = $this->getCourses($courseLeafSlug, $manualCourseNumbers);
+		$courses = $this->getCourses($courseLeafSlugs, $manualCourseNumbers);
 
 		return [
 			'#theme'=>'courses_block',
 			'#program_title'=>$program->getTitle(),
-			'#courseleaf_slug'=>$courseLeafSlug,
 			'#courses'=>$courses,
 		];
 	}
 
-	// returns the course leaf slug for the given program.
-	// returns false if there isn't one.
-	protected function getCourseLeafSlug($program){
-		$courseLeafSlug = $program->get('field_courseleaf_slug')->getValue();
-		if(empty($courseLeafSlug)) return false;
-		$courseLeafSlug = $courseLeafSlug[0]['value'];
-		if(empty($courseLeafSlug)) return false;
-		return $courseLeafSlug;
+	// returns an array of course leaf slugs for the given program.
+	// returns an empty array if there aren't any.
+	protected function getCourseLeafSlugs($program){
+		$rawSlugs = $program->get('field_courseleaf_slug')->getValue();
+		if(empty($rawSlugs)) return [];
+
+		// transform from drupal's ultra-jank format to a format that actually makes sense
+		$slugs = [];
+		foreach($rawSlugs as $weirdDrupalThing){
+			$slugs[] = $weirdDrupalThing['value'];
+		}
+		return $slugs;
 	}
 
 	// returns an array of manually entered course numbers.
@@ -68,68 +71,11 @@ class Courses extends BlockBase{
 	// each course is an array containing "title", "number", and "description"
 	// the course numbers provided in $manualCourseNumbers will be returned first, if they exist in the response.
 	// random courses will be selected if there are no more manual course numbers to choose from.
-	protected function getCourses($slug, $manualCourseNumbers){
-		$url = 'https://catalog.uwec.edu/ribbit/?page=getcourse.rjs&subject='.$slug; $response = \Drupal::httpClient()->request('GET', $url);
-
-		// anything but a 200 is bunk
-		if($response->getStatusCode() != 200){
-			\Drupal::logger('citizen_custom')->error('Catalog API returned response code ('.$response->getStatusCode().') with body: ('.$response->getBody().')');
-			return [];
-		}
-
-		$xml = new \SimpleXMLElement($response->getBody()->getContents());
-
-		// make sure we have at least one course in the response
-		if(empty($xml->course->count())){
-			\Drupal::logger('citizen_custom')->error('Catalog API returned a response code of 200 but there are no courses after parsing the body with SimpleXMLElement. Body: ('.$response->getBody().')');
-			return [];
-		}
-
-		// gather all courses in an array, indexed by lowercase course number
+	protected function getCourses($slugs, $manualCourseNumbers){
+		// gather all courses for all course slugs
 		$allCourses = [];
-		for($i = 0; $i < $xml->course->count(); $i++){
-			$course = $xml->course[$i];
-			$courseHtml = new \DOMDocument();
-			$courseHtml->loadHTML((string)$course);
-			$courseDiv = $courseHtml->documentElement->firstChild->firstChild;
-
-			$courseData = [];
-			$courseData['number'] = (string)$course['code'];
-
-			// validate subject
-			// this seems unecessary because we are already passing it to the api request as a filter,
-			// however the courseleaf api has a bug,
-			// where asking for subject "PH" returns "PH" courses
-			// but also "PHIL" and "PHYS" courses.
-			if(strtok($courseData['number'], ' ') != $slug) continue;
-
-			// default title and description, in case the search below fails
-			$courseData['title'] = $courseData['number'];
-			$courseData['description'] = '';
-
-			// search through children nodes to try to find the title and description
-			foreach($courseDiv->childNodes as $child){
-				if($child->nodeType == XML_ELEMENT_NODE){
-					$childClass = $child->getAttribute('class');
-					if($childClass == 'courseblocktitle'){
-						if(!empty($child->firstChild) && !empty($child->firstChild->firstChild)){
-							$courseData['title'] = $this->sanitizeTitle($child->firstChild->firstChild->data, $courseData['number']);
-						}
-					}elseif($childClass == 'courseblockdescription'){
-						if(!empty($child->firstChild)){
-							$courseData['description'] = $this->sanitizeDescription($child->firstChild->data);
-						}
-					}
-				}
-			}
-
-			$allCourses[strtolower($courseData['number'])] = $courseData;
-		}
-
-		// make sure we at least grabbed one course to use
-		if(empty($allCourses)){
-			\Drupal::logger('citizen_custom')->error('There were courses in the Catalog API response, but after gathering courses into $allCourses, there are none.');
-			return [];
+		foreach($slugs as $slug){
+			$allCourses = array_merge($allCourses, $this->fetchCourses($slug));
 		}
 
 		// ok now we try to pick the right 3 courses to show.
@@ -211,5 +157,76 @@ class Courses extends BlockBase{
 
 		// i don't exactly follow why this works but it fixes a weird smart quote situation in bcom 309.
 		return mb_convert_encoding($description, 'ISO-8859-1', 'UTF-8');
+	}
+
+	// fetches all possible courses for the given slug and returns an array of them.
+	protected function fetchCourses($slug){
+		$slug = strtolower($slug);
+		$url = 'https://catalog.uwec.edu/ribbit/?page=getcourse.rjs&subject='.$slug;
+		$response = \Drupal::httpClient()->request('GET', $url);
+
+		// anything but a 200 is bunk
+		if($response->getStatusCode() != 200){
+			\Drupal::logger('citizen_custom')->error('Catalog API requesting courses for slug "'.$slug.'" returned response code ('.$response->getStatusCode().') with body: ('.$response->getBody().')');
+			return [];
+		}
+
+		// try to parse the xml response
+		$xml = new \SimpleXMLElement($response->getBody()->getContents());
+
+		// make sure we have at least one course in the response
+		if(empty($xml->course->count())){
+			\Drupal::logger('citizen_custom')->error('Catalog API returned a response code of 200 for slug "'.$slug.'" but there are no courses after parsing the body with SimpleXMLElement. Body: ('.$response->getBody().')');
+			return [];
+		}
+
+		// gather all courses in an array, indexed by lowercase course number
+		$allCourses = [];
+		for($i = 0; $i < $xml->course->count(); $i++){
+			$course = $xml->course[$i];
+			$courseHtml = new \DOMDocument();
+			$courseHtml->loadHTML((string)$course);
+			$courseDiv = $courseHtml->documentElement->firstChild->firstChild;
+
+			$courseData = [];
+			$courseData['number'] = (string)$course['code'];
+
+			// validate subject
+			// this seems unecessary because we are already passing it to the api request as a filter,
+			// however the courseleaf api has a bug,
+			// where asking for subject "PH" returns "PH" courses
+			// but also "PHIL" and "PHYS" courses.
+			if(strtolower(strtok($courseData['number'], ' ')) != $slug) continue;
+
+			// default title and description, in case the search below fails
+			$courseData['title'] = $courseData['number'];
+			$courseData['description'] = '';
+
+			// search through children nodes to try to find the title and description
+			foreach($courseDiv->childNodes as $child){
+				if($child->nodeType == XML_ELEMENT_NODE){
+					$childClass = $child->getAttribute('class');
+					if($childClass == 'courseblocktitle'){
+						if(!empty($child->firstChild) && !empty($child->firstChild->firstChild)){
+							$courseData['title'] = $this->sanitizeTitle($child->firstChild->firstChild->data, $courseData['number']);
+						}
+					}elseif($childClass == 'courseblockdescription'){
+						if(!empty($child->firstChild)){
+							$courseData['description'] = $this->sanitizeDescription($child->firstChild->data);
+						}
+					}
+				}
+			}
+
+			$allCourses[strtolower($courseData['number'])] = $courseData;
+		}
+
+		// make sure we at least grabbed one course to use
+		if(empty($allCourses)){
+			\Drupal::logger('citizen_custom')->error('There were courses in the Catalog API response for slug "'.$slug.'", but after gathering courses into $allCourses, there are none.');
+			return [];
+		}
+
+		return $allCourses;
 	}
 }

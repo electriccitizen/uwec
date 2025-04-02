@@ -146,7 +146,6 @@ permissions:
   - 'use domain nav block'
   - 'use marketing transition create_new_draft'
   - 'use marketing transition review'
-  - 'use non_moderated transition archive'
   - 'use non_moderated transition create_new_draft'
   - 'use non_moderated transition publish'
   - 'use text format short_text_formatted_html'

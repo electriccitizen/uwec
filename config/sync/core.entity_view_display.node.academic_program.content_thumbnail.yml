@@ -8,6 +8,7 @@ dependencies:
     - field.field.node.academic_program.field_accreditation
     - field.field.node.academic_program.field_accreditation_logo
     - field.field.node.academic_program.field_admissions_requirements
+    - field.field.node.academic_program.field_banner
     - field.field.node.academic_program.field_campus
     - field.field.node.academic_program.field_college
     - field.field.node.academic_program.field_content_carousel
@@ -47,6 +48,7 @@ dependencies:
     - field.field.node.academic_program.field_request_for_info
     - field.field.node.academic_program.field_show_slate_delivery_mode
     - field.field.node.academic_program.field_slate_slug
+    - field.field.node.academic_program.field_tracks
     - field.field.node.academic_program.field_tuition_link
     - field.field.node.academic_program.field_whats_next
     - field.field.node.academic_program.layout_builder__layout
@@ -87,6 +89,7 @@ hidden:
   field_accreditation: true
   field_accreditation_logo: true
   field_admissions_requirements: true
+  field_banner: true
   field_campus: true
   field_college: true
   field_content_carousel: true
@@ -125,6 +128,7 @@ hidden:
   field_request_for_info: true
   field_show_slate_delivery_mode: true
   field_slate_slug: true
+  field_tracks: true
   field_tuition_link: true
   field_whats_next: true
   layout_builder__layout: true

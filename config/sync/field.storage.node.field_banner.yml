@@ -1,20 +1,20 @@
-uuid: 45a54060-e7dc-46db-969d-49d2ea7ca077
+uuid: aaa7fdc7-1f4c-4961-bea8-6ba586d558e0
 langcode: en
 status: true
 dependencies:
   module:
     - node
-id: node.field_courseleaf_slug
-field_name: field_courseleaf_slug
+id: node.field_banner
+field_name: field_banner
 entity_type: node
 type: string
 settings:
-  max_length: 255
+  max_length: 30
   case_sensitive: false
   is_ascii: false
 module: core
 locked: false
-cardinality: -1
+cardinality: 1
 translatable: true
 indexes: {  }
 persist_with_no_fields: false

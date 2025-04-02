@@ -23,25 +23,30 @@
 {% extends 'field.html.twig' %}
 
 {% set intro = {
-	'#type': 'processed_text',
-	'#text': element['#object'].field_intro_text.0.value,
-	'#format': element['#object'].field_intro_text.0.format
+  '#type': 'processed_text',
+  '#text': element['#object'].field_intro_text.0.value,
+  '#format': element['#object'].field_intro_text.0.format
 } %}
 
 {% block fieldSingleNo %}
 
-	<div class="program-hero">
+  <div class="program-hero">
     <div class="hero-image">
-	  {% if element['#object'].field_image.0 %}
-			<div class="image-right">
-				{{ drupal_entity('media',element['#object'].field_image.0.target_id,'730x840') }}
-			</div>
-		{% endif %}
+      {% if element['#object'].field_image.0 %}
+        <div class="image-right">
+          {{ drupal_entity('media',element['#object'].field_image.0.target_id,'730x840') }}
+        </div>
+      {% endif %}
 
       {# set an area with breadcrumbs and header text content #}
       <div class="page-header-text">
         <div class="page-header-text-inner">
           {{ drupal_block('system_breadcrumb_block') }}
+		  {% if element['#object'].field_banner %}
+		    <div class="field field-banner">
+			  {{- element['#object'].field_banner.string -}}
+			</div>
+		  {% endif %}
           <div class="field title string">
             <h1 class="field page-title">{{ element['#object'].title.0.value }}</h1>
           </div>
@@ -78,5 +83,5 @@
         </div>
       </div>
     </div>
-	</div>{# end page header wrapper #}
+  </div>{# end page header wrapper #}
 {% endblock %}

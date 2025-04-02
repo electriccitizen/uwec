@@ -67,7 +67,7 @@
     {% set exceptionEnd = content.field_exception_range.0['#end_value'] %}
     {% if displayStart != displayEnd  %}
       <div class="display-notice-wrapper">
-        Effective from {{ displayStart|date('F, j Y') }} until {{ displayEnd|date('F, j Y') }}
+        Effective from {{ displayStart|date('F j, Y') }} until {{ displayEnd|date('F j, Y') }}
       </div>
     {% endif %}
     {% if exceptionStart %}

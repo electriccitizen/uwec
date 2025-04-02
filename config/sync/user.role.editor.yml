@@ -107,7 +107,6 @@ permissions:
   - 'update paragraph content profiles_list'
   - 'use add another'
   - 'use domain nav block'
-  - 'use non_moderated transition archive'
   - 'use non_moderated transition create_new_draft'
   - 'use non_moderated transition publish'
   - 'use text format limited_html'
