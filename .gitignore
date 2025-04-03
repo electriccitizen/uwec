@@ -157,8 +157,3 @@ upstream/web/
 # Ignore sql files
 *.sql
 
-# Ignore DDEV files
--.ddev/.ddev-docker-compose-full.yaml
--.ddev/.ddev-docker-compose-base.yaml
--.ddev/traefik/certs/bmeweb.crt
--.ddev/traefik/certs/bmeweb.key

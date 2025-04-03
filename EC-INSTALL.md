@@ -89,15 +89,14 @@ See the THEME-INSTALL.md file inside of the theme root for install instructions.
 
 To interact with Pantheon via drush, you can use the Drush aliases that are auto-generated for each environment. For example:
 
-**DEV, TEST**
-
-* There is no LIVE environment for the UWEC site.
+**DEV, TEST, LIVE**
 
 These aliases are always available via:
 
 ```
 @uwec.dev
 @uwec.test
+@uwec.live
 ```
 Note that not all projects will have all environments enabled.
 
@@ -108,29 +107,6 @@ Whenever you create a Github pull request, a new Pantheon multidev is created in
 ```
 @uwec.pr-123
 ```
-
-# Project Legend
-
-## DDEV Images
-- web - ddev-webserver:v1.24.3-uwec-built
-- sb - ddev-dbserver-mariadb-10.11v1.24.3-uwec-built
-
-See `~/Projects/uwec/.ddev/config.yml`
-
-## settings.docksal.php
-- database connection
-- hash_salt
-- base_url
-- development services
-- error level
-- rebuild_access
-- permissions_hardening
-- trusted_host_pattern
-- file paths
-- migration discovery
-
-See `/Projects/uwec/web/sites/default/settings.ddev.php`
-
 # Enabling Xdebug
 
 Enable xdebug by running `ddev xdebug`. It will remain enabled for the entirety of your session and you can re-enable when needed. This should remain off in the DDEV config.
