@@ -15,37 +15,29 @@ Reviewed by David, 2023-07-18
 - [EC: Local development requirements](https://docs.google.com/document/d/1_yeISu5bW5637TCeXByi82LUUfD1jeeSDHh5IeiPz4o/edit?usp=sharing)
 - [EC: Developing on Pantheon](https://docs.google.com/document/d/1oTBHep57WENbf8PnM4LSn2Zx6x5EKA1rSYDEMvBEsUY/edit)
 
+
 # Local Development Setup
 
-Follow these steps to install a local development environment.
+Follow these steps to install a local development environment with DDev.
 
-`cd ~/Projects`
-
-`git clone git@github.com:electriccitizen/uwec.git`
-
-`cd uwec`
-
-`fin composer install`
-
-`fin start`
-
-`fin hosts add`
+```
+cd ~/Projects
+git clone git@github.com:electriccitizen/uwec.git uwec
+cd uwec
+ddev start
+ddev composer install
+ddev auth ssh
+```
 
 ## Download and import the database
 
-`fin drush @uwec.dev sql-dump > database.sql`
-
-`fin db import database.sql`
-
-`fin drush cr`
-
-## Import local configuration
-
-`fin drush cim`
-
-## Log into website as admin
-
-`fin drush uli`
+```
+ddev drush @uwec.live sql-dump > database.sql
+ddev import-db --file=database.sql
+ddev drush cr
+ddev drush cim
+ddev drush uli
+```
 
 Open the generated login URL and you should be set to go.
 
@@ -62,26 +54,27 @@ You may need to clear cache, hard reset your browser, fin project start, shutdow
 # Refreshing your local environment
 Whenever you start a new task, you'll want to refresh your local environment to pull in the latest changes from other developers.
 
-`cd ~/Projects/uwec`
-
-`git checkout main`
-
-`git pull`
-
-`fin restart`
-
-`composer install`
+```
+cd ~/Projects/uwec
+git checkout main
+git pull
+ddev start
+ddev composer install
+ddev auth ssh
+```
 
 DB Pull - Optional
-`fin drush @uwec.dev sql-dump > database.sql`
-`fin db import database.sql`
+```
+ddev drush @uwec.live sql-dump > database.sql
+ddev import-db --file=database.sql
+```
 End DB Pull
 
-`fin drush cr`
-
-`fin drush cim`
-
-`fin drush uli`
+```
+ddev drush cr
+ddev drush cim
+ddev drush uli
+```
 
 Open the generated login URL and you should be set to go.
 
@@ -118,12 +111,11 @@ Whenever you create a Github pull request, a new Pantheon multidev is created in
 
 # Project Legend
 
-## Docksal Images
-- DB - docksal/mariadb:10.4
-- CLI - docksal/cli:stable-php7.4
-- SOLR - docksal/solr:1.0-solr3
+## DDEV Images
+- web - ddev-webserver:v1.24.3-uwec-built
+- sb - ddev-dbserver-mariadb-10.11v1.24.3-uwec-built
 
-See `~/Projects/uwec/.docksal/docksal.yml`
+See `~/Projects/uwec/.ddev/config.yml`
 
 ## settings.docksal.php
 - database connection
@@ -137,22 +129,23 @@ See `~/Projects/uwec/.docksal/docksal.yml`
 - file paths
 - migration discovery
 
-See `/Projects/uwec/web/sites/default/settings.docksal.php`
+See `/Projects/uwec/web/sites/default/settings.ddev.php`
 
 # Enabling Xdebug
 
-Copy the `.docksal/docksal-local.yml.default` file to the .docksal folder as `docksal-local.yml` and ensure that `XDEBUG_ENABLED=1`
+Enable xdebug by running `ddev xdebug`. It will remain enabled for the entirety of your session and you can re-enable when needed. This should remain off in the DDEV config.
 
-Open `.docksal/etc/php/php.ini` and uncomment the three lines of code directly under [xdebug]:
+Auto Configuration for PHPStorm:
 
-```
-[xdebug]
-xdebug.mode=debug
-xdebug.discover_client_host=1
-xdebug.client_host=192.168.64.100
-```
+1. Turn on the listener in PHPStorm
+2. Add a breakpoint at the top of web/index.php
+3. Visit a page on the
+4. This should prompt a dialog that sets up your server
+5. The defaults should work
 
-Run `fin restart` to restart the Docksal project.
+For other platforms and documentation see:
+
+[DDEV DOCS](https://ddev.readthedocs.io/en/stable/users/debugging-profiling/step-debugging/)
 
 # Backstop Testing
 
