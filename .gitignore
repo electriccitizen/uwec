@@ -20,7 +20,6 @@ web/sites/example.settings.local.php
 # Pantheon commits a settings.php for environment-specific settings.
 # Place local settings in settings.local.php
 web/sites/*/settings.local.php
-web/sites/*/settings.docksal.php
 web/sites/*/services*.yml
 !web/sites/*/services.pantheon.*.yml
 !web/sites/*/services.yml
@@ -147,20 +146,14 @@ upstream/web/
 /web/themes/*/node_modules
 .DS_Store
 /database.sql
-.docksal/docksal-local.yml
 
 # Ignore local DB files
 /*.gz
 /*.bak
-# Ignore docksal settings file
-#/web/sites/default/settings.docksal.php
-
-# Ignore local docksal files
-/.docksal/docksal-local.yml
-/.docksal/docksal-local.env
 
 # Ignore log files
 *.log
 
 # Ignore sql files
 *.sql
+
