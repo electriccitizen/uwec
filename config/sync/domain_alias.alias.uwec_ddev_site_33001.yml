@@ -1,9 +1,0 @@
-uuid: e7623b10-a78a-4364-9525-dd2374f03fe7
-langcode: en
-status: true
-dependencies: {  }
-id: uwec_ddev_site_33001
-domain_id: uwec_docksal_site
-pattern: 'uwec.ddev.site:33001'
-redirect: 0
-environment: local
