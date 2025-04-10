@@ -5,7 +5,7 @@ Reviewed by David, 2023-07-18
 # Project Details
 - **NAME:** uwec 
 - **URL:** http://dev-uwec.pantheonsite.io/
-- **LOCAL URL:** http://uwec.docksal.site
+- **LOCAL URL:** https://uwec.ddev.site:33001/
 - **BRANCH:** main
 - **HOSTING:** [Pantheon Dashboard](https://dashboard.pantheon.io/sites/dfeadf45-ac5d-48f4-a701-c121589cff0e#dev/code)
 - **CIRCLE CI:** [Logs](https://app.circleci.com/pipelines/github/electriccitizen/uwec)
@@ -47,7 +47,7 @@ You will need to add the following code in your development.services.yml to acce
 parameters:
   http.response.debug_cacheability_headers: true
   session.storage.options:
-    cookie_domain: '.uwec.docksal.site'
+    cookie_domain: '.uwec.ddev.site:33001'
 
 You may need to clear cache, hard reset your browser, fin project start, shutdown and restart your computer and/or sacrifice a chicken to get it to kick in.
 

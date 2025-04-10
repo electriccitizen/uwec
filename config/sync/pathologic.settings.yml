@@ -6,5 +6,5 @@ scheme_allow_list:
   - files
   - internal
 protocol_style: full
-local_paths: "http://uwec.docksal.site/\r\nhttps://dev-uwec.pantheonsite.io/\r\nhttps://test-uwec.pantheonsite.io/\r\nhttps://live-uwec.pantheonsite.io/\r\nhttps://www.uwec.edu/"
-keep_language_prefix: false
+local_paths: "https://uwec.ddev.site:33001/\r\nhttps://dev-uwec.pantheonsite.io/\r\nhttps://test-uwec.pantheonsite.io/\r\nhttps://live-uwec.pantheonsite.io/\r\nhttps://www.uwec.edu/"
+keep_language_prefix: null
