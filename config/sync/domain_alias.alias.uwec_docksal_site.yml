@@ -4,6 +4,6 @@ status: true
 dependencies: {  }
 id: uwec_docksal_site
 domain_id: uwec_docksal_site
-pattern: uwec.docksal.site
+pattern: uwec.ddev.site
 redirect: 0
 environment: local
