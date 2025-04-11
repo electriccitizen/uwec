@@ -1,9 +1,9 @@
-uuid: bfbfe6a3-9856-46f6-b2a5-678fda82e557
+uuid: 80d505a8-2de1-41d7-85d1-b578f42b98c7
 langcode: en
 status: true
 dependencies: {  }
-id: uwec_docksal_site
+id: uwec_ddev_site_port
 domain_id: uwec_docksal_site
-pattern: uwec.ddev.site
+pattern: 'uwec.ddev.site:33001'
 redirect: 0
 environment: local

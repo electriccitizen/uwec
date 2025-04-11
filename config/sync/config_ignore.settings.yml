@@ -1,4 +1,5 @@
 _core:
   default_config_hash: PpuP8VhWdF0ziueamoqUc5vnbdeMfR3sXsttQmCYMWg
 mode: simple
-ignored_config_entities: {  }
+ignored_config_entities:
+  - domain_alias.alias.uwec_docksal_site.yml

@@ -5,7 +5,7 @@ Reviewed by David, 2023-07-18
 # Project Details
 - **NAME:** uwec 
 - **URL:** http://dev-uwec.pantheonsite.io/
-- **LOCAL URL:** http://uwec.docksal.site
+- **LOCAL URL:** https://uwec.ddev.site:33001/
 - **BRANCH:** main
 - **HOSTING:** [Pantheon Dashboard](https://dashboard.pantheon.io/sites/dfeadf45-ac5d-48f4-a701-c121589cff0e#dev/code)
 - **CIRCLE CI:** [Logs](https://app.circleci.com/pipelines/github/electriccitizen/uwec)
@@ -41,13 +41,21 @@ ddev drush uli
 
 Open the generated login URL and you should be set to go.
 
+## !!-Mac users may need to modify the main domain alias
+If you're on a Mac using DDEV and the site is being served through a non-standard port (i.e. 33001),
+you may need to modify the main domain alias in the site's configuration. A configuration for
+`uwec.ddev.site:33001` has been added to the local configuration split. But if your port number is
+different, you will need to modify the number in the site configuration. Go to
+`/admin/config/domain/alias/edit/uwec_ddev_site_port` and change the port number to match your local DDEV port.
+Be sure save the configuration, then clear the cache.
+
 ## Setting session cookies in development.services.yml
 You will need to add the following code in your development.services.yml to access the site due to domain configuration (starting on line 5).
 
 parameters:
   http.response.debug_cacheability_headers: true
   session.storage.options:
-    cookie_domain: '.uwec.docksal.site'
+    cookie_domain: '.uwec.ddev.site:33001'
 
 You may need to clear cache, hard reset your browser, fin project start, shutdown and restart your computer and/or sacrifice a chicken to get it to kick in.
 
@@ -77,6 +85,14 @@ ddev drush uli
 ```
 
 Open the generated login URL and you should be set to go.
+
+## !!-Mac users may need to modify the main domain alias
+If you're on a Mac using DDEV and the site is being served through a non-standard port (i.e. 33001),
+you may need to modify the main domain alias in the site's configuration. A configuration for
+`uwec.ddev.site:33001` has been added to the local configuration split. But if your port number is 
+different, you will need to modify the number in the site configuration. Go to
+`/admin/config/domain/alias/edit/uwec_ddev_site_port` and change the port number to match your local DDEV port.
+Be sure save the configuration, then clear the cache.
 
 # Theming
 The active theme for this project is **citizen_dart**:
@@ -126,4 +142,3 @@ For other platforms and documentation see:
 # Backstop Testing
 
 Refer to [EC-BACKSTOP.md](/tests/backstop/EC-BACKSTOP.md) for complete instructions for Visual Regression Testing using Backstop JS. 
-
