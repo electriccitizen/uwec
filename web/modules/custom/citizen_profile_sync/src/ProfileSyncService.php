@@ -56,8 +56,9 @@ class ProfileSyncService {
         $userUpdateTime = $user->get('field_last_imported')->getString();
         if ($athenaUpdateTime >= strtotime($userUpdateTime)) {
           $user = $this->updateUser($user, $profile);
-          $this->createOrUpdateAuthMapRecord($user);
         }
+        // TODO move this back up into the above if statement after everybody has a good authname
+        $this->createOrUpdateAuthMapRecord($user);
       } else {
         // no User exists. create one if this profile is active.
         if($profile->isactive){
@@ -280,6 +281,9 @@ class ProfileSyncService {
     if ($uid) {
       // User exists, update authmap.
       $authname = $this->getExistingAuthname($uid);
+      
+      // this is the format that we get from the idp
+      $desired_authname = strtoupper($username).'@uwec.edu';
 
       if (!$authname) {
         // Authmap record doesn't exist, create a new one.
@@ -288,7 +292,7 @@ class ProfileSyncService {
           ->fields([
             'uid' => $uid,
             'provider' => 'saml_auth',
-            'authname' => $username,
+            'authname' => $desired_authname,
             'data' => 'N;',
           ])
           ->execute();
@@ -296,7 +300,7 @@ class ProfileSyncService {
         // Athena username has changed, update authname to match
         Database::getConnection()
           ->update('authmap')
-          ->fields(['authname' => $username])
+          ->fields(['authname' => $desired_authname])
           ->condition('uid', $uid)
           ->execute();
       }
