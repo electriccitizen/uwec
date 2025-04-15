@@ -296,7 +296,7 @@ class ProfileSyncService {
             'data' => 'N;',
           ])
           ->execute();
-      } elseif ($authname !== $username) {
+      } elseif ($authname !== $desired_authname) {
         // Athena username has changed, update authname to match
         Database::getConnection()
           ->update('authmap')
