@@ -131,11 +131,9 @@ module:
   externalauth: 10
   views: 10
   paragraphs: 11
-  citizen: 1000
   eu_cookie_compliance: 1001
 theme:
   stable9: 0
   claro: 0
   citizen_dart: 0
   gin: 0
-profile: citizen
