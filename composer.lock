@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "bebe3c6fccb71c16222de520d22a7086",
+    "content-hash": "53ebbcbc5ad307ff8d162619ad748235",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -3686,90 +3686,6 @@
             "homepage": "https://www.drupal.org/project/domain",
             "support": {
                 "source": "https://git.drupalcode.org/project/domain"
-            }
-        },
-        {
-            "name": "drupal/domain_path",
-            "version": "1.4.0",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupalcode.org/project/domain_path.git",
-                "reference": "8.x-1.4"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/domain_path-8.x-1.4.zip",
-                "reference": "8.x-1.4",
-                "shasum": "fd4b3d3d6e91feda57fae213f65fc06cc4a77721"
-            },
-            "require": {
-                "drupal/core": "^8.8 || ^9 || ^10",
-                "drupal/domain": "^1.0-beta || ^2"
-            },
-            "require-dev": {
-                "drupal/domain": "*",
-                "drupal/pathauto": "1.x-dev"
-            },
-            "suggest": {
-                "drupal/pathauto": "Automatic path aliases with Domain Path Pathauto submodule."
-            },
-            "type": "drupal-module",
-            "extra": {
-                "drupal": {
-                    "version": "8.x-1.4",
-                    "datestamp": "1727460398",
-                    "security-coverage": {
-                        "status": "not-covered",
-                        "message": "Project has not opted into security advisory coverage!"
-                    }
-                }
-            },
-            "notification-url": "https://packages.drupal.org/8/downloads",
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "agentrickard",
-                    "homepage": "https://www.drupal.org/user/20975"
-                },
-                {
-                    "name": "anydigital",
-                    "homepage": "https://www.drupal.org/user/787240"
-                },
-                {
-                    "name": "grndlvl",
-                    "homepage": "https://www.drupal.org/user/103553"
-                },
-                {
-                    "name": "i-trokhanenko",
-                    "homepage": "https://www.drupal.org/user/3546872"
-                },
-                {
-                    "name": "quadrexdev",
-                    "homepage": "https://www.drupal.org/user/3683807"
-                },
-                {
-                    "name": "rcodina",
-                    "homepage": "https://www.drupal.org/user/2635031"
-                },
-                {
-                    "name": "shenzhuxi",
-                    "homepage": "https://www.drupal.org/user/193802"
-                },
-                {
-                    "name": "skrasulevskiy",
-                    "homepage": "https://www.drupal.org/user/2440780"
-                },
-                {
-                    "name": "strykaizer",
-                    "homepage": "https://www.drupal.org/user/462700"
-                }
-            ],
-            "description": "Path aliases for content using domain.",
-            "homepage": "https://www.drupal.org/project/domain_path",
-            "support": {
-                "source": "https://git.drupalcode.org/project/domain_path"
             }
         },
         {
