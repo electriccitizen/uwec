@@ -332,13 +332,6 @@ function citizen_custom_field_widget_single_element_form_alter(&$element, FormSt
       }
     }
   }
-  // Add custom link help text for emails.
-  if ($field_definition->getType() == 'link') {
-    if ($element['uri']['#description'] && ($field_definition->getUniqueIdentifier() == "menu_link_content-link")) {
-      $linkHelp = $element['uri']['#description'];
-      $element['uri']['#description']['#items'][] = t('To create an email link, enter "<strong>mailto:</strong>example@email.com".');
-    }
-  }
 }
 
 /**
