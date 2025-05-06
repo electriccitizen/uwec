@@ -6,6 +6,7 @@ dependencies:
     - field.storage.media.field_media_file
     - image.style.thumbnail
     - taxonomy.vocabulary.media_tags
+    - taxonomy.vocabulary.page_families
   module:
     - entity_usage
     - file
@@ -1032,6 +1033,60 @@ display:
           vid: media_tags
           type: select
           hierarchy: true
+          limit: true
+          error_message: true
+        field_page_families_target_id:
+          id: field_page_families_target_id
+          table: media__field_page_families
+          field: field_page_families_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: taxonomy_index_tid
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_page_families_target_id_op
+            label: 'Page Family'
+            description: ''
+            use_operator: false
+            operator: field_page_families_target_id_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: field_page_families_target_id
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              editor: '0'
+              site_admin: '0'
+              section_manager: '0'
+              marketing_editor: '0'
+              personnel: '0'
+              jobs_and_editor: '0'
+              stories_and_editor: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          vid: page_families
+          type: textfield
+          hierarchy: false
           limit: true
           error_message: true
       filter_groups:
