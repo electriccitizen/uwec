@@ -4,7 +4,6 @@ status: true
 dependencies:
   config:
     - field.storage.media.field_media_file
-    - field.storage.media.field_page_families
     - image.style.thumbnail
     - taxonomy.vocabulary.media_tags
   module:
@@ -669,15 +668,17 @@ display:
           format_plural_string: !!binary MQNAY291bnQ=
           prefix: ''
           suffix: ''
-        field_page_families:
-          id: field_page_families
-          table: media__field_page_families
-          field: field_page_families
-          relationship: none
+        name_1:
+          id: name_1
+          table: taxonomy_term_field_data
+          field: name
+          relationship: field_page_families
           group_type: group
           admin_label: ''
-          plugin_id: field
-          label: 'Page Families'
+          entity_type: taxonomy_term
+          entity_field: name
+          plugin_id: term_name
+          label: 'Page Family'
           exclude: false
           alter:
             alter_text: false
@@ -718,11 +719,11 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          click_sort_column: target_id
-          type: entity_reference_label
+          click_sort_column: value
+          type: string
           settings:
-            link: true
-          group_column: target_id
+            link_to_entity: false
+          group_column: value
           group_columns: {  }
           group_rows: true
           delta_limit: 0
@@ -732,6 +733,7 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
+          convert_spaces: false
         operations:
           id: operations
           table: media
@@ -1048,7 +1050,12 @@ display:
             thumbnail__target_id: thumbnail__target_id
             name: name
             bundle: bundle
+            bundle_1: bundle_1
+            thumbnail__width: thumbnail__width
             filesize: filesize
+            mid: mid
+            count: count
+            name_1: name_1
             operations: operations
           default: '-1'
           info:
@@ -1085,9 +1092,44 @@ display:
               separator: ''
               empty_column: false
               responsive: ''
+            bundle_1:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            thumbnail__width:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
             filesize:
               sortable: true
               default_sort_order: desc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            mid:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            count:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            name_1:
+              sortable: true
+              default_sort_order: asc
               align: ''
               separator: ''
               empty_column: false
@@ -1133,6 +1175,15 @@ display:
           entity_type: media
           plugin_id: standard
           required: false
+        field_page_families:
+          id: field_page_families
+          table: media__field_page_families
+          field: field_page_families
+          relationship: none
+          group_type: group
+          admin_label: 'field_page_families: Taxonomy term'
+          plugin_id: standard
+          required: false
       group_by: true
       header: {  }
       footer: {  }
@@ -1148,7 +1199,6 @@ display:
         - user.permissions
       tags:
         - 'config:field.storage.media.field_media_file'
-        - 'config:field.storage.media.field_page_families'
   media_page_list:
     id: media_page_list
     display_title: Media
@@ -1178,4 +1228,3 @@ display:
         - user.permissions
       tags:
         - 'config:field.storage.media.field_media_file'
-        - 'config:field.storage.media.field_page_families'
