@@ -94,6 +94,7 @@
     "drupal/views_infinite_scroll": "^2.0",
     "drupal/workbench_access": "^2.0",
     "drupal/workbench_menu_access": "^2.0",
+    "drupal/xmlsitemap": "^2.0",
     "drush-ops/behat-drush-endpoint": "^9.4",
     "drush/drush": "^13",
     "mglaman/composer-drupal-lenient": "^1.0",
