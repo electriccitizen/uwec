@@ -117,7 +117,9 @@
         font-weight: $heavy;
         margin-bottom: 3.625rem;
         line-height: 1.375;
-
+        & > div:not(:last-child){
+          margin-bottom: .5rem;
+        }
         &.degree-level{
           text-transform: capitalize;
         }

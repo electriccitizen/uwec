@@ -56,9 +56,13 @@
     </div>{# end first #}
     <div class="last">
       {% if element['#object'].field_college.0 %}
-        <div class="program-detail college">
-          <span class="label">{% trans %}College{% endtrans %}</span>
-          <a href="{{ path('entity.node.canonical',{'node':element['#object'].field_college.entity.nid.0.value}) }}" class="arrow-link"><span>{{ element['#object'].field_college.entity.label }}</span></a>
+        <div class="program-detail colleges">
+          <span class="label">{{ element['#object'].field_college|length > 1 ? 'Colleges'|t : 'College'|t }}</span>
+          {% for college in element['#object'].field_college %}
+            <div class="college">
+              <a href="{{ path('entity.node.canonical',{'node':college.entity.nid.0.value}) }}" class="arrow-link"><span>{{ college.entity.label }}</span></a>
+            </div>
+          {% endfor %}
         </div>
       {% endif %}
 

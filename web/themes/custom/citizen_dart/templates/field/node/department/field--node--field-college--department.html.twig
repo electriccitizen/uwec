@@ -22,6 +22,6 @@
 
 {% extends 'field.html.twig' %}
 
-{% block fieldSingleNo %}
+{% block fieldMultiNo %}
 	<a href="{{ path('entity.node.canonical',{'node':item.content['#entity'].nid.0.value}) }}"><span>{{ item.content['#plain_text'] }}</span></a>
 {% endblock %}
