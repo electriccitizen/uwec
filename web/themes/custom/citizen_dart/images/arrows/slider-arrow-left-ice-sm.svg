@@ -1,1 +1,22 @@
-<?xml version="1.0" encoding="UTF-8"?><svg id="Layer_2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40"><defs><style>.cls-1{fill:none;stroke:#0160f2;stroke-miterlimit:10;stroke-width:2px;}.cls-2{fill:#edf4fe;stroke-width:0px;}</style></defs><g id="Layer_1-2"><circle class="cls-2" cx="20" cy="20" r="20"/><path class="cls-1" d="M22.84,12l-8,8,8,8"/></g></svg>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 40 40">
+  <!-- Generator: Adobe Illustrator 29.5.1, SVG Export Plug-In . SVG Version: 2.1.0 Build 141)  -->
+  <defs>
+    <style>
+      .st0 {
+        fill: none;
+        stroke: #fff;
+        stroke-miterlimit: 10;
+        stroke-width: 2px;
+      }
+
+      .st1 {
+        fill: #18334b;
+      }
+    </style>
+  </defs>
+  <g id="Layer_1-2">
+    <circle class="st1" cx="20" cy="20" r="20"/>
+    <path class="st0" d="M22.8,12l-8,8,8,8"/>
+  </g>
+</svg>
