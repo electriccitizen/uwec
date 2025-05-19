@@ -39,8 +39,8 @@ class CitizenOfficeFilter {
 
     $nids = \Drupal::entityQuery('node')
       ->condition('type', 'job')
-//      ->condition('status', 1)
-//      ->exists('field_office_term')
+      ->condition('status', 1)
+      ->exists('field_office_term')
       ->accessCheck(TRUE)
       ->execute();
 

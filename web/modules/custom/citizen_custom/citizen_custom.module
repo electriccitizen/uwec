@@ -317,14 +317,13 @@ function citizen_custom_form_views_exposed_form_alter(&$form, FormStateInterface
     }
 
     // Trim the Office terms to only those actually referenced by Job content.
-  // Adjust based on the actual View ID and display ID.
   if ($form['#id'] === 'views-exposed-form-job-search-default') {
     if (isset($form['office']) && is_array($form['office'])) {
       /** @var \Drupal\citizen_custom\Services\CitizenOfficeFilter $office_filter */
       $office_filter = \Drupal::service('citizen_custom.citizen_office_filter');
       $terms = $office_filter->getReferencedOffices();
 
-      $options = ['' => t('- Any -')];
+      $options = ['All' => t('- Any -')];
       foreach ($terms as $tid => $term) {
         $options[$tid] = $term->label();
       }
