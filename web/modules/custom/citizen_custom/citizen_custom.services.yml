@@ -3,3 +3,8 @@ services:
     class: Drupal\citizen_custom\TwigExtension
     tags:
       - { name: twig.extension }
+
+  citizen_custom.citizen_office_filter:
+    class: Drupal\citizen_custom\Services\CitizenOfficeFilter
+    arguments:
+      - '@entity_type.manager'
