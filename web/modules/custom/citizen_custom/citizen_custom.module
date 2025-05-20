@@ -323,6 +323,12 @@ function citizen_custom_form_views_exposed_form_alter(&$form, FormStateInterface
       $office_filter = \Drupal::service('citizen_custom.citizen_office_filter');
       $terms = $office_filter->getReferencedOffices();
 
+      // Remove the select filter if no referenced terms are found.
+      if (empty($terms)) {
+        unset($form['office']);
+        return $form;
+      }
+
       $options = ['All' => t('- Any -')];
       foreach ($terms as $tid => $term) {
         $options[$tid] = $term->label();
