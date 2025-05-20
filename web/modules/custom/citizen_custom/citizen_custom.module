@@ -269,8 +269,8 @@ function citizen_custom_form_views_exposed_form_alter(&$form, FormStateInterface
       unset($form[$college_filter]['#size']);
     }
 
-    /* Build custom select lists for departments and programs on admin content */
-    if ($form['#id'] == 'views-exposed-form-content-page-1') {
+    /* Build custom select lists for departments and programs on admin content & review displays */
+    if (($form['#id'] == 'views-exposed-form-content-page-1') || ($form['#id'] == 'views-exposed-form-facts-review') || ($form['#id'] == 'views-exposed-form-snapshots-review') || ($form['#id'] == 'views-exposed-form-testimonials-review') || ($form['#id'] == 'views-exposed-form-video-cards-review')) {
       $storage = Drupal::getContainer()->get('entity_type.manager')->getStorage('node');
 
       /* department filter */
@@ -314,6 +314,27 @@ function citizen_custom_form_views_exposed_form_alter(&$form, FormStateInterface
       $form[$program_filter]['#multiple'] = FALSE;
       $form[$program_filter]['#options'] = $options;
       unset($form[$program_filter]['#size']);
+
+      /* college filter */
+      $collegeNodes = $storage->getQuery();
+      $collegeNodes = $collegeNodes->condition('type', 'college')
+      ->sort('title')
+      ->accessCheck(TRUE)
+      ->execute();
+      if (!$programNodes) {
+        return FALSE;
+      }
+      $options = [];
+      $colleges = $storage->loadMultiple($collegeNodes);
+      $options[''] = '- Any -';
+      foreach ($colleges as $college) {
+        $options[$college->id()] = $college->getTitle();
+      }
+      $college_filter = 'field_colleges_target_id';
+      $form[$college_filter]['#type'] = 'select';
+      $form[$college_filter]['#multiple'] = FALSE;
+      $form[$college_filter]['#options'] = $options;
+      unset($form[$college_filter]['#size']);
     }
 
     // Trim the Office terms to only those actually referenced by Job content.
