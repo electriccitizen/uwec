@@ -10,7 +10,7 @@ id: node.academic_program.field_college
 field_name: field_college
 entity_type: node
 bundle: academic_program
-label: College
+label: College(s)
 description: ''
 required: false
 translatable: false

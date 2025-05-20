@@ -73,10 +73,14 @@ content:
       show_summary: false
     third_party_settings: {  }
   field_college:
-    type: options_select
+    type: entity_reference_autocomplete
     weight: 4
     region: content
-    settings: {  }
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
   field_contact:
     type: entity_reference_autocomplete
@@ -242,7 +246,9 @@ content:
     weight: 12
     region: content
     settings:
+      view_mode: default
       preview_view_mode: preview
+      form_display_mode: default
       nesting_depth: 0
       require_layouts: 1
       empty_message: ''
