@@ -175,6 +175,12 @@ body{
 .slick-slider {
 	.slick-list {
 		@include listReset;
+    .slick-current{
+      &:focus{
+        outline: 0;
+        border: 1px inset $brightBlue;
+      }
+    }
 	}
 	.slick-arrow {
 		z-index: 1;
