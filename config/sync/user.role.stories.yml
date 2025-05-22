@@ -1,0 +1,82 @@
+uuid: da655f0c-db92-4a15-953c-5694a7639be4
+langcode: en
+status: true
+dependencies:
+  config:
+    - media.type.image
+    - media.type.remote_video
+    - node.type.academic_program
+    - node.type.bios
+    - node.type.college
+    - node.type.department
+    - node.type.news
+    - node.type.page
+    - workflows.workflow.marketing
+  module:
+    - addanother
+    - content_moderation
+    - domain
+    - domain_access
+    - domain_alias
+    - entity_usage
+    - media
+    - node
+    - paragraphs_type_permissions
+    - responsive_preview
+    - shortcut
+    - smart_date_recur
+    - view_unpublished
+    - workbench_access
+id: stories
+label: Stories
+weight: 12
+is_admin: null
+permissions:
+  - 'access content overview'
+  - 'access entity usage statistics'
+  - 'access media overview'
+  - 'access responsive preview'
+  - 'access shortcuts'
+  - 'cancel smart date recur instances'
+  - 'create image media'
+  - 'create news content'
+  - 'create paragraph content quote'
+  - 'create remote_video media'
+  - 'delete news revisions'
+  - 'delete own news content'
+  - 'delete paragraph content block_placer'
+  - 'delete paragraph content cta_item'
+  - 'delete paragraph content ctas'
+  - 'delete paragraph content custom_embed'
+  - 'delete paragraph content quote'
+  - 'delete paragraph content snapshot_list'
+  - 'delete paragraph content testimonial_placer'
+  - 'edit any image media'
+  - 'edit any remote_video media'
+  - 'edit own image media'
+  - 'edit own news content'
+  - 'edit own remote_video media'
+  - 'make smart dates recur'
+  - 'publish to any assigned domain'
+  - 'reschedule smart date recur instances'
+  - 'revert news revisions'
+  - 'update paragraph content quote'
+  - 'use add another'
+  - 'use domain nav block'
+  - 'use marketing transition archive'
+  - 'use marketing transition create_new_draft'
+  - 'use marketing transition review'
+  - 'use workbench access'
+  - 'view any unpublished academic_program content'
+  - 'view any unpublished bios content'
+  - 'view any unpublished college content'
+  - 'view any unpublished content'
+  - 'view any unpublished department content'
+  - 'view any unpublished news content'
+  - 'view any unpublished page content'
+  - 'view assigned domains'
+  - 'view domain aliases'
+  - 'view news revisions'
+  - 'view own unpublished content'
+  - 'view unpublished domain content'
+  - 'view workbench access information'

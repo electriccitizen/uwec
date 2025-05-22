@@ -1,0 +1,14 @@
+uuid: 1b691b1f-5c7f-4e3c-8e18-ab57e0d610b5
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.stories
+  module:
+    - user
+id: user_add_role_action.stories
+label: 'Add the Stories role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: stories

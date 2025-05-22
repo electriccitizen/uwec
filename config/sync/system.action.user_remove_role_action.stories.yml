@@ -1,0 +1,14 @@
+uuid: af487eaa-ea18-4ec5-8c11-61f849611ea5
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.stories
+  module:
+    - user
+id: user_remove_role_action.stories
+label: 'Remove the Stories role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: stories
