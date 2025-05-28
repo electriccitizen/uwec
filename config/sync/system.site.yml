@@ -6,8 +6,8 @@ name: 'UW-Eau Claire'
 mail: webteam@uwec.edu
 slogan: ''
 page:
-  403: ''
-  404: ''
+  403: /node/10568
+  404: /node/10568
   front: /node/25
 admin_compact_mode: false
 weight_select_max: 100

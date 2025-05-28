@@ -4,7 +4,7 @@
 
 @use '../../00-base/base' as *;
 
-html > body:not(.is-front):not(.path-node){
+html > body:not(.is-front):not(.node){
 	.layout-content{
 		max-width: $contentStop + 40px;
 		@include auto;

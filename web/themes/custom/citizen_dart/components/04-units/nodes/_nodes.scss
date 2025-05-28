@@ -67,7 +67,7 @@
 
 /* RESTRICTED NODE TYPES
 ---------------------- */
-.path-node{
+.node{
 	//restricted access message
 	&:not(.logged-in){
 		.restricted-node{
