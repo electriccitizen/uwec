@@ -99,6 +99,7 @@
     "drush/drush": "^13",
     "mglaman/composer-drupal-lenient": "^1.0",
     "oomphinc/composer-installers-extender": "^2.0",
+    "pantheon-systems/drupal-integrations": "^11.1",
     "pantheon-systems/upstream-management": "^1.0"
   },
   "conflict": {
