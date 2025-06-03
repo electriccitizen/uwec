@@ -20,7 +20,6 @@ dependencies:
     - field.field.node.bios.field_first_override
     - field.field.node.bios.field_honors
     - field.field.node.bios.field_image
-    - field.field.node.bios.field_import_date
     - field.field.node.bios.field_interests
     - field.field.node.bios.field_is_alumni
     - field.field.node.bios.field_last_name
@@ -49,7 +48,6 @@ dependencies:
     - field.field.node.bios.layout_builder__layout
     - node.type.bios
   module:
-    - datetime
     - field_group
     - file
     - link
@@ -270,12 +268,6 @@ content:
     region: content
     settings:
       media_types: {  }
-    third_party_settings: {  }
-  field_import_date:
-    type: datetime_default
-    weight: 21
-    region: content
-    settings: {  }
     third_party_settings: {  }
   field_interests:
     type: text_textarea

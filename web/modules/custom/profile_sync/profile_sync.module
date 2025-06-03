@@ -1,0 +1,78 @@
+<?php
+
+// syncs profiles when cron runs,
+// if there is a new file
+function profile_sync_cron() {
+	$sync = \Drupal::service('profile_sync.sync');
+	if($sync->hasNewFile()){
+		$sync->run();
+		$sync->deleteOldFiles();
+	}
+}
+
+
+// disables the fields that are controlled by the sync
+// so users can't accidentally edit something that the feed would overwrite.
+function profile_sync_form_node_bios_edit_form_alter(&$form, $form_state, $form_id) {
+	$user = \Drupal::currentUser();
+	$roles = $user->getRoles();
+	$disable_fields = [];
+	$hide_fields = [];
+	if (!in_array('administrator', $roles)) {
+		$disable_fields = [
+			'field_username',
+			'field_email',
+			'field_phone',
+			'field_first_name',
+			'field_last_name',
+			'field_position',
+		];
+		if (isset($form['field_position']['widget']['add_more'])) {
+			// Hide the "Add another item" button.
+			$form['field_position']['widget']['add_more']['#access'] = FALSE;
+		}
+	}
+	if (empty(array_intersect(['administrator', 'site_admin'], $roles))) {
+		$hide_fields[] = 'field_active';
+	}
+	foreach ($disable_fields as $field_name) {
+		if (isset($form[$field_name])) {
+			$form[$field_name]['#disabled'] = TRUE;
+		}
+	}
+	foreach ($hide_fields as $field_name) {
+		if (isset($form[$field_name])) {
+			$form[$field_name]['#access'] = FALSE;
+		}
+	}
+}
+
+
+// disable some fields on the user form
+// because these fields would just be immediately overridden by this feed.
+function profile_sync_form_user_form_alter(&$form, $form_state, $form_id) {
+	$user = \Drupal::currentUser();
+
+	// don't disable any fields for administrators
+	if(in_array('administrator', $user->getRoles())) return;
+
+	// if the empl_id field is set, disable feed fields
+	if(isset($form['field_empl_id'])){
+		$empl_id = $form['field_empl_id']['widget'][0]['value']['#default_value'];
+		if(!empty($empl_id)){
+			$form['account']['mail']['#disabled'] = TRUE;
+			$form['account']['name']['#disabled'] = TRUE;
+
+			$sync_fields = [
+				'field_first_name',
+				'field_last_name',
+			];
+
+			foreach ($sync_fields as $field_name) {
+				if (isset($form[$field_name])) {
+					$form[$field_name]['#disabled'] = TRUE;
+				}
+			}
+		}
+	}
+}

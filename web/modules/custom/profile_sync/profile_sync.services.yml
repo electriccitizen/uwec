@@ -1,0 +1,5 @@
+services:
+  profile_sync.sync:
+    class: Drupal\profile_sync\SyncService
+  profile_sync.commands:
+    class: Drupal\profile_sync\Drush\Commands\Commands

@@ -7,11 +7,9 @@ dependencies:
     - field.field.user.user.field_domain_admin
     - field.field.user.user.field_domain_all_affiliates
     - field.field.user.user.field_first_name
-    - field.field.user.user.field_last_imported
     - field.field.user.user.field_last_name
     - field.field.user.user.field_user_image
   module:
-    - datetime
     - layout_builder
     - user
   theme:
@@ -101,15 +99,6 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     weight: 7
-    region: content
-  field_last_imported:
-    type: datetime_default
-    label: above
-    settings:
-      timezone_override: ''
-      format_type: medium
-    third_party_settings: {  }
-    weight: 52
     region: content
   field_last_name:
     type: string

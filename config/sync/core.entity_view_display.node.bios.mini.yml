@@ -21,7 +21,6 @@ dependencies:
     - field.field.node.bios.field_first_override
     - field.field.node.bios.field_honors
     - field.field.node.bios.field_image
-    - field.field.node.bios.field_import_date
     - field.field.node.bios.field_interests
     - field.field.node.bios.field_is_alumni
     - field.field.node.bios.field_last_name
@@ -121,7 +120,6 @@ hidden:
   field_first_name: true
   field_first_override: true
   field_honors: true
-  field_import_date: true
   field_interests: true
   field_is_alumni: true
   field_last_name: true
