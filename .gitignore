@@ -157,3 +157,5 @@ upstream/web/
 # Ignore sql files
 *.sql
 
+# ignore dev camps_profiles_feed dir
+/web/camps_profiles_feed/

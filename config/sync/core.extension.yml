@@ -14,7 +14,6 @@ module:
   citizen_domain: 0
   citizen_google_search: 0
   citizen_menu_info: 0
-  citizen_profile_sync: 0
   ckeditor5: 0
   ckeditor5_paste_filter: 0
   config: 0
@@ -93,6 +92,7 @@ module:
   path_alias: 0
   pathologic: 0
   phpass: 0
+  profile_sync: 0
   quicklink: 0
   redirect: 0
   redirect_domain: 0

@@ -3,7 +3,6 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.user.user.field_athena_id
     - field.field.user.user.field_domain_access
     - field.field.user.user.field_domain_admin
     - field.field.user.user.field_domain_all_affiliates
@@ -95,14 +94,6 @@ targetEntityType: user
 bundle: user
 mode: default
 content:
-  field_athena_id:
-    type: string
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    weight: 53
-    region: content
   field_first_name:
     type: string
     label: above

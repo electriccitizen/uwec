@@ -5,7 +5,6 @@ dependencies:
   config:
     - field.field.node.bios.body
     - field.field.node.bios.field_active
-    - field.field.node.bios.field_athena_id
     - field.field.node.bios.field_campus
     - field.field.node.bios.field_colleges
     - field.field.node.bios.field_cv
@@ -457,14 +456,6 @@ content:
     third_party_settings: {  }
     weight: 134
     region: first
-  field_athena_id:
-    type: string
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    weight: 113
-    region: content
   field_campus:
     type: entity_reference_label
     label: above

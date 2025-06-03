@@ -6,7 +6,6 @@ dependencies:
     - core.entity_view_mode.node.content_thumbnail
     - field.field.node.bios.body
     - field.field.node.bios.field_active
-    - field.field.node.bios.field_athena_id
     - field.field.node.bios.field_campus
     - field.field.node.bios.field_colleges
     - field.field.node.bios.field_cv
@@ -70,7 +69,6 @@ hidden:
   body: true
   content_moderation_control: true
   field_active: true
-  field_athena_id: true
   field_campus: true
   field_colleges: true
   field_cv: true
