@@ -27,14 +27,20 @@ function profile_sync_form_node_bios_edit_form_alter(&$form, $form_state, $form_
 			'field_last_name',
 			'field_position',
 		];
+		$hide_fields = [
+			'field_empl_id',
+		];
 		if (isset($form['field_position']['widget']['add_more'])) {
 			// Hide the "Add another item" button.
 			$form['field_position']['widget']['add_more']['#access'] = FALSE;
 		}
+
+		// if we're not a site admin, hide the "active" field, too.
+		if(!in_array('site_admin', $roles)){
+			$hide_fields[] = 'field_active';
+		}
 	}
-	if (empty(array_intersect(['administrator', 'site_admin'], $roles))) {
-		$hide_fields[] = 'field_active';
-	}
+
 	foreach ($disable_fields as $field_name) {
 		if (isset($form[$field_name])) {
 			$form[$field_name]['#disabled'] = TRUE;

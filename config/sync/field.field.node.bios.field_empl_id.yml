@@ -1,0 +1,19 @@
+uuid: c8286656-6966-443e-b41f-bb7666b71e48
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_empl_id
+    - node.type.bios
+id: node.bios.field_empl_id
+field_name: field_empl_id
+entity_type: node
+bundle: bios
+label: EmplID
+description: "This person's CampS EmplID. This value links this profile to their Drupal User and their CampS information."
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

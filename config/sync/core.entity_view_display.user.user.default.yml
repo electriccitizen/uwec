@@ -6,6 +6,7 @@ dependencies:
     - field.field.user.user.field_domain_access
     - field.field.user.user.field_domain_admin
     - field.field.user.user.field_domain_all_affiliates
+    - field.field.user.user.field_empl_id
     - field.field.user.user.field_first_name
     - field.field.user.user.field_last_name
     - field.field.user.user.field_user_image
@@ -92,6 +93,14 @@ targetEntityType: user
 bundle: user
 mode: default
 content:
+  field_empl_id:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 51
+    region: content
   field_first_name:
     type: string
     label: above

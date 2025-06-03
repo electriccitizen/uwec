@@ -16,6 +16,7 @@ dependencies:
     - field.field.node.bios.field_education
     - field.field.node.bios.field_email
     - field.field.node.bios.field_emeriti_status
+    - field.field.node.bios.field_empl_id
     - field.field.node.bios.field_faculty_staff
     - field.field.node.bios.field_first_name
     - field.field.node.bios.field_first_override
@@ -201,6 +202,7 @@ hidden:
   field_domain_all_affiliates: true
   field_domain_source: true
   field_education: true
+  field_empl_id: true
   field_faculty_staff: true
   field_first_name: true
   field_first_override: true

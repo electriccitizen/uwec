@@ -6,6 +6,7 @@ dependencies:
     - field.field.user.user.field_domain_access
     - field.field.user.user.field_domain_admin
     - field.field.user.user.field_domain_all_affiliates
+    - field.field.user.user.field_empl_id
     - field.field.user.user.field_first_name
     - field.field.user.user.field_last_name
     - field.field.user.user.field_user_image
@@ -64,6 +65,14 @@ content:
     region: content
     settings:
       display_label: true
+    third_party_settings: {  }
+  field_empl_id:
+    type: string_textfield
+    weight: 7
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
   field_first_name:
     type: string_textfield

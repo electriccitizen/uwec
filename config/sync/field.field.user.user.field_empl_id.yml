@@ -1,0 +1,20 @@
+uuid: 4625495c-dd18-418d-ab25-f69270911fd7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_empl_id
+  module:
+    - user
+id: user.user.field_empl_id
+field_name: field_empl_id
+entity_type: user
+bundle: user
+label: EmplId
+description: 'The CampS EmplID. This value links this user to their corresponding Drupal Profile and CampS information.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

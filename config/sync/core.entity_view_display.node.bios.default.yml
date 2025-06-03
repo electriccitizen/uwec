@@ -15,6 +15,7 @@ dependencies:
     - field.field.node.bios.field_education
     - field.field.node.bios.field_email
     - field.field.node.bios.field_emeriti_status
+    - field.field.node.bios.field_empl_id
     - field.field.node.bios.field_faculty_staff
     - field.field.node.bios.field_first_name
     - field.field.node.bios.field_first_override
@@ -507,6 +508,14 @@ content:
     third_party_settings: {  }
     weight: 117
     region: content
+  field_empl_id:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 139
+    region: first
   field_faculty_staff:
     type: list_default
     label: above
