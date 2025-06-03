@@ -23,7 +23,9 @@ class Commands extends DrushCommands {
 		}
 
 		// perform the sync
+		$this->io()->text('Starting sync...');
 		$sync->run();
+		$this->io()->text('..done!');
 
 		// if there are old files we could delete, ask if we should delete them:
 		if($sync->hasOldFiles()){
