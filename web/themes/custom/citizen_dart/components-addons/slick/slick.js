@@ -6,7 +6,7 @@
 |___/_|_|\___|_|\_(_)/ |___/
                    |__/
 
- Version: 1.8.0
+ Version: 1.8.1
   Author: Ken Wheeler
  Website: http://kenwheeler.github.io
     Docs: http://kenwheeler.github.io/slick
@@ -585,7 +585,7 @@
             _.$slider.children().children().children()
                 .css({
                     'width':(100 / _.options.slidesPerRow) + '%',
-                    'display': 'inline-block'
+                    'display': 'block'
                 });
 
         }
@@ -1014,23 +1014,37 @@
 
         var _ = this;
 
+        // If any child element receives focus within the slider we need to pause the autoplay
         _.$slider
             .off('focus.slick blur.slick')
-            .on('focus.slick blur.slick', '*', function(event) {
+            .on(
+                'focus.slick',
+                '*',
+                function(event) {
+                    var $sf = $(this);
 
-            event.stopImmediatePropagation();
-            var $sf = $(this);
-
-            setTimeout(function() {
-
-                if( _.options.pauseOnFocus ) {
-                    _.focussed = $sf.is(':focus');
-                    _.autoPlay();
+                    setTimeout(function() {
+                        if( _.options.pauseOnFocus ) {
+                            if ($sf.is(':focus')) {
+                                _.focussed = true;
+                                _.autoPlay();
+                            }
+                        }
+                    }, 0);
                 }
+            ).on(
+                'blur.slick',
+                '*',
+                function(event) {
+                    var $sf = $(this);
 
-            }, 0);
-
-        });
+                    // When a blur occurs on any elements within the slider we become unfocused
+                    if( _.options.pauseOnFocus ) {
+                        _.focussed = false;
+                        _.autoPlay();
+                    }
+                }
+            );
     };
 
     Slick.prototype.getCurrent = Slick.prototype.slickCurrentSlide = function() {
@@ -1224,13 +1238,25 @@
     Slick.prototype.getSlideCount = function() {
 
         var _ = this,
-            slidesTraversed, swipedSlide, centerOffset;
+            slidesTraversed, swipedSlide, swipeTarget, centerOffset;
 
-        centerOffset = _.options.centerMode === true ? _.slideWidth * Math.floor(_.options.slidesToShow / 2) : 0;
+        centerOffset = _.options.centerMode === true ? Math.floor(_.$list.width() / 2) : 0;
+        swipeTarget = (_.swipeLeft * -1) + centerOffset;
 
         if (_.options.swipeToSlide === true) {
+
             _.$slideTrack.find('.slick-slide').each(function(index, slide) {
-                if (slide.offsetLeft - centerOffset + ($(slide).outerWidth() / 2) > (_.swipeLeft * -1)) {
+
+                var slideOuterWidth, slideOffset, slideRightBoundary;
+                slideOuterWidth = $(slide).outerWidth();
+                slideOffset = slide.offsetLeft;
+                if (_.options.centerMode !== true) {
+                    slideOffset += (slideOuterWidth / 2);
+                }
+
+                slideRightBoundary = slideOffset + (slideOuterWidth);
+
+                if (swipeTarget < slideRightBoundary) {
                     swipedSlide = slide;
                     return false;
                 }
@@ -1299,7 +1325,7 @@
 
     Slick.prototype.initADA = function() {
         var _ = this,
-                numDotGroups = Math.ceil(_.slideCount / _.options.slidesToShow),
+                numDotGroups = Math.ceil(_.slideCount / _.options.slidesToScroll),
                 tabControlIndexes = _.getNavigableIndexes().filter(function(val) {
                     return (val >= 0) && (val < _.slideCount);
                 });
@@ -1861,7 +1887,7 @@
         var _ = this, breakpoint, currentBreakpoint, l,
             responsiveSettings = _.options.responsive || null;
 
-        if ( $.type(responsiveSettings) === 'array' && responsiveSettings.length ) {
+        if ( typeof responsiveSettings === 'array' && responsiveSettings.length ) {
 
             _.respondTo = _.options.respondTo || 'window';
 
@@ -2125,19 +2151,19 @@
 
         var _ = this, l, item, option, value, refresh = false, type;
 
-        if( $.type( arguments[0] ) === 'object' ) {
+        if( typeof arguments[0] === 'object' ) {
 
             option =  arguments[0];
             refresh = arguments[1];
             type = 'multiple';
 
-        } else if ( $.type( arguments[0] ) === 'string' ) {
+        } else if ( typeof arguments[0] === 'string' ) {
 
             option =  arguments[0];
             value = arguments[1];
             refresh = arguments[2];
 
-            if ( arguments[0] === 'responsive' && $.type( arguments[1] ) === 'array' ) {
+            if ( arguments[0] === 'responsive' && typeof arguments[1] === 'array' ) {
 
                 type = 'responsive';
 
@@ -2167,7 +2193,7 @@
 
             for ( item in value ) {
 
-                if( $.type( _.options.responsive ) !== 'array' ) {
+                if( typeof _.options.responsive !== 'array' ) {
 
                     _.options.responsive = [ value[item] ];
 
@@ -2328,7 +2354,7 @@
                 if (index === 0) {
 
                     allSlides
-                        .eq(allSlides.length - 1 - _.options.slidesToShow)
+                        .eq( _.options.slidesToShow + _.slideCount + 1 )
                         .addClass('slick-center');
 
                 } else if (index === _.slideCount - 1) {

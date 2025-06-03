@@ -381,6 +381,7 @@ function citizen_custom_field_widget_single_element_form_alter(&$element, FormSt
 /**
  * Implements views_pre_view().
  */
+
 function citizen_custom_views_pre_view($view, $display_id, &$args) {
 	// Alters views to accept fields from related paragraphs to be used for filters.
   if(isset($view->element['#name'])) {
@@ -395,10 +396,7 @@ function citizen_custom_views_pre_view($view, $display_id, &$args) {
         if(isset($paragraph->field_college[0])){
 
           //make an array out of the college set in the paragraph
-          $colleges = [];
-          foreach ($paragraph->field_college as $delta => $college) {
-            $colleges[] = $college->target_id;
-          }
+          $colleges = $paragraph->field_college[0]->target_id;
           // replace the colleges_target_id filter with the paragraph college node (we need the double [value][value] because this is a content type reference instead of a term reference)
           $filters['field_colleges_target_id']['value']['value'] = $colleges;
         } else {
@@ -410,10 +408,7 @@ function citizen_custom_views_pre_view($view, $display_id, &$args) {
         //unset or alter departments tag filter
         if(isset($paragraph->field_department[0])){
           //make an array out of the department set in the paragraph
-          $departments = [];
-          foreach ($paragraph->field_department as $delta => $department) {
-            $departments[] = $department->target_id;
-          }
+          $departments = $paragraph->field_department[0]->target_id;
           // replace the departments_target_id filter with the paragraph department node (we need the double [value][value] because this is a content type reference instead of a term reference)
           $filters['field_departments_target_id']['value']['value'] = $departments;
         } else {
@@ -484,10 +479,8 @@ function citizen_custom_views_pre_view($view, $display_id, &$args) {
         //unset or alter programs tag filter
         if(isset($paragraph->field_program[0])){
           //make an array out of the program set in the paragraph
-          $programs = [];
-          foreach ($paragraph->field_program as $delta => $program) {
-            $programs[] = $program->target_id;
-          }
+          $programs = $paragraph->field_program[0]->target_id;
+          
           // replace the programs_target_id filter with the paragraph program node (we need the double [value][value] because this is a content type reference instead of a term reference)
           $filters['field_programs_target_id']['value']['value'] = $programs;
         } else {
@@ -644,7 +637,9 @@ function citizen_custom_views_pre_view($view, $display_id, &$args) {
 
 		          if ($nodeType == 'department' || $nodeType == 'academic_program') {
 		            $targetField = ($nodeType == 'department') ? 'field_departments_target_id' : 'field_programs_target_id';
-		            $fieldValue = array_column($parentNode->getValue(), 'value');
+		            //$fieldValue = array_column($parentNode->getValue(), 'value');
+                //dd($parentNode->value);
+                $fieldValue = $parentNode->value;
 
 		            if (isset($filters[$targetField])) {
 		              $filters[$targetField]['value']['value'] = $fieldValue;
