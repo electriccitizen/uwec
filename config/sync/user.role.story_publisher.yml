@@ -1,0 +1,31 @@
+uuid: fb52b970-1561-46b5-9627-385885d0996a
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.news
+    - workflows.workflow.marketing
+  module:
+    - content_moderation
+    - domain_access
+    - node
+id: story_publisher
+label: 'Story Publisher'
+weight: 13
+is_admin: false
+permissions:
+  - 'create news content'
+  - 'create news content on assigned domains'
+  - 'delete any news content'
+  - 'delete news content on assigned domains'
+  - 'delete news revisions'
+  - 'delete own news content'
+  - 'edit any news content'
+  - 'edit own news content'
+  - 'revert news revisions'
+  - 'update news content on assigned domains'
+  - 'use marketing transition archive'
+  - 'use marketing transition create_new_draft'
+  - 'use marketing transition publish'
+  - 'use marketing transition review'
+  - 'view news revisions'

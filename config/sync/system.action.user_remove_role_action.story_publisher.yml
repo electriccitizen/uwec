@@ -1,0 +1,14 @@
+uuid: 7ea127fe-afee-497f-a30f-c85d058af4e4
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.story_publisher
+  module:
+    - user
+id: user_remove_role_action.story_publisher
+label: 'Remove the Story Publisher role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: story_publisher
