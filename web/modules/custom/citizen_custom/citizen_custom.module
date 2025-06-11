@@ -731,12 +731,10 @@ function citizen_custom_preprocess_field__user__uid(&$variables){
 
 	$user = \Drupal\user\Entity\User::load($user_id);
 
-	$empl_id_list = $user->field_empl_id->first();
+	$empl_id = $user->field_empl_id->getString();
 
 	// if this user does not have an empl_id, there is no profile, so do nothing.
-	if($empl_id_list === null) return;
-
-	$empl_id = $empl_id_list->getValue()['value'];
+	if(empty($empl_id)) return;
 
 	// try to load a profile with this empl_id
 	$nodeStorage = \Drupal::entityTypeManager()->getStorage('node');

@@ -176,7 +176,7 @@ class SyncService {
 			'field_empl_id' => $row['id'],
 			'field_first_name' => $row['firstname'],
 			'field_last_name' => $row['lastname'],
-			'empl_id' => $row['id'], // TODO delete this after it's been run on live
+			'empl_id' => $row['id'],
 			'pass' => $pass,
 			'status' => 1,
 			'roles' => ['personnel'],
@@ -193,6 +193,7 @@ class SyncService {
 		$user->set('mail', $row['email']);
 		$user->set('field_first_name', $row['firstname']);
 		$user->set('field_last_name', $row['lastname']);
+		$user->set('field_empl_id', $row['id']); // TODO delete this line after it has run in live
 		$user->save();
 	}
 
@@ -298,6 +299,9 @@ class SyncService {
 		$csv = [];
 		foreach ($rows as $row) {
 			$row = array_combine($headers, $row);
+
+			// lowercase username
+			$row['username'] = strtolower($row['username']);
 
 			// format phone number from "123/456-7899" to "123-456-7899"
 			$row['phone'] = str_replace('/', '-', $row['phone']);
