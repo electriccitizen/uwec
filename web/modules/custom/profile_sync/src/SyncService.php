@@ -121,9 +121,6 @@ class SyncService {
 			'field_active' => true,
 		]);
 
-		// TODO test if i need to do this
-		//$node->setPublished();
-
 		$profile->save();
 
 		return $profile;
@@ -138,11 +135,15 @@ class SyncService {
 		$profile->set('field_last_name', $row['lastname']);
 		$profile->set('field_position', $row['title']);
 
+		// TODO delete this after it's been ran in live (at that point, everybody will have their empl_id set)
+		$profile->set('field_empl_id', $row['id']);
+
 		// set to published.
 		// this is for profiles who drop out of the feed (thereby getting un-published)
 		// ... and then come back. they need to be auto-published.
-		// TODO try to wrap this in a "if not published"
-		$profile->setPublished();
+		if(!$profile->isPublished()){
+			$profile->setPublished();
+		}
 
 		$profile->save();
 	}
@@ -175,6 +176,7 @@ class SyncService {
 			'field_empl_id' => $row['id'],
 			'field_first_name' => $row['firstname'],
 			'field_last_name' => $row['lastname'],
+			'empl_id' => $row['id'], // TODO delete this after it's been run on live
 			'pass' => $pass,
 			'status' => 1,
 			'roles' => ['personnel'],
