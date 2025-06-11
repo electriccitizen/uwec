@@ -731,19 +731,19 @@ function citizen_custom_preprocess_field__user__uid(&$variables){
 
 	$user = \Drupal\user\Entity\User::load($user_id);
 
-	$athena_id_list = $user->field_athena_id->first();
+	$empl_id_list = $user->field_empl_id->first();
 
-	// if this user does not have an athena_id, there is no profile, so do nothing.
-	if($athena_id_list === null) return;
+	// if this user does not have an empl_id, there is no profile, so do nothing.
+	if($empl_id_list === null) return;
 
-	$athena_id = $athena_id_list->getValue()['value'];
+	$empl_id = $empl_id_list->getValue()['value'];
 
-	// try to load a profile with this athena_id
+	// try to load a profile with this empl_id
 	$nodeStorage = \Drupal::entityTypeManager()->getStorage('node');
 	$nid = $nodeStorage->getQuery()
 		->accessCheck(true)
 		->condition('type', 'bios')
-		->condition('field_athena_id', $athena_id)
+		->condition('field_empl_id', $empl_id)
 		->execute();
 	
 	// if it couldn't find a profile, do nothing.
