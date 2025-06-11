@@ -99,7 +99,11 @@ class Courses extends BlockBase{
 		// if we don't have 3 yet, pick some random ones:
 		if(count($returnedCourses) < 3){
 			$numCoursesToPick = 3 - count($returnedCourses);
-			$randomKeys = array_rand($allCourses, $numCoursesToPick);
+      if (!empty($allCourses)){
+        $randomKeys = array_rand($allCourses, $numCoursesToPick);
+      } else {
+        $randomKeys = [];
+      }
 			if(is_array($randomKeys)){
 				foreach($randomKeys as $key){
 					$returnedCourses[] = $allCourses[$key];
