@@ -9,8 +9,8 @@ id: node.bios.field_active
 field_name: field_active
 entity_type: node
 bundle: bios
-label: Active
-description: ''
+label: Automatic
+description: 'Allows the HR feed to update this profile. An EmplId is required. This enables automation of the First Name, Last Name, Username, Email, Phone, Position, and Published Status. Disabling this allows you to unpublish a profile without the feed re-publishing it.'
 required: false
 translatable: false
 default_value: {  }

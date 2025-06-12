@@ -1,6 +1,5 @@
 <?php
 namespace Drupal\profile_sync;
-
 use Drupal\Core\Datetime\DrupalDateTime;
 use Drupal\node\Entity\Node;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
@@ -128,6 +127,11 @@ class SyncService {
 
 	// updates an existing profile node with the given data
 	protected function updateProfile(Node $profile, $row) {
+		// don't update anything if field_active is false
+		if(empty($profile->field_active->getString())){
+			return;
+		}
+
 		$profile->set('field_username', $row['username']);
 		$profile->set('field_email', $row['email']);
 		$profile->set('field_phone', $row['phone']);
