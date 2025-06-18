@@ -1,4 +1,0 @@
-services:
-  citizen_profile_sync.profile_sync_service:
-    class: Drupal\citizen_profile_sync\ProfileSyncService
-    arguments: ['@entity_type.manager']

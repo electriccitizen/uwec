@@ -1,5 +1,0 @@
-name: Citizen Profile Sync
-type: module
-description: Syncs UWEC HR data with the Profile content type
-package: Custom
-core_version_requirement: ^10 || ^11
