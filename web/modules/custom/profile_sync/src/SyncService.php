@@ -39,8 +39,8 @@ class SyncService {
 
 		// create/update/unpublish Users and Profiles
 		foreach($data as $row){
-			$user = $this->findExistingUser($row['username']);
-			$profile = $this->findExistingProfile($row['username']);
+			$user = $this->findExistingUser($row['id']);
+			$profile = $this->findExistingProfile($row['id']);
 
 			// create or update user
 			if($user){
@@ -85,14 +85,14 @@ class SyncService {
 		}
 	}
 
-	// returns the profile node for the given $username
+	// returns the profile node for the given $empl_id
 	// returns false if there isn't one.
-	protected function findExistingProfile($username) {
+	protected function findExistingProfile($empl_id) {
 		$node_storage = \Drupal::entityTypeManager()->getStorage('node');
 
 		$query = $node_storage->getQuery()
 			->condition('type', 'bios')
-			->condition('field_username', $username)
+			->condition('field_empl_id', $empl_id)
 			->range(0, 1);
 
 		$nids = $query->accessCheck(false)->execute();
@@ -139,9 +139,6 @@ class SyncService {
 		$profile->set('field_last_name', $row['lastname']);
 		$profile->set('field_position', $row['title']);
 
-		// TODO delete this after it's been ran in live (at that point, everybody will have their empl_id set)
-		$profile->set('field_empl_id', $row['id']);
-
 		// set to published.
 		// this is for profiles who drop out of the feed (thereby getting un-published)
 		// ... and then come back. they need to be auto-published.
@@ -152,10 +149,10 @@ class SyncService {
 		$profile->save();
 	}
 
-	// returns a User object for the given username
-	protected function findExistingUser($username){
+	// returns a User object for the given $empl_id
+	protected function findExistingUser($empl_id){
 		$query = \Drupal::entityQuery('user')
-			->condition('name', $username)
+			->condition('field_empl_id', $empl_id)
 			->range(0, 1);
 
 		$uids = $query->accessCheck(false)->execute();
@@ -197,7 +194,6 @@ class SyncService {
 		$user->set('mail', $row['email']);
 		$user->set('field_first_name', $row['firstname']);
 		$user->set('field_last_name', $row['lastname']);
-		$user->set('field_empl_id', $row['id']); // TODO delete this line after it has run in live
 		$user->save();
 	}
 
@@ -226,7 +222,7 @@ class SyncService {
 					])
 					->execute();
 			} elseif ($authname !== $desired_authname) {
-				// Athena username has changed, update authname to match
+				// username has changed, update authname to match
 				Database::getConnection()
 					->update('authmap')
 					->fields(['authname' => $desired_authname])
