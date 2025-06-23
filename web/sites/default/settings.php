@@ -86,7 +86,6 @@ if(function_exists('pantheon_get_secret')){
   $config['samlauth.authentication']['sp_private_key'] = pantheon_get_secret('sp_private_key');
   $config['samlauth.authentication']['sp_x509_certificate'] = pantheon_get_secret('sp_x509_certificate');
   $config['samlauth.authentication']['idp_certs'] = [pantheon_get_secret('idp_certs')];
-  $settings['athena_api_key'] = pantheon_get_secret('athena_api_key');
 }
 // Automatically generated include for settings managed by ddev.
 $ddev_settings = __DIR__ . '/settings.ddev.php';
