@@ -1,12 +1,6 @@
 <?php
-
 use Drupal\block_content\Entity\BlockContent;
 use Drupal\paragraphs\Entity\Paragraph;
-/**
- * @file
- * Contains citizen_custom.module.
- */
-
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\Core\Site\Settings;
@@ -818,4 +812,13 @@ function citizen_custom_node_access(\Drupal\Core\Entity\EntityInterface $entity,
 function citizen_custom_preprocess_links__toolbar_user(&$vars){
 	if(isset($vars['links']['account'])) unset($vars['links']['account']);
 	if(isset($vars['links']['account_edit'])) unset($vars['links']['account_edit']);
+}
+
+
+
+// custom 500 error page
+// this effectively overrides the un-styled "An error has occurred." page.
+set_exception_handler('citizen_custom_exception_handler');
+function citizen_custom_exception_handler(\Throwable $exception){
+	include('error.php');
 }
