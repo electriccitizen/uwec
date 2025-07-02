@@ -64,7 +64,7 @@
       {% if element['#object'].field_hero.0.entity.field_hero_video.0 %}
         {{ attach_library('citizen_dart/hero') }}
         <div class="video-hero">
-          <video playsinline muted loop preload="auto" {% if element['#object'].field_hero.0.entity.field_video_poster.0 %} poster="{{ element['#object'].field_hero.0.entity.field_video_poster.0.entity.field_media_image.0.entity.uri.0.value|replace({'public://':'/sites/default/files/'}) }}{% endif %}" id="hero-video">
+          <video playsinline muted loop preload="auto" {% if element['#object'].field_hero.0.entity.field_video_poster.0 %} poster="{{ element['#object'].field_hero.0.entity.field_video_poster.0.entity.field_media_image.0.entity.uri.0.value | image_style('1680x1260') }}{% endif %}" id="hero-video">
             {% for video in element['#object'].field_hero.0.entity.field_hero_video %}
               <source data-src="{{ video.entity.uri.0.value|replace({'public://':'/sites/default/files/'}) }}" type="{{ video.entity.filemime.0.value }}"/>
             {% endfor %}
