@@ -5,6 +5,7 @@
 @use '../../../00-base/base' as *;
 @use '../../../01-parts/forms/forms' as *;
 @use '../node-mixins' as *;
+@use 'sass:color';
 
 .block-field-related-programs {
   --animation-start: -100vw;
@@ -588,7 +589,7 @@
     .program-types .program-toggle{
       &:hover,&:focus{
         .chevron-down{
-          background: darken($warmGrey,3%);
+          background: color.adjust($warmGrey, $lightness:-3%);
         }
       }
     }//end program toggle

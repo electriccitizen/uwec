@@ -3,6 +3,7 @@
 =================== */
 @use '../../../00-base/base' as *;
 @use '../../../01-parts/buttons/button-mixins' as *;
+@use 'sass:color';
 
 .block-structured-section {
   padding-top: $elementSpace;
@@ -359,7 +360,7 @@
       top: calc(50% - 20px);
       width: 40px;
       &:hover,&:focus{
-        background-color: lighten($ice,1%);
+        background-color: color.adjust($ice, $lightness:1%);
         background-image: url('../images/elements/search-blue.svg');
       }
     }

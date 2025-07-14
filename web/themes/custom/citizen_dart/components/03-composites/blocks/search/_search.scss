@@ -2,6 +2,7 @@
 	 SEARCH
 =================== */
 @use '../../../00-base/base' as *;
+@use 'sass:color';
 
 ///mixin placholder
 %searchBlockPlaceholder{
@@ -244,7 +245,7 @@
 					background-color: $navy;
 					color: $white;
           .layout__region--content &{
-            background-color: lighten($ice,1%);
+			background-color: color.adjust($ice, $lightness: 1%);
             background-image: url('../images/elements/search-blue.svg');
           }
 				}
