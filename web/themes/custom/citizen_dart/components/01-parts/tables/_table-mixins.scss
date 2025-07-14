@@ -2,6 +2,7 @@
 	 TABLES
 ============== */
 @use '../../00-base/base' as *;
+@use 'sass:color';
 
 %tableSort{
 	color: $white;
@@ -48,9 +49,9 @@
 }
 
 %tableSortActive{
-	background: lighten($tableHeaderBack, 6%);
-	border-top-color: lighten($tableHeaderBack, 6%);
-	border-bottom-color: lighten($link, 10%);
+	background: color.adjust($tableHeaderBack, $lightness:6%);
+	border-top-color: color.adjust($tableHeaderBack, $lightness:6%);
+	border-bottom-color: color.adjust($link, $lightness:10%);
 	& > a{
 		color: $white;
 		&:after {
@@ -110,7 +111,7 @@
 		&:nth-of-type(odd){
 			background: $oddRowBack;
       th{
-        background: lighten($tableRowHeaderBack,6%);
+        background: color.adjust($tableRowHeaderBack, $lightness:6%);
       }
 			td{
 				color: $oddRowText;
@@ -161,12 +162,12 @@
         max-width: 100%;
         &:nth-child(odd){
           td:before{
-            background: lighten($tableRowHeaderBack,6%);
+            background: color.adjust($tableRowHeaderBack,$lightness:6%);
           }
         }
         &:nth-child(even){
           td:first-child:before{
-            border-bottom: 1px solid darken($borderRule,6%);
+            border-bottom: 1px solid color.adjust($borderRule, $lightness:-6%);
           }
         }
 			}

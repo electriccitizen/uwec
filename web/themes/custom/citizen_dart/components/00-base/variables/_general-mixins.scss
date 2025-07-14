@@ -7,6 +7,7 @@
 @use 'fonts' as f;
 @use 'units' as u;
 @use 'sass:math';
+@use 'sass:list';
 
 /* TRANSFORM & TRANSITION MIXINS
 ------------------------------ */
@@ -1000,11 +1001,11 @@
 }
 
 @mixin animation($animate...) {
-	$max: length($animate);
+	$max: list.length($animate);
 	$animations: '';
 
 	@for $i from 1 through $max {
-		$animations: #{$animations + nth($animate, $i)};
+		$animations: #{$animations + list.nth($animate, $i)};
 
 		@if $i < $max {
 			$animations: #{$animations + ", "};

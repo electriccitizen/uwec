@@ -4,6 +4,7 @@
 
 @use '../../../00-base/base' as *;
 @use '../node-mixins' as *;
+@use 'sass:color';
 
 @mixin profileSwirlAnimation{
   @keyframes profileSwirlSlide {
@@ -335,7 +336,7 @@
 		.field-platforms .platform-links{
       a{
         &:hover,&:focus{
-          background: darken($ice,3%);
+          background: color.adjust($ice, $lightness:-3%);
           border-radius: 4px;
         }
         svg {
