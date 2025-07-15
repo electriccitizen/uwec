@@ -127,11 +127,17 @@ jobs:
       - attach_workspace:
           at: /tmp
 
+#      - run:
+#          # Set TERMINUS_ENV and related environment variables.
+#          # https://github.com/pantheon-systems/docker-build-tools-ci/blob/6.x/scripts/set-environment
+#          name: setup-environment-vars
+#          command: /build-tools-ci/scripts/set-environment
+
       - run:
-          # Set TERMINUS_ENV and related environment variables.
-          # https://github.com/pantheon-systems/docker-build-tools-ci/blob/6.x/scripts/set-environment
-          name: setup-environment-vars
-          command: /build-tools-ci/scripts/set-environment
+          name: load environment vars from workspace
+          command: |
+            cp /tmp/bash_env.txt $BASH_ENV
+            source $BASH_ENV
 
       # Deploy to Pantheon
       - run:
