@@ -58,31 +58,22 @@ version: 2
 jobs:
   configure_env_vars:
     <<: *defaults
-
     steps:
       - checkout
 
-      - run:
-          # Set TERMINUS_ENV and related environment variables.
-          # https://github.com/pantheon-systems/docker-build-tools-ci/blob/6.x/scripts/set-environment
-          name: setup-environment-vars
-          command: /build-tools-ci/scripts/set-environment
-
-#      - run:
-#          name: clone-bash-env
-#          command: cp $BASH_ENV bash_env.txt
       - run:
           name: Set custom multidev env name from branch
           command: |
             export MULTIDEV_BRANCH=$(echo "$CIRCLE_BRANCH" | tr '[:upper:]' '[:lower:]' | tr '/' '-' | tr -cd '[:alnum:]-' | cut -c1-11)
             echo "export TERMINUS_ENV=$MULTIDEV_BRANCH" >> bash_env.txt
             echo "export MULTIDEV_ENV=$MULTIDEV_BRANCH" >> bash_env.txt
+            cat bash_env.txt
 
-      # https://circleci.com/docs/2.0/workflows/#using-workspaces-to-share-data-among-jobs
       - persist_to_workspace:
           root: .
           paths:
             - bash_env.txt
+
 
   static_tests:
     <<: *defaults
