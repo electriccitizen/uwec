@@ -4,7 +4,7 @@ status: true
 dependencies: {  }
 id: uwec_docksal_site
 domain_id: 3438991
-hostname: pr-472-uwec.pantheonsite.io
+hostname: spacelog.app
 name: UWEC
 scheme: variable
 weight: 1
