@@ -15,14 +15,34 @@ Reviewed by David, 2023-07-18
 - [EC: Local development requirements](https://docs.google.com/document/d/1_yeISu5bW5637TCeXByi82LUUfD1jeeSDHh5IeiPz4o/edit?usp=sharing)
 - [EC: Developing on Pantheon](https://docs.google.com/document/d/1oTBHep57WENbf8PnM4LSn2Zx6x5EKA1rSYDEMvBEsUY/edit)
 
-## **REBUILD PROJECT**
+## ** **REBUILD PROJECT** **
 
-This project is undergoing a major design transition and we are doing the work on a semi-permanent Pantheon Multidev. Eventually this will be merged back to the `main` branch once the work is complete. 
+(July 2025) This project is undergoing a major design transition and we are doing the work on a semi-permanent Pantheon Multidev. Eventually this will be merged back to the `main` branch once the work is complete. 
 
 ### Details
 
-Github Branch: 
+Github Branch: [rebuild](https://github.com/electriccitizen/uwec/tree/rebuild)
 
+Multidev Dashboard: [rebuild-uwec](https://dashboard.pantheon.io/sites/dfeadf45-ac5d-48f4-a701-c121589cff0e#rebuild)
+
+Multidev URL: https://rebuild-uwec.pantheonsite.io
+
+### Development
+
+This is a new process that may need refining. For now, developers can push directly to the `rebuild` branch, or submit PRs against that branch. 
+
+**Track the `main` branch:**
+
+It will be important to keep the `rebuild` branch updated with changes on the `main` branch. My advice for now is to do a daily merge of `main` into `rebuild`. This will avoid painful merge conflicts down the road. 
+
+```angular2html
+git checkout uwec-rebuild
+git fetch origin
+git merge origin/main
+
+```
+
+Important: Don't merge or delete the open PR against this branch, and don't delete the multidev!
 
 # Local Development Setup
 
