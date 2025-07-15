@@ -53,6 +53,12 @@ jobs:
             echo "✅ Loaded TERMINUS_ENV=$TERMINUS_ENV"
 
       - run:
+          name: Set Git user identity
+          command: |
+            git config --global user.email "${GIT_EMAIL:-ci@example.com}"
+            git config --global user.name "Pantheon CI"
+
+      - run:
           name: Deploy to Pantheon
           command: ./.ci/deploy/pantheon/dev-multidev
           no_output_timeout: 20m
