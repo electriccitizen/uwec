@@ -64,6 +64,7 @@ jobs:
       - run:
           name: Set custom multidev env name from branch
           command: |
+            pwd
             export MULTIDEV_BRANCH=$(echo "$CIRCLE_BRANCH" | tr '[:upper:]' '[:lower:]' | tr '/' '-' | tr -cd '[:alnum:]-' | cut -c1-11)
             echo "export TERMINUS_ENV=$MULTIDEV_BRANCH" >> bash_env.txt
             echo "export MULTIDEV_ENV=$MULTIDEV_BRANCH" >> bash_env.txt
@@ -97,6 +98,7 @@ jobs:
       - run:
           name: setup-environment-vars
           command: |
+            pwd
             cp bash_env.txt $BASH_ENV
             source $BASH_ENV
       - run:
