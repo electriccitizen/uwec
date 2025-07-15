@@ -81,6 +81,9 @@ jobs:
     steps:
       - checkout
 
+      - attach_workspace:
+          at: .
+
       - restore_cache:
           keys:
             - composer-cache-{{ checksum "composer.lock" }}
@@ -94,7 +97,7 @@ jobs:
       - run:
           name: setup-environment-vars
           command: |
-            cp /tmp/bash_env.txt $BASH_ENV
+            cp bash_env.txt $BASH_ENV
             source $BASH_ENV
       - run:
           name: run static tests
