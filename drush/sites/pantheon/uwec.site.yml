@@ -7,7 +7,7 @@
   ssh:
     options: '-p 2222 -o "AddressFamily inet"'
     tty: false
-'pr-472':
+'rebuild':
   host: appserver.${env-name}.dfeadf45-ac5d-48f4-a701-c121589cff0e.drush.in
   paths:
     files: files

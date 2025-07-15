@@ -60,7 +60,7 @@ if (isset($_ENV['PANTHEON_ENVIRONMENT'])) {
     case 'test':
       $config['config_split.config_split.test']['status'] = TRUE;
       break;
-    case 'pr-472':
+    case 'rebuild':
       $config['config_split.config_split.multidev']['status'] = TRUE;
       break;
     default:
