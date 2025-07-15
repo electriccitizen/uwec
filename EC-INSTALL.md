@@ -15,6 +15,14 @@ Reviewed by David, 2023-07-18
 - [EC: Local development requirements](https://docs.google.com/document/d/1_yeISu5bW5637TCeXByi82LUUfD1jeeSDHh5IeiPz4o/edit?usp=sharing)
 - [EC: Developing on Pantheon](https://docs.google.com/document/d/1oTBHep57WENbf8PnM4LSn2Zx6x5EKA1rSYDEMvBEsUY/edit)
 
+## **REBUILD PROJECT**
+
+This project is undergoing a major design transition and we are doing the work on a semi-permanent Pantheon Multidev. Eventually this will be merged back to the `main` branch once the work is complete. 
+
+### Details
+
+Github Branch: 
+
 
 # Local Development Setup
 
