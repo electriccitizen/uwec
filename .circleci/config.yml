@@ -125,7 +125,7 @@ jobs:
 
       # Attach the workspace
       - attach_workspace:
-          at: /tmp
+          at: .
 
 #      - run:
 #          # Set TERMINUS_ENV and related environment variables.
@@ -136,9 +136,8 @@ jobs:
       - run:
           name: load environment vars from workspace
           command: |
-            cp /tmp/bash_env.txt $BASH_ENV
+            cp bash_env.txt $BASH_ENV
             source $BASH_ENV
-
       # Deploy to Pantheon
       - run:
           name: deploy to Pantheon
