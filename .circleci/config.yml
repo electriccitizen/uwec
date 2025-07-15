@@ -121,6 +121,11 @@ jobs:
       # Attach the workspace
       - attach_workspace:
           at: .
+      - run:
+          name: list files in workspace
+          command: |
+            echo "Working directory: $(pwd)"
+            ls -alh
 
 #      - run:
 #          # Set TERMINUS_ENV and related environment variables.
