@@ -68,9 +68,16 @@ jobs:
           name: setup-environment-vars
           command: /build-tools-ci/scripts/set-environment
 
+#      - run:
+#          name: clone-bash-env
+#          command: cp $BASH_ENV bash_env.txt
       - run:
-          name: clone-bash-env
-          command: cp $BASH_ENV bash_env.txt
+          name: Set custom multidev env name from branch
+          command: |
+            export MULTIDEV_BRANCH=$(echo "$CIRCLE_BRANCH" | tr '[:upper:]' '[:lower:]' | tr '/' '-' | tr -cd '[:alnum:]-' | cut -c1-11)
+            echo "export TERMINUS_ENV=$MULTIDEV_BRANCH" >> $BASH_ENV
+            echo "export MULTIDEV_ENV=$MULTIDEV_BRANCH" >> $BASH_ENV
+            cp $BASH_ENV bash_env.txt
 
       # https://circleci.com/docs/2.0/workflows/#using-workspaces-to-share-data-among-jobs
       - persist_to_workspace:
@@ -89,12 +96,16 @@ jobs:
             - composer-cache-{{ checksum "composer.lock" }}
             - composer-cache-
 
+#      - run:
+#          # Set TERMINUS_ENV and related environment variables.
+#          # https://github.com/pantheon-systems/docker-build-tools-ci/blob/6.x/scripts/set-environment
+#          name: setup-environment-vars
+#          command: /build-tools-ci/scripts/set-environment
       - run:
-          # Set TERMINUS_ENV and related environment variables.
-          # https://github.com/pantheon-systems/docker-build-tools-ci/blob/6.x/scripts/set-environment
           name: setup-environment-vars
-          command: /build-tools-ci/scripts/set-environment
-
+          command: |
+            cp /tmp/bash_env.txt $BASH_ENV
+            source $BASH_ENV
       - run:
           name: run static tests
           command: ./.ci/test/static/run
