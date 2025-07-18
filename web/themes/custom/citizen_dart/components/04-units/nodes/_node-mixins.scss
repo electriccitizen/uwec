@@ -348,6 +348,7 @@
   position: relative;
   min-height: calc(82vh - 88px);
   @include height100;
+  background: $royalGradient;
   @include desk{
     padding-bottom: 1px;
   }
