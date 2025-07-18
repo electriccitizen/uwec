@@ -31,8 +31,8 @@
 ///mixin - button
 @mixin button{
 	background-color: $buttonBack;
-	border: 1px solid $buttonText;
-	border-radius: 25px;
+	border: 1px solid $buttonBack;
+	border-radius: 5px;
 	color: $buttonText;
 	line-height: 1.2;
 	padding: $buttonPadding;

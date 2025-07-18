@@ -11,7 +11,7 @@
    .field-link {
       text-align: center;
       a {
-         @include outlineButton($navy);
+         @include button;
          margin-bottom: 0;
       }
    }

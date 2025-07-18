@@ -444,7 +444,7 @@
 	@include skew(0,-16);
 }
 
-@mixin rightArrow($arrowColor,$arrowBack,$arrowBorder,$arrowSize){
+@mixin rightArrow($arrowBack,$arrowBorder,$arrowSize){
 	@if $arrowSize == 'sm'{
 		width: 20px;
 		height: 20px;
@@ -455,7 +455,7 @@
 	border-radius: 50%;
 	border: 1px solid $arrowBorder;
 	background-color: $arrowBack;
-	background-image: url(../images/arrows/right-arrow-#{$arrowColor}-#{$arrowSize}.svg);
+	background-image: url(../images/arrows/right-arrow-royal-#{$arrowSize}.svg);
 	background-repeat: no-repeat;
 	background-size: 50%;
 	background-position: 50% 50%;
@@ -563,11 +563,11 @@
 
   &:#{$location} {
     content: '';
-    @include rightArrow($arrow-string, $back, $border, $size);
+    @include rightArrow($back, $border, $size);
   }
   &:hover, &:focus {
     &:#{$location} {
-      @include rightArrow($arrow-invert, $hover-back, $hover-border, $size);
+      @include rightArrow($hover-back, $hover-border, $size);
     }
     #{$dotted-selector} {
       @include dottedLink($dots);

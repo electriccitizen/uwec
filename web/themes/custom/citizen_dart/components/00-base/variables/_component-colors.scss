@@ -37,22 +37,22 @@ $breadCurrent      : $baseText;
 
 /* BUTTONS
 ---------------------- */
-$buttonBack        : transparent;
-$buttonBackHover   : $navy;
-$buttonBackActive  : color.adjust($navy, $lightness: -5%);
-$buttonText        : $baseText;
-$buttonTextHover   : $white;
-$buttonTextActive  : $white;
-$submitBack        : transparent;
+$buttonBack        : $gold;
+$buttonBackHover   : $ice;
+$buttonBackActive  : $coolGrey;
+$buttonText        : $royal;
+$buttonTextHover   : $royal;
+$buttonTextActive  : $royal;
+$submitBack        : $gold;
 $submitText        : $royal;
-$submitBackHover   : $royal;
-$submitTextHover   : $white;
-$submitBackActive  : $ice;
-$submitTextActive  : $white;
-$resetBack         : $navy;
-$resetText         : $white;
-$resetBackHover    : transparent;
-$resetTextHover    : $navy;
+$submitBackHover   : $ice;
+$submitTextHover   : $royal;
+$submitBackActive  : $coolGrey;
+$submitTextActive  : $royal;
+$resetBack         : $ice;
+$resetText         : $royal;
+$resetBackHover    : $gold;
+$resetTextHover    : $royal;
 
 /* SYSTEM
 --------------------- */

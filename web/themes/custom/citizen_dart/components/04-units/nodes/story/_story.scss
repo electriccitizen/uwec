@@ -304,13 +304,13 @@
       }
       &:after{
         .views-block.block-related-stories &{
-          @include rightArrow(white,transparent,$white,sm);
+          @include rightArrow($gold,$royal,sm);
         }
       }
       &:hover,&:focus{
         &:after{
           .views-block.block-related-stories &{
-            @include rightArrow(blue,$white,$white,sm);
+            @include rightArrow($white,$royal,sm);
           }
         }
         span{

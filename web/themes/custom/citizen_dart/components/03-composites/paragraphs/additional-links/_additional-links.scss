@@ -52,15 +52,12 @@
 					position: absolute;
 					top: 1px;
 					left: 2px;
-					@include rightArrow(navy,transparent,$navy,sm);
+					@include rightArrow($gold,$royal,sm);
 				}
 				&:hover,&:focus{
 					text-decoration: none;
-          span{
-					  @include dottedLink($ice);
-          }
 					&:before{
-						@include rightArrow(white,$navy,$navy,sm);
+						@include rightArrow($white,$royal,sm);
 					}
 				}
         &.lf-file-link{
