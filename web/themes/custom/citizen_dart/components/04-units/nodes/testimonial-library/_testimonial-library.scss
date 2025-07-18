@@ -69,7 +69,7 @@
 //testimonial teasers
 .node-teaser-testimonial{
   position: relative;
-  background: $lightGrey;
+  background: $ice;
   padding: 72px 0 60px;
   @include tab{
     @include safeFlex(row,wrap,start,start);
@@ -96,7 +96,7 @@
     }
   }
   &:after{
-    @include fullBack($lightGrey);
+    @include fullBack($ice);
   }
   .field.body{
   	max-width: 650px;
@@ -137,7 +137,7 @@
       }
     }
     .testimonial-details-inner{
-      background: $lightGrey;
+      background: $ice;
       padding: 28px 28px 0;
       position: relative;
       z-index: 1;
@@ -166,7 +166,7 @@
 /* TESTIMONIAL WIDGET (content carousel) */
 .node-widget-testimonial{
   .testimonial-quote{
-    background: $brightBlue;
+    background: $royal;
     color: $white;
     padding: 50px 32px 90px;
     @include carouselBreak{
@@ -218,7 +218,7 @@
     }//end body wrapper
   }//end field body
   .testimonial-details{
-    background: $lightGrey;
+    background: $ice;
     @include safeFlex(row,nowrap,start,stretch);
     max-width: $largeTab;
     @include auto;
@@ -229,7 +229,7 @@
     .testimonial-meta{
       flex: 1 1;
       padding: 28px 20px 12px;
-      color: $brightBlue;
+      color: $royal;
       font-size: 1.5rem;
       line-height: 1.5;
       @include carouselBreak{

@@ -60,7 +60,7 @@
     bottom: 0;
     left: 0;
     z-index: -1;
-    background: $warmGrey;
+    background: $coolGrey;
   }
   &.snapshot-visible{
     .field-image{
@@ -140,10 +140,10 @@
 
 }//end snaptshot teaser
 
-//snapshot widget (for conten carousel)
+//snapshot widget (for content carousel)
 .node-widget-snapshot{
-  color: $brightBlue;
-  background: $lightGrey;
+  color: $royal;
+  background: $ice;
   @include carouselBreak{
     background: $siteBack;
   }
@@ -239,7 +239,7 @@
       margin-bottom: $spaceSm;
       a{
         display: inline-block;
-        @include linkArrow(brightBlue, sm);
+        @include linkArrow(royal, sm);
       }//end a
     }//end field link
   }//end snapshot bottom

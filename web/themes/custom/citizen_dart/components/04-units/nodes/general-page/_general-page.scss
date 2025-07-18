@@ -87,7 +87,7 @@
         position: absolute;
         top: 0;
         left: 0;
-        background: $brightBlue;
+        background: $royal;
         width: 100vw;
         height: 25%;
         z-index: 1;
@@ -235,44 +235,6 @@
       &.vertical-window{
         @include desk{
           min-height: 1030px;
-        }
-      }
-      @include onlyMobile{
-        margin-bottom: $elementSpace;
-      }
-      @include smallTab{
-        background-size: cover !important;
-        background-position: center !important;
-      }
-      @include desk{
-        margin-bottom: 2rem;
-        padding-bottom: 29vw;
-      }
-      @include contentStopMargin{
-        margin-bottom: $elementSpace;
-      }
-      @media screen and (min-width: 1600px){
-        margin-bottom: -2vw;
-      }
-      @media screen and (min-width: 1900px){
-        margin-bottom: -4vw;
-      }
-      @media screen and (min-width: 2400px){
-        margin-bottom: -6vw;
-      }
-      &:before{
-        top: auto;
-        bottom: -1px;
-        background: $siteBack;
-        z-index: 1;
-        clip-path: polygon(100% 0, 100% 100%, 0 100%,);
-        @include desk{
-          content: '';
-          display: block;
-          position: absolute;
-          left: 0;
-          height: 29vw;
-          width: 100vw;
         }
       }
       .hero-image{
@@ -662,7 +624,7 @@
         padding: 80px $siteMarginMobile 60px;
         &:first-child{
           @include desk{
-            border-top: 40px solid $brightBlue;
+            border-top: 40px solid $royal;
           }
         }
         &:after{
@@ -681,7 +643,7 @@
           max-width: 867px;
           @include auto;
           h1.page-title{
-            color: $brightBlue;
+            color: $royal;
             @include tab{
               font-size: 6.5rem;
               line-height: 1.1;

@@ -37,27 +37,9 @@
     z-index: 1;
 		padding-bottom: 14rem;
     padding-top: 10px;
-    @include onlyMobile{
-      &:before{
-        @include fullBack($brightBlue);
-        top: 100%;
-        height: 42px;
-        z-index: 0;
-      }
-    }
     @include desk{
       padding-top: 8.75rem;
-      padding-bottom: calc(80px + 16vw);
     }
-		@media screen and (min-width: 1650px){
-      padding-bottom: calc(80px + 14vw);
-    }
-    @media screen and (min-width: 2100px){
-      padding-bottom: calc(80px + 12vw);
-    }
-    &:after {
-			@include fullBack($navy);
-		}
 		& > .layout--twocol-even {
 			max-width: $contentStopMargin;
 			position: relative;
@@ -230,44 +212,6 @@
         }
       }//end field departments
     }//end departments block
-    .blue-triangle {
-      position: absolute;
-      bottom: -1px;
-      left: -20px;
-      height: 29vw;
-      width: 100vw;
-      clip-path: polygon(100% 0%, 0% 100%, 100% 100%);
-      background: $brightBlue;
-      overflow: hidden;
-      @include desk{
-        background: $white;
-        &:after{
-          content: '';
-          display: block;
-          height: 500%;
-          width: 60%;
-          position: absolute;
-          bottom: -2px;
-          right: 0;
-          background: $brightBlue;
-          z-index: 1;
-        }
-      }
-    }//end after
-    .blue-swirl{
-      position: absolute;
-      bottom: -92px;
-      z-index: 5;
-      @include profileSwirlAnimation;
-      @include menuStop{
-        bottom: -100px;
-      }
-      svg{
-        path{
-          stroke: $royal;
-        }
-      }
-    }//end blue swirl
 	}//end node section one
 
 	#node-section-2{
@@ -276,37 +220,9 @@
 		position: relative;
 		z-index: 10;
 		margin-bottom: $spaceMd;
-    @include smallTab{
-      margin-top: calc(-10px + -8vw);
-    }
-		@include desk {
-      margin-top: calc(-20px + -16vw);
-			margin-bottom: 0;
-		}
-    @media screen and (min-width: 1650px){
-      margin-top: calc(-20px + -14vw);
-    }
-    @media screen and (min-width: 2100px){
-      margin-top: calc(-20px - 12vw);
-    }
-    @media screen and (min-width: 2500px){
-      margin-top: calc(-20px - 11vw);
-    }
-    @media screen and (min-width: 2800px){
-      margin-top: calc(-20px - 10vw);
-    }
     .contact-wrapper{
       padding-top: 56px;
       padding-bottom: 50px;
-      @include menuStop{
-        min-height: 20vw;
-      }
-      @media screen and (min-width: 1800px){
-        min-height: 18vw;
-      }
-      @media screen and (min-width: 2100px){
-        min-height: 15vw;
-      }
     }
     .contact-title{
       @include contactTitle;

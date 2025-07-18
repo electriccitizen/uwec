@@ -93,9 +93,7 @@
       a{
         @include blockArrow(navy, sm);
         &:hover,&:focus{
-          span{
-            @include dottedLink($brightBlue);
-          }
+      
         }
       }//end a
     }//end title

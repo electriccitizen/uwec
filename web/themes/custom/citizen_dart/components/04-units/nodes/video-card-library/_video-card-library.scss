@@ -85,7 +85,7 @@
       text-transform: uppercase;
       letter-spacing: .05em;
       margin-bottom: $spaceXxs;
-      color: $brightBlue;
+      color: $royal;
     }
     @include desk{
       padding-top: 22px;
@@ -93,8 +93,8 @@
   }//end eyebrow lg
   .video-card-text{
     padding: 20px 20px 12px;
-    color: $brightBlue;
-    background: $lightGrey;
+    color: $royal;
+    background: $ice;
     @include carouselBreak{
       background: $siteBack;
       @include safeFlex(row,nowrap,start,start);
@@ -119,7 +119,7 @@
   }//end field video
   .video-card-title{
     margin-bottom: $spaceXxs;
-    @include arrowLinkAfter($brightBlue);
+    @include arrowLinkAfter($royal);
     @include carouselBreak{
       padding-right: 20px;
       width: 50%;

@@ -64,7 +64,7 @@
       }
 			.cta-item-inner{
 				height: 100%;
-				background: $brightBlue;
+				background: $navy;
 				padding: 38px 20px 50px;
         .widget-section > .layout--onecol &,
         .widget-section > .layout--twocol-section--75-25 > .layout__region--first &,
@@ -138,7 +138,7 @@
       padding-top: 0;
     }
     &:after{
-      @include fullBack($lightGrey);
+      @include fullBack($ice);
       height: calc(100% - 70px);
       top: 0;
       z-index: -5;
@@ -197,7 +197,7 @@
         }
       }
 			&:after{
-				@include fullBack($brightBlue);
+				@include fullBack($royal);
 				z-index: -4;
 			}
 			article{
@@ -296,7 +296,7 @@
 				@include outlineButton($white);
         margin-bottom: 0 !important;
         &:hover,&:focus{
-          color: $brightBlue;
+          color: $royal;
           background: $white;
           border-color: $white;
         }

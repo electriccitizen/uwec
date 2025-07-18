@@ -104,6 +104,15 @@
 
 	{% block pagePreFooter %}
 		{% if page.prefooter %}
+      <section class="postcontent" role="complementary">
+        <div class="postcontent-inner">
+          <h2>Start your Blugold Journey</h2>
+          <div class="postcontent-buttons">
+            <a href="{{ path('entity.node.canonical', {'node': '8068'}) }}">Visit</a>
+            <a href="{{ path('entity.node.canonical', {'node': '7696'}) }}">Apply</a>
+          </div>
+        </div>
+      </section>
 			<section class="prefooter-wrapper" role="complementary">
 				<div class="prefooter-guard">
 					<div class="back-anchor">

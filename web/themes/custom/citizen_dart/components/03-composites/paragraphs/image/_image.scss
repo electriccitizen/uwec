@@ -84,14 +84,14 @@
         position: relative;
         padding: 44px 0 50px;
         &:after{
-          @include fullBack($lightGrey);
+          @include fullBack($ice);
         }
         @include desk{
           padding: 50px 0 52px;
         }
         .widget-section > .layout:not(.layout--onecol) &{
           @include tab{
-            background: $lightGrey;
+            background: $ice;
             padding-left: 20px !important;
             padding-right: 20px !important;
             &:after{
@@ -157,7 +157,7 @@
         left: 20px;
         height: 46px;
         width: 1px;
-        background: $warmGrey;
+        background: $coolGrey;
         .widget-section > .layout--onecol &,
         .widget-section > .layout--twocol-section--50-50 &,
         .widget-section > .layout--twocol-section--67-33 > .layout__region--first &,
@@ -192,11 +192,11 @@
     padding-right: 20px;
     .field-caption-headline{
       @include heading2;
-      color: $brightBlue;
+      color: $navy;
       margin-bottom: $spaceXxs;
     }
     .field-caption{
-      color: $brightBlue;
+      color: $navy;
       line-height: 1.5;
     }
   }//end caption

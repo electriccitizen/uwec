@@ -4,8 +4,8 @@
 	max-width:1138px;
 	margin-left:auto;
 	margin-right:auto;
-	background: $ice;
-	color: $brightBlue;
+	background: $royal;
+	color: $white;
 	padding: 40px 20px 30px;
 }
 
@@ -81,7 +81,7 @@
     font-size: 2rem;
     line-height: 2;
     &::placeholder{
-      color: rgba($brightBlue,.6);
+      color: transparent;
     }
   }
   textarea{
@@ -96,13 +96,13 @@
       @include browserWipe;
       width: 22px;
       height: 22px;
-      border: 1px solid $brightBlue;
+      border: 1px solid $white;
       background-color: $white;
       position: absolute;
       top: 2px;
       left: 0;
       &:hover,&:focus{
-        background-color: $cream;
+        background-color: $ice;
       }
       &:checked{
         background-image: url('../images/elements/check-black.svg');
@@ -123,14 +123,14 @@
       @include browserWipe;
       width: 22px;
       height: 22px;
-      border: 1px solid $brightBlue;
+      border: 1px solid $white;
       background-color: $white;
       border-radius: 50%;
       position: absolute;
       top: 4px;
       left: 0;
       &:hover,&:focus{
-        background-color: $cream;
+        background-color: $ice;
       }
       &:checked{
         background-image: url('../images/elements/radio-dot.svg');
@@ -149,14 +149,14 @@
     border-radius: 10px;
     background: $white;
     padding: 14px 32px 14px 22px;
-    background-image: url('../images/elements/caret-down-bright-blue-sm.svg');
+    background-image: url('../images/elements/chevron-royal-down-sm');
     background-repeat: no-repeat;
     background-size: 12px;
     background-position: calc(100% - 10px) 50%;
     font-size: 2rem;
     line-height: 2;
     letter-spacing: .05em;
-    color: rgba($brightBlue,.6);
+    color: $royal;
     &.selected{
       color: $navy;
     }
@@ -164,7 +164,7 @@
       width: 100%;
     }
     &:focus{
-      background-image: url('../images/elements/caret-up-bright-blue-sm.svg');
+      background-image: url('../images/elements/chevron-royal-up-sm.svg');
       background-repeat: no-repeat;
       background-size: 12px;
       background-position: calc(100% - 10px) 50%;
@@ -177,13 +177,13 @@
   }
   button.form_button_submit{
     @include browserWipe;
-    border: 1px solid $brightBlue;
-    color: $brightBlue;
+    border: 1px solid $gold;
+    color: $royal;
     font-family: $header;
     font-size: 14px;
     line-height: 1.2;
     letter-spacing: .1em;
-    font-weight: $xHeavy;
+    font-weight: $heavy;
     text-align: center;
     text-transform: uppercase;
     border-radius: 25px;
@@ -192,8 +192,8 @@
     margin: $spaceXxs 0 $spaceSm;
     &:hover,&:focus{
       @include animation('breathe .75s 1');
-      background-color: $brightBlue;
-      color: $white;
+      background-color: $ice;
+      color: $royal;
       transition: background-color .3s ease-in-out;
     }
   }

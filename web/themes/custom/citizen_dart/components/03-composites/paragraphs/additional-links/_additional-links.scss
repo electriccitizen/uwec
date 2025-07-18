@@ -57,7 +57,7 @@
 				&:hover,&:focus{
 					text-decoration: none;
           span{
-					  @include dottedLink($sky);
+					  @include dottedLink($ice);
           }
 					&:before{
 						@include rightArrow(white,$navy,$navy,sm);

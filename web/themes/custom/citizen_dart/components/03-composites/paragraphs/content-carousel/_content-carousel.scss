@@ -11,7 +11,7 @@
     max-width: 1192px;
   }
   h2.block-title{
-    color: $brightBlue;
+    color: $navy;
     margin-bottom: $spaceXxs;
     padding-left: 26px;
     padding-right: 26px;
@@ -36,7 +36,7 @@
     }
   }//end view
   .slick-slider{
-    background: $lightGrey;
+    background: $ice;
     @include carouselBreak{
       background: none;
     }

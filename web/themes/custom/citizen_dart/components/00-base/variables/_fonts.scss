@@ -22,9 +22,9 @@
 
 /*  FAMILIES
 -------------------- */
-$header       : vinila-extended, sans-serif;
-$displayHeader: grad, serif;
-$bodyText     : neue-haas-grotesk-text, sans-serif;
+$header       : "Inter", sans-serif;
+$displayHeader: "PT Serif", serif;
+$bodyText     : "Inter", sans-serif;
 
 /*  WEIGHTS
 -------------------- */
@@ -95,13 +95,13 @@ $h6: 2.25rem;
 	font-family: $header;
 	font-weight: $xHeavy;
 	line-height: 1.66;
-	color: $brightBlue;
+	color: $royal;
 	font-size: $h3;
 }
 
 @mixin heading4{
 	@include headerGlobals;
-	color: $brightBlue;
+	color: $royal;
 	font-size: $h4;
 }
 
@@ -110,7 +110,7 @@ $h6: 2.25rem;
 	font-family: $bodyText;
 	line-height: 1.875;
 	font-size: $h5;
-  color: $brightBlue;
+  color: $royal;
 }
 
 @mixin heading6{
@@ -169,7 +169,7 @@ $h6: 2.25rem;
 	font-size: 4rem;
 	padding-top: 3.75rem;
 	padding-bottom: $spaceSm;
-	color: $brightBlue;
+	color: $royal;
 	.quote-pre{
 		@include auto;
 	}

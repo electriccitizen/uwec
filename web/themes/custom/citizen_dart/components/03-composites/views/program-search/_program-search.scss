@@ -43,12 +43,12 @@
           order: 2;
           max-width: 50%;
           span{
-            @include dottedLink($brightBlue);
+            @include dottedLink($royal);
           }
         }
         &:hover,&:focus{
           span{
-            @include dottedLink($brightBlue);
+            @include dottedLink($royal);
             @include tab{
               background: none;
             }

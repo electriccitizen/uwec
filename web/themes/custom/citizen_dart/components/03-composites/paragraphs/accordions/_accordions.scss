@@ -5,14 +5,14 @@
 
 .paragraph--type--accordions{
   //and background for the accordions depending on layout section
-  background: $lightGrey;
+  background: $ice;
   position: relative;
   padding: 35px 0;
   @include menuStop{
     padding: 60px 20px 80px;
   }
   &:after{
-    @include fullBack($lightGrey);
+    @include fullBack($ice);
   }
   .node-type-page & {
     @include menuStop {
@@ -34,7 +34,7 @@
   }
   .widget-section > .layout:not(.layout--onecol) &,.node-support-book &{
     @include tab{
-      background: $lightGrey;
+      background: $ice;
       margin-left: -20px;
       margin-right: -20px;
       padding-left: 20px;
@@ -107,7 +107,7 @@
 				@include transAll(.3s);
         text-decoration: none;
         .accordion-header-text{
-          @include dottedLink($brightBlue);
+          @include dottedLink($royal);
         }
 			}
 		}//end a
@@ -142,7 +142,7 @@
 					border-color: $accordActiveBorderHover;
           text-decoration: none;
           .accordion-header-text{
-            @include dottedLink($brightBlue);
+            @include dottedLink($royal);
           }
 				}
 				.accordion-chevron{

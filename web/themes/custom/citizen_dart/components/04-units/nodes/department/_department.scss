@@ -169,9 +169,6 @@
       z-index: 1;
       max-width: $textMax;
       @include auto;
-      &:after{
-        @include fullBack($lightGrey);
-      }
       .paragraph--type--accordions{
         .widget-title{
           @include widgetTitleAlt;
@@ -192,7 +189,7 @@
       @include styledHeader;
       text-align: left;
       margin-bottom: $spaceSm;
-      color: $brightBlue;
+      color: $royal;
       font-size: 43px;
       @include onlyMobile{
         strong{

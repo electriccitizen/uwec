@@ -19,13 +19,11 @@
 		margin-bottom: $spaceXxs;
 		h1{
 			margin-bottom: $spaceLg;
-      color: $brightBlue;
 		}
 	}
   .user-meta-wrapper{
     background: $ice;
     padding: 30px 20px;
-    color: $brightBlue;
     font-size: 1.75rem;
     line-height: 1.42;
     margin-bottom: $spaceLg;
@@ -62,7 +60,7 @@
 					border: 1px solid transparent;
 					&:hover,&:focus{
 						opacity: .6;
-						border: 1px solid $warmGrey;
+						border: 1px solid $coolGrey;
 					}
 					img{
 						display: block;
@@ -71,7 +69,7 @@
 						max-height: 50px;
 						&.uwec-logo{
 							padding: 10px;
-							background: $brightBlue;
+							background: $royal;
 						}
 					}
 				}
@@ -91,10 +89,8 @@
 				}
 			}
       a{
-        @include dottedLink($brightBlue);
         &:hover,&:focus{
           background-image: none;
-          color: $navy;
         }
       }
 		}//end div

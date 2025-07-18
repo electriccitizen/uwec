@@ -1,4 +1,6 @@
 @use 'colors' as *;
+@use 'sass:color';
+
 
 /* HIDDEN FROM PL SWATCHES BUT USED ON SITE */
 
@@ -6,14 +8,14 @@
 /* CHANGEABLE SUBSITE COLORS
 ----------------------- */
 .themeset-uwec{
-	--col-primary: #{$brightBlue};
+	--col-primary: #{$royal};
 	--col-accent1: #{$gold};
-	--col-accent2: #{$royal};
+	--col-accent2: #{$navy};
 	--col-accent3: lemonchiffon;
 }
 .themeset-example{
 	--col-primary: #{$gold};
-	--col-accent1: #{$sky};
+	--col-accent1: #{$ice};
 	--col-accent2: #011e54;
 	--col-accent3: aqua;
 }
@@ -26,8 +28,8 @@
 /* TEXT
 ---------------------- */
 $baseText          : $navy;
-$link              : $brightBlue;
-$activeLink        : $sky;
+$link              : $royal;
+$activeLink        : $ice;
 $hoverLink         : $navy;
 $breadLink         : $link;
 $breadLinkHover    : $hoverLink;
@@ -37,15 +39,15 @@ $breadCurrent      : $baseText;
 ---------------------- */
 $buttonBack        : transparent;
 $buttonBackHover   : $navy;
-$buttonBackActive  : $denim;
+$buttonBackActive  : color.adjust($navy, $lightness: -5%);
 $buttonText        : $baseText;
 $buttonTextHover   : $white;
 $buttonTextActive  : $white;
 $submitBack        : transparent;
-$submitText        : $brightBlue;
-$submitBackHover   : $brightBlue;
+$submitText        : $royal;
+$submitBackHover   : $royal;
 $submitTextHover   : $white;
-$submitBackActive  : $sky;
+$submitBackActive  : $ice;
 $submitTextActive  : $white;
 $resetBack         : $navy;
 $resetText         : $white;
@@ -62,12 +64,12 @@ $prefooterText             : $white;
 $prefooterLink             : $white;
 $prefooterLinkHover        : $white;
 $footerBack                : var(--col-accent2);
-$footerText                : $sky;
-$footerLink                : $sky;
-$footerLinkHover           : $white;
-$footerSocial              : $sky;
-$footerSocialHover         : $white;
-$borderRule                : $warmGrey;
+$footerText                : $white;
+$footerLink                : $white;
+$footerLinkHover           : $gold;
+$footerSocial              : $white;
+$footerSocialHover         : $gold;
+$borderRule                : $coolGrey;
 $modalBack                 : $navy;
 $modalContent              : $white;
 $modalContentBack          : $navy;
@@ -77,12 +79,12 @@ $modalHeaderClose          : $white;
 $modalHeaderCloseHover     : $white;
 $modalGalButton            : $navy;
 $modalGalButtonHover       : $navy;
-$modalGalButtonBack        : $lightGrey;
-$modalGalButtonBackHover   : $warmGrey;
+$modalGalButtonBack        : $ice;
+$modalGalButtonBackHover   : $coolGrey;
 $hamburger                 : $white;
 $hamburgerActive           : $white;
 $searchIcon                : $white;
-$searchIconHover           : $lightGrey;
+$searchIconHover           : $gold;
 $searchDropBack            : $navy;
 $searchDropText            : $white;
 $searchDropPlace           : rgba(6,35,61,0.61);
@@ -100,51 +102,51 @@ $searchCloseBackHover      : $white;
 /* FORMS
 --------------------- */
 $inputBorderColor         : transparent;
-$inputBorderHover         : $sky;
-$inputBorderFocus         : $brightBlue;
+$inputBorderHover         : $ice;
+$inputBorderFocus         : $royal;
 $placeColor               : rgba(6,35,61,0.61);
 $placeFocusColor          : $placeColor;
-$validation               : $brightBlue;
+$validation               : $royal;
 $checkbox                 : $link;
 $checkboxHover            : $link;
-$checkboxBackHover        : $lightGrey;
+$checkboxBackHover        : $ice;
 $checkboxChecked          : $link;
-$checkboxCheckedHover     : $warmGrey;
-$checkboxCheckedBack      : $link;
-$checkboxCheckedBackHover : $warmGrey;
-$selectArrow              : $warmGrey;
+$checkboxCheckedHover     : $coolGrey;
+$checkboxCheckedBack      : $ice;
+$checkboxCheckedBackHover : $coolGrey;
+$selectArrow              : $royal;
 $selectHighlight          : $link;
 $progressBar              : $navy;
 $progressMarker           : $navy;
 $progressMarkerText       : $white;
-$progressMarkerActive     : $denim;
+$progressMarkerActive     : $royal;
 $progressMarkerActiveText : $white;
 $sliderTrack              : $navy;
-$sliderTrackHover         : $denim;
+$sliderTrackHover         : $royal;
 $sliderKnob               : $white;
 $datepickerHeader         : $ice;
-$datepickerHeaderElement  : $brightBlue;
-$datepickerDays           : $brightBlue;
+$datepickerHeaderElement  : $royal;
+$datepickerDays           : $royal;
 $datepickerDaysBack       : $ice;
 $datepickerDate           : $navy;
 $datepickerDateBack       : $white;
-$datepickerDateBorder     : $warmGrey;
+$datepickerDateBorder     : $coolGrey;
 $datepickerCurrent        : $navy;
-$datepickerCurrentBack    : $lightGrey;
+$datepickerCurrentBack    : $ice;
 $datepickerSelected       : $white;
 $datepickerSelectedBack   : $navy;
-$detailsWrapperBack       : $lightGrey;
+$detailsWrapperBack       : $ice;
 
 /* TABLES
 ---------------- */
-$tableHeaderBack     : $warmGrey;
+$tableHeaderBack     : $coolGrey;
 $tableHeaderText     : $navy;
-$tableRowHeaderBack  : $warmGrey;
+$tableRowHeaderBack  : $coolGrey;
 $tableRowHeaderText  : $navy;
 $rowBorder           : $borderRule;
 $oddRowBack          : $siteBack;
 $oddRowText          : $baseText;
-$evenRowBack         : $lightGrey;
+$evenRowBack         : $ice;
 $evenRowText         : $baseText;
 
 
@@ -157,10 +159,10 @@ $sfTopLinkHover       : $white;
 $sfTopBackHover       : transparent;
 $sfTopActive          : $white;
 $sfTopActiveHover     : $white;
-$sfChildLink          : $brightBlue;
-$sfChildLinkHover     : $brightBlue;
-$sfChildActive        : $brightBlue;
-$sfChildActiveHover   : $brightBlue;
+$sfChildLink          : $royal;
+$sfChildLinkHover     : $royal;
+$sfChildActive        : $royal;
+$sfChildActiveHover   : $royal;
 $sfDropdown           : $ice;
 
 //mobile
@@ -181,7 +183,7 @@ $menuBlockTitle       : $white;
 $menuBlockTitleBack   : $royal;
 $menuBack             : $ice;
 $menuTop              : $link;
-$menuTopHover         : $brightBlue;
+$menuTopHover         : $royal;
 
 
 /* SECONDARY MENU
@@ -192,15 +194,15 @@ $secondMenuLinkHover : $white;
 /* PAGERS
 --------------------- */
 $pagerBorder                : transparent;
-$pagerBack                  : $lightGrey;
+$pagerBack                  : $ice;
 $pagerNumber                : $baseText;
 $pagerNumberBack            : transparent;
 $pagerNumberHover           : $baseText;
-$pagerNumberBackHover       : $warmGrey;
+$pagerNumberBackHover       : $coolGrey;
 $pagerNumberActive          : $white;
 $pagerNumberActiveBack      : $navy;
 $pagerNumberActiveHover     : $baseText;
-$pagerNumberActiveBackHover : $warmGrey;
+$pagerNumberActiveBackHover : $coolGrey;
 $pagerLink                  : $navy;
 $pagerLinkBack              : transparent;
 $pagerLinkHover             : $white;
@@ -215,7 +217,7 @@ $accordHeaderHover        : $baseText;
 $accordHeaderBorder       : $borderRule;
 $accordHeaderBorderHover  : $borderRule;
 $accordHeaderBack         : transparent;
-$accordHeaderBackHover    : $lightGrey;
+$accordHeaderBackHover    : $ice;
 $accordContentBack        : $white;
 $accordContentBorder      : transparent;
 $accordActive             : $baseText;

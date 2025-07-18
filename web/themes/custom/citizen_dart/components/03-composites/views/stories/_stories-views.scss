@@ -194,15 +194,6 @@
   position: relative;
   max-width: $contentStopMargin;
   @include auto;
-  &:after {
-    @include fullBack($brightBlue);
-    height: 50vw;
-    z-index: -3;
-    top: 100%;
-    @include desk {
-      height: 31vw;
-    }
-  }
   h2.block-title{
     color: $white;
     margin-bottom: $spaceXs;

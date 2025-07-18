@@ -76,10 +76,10 @@ iframe.see-higher{
   height: 34px;
   font-size: 1.5rem;
   padding-left: 30px;
-  color: $sky;
+  color: $white;
   &:hover,
   &:focus {
-    color: $white;
+    color: $ice;
     background-image: url("../images/elements/pause-white.svg");
   }
   @include desk{

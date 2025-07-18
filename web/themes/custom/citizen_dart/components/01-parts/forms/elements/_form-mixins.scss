@@ -107,9 +107,9 @@
 		&[type="radio"]{
 			border-radius: 50%;
 			&:checked{
-				background-color: $brightBlue;
+				background-color: $royal;
 				&:hover,&:focus{
-					background-color: $warmGrey;
+					background-color: $coolGrey;
 				}
 			}
 		}

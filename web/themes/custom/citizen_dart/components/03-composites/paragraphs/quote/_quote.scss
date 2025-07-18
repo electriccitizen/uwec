@@ -26,13 +26,14 @@
       margin-bottom: 42px;
     }
 		svg,.cls-1{
-			fill: $brightBlue;
+			fill: $gold;
 		}
 	}//quote mark
 }//end quote
 
 .paragraph--type--quote {
-	color: $brightBlue;
+	color: $royal;
+  background: $ice;
   @include edgeToEdge;
 	@media screen and (min-width: 954px){
 		@include auto;
@@ -40,8 +41,6 @@
   .quote-wrapper {
   	max-width: $breakoutWidth;
   	@include auto;
-    border-top: $brightBlue 1px solid;
-    border-bottom: $brightBlue 1px solid;
     padding: 36px $siteMarginMobile 36px;
     text-align: center;
     .quote {

@@ -119,12 +119,12 @@
 
 @mixin cautionButton{
 	@include submitButton;
-	background: $warmGrey;
+	background: $coolGrey;
 	color: $navy;
-	border-color: $warmGrey;
+	border-color: $coolGrey;
 	&:hover,&:focus{
-		background: $lightGrey;
-		border-color: $lightGrey;
+		background: $ice;
+		border-color: $ice;
 		color: $navy;
 	}
 	&:active{

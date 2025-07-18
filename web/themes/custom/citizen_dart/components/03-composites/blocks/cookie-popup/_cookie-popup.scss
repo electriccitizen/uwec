@@ -4,7 +4,7 @@
 @use '../../../00-base/base' as *;
 
 #sliding-popup.sliding-popup-bottom {
-  background-color: $brightBlue;
+  background-color: $royal;
   color: $white;
   padding: $spaceSm 0;
   width: 100%;
@@ -32,7 +32,7 @@
     }
   }
   .eu-cookie-compliance-buttons button {
-    background-color: $brightBlue;
+    background-color: $royal;
     border: 1px solid $white;
     border-radius: 25px;
     color: $white;
@@ -49,7 +49,7 @@
     }
     &:hover,&:focus{
       background-color: $white;
-      color: $brightBlue;
+      color: $royal;
       @include animation('breathe .75s 1');
     }
   }

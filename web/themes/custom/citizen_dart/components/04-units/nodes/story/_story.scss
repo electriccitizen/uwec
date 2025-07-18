@@ -164,7 +164,7 @@
     .block-field-paragraphs {
       padding: 0 $siteMarginMobile;
       h2, h3, h4, h5, h6 {
-        color: $brightBlue;
+        color: $royal;
       }
       .widget {
         padding: 0;
@@ -208,13 +208,12 @@
     .block-field-authors,
     .block-related-stories {
       @include edgeToEdge;
-      background-color: $brightBlue;
       margin-bottom: 0;
     }
 
     .block-field-authors {
       @include edgeToEdge;
-      background-color: $brightBlue;
+      background-color: $royal;
       margin-bottom: 0;
       margin-top: 12rem; // Needs to be large to accommodate overlapping.
       padding: 0 $siteMarginMobile;
@@ -315,7 +314,7 @@
           }
         }
         span{
-          @include dottedLink($brightBlue);
+          @include dottedLink($royal);
           .views-block.block-related-stories &{
             @include dottedLink($white);
           }
@@ -341,7 +340,7 @@
       text-transform: uppercase;
       letter-spacing: .05em;
       margin-bottom: $spaceXxs;
-      color: $brightBlue;
+      color: $royal;
     }
     @include desk{
       padding-top: 22px;
@@ -349,10 +348,10 @@
   }//end story eyebrow lg
   .story-text{
     padding: 20px 20px 12px;
-    color: $brightBlue;
-    background: $lightGrey;
+    color: $royal;
+    background: $ice;
     @include carouselBreak{
-      background: $siteBack;
+      background: $ice;
       @include safeFlex(row,nowrap,start,start);
       padding: 20px 0 0;
     }
@@ -381,7 +380,7 @@
       margin-bottom: 0;
     }
     a{
-      @include blockArrow(brightBlue, sm);
+      @include blockArrow(royal, sm);
     }//end a
   }//end story title
   .field-intro-text{

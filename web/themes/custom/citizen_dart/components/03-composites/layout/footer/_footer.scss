@@ -8,20 +8,7 @@
 	background: $prefooterBack;
 	color: $prefooterText;
 	position: relative;
-	z-index: 1;
-	margin-top: calc(20px + 29vw);
-	&:after{
-		content: '';
-		display: block;
-		position: absolute;
-		bottom: calc(100% - 1px);
-		right: 0;
-		width: 100vw;
-		height: 29vw;
-		clip-path: polygon(100% 0%, 0% 100%, 100% 100%);
-		background: $prefooterBack;
-		z-index: -2;
-	}
+	z-index: 1;	
 	.back-anchor{
 		a{
 			@include safeFlex(column,nowrap,center,center);
@@ -44,7 +31,7 @@
 				fill: none;
 			}
 			&:active{
-				background: $lightGrey;
+				background: $ice;
 			}
 		}
 	}//end back anchor
@@ -77,47 +64,10 @@
 				width: 100%;
 				order: 99;
 			}
-			@include desk{
-				position: absolute;
-				top: -275px;
-				left: 100vw;
-				z-index: -2;
-			}
-      @media screen and (min-width: 1600px){
-        top: calc(180px - 29vw);
-      }
-      @media screen and (min-width: 1700px){
-        top: calc(180px - 28.5vw);
-      }
-      @media screen and (min-width: 1800px){
-        top: calc(180px - 27.5vw);
-      }
-      @media screen and (min-width: 1900px){
-        top: calc(180px - 26.5vw);
-      }
-      @media screen and (min-width: 2000px){
-        top: calc(180px - 25.75vw);
-      }
-      @media screen and (min-width: 2300px){
-        top: calc(180px - 25vw);
-      }
-      @media screen and (min-width: 2500px){
-        top: calc(180px - 24vw);
-      }
-      @media screen and (min-width: 2900px){
-        top: calc(180px - 22.5vw);
-      }
-      @media screen and (min-width: 3300px){
-        top: calc(180px - 21vw);
-      }
     }//end address block
 		.block-footer-for-menu{
 			@include auto;
-			@include desk{
-				margin: calc(80px - 27vw) $siteMarginMobile 0 auto;
-			}
       @include contentStop{
-        margin-top: -300px;
         margin-right: $siteMarginDesk;
       }
 		}
@@ -137,12 +87,6 @@
       @include rotate(0);
       html.animations-playing & {
         transition: opacity 0.5s ease-in, transform .5s ease-in-out;
-      }
-    }
-    .block-2{
-      @include desk{
-        left: 60px;
-        @include transition-animate(left, 0.75s, ease-in);
       }
     }
   }//end visible
@@ -201,9 +145,6 @@
 		//copy right
 		.block-1{
 			width: 100%;
-			// @include contentStopMargin{
-			// 	width: 360px;
-			// }
 		}
 	}//end footer-inner
 }//end footer

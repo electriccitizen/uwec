@@ -348,7 +348,7 @@
     font-size: 1.5rem;
   }
   .gsc-selected-option-container{
-    background: $lightGrey;
+    background: $ice;
     border: none;
   }
 	.gsc-tabsArea{
@@ -376,7 +376,6 @@
     font-weight: $xHeavy;
     font-size: 2.25rem;
     line-height: 1.33;
-    @include dottedLink($brightBlue);
     padding-bottom: 1px;
     &:hover,&:focus{
       color: $navy !important;
@@ -418,7 +417,7 @@
 		border-top: 1px solid var(--border);
 		padding-top: 4.5rem;
 		.gsc-cursor{
-			background: $lightGrey;
+			background: $ice;
 			padding: 14px 20px;
 			border-radius: 25px;
 			.gsc-cursor-page {
@@ -433,14 +432,14 @@
 				border: 0;
 				background-color: transparent;
 				&:hover,&:focus{
-					background: $warmGrey;
+					background: $coolGrey;
 				}
 				&.gsc-cursor-current-page{
 					color: $white;
 					background: $navy;
 					&:hover,&:focus{
 						color: $navy;
-						background: $warmGrey;
+						background: $coolGrey;
 					}
 				}
 			}//end cursor page

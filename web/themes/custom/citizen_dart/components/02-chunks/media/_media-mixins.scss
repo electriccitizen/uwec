@@ -10,7 +10,7 @@
 }
 
 @mixin imageHover{
-	border: 1px solid $lightGrey;
+	border: 1px solid $ice;
 	&:hover,&:focus{
 		border-color: $borderRule;
 		opacity: .7;
@@ -22,7 +22,7 @@
 	text-align: center;
 	font-size: 2rem;
 	font-style: italic;
-	color: $warmGrey;
+	color: $coolGrey;
 }
 
 @mixin responsiveVideo{

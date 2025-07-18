@@ -12,20 +12,8 @@
   @include desk {
     padding-bottom: 300px;
   }
-  &:before{
-    background: $brightBlue;
-    clip-path: polygon(100% 0%, 0% 100%, 100% 100%);
-    content: '';
-    display: block;
-    height: 29vw;
-    left: calc(100vw - 49%);
-    position: absolute;
-    top: -26vw;
-    width: 100vw;
-    z-index: -1;
-  }
   &:after{
-    @include fullBack($brightBlue);
+    @include fullBack($royal);
   }
   > * {
     position: relative;
@@ -53,7 +41,7 @@
         }
         &:after {
           @include auto;
-          background-color: $lightGrey;
+          background-color: $ice;
           left: 0;
           max-width: $wideContent;
           width: 100%;
@@ -119,22 +107,6 @@
       margin-top: 12rem;
       padding: 0;
       text-align: center;
-    }
-    &:before {
-      background: url(../images/logos-badges/uwec-stacked-white.svg);
-      content: '';
-      display: block;
-      height: 59px;
-      margin: $spaceSm auto;
-      width: 40px;
-      visibility: hidden;
-      @include desk {
-        margin: $spaceLg auto;
-      }
-    }
-    &.visible:before {
-      @include animation('flipRight .5s');
-      visibility: visible;
     }
   }
 
@@ -259,7 +231,7 @@
         max-width: 610px;
         padding: 0 $siteMarginMobile;
         @include desk {
-          border-bottom: 1px solid $warmGrey;
+          border-bottom: 1px solid $coolGrey;
           line-height: 2;
           padding: 0 90px $spaceXl 0;
           margin: 0 0 $spaceMd 0;

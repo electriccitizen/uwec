@@ -52,10 +52,6 @@ featherlight:
   js:
     components-addons/featherlight/featherlight.min.js: { minified: true }
     components-addons/featherlight/featherlight.gallery.min.js: { minified: true }
-fonts:
-  css:
-    theme:
-      https://fonts.googleapis.com/css?family=Open+Sans:ital,wght@0,400;;0,700;1,400: { type: external, preprocess: false }
 formatted-promo:
   js:
     components/03-composites/blocks/formatted-promo/formatted-promo.js: {}

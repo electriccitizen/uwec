@@ -273,7 +273,7 @@
 }
 
 @mixin contactContent{
-	color: $brightBlue;
+	color: $navy;
 	font-size: 1.75rem;
 	line-height: 1.42;
 	.field{
@@ -307,10 +307,9 @@
 			margin-top: 1px;
 		}
     a{
-      @include dottedLink($brightBlue);
       padding-bottom: 1px;
       &:hover,&:focus{
-        @include dottedLink($navy);
+        
       }
     }
 	}//end field email
@@ -320,10 +319,10 @@
 			margin-top: 2px;
 		}
     a{
-      @include dottedLink($brightBlue);
+
       padding-bottom: 1px;
       &:hover,&:focus{
-        @include dottedLink($navy);
+        
       }
     }
 	}//end field phone
@@ -349,14 +348,6 @@
   position: relative;
   min-height: calc(82vh - 88px);
   @include height100;
-  @include onlyMobile{
-    background: $brightBlue;
-    margin-bottom: 29vw;
-    &:before{
-      @include blueTriangle;
-      z-index: 0;
-    }
-  }
   @include desk{
     padding-bottom: 1px;
   }
@@ -443,16 +434,11 @@
   .page-header-text{
     position: relative;
     z-index: 1;
-    margin-bottom: 29vw;
     max-width: 690px;
     @include auto;
     @include desk{
       max-width: 100%;
       position: relative;
-      background: $brightBlue;
-      &:after{
-        @include blueTriangle;
-      }
     }
     .block-system-breadcrumb-block{
       @include onlyMobile{
@@ -497,15 +483,15 @@
       h1,h2,h3,h4,h5,h6,li,a{
         color: $white;
       }
-	  .field-banner{
-	    color:black;
-	    background: $gold;
-		display:inline-block;
-		padding:0 2rem;
-		font-size:90%;
-		margin-bottom:1rem;
+      .field-banner{
+        color:black;
+        background: $gold;
+        display:inline-block;
+        padding:0 2rem;
+        font-size:90%;
+        margin-bottom:1rem;
         clip-path: polygon(4px 50%, 0% 100%, 100% 100%, calc(100% - 4px) 50%, 100% 0%, 0% 0%);
-	  }
+      }
       .field.title{
         margin-bottom: 30px;
       }
@@ -523,7 +509,6 @@
         padding-right: 20px;
         a{
           font-weight: $heavy;
-          @include dottedLink($white);
           &:hover,&:focus{
             background-image: none;
             opacity: .7;
@@ -596,23 +581,18 @@
     max-width: 1096px;
     a{
       &:hover,&:focus{
-        color: $white;
-        @include dottedLink($white);
       }
     }
   }//end breadcrumb
   .field-college a{
     padding-bottom: 1px;
-    @include dottedLink($white);
     &:hover,&:focus{
-      color: $transWhite;
       background-image: none;
     }
   }
   .field-intro-text{
     a{
       font-weight: $heavy;
-      @include dottedLink($white);
       &:hover,&:focus{
         background-image: none;
         opacity: .7;
@@ -676,45 +656,21 @@
   z-index: 0;
   height: 140px;
   padding: 0 $siteMarginMobile;
-  background: $brightBlue;
+  background: $royal;
   @include desk{
     height: 180px;
-  }
-  &:after{
-    content: '';
-    display: block;
-    position: absolute;
-    top: calc(100% - 1px);
-    left: 0;
-    height: 29vw;
-    width: 100vw;
-    z-index: -1;
-    background: $brightBlue;
-    clip-path: polygon(0 0, 100% 0, 100% 100%);
   }
 }
 
 @mixin heroBlue{
   position: relative;
   &:before{
-    @include fullBack($brightBlue);
+    @include fullBack($royal);
     top: auto;
     bottom: 0;
     height: 1000px;
     z-index: -1;
   }//end before
-  &:after{
-    content: '';
-    display: block;
-    position: absolute;
-    top: calc(100% - 1px);
-    left: -$siteMarginMobile;
-    height: 29vw;
-    width: 100vw;
-    z-index: -1;
-    background: $brightBlue;
-    clip-path: polygon(0 0, 100% 0, 0 100%);
-  }
 }//end hero bright blue
 
 @mixin heroText {
@@ -753,7 +709,7 @@
     padding-top: 0;
   }
   @include desk {
-    background-color: $brightBlue;
+    background-color: $royal;
     .gin--vertical-toolbar:not(.responsive-preview-frame) &{
       width: calc(100vw - 66px);
     }
@@ -904,7 +860,7 @@
   margin-bottom: $elementSpace;
   @include safeFlex(column,nowrap,end,start);
   @media screen and (min-width: 2001px){
-    background: $brightBlue;
+    background: $royal;
   }
   .hero-background{
     position: absolute;
@@ -1047,14 +1003,10 @@
     padding-right: 20px;
     margin-bottom: 1rem;
     a{
-      color: $navy;
-      @include dottedLink($navy);
+
       &:hover,&:focus{
-        color: $royal;
+
         background-image: none;
-        .profile-search.directory &{
-          color: $brightBlue;
-        }
       }
     }
   }//end name

@@ -326,7 +326,7 @@
   height: 29vw;
   width: 100vw;
   z-index: -1;
-  background: c.$brightBlue;
+  background: c.$royal;
   clip-path: polygon(0 0, 100% 0, 0 100%);
 }
 
@@ -515,7 +515,7 @@
   $hover-border: c.$navy;
   $back: transparent;
   $hover-back: $arrow;
-  $dots: c.$brightBlue;
+  $dots: c.$royal;
 
   $dotted-padding: 2px;
 
@@ -524,13 +524,6 @@
     $hover-back: c.$white;
     $hover-border: c.$white;
     $dots: c.$white;
-  }
-  @if $theme == brightBlue {
-    $arrow: c.$brightBlue;
-    $arrow-string: blue;
-    $border: c.$brightBlue;
-    $hover-back: $arrow;
-    $hover-border: $arrow;
   }
   @if $theme == royal {
     $arrow: c.$royal;
@@ -724,7 +717,7 @@
 }//end facts grid
 
 @mixin exposedForm{
-	background: c.$lightGrey;
+	background: c.$royal;
 	max-width: 894px;
 	margin: 0 auto 60px;
   padding: 36px 20px 40px;
@@ -844,7 +837,7 @@
     .profile-stacked-icons{
       margin-bottom: u.$spaceSm;
       .profile-stacked-icon{
-        color: c.$oldGoldDark;
+        color: c.$gold;
         font-size: 1.5rem;
         line-height: 2;
         @include safeFlex(row,nowrap,start,center);
@@ -855,7 +848,7 @@
           margin-right: u.$spaceXxs;
           svg path {
             fill: none;
-            stroke: c.$oldGold;
+            stroke: c.$gold;
           }
         }//end icon wrapper
       }//end profile stacked icon
