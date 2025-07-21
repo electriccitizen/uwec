@@ -63,7 +63,7 @@ h2.section-title{
 	max-width: $textMax + 40px;
 }
 .widget-title,.field-widget-title{
-	@include widgetTitleStandard;
+	@include blockTitle;
 }
 
 /* TEXT STYLES
@@ -71,7 +71,7 @@ h2.section-title{
 html,code{
 	font-family: $bodyText;
 	font-size: $em-base;
-	line-height: 1.875;
+	line-height: 1.625;
 	-webkit-font-smoothing: subpixel-antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	font-kerning: normal;
@@ -145,11 +145,11 @@ blockquote{
   background: $ice;
 	text-align: center;
 	&:before{
-		content: '';
+		content: '“';
 		display: block;
 		position: absolute;
 		top: 3rem;
-		left: calc(50% - 10px);
+		left: calc(50% - 20px);
 		@include quoteMark;
 	}
 }

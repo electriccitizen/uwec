@@ -16,18 +16,7 @@
 	  line-height: 1.5;
   }
 	.quote-mark{
-		display: block;
-		width: 16px;
-		height: 14px;
-		margin: -16px auto 36px;
-    @include tab{
-      width: 20px;
-      height: 19px;
-      margin-bottom: 42px;
-    }
-		svg,.cls-1{
-			fill: $gold;
-		}
+		@include quoteMark;
 	}//quote mark
 }//end quote
 
