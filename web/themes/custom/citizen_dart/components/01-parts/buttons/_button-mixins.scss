@@ -70,6 +70,20 @@
 	}
 }//end button mixin
 
+@mixin buttonAlt{
+	@include button;
+	&:hover,&:focus {
+		color: $buttonTextHover;
+		background-color: $buttonBackHover;
+		border-color: $buttonBackHover;
+	}
+	&:active{
+		color: $buttonTextActive;
+		background-color: $buttonBackActive;
+		border-color: $buttonBackActive;
+	}
+}//end button mixin
+
 ///mixin - outlineButton
 @mixin outlineButton($outlineColor){
 	@include button;
