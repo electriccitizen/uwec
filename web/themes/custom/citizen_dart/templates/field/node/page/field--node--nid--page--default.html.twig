@@ -95,7 +95,11 @@
 
         {# render links if this is a video hero #}
         {% if hero_type == 'video' %}
-          {{ element['#object'].field_hero.0.entity.field_video_description.0.value|raw }}
+          {% if element['#object'].field_hero.0.entity.field_video_description.0 %}
+            <div class="video-text">
+              {{ element['#object'].field_hero.0.entity.field_video_description.0.value|raw }}
+            </div>
+          {% endif %}
           {% if element['#object'].field_hero.0.entity.field_links.0 %}
             <div class="field field-links">
               {% for link in element['#object'].field_hero.0.entity.field_links %}
