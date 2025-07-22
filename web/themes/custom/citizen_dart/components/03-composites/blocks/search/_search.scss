@@ -2,6 +2,7 @@
 	 SEARCH
 =================== */
 @use '../../../00-base/base' as *;
+@use '../../../01-parts/buttons/button-mixins' as *;
 @use 'sass:color';
 
 ///mixin placholder
@@ -66,12 +67,12 @@
 		z-index: 9;
 		width: 100%;
 		height: 0;
-		background: $navy;
+		background: $royal;
 		transition:height .2s ease,visibility .2s ease,opacity .2s ease;
 		visibility:hidden;
 		opacity:0;
 		&.expanded{
-			height:30rem;
+			height:33rem;
 			opacity:1;
 			visibility:visible;
 		}
@@ -79,14 +80,15 @@
 			content: '';
 			display: block;
 			top: 0;
-			left: 2rem;
+			left: 4rem;
 			position: absolute;
-			width: 405px;
-			height: 405px;
-			background-image: url(../images/logos-badges/uwec-seal-white.svg);
-			background-position: center -203px;
+			width: 313px;
+			height: 313px;
+      opacity: .3;
+			background-image: url(../images/logos-badges/seal.svg);
+			background-position: center -108px;
 			background-repeat: no-repeat;
-			background-size: 405px 405px;
+			background-size: 313px 313px;
 			z-index: -1;
 		}
 		.logged-in &{
@@ -101,7 +103,7 @@
 			padding: 0 20px;
 			@include safeFlex(column,nowrap,center,center);
 			.gsc-control-searchbox-only{
-				width: 820px;
+				width: 674px;
 				max-width: 100%;
 				//clear search box
 				.gsst_a .gscb_a {
@@ -150,12 +152,18 @@
 			}
 		}
 		& > label{
-			@include heading3;
+			font-weight: $heavy;
+      line-height: 1.5;
 			margin-bottom: $spaceXxs;
 			color: $navy;
 			margin-left: 2rem;
 			header &{
 				color: $white;
+        @include menuStop {
+          font-size: 2rem;
+          margin-left: 0;
+          margin-bottom: 1.5rem;
+        }
 			}
 			.layout__region--content &{
 				font-family: $displayHeader;
@@ -179,8 +187,9 @@
 				}
 				header &{
 					@include menuStop{
-						padding: 4px 20px 5px;
-						margin-right: 12px;
+						padding: 6px 0 7px;
+						margin-right: 15px;
+            border-radius: 4px;
 					}
 				}
 				input.gsc-input{
@@ -253,16 +262,10 @@
 					border: 1px solid $white;
 					color: $white;
           @include menuStop{
-            font-size: 14px;
-            line-height: 1.2;
-            font-family: $header;
-            font-weight: $xHeavy;
+            @include submitButton;
+            margin-bottom: 0;
             background-image: none;
           }
-					&:hover,&:focus{
-						background-color: $white;
-						color: $navy;
-					}
 				}
 				svg{
 					display: none;
