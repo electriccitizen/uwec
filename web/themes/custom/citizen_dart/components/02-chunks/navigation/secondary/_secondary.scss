@@ -79,16 +79,16 @@
 //mobile secondary menu
 ul.sf-menu.sf-accordion{
 	.mobile-secondary-container{
-		padding: 8rem 0;
+		padding: 3rem 0;
 		ul.mobile-secondary{
 			position: static;
 			width: 100%;
 			li{
 				a{
 					color: $sfMobileChild;
-					padding: 1rem 4rem; 
+          font-weight: $heavy;
+					padding: .5rem 4.5rem; 
 					text-transform: uppercase;
-					letter-spacing: 1px;
 					font-size: 1.75rem;
 					&.is-active{
 						color: $sfMobileChildActive;

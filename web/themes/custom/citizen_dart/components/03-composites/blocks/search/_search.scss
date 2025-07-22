@@ -153,7 +153,7 @@
 			@include heading3;
 			margin-bottom: $spaceXxs;
 			color: $navy;
-			margin-left: 3rem;
+			margin-left: 2rem;
 			header &{
 				color: $white;
 			}
@@ -170,7 +170,7 @@
 		td.gsc-input{
 			padding-right: 0;
 			.gsc-input-box{
-				padding: 11px 50px 11px 20px;
+				padding: 10px 50px 10px 8px;
 				border-radius: 25px;
 				border: 0;
 				background: $ice;
@@ -245,7 +245,7 @@
 					background-color: $navy;
 					color: $white;
           .layout__region--content &{
-			background-color: color.adjust($ice, $lightness: 1%);
+			      background-color: color.adjust($ice, $lightness: 1%);
             background-image: url('../images/elements/search-blue.svg');
           }
 				}
@@ -298,17 +298,24 @@
 }//end autocomplete suggestions table
 
 .search-box-wrapper.mobile-search {
-	padding: 40px 2.5rem 0;
-	margin-bottom: 6rem;
+	padding: 0 2.5rem;
+	margin-bottom: 5rem;
 	.gsc-search-box {
 		label {
 			display: block;
+      font-family: $header;
+      font-weight: $xHeavy;
+      font-size: 2rem;
+      line-height: 1.5;
 			margin-bottom: $spaceXxs;
 		}
 		.gsc-input-box {
 			.gsst_a {
 				padding: 0;
 			}
+      .gsc-input {
+        font-size: 1.75rem;
+      }
 		}
 		.gsc-search-button .gsc-search-button-v2 {
 			border: unset !important;
