@@ -13,29 +13,20 @@ h1 {
 h2{
 	@include heading2;
 	.text-long &,.text-with-summary &{
-		margin-bottom: $spaceXs;
+		margin-bottom: $spaceMs;
 	}
 }
 
 h3{
 	@include heading3;
-	.text-long &,.text-with-summary &{
-		margin-bottom: $spaceXs;
-	}
 }
 
 h4{
 	@include heading4;
-	.text-long &,.text-with-summary &{
-		margin-bottom: $spaceXs;
-	}
 }
 
 h5{
 	@include heading5;
-	.text-long &,.text-with-summary &{
-		margin-bottom: $spaceXs;
-	}
 }
 
 h6{
