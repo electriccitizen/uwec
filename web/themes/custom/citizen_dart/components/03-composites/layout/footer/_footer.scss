@@ -109,7 +109,7 @@
     top: 0;
     width: 100%;
   }
-	.dialog-off-canvas-main-canvas &{
+	.dialog-off-canvas-main-canvas & {
 		transform-style: unset;
 		*{
 			transform-style: unset;
@@ -122,19 +122,14 @@
 	.footer-inner{
 		padding: 0 $siteMarginMobile 115px;
 		@include auto;
+    max-width: $contentStopMargin;
 		position: relative;
     @include smallTab{
-			padding-top: 20px;
+			padding-top: 75px;
 		}
 		@include tab{
-			padding-bottom: 100px;
+			padding-bottom: 45px;
 		}
-    @media screen and (min-width: 1024px){
-      padding-bottom: 20px;
-      .logged-in &{
-        padding-bottom: 80px;
-      }
-    }
 		> div{
 			@include bleed(padding,20px);
 			@include tab{

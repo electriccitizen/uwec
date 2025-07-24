@@ -24,23 +24,32 @@
 
 // FOOTER ADDRESS
 .block-2{
-	color: $gold;
-	p{
+  background: url('../images/logos-badges/logo-white.svg') 10px top / 205px 69px no-repeat scroll;
+  padding-top: 83px;
+	color: $footerText;
+	p {
 		margin-bottom: $spaceXxs;
-		font-size: 14px;
-		line-height: 22px;
-		&:first-child{
-			font-family: $header;
+    font-family: $displayHeader;
+		line-height: 28px;
+		&:first-child {
+			font-family: $displayHeader;
 			font-weight: $xHeavy;
 		}
 	}
+  a {
+    color: $footerText;
+    font-family: $bodyText;
+    font-size: 15px;
+    @include lineLink;
+  }
 }//end block 2
 
 // SOCIAL MEDIA
 .block-3{
   .field-platforms{
+    margin-top: $spaceSm;
     .platform-links{
-      justify-content: center;
+      justify-content: flex-start;
       li{
         a{
           *{
