@@ -106,11 +106,7 @@
 		{% if page.prefooter %}
       <section class="postcontent" role="complementary">
         <div class="postcontent-inner">
-          <h2>Start your Blugold Journey</h2>
-          <div class="postcontent-buttons">
-            <a href="{{ path('entity.node.canonical', {'node': '8068'}) }}">Visit</a>
-            <a href="{{ path('entity.node.canonical', {'node': '7696'}) }}">Apply</a>
-          </div>
+          {{ page.prefooter }}
         </div>
       </section>
 			<section class="prefooter-wrapper" role="complementary">
@@ -120,11 +116,6 @@
 							<svg width="41" height="49" viewBox="0 0 41 49" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20.2866 48.9609L20.2866 1.60872" stroke="#232C99" stroke-width="2" stroke-miterlimit="10"/><path d="M39.4922 20.8145L20.2866 1.60889L1.09219 20.8145" stroke="#232C99" stroke-width="2" stroke-miterlimit="10"/></svg>
 						</a>
 					</div>
-					<div class="prefooter-inner">
-						{% block prefooterContent %}
-							{{ page.prefooter }}
-						{% endblock %}
-					</div>
 				</div>
 			</section>
 		{% endif %}
@@ -133,12 +124,24 @@
 	{% block pageFooter %}
 		{% if page.footer %}
 			<footer role="contentinfo" class="site-footer">
-			<div class="footer-inner">
-				{% block footerContent %}
-					{{ page.footer }}
-				{% endblock %}
-			</div>
-		</footer>
+        <div class="footer-inner">
+          {% block footerContent %}
+            {{ page.footer }}
+          {% endblock %}
+        </div>
+		  </footer>
+		{% endif %}
+	{% endblock %}
+
+  {% block postFooter %}
+		{% if page.postfooter %}
+			<section class="postfooter">
+        <div class="postfooter-inner">
+          {% block postFooterContent %}
+            {{ page.postfooter }}
+          {% endblock %}
+        </div>
+		  </footer>
 		{% endif %}
 	{% endblock %}
 </div>
