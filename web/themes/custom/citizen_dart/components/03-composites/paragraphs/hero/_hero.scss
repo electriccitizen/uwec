@@ -8,21 +8,25 @@
   .video-button {
     display:block;
     position:absolute;
-    top:500px;
+    bottom: 100px;
     right:64px;
     transform:rotate(90deg);
     transform-origin:right;
     z-index:10;
     width:5rem;
     color:white;
+    @include contentStop {
+      bottom: 150px;
+    }
     &:hover,
     &:focus {
-      opacity:0.7;
+      &:before{
+        background:url("../images/elements/pause-white-hover.svg");
+      }
+      span {
+        text-decoration: underline;
+      }
     }
-    &:hover{
-      text-decoration:underline;
-    }
-
     &::before{
       content:"";
       display:block;
@@ -36,7 +40,14 @@
     }
   }
 
-  &.paused .video-button::before{
-    background:url("../images/elements/play-white.svg");
+  &.paused .video-button{
+    &:before{
+      background:url("../images/elements/play-white.svg");
+    }
+    &:hover,&:focus {
+      &:before {
+        background:url("../images/elements/play-white-hover.svg");
+      }
+    }
   }
 }

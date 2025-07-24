@@ -343,28 +343,43 @@
 	}
 }
 
-@mixin heroRightImage{
+@mixin headerInvasion {
+  margin-top: -104px;
+  padding-top: 104px;
   @include edgeToEdge;
+  @include desk {
+    margin-top: -116px;
+    padding-top: 116px;
+  }
+  @include menuStop {
+    margin-top: -152px;
+    padding-top: 152px;
+  }
+}
+
+@mixin heroRightImage{
   position: relative;
-  min-height: calc(82vh - 88px);
-  @include height100;
-  background: $royalGradient;
+  margin-bottom: $elementSpace;
+  padding-bottom: $elementSpace;
   @include desk{
     padding-bottom: 1px;
+    min-height: 61vw;
+    margin-bottom: 160px;
+  }
+  @include contentStop {
+    margin-bottom: 180px;
+    min-height: 916px;
   }
   &.vertical-window{
     @include desk{
-      min-height: 828px;
       .image-right{
         img{
-          min-height: 0;
-          height: calc(100vh - 82px);
+          height: 100vh;
           max-height: 828px;
         }
       }
     }
     @include contentStopMargin{
-      height: calc(100vh - 100px);
       .image-right{
         img{
           height: calc(100vh - 100px);
@@ -372,7 +387,6 @@
       }
     }
     @include contentStop{
-      height: calc(100vh - 100px);
       .image-right{
         img{
           height: calc(100vh - 110px);
@@ -383,11 +397,12 @@
   .image-right{
     max-width: 520px;
     @include auto;
+    padding-left: 36px;
     position: relative;
     z-index: 1;
     @include desk{
       position: absolute;
-      top: 6px;
+      top: 165px;
       right: 0;
       width: 50%;
       z-index: 2;
@@ -395,7 +410,6 @@
       margin: 0;
       img{
         object-fit: cover;
-        @include height100;
       }
     }//end desk
     @include contentStop{
@@ -405,32 +419,32 @@
         min-height: 0;
       }
     }
-    &:after{
-      @include goldSwirl;
-      width: 189px;
-      height: 351px;
-      bottom: -66px;
-      z-index: -1;
-      @include desk{
-        bottom: -125px;
+    @keyframes imageRightSquig{
+      0%{
+        right: -100vw;
       }
-      @include contentStop{
-        bottom: -146px;
+      100%{
+        right: calc(100% - 96px);
       }
-      .hero-image &,
-      .node-type-college.hero-has-image &,
-      .node-type-academic-program & {
-        @include swirlAnimationRightImage;
-      }
-    }//end after swirl
-  }//end image right
+    }
 
-  .swirl-pattern{
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 2;
-  }
+    // thick gold squiggles in the top right corner, over video hero
+    &:after{
+      content:"";
+      display:block;
+      position:absolute;
+      width:87px;
+      height: 316px;
+      bottom: -38px;
+      right: -100vw;
+      z-index: -1;
+      background-image: url(../images/elements/gold-wave-fat.svg);
+      background-repeat: no-repeat;
+      background-size: contain;
+      animation:.5s ease .4s 1 imageRightSquig;
+      animation-fill-mode: forwards;
+    }
+  }//end image right
 
   .page-header-text{
     position: relative;
@@ -447,22 +461,24 @@
       }
       .breadcrumb{
         max-width: 1096px;
-        padding-top: 62px;
+        padding: 62px 20px 0;
         margin-bottom: 40px;
+        @include desk{
+          .breadcrumb-list {
+            max-width: calc(50% - 80px);
+            body:not(.hero-has-image) &{
+              max-width: 100%;
+            }
+          }
+        }
         @include menuStop{
           margin-bottom: 80px;
-        }
-        a{
-          &:hover,&:focus{
-            color: $white;
-            @include dottedLink($white);
-          }
         }
       }//end breadcrumb
     }//end breadcrumb block
     .page-header-text-inner{
       color: $white;
-      padding: 58px 20px 0;
+      padding: 60px 2.5rem 0;
       max-width: 1092px;
       @include auto;
       body:not(.hero-has-image) &{
@@ -484,40 +500,29 @@
       h1,h2,h3,h4,h5,h6,li,a{
         color: $white;
       }
-      .field-banner{
-        color:black;
-        background: $gold;
-        display:inline-block;
-        padding:0 2rem;
-        font-size:90%;
-        margin-bottom:1rem;
-        clip-path: polygon(4px 50%, 0% 100%, 100% 100%, calc(100% - 4px) 50%, 100% 0%, 0% 0%);
-      }
-      .field.title{
+      .field.title,.node-title{
         margin-bottom: 30px;
-      }
-      .field-subtitle{
-        margin-bottom: 20px;
-        padding-left: 20px;
-        padding-right: 20px;
-        @include desk{
-          padding-left: 0;
-          padding-right: 0;
+        h1 {
+          color: $gold;
         }
       }
-      .field-intro{
-        padding-left: 20px;
-        padding-right: 20px;
+      .field-subtitle,.node-subtitle,.node-body,.field-intro{
+        margin-bottom: 40px;
         a{
           font-weight: $heavy;
+          text-decoration: underline;
           &:hover,&:focus{
-            background-image: none;
+            text-decoration: none;
             opacity: .7;
           }
         }
+      }
+      .field-links {
+        max-width: 1092px;
         @include desk{
-          padding-left: 0;
-          padding-right: 0;
+          align-items: flex-start;
+          padding-left: 20px;
+          margin-top: 20px;
         }
       }
     }//end page header text inner
@@ -634,21 +639,6 @@
   }
 }
 
-@mixin heroHeaderInvade{
-  @include smallTab{
-    margin-top: -104px;
-    padding-top: 104px;
-  }
-  @include desk{
-    margin-top: -116px;
-    padding-top: 116px;
-  }
-  @include menuStop{
-    margin-top: -152px;
-    padding-top: 152px;
-  }
-}
-
 @mixin heroSimpleBackground{
   position: absolute;
   top: 0;
@@ -699,158 +689,7 @@
 	}
 }//end page header text
 
-@mixin heroCornerSlice {
-  margin-left: -$siteMarginMobile;
-  margin-top: -88px;
-  position: relative;
-  width: 100vw;
-  z-index: 0;
-  @include heroHeaderInvade;
-  @include smallTab{
-    padding-top: 0;
-  }
-  @include desk {
-    background-color: $royal;
-    .gin--vertical-toolbar:not(.responsive-preview-frame) &{
-      width: calc(100vw - 66px);
-    }
-  }
-  .layout {
-    position: relative;
-    @include desk {
-      height: 100vh;
-      @include auto;
-      max-width: $ultraWidescreen;
-      max-height: 1000px;
-    }
-    &:after { // Right gold stripes.
-      content: '';
-      display: block;
-      position: absolute;
-      background: url(../images/elements/fat-stripes-gold.svg) left top / cover no-repeat transparent;
-      bottom: -80px;
-      height: 155px;
-      width: 87px;
-      z-index: 2;
-      margin-right: 40px;
-      @include swirlAnimationFullImage;
-      @include desk {
-        bottom: 0;
-        height: 260px;
-        width: 147px;
-        top: 136px;
-        margin-right: 0;
-      }
-      @include contentStop{
-        height: 346px;
-        width: 195px;
-      }
-    }
-  }
-  .block-field-image {
-    margin-bottom: 0;
-    overflow: hidden;
-    width: 100%;
-    height: 100%;
-    @include desk {
-      left: 0;
-      position: absolute;
-      top: 0;
-      z-index: -1;
-    }
-    &:before { // Top gradient.
-      html.animations-paused & {
-        opacity: 1;
-      }
-      html.animations-playing & {
-        @include animation('fadeIn 1.25s 1');
-      }
-      @include fullBack(transparent); // BG will be replaced by gradient.
-      @include gradient('top', #{$navy}ff, 0, #d9d9d900);
-      height: 110px;
-      z-index: 1;
-      @include desk {
-        height: 249px;
-      }
-    }
-    &:after { // Bottom gradient, only exists on desktop.
-      @include desk {
-        html.animations-paused & {
-          opacity: 1;
-        }
-        html.animations-playing & {
-          @include animation('fadeIn 1.25s 1');
-        }
-        @include fullBack(transparent); // BG will be replaced by gradient.
-        @include gradient('bottom', #{$navy}ff, 0, #d9d9d900);
-        bottom: 0;
-        height: 50%;
-        top: auto;
-        z-index: 1;
-      }
-    }
-    * {
-      height: 100%;
-    }
-    .field-label{
-      display: none;
-    }
-    img {
-      object-fit: cover;
-      object-position: top center;
-    }
-  }//end main section 1 image
-  .block-field.block-title {
-    @include auto;
-    margin-bottom: 0;
-    max-width: 1092px;
-    opacity: 0; // Hide on mobile but still be screen-reader accessible.
-    @include desk {
-      @include safeFlex(row, no-wrap, start, end);
-      max-height: 1000px;
-      height: 100vh;
-      padding-bottom: 138px;
-      opacity: 1;
-    }
-    h1 {
-      color: $white;
-      font-size: 1px;
-      max-width: $textMax;
-      text-align: left;
-      @include desk {
-        font-size: $h1Mid;
-        padding-left: $siteMarginMobile;
-      }
-      @include contentStop {
-        font-size: $h1Lg;
-        padding-left: 0;
-      }
-    }
-  }//end title
-  &:after { // Right bottom corner triangles.
-    background: $navy;
-    clip-path: polygon(0 0, 100% 0, 100% 100%);
-    content: '';
-    display: block;
-    height: 29vw;
-    left: calc(100vw - 45%);
-    position: absolute;
-    top: calc(100% - 2px);
-    width: 100vw;
-    z-index: 1;
-    @include desk {
-      background: $white;
-      bottom: -1px;
-      clip-path: polygon(0 100%, 100% 0, 100% 100%);
-      left: calc(100vw - 25%);
-      top: auto;
-      z-index: 3;
-    }
-  }
-}
-
 @mixin heroFullWidthImage {
-  @include heroHeaderInvade;
   padding-top: 40px;
   @include edgeToEdge;
   padding-left: $siteMarginMobile;
