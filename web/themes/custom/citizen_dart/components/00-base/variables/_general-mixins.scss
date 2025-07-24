@@ -185,15 +185,6 @@
 	}
 }
 
-@mixin height100{
-  @include u.desk{
-    min-height: calc(100vh - 100px);
-  }
-  @include u.menuStop{
-    min-height: calc(100vh - 110px);
-  }
-}//end height 100
-
 /*  STYLE MIXINS
 ------------------- */
 

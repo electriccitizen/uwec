@@ -8,28 +8,6 @@
 
 /* PAGE CONTENT */
 .node-page{
-  //nug up to footer at larger screen sizes
-  @include contentStop{
-    margin-bottom: -5vw;
-  }
-  @media screen and (min-width: 1600px){
-    margin-bottom: -5.5vw;
-  }
-  @media screen and (min-width: 1800px){
-    margin-bottom: -6vw;
-  }
-  @media screen and (min-width: 2000px){
-    margin-bottom: -6.5vw;
-  }
-  @media screen and (min-width: 2300px){
-    margin-bottom: -7vw;
-  }
-  @media screen and (min-width: 2500px){
-    margin-bottom: -8vw;
-  }
-  @media screen and (min-width: 2900px){
-    margin-bottom: -9vw;
-  }
   //remove contextual stuff
   &.contextual-region{
     position: static;
@@ -226,136 +204,25 @@
 
     /* BACKGROUND PATTERNED HERO WITH IMAGE RIGHT HALF */
     &.page-hero-background-image {
+      @include headerInvasion;
       @include heroRightImage;
-      overflow: hidden;
-      padding-bottom: 29vw;
-      background-size: 1273px 958px !important;
-      background-position: left -250px bottom -70px !important;
-      @include heroHeaderInvade;
+      background: radial-gradient(50.13% 157.8% at 6.18% 33.85%, #0F2C46 0%, #232C99 100%);
       &.vertical-window{
         @include desk{
           min-height: 1030px;
         }
       }
-      .hero-image{
-        .image-right{
-          @include desk{
-            top: 100px;
-            html.animations-paused & {
-              opacity: 1;
-            }
-            @include animation('fadeIn 1.25s 1');
-          }
-          @include menuStop{
-            top: 120px;
-          }
-          &:before{
-            html.animations-paused & {
-              opacity: 1;
-              right: 0;
-            }
-            content: '';
-            position: absolute;
-            bottom: -195px;
-            z-index: 0;
-            width: 72px;
-            height: 128px;
-            background-image: url(../images/elements/fat-stripes-blue.svg);
-            background-repeat: no-repeat;
-            background-size: 100%;
-            @keyframes heroSwirlSlideImage {
-              from {
-                right: -200vw;
-              }
-              to {
-                right: 0;
-              }
-            }
-            @include animation('heroSwirlSlideImage 1.5s forwards');
-            @include smallTab{
-              bottom: -68px;
-            }
-            @include desk{
-              bottom: -20px;
-              z-index: -1;
-              width: 150px;
-              height: 242px;
-              background-position: bottom left;
-              right: auto;
-              html.animations-paused & {
-                left: -30px;
-              }
-              @keyframes heroSwirlSlideImage {
-                from {
-                  left: 200vw;
-                }
-                to {
-                  left: -30px;
-                }
-              }
-              @include animation('heroSwirlSlideImage 1.5s forwards');
-            }//end desk
-            @include contentStop{
-              width: 222px;
-              height: 344px;
-              bottom: -35px;
-            }//end content stop
-          }//end image before
-          &:after{
-            content: none;
-          }
-        }//end image right
-      }//end hero image
-      .page-header-text{
-        margin-bottom: 0;
-        @include desk{
-          background: none;
-          .hide-nav &{
-            padding-top: 80px;
-          }
-          &:after{
-            content: none;
-          }
-        }
-        .breadcrumb{
-          padding-left: 20px;
-          padding-right: 20px;
-          @include desk{
-            .breadcrumb-list{
-              max-width: calc(50% - 80px);
-              body:not(.hero-has-image) &{
-                max-width: 100%;
-              }
-            }
-          }
-        }
-        .page-header-text-inner{
-          .node-title{
-            margin-bottom: $spaceMd;
-          }
-          .node-subtitle,.node-body{
-            @include onlyMobile{
-              padding-left: 20px;
-              padding-right: 20px;
-            }
-            a{
-              font-weight: $heavy;
-              @include dottedLink($white);
-              &:hover,&:focus{
-                background-image: none;
-                opacity: .7;
-              }
-            }
-          }//end subtitle/body
-        }//end page header text inner
-      }//end page header text
-      .field-links{
-        padding-left: 40px;
-        max-width: 1092px;
-        @include desk{
-          align-items: flex-start;
-          padding-left: 20px;
-          margin-top: 20px;
+      .river-background {
+        position: absolute;
+        top: 0;
+        left: -120px;
+        width: calc(100vw + 120px);
+        height: 100%;
+        overflow: hidden;
+        mix-blend-mode: overlay;
+        img {
+          mix-blend-mode: overlay;
+          width: 1521px;
         }
       }
     }//end background hero
@@ -380,14 +247,11 @@
 
     /* VIDEO HERO */
     &.page-hero-video{
-      @include heroHeaderInvade;
-      @include edgeToEdge;
+      @include headerInvasion;
       padding-left: 40px;
       padding-right: 40px;
-      padding-top: 104px;
       color: $white;
       min-height: 100vh;
-      margin-top: -104px;
       background-size: 1440px 1024px !important;
       background-position: left 40% bottom -70px !important;
       position:relative;
