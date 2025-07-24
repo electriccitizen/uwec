@@ -12,6 +12,7 @@
 	--col-accent1: #{$gold};
 	--col-accent2: #{$navy};
 	--col-accent3: lemonchiffon;
+  --col-accent4: #{$bay};
 }
 .themeset-example{
 	--col-primary: #{$gold};
@@ -71,7 +72,7 @@ $prefooterBack             : var(--col-accent2);
 $prefooterText             : $white;
 $prefooterLink             : $white;
 $prefooterLinkHover        : $white;
-$footerBack                : var(--col-accent2);
+$footerBack                : var(--col-accent4);
 $footerText                : $white;
 $footerLink                : $white;
 $footerLinkHover           : $gold;

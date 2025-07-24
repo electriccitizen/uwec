@@ -122,25 +122,24 @@
 	{% endblock %}
 
 	{% block pageFooter %}
-		{% if page.footer %}
+		{% if page.footer or page.postFooter %}
 			<footer role="contentinfo" class="site-footer">
+        {% if page.footer %}
         <div class="footer-inner">
           {% block footerContent %}
             {{ page.footer }}
           {% endblock %}
         </div>
-		  </footer>
-		{% endif %}
-	{% endblock %}
-
-  {% block postFooter %}
-		{% if page.postfooter %}
-			<section class="postfooter">
-        <div class="postfooter-inner">
-          {% block postFooterContent %}
-            {{ page.postfooter }}
-          {% endblock %}
-        </div>
+        {% endif %}
+        {% if page.postfooter %}
+          <section class="postfooter">
+            <div class="postfooter-inner">
+              {% block postFooterContent %}
+                {{ page.postfooter }}
+              {% endblock %}
+            </div>
+          </footer>
+        {% endif %}
 		  </footer>
 		{% endif %}
 	{% endblock %}

@@ -8,7 +8,7 @@
 	background: $prefooterBack;
 	color: $prefooterText;
 	position: relative;
-	z-index: 1;	
+	z-index: 1;
 	.back-anchor{
 		a{
 			@include safeFlex(column,nowrap,center,center);
@@ -94,8 +94,21 @@
 
 
 .site-footer{
-	background: $footerBack;
+	background-color: $footerBack;
 	color: $footerText;
+  overflow: hidden;
+  position: relative;
+  &:before {
+    background: url('../images/elements/wavy-lines-white.png') -167.691px -117.284px / 177.306% 233.177% no-repeat transparent;
+    background-blend-mode: overlay;
+    content: '';
+    height: 100%;
+    left: 0;
+    opacity: .05;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
 	.dialog-off-canvas-main-canvas &{
 		transform-style: unset;
 		*{
@@ -122,19 +135,22 @@
         padding-bottom: 80px;
       }
     }
-		& > div{
-			@include safeFlex(row,wrap,center,end);
+		> div{
 			@include bleed(padding,20px);
 			@include tab{
 				align-items: flex-end;
+        columns: 2;
 			}
 		}
     //social
+    .block-2,
     .block-3{
-      margin-bottom: $spaceSm;
       @include smallTab{
         margin-bottom: $spaceXxs;
       }
+    }
+    .block-footer-for-menu {
+      break-before: column;
     }
 		.footer-ancillary{
 			margin-bottom: $spaceMd;

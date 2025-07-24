@@ -278,6 +278,9 @@
 	}@else if $grad-direction == 'right'{
 		background: linear-gradient(to left, $grad-start $gradStartPercent,$grad-stop 100%); /* W3C */
 	}
+  @else {
+    background: linear-gradient($grad-direction, $grad-start $gradStartPercent, $grad-stop 100%);
+  }
 }
 
 @mixin fullImageOverlay{
