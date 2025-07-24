@@ -8,28 +8,6 @@
 
 /* PAGE CONTENT */
 .node-page{
-  //nug up to footer at larger screen sizes
-  @include contentStop{
-    margin-bottom: -5vw;
-  }
-  @media screen and (min-width: 1600px){
-    margin-bottom: -5.5vw;
-  }
-  @media screen and (min-width: 1800px){
-    margin-bottom: -6vw;
-  }
-  @media screen and (min-width: 2000px){
-    margin-bottom: -6.5vw;
-  }
-  @media screen and (min-width: 2300px){
-    margin-bottom: -7vw;
-  }
-  @media screen and (min-width: 2500px){
-    margin-bottom: -8vw;
-  }
-  @media screen and (min-width: 2900px){
-    margin-bottom: -9vw;
-  }
   //remove contextual stuff
   &.contextual-region{
     position: static;
