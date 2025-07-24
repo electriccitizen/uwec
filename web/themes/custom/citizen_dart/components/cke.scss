@@ -80,14 +80,14 @@
       &:before {
         content: '•';
         display: inline-block;
-        font-size: 12px;
+        font-size: 20px;
         width: .75rem
       }
       ol,ul {
         margin: $spaceXxs 0 0 $spaceXs;
       }
     }//end li
-    .ck-list-bogus-paragraph { 
+    .ck-list-bogus-paragraph {
       display: inline;
     }
 	}//end ul
@@ -119,7 +119,7 @@
         margin: $spaceXxs 0 0 $spaceXs;
       }
 		}// end > li
-    .ck-list-bogus-paragraph { 
+    .ck-list-bogus-paragraph {
       display: inline;
     }
 	}//end ol

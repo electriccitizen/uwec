@@ -46,31 +46,31 @@ $h1Mid: 8rem;
 $h1Lg: 10.625rem;
 
 //h2 sizes
-$h2: 3.375rem;
+$h2: 3.5rem;
 $h2Lg: 3.75rem;
 
 //h3 sizes
-$h3: 2.75rem;
-$h3Lg: 3.125rem;
+$h3: 3.25rem;
+$h3Lg: 3.5rem;
 
 //h4 sizes
-$h4: 1.625rem;
-$h4Lg: 2rem;
+$h4: 2.75rem;
+$h4Lg: 3rem;
 
 //h5 sizes
-$h5: 1.625rem;
-$h5Lg: 1.875rem;
+$h5: 2.25rem;
+$h5Lg: 2.5rem;
 
 //h6 sizes
-$h6: 1.375rem;
-$h6Lg: 1.75rem;
+$h6: 2rem;
+$h6Lg: 2.25rem;
 
 /* FONT AND TYPE MIXINS
 --------------------------- */
 @mixin headerGlobals{
 	font-weight: $heavy;
 	font-family: $displayHeader;
-	color: $navy;
+	color: $headingText;
 	margin: 0;
 	font-feature-settings: "liga", "dlig";
 }
@@ -126,7 +126,6 @@ $h6Lg: 1.75rem;
 @mixin heading5{
 	@include headerGlobals;
 	font-family: $header;
-  font-weight: $regular;
 	line-height: 1.69;
 	font-size: $h5;
   @include contentStop{
@@ -137,11 +136,10 @@ $h6Lg: 1.75rem;
 
 @mixin heading6{
 	@include headerGlobals;
-	font-weight: $heavy;
 	font-size: $h6;
   line-height: 2;
   @include contentStop{
-		font-size: $h3Lg;
+		font-size: $h6Lg;
     line-height: 1.57;
 	}
 }
@@ -149,13 +147,13 @@ $h6Lg: 1.75rem;
 @mixin blockTitle{
 	@include heading2;
 	max-width: $textMax;
-  color: $royal;
+  color: $headingText;
 	@include auto;
 }
 
 @mixin widgetTitleAlt{
   font-family: $displayHeader;
-  color: $royal;
+  color: $headingText;
   size: 2.875rem;
   line-height: 1.03;
 	margin-bottom: $spaceSm;
@@ -185,7 +183,7 @@ $h6Lg: 1.75rem;
 	font-size: 3.75rem;
 	padding-top: 3.75rem;
 	padding-bottom: $spaceSm;
-	color: $royal;
+	color: $headingText;
 	.quote-pre{
 		@include auto;
 	}

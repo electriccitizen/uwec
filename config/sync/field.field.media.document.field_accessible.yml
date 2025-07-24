@@ -1,0 +1,21 @@
+uuid: 892196fc-d395-4686-9c55-9103fe85d891
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.media.field_accessible
+    - media.type.document
+id: media.document.field_accessible
+field_name: field_accessible
+entity_type: media
+bundle: document
+label: Accessible
+description: 'This indicates whether this document has been approved for accessibility.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: Accessible
+  off_label: Inaccessible
+field_type: boolean
