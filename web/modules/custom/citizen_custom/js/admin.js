@@ -243,7 +243,7 @@
           if(type == 'image'){
             $('.field--name-field-image').show();
           }else if(type == 'background_image'){
-            $('.field--name-field-background-image,.field--name-field-image').show();
+            $('.field--name-field-image').show();
           }else if(type == 'full_image'){
             $('.field--name-field-background-image').show();
           }else if(type == 'pattern'){

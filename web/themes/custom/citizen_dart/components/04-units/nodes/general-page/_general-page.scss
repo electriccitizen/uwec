@@ -204,136 +204,25 @@
 
     /* BACKGROUND PATTERNED HERO WITH IMAGE RIGHT HALF */
     &.page-hero-background-image {
+      @include headerInvasion;
       @include heroRightImage;
-      overflow: hidden;
-      padding-bottom: 29vw;
-      background-size: 1273px 958px !important;
-      background-position: left -250px bottom -70px !important;
-      @include heroHeaderInvade;
+      background: radial-gradient(50.13% 157.8% at 6.18% 33.85%, #0F2C46 0%, #232C99 100%);
       &.vertical-window{
         @include desk{
           min-height: 1030px;
         }
       }
-      .hero-image{
-        .image-right{
-          @include desk{
-            top: 100px;
-            html.animations-paused & {
-              opacity: 1;
-            }
-            @include animation('fadeIn 1.25s 1');
-          }
-          @include menuStop{
-            top: 120px;
-          }
-          &:before{
-            html.animations-paused & {
-              opacity: 1;
-              right: 0;
-            }
-            content: '';
-            position: absolute;
-            bottom: -195px;
-            z-index: 0;
-            width: 72px;
-            height: 128px;
-            background-image: url(../images/elements/fat-stripes-blue.svg);
-            background-repeat: no-repeat;
-            background-size: 100%;
-            @keyframes heroSwirlSlideImage {
-              from {
-                right: -200vw;
-              }
-              to {
-                right: 0;
-              }
-            }
-            @include animation('heroSwirlSlideImage 1.5s forwards');
-            @include smallTab{
-              bottom: -68px;
-            }
-            @include desk{
-              bottom: -20px;
-              z-index: -1;
-              width: 150px;
-              height: 242px;
-              background-position: bottom left;
-              right: auto;
-              html.animations-paused & {
-                left: -30px;
-              }
-              @keyframes heroSwirlSlideImage {
-                from {
-                  left: 200vw;
-                }
-                to {
-                  left: -30px;
-                }
-              }
-              @include animation('heroSwirlSlideImage 1.5s forwards');
-            }//end desk
-            @include contentStop{
-              width: 222px;
-              height: 344px;
-              bottom: -35px;
-            }//end content stop
-          }//end image before
-          &:after{
-            content: none;
-          }
-        }//end image right
-      }//end hero image
-      .page-header-text{
-        margin-bottom: 0;
-        @include desk{
-          background: none;
-          .hide-nav &{
-            padding-top: 80px;
-          }
-          &:after{
-            content: none;
-          }
-        }
-        .breadcrumb{
-          padding-left: 20px;
-          padding-right: 20px;
-          @include desk{
-            .breadcrumb-list{
-              max-width: calc(50% - 80px);
-              body:not(.hero-has-image) &{
-                max-width: 100%;
-              }
-            }
-          }
-        }
-        .page-header-text-inner{
-          .node-title{
-            margin-bottom: $spaceMd;
-          }
-          .node-subtitle,.node-body{
-            @include onlyMobile{
-              padding-left: 20px;
-              padding-right: 20px;
-            }
-            a{
-              font-weight: $heavy;
-              @include dottedLink($white);
-              &:hover,&:focus{
-                background-image: none;
-                opacity: .7;
-              }
-            }
-          }//end subtitle/body
-        }//end page header text inner
-      }//end page header text
-      .field-links{
-        padding-left: 40px;
-        max-width: 1092px;
-        @include desk{
-          align-items: flex-start;
-          padding-left: 20px;
-          margin-top: 20px;
+      .river-background {
+        position: absolute;
+        top: 0;
+        left: -120px;
+        width: calc(100vw + 120px);
+        height: 100%;
+        overflow: hidden;
+        mix-blend-mode: overlay;
+        img {
+          mix-blend-mode: overlay;
+          width: 1521px;
         }
       }
     }//end background hero
@@ -358,14 +247,11 @@
 
     /* VIDEO HERO */
     &.page-hero-video{
-      @include heroHeaderInvade;
-      @include edgeToEdge;
+      @include headerInvasion;
       padding-left: 40px;
       padding-right: 40px;
-      padding-top: 104px;
       color: $white;
-      min-height: calc(100vh + 104px);
-      margin-top: -104px;
+      min-height: 100vh;
       background-size: 1440px 1024px !important;
       background-position: left 40% bottom -70px !important;
       position:relative;
@@ -383,6 +269,11 @@
       }
 
       @include desk{
+        &.vertical-window {
+          min-height: unset;
+          height: 100vh;
+          max-height: 1100px;
+        }
         video{
           width:100vw;
         }
@@ -393,23 +284,28 @@
           right:-92px;
         }
         100%{
-          right:0;
+          right:20px;
         }
       }
 
-      // thick gold slashes in the top right corner, over video hero
+      // thick gold squiggles in the top right corner, over video hero
       &:after{
         content:"";
         display:block;
         position:absolute;
-        width:112px;
-        height:300px;
-        top:120px;
+        width:85px;
+        height:203px;
+        top:128px;
         right:-92px;
-        background:repeating-linear-gradient(0deg, #edac1a, #edac1a 40px, transparent 40px, transparent 80px);
-        transform:skew(0deg, -16deg);
+        background-image: url(../images/elements/gold-squiggle-fat.png);
         animation:.5s ease .4s 1 videoHeroSlashAnim;
         animation-fill-mode:forwards;
+        @include tab {
+          top: 180px;
+        }
+        @include contentStop {
+          top: 30vh;
+        }
       }
 
       .page-header-text{
@@ -433,33 +329,24 @@
           @include contentStop{
             left:calc((100vw - 1280px) / 2.0);
             width:40%;
-          }
-          .node-body{
-            @include desk{
-              margin-bottom:4rem;
-            }
+            padding-left: 26px;
           }
           .node-title{
-            margin-bottom:2rem;
-            @include desk{
-              margin-bottom:4rem;
-            }
+            margin-bottom:3rem;
             h1.formatted-title{
               color: $white;
-              font-size:40px;
-              @include desk{
-                font-size: 54px;
-              }
-              strong{
-                font-size:44px;
-                font-style: normal;
-                font-family: $header;
-                @include desk {
-                  font-size: 58px;
-                }
-              }//end strong
             }//end formatted title
           }//end node-title
+          .video-text {
+            font-size: 1.75rem;
+            line-height: 1.57;
+            margin-bottom: 3rem;
+            max-width: 630px;
+            @include desk {
+              font-size: 2.5rem;
+              line-height: 1.6;
+            }
+          }
         }// end video page header text inner
       }//end video page header text
 
@@ -473,24 +360,14 @@
         align-items: center;
         justify-content: center;
 
-        // top gradient to provide contrast for main nav
+        // gradient over video
         &::before{
           content:"";
           position:absolute;
           width:100%;
           height:100%;
-          background: rgb(6,35,61);
-          background: linear-gradient(180deg, rgba(6,35,61,0.8) 0%, rgba(6,35,61,0.2) 20%, rgba(6,35,61,0.0) 100%);
-        }
-
-        // bottom-left angled gradient to provide contrast for text
-        &::after{
-          content:"";
-          position:absolute;
-          width:100%;
-          height:100%;
-          background: rgb(6,35,61);
-          background: linear-gradient(45deg, rgba(6,35,61,0.8) 0%, rgba(6,35,61,0.5) 50%, rgba(6,35,61,0.1) 100%);
+          background: linear-gradient(360deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.15) 100%),
+linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4));
         }
       }
 
