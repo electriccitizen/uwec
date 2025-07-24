@@ -611,10 +611,24 @@
 @mixin lineLink {
   border-bottom: 1px solid cc.$linkUnderline;
   display: inline-block;
+  text-decoration: none;
   transition: color .3s, border-bottom-color .3s;
   &:hover {
-    color: cc.$linkUnderline;
     border-bottom: 1px solid transparent;
+    color: cc.$linkUnderline;
+    text-decoration: none;
+  }
+}
+
+@mixin lineLinkHover {
+  border-bottom: 1px solid transparent;
+  display: inline-block;
+  text-decoration: none;
+  transition: color .3s, border-bottom-color .3s;
+  &:hover {
+    border-bottom: 1px solid cc.$linkUnderline;
+    color: cc.$linkUnderline;
+    text-decoration: none;
   }
 }
 

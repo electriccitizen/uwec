@@ -99,7 +99,8 @@
   overflow: hidden;
   position: relative;
   &:before {
-    background: url('../images/elements/wavy-lines-white.png') -167.691px -117.284px / 177.306% 233.177% no-repeat transparent;
+    background: url('../images/elements/wavy-lines-white.png') -167.691px -117.284px / auto 233.177% no-repeat transparent;
+    background-size: 500%;
     background-blend-mode: overlay;
     content: '';
     height: 100%;
@@ -108,6 +109,9 @@
     position: absolute;
     top: 0;
     width: 100%;
+    @include tab {
+      background-size: 250%;
+    }
   }
 	.dialog-off-canvas-main-canvas & {
 		transform-style: unset;
