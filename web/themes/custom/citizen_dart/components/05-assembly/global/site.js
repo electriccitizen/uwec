@@ -287,9 +287,9 @@ Drupal.behaviors.pauseAnimations = {
 
     $(once('animationsState', 'html', context)).each(function() {
       let animationState = localStorage.getItem(animationStorageKey) || 'playing';
-      const contentWrapper = $("#block-citizen-dart-copyright", this);
+      const contentWrapper = $("#block-footer-ancillary-menu > ul", this);
 
-      const animationsButton = $(`<a href="#" class="animations-button"><span>${pickButtonLanguage(animationState)}</span></a>`);
+      const animationsButton = $(`<li><a href="#" class="animations-button"><span>${pickButtonLanguage(animationState)}</span></a></li>`);
       $(this).addClass("animations-" + animationState);
 
       animationsButton.on("click", (e) => {

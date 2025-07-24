@@ -75,12 +75,20 @@
 
 // copyright block (block-1)
 .block-1{
-  text-align: center;
+  background: url('../images/logos-badges/small-footer-logo-white.svg') left top transparent no-repeat scroll;
+  margin-bottom: $spaceXs;
+  padding-top: 55px;
   position: relative;
+
+  @include tab {
+    background-position: left center;
+    margin-bottom: 0;
+    padding: 4px 0 4px 135px;
+  }
   .copyright{
-    text-align: center;
-    font-size: 1.5rem;
-    line-height: 24px;
+    font-family: $displayHeader;
+    font-size: 14px;
+    line-height: 28px;
     & > span:first-child{
       padding-right: .25em;
       & + *{

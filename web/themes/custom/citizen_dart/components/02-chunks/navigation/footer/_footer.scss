@@ -120,27 +120,29 @@
 
 //Footer ancillary left
 .block-footer-ancillary-menu{
-  width: 100%;
 	ul:not(.contextual-links){
 		@include listReset;
 
-    @include smallTab{
+    @include tab{
       @include safeFlex(row,wrap,center,center);
 		  @include bleed(padding,30px);
     }
 		li{
-			padding-bottom: $spaceXxs;
+			padding-bottom: $spaceXs;
       position: relative;
-      text-align: center;
+      text-align: left;
+      @include tab {
+        padding-bottom: $spaceXxs;
+      }
     }//end li
 
 		a{
 			color: $footerLink;
-			font-size: 1.5rem;
-			line-height: 3rem;
-			padding-bottom: 3px;
-			@include dottedLink($footerLink);
+      font-family: $displayHeader;
+			font-size: 14px;
+			line-height: 28px;
       transition: color .3s ease;
+      text-decoration: underline;
 			&:hover,&:focus{
 				color: $footerLinkHover;
         background: none;

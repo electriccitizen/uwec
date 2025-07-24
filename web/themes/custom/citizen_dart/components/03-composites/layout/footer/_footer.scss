@@ -157,9 +157,24 @@
         margin-bottom: $spaceXxs;
       }
 		}
-		//copy right
-		.block-1{
-			width: 100%;
-		}
 	}//end footer-inner
 }//end footer
+
+.postfooter {
+  @include auto;
+  max-width: $contentStopMargin;
+  padding: 0 $siteMarginMobile;
+  .postfooter-inner {
+    border-top: 1px solid $footerRule;
+    padding: $spaceLg 0 $spaceXl;
+    position: relative;
+    @include tab {
+      padding-bottom: $spaceSm;
+    }
+    > div {
+      @include tab {
+        @include safeFlex(row, no-wrap, justify, center);
+      }
+    }
+  }
+}
