@@ -68,7 +68,11 @@
 //for audience links
 .block-footer-for-menu{
   @include tab {
-    columns: 2;
+    @include safeFlex(row, nowrap, justify, start);
+    gap: 20px;
+  }
+  @include desk {
+    gap: 90px;
   }
 
 	ul:not(.contextual-links){
@@ -99,6 +103,7 @@
 		}
     @include tab {
       margin-top: 0;
+      // min-width: 305px;
     }
 	}//end audience menu
 	.additional-audience-menu{
@@ -108,12 +113,15 @@
         margin-bottom: 18px;
       }
 			a {
-				font-size: 15px;
 				@include lineLink;
+				font-size: 15px;
+        font-weight: 700;
+        line-height: 20px;
 			}
 		}
     @include tab {
       margin-top: 0;
+      width: 205px;
     }
 	}//end additional audience
 }//end footer-for menu

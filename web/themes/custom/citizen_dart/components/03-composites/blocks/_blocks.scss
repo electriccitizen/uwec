@@ -9,6 +9,7 @@
 @forward 'cookie-popup/cookie-popup';
 @forward 'courses/courses';
 @forward 'env-banner/env-banner';
+@forward 'footer-blocks/footer-blocks';
 @forward 'formatted-promo/formatted-promo';
 @forward 'omnilert/omnilert';
 @forward 'page-structured-section/page-structured-section';
@@ -17,87 +18,3 @@
 @forward 'social-links/social-links';
 @forward 'social-share/social-share';
 @forward 'start-your-journey/start-your-journey';
-
-@use '../../00-base/base' as *;
-
-/* MISC BLOCKS
--------------- */
-
-// FOOTER ADDRESS
-.block-2{
-  background: url('../images/logos-badges/logo-white.svg') 10px top / 205px 69px no-repeat scroll;
-  padding-top: 83px;
-	color: $footerText;
-	p {
-		margin-bottom: $spaceXxs;
-    font-family: $displayHeader;
-		line-height: 28px;
-		&:first-child {
-			font-family: $displayHeader;
-			font-weight: $xHeavy;
-		}
-	}
-  a {
-    color: $footerText;
-    font-family: $bodyText;
-    font-size: 15px;
-    @include lineLink;
-  }
-}//end block 2
-
-// SOCIAL MEDIA
-.block-3{
-  .field-platforms{
-    margin-top: $spaceSm;
-    .platform-links{
-      justify-content: flex-start;
-      li{
-        a{
-          *{
-            transform-style: unset;
-          }
-          svg{
-            width: 22px;
-            height: 22px;
-          }
-          svg,.cls-1{
-            fill: $footerLink;
-          }
-          &:hover,&:focus{
-            svg,.cls-1{
-              fill: $footerLinkHover;
-            }
-          }
-        }//end a
-      }//end li
-    }//end platform links
-  }//end field platforms
-}//end block social media
-
-// copyright block (block-1)
-.block-1{
-  background: url('../images/logos-badges/small-footer-logo-white.svg') left top transparent no-repeat scroll;
-  margin-bottom: $spaceXs;
-  padding-top: 55px;
-  position: relative;
-
-  @include tab {
-    background-position: left center;
-    margin-bottom: 0;
-    padding: 4px 0 4px 135px;
-  }
-  .copyright{
-    font-family: $displayHeader;
-    font-size: 14px;
-    line-height: 28px;
-    & > span:first-child{
-      padding-right: .25em;
-      & + *{
-        display: inline;
-      }
-    }
-    p{
-      margin: 0;
-    }
-  }
-}

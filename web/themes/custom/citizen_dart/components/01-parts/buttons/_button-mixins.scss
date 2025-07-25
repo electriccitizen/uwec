@@ -35,7 +35,7 @@
 	border-radius: 5px;
 	color: $textColor;
 	line-height: 1.2;
-	padding: $buttonPadding;
+	padding: $buttonPaddingMobile;
 	display: inline-block;
 	vertical-align: top;
 	text-decoration: none;
@@ -68,6 +68,9 @@
 	&.js-hide{
 		display: none;
 	}
+  @include desk {
+    padding: $buttonPaddingDesk;
+  }
 }//end button mixin
 
 @mixin buttonAlt{

@@ -33,6 +33,7 @@ $spaceMs   : 2.5rem; // Medium small.
 $spaceSm   : 3rem;
 $spaceMd   : 4rem;
 $spaceLg   : 6rem;
+$spaceMl   : 8rem; // Medium large.
 $spaceXl   : 9rem;
 
 $siteMarginMobile: 2.5rem;
@@ -43,7 +44,8 @@ $elementSpace: $spaceLg;
 $siteBottomSpace: 12rem;
 $wideContent: 1136px;
 
-$buttonPadding: 21px 37px;
+$buttonPaddingMobile: 15px 37px;
+$buttonPaddingDesk: 20px 37px;
 $submitPadding: 2px 4rem 0;
 
 $sideBar: 300px;

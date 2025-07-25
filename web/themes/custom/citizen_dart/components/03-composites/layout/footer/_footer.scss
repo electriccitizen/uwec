@@ -16,12 +16,12 @@
     content: '';
     height: 100%;
     left: 0;
-    opacity: .65;
     position: absolute;
     top: 0;
     width: 100%;
     @include desk {
       background: url('../images/elements/wavy-y-white.svg') no-repeat scroll 110% center / 90%, $prefooterBack;
+      opacity: .65;
     }
     @include menuStop {
       background-size: 75%;
@@ -111,7 +111,6 @@
 	background-color: $footerBack;
 	color: $footerText;
   overflow: hidden;
-  padding-top: $spaceXl;
   position: relative;
   &:before {
     background: url('../images/elements/wavy-lines-white.png') -167.691px -117.284px / auto 233.177% no-repeat transparent;
@@ -124,7 +123,6 @@
     position: absolute;
     top: 0;
     width: 100%;
-    z-index: 5;
     @include tab {
       background-size: 250%;
     }
@@ -134,15 +132,13 @@
 	}
 	//set style for footer (need inner for fixed footer script)
 	.footer-inner{
-		padding: 0 $siteMarginMobile 115px;
+		padding: $spaceMl $siteMarginMobile $spaceLg;
 		@include auto;
     max-width: $contentStopMargin;
 		position: relative;
-    @include smallTab{
-			padding-top: 75px;
-		}
 		@include tab{
 			padding-bottom: 45px;
+			padding-top: 75px;
 		}
 		> div{
 			@include bleed(padding,20px);
