@@ -49,6 +49,12 @@ class SyncService {
 				$user = $this->createUser($row, $profile);
 			}
 
+			// stop if we don't have a valid user
+			if($user == null){
+				\Drupal::logger('profile_sync')->error('Unable to import profile for user '.$row['username'].' because something went wrong with creating/update the $user record.');
+				continue;
+			}
+
 			// we either just created the user, or the username may have changed,
 			// so let's give this a chance to create or update the authmap
 			$this->createOrUpdateAuthMapRecord($user);
@@ -58,6 +64,12 @@ class SyncService {
 				$this->updateProfile($profile, $row);
 			}else{
 				$profile = $this->createProfile($row);
+			}
+
+			// stop if we don't have a valid profile
+			if($profile == null){
+				\Drupal::logger('profile_sync')->error('Unable to create/update profile for user '.$row['username']);
+				continue;
 			}
 
 			// in this context, we have a valid $user and $profile
@@ -120,7 +132,11 @@ class SyncService {
 			'field_active' => true,
 		]);
 
-		$profile->save();
+		try{
+			$profile->save();
+		}catch(\Exception $e){
+			\Drupal::logger('profile_sync')->error('Could not create profile with EmplID: "'.$row['id'].'" Username: "'.$row['username'].'" because '.$e->getMessage());
+		}
 
 		return $profile;
 	}
@@ -146,7 +162,11 @@ class SyncService {
 			$profile->setPublished();
 		}
 
-		$profile->save();
+		try{
+			$profile->save();
+		}catch(\Exception $e){
+			\Drupal::logger('profile_sync')->error('Could not update profile with EmplID: "'.$row['id'].'" Username: "'.$row['username'].'" because '.$e->getMessage());
+		}
 	}
 
 	// returns a User object for the given $empl_id
@@ -183,18 +203,26 @@ class SyncService {
 			'roles' => ['personnel'],
 		]);
 
-		$user->save();
+		try{
+			$user->save();
+		}catch(\Exception $e){
+			\Drupal::logger('profile_sync')->error('Could not import user with EmplID: "'.$row['id'].'" Username: "'.$row['username'].'" because '.$e->getMessage());
+		}
 
 		return $user;
 	}
 
 	// updates the given $user with the given data in $row
 	protected function updateUser($user, $row) {
-		$user->set('name', $row['username']);
-		$user->set('mail', $row['email']);
-		$user->set('field_first_name', $row['firstname']);
-		$user->set('field_last_name', $row['lastname']);
-		$user->save();
+		try{
+			$user->set('name', $row['username']);
+			$user->set('mail', $row['email']);
+			$user->set('field_first_name', $row['firstname']);
+			$user->set('field_last_name', $row['lastname']);
+			$user->save();
+		}catch(\Exception $e){
+			\Drupal::logger('profile_sync')->error('Could not update user with EmplID: "'.$row['id'].'" Username: "'.$row['username'].'" because '.$e->getMessage());
+		}
 	}
 
 	// creates or updates the authmap record for the given $user
@@ -212,22 +240,30 @@ class SyncService {
 
 			if (!$authname) {
 				// Authmap record doesn't exist, create a new one.
-				Database::getConnection()
-					->insert('authmap')
-					->fields([
-						'uid' => $uid,
-						'provider' => 'saml_auth',
-						'authname' => $desired_authname,
-						'data' => 'N;',
-					])
-					->execute();
+				try{
+					Database::getConnection()
+						->insert('authmap')
+						->fields([
+							'uid' => $uid,
+							'provider' => 'saml_auth',
+							'authname' => $desired_authname,
+							'data' => 'N;',
+						])
+						->execute();
+				}catch(\Exception $e){
+					\Drupal::logger('profile_sync')->error('Could not create authmap record for uid: "'.$uid.'" authname: "'.$desired_authname.'" because '.$e->getMessage());
+				}
 			} elseif ($authname !== $desired_authname) {
 				// username has changed, update authname to match
-				Database::getConnection()
-					->update('authmap')
-					->fields(['authname' => $desired_authname])
-					->condition('uid', $uid)
-					->execute();
+				try{
+					Database::getConnection()
+						->update('authmap')
+						->fields(['authname' => $desired_authname])
+						->condition('uid', $uid)
+						->execute();
+				}catch(\Exception $e){
+					\Drupal::logger('profile_sync')->error('Could not update authmap record for uid: "'.$uid.'" authname: "'.$desired_authname.'" because '.$e->getMessage());
+				}
 			}
 		}else{
 			\Drupal::logger('profile_sync')->error('Tried to create/update authmap for user that does not exist! (username: '.$username.')');
