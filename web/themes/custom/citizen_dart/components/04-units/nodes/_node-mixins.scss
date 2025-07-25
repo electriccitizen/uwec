@@ -528,32 +528,17 @@
 }//end hero image right
 
 @mixin patternHero{
-  padding-top: 40px;
-  background: $royal;
+  background: radial-gradient(50.13% 157.8% at 6.18% 33.85%, #0F2C46 0%, #232C99 100%);
   @include edgeToEdge;
   padding-left: $siteMarginMobile;
   padding-right: $siteMarginMobile;
+  padding-bottom: $elementSpace;
   color: $white;
-  //set min heights for main section
-  min-height: calc(100vh - 88px);
-  @include desk{
-    min-height: calc(100vh - 100px);
+  overflow: hidden;
+  .wavy-lines {
+    @include patternHeroLines;
   }
-  @include menuStop{
-    min-height: calc(100vh - 110px);
-  }
-  .hero-pattern:not(.hero-pattern-links) &{
-    @include menuStop{
-      padding-bottom: 150px;
-    }
-    @media screen and (min-width: 1600px){
-      padding-bottom: 10vw;
-    }
-    @media screen and (min-width: 1800px){
-      padding-bottom: 12vw;
-    }
-  }
-  h1,h2,h3,h4,h5,h6,li,a{
+  h1,h2,h3,h4,h5,h6,li,.node-body a,.text-long a{
     color: $white;
   }
   //specific link colors
@@ -584,32 +569,58 @@
     @include linkArrow(white, sm);
     min-height: 32px;
   }//end links field a
+
 }//end patternHero
 
-@mixin patternHeroSwirl{
-  html.animations-paused & {
-    opacity: 1;
-  }
-  content: '';
+@mixin patternHeroLines {
+  width: 355px;
+  padding-bottom: 469px;
   position: absolute;
-  bottom: -8px;
-  z-index: 0;
-  width: 308px;
-  height: 572px;
-  background-image: url(../images/elements/swirl-vertical-blue.svg);
-  background-repeat: no-repeat;
-  background-size: 100%;
-  @include swirlAnimationNoImage;
-  @include desk{
-    width: 380px;
-    height: 706px;
-    bottom: -83px;
+  overflow: hidden;
+  bottom: -344px;
+  right: -100vw;
+  @keyframes linesRight{
+    0%{
+      right: -100vw;
+    }
+    100%{
+      right: -170px;
+    }
   }
-  @include contentStop{
-    left: auto;
-    width: 452px;
-    height: 839px;
-    bottom: -95px;
+  @keyframes linesRightDesk{
+    0%{
+      right: -100vw;
+    }
+    100%{
+      right: -230px;
+    }
+  }
+  @keyframes linesRightLarge{
+    0%{
+      right: -100vw;
+    }
+    100%{
+      right: -30px;
+    }
+  }
+  animation:.5s ease .4s 1 linesRight;
+  animation-fill-mode: forwards;
+  @include desk {
+    bottom: auto;
+    top: 130px;
+    animation:.5s ease .4s 1 linesRightDesk;
+    animation-fill-mode: forwards;
+  }
+  @include contentStop {
+    top: 200px;
+    animation:.5s ease .4s 1 linesRightLarge;
+    animation-fill-mode: forwards;
+  }
+  img {
+    width: 542px;
+    position: absolute;
+    top: -359px;
+    left: 0;
   }
 }
 
@@ -626,17 +637,6 @@
     height: 180px;
   }
 }
-
-@mixin heroBlue{
-  position: relative;
-  &:before{
-    @include fullBack($royal);
-    top: auto;
-    bottom: 0;
-    height: 1000px;
-    z-index: -1;
-  }//end before
-}//end hero bright blue
 
 @mixin heroText {
 	position: relative;

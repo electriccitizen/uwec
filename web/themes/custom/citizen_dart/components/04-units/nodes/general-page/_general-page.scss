@@ -37,50 +37,13 @@
 
     /* PATTERN HERO */
     &.page-hero-pattern{
+      @include headerInvasion;
       @include patternHero;
       margin-bottom: $elementSpace;
-      @include largeTab{
-        margin-bottom: 60px;
-      }
-      @include desk{
-        margin-bottom: 70px;
-      }
-      .hero-pattern:not(.hero-pattern-links) &{
-        @include largeTab{
-          margin-bottom: 80px;
-        }
-        @include desk{
-          margin-bottom: 90px;
-        }
-        @include menuStop{
-          margin-bottom: 100px;
-        }
-      }
-      //set a shield to prevent swirl from interfering the page title at small screens
-      &:before{
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        background: $royal;
-        width: 100vw;
-        height: 25%;
-        z-index: 1;
-        @include desk{
-          height: 30%;
-        }
-      }
-      &:after{
-        @include patternHeroSwirl;
-      }
       .page-header-text{
-        @include heroBlue;
         @include desk{
           .hide-nav &{
             padding-top: 60px;
-          }
-          .page-header-text-inner > .field:last-child{
-            @include stripesRoyalNarrow;
           }
         }
         .hero-pattern:not(.hero-pattern-links) &{
@@ -96,17 +59,14 @@
           @include desk{
             padding-left: 0;
             padding-right: 0;
-            &:last-child:not(.node-title){
-              @include stripesRoyalNarrow;
-            }
           }
           .node-body{
             a{
               font-weight: $heavy;
-              @include dottedLink($white);
-              &:hover,&:focus{
-                background-image: none;
-                opacity: .7;
+              text-decoration: underline;
+              text-decoration-color: $gold;
+              &:hover,&:focus {
+                text-decoration: none;
               }
             }
           }
@@ -221,7 +181,7 @@
       }
     }//end page hero image
 
-    /* BACKGROUND PATTERNED HERO WITH IMAGE RIGHT HALF */
+    /* BACKGROUND RIVER HERO WITH IMAGE RIGHT HALF */
     &.page-hero-background-image {
       @include headerInvasion;
       @include heroRightImage;
