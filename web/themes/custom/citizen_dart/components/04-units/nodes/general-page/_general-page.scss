@@ -139,15 +139,6 @@
             padding-top: 80px;
           }
         }
-        .breadcrumb{
-          @include desk{
-            .breadcrumb-list{
-              body:not(.hero-has-image) &{
-                max-width: 100%;
-              }
-            }
-          }
-        }
         .page-header-text-inner{
           .node-title{
             h1 {
@@ -161,10 +152,9 @@
           .node-subtitle,.node-body{
             a{
               font-weight: $heavy;
-              @include dottedLink($white);
+              text-decoration: underline;
               &:hover,&:focus{
-                background-image: none;
-                opacity: .7;
+                text-decoration-color: $gold;
               }
             }
           }//end subtitle/body
@@ -371,19 +361,6 @@ linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4));
           width: 210px;
         }
       }
-      @include desk {
-        margin-top: 10vw;
-        margin-bottom: 0;
-      }
-      @media screen and (min-width: 1650px){
-        margin-top: 11vw;
-      }
-      @media screen and (min-width: 2100px){
-        margin-top: 12vw;
-      }
-      @media screen and (min-width: 2500px){
-        margin-top: 13vw;
-      }
     }//end field links
 
     .block-system-breadcrumb-block{
@@ -399,19 +376,18 @@ linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4));
 
   /* WHEN THERE IS NO HERO */
   .hero-none &{
-    .main-node-content{
+    .main-node-content {
       position: relative;
     }
     .node-intro-simple{
+      @include headerInvasion;
       @include heroSimpleBackground;
-      left: -20px;
-      top: -10px;
     }//end intro simple
     .page-header-text{
       .block-system-breadcrumb-block{
         max-width: 1116px;
         @include auto;
-        margin-bottom: $spaceMd;
+        margin-bottom: $spaceXs;
         .breadcrumb{
           li{
             a{
@@ -423,12 +399,11 @@ linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4));
         }
       }
       .page-header-text-inner{
-        margin-top: 10px;
         position: relative;
         z-index: 1;
         max-width: 1116px;
         @include auto;
-        padding: 80px $siteMarginMobile 60px;
+        padding: 75px $siteMarginMobile 60px;
         &:first-child{
           @include desk{
             border-top: 40px solid $royal;
@@ -451,9 +426,8 @@ linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4));
           @include auto;
           h1.page-title{
             color: $royal;
-            @include tab{
-              font-size: 6.5rem;
-              line-height: 1.1;
+            @include contentStop {
+              font-size: 9.375;
             }
           }
         }

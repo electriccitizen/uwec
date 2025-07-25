@@ -33,12 +33,26 @@
 //bio node
 .node-bios{
 	#node-section-1{
-    position: relative;
-    z-index: 1;
-		padding-bottom: 14rem;
-    padding-top: 10px;
+    @include headerInvasion;
+    background: radial-gradient(50.13% 157.8% at 6.18% 33.85%, #0F2C46 0%, #232C99 100%);
+    overflow: hidden;
     @include desk{
-      padding-top: 8.75rem;
+      position: relative;
+      padding-bottom: 200px;
+      &:after{
+        content: '';
+        display: block;
+        position: absolute;
+        top: calc(100% - 666px);
+        right: -532px;
+        z-index: 0;
+        transform: rotate(-160.31deg);
+        width: 1833px;
+        height: 1337px;
+        background-image: url(../images/elements/river-background-shape.svg);
+        background-repeat: no-repeat;
+        mix-blend-mode: overlay;
+      }
     }
 		& > .layout--twocol-even {
 			max-width: $contentStopMargin;
@@ -75,8 +89,12 @@
 
     //image - but need to use uid (authored by) field because of logic needed when no image
     .block-field.block-uid {
-      max-width: 426px;
-      margin: 0 auto;
+      padding-left: 32px;
+      @include smallTab{
+        padding-left: 0;
+        max-width: 426px;
+        margin: 0 auto;
+      }
       .field-uid{
         @include desk{
           @include safeFlex(row,wrap,end,start);
@@ -85,27 +103,22 @@
       .image-wrapper {
         position: relative;
         margin-bottom: 2.5rem;
+        
         html.animations-paused & {
           opacity: 1;
         }
         @include animation('fadeInDelay 1.5s 1');
         &:before {
-          background-image: url(../images/elements/fat-stripes-gold.svg);
+          background-image: url(../images/elements/gold-wave-fat.svg);
           content: '';
           display: block;
-          width: 140px;
-          height: 247px;
+          width: 87px;
+          height: 316px;
           position: absolute;
-          bottom: -41px;
+          bottom: -54px;
           left: -30px;
           background-repeat: no-repeat;
           background-size: 100% 100%;
-          @include desk {
-            bottom: -30px;
-            left: -50px;
-            width: 220px;
-            height: 340px;
-          }
         }//end before
         .field-media-image,.favicon-image {
           position: relative;
@@ -123,10 +136,6 @@
       margin-bottom: 1rem;
       margin-left: auto;
       @include safeFlex(row,nowrap,start,start);
-      @include desk{
-        width: auto;
-        margin-left: 3rem;
-      }
 			.icon-wrapper {
 				width: 15px;
 				height: 18px;
@@ -145,37 +154,43 @@
     .block-title {
       margin-bottom: 0;
       @include edgeReset;
+      padding-left: $siteMarginMobile;
+      padding-right: $siteMarginMobile;
       @include desk{
         margin-top: 28px;
       }
       .field.title {
 				margin-bottom: 1rem;
-				margin-top: 3rem;
-				@include desk {
-					margin-top: 0;
-				}
+        h1,.suffixes {
+          color: $gold;
+        }
 			}
     }//end title block
 
     .block-created {
       margin-bottom: 0;
+      padding-left: $siteMarginMobile;
+      padding-right: $siteMarginMobile;
     }
 
     .block-field-pronouns {
+      padding-left: $siteMarginMobile;
+      padding-right: $siteMarginMobile;
       text-transform: uppercase;
       margin-bottom: 0;
       letter-spacing: 0.05em;
+      .field-pronouns{
+        color: $gold;
+      }
     }
 
     .block-field-positions {
       font-family: $header;
-      margin-top: 6rem;
+      margin-top: 2rem;
       margin-bottom: 0;
-      font-size: 2.5rem;
-      line-height: 1.5;
-      @include desk{
-        margin-top: 8rem;
-      }
+      font-size: 4rem;
+      line-height: 1.45;
+      font-weight: $heavy;
       .field-positions > div:not(:last-child){
         margin-bottom: $spaceXxs;
       }
@@ -183,7 +198,9 @@
 
     //departments & page families -- need type placeholder field because neither is required
     .block-field.block-type {
-      margin-top: 6rem;
+      margin-top: 3rem;
+      padding-left: $siteMarginMobile;
+      padding-right: $siteMarginMobile;
       h2.block-title{
         font-family: $bodyText;
         font-size: 1.75rem;
@@ -195,20 +212,15 @@
       }//end block title
       .departments-offices {
         a {
-          @include blockArrow(gold,sm);
-          font-family: $bodyText;
-          font-size: 2rem;
-          line-height: 1.875;
-          font-weight: $heavy;
-          span{
-            color: $gold;
-          }
+          @include linkArrow(gold,sm);
+         margin-bottom: $spaceXs;
         }//end a
         .office{
           font-family: $bodyText;
           font-size: 2rem;
-          line-height: 1.875;
+          line-height: 1.2;
           font-weight: $heavy;
+          padding-left: 30px;
         }
       }//end field departments
     }//end departments block
@@ -216,7 +228,6 @@
 
 	#node-section-2{
 		@include contactHolder;
-		margin-top: -6rem;
 		position: relative;
 		z-index: 10;
 		margin-bottom: $spaceMd;

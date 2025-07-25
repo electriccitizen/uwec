@@ -6,12 +6,13 @@
 @use '../node-mixins' as *;
 
 .node-job{
-  position: relative;
-  padding-top: 10px;
-	.node-intro-simple{
-		@include heroSimpleBackground;
-    left: -20px;
-	}//end intro simple
+	.main-node-content {
+    position: relative;
+  }
+  .node-intro-simple{
+    @include headerInvasion;
+    @include heroSimpleBackground;
+  }//end intro simple
   .node-section{
     position: relative;
     z-index: 1;
@@ -28,12 +29,7 @@
       display: none;
     }
     .block-system-breadcrumb-block{
-      margin-bottom: 5rem;
-      .breadcrumb li{
-        a{
-          color: $white;
-        }
-      }//end breadcrumb
+      margin-bottom: 2rem;
     }
   }//end node section one
   #node-section-2,#node-section-3{
@@ -51,14 +47,13 @@
   }
   .block-field.block-title{
     padding-top: 75px;
-    max-width: 100%;
-    @include tab{
-      padding-left: 110px;
-      padding-right: 110px;
-    }
+    max-width: 867px;
+    @include auto;
     h1{
-      color: $navy;
       padding-bottom: $spaceXs;
+      @include contentStop {
+        font-size: 9.375;
+      }
     }
   }
   #node-section-3{
