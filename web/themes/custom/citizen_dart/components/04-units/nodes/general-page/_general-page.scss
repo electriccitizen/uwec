@@ -307,26 +307,6 @@
         }
       }
 
-      // thick gold squiggles in the top right corner, over video hero
-      &:after{
-        content:"";
-        display:block;
-        position:absolute;
-        width:85px;
-        height:203px;
-        top:128px;
-        right:-92px;
-        background-image: url(../images/elements/gold-squiggle-fat.png);
-        animation:.5s ease .4s 1 videoHeroSlashAnim;
-        animation-fill-mode:forwards;
-        @include tab {
-          top: 180px;
-        }
-        @include contentStop {
-          top: 30vh;
-        }
-      }
-
       .page-header-text{
         .page-header-text-inner{
           position:absolute;
