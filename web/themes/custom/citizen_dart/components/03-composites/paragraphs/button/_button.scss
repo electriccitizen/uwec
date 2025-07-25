@@ -8,11 +8,13 @@
 
 .paragraph--type--button{
 	@include textConstrain;
-   .field-link {
-      text-align: center;
-      a {
-         @include button;
-         margin-bottom: 0;
+  .field-link {
+    text-align: center;
+    a {
+      @include button;
+      & {
+        margin-bottom: 0;
       }
-   }
+    }
+  }
 }//end button

@@ -55,8 +55,10 @@
     }
     .wayfinding-headline{
       @include heading2;
-      line-height: 1.58;
-      margin-bottom: $spaceXs;
+      & {
+        line-height: 1.58;
+        margin-bottom: $spaceXs;
+      }
     }
     .wayfinding-text{
       margin-bottom: $spaceLg;
@@ -139,7 +141,9 @@
         text-align: center;
         a{
           @include outlineButton($navy);
-          min-width: 207px;
+          & {
+            min-width: 207px;
+          }
         }
       }//end wayfinding link
     }//end box
@@ -236,7 +240,9 @@
         text-align: center;
         a{
           @include outlineButton($navy);
-          min-width: 207px;
+          & {
+            min-width: 207px;
+          }
         }
       }
     }//end combo

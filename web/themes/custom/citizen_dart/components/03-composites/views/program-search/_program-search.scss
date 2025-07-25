@@ -10,7 +10,9 @@
   @include auto;
 	.views-exposed-form{
     @include exposedForm;
-    @include edgeToEdge;
+    & {
+      @include edgeToEdge;
+    }
     @include tab{
       @include auto;
     }
@@ -80,7 +82,7 @@
         display: none;
         @include tab{
           order: 1;
-        } 
+        }
         .advanced-form-inner-filters{
           @include safeFlex(row,wrap,start,center);
           border-top: 1px solid $borderRule;

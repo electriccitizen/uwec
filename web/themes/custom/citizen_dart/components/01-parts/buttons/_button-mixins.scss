@@ -90,9 +90,11 @@
 ///mixin - outlineButton
 @mixin outlineButton($outlineColor){
 	@include button;
-	background: transparent;
-	border: 1px solid $outlineColor;
-	color: $outlineColor;
+  & {
+    background: transparent;
+    border: 1px solid $outlineColor;
+    color: $outlineColor;
+  }
 	&:hover,&:focus{
 		background: $buttonBackHover;
 		color: $buttonTextHover;
@@ -113,16 +115,18 @@
 }
 
 @mixin submitButton{
-	@include button;
-	background: $submitBack;
-	color: $submitText;
-	padding: $submitPadding;
-	height: 48px;
-  font-weight: $heavy;
-	line-height: 1;
 	@include safeFlex(column,nowrap,center,center);
-	min-width: 120px;
-	cursor: pointer;
+	@include button;
+  & {
+    background: $submitBack;
+    color: $submitText;
+    padding: $submitPadding;
+    height: 48px;
+    font-weight: $heavy;
+    line-height: 1;
+    min-width: 120px;
+    cursor: pointer;
+  }
 	&:hover,&:focus{
 		background: $buttonBackHover;
 		border-color: $buttonBackHover;

@@ -8,6 +8,7 @@
   @include auto;
   max-width: $menuStop;
   padding: $spaceXl $siteMarginMobile;
+  position: relative;
   text-align: center;
   @include tab {
 	  @include safeFlex(row,wrap,justify,center);
