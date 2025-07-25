@@ -246,14 +246,16 @@
       }
       .field-headline{
         @include heading2;
-        color: $white;
-        margin-bottom: $spaceSm;
+        & {
+          color: $white;
+          margin-bottom: $spaceSm;
+        }
       }
       .field-long-text{
         a{
           color: $gold;
           &:hover,&:focus{
- 
+
           }
         }
         h2,h6{

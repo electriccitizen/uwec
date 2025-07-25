@@ -59,6 +59,7 @@
 			position: relative;
       @include contentStopMargin{
         width: 100%;
+        padding-top: 80px;
         @include auto
       }
       .layout__region{
@@ -163,6 +164,9 @@
 				margin-bottom: 1rem;
         h1,.suffixes {
           color: $gold;
+          @include contentStop {
+            font-size: 9.375rem;
+          }
         }
 			}
     }//end title block

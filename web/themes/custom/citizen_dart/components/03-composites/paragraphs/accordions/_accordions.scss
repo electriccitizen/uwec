@@ -71,18 +71,20 @@
 	//accordion header bar
 	.accordion-header{
 		a{
-			color: $accordHeader;
 			@include heading2;
-			font-size: 2.25rem;
-			line-height: 24px;
-			position: relative;
-			border-top: 1px solid $accordHeaderBorder;
-			border-bottom: 1px solid $accordHeaderBorder;
-			margin-top: -1px;
-			padding: 10px 40px 10px 10px;
-			background: $accordHeaderBack;
-			min-height: 84px;
+      & {
 			@include safeFlex(column,nowrap,center,start);
+        color: $accordHeader;
+        font-size: 2.25rem;
+        line-height: 24px;
+        position: relative;
+        border-top: 1px solid $accordHeaderBorder;
+        border-bottom: 1px solid $accordHeaderBorder;
+        margin-top: -1px;
+        padding: 10px 40px 10px 10px;
+        background: $accordHeaderBack;
+        min-height: 84px;
+      }
       @include desk{
         font-size: 2.5rem;
         line-height: 32px;

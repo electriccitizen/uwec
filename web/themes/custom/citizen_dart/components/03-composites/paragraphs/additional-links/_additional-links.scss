@@ -40,12 +40,14 @@
 			//min-height: 83px;
 			a{
 				@include heading2;
-				font-size: 2.25rem;
-				line-height: 24px;
-				padding-bottom: 3px;
-        display: block;
-        padding-left: 36px;
-        position: relative;
+        & {
+          font-size: 2.25rem;
+          line-height: 24px;
+          padding-bottom: 3px;
+          display: block;
+          padding-left: 36px;
+          position: relative;
+        }
 				&:before{
 					content: '';
 					display: block;

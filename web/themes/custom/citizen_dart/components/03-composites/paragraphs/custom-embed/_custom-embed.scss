@@ -3,5 +3,7 @@
 
 table.gpa-calc{
 	@include table;
-	margin-bottom:4rem;
+  & {
+	  margin-bottom:4rem;
+  }
 }

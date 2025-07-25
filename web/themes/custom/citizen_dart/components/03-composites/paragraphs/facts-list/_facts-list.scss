@@ -93,12 +93,14 @@
       margin-bottom: 0;
     }
     .facts-title-inner{
-      @include styledHeader;
-      position: relative;
-      z-index: 1;
-      display: block;
-      width: 300px;
       @include auto;
+      @include styledHeader;
+      & {
+        position: relative;
+        z-index: 1;
+        display: block;
+        width: 300px;
+      }
       span{
         text-align: center;
       }

@@ -133,12 +133,12 @@
 			.slide-meta{
 				display:flex;
 				flex-direction:column;
-				@include tab{
-					flex-direction:row;
-				}
 				padding: 2rem 2.5rem 0;
 				color: $navy;
 				line-height: 1.5;
+				@include tab{
+					flex-direction:row;
+				}
 				.slide-counter{
 					flex:1;
 					margin-bottom: $spaceXxs;

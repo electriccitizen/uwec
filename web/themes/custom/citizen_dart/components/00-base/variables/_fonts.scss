@@ -146,9 +146,11 @@ $h6Lg: 2.25rem;
 
 @mixin blockTitle{
 	@include heading2;
-	max-width: $textMax;
-  color: $headingText;
 	@include auto;
+  & {
+    max-width: $textMax;
+    color: $headingText;
+  }
 }
 
 @mixin widgetTitleAlt{

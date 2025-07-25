@@ -62,7 +62,9 @@
 		position: relative;
 		h2 {
 			@include heading4;
-			margin: 0 0 1rem;
+      & {
+			  margin: 0 0 1rem;
+      }
 		}
 		//end block title
 		.modal-close {

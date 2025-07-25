@@ -282,7 +282,9 @@
 		color: $white;
 		.cta-headline{
 			@include heading2;
-			color: $white;
+      & {
+			  color: $white;
+      }
       &:not(:only-child){
         margin-bottom: $spaceXxs;
       }
@@ -292,9 +294,11 @@
     }
 		.cta-button,.cta-text-right{
       text-align: center;
-			a{
+			a {
 				@include outlineButton($white);
-        margin-bottom: 0 !important;
+        & {
+          margin-bottom: 0 !important;
+        }
         &:hover,&:focus{
           color: $royal;
           background: $white;

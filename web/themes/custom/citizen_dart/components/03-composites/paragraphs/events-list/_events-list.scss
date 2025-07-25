@@ -11,8 +11,10 @@
   @include animation('fadeInDelay 1.5s 1 forwards');
   .events-title{
     @include styledHeader;
-    text-align: left;
-    margin-bottom: $spaceXxs;
+    & {
+      text-align: left;
+      margin-bottom: $spaceXxs;
+    }
     span{
       font-size: 5.375rem;
     }
@@ -93,7 +95,7 @@
       a{
         @include blockArrow(navy, sm);
         &:hover,&:focus{
-      
+
         }
       }//end a
     }//end title

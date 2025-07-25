@@ -192,8 +192,10 @@
     padding-right: 20px;
     .field-caption-headline{
       @include heading2;
-      color: $navy;
-      margin-bottom: $spaceXxs;
+      & {
+        color: $navy;
+        margin-bottom: $spaceXxs;
+      }
     }
     .field-caption{
       color: $navy;
