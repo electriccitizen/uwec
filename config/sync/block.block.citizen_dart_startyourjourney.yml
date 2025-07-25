@@ -1,4 +1,4 @@
-uuid: 5c05cf49-6f81-4961-8ee9-fe31b5a146b0
+uuid: 1255378d-c178-4566-9f23-eb9b1fedf88d
 langcode: en
 status: true
 dependencies:
@@ -11,9 +11,9 @@ theme: citizen_dart
 region: prefooter
 weight: 0
 provider: null
-plugin: start_journey
+plugin: start_your_journey
 settings:
-  id: start_journey
+  id: start_your_journey
   label: 'Start Your Journey'
   label_display: '0'
   provider: citizen_custom

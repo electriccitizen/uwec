@@ -7,7 +7,7 @@ use Drupal\Core\Url;
  * Provides the "Start Your Blugold Journey" block.
  *
  * @Block(
- *   id = "start_journey",
+ *   id = "start_your_journey",
  *   admin_label = @Translation("Start Your Journey"),
  *   category = @Translation("Custom"),
  * )
