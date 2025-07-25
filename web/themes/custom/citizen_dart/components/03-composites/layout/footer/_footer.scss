@@ -4,11 +4,29 @@
 
 @use '../../../00-base/base' as *;
 
-.prefooter-wrapper{
-	background: $prefooterBack;
+.prefooter-inner{
+	background-color: $prefooterBack;
 	color: $prefooterText;
+  overflow: hidden;
 	position: relative;
 	z-index: 1;
+  &:before {
+    background: url('../images/elements/wavy-y-white-large.svg') no-repeat scroll 110% center / 100%, $prefooterBack;
+    background-blend-mode: overlay, normal;
+    content: '';
+    height: 100%;
+    left: 0;
+    opacity: .65;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    @include desk {
+      background: url('../images/elements/wavy-y-white.svg') no-repeat scroll 110% center / 90%, $prefooterBack;
+    }
+    @include menuStop {
+      background-size: 75%;
+    }
+  }
 	.back-anchor{
 		a{
 			@include safeFlex(column,nowrap,center,center);
