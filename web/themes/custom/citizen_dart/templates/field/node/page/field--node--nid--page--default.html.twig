@@ -45,10 +45,17 @@
         <div class="hero-image">
           <div class="image-right">
             {{ drupal_entity('media',element['#object'].field_hero.0.entity.field_image.0.target_id,'730x840') }}
+            {% if hero_type == 'image' %}
+              <div class="image-waves">
+                <img src="/themes/custom/citizen_dart/images/elements/wavy-blue.svg" width="542px" height="881px" alt="decorative wavy line background shape" />
+              </div>
+            {% endif %}
           </div>
         </div>
       {% endif %}
     {% endif %}
+
+    
 
     {% if hero_type == 'background_image' %}
       <div class="river-background">
