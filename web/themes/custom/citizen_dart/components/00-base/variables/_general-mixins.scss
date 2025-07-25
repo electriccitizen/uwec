@@ -526,10 +526,11 @@
   @if $theme == white {
     $arrow: c.$white;
     $arrow-string: white;
-    $border: c.$white;
+    $border: c.$gold;
     $arrow-invert: royal;
-    $hover-border: $arrow;
-    $hover-back: $arrow;
+    $hover-border: c.$lightGold;
+    $back: c.$gold;
+    $hover-back: c.$lightGold;
   }
   @if $theme == gold {
     $arrow: c.$gold;

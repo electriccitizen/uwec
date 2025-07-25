@@ -7,7 +7,12 @@
 
 .node-news {
   #node-section-1 {
-   
+    z-index: 1;
+    @include headerInvasion;
+    @include heroFullWidthImage;
+    & > .layout--onecol {
+      width: 100%;
+    }
   }//end node section 1
 
   #node-section-2 {
