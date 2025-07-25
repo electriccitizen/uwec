@@ -664,14 +664,12 @@
 }//end page header text
 
 @mixin heroFullWidthImage {
-  padding-top: 40px;
-  @include edgeToEdge;
-  padding-left: $siteMarginMobile;
-  padding-right: $siteMarginMobile;
   color: $white;
   height: 100vh;
   max-height: 1000px;
   margin-bottom: $elementSpace;
+  padding-left: $siteMarginMobile;
+  padding-right: $siteMarginMobile;
   @include safeFlex(column,nowrap,end,start);
   @media screen and (min-width: 2001px){
     background: $royal;
@@ -691,46 +689,17 @@
       content: '';
       display: block;
       position: absolute;
-      height: 110px;
+      height: 100%;
       width: 100%;
       z-index: 1;
       top: 0;
       left: 0;
-      background: linear-gradient(0deg, rgba(#d9d9d9, 0) 0%, $navy 100%);
+      background: linear-gradient(0deg, rgba(6, 35, 61, 0.7) 0%, rgba(6, 35, 61, 0.2) 36.09%, rgba(6, 35, 61, 0.2) 80.62%, rgba(6, 35, 61, 0.7) 97.5%);
       html.animations-paused & {
         opacity: 1;
       }
       html.animations-playing & {
         @include animation('fadeIn 1.25s 1');
-      }
-      @include desk{
-        height: 160px;
-      }
-      @include menuStop{
-        height: 220px;
-      }
-    }
-    &:after {
-      content: '';
-      display: block;
-      position: absolute;
-      width: 100%;
-      height: calc(100% - 110px);
-      z-index: 0;
-      bottom: 0;
-      left: 0;
-      background: linear-gradient(180deg, rgba(#d9d9d9, 0) 0%, $navy 100%);
-      html.animations-paused & {
-        opacity: 1;
-      }
-      html.animations-playing & {
-        @include animation('fadeIn 1.25s 1');
-      }
-      @include desk{
-        height: calc(100% - 160px);
-      }
-      @include menuStop{
-        height: calc(100% - 220px);
       }
     }
     *{
@@ -740,31 +709,6 @@
         object-position: top center;
       }
     }
-    .field-media-image{
-      &:after{
-        content: '';
-        position: absolute;
-        top: 90px;
-        z-index: 2;
-        width: 113px;
-        height: 200px;
-        background-image: url(../images/elements/fat-stripes-gold.svg);
-        background-repeat: no-repeat;
-        background-size: 100%;
-        @include swirlAnimationFullImage();
-        @include desk{
-          top: 120px;
-          width: 140px;
-          height: 248px;
-          background-position: bottom left;
-        }
-        @include contentStop{
-          top: 140px;
-          width: 196px;
-          height: 347px;
-        }
-      }//end after
-    }//end field media image
   }//end hero background
   h1,h2,h3,h4,h5,h6,li,a{
     color: $white;
@@ -776,6 +720,12 @@
     .page-title{
       max-width: 800px;
       margin-left: 0;
+      @include desk {
+        margin-bottom: 100px;
+      }
+      @include contentStop {
+        margin-bottom: 148px;
+      }
     }
   }
   .field-links{

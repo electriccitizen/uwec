@@ -248,15 +248,14 @@
 
     /* FULL WIDTH IMAGE HERO */
     &.page-hero-full-image {
+      @include headerInvasion;
       @include heroFullWidthImage;
-      margin-top: -88px;
-      padding-top: -88px;
       .page-header-text{
         .page-header-text-inner{
           .in-main-menu &{
             @include menuStop{
               .node-title{
-                margin-bottom: 100px;
+                margin-bottom: 148px;
               }
             }
           }
