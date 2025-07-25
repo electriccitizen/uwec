@@ -27,40 +27,11 @@
       background-size: 75%;
     }
   }
-	.back-anchor{
-		a{
-			@include safeFlex(column,nowrap,center,center);
-			width: 96px;
-			height: 96px;
-			position: absolute;
-			top: -70px;
-			left: 20px;
-			z-index: 500;
-			border-radius: 50%;
-			background-color: $white;
-			border-radius: 50%;
-			box-shadow: 0 4px 4px rgba(0,0,0,.25);
-      opacity: 0;
-      @include rotate(180);
-			@include desk{
-				display: none;
-			}
-			svg{
-				fill: none;
-			}
-			&:active{
-				background: $ice;
-			}
-		}
-	}//end back anchor
 	.dialog-off-canvas-main-canvas &{
 		transform-style: unset;
 		*{
 			transform-style: unset;
 		}
-	}
-	.prefooter-guard{
-		background: $prefooterBack;
 	}
 	.prefooter-inner{
 		padding: 32px $siteMarginMobile 67px;
@@ -110,11 +81,37 @@
   }//end visible
 }//end prefooter-wrapper
 
+.back-anchor{
+  position: relative;
+  a{
+    @include safeFlex(column,nowrap,center,center);
+    width: 96px;
+    height: 96px;
+    position: absolute;
+    top: -30px;
+    left: 20px;
+    z-index: 500;
+    border-radius: 50%;
+    background-color: $white;
+    border-radius: 50%;
+    box-shadow: 0 4px 4px rgba(0,0,0,.25);
+    @include desk{
+      display: none;
+    }
+    svg{
+      fill: none;
+    }
+    &:active{
+      background: $ice;
+    }
+  }
+}//end back anchor
 
 .site-footer{
 	background-color: $footerBack;
 	color: $footerText;
   overflow: hidden;
+  padding-top: $spaceXl;
   position: relative;
   &:before {
     background: url('../images/elements/wavy-lines-white.png') -167.691px -117.284px / auto 233.177% no-repeat transparent;
@@ -127,16 +124,11 @@
     position: absolute;
     top: 0;
     width: 100%;
+    z-index: 5;
     @include tab {
       background-size: 250%;
     }
   }
-	.dialog-off-canvas-main-canvas & {
-		transform-style: unset;
-		*{
-			transform-style: unset;
-		}
-	}
 	.modal-content{
 		color: $baseText;
 	}
