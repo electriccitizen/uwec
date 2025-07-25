@@ -477,20 +477,11 @@
       padding: 60px 2.5rem 0;
       max-width: 1180px;
       @include auto;
-      body:not(.hero-has-image) &{
-        & > *:not(.block-system-breadcrumb-block){
-          max-width: 650px;
-          @include auto;
-        }
-      }
       @include desk{
         padding-top: 0;
         min-height: 300px;
         & > *:not(.block-system-breadcrumb-block){
           max-width: calc(50% - 40px);
-          body:not(.hero-has-image) &{
-            max-width: 100%;
-          }
         }
       }
       h1,h2,h3,h4,h5,h6,li{
@@ -630,11 +621,15 @@
   left:0;
   width: 100vw;
   z-index: 0;
-  height: 140px;
-  padding: 0 $siteMarginMobile;
-  background: $royal;
+  height: 184px;
+  padding-left: $siteMarginMobile;
+  padding-right: $siteMarginMobile;
+  background: radial-gradient(50.13% 157.8% at 6.18% 33.85%, #0F2C46 0%, #232C99 100%);
+  @include tab {
+    height: 300px;
+  }
   @include desk{
-    height: 180px;
+    height: 446px;
   }
 }
 

@@ -11,6 +11,16 @@ section.alert-wrapper{
 
 .site-header {
 	padding: 34px $siteMarginMobile;
+  .node-type-announcement &,
+  .node-type-contact &,
+  .node-type-fact &,
+  .node-type-hours &,
+  .node-type-snapshot &,
+  .node-type-support-book &,
+  .node-type-testimonial &,
+  .node-type-video-card &, {
+    background: radial-gradient(50.13% 157.8% at 6.18% 33.85%, #0F2C46 0%, #232C99 100%);
+  }
 	& > div{
 		max-width: $contentStopMargin;
 		@include auto;

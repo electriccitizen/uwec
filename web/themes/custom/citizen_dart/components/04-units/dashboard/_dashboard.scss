@@ -3,11 +3,24 @@
 ========================== */
 
 @use '../../00-base/base' as *;
+@use '../nodes/node-mixins' as *;
 
+.dashboard-wrapper {
+  @include headerInvasion;
+  position: relative;
+}
+.page-intro-simple {
+  @include heroSimpleBackground;
+}
 .user-dashboard{
 	max-width: 945px;
 	@include auto;
-  margin-bottom: -15rem;
+  background: $white;
+  padding: 75px $siteMarginMobile 60px;
+  @include desk {
+    padding-left: 80px;
+    padding-right: 80px;
+  }
 	.field-user-image{
 		border-radius: 50%;
 		overflow: hidden;
