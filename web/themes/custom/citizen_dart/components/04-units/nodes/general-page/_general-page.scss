@@ -28,9 +28,6 @@
       background: $royal;
       @include edgeToEdge;
     }
-    .hero-image &{
-      padding-bottom: $spaceLg;
-    }
   }
 
   //hero setups
@@ -126,31 +123,54 @@
     }//end hero pattern
 
     /* HERO IMAGE RIGHT HALF */
+    @keyframes imageRightWavy{
+      0%{
+        left: 200vw;
+      }
+      100%{
+        left: 0;
+      }
+    }
     &.page-hero-image{
+      @include headerInvasion;
       @include heroRightImage;
-      @include desk{
-        margin-bottom: 2rem;
-        padding-bottom: 29vw;
-        &.vertical-window{
-          margin-bottom: 6vw;
+      background: radial-gradient(50.13% 157.8% at 6.18% 33.85%, #0F2C46 0%, #232C99 100%);
+      @include desk {
+        min-height: 77vw;
+        margin-bottom: $elementSpace;
+      }
+      @include menuStop {
+        min-height: 75vw;
+      }
+      @include contentStop {
+        min-height: 1170px;
+      }
+      .image-right{
+        &:after {
+          content: none;
         }
-      }
-      @include contentStopMargin{
-        &.vertical-window{
-          margin-bottom: 4vw;
+        .image-waves {
+          position: absolute;
+          top: 0;
+          width: 70vw;
+          z-index: -1;
+          left: 200vw;
+          animation:.5s ease .4s 1 imageRightWavy;
+          animation-fill-mode: forwards;
+          @include smallTab {
+            width: 350px;
+          }
+          @include desk {
+            width: 35vw;
+            max-width: 542px;
+          }
+          @include contentStop {
+            width: 40vw;
+          }
+          img {
+            height: 182%;
+          }
         }
-      }
-      @media screen and (min-width: 1600px){
-        margin-bottom: -2vw;
-        &.vertical-window{
-          margin-bottom: 4vw;
-        }
-      }
-      @media screen and (min-width: 1900px){
-        margin-bottom: -6vw;
-      }
-      @media screen and (min-width: 2400px){
-        margin-bottom: -8vw;
       }
       .page-header-text{
         margin-bottom: 0;
@@ -160,11 +180,8 @@
           }
         }
         .breadcrumb{
-          padding-left: 20px;
-          padding-right: 20px;
           @include desk{
             .breadcrumb-list{
-              max-width: calc(50% - 80px);
               body:not(.hero-has-image) &{
                 max-width: 100%;
               }
@@ -173,13 +190,15 @@
         }
         .page-header-text-inner{
           .node-title{
-            margin-bottom: $spaceMd;
+            h1 {
+              color: $white;
+            }
+          }
+          .node-subtitle {
+            font-size: 3rem;
+            line-height: 1.45;
           }
           .node-subtitle,.node-body{
-            @include onlyMobile{
-              padding-left: 20px;
-              padding-right: 20px;
-            }
             a{
               font-weight: $heavy;
               @include dottedLink($white);
@@ -288,26 +307,6 @@
         }
       }
 
-      // thick gold squiggles in the top right corner, over video hero
-      &:after{
-        content:"";
-        display:block;
-        position:absolute;
-        width:85px;
-        height:203px;
-        top:128px;
-        right:-92px;
-        background-image: url(../images/elements/gold-squiggle-fat.png);
-        animation:.5s ease .4s 1 videoHeroSlashAnim;
-        animation-fill-mode:forwards;
-        @include tab {
-          top: 180px;
-        }
-        @include contentStop {
-          top: 30vh;
-        }
-      }
-
       .page-header-text{
         .page-header-text-inner{
           position:absolute;
@@ -320,9 +319,9 @@
             left:100px;
           }
           @include desk{
-            width:50%;
-            left:200px;
-            bottom:150px;
+            width: 50%;
+            left: 200px;
+            bottom: 120px;
           }
 
           // align left edge with left edge of top nav on large screens

@@ -30,26 +30,56 @@
 
   //hero setups
   #node-section-1 {
+    @include headerInvasion;
     @include heroRightImage;
-    .field-intro {
-      margin-bottom: 6.5rem;
-    }
-  }
-  #node-section-2 {
-    @include contentStop{
-      margin-top: -2vw;
-    }
-    @media screen and (min-width: 1600px){
-      margin-top: -5vw;
-    }
-    @media screen and (min-width: 1900px){
-      margin-top: -7vw;
-    }
-    @media screen and (min-width: 2400px){
-      margin-top: -8vw;
-    }
+    background: radial-gradient(50.13% 157.8% at 6.18% 33.85%, #0F2C46 0%, #232C99 100%);
     @include desk {
-      margin-bottom: 9.875rem;
+      min-height: 77vw;
+      margin-bottom: $elementSpace;
+    }
+    @include menuStop {
+      min-height: 75vw;
+    }
+    @include contentStop {
+      min-height: 1170px;
+    }
+    .image-right{
+      &:after {
+        content: none;
+      }
+      .image-waves {
+        position: absolute;
+        top: 0;
+        width: 70vw;
+        z-index: -1;
+        left: 200vw;
+        animation:.5s ease .4s 1 imageRightWavy;
+        animation-fill-mode: forwards;
+        @include smallTab {
+          width: 350px;
+        }
+        @include desk {
+          width: 35vw;
+          max-width: 542px;
+        }
+        @include contentStop {
+          width: 40vw;
+        }
+        img {
+          height: 182%;
+        }
+      }
+    }
+    .page-header-text .page-header-text-inner{
+      .block-system-breadcrumb-block .breadcrumb{
+        padding-left: 0;
+      }
+      .field.title h1{
+        color: $white;
+      }
+      .field-intro {
+        margin-bottom: 6.5rem;
+      }
     }
   }
   .block-body {
@@ -58,29 +88,33 @@
   .field.body {
     max-width: $textMax;
     @include auto;
-    padding: 2.5rem 2.5rem 0;
-    @include desk {
-      padding: 0;
-    }
   }
   .available-as {
-    margin-bottom: 6.5rem;
+    margin-bottom: 5rem;
     .tag {
       @include tag;
+      color: $white;
+      font-size: 1.75rem;
+      font-weight: $regular;
       display: block;
     }
     .field-content {
-      @include heading2;
+      font-family: $displayHeader;
+      font-weight: $heavy;
+      font-size: 3.125rem;
+      line-height: 1.32;
       color: $white;
       font-family: $displayHeader;
     }
   }
   .field-links{
-    padding-top: 0 !important;
+    div {
+      &:not(:last-child){
+        margin-bottom: $spaceSm;
+      }
+    }
     a {
-      @include linkArrow(white, sm);
-      display: block;
-      margin-right: 16px;
+      @include linkArrow(gold, lg);
     }
   }
   .block-field-degree-types {
@@ -681,7 +715,7 @@
     }
     .program-link{
       display: inline-block;
-      @include linkArrow(navy, sm, '.program-link-text');
+      @include linkArrow(navy, sm);
       margin-bottom: $spaceMd;
     }//end program link
   }//end program body

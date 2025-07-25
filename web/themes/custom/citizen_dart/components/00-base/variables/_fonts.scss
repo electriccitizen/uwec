@@ -188,12 +188,13 @@ $h6Lg: 2.25rem;
 		@include auto;
 	}
 }//end quote
+
 @mixin tag {
-  display: inline-block;
-  color: $white;
+  color: $gold;
   font-family: $bodyText;
-  font-size: 1.5rem;
-  letter-spacing: 1px;
+  font-weight: $heavy;
+  font-size: 1.875rem;
+  line-height: 1.466;
   text-transform: uppercase;
 }
 

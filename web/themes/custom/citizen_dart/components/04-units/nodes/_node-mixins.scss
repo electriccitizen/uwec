@@ -362,7 +362,6 @@
   margin-bottom: $elementSpace;
   padding-bottom: $elementSpace;
   @include desk{
-    padding-bottom: 1px;
     min-height: 61vw;
     margin-bottom: 160px;
   }
@@ -460,26 +459,23 @@
         display: none;
       }
       .breadcrumb{
-        max-width: 1096px;
+        max-width: 1180px;
         padding: 62px 20px 0;
         margin-bottom: 40px;
         @include desk{
           .breadcrumb-list {
-            max-width: calc(50% - 80px);
+            max-width: calc(50% - 40px);
             body:not(.hero-has-image) &{
               max-width: 100%;
             }
           }
-        }
-        @include menuStop{
-          margin-bottom: 80px;
         }
       }//end breadcrumb
     }//end breadcrumb block
     .page-header-text-inner{
       color: $white;
       padding: 60px 2.5rem 0;
-      max-width: 1092px;
+      max-width: 1180px;
       @include auto;
       body:not(.hero-has-image) &{
         & > *:not(.block-system-breadcrumb-block){
@@ -490,24 +486,24 @@
       @include desk{
         padding-top: 0;
         min-height: 300px;
-        & > *{
-          max-width: calc(50% - 80px);
+        & > *:not(.block-system-breadcrumb-block){
+          max-width: calc(50% - 40px);
           body:not(.hero-has-image) &{
             max-width: 100%;
           }
         }
       }
-      h1,h2,h3,h4,h5,h6,li,a{
+      h1,h2,h3,h4,h5,h6,li{
         color: $white;
       }
       .field.title,.node-title{
-        margin-bottom: 30px;
+        margin-bottom: 16px;
         h1 {
           color: $gold;
         }
       }
       .field-subtitle,.node-subtitle,.node-body,.field-intro{
-        margin-bottom: 40px;
+        margin-bottom: 16px;
         a{
           font-weight: $heavy;
           text-decoration: underline;
@@ -517,40 +513,18 @@
           }
         }
       }
+      .field-subtitle,.node-subtitle {
+        color: $gold;
+      }
       .field-links {
         max-width: 1092px;
-        @include desk{
-          align-items: flex-start;
-          padding-left: 20px;
-          margin-top: 20px;
+        a {
+          display: inline-block;
+          min-height: 32px;
         }
       }
     }//end page header text inner
   }//end page header text
-  body:not(.hero-has-image) &{
-    &:after{
-      @include goldSwirl;
-      max-height: 100%;
-      bottom: -180px;
-      @include swirlAnimationNoImage;
-      @include desk{
-        z-index: 1;
-      }
-      @media screen and (min-width: 1600px){
-        bottom: auto;
-        top: 60px;
-      }
-    }//end after swirl
-  }//end not has hero image
-  .field-links{
-    padding-top: 20px;
-    padding-bottom: 0;
-    a{
-      display: inline-block;
-      @include linkArrow(white, sm, "span");
-      min-height: 32px;
-    }
-  }//end field links
 }//end hero image right
 
 @mixin patternHero{
@@ -607,7 +581,7 @@
   }
   .field-links a{
     display: inline-block;
-    @include linkArrow(white, sm, "span");
+    @include linkArrow(white, sm);
     min-height: 32px;
   }//end links field a
 }//end patternHero
@@ -818,7 +792,7 @@
     }
     a{
       display: inline-block;
-      @include linkArrow(white, sm, "span");
+      @include linkArrow(white, sm);
       min-height: 32px;
     }
   }//end links field a
