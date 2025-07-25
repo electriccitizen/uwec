@@ -10,7 +10,7 @@ dependencies:
     - citizen_dart
 id: citizen_dart_socialmedia
 theme: citizen_dart
-region: prefooter
+region: footer
 weight: -7
 provider: null
 plugin: 'block_content:aac28652-c2fd-482d-955c-d453922ef049'

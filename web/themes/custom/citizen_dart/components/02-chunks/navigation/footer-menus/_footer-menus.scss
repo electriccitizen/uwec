@@ -44,7 +44,7 @@
 				&:hover,&:focus{
 					color: $prefooterLinkHover;
           text-decoration: none;
-					
+
 				}
 				&.menu-button{
 					border: 1px solid $prefooterLink;
@@ -67,82 +67,90 @@
 
 //for audience links
 .block-footer-for-menu{
+  @include tab {
+    @include safeFlex(row, nowrap, justify, start);
+    gap: 20px;
+  }
+  @include desk {
+    gap: 90px;
+  }
+
 	ul:not(.contextual-links){
 		@include listReset;
 		li{
 			padding-bottom: 0;
 		}
-		a{
+		a {
 			color: $prefooterLink;
-			line-height: 29px;
-			font-size: 14px;
+			font-size: 20px;
 			&:hover,&:focus{
         text-decoration: none;
 			}
 		}
 	}//end ul
 	.audience-menu{
+    margin-top: $spaceLg;
+    break-after: column;
     li:not(:last-child){
-      margin-bottom: -2px;
+      margin-bottom: 18px;
     }
-		.link-label{
-			font-family: $displayHeader;
-			font-style: italic;
-			font-size: 13.34px;
-		}
-		a{
+		a {
+      @include lineLinkHover;
 			font-family: $header;
 			font-weight: $xHeavy;
 			text-transform: uppercase;
 			letter-spacing: .05em;
-      padding-bottom: 2px;
-      &:hover,&:focus{
-        @include dottedLink($prefooterLink);
-      }
 		}
+    @include tab {
+      margin-top: 0;
+      // min-width: 305px;
+    }
 	}//end audience menu
 	.additional-audience-menu{
+    margin-top: $spaceLg;
 		ul:not(.contextual-links){
-			margin-top: 14px;
-			border-top: 1px solid rgba(255,255,255,.12);
-			padding-top: 14px;
-			margin-bottom: 7rem;
-			a{
-				font-size: 12px;
-				padding:6px 0 3px;
-				@include dottedLink($prefooterLink);
-				&:hover,&:focus{
-					background: none;
-					text-decoration: none;
-				}
+      li {
+        margin-bottom: 18px;
+      }
+			a {
+				@include lineLink;
+				font-size: 15px;
+        font-weight: 700;
+        line-height: 20px;
 			}
 		}
+    @include tab {
+      margin-top: 0;
+      width: 205px;
+    }
 	}//end additional audience
 }//end footer-for menu
 
 //Footer ancillary left
 .block-footer-ancillary-menu{
-  width: 100%;
 	ul:not(.contextual-links){
 		@include listReset;
-    
-    @include smallTab{
+
+    @include tab{
       @include safeFlex(row,wrap,center,center);
 		  @include bleed(padding,30px);
     }
 		li{
-			padding-bottom: $spaceXxs;
+			padding-bottom: $spaceXs;
       position: relative;
-      text-align: center;
+      text-align: left;
+      @include tab {
+        padding-bottom: $spaceXxs;
+      }
     }//end li
-		
+
 		a{
 			color: $footerLink;
-			font-size: 1.5rem;
-			line-height: 3rem;
-			padding-bottom: 3px;
-			@include dottedLink($footerLink);
+      font-family: $displayHeader;
+			font-size: 14px;
+			line-height: 28px;
       transition: color .3s ease;
+      text-decoration: underline;
 			&:hover,&:focus{
 				color: $footerLinkHover;
         background: none;
@@ -150,5 +158,4 @@
 			}
 		}
 	}
-}//end ancillary 
-
+}//end ancillary

@@ -4,45 +4,34 @@
 
 @use '../../../00-base/base' as *;
 
-.prefooter-wrapper{
-	background: $prefooterBack;
+.prefooter-inner{
+	background-color: $prefooterBack;
 	color: $prefooterText;
+  overflow: hidden;
 	position: relative;
-	z-index: 1;	
-	.back-anchor{
-		a{
-			@include safeFlex(column,nowrap,center,center);
-			width: 96px;
-			height: 96px;
-			position: absolute;
-			top: -70px;
-			left: 20px;
-			z-index: 500;
-			border-radius: 50%;
-			background-color: $white;
-			border-radius: 50%;
-			box-shadow: 0 4px 4px rgba(0,0,0,.25);
-      opacity: 0;
-      @include rotate(180);
-			@include desk{
-				display: none;
-			}
-			svg{
-				fill: none;
-			}
-			&:active{
-				background: $ice;
-			}
-		}
-	}//end back anchor
+	z-index: 1;
+  &:before {
+    background: url('../images/elements/wavy-y-white-large.svg') no-repeat scroll 110% center / 100%, $prefooterBack;
+    background-blend-mode: overlay, normal;
+    content: '';
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    @include desk {
+      background: url('../images/elements/wavy-y-white.svg') no-repeat scroll 110% center / 90%, $prefooterBack;
+      opacity: .65;
+    }
+    @include menuStop {
+      background-size: 75%;
+    }
+  }
 	.dialog-off-canvas-main-canvas &{
 		transform-style: unset;
 		*{
 			transform-style: unset;
 		}
-	}
-	.prefooter-guard{
-		background: $prefooterBack;
 	}
 	.prefooter-inner{
 		padding: 32px $siteMarginMobile 67px;
@@ -92,49 +81,81 @@
   }//end visible
 }//end prefooter-wrapper
 
+.back-anchor{
+  position: relative;
+  a{
+    @include safeFlex(column,nowrap,center,center);
+    width: 96px;
+    height: 96px;
+    position: absolute;
+    top: -30px;
+    left: 20px;
+    z-index: 500;
+    border-radius: 50%;
+    background-color: $white;
+    border-radius: 50%;
+    box-shadow: 0 4px 4px rgba(0,0,0,.25);
+    @include desk{
+      display: none;
+    }
+    svg{
+      fill: none;
+    }
+    &:active{
+      background: $ice;
+    }
+  }
+}//end back anchor
 
 .site-footer{
-	background: $footerBack;
+	background-color: $footerBack;
 	color: $footerText;
-	.dialog-off-canvas-main-canvas &{
-		transform-style: unset;
-		*{
-			transform-style: unset;
-		}
-	}
+  overflow: hidden;
+  position: relative;
+  &:before {
+    background: url('../images/elements/wavy-lines-white.png') -167.691px -117.284px / auto 233.177% no-repeat transparent;
+    background-size: 500%;
+    background-blend-mode: overlay;
+    content: '';
+    height: 100%;
+    left: 0;
+    opacity: .05;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    @include tab {
+      background-size: 250%;
+    }
+  }
 	.modal-content{
 		color: $baseText;
 	}
 	//set style for footer (need inner for fixed footer script)
 	.footer-inner{
-		padding: 0 $siteMarginMobile 115px;
+		padding: $spaceMl $siteMarginMobile $spaceLg;
 		@include auto;
+    max-width: $contentStopMargin;
 		position: relative;
-    @include smallTab{
-			padding-top: 20px;
-		}
 		@include tab{
-			padding-bottom: 100px;
+			padding-bottom: 45px;
+			padding-top: 75px;
 		}
-    @media screen and (min-width: 1024px){
-      padding-bottom: 20px;
-      .logged-in &{
-        padding-bottom: 80px;
-      }
-    }
-		& > div{
-			@include safeFlex(row,wrap,center,end);
+		> div{
 			@include bleed(padding,20px);
 			@include tab{
 				align-items: flex-end;
+        columns: 2;
 			}
 		}
     //social
+    .block-2,
     .block-3{
-      margin-bottom: $spaceSm;
       @include smallTab{
         margin-bottom: $spaceXxs;
       }
+    }
+    .block-footer-for-menu {
+      break-before: column;
     }
 		.footer-ancillary{
 			margin-bottom: $spaceMd;
@@ -142,9 +163,24 @@
         margin-bottom: $spaceXxs;
       }
 		}
-		//copy right
-		.block-1{
-			width: 100%;
-		}
 	}//end footer-inner
 }//end footer
+
+.postfooter {
+  @include auto;
+  max-width: $contentStopMargin;
+  padding: 0 $siteMarginMobile;
+  .postfooter-inner {
+    border-top: 1px solid $footerRule;
+    padding: $spaceLg 0 $spaceXl;
+    position: relative;
+    @include tab {
+      padding-bottom: $spaceSm;
+    }
+    > div {
+      @include tab {
+        @include safeFlex(row, no-wrap, justify, center);
+      }
+    }
+  }
+}
