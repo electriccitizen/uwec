@@ -12,6 +12,7 @@
 	--col-accent1: #{$gold};
 	--col-accent2: #{$navy};
 	--col-accent3: lemonchiffon;
+  --col-accent4: #{$bay};
 }
 .themeset-example{
 	--col-primary: #{$gold};
@@ -29,6 +30,7 @@
 ---------------------- */
 $baseText          : $navy;
 $link              : $royal;
+$linkUnderline     : $gold;
 $activeLink        : $ice;
 $hoverLink         : $navy;
 $breadLink         : $link;
@@ -67,16 +69,17 @@ $resetTextHover    : $royal;
 $siteBack                  : $white;
 $unpub                     : $adminPink;
 $headerBack                : var(--col-primary);
-$prefooterBack             : var(--col-accent2);
+$prefooterBack             : var(--col-accent1);
 $prefooterText             : $white;
 $prefooterLink             : $white;
 $prefooterLinkHover        : $white;
-$footerBack                : var(--col-accent2);
+$footerBack                : var(--col-accent4);
 $footerText                : $white;
 $footerLink                : $white;
 $footerLinkHover           : $gold;
 $footerSocial              : $white;
 $footerSocialHover         : $gold;
+$footerRule                : $gold;
 $borderRule                : $coolGrey;
 $modalBack                 : $navy;
 $modalContent              : $white;

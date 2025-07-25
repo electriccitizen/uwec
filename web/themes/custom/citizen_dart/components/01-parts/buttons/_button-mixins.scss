@@ -29,13 +29,13 @@
 }
 
 ///mixin - button
-@mixin button{
-	background-color: $buttonBack;
-	border: 1px solid $buttonBack;
+@mixin button($color: $buttonBack, $textColor: $buttonText, $hoverColor: $buttonBackHover, $hoverTextColor: $buttonTextHover) {
+	background-color: $color;
+	border: 1px solid $color;
 	border-radius: 5px;
-	color: $buttonText;
+	color: $textColor;
 	line-height: 1.2;
-	padding: $buttonPadding;
+	padding: $buttonPaddingMobile;
 	display: inline-block;
 	vertical-align: top;
 	text-decoration: none;
@@ -47,9 +47,9 @@
 	margin-bottom: $spaceMd;
 	letter-spacing: .1em;
 	&:hover,&:focus {
-		color: $buttonTextHover;
-		background-color: $buttonBackHover;
-		border-color: $buttonBackHover;
+		color: $hoverTextColor;
+		background-color: $hoverColor;
+		border-color: $hoverColor;
 		@include transAll(.3s);
 		text-decoration: none;
 		outline: 0;
@@ -68,6 +68,9 @@
 	&.js-hide{
 		display: none;
 	}
+  @include desk {
+    padding: $buttonPaddingDesk;
+  }
 }//end button mixin
 
 @mixin buttonAlt{
@@ -106,7 +109,7 @@
 		background: none;
 		border: none;
 		width: auto;
-	}//end wysiwyg 
+	}//end wysiwyg
 }
 
 @mixin submitButton{

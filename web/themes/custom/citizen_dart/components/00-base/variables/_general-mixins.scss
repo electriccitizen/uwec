@@ -269,6 +269,9 @@
 	}@else if $grad-direction == 'right'{
 		background: linear-gradient(to left, $grad-start $gradStartPercent,$grad-stop 100%); /* W3C */
 	}
+  @else {
+    background: linear-gradient($grad-direction, $grad-start $gradStartPercent, $grad-stop 100%);
+  }
 }
 
 @mixin fullImageOverlay{
@@ -591,6 +594,30 @@
     margin-top: -$top;
     position: relative;
     top: $top;
+  }
+}
+
+@mixin lineLink {
+  border-bottom: 1px solid cc.$linkUnderline;
+  display: inline-block;
+  text-decoration: none;
+  transition: color .3s, border-bottom-color .3s;
+  &:hover {
+    border-bottom: 1px solid transparent;
+    color: cc.$linkUnderline;
+    text-decoration: none;
+  }
+}
+
+@mixin lineLinkHover {
+  border-bottom: 1px solid transparent;
+  display: inline-block;
+  text-decoration: none;
+  transition: color .3s, border-bottom-color .3s;
+  &:hover {
+    border-bottom: 1px solid cc.$linkUnderline;
+    color: cc.$linkUnderline;
+    text-decoration: none;
   }
 }
 

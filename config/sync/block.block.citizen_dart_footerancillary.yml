@@ -11,7 +11,7 @@ dependencies:
     - citizen_dart
 id: citizen_dart_footerancillary
 theme: citizen_dart
-region: footer
+region: postfooter
 weight: -7
 provider: null
 plugin: 'menu_block:footer-ancillary'
