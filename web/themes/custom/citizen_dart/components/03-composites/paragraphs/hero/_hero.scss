@@ -8,16 +8,13 @@
   .video-button {
     display:block;
     position:absolute;
-    bottom: 100px;
+    bottom: 124px;
     right:64px;
     transform:rotate(90deg);
     transform-origin:right;
     z-index:10;
     width:5rem;
     color:white;
-    @include contentStop {
-      bottom: 150px;
-    }
     &:hover,
     &:focus {
       &:before{

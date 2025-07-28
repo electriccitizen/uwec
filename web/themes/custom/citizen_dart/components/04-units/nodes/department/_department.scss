@@ -54,8 +54,14 @@
     }
     .block-field.block-title {
       margin-bottom: $spaceXs;
+      h1 {
+        @include contentStop {
+          font-size: 8.75rem;
+        }
+      }
     }
     .block-field-subtitle {
+      margin-bottom: $spaceSm;
       h2 {
         color: $gold;
         line-height: 1.466;
@@ -70,17 +76,12 @@
 	.field-subtitle,
 	.field-intro-text,
   .field-links {
-		max-width: $textMax;
+		max-width: 650px;
 		@include auto;
 	}
-  .block-field.block-title{
-    margin-bottom: 8rem;
-  }
-  .block-field-subtitle{
-    margin-bottom: $spaceSm;
-  }
+
   .field-links{
-    max-width: $textMax;
+    max-width: 650px;
     @include auto;
     @include smallTab{
       & > div{
