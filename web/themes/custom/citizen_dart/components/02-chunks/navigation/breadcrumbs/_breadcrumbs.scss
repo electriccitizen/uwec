@@ -15,6 +15,7 @@
 	li{
     display: inline-block;
     color: $white;
+    font-weight: $heavy;
 		&:not(:last-of-type){
 			padding-right: .25rem;
 			&:after{
