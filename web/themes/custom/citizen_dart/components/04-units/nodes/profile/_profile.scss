@@ -94,7 +94,7 @@
       @include smallTab{
         padding-left: 0;
         max-width: 426px;
-        margin: 0 auto;
+        margin: 0 auto $spaceMd;
       }
       .field-uid{
         @include desk{
