@@ -193,7 +193,7 @@
         overflow: hidden;
         mix-blend-mode: overlay;
         @include desk {
-          left: 0;
+          left: -90px;
           top: -30px;
         }
         img {
