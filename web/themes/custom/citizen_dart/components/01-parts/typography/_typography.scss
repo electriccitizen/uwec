@@ -19,14 +19,23 @@ h2{
 
 h3{
 	@include heading3;
+	.text-long &,.text-with-summary &{
+		margin-bottom: $spaceXms;
+	}
 }
 
 h4{
 	@include heading4;
+	.text-long &,.text-with-summary &{
+		margin-bottom: $spaceXxs;
+	}
 }
 
 h5{
 	@include heading5;
+	.text-long &,.text-with-summary &{
+		margin-bottom: $spaceMxxs;
+	}
 }
 
 h6{
@@ -89,9 +98,10 @@ p{
 
 a {
 	color: $link;
-	text-decoration: none;
+  font-weight: $heavy;
+	text-decoration: underline;
   .text-with-summary &,.text-long &{
-    @include dottedLink($link);
+    // @include dottedLink($link);
   }
 	&:hover,&:focus {
 		color: $hoverLink;
