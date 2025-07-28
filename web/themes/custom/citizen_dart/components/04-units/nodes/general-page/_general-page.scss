@@ -186,15 +186,23 @@
       }
       .river-background {
         position: absolute;
-        top: 0;
-        left: -120px;
+        top: -10px;
+        left: -30px;
         width: calc(100vw + 120px);
         height: 100%;
         overflow: hidden;
         mix-blend-mode: overlay;
+        @include desk {
+          left: 0;
+          top: -30px;
+        }
         img {
           mix-blend-mode: overlay;
-          width: 1521px;
+          width: 1150px;
+          @include desk {
+            width: 1460px;
+            transform: rotate(6deg);
+          }
         }
       }
     }//end background hero
