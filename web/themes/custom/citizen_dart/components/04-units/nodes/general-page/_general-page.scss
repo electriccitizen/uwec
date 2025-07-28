@@ -283,6 +283,9 @@
             margin-bottom:3rem;
             h1.formatted-title{
               color: $white;
+              @include contentStop {
+                font-size: 10.625rem;
+              }
             }//end formatted title
           }//end node-title
           .video-text {

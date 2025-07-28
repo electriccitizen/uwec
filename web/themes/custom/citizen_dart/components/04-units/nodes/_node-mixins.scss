@@ -660,22 +660,31 @@
 
 @mixin heroFullWidthImage {
   color: $white;
-  height: 100vh;
   max-height: 1000px;
   margin-bottom: $elementSpace;
-  padding-left: $siteMarginMobile;
-  padding-right: $siteMarginMobile;
+  padding-top: 0;
+  padding-left: 0;
+  padding-right: 0;
   @include safeFlex(column,nowrap,end,start);
+  @include desk {
+    height: 100vh;
+  }
   @media screen and (min-width: 2001px){
     background: $royal;
   }
   .hero-background{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
+    width: 100vw;
+    margin-bottom: $spaceMd;
+    position: relative;
+    @include desk {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      margin-bottom: 0;
+    }
     @media screen and (min-width: 2001px){
       width: 2000px;
       left: calc(50% - 1000px);
@@ -711,15 +720,24 @@
   .page-header-text{
     max-width: 1104px;
     width: 100%;
+    padding-left: $siteMarginMobile;
+    padding-right: $siteMarginMobile;
     @include auto;
-    .page-title{
-      max-width: 800px;
-      margin-left: 0;
-      @include desk {
-        margin-bottom: 100px;
+    .page-header-text-inner{
+      .node-title {
+        margin-bottom: 0;
       }
-      @include contentStop {
-        margin-bottom: 148px;
+      h1.page-title{
+        max-width: 800px;
+        margin-left: 0;
+        color: $royal;
+        @include desk {
+          margin-bottom: 100px;
+          color: $white;
+        }
+        @include contentStop {
+          margin-bottom: 148px;
+        }
       }
     }
   }

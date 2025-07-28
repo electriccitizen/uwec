@@ -10,6 +10,18 @@
     z-index: 1;
     @include headerInvasion;
     @include heroFullWidthImage;
+    @include onlyMobile {
+      margin-bottom: 0;
+      .block-field.block-nid {
+        margin-bottom: 0;
+      }
+      .hero-background {
+        margin-bottom: 0;
+      }
+      .page-header-text {
+        display: none;
+      }
+    }
     & > .layout--onecol {
       width: 100%;
     }
