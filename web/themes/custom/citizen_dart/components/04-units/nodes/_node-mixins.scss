@@ -718,11 +718,14 @@
     color: $white;
   }
   .page-header-text{
-    max-width: 1104px;
+    max-width: $textMax;
     width: 100%;
     padding-left: $siteMarginMobile;
     padding-right: $siteMarginMobile;
     @include auto;
+    @include desk {
+      max-width: 1104px;
+    }
     .page-header-text-inner{
       .node-title {
         margin-bottom: 0;
