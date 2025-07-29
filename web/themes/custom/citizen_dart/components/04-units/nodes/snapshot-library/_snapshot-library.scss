@@ -151,10 +151,6 @@
     @include carouselBreak{
       @include safeFlex(row,wrap,start,stretch);
       background: $siteBack;
-      padding-top: 27px;
-    }
-    @include carouselBreak{
-      padding-top: 53px;
     }
   }//end snapshot widget content
   .snapshot-top-left{
@@ -187,14 +183,17 @@
       }
     }//end waves gold
   }//end top left
-  .snapshot-top-right{
+  .snapshot-top-right {
     padding: $spaceSm 0 $spaceXxs;
+    position: relative;
+    z-index: 2;
     @include tab{
       @include safeFlex(column,nowrap,end,start);
       padding: 0 0 0 44px;
       width: 43.7%;
     }
     .field-eyebrow {
+      background-color: $siteBack;
       color: $galleryEyebrow;
       display: block;
       font-size: 15px;
@@ -206,6 +205,7 @@
       }
     }
     .snapshot-title{
+      background-color: $siteBack;
       color: $galleryTitle;
       font-family: $displayHeader;
       font-size: 25px;
