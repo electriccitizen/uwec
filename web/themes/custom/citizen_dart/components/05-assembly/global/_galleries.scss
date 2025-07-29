@@ -4,32 +4,57 @@
 
 @use '../../00-base/base' as *;
 
-@mixin sliderPrevSm{
-	background-image: url(../images/arrows/slider-arrow-left-ltgrey-sm.svg);
-	background-repeat: no-repeat;
-	background-size: contain;
-	background-position: center;
+@mixin sliderPagerBase {
+  visibility: visible;
+  &:before {
+    background-color: $galleryPagerBack;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    border-radius: 50%;
+    content: "";
+    display: block;
+    transition: background-color .3s;
+    opacity: 1;
+  }
+  &:hover:before,
+  &:active:before {
+    background-color: $galleryPagerHoverBack;
+  }
 }
 
-@mixin sliderPrev{
-	background-image: url(../images/arrows/slider-arrow-left-ltgrey.svg);
-	background-repeat: no-repeat;
-	background-size: contain;
-	background-position: center;
+@mixin sliderPagerDesk {
+  &:before {
+    background-size: 22px;
+    height: 100px;
+    width: 100px;
+  }
 }
 
-@mixin sliderNextSm{
-	background-image: url(../images/arrows/slider-arrow-right-ltgrey-sm.svg);
-	background-repeat: no-repeat;
-	background-size: contain;
-	background-position: center;
+@mixin sliderPrevSm {
+  visibility: hidden;
 }
 
-@mixin sliderNext{
-	background-image: url(../images/arrows/slider-arrow-right-ltgrey.svg);
-	background-repeat: no-repeat;
-	background-size: contain;
-	background-position: center;
+@mixin sliderPrev {
+  @include sliderPagerBase;
+  @include sliderPagerDesk;
+  &:before {
+	  background-image: url(../images/arrows/slider-arrow-left-royal.svg);
+    background-position: 36px center;
+  }
+}
+
+@mixin sliderNextSm {
+  display: none;
+}
+
+@mixin sliderNext {
+  @include sliderPagerBase;
+  @include sliderPagerDesk;
+  &:before {
+	  background-image: url(../images/arrows/slider-arrow-right-royal.svg);
+    background-position: 44px center;
+  }
 }
 
 /* FEATHERLIGHT
@@ -95,26 +120,14 @@ body{
         }
       }//end close icon
       .featherlight-previous {
-        width: 40px;
-        height: 40px;
         top: calc(40% - 20px);
         left: 10px;
         bottom: auto;
         right: auto;
         @include sliderPrevSm;
-          @include desk{
-            width: 96px;
-            height: 96px;
-            top: calc(40% - 48px);
-            @include sliderPrev;
-          }
-        &:hover,&:focus {
-          background-image: url(../images/arrows/slider-arrow-left-ice-sm.svg);
-          background-color: transparent;
-          @include transition(background-image, 0.3s, ease);
-          @include desk{
-            background-image: url(../images/arrows/slider-arrow-left-ice.svg);
-          }
+        @include desk{
+          top: calc(40% - 48px);
+          @include sliderPrev;
         }
         span {
           display: block;
@@ -124,26 +137,14 @@ body{
       }
       //end previous
       .featherlight-next {
-        width: 40px;
-        height: 40px;
         top: calc(40% - 20px);
         right: 10px;
         bottom: auto;
         left: auto;
         @include sliderNextSm;
-          @include desk{
-            width: 96px;
-            height: 96px;
-            top: calc(40% - 48px);
-            @include sliderNext;
-          }
-        &:hover,&:focus {
-          background-image: url(../images/arrows/slider-arrow-right-ice-sm.svg);
-          background-color: transparent;
-          @include transition(background-image, 0.3s, ease);
-          @include desk{
-            background-image: url(../images/arrows/slider-arrow-right-ice.svg);
-          }
+        @include desk{
+          top: calc(40% - 48px);
+          @include sliderNext;
         }
         span {
           display: block;
@@ -184,60 +185,25 @@ body{
 	}
 	.slick-arrow {
 		z-index: 1;
-    width: 40px;
-    height: 40px;
-    @include desk{
-      width: 96px;
-		  height: 96px;
-    }
-		&:before {
-			content: '';
-			display: block;
-			width: 100%;
-			height: 100%;
-			opacity: 1;
-		}
 		&.slick-prev {
       left: 20px;
       @include desk{
 			  left: -48px;
       }
-			&:before{
-				@include sliderPrevSm;
-        @include desk{
-          @include sliderPrev;
-        }
-			}
-			&:hover,&:focus{
-				&:before{
-					background-image: url(../images/arrows/slider-arrow-left-ice-sm.svg);
-					@include transition(background-image, 0.3s, ease);
-          @include desk{
-            background-image: url(../images/arrows/slider-arrow-left-ice.svg);
-          }
-				}
-			}
+      @include sliderPrevSm;
+      @include desk {
+        @include sliderPrev;
+      }
 		}
 		&.slick-next {
       right: 20px;
       @include desk{
 			  right: -48px;
       }
-			&:before{
-				@include sliderNextSm;
-        @include desk{
-          @include sliderNext;
-        }
-			}
-			&:hover,&:focus{
-				&:before{
-					background-image: url(../images/arrows/slider-arrow-right-ice-sm.svg);
-					@include transition(background-image, 0.3s, ease);
-          @include desk{
-            background-image: url(../images/arrows/slider-arrow-right-ice.svg);
-          }
-				}
-			}
+      @include sliderNextSm;
+      @include desk{
+        @include sliderNext;
+      }
 		}
 	}//end slick arrow
 }//end slick-slider
