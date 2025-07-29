@@ -46,8 +46,6 @@ h2+ul, h3+ul, h4+ul, h5+ul, h6+ul {
 	margin-top: 0;
 }
 
-
-
 /* BLOCK, SECTION AND WIDGET HEADINGS
 -------------------------- */
 .block-title{
@@ -98,14 +96,18 @@ p{
 
 a {
 	color: $link;
-	text-decoration: none;
+  text-decoration: none;
   .text-with-summary &,.text-long &{
-  
+    color: $textLink;
+    font-weight: $heavy;
+    text-decoration: underline;
   }
 	&:hover,&:focus {
 		color: $hoverLink;
 		text-decoration: none;
 		.text-with-summary &,.text-long &{
+      color: $textLinkHover;
+      text-decoration: none;
 			transition: color .3s ease-in;
 		}
 	}
