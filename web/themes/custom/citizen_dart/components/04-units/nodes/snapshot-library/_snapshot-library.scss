@@ -158,24 +158,22 @@
     }
   }//end snapshot widget content
   .snapshot-top-left{
-    @include carouselBreak{
-      width: 50%;
-      position: relative;
-      z-index: 1;
-    }
+    position: relative;
+    z-index: 1;
     @include tab{
       width: 56.3%;
     }
     .waves-gold {
-      display: none;
-      @include carouselBreak{
-        display: block;
-        position: absolute;
-        top: 56px;
+      display: block;
+      position: absolute;
+      top: 56px;
+      width: 100%;
+      left: 50%;
+      z-index: -1;
+      @include tab{
         left: 170px;
         width: 50vw;
         max-width: 574px;
-        z-index: -1;
         svg{
           width: 100%;
           height: auto;
@@ -190,27 +188,21 @@
     }//end waves gold
   }//end top left
   .snapshot-top-right{
-    padding: 20px 20px 8px;
-    @include carouselBreak{
-      width: 50%;
-      @include safeFlex(column,nowrap,end,start);
-      padding: 0 0 0 20px;
-    }
+    padding: $spaceSm 0 $spaceXxs;
     @include tab{
+      @include safeFlex(column,nowrap,end,start);
       padding: 0 0 0 44px;
       width: 43.7%;
     }
     .field-eyebrow {
-      display: none;
-      @include carouselBreak{
-        color: $galleryEyebrow;
-        display: block;
-        font-size: 15px;
+      color: $galleryEyebrow;
+      display: block;
+      font-size: 15px;
+      line-height: 1.5;
+      margin-bottom: $spaceXxs;
+      text-transform: uppercase;
+      @include tab {
         font-weight: $heavy;
-        line-height: 1.5;
-        text-transform: uppercase;
-        letter-spacing: .05em;
-        margin-bottom: $spaceXxs;
       }
     }
     .snapshot-title{
@@ -225,8 +217,6 @@
     }
   }//end snapshot toprright
   .snapshot-bottom{
-    padding-right: 20px;
-    padding-left: 20px;
     @include carouselBreak{
       max-width: 762px;
       margin: $spaceSm auto 0;

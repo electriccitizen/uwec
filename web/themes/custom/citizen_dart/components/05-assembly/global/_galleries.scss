@@ -5,52 +5,40 @@
 @use '../../00-base/base' as *;
 
 @mixin sliderPagerBase {
-  visibility: visible;
+  visibility: hidden;
   &:before {
     background-color: $galleryPagerBack;
     background-position: center center;
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: 22px;
     border-radius: 50%;
     content: "";
     display: block;
-    transition: background-color .3s;
+    height: 100px;
     opacity: 1;
+    transition: background-color .3s;
+    width: 100px;
   }
   &:hover:before,
   &:active:before {
     background-color: $galleryPagerHoverBack;
   }
-}
-
-@mixin sliderPagerDesk {
-  &:before {
-    background-size: 22px;
-    height: 100px;
-    width: 100px;
+  @include desk {
+    visibility: visible;
   }
 }
 
-@mixin sliderPrevSm {
-  visibility: hidden;
-}
 
 @mixin sliderPrev {
   @include sliderPagerBase;
-  @include sliderPagerDesk;
   &:before {
 	  background-image: url(../images/arrows/slider-arrow-left-royal.svg);
     background-position: 36px center;
   }
 }
 
-@mixin sliderNextSm {
-  display: none;
-}
-
 @mixin sliderNext {
   @include sliderPagerBase;
-  @include sliderPagerDesk;
   &:before {
 	  background-image: url(../images/arrows/slider-arrow-right-royal.svg);
     background-position: 44px center;
@@ -120,15 +108,11 @@ body{
         }
       }//end close icon
       .featherlight-previous {
-        top: calc(40% - 20px);
+        top: calc(40% - 48px);
         left: 10px;
         bottom: auto;
         right: auto;
-        @include sliderPrevSm;
-        @include desk{
-          top: calc(40% - 48px);
-          @include sliderPrev;
-        }
+        @include sliderPrev;
         span {
           display: block;
           font-size: 0;
@@ -137,15 +121,11 @@ body{
       }
       //end previous
       .featherlight-next {
-        top: calc(40% - 20px);
+        @include sliderNext;
         right: 10px;
         bottom: auto;
         left: auto;
-        @include sliderNextSm;
-        @include desk{
-          top: calc(40% - 48px);
-          @include sliderNext;
-        }
+        top: calc(40% - 48px);
         span {
           display: block;
           font-size: 0;
@@ -190,20 +170,14 @@ body{
       @include desk{
 			  left: -48px;
       }
-      @include sliderPrevSm;
-      @include desk {
-        @include sliderPrev;
-      }
+      @include sliderPrev;
 		}
 		&.slick-next {
       right: 20px;
       @include desk{
 			  right: -48px;
       }
-      @include sliderNextSm;
-      @include desk{
-        @include sliderNext;
-      }
+      @include sliderNext;
 		}
 	}//end slick arrow
 }//end slick-slider

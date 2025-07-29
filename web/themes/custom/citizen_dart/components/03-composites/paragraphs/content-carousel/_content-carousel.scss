@@ -23,7 +23,6 @@
     height: inherit !important;
   }
   .view{
-    padding: 0 5px;
     display: block;
     height: auto;
     @include desk{
@@ -31,6 +30,12 @@
       max-width: 1096px;
       @include auto;
       &.testimonials{
+        padding: 0;
+      }
+    }
+    .node-widget {
+      padding: 0 $siteMarginMobile;
+      @include desk {
         padding: 0;
       }
     }
@@ -42,6 +47,7 @@
     }
     .slick-arrow{
       top: calc(90px + 4vw);
+      width: 100px;
       @include carouselBreak{
         top: calc(120px + 6%);
       }
