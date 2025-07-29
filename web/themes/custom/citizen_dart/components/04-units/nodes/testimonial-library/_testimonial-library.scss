@@ -20,6 +20,8 @@
 	}
 }
 
+$quoteWidthDesk: calc($textMax + $siteMarginMobile * 2);
+
 .node-testimonial{
   padding-top: $elementSpace;
 	max-width: $breakoutWidth;
@@ -165,6 +167,8 @@
 
 /* TESTIMONIAL WIDGET (content carousel) */
 .node-widget-testimonial{
+  @include auto;
+  max-width: $quoteWidthDesk;
   .testimonial-quote{
     background: $royal;
     color: $white;
@@ -173,7 +177,7 @@
       padding: 20px 50px 90px;
     }
     @include desk{
-      padding-bottom: 150px;
+      padding-bottom: 120px;
     }
     .testimonial-eyebrow-lg{
       display: none;
@@ -193,23 +197,22 @@
     }//end testimonial eyebrow lg
   }//end testimonial quote
   .field.body{
-    max-width: $largeTab;
     .body-wrapper{
       @include quote;
       .quote-mark{
         margin: 0 auto 40px;
         width: 21px;
-        svg,.cls-1{
-          fill: $white;
-        }
       }
       p{
-        text-align: center;
+        text-align: left;
+        font-family: $displayHeader;
         font-size: 21px;
         line-height: 1.33;
+        font-style: italic;
         @include largeTab{
-          font-size: 31px;
-          line-height: 1.54;
+          font-size: 30px;
+          line-height: 1.433;
+          padding: 0 53px;
         }
         &:last-child{
           margin-bottom: 0;
@@ -220,11 +223,9 @@
   .testimonial-details{
     background: $ice;
     @include safeFlex(row,nowrap,start,stretch);
-    max-width: $largeTab;
     @include auto;
     @include desk{
-      justify-content: flex-end;
-      padding-bottom: 20px;
+      padding: 0 103px 20px;
     }
     .testimonial-meta{
       flex: 1 1;
@@ -240,16 +241,16 @@
           flex: 0 0 335px;
           order: 2;
           font-size: 2rem;
-          padding: 36px 28px 24px;
+          padding: 20px 32px;
         }
       }
       .testimonial-title{
-        font-family: $header;
-        font-size: 2.25rem;
+        font-family: $displayHeader;
+        font-size: 22px;
         line-height: 1.33;
-        margin-bottom: $spaceXs;
+        margin-bottom: $spaceMs;
         @include desk{
-          font-size: 3rem;
+          font-size: 26px;
         }
       }//end testimonial title
       .field-eyebrow{
@@ -261,6 +262,13 @@
         }
       }
       //when no ptoho
+      .field-major {
+        font-size: 16px;
+        font-weight: $heavy;
+      }
+      .field-grad-year {
+        font-size: 14px;
+      }
       &:only-child{
         text-align: center;
         .field-eyebrow{
@@ -276,8 +284,8 @@
       article{
         @include desk{
           position: relative;
-          top: -20px;
-          height: 203px;
+          top: -28px;
+          height: 200px;
         }
       }
       img{

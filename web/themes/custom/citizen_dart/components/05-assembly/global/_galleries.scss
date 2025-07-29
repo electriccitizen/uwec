@@ -156,6 +156,9 @@ body{
 .slick-slider {
 	.slick-list {
 		@include listReset;
+    .slick-slide {
+      overflow: hidden;
+    }
     .slick-current{
       &:focus{
         outline: 0;

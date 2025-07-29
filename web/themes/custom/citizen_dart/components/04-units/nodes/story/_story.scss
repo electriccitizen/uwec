@@ -370,7 +370,7 @@
     @include carouselBreak{
       background: $ice;
       @include safeFlex(row,nowrap,start,start);
-      padding: 20px 0 0;
+      padding: 20px $siteMarginMobile;
     }
     @include desk{
       padding-top: 30px;
