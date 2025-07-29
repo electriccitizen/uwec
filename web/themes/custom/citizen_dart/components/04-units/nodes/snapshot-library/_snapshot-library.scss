@@ -142,7 +142,7 @@
 
 //snapshot widget (for content carousel)
 .node-widget-snapshot{
-  color: $royal;
+  color: $galleryCaption;
   background: $ice;
   @include carouselBreak{
     background: $siteBack;
@@ -166,15 +166,15 @@
     @include tab{
       width: 56.3%;
     }
-    .swirl-blue{
+    .waves-gold {
       display: none;
       @include carouselBreak{
         display: block;
         position: absolute;
-        top: -53px;
-        left: 112px;
+        top: 56px;
+        left: 170px;
         width: 50vw;
-        max-width: 611px;
+        max-width: 574px;
         z-index: -1;
         svg{
           width: 100%;
@@ -187,7 +187,7 @@
       @include desk{
         width: 50vw;
       }
-    }//end swirl blue;
+    }//end waves gold
   }//end top left
   .snapshot-top-right{
     padding: 20px 20px 8px;
@@ -197,14 +197,16 @@
       padding: 0 0 0 20px;
     }
     @include tab{
-      padding: 0 0 0 47px;
+      padding: 0 0 0 44px;
       width: 43.7%;
     }
-    .field-eyebrow{
+    .field-eyebrow {
       display: none;
       @include carouselBreak{
+        color: $galleryEyebrow;
         display: block;
-        font-size: 1.5rem;
+        font-size: 15px;
+        font-weight: $heavy;
         line-height: 1.5;
         text-transform: uppercase;
         letter-spacing: .05em;
@@ -212,11 +214,13 @@
       }
     }
     .snapshot-title{
-      font-family: $header;
-      font-size: 2.25rem;
+      color: $galleryTitle;
+      font-family: $displayHeader;
+      font-size: 25px;
+      font-weight: $heavy;
       line-height: 1.33;
       @include desk{
-        font-size: 3rem;
+        font-size: 25px;
       }
     }
   }//end snapshot toprright
@@ -232,14 +236,14 @@
       line-height: 1.5;
       margin-bottom: $spaceSm;
       @include carouselBreak{
-        margin-bottom: $spaceXs;
+        margin-bottom: $spaceMd;
       }
     }
     .field-link{
       margin-bottom: $spaceSm;
       a{
         display: inline-block;
-        @include linkArrow(royal, sm);
+        @include linkArrow(royal, lg);
       }//end a
     }//end field link
   }//end snapshot bottom
