@@ -183,4 +183,34 @@ body{
       @include sliderNext;
 		}
 	}//end slick arrow
+  .slick-dots {
+    @include desk {
+      height: 0;
+      visibility: hidden;
+      width: 0;
+    }
+    li,
+    li button,
+    li button:before {
+      height: 16px;
+      width: 16px;
+    }
+    li {
+      margin: 0;
+      button {
+        padding: 0;
+        &:before {
+          color: $galleryDot;
+          font-size: 9px;
+          opacity: 1;
+        }
+        &:hover:before {
+          color: $galleryDotHover;
+        }
+      }
+      &.slick-active button:before {
+        color: $galleryDotActive;
+      }
+    }
+  }
 }//end slick-slider
