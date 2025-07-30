@@ -16,23 +16,13 @@
 	  line-height: 1.5;
   }
 	.quote-mark{
-		display: block;
-		width: 16px;
-		height: 14px;
-		margin: -16px auto 36px;
-    @include tab{
-      width: 20px;
-      height: 19px;
-      margin-bottom: 42px;
-    }
-		svg,.cls-1{
-			fill: $brightBlue;
-		}
+		@include quoteMark;
 	}//quote mark
 }//end quote
 
 .paragraph--type--quote {
-	color: $brightBlue;
+	color: $royal;
+  background: $ice;
   @include edgeToEdge;
 	@media screen and (min-width: 954px){
 		@include auto;
@@ -40,8 +30,6 @@
   .quote-wrapper {
   	max-width: $breakoutWidth;
   	@include auto;
-    border-top: $brightBlue 1px solid;
-    border-bottom: $brightBlue 1px solid;
     padding: 36px $siteMarginMobile 36px;
     text-align: center;
     .quote {

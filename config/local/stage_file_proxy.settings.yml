@@ -1,5 +1,5 @@
 hotlink: false
-origin: 'https://live-uwec.pantheonsite.io'
+origin: 'https://rebuild-uwec.pantheonsite.io'
 origin_dir: sites/default/files
 proxy_headers: ''
 use_imagecache_root: false

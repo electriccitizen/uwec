@@ -107,7 +107,9 @@
         margin-top: $spaceSm;
         a{
           @include outlineButton($navy);
-          margin-bottom: 0;
+          & {
+            margin-bottom: 0;
+          }
         }
       }//end field link
     }//end step details

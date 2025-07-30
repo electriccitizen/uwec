@@ -108,7 +108,7 @@ PAGERS
 	.pager__items{
 		padding: 10px 47px;
 		margin-bottom: 0;
-		background: $lightGrey;
+		background: $ice;
     border-radius: 50px;
 	}
 	.pager__item{
@@ -144,21 +144,12 @@ PAGERS
 			margin-right: 2.5rem;
 			& > a{
 				@extend %firstLast;
-        // padding-right: 1.75rem;
-        // svg{
-        //   left: 1.75rem;
-        // }
 			}
 		}
 		&.pager__item--last{
 			margin-left: 2.5rem;
 			& > a{
         @extend %firstLast;
-        //align-items: flex-start;
-        // padding-left: 2rem;
-        // svg{
-        //   right: 2rem;
-        // }
 			}
 		}
 	}//end page number items

@@ -168,7 +168,7 @@
       max-width: calc(100% - 112px);
       width: 100%;
       max-width: 100%;
-      color: $brightBlue;
+      color: $royal;
       padding: 10px;
       &:hover,&:focus {
         background: $white;
@@ -212,7 +212,7 @@
 			list-style: none;
 			position: relative;
       &:not(:last-child){
-        border-bottom: 1px solid rgba($brightBlue,.12);
+        border-bottom: 1px solid rgba($royal,.12);
       }
 			//active link
 			a{
@@ -231,7 +231,7 @@
 				&.is-active{
 					background: $siteBack;
           &:hover,&:focus{
-            background: $lightGrey;
+            background: $ice;
           }
           + ul{
             display: block;

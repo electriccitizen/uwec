@@ -30,26 +30,56 @@
 
   //hero setups
   #node-section-1 {
+    @include headerInvasion;
     @include heroRightImage;
-    .field-intro {
-      margin-bottom: 6.5rem;
-    }
-  }
-  #node-section-2 {
-    @include contentStop{
-      margin-top: -2vw;
-    }
-    @media screen and (min-width: 1600px){
-      margin-top: -5vw;
-    }
-    @media screen and (min-width: 1900px){
-      margin-top: -7vw;
-    }
-    @media screen and (min-width: 2400px){
-      margin-top: -8vw;
-    }
+    background: radial-gradient(50.13% 157.8% at 6.18% 33.85%, #0F2C46 0%, #232C99 100%);
     @include desk {
-      margin-bottom: 9.875rem;
+      min-height: 77vw;
+      margin-bottom: $elementSpace;
+    }
+    @include menuStop {
+      min-height: 75vw;
+    }
+    @include contentStop {
+      min-height: 1170px;
+    }
+    .image-right{
+      &:after {
+        content: none;
+      }
+      .image-waves {
+        position: absolute;
+        top: 0;
+        width: 70vw;
+        z-index: -1;
+        left: 200vw;
+        animation:.5s ease .4s 1 imageRightWavy;
+        animation-fill-mode: forwards;
+        @include smallTab {
+          width: 350px;
+        }
+        @include desk {
+          width: 35vw;
+          max-width: 542px;
+        }
+        @include contentStop {
+          width: 40vw;
+        }
+        img {
+          height: 182%;
+        }
+      }
+    }
+    .page-header-text .page-header-text-inner{
+      .block-system-breadcrumb-block .breadcrumb{
+        padding-left: 0;
+      }
+      .field.title h1{
+        color: $white;
+      }
+      .field-intro {
+        margin-bottom: 6.5rem;
+      }
     }
   }
   .block-body {
@@ -58,29 +88,33 @@
   .field.body {
     max-width: $textMax;
     @include auto;
-    padding: 2.5rem 2.5rem 0;
-    @include desk {
-      padding: 0;
-    }
   }
   .available-as {
-    margin-bottom: 6.5rem;
+    margin-bottom: 5rem;
     .tag {
       @include tag;
+      color: $white;
+      font-size: 1.75rem;
+      font-weight: $regular;
       display: block;
     }
     .field-content {
-      @include heading2;
+      font-family: $displayHeader;
+      font-weight: $heavy;
+      font-size: 3.125rem;
+      line-height: 1.32;
       color: $white;
       font-family: $displayHeader;
     }
   }
   .field-links{
-    padding-top: 0 !important;
+    div {
+      &:not(:last-child){
+        margin-bottom: $spaceSm;
+      }
+    }
     a {
-      @include linkArrow(white, sm);
-      display: block;
-      margin-right: 16px;
+      @include linkArrow(gold, lg);
     }
   }
   .block-field-degree-types {
@@ -91,7 +125,7 @@
   }
   .program-details-wrapper, .accreditation-wrapper {
     @include auto;
-    background-color: $lightGrey;
+    background-color: $ice;
     color: $royal;
     max-width: $wideContent;
     padding: $siteMarginMobile;
@@ -140,12 +174,10 @@
         }
       }
       .first {
-        border-bottom: $warmGrey solid 1px;
         margin-bottom: 3.625rem;
         padding-bottom: 2rem;
         @include desk {
           border-bottom: 0;
-          border-right: $warmGrey solid 1px;
           margin-bottom: 0;
           flex: 0 1 calc(50% - 11rem);
         }
@@ -216,31 +248,27 @@
     z-index: 1;
     max-width: $textMax;
     @include auto;
-    &:after{
-      @include fullBack($warmGrey);
-    }
     .paragraph--type--accordions{
-      background: $warmGrey;
       .widget-title{
         @include widgetTitleAlt;
       }
       .accordion-item > .accordion-header > a {
-        border-top-color: $navy;
-        border-bottom-color: $navy;
+        border-top-color: $coolGrey;
+        border-bottom-color: $coolGrey;
       }
     }
   }
 
   #node-section-5.outcomes-visible {
     @include edgeToEdge;
-    background-color: $brightBlue;
+    background-color: $ice;
     margin-bottom: 8.75rem;
     padding: 3rem 0 1px; // 1px bottom padding essentially a clearfix.
     @include tab {
       padding-top: 8.25rem;
     }
     * {
-      color: $white;
+      color: $royal;
       position: relative;
       z-index: 1;
     }
@@ -361,7 +389,7 @@
     .courses-header{
       @include styledHeader(true);
       @include auto;
-      color: $brightBlue;
+      color: $royal;
       text-align: center;
       @include desk {
         margin-left: 0;
@@ -434,7 +462,7 @@
           @include styledHeader;
           text-align: center;
           margin-bottom: $spaceSm;
-          color: $brightBlue;
+          color: $royal;
           strong{
             opacity: 0;
             scale: 1;
@@ -463,7 +491,7 @@
   }
   .block-field-related-programs {
     @include auto;
-    background: $warmGrey;
+    background: $ice;
     max-width: $wideContent;
     padding: 9rem $siteMarginMobile;
     position: relative;
@@ -539,7 +567,7 @@
   .field-whats-next {
     h2.next-title {
       @include styledHeader(true);
-      color: $brightBlue;
+      color: $royal;
       margin: 1.5rem 0;
       text-align: center;
       @include tab {
@@ -557,10 +585,10 @@
     height: 100%;
   }
   .program-inner{
-    border-top: 1px solid $warmGrey;
+    border-top: 1px solid $coolGrey;
     min-height: 130px;
     margin-bottom: 20px;
-    background: $lightGrey;
+    background: $ice;
     @include safeFlex(column,nowrap,justify,start);
     @include tab{
       height: 100%;
@@ -574,7 +602,7 @@
     position: relative;
     z-index: 3;
     .program-inner{
-      background: $warmGrey;
+      background: $coolGrey;
       @include tab{
         position: absolute;
         top: 0;
@@ -583,13 +611,13 @@
     }//end program inner
     .program-intro,.program-meta{
       @include tab{
-        background: $warmGrey;
+        background: $coolGrey;
       }
     }
     .program-types .program-toggle{
       &:hover,&:focus{
         .chevron-down{
-          background: color.adjust($warmGrey, $lightness:-3%);
+          background: color.adjust($coolGrey, $lightness:-3%);
         }
       }
     }//end program toggle
@@ -597,7 +625,7 @@
   .program-intro{
     padding: 20px 20px 1px;
     @include tab{
-      background: $lightGrey;
+      background: $ice;
     }
     .program-image{
       margin-bottom: $spaceSm;
@@ -611,7 +639,7 @@
         bottom:1rem;
         left:1rem;
         margin-right:1rem;
-        background:$brightBlue;
+        background:$royal;
         padding:0 2rem;
         font-size:80%;
         clip-path: polygon(4px 50%, 0% 100%, 100% 100%, calc(100% - 4px) 50%, 100% 0%, 0% 0%);
@@ -627,7 +655,7 @@
         padding-bottom:0.65rem;
         &:hover,&:focus{
           span{
-            @include dottedLink($brightBlue);
+           
           }
         }
       }
@@ -636,7 +664,7 @@
   .program-meta{
     padding: 1px 20px 12px;
     @include tab{
-      background: $lightGrey;
+      background: $ice;
     }
   }
   .program-types{
@@ -647,10 +675,10 @@
       }
       &:hover,&:focus{
         .type-list span{
-          @include dottedLink($brightBlue);
+     
         }
         .chevron-down{
-          background: rgba($warmGrey,.3);
+          background: rgba($coolGrey,.3);
         }
       }
       .type-list{
@@ -687,7 +715,7 @@
     }
     .program-link{
       display: inline-block;
-      @include linkArrow(navy, sm, '.program-link-text');
+      @include linkArrow(navy, sm);
       margin-bottom: $spaceMd;
     }//end program link
   }//end program body

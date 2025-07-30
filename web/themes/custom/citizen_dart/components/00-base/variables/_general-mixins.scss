@@ -185,15 +185,6 @@
 	}
 }
 
-@mixin height100{
-  @include u.desk{
-    min-height: calc(100vh - 100px);
-  }
-  @include u.menuStop{
-    min-height: calc(100vh - 110px);
-  }
-}//end height 100
-
 /*  STYLE MIXINS
 ------------------- */
 
@@ -278,6 +269,9 @@
 	}@else if $grad-direction == 'right'{
 		background: linear-gradient(to left, $grad-start $gradStartPercent,$grad-stop 100%); /* W3C */
 	}
+  @else {
+    background: linear-gradient($grad-direction, $grad-start $gradStartPercent, $grad-stop 100%);
+  }
 }
 
 @mixin fullImageOverlay{
@@ -326,7 +320,7 @@
   height: 29vw;
   width: 100vw;
   z-index: -1;
-  background: c.$brightBlue;
+  background: c.$royal;
   clip-path: polygon(0 0, 100% 0, 0 100%);
 }
 
@@ -444,7 +438,7 @@
 	@include skew(0,-16);
 }
 
-@mixin rightArrow($arrowColor,$arrowBack,$arrowBorder,$arrowSize){
+@mixin rightArrow($arrowBack,$arrowBorder,$arrowSize){
 	@if $arrowSize == 'sm'{
 		width: 20px;
 		height: 20px;
@@ -455,7 +449,7 @@
 	border-radius: 50%;
 	border: 1px solid $arrowBorder;
 	background-color: $arrowBack;
-	background-image: url(../images/arrows/right-arrow-#{$arrowColor}-#{$arrowSize}.svg);
+	background-image: url(../images/arrows/right-arrow-royal-sm.svg);
 	background-repeat: no-repeat;
 	background-size: 50%;
 	background-position: 50% 50%;
@@ -464,7 +458,7 @@
 
 @mixin arrowLinkBefore($arrowLinkColor, $size: lg) {
   $font-size: 18px;
-  $line-height: 1.44;
+  $line-height: 1.22;
   $padding-left: 56px;
 
   @if $size == sm {
@@ -477,6 +471,7 @@
   display: inline-block;
   font-family: f.$header;
   font-size: $font-size;
+  font-weight: 700;
   line-height: $line-height;
   position: relative;
   padding-left: $padding-left;
@@ -484,7 +479,7 @@
 
 @mixin arrowLinkAfter($arrowLinkColor, $size: lg) {
   $font-size: 18px;
-  $line-height: 1.44;
+  $line-height: 1.22;
 
   @if $size == sm {
     $font-size: 16px;
@@ -493,6 +488,7 @@
 
   color: $arrowLinkColor;
   font-family: f.$header;
+  font-weight: 700;
   font-size: $font-size;
   line-height: $line-height;
 }
@@ -506,7 +502,8 @@
 
 // Parent mixin for both linkArrow and blockArrow, setting all themes and size
 // choices regardless of whether the arrow appears before or after the element.
-@mixin arrowLink($location: 'before', $theme: navy, $size: lg, $dotted-selector: 'span') {
+@mixin arrowLink($location: 'before', $theme: navy, $size: lg) {
+  @include transAll(.3s);
   // Defaults are the settings for navy, lg.
   $arrow: c.$navy;
   $arrow-string: navy;
@@ -515,50 +512,37 @@
   $hover-border: c.$navy;
   $back: transparent;
   $hover-back: $arrow;
-  $dots: c.$brightBlue;
-
-  $dotted-padding: 2px;
 
   @if $theme == navyLight {
     $arrow-invert: navy;
     $hover-back: c.$white;
     $hover-border: c.$white;
-    $dots: c.$white;
-  }
-  @if $theme == brightBlue {
-    $arrow: c.$brightBlue;
-    $arrow-string: blue;
-    $border: c.$brightBlue;
-    $hover-back: $arrow;
-    $hover-border: $arrow;
   }
   @if $theme == royal {
     $arrow: c.$royal;
     $arrow-string: royal;
-    $border: c.$royal;
-    $hover-back: $arrow;
-    $dots: c.$royal;
+    $border: c.$gold;
+    $back: c.$gold;
+    $hover-border: c.$lightGold;
+    $hover-back: c.$lightGold;
   }
   @if $theme == white {
     $arrow: c.$white;
     $arrow-string: white;
-    $border: c.$white;
+    $border: c.$gold;
     $arrow-invert: royal;
-    $hover-border: $arrow;
-    $hover-back: $arrow;
-    $dots: c.$white;
+    $hover-border: c.$lightGold;
+    $back: c.$gold;
+    $hover-back: c.$lightGold;
   }
   @if $theme == gold {
     $arrow: c.$gold;
     $arrow-string: gold;
     $border: c.$gold;
-    $hover-border: c.$white;
+    $hover-border: c.$lightGold;
     $arrow-invert: navy;
-    $hover-back: c.$white;
-    $dots: c.$white;
-  }
-  @if $size == sm {
-    $dotted-padding: 1px;
+    $back: c.$gold;
+    $hover-back: c.$lightGold;
   }
 
   @if $location == "after" {
@@ -570,24 +554,23 @@
 
   &:#{$location} {
     content: '';
-    @include rightArrow($arrow-string, $back, $border, $size);
+    @include rightArrow($back, $border, $size);
   }
   &:hover, &:focus {
     &:#{$location} {
-      @include rightArrow($arrow-invert, $hover-back, $hover-border, $size);
+      @include rightArrow($hover-back, $hover-border, $size);
     }
-    #{$dotted-selector} {
-      @include dottedLink($dots);
-      padding-bottom: $dotted-padding;
+    span {
+      text-decoration: underline;
     }
   }
 }
 
 // Based on the "Link Arrow" design, this adds a circle-arrow at the start of an
 // element.
-@mixin linkArrow($theme: navy, $size: lg, $dotted-selector: 'span') {
+@mixin linkArrow($theme: navy, $size: lg) {
   // Defaults are the settings for navy, lg.
-  @include arrowLink("before", $theme, $size, $dotted-selector);
+  @include arrowLink("before", $theme, $size);
 
   $top: -10px;
 
@@ -605,19 +588,40 @@
 
 // Based on the "Block Arrow" design, this adds a circle-arrow at the end of an
 // element.
-@mixin blockArrow($theme: navy, $size: lg, $dotted-selector: 'span') {
-  @include arrowLink("after", $theme, $size, $dotted-selector);
+@mixin blockArrow($theme: navy, $size: lg) {
+  @include arrowLink("after", $theme, $size);
 
   $top: 4px;
 
-  #{$dotted-selector} {
-    margin-right: 10px;
-  }
   &:after {
     display: inline-block;
     margin-top: -$top;
     position: relative;
     top: $top;
+  }
+}
+
+@mixin lineLink {
+  border-bottom: 1px solid cc.$linkUnderline;
+  display: inline-block;
+  text-decoration: none;
+  transition: color .3s, border-bottom-color .3s;
+  &:hover {
+    border-bottom: 1px solid transparent;
+    color: cc.$linkUnderline;
+    text-decoration: none;
+  }
+}
+
+@mixin lineLinkHover {
+  border-bottom: 1px solid transparent;
+  display: inline-block;
+  text-decoration: none;
+  transition: color .3s, border-bottom-color .3s;
+  &:hover {
+    border-bottom: 1px solid cc.$linkUnderline;
+    color: cc.$linkUnderline;
+    text-decoration: none;
   }
 }
 
@@ -724,7 +728,7 @@
 }//end facts grid
 
 @mixin exposedForm{
-	background: c.$lightGrey;
+	background: c.$royal;
 	max-width: 894px;
 	margin: 0 auto 60px;
   padding: 36px 20px 40px;
@@ -844,7 +848,7 @@
     .profile-stacked-icons{
       margin-bottom: u.$spaceSm;
       .profile-stacked-icon{
-        color: c.$oldGoldDark;
+        color: c.$gold;
         font-size: 1.5rem;
         line-height: 2;
         @include safeFlex(row,nowrap,start,center);
@@ -855,7 +859,7 @@
           margin-right: u.$spaceXxs;
           svg path {
             fill: none;
-            stroke: c.$oldGold;
+            stroke: c.$gold;
           }
         }//end icon wrapper
       }//end profile stacked icon

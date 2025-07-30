@@ -80,14 +80,14 @@
       &:before {
         content: '•';
         display: inline-block;
-        font-size: 12px;
+        font-size: 20px;
         width: .75rem
       }
       ol,ul {
         margin: $spaceXxs 0 0 $spaceXs;
       }
     }//end li
-    .ck-list-bogus-paragraph { 
+    .ck-list-bogus-paragraph {
       display: inline;
     }
 	}//end ul
@@ -119,14 +119,12 @@
         margin: $spaceXxs 0 0 $spaceXs;
       }
 		}// end > li
-    .ck-list-bogus-paragraph { 
+    .ck-list-bogus-paragraph {
       display: inline;
     }
 	}//end ol
 
 	.ck-content blockquote{
-		border-top: 1px solid $brightBlue !important;
-		border-bottom: 1px solid $brightBlue !important;
 		@include quote;
 		font-size: 28px;
 		margin: 0 0 26px;
@@ -163,12 +161,12 @@
 		}
 		thead{
 			th{
-				background: $warmGrey;
+				background: $coolGrey;
 			}
 		}
 		tbody{
 			tr:nth-child(even){
-				background: $lightGrey;
+				background: $ice;
 			}
 		}
 	}//end table

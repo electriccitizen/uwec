@@ -10,7 +10,9 @@
 .profile-search.directory{
 	.views-exposed-form{
 		@include exposedForm;
-    @include edgeToEdge;
+    & {
+      @include edgeToEdge;
+    }
     @include tab{
       @include auto;
     }
@@ -57,7 +59,9 @@
   position: relative;
   .view-wrapper{
     @include profileSlider;
-    padding-bottom: 40px;
+    & {
+      padding-bottom: 40px;
+    }
     .node-teaser-bios{
       padding: 0 10px;
     }

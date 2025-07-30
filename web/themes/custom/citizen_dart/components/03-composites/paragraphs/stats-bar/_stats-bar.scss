@@ -7,25 +7,20 @@
 	h2,h3,p{
 		color:white;
 	}
-	h2{
-		padding:2rem;
-		font-size:200%;
-	}
-	h3{
-		font-size:300%;
-	}
 
 	&>.widget-wrapper{
 		padding-left:2rem;
 	}
 
 	.field-intro-text{
-		margin:0 0 2rem 2rem;
+		margin-bottom:4rem;
 	}
 
 	.field-stats-bar-items{
 		display:flex;
 		flex-direction:column;
+		gap:2rem;
+		margin-top:2rem;
 
 		@include tab{
 			flex-direction:row;
@@ -34,7 +29,6 @@
 		// each individual stat:
 		&>div{
 			flex:1;
-			padding:2rem;
 		}
 	}
 
@@ -79,23 +73,6 @@
 		}
 		.image,img{
 			height:100%;
-		}
-	}
-
-	// gold "thick hashes" on the left
-	&:before{
-		content:"";
-		display:block;
-		position:absolute;
-		width:112px;
-		height:300px;
-		top:0;
-		background:repeating-linear-gradient(0deg, #edac1a, #edac1a 60px, transparent 60px, transparent 120px);
-		transform:skew(0deg, -16deg);
-
-		right:100%;
-		@include largeScreen{
-			right:calc(100% + 4rem);
 		}
 	}
 }

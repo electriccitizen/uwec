@@ -11,7 +11,7 @@
     max-width: 1192px;
   }
   h2.block-title{
-    color: $brightBlue;
+    color: $navy;
     margin-bottom: $spaceXxs;
     padding-left: 26px;
     padding-right: 26px;
@@ -23,7 +23,6 @@
     height: inherit !important;
   }
   .view{
-    padding: 0 5px;
     display: block;
     height: auto;
     @include desk{
@@ -34,14 +33,21 @@
         padding: 0;
       }
     }
+    .node-widget {
+      padding: 0 $siteMarginMobile;
+      @include desk {
+        padding: 0;
+      }
+    }
   }//end view
   .slick-slider{
-    background: $lightGrey;
+    background: $ice;
     @include carouselBreak{
       background: none;
     }
     .slick-arrow{
       top: calc(90px + 4vw);
+      width: 100px;
       @include carouselBreak{
         top: calc(120px + 6%);
       }

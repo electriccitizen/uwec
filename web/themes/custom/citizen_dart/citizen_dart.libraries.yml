@@ -52,10 +52,6 @@ featherlight:
   js:
     components-addons/featherlight/featherlight.min.js: { minified: true }
     components-addons/featherlight/featherlight.gallery.min.js: { minified: true }
-fonts:
-  css:
-    theme:
-      https://fonts.googleapis.com/css?family=Open+Sans:ital,wght@0,400;;0,700;1,400: { type: external, preprocess: false }
 formatted-promo:
   js:
     components/03-composites/blocks/formatted-promo/formatted-promo.js: {}
@@ -101,9 +97,6 @@ page-structured-section:
 profiles-slider:
   js:
     components/03-composites/views/profiles/profiles-slider.js: {}
-quick-links:
-  js:
-    components/03-composites/paragraphs/quick-links/quick-links.js: {}
 search-block:
   js:
     components/03-composites/blocks/search/search-block.js: {}

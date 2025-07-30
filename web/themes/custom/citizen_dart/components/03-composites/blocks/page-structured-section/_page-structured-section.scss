@@ -12,20 +12,8 @@
   @include desk {
     padding-bottom: 300px;
   }
-  &:before{
-    background: $brightBlue;
-    clip-path: polygon(100% 0%, 0% 100%, 100% 100%);
-    content: '';
-    display: block;
-    height: 29vw;
-    left: calc(100vw - 49%);
-    position: absolute;
-    top: -26vw;
-    width: 100vw;
-    z-index: -1;
-  }
   &:after{
-    @include fullBack($brightBlue);
+    @include fullBack($royal);
   }
   > * {
     position: relative;
@@ -53,7 +41,7 @@
         }
         &:after {
           @include auto;
-          background-color: $lightGrey;
+          background-color: $ice;
           left: 0;
           max-width: $wideContent;
           width: 100%;
@@ -120,22 +108,6 @@
       padding: 0;
       text-align: center;
     }
-    &:before {
-      background: url(../images/logos-badges/uwec-stacked-white.svg);
-      content: '';
-      display: block;
-      height: 59px;
-      margin: $spaceSm auto;
-      width: 40px;
-      visibility: hidden;
-      @include desk {
-        margin: $spaceLg auto;
-      }
-    }
-    &.visible:before {
-      @include animation('flipRight .5s');
-      visibility: visible;
-    }
   }
 
   .field-button {
@@ -167,21 +139,7 @@
     position: relative;
     color: $white;
     padding-bottom: 100px;
-    @include desk {
-      padding-bottom: 5vw;
-    }
-    @media screen and (min-width: 2000px){
-      padding-bottom: 7vw;
-    }
-    @media screen and (min-width: 2200px){
-      padding-bottom: 8vw;
-    }
-    @media screen and (min-width: 2500px){
-      padding-bottom: 9vw;
-    }
-    @media screen and (min-width: 2800px){
-      padding-bottom: 10vw;
-    }
+  
     .cta-section-inner {
       @include safeFlex(column,wrap,start,start);
       @include edgeToEdge;
@@ -259,7 +217,7 @@
         max-width: 610px;
         padding: 0 $siteMarginMobile;
         @include desk {
-          border-bottom: 1px solid $warmGrey;
+          border-bottom: 1px solid $coolGrey;
           line-height: 2;
           padding: 0 90px $spaceXl 0;
           margin: 0 0 $spaceMd 0;
@@ -315,17 +273,6 @@
           min-height: 5rem;
         }
       }//end first last
-      &:after {
-        @include desk {
-          background: url("../images/elements/swirl-vertical-wide-ice.svg");
-          bottom: -80%;
-          content: '';
-          height: 610px;
-          max-width: 1040px;
-          position: absolute;
-          width: 100%;
-        }
-      }
     }//end CTA section inner
   }//end CTA section
   #program-search-form {
@@ -364,15 +311,5 @@
         background-image: url('../images/elements/search-blue.svg');
       }
     }
-  }
-  .angle-cut{
-    position: absolute;
-    bottom: -1px;
-    right: -$siteMarginMobile;
-    width: 100vw;
-    height: 29vw;
-    clip-path: polygon(100% 0%, 0% 100%, 100% 100%);
-    background: $siteBack;
-    z-index: 0;
   }
 }//end block page-structured-section

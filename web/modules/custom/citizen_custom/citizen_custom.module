@@ -40,10 +40,10 @@ function citizen_custom_theme() {
         'title' => 'Program Search',
       ],
     ],
-	'social_share_block' => [
+	  'social_share_block' => [
       'variables' => [
         'title' => 'Social Share',
-		'data' => [],
+		    'data' => [],
       ],
     ],
     'announcements_ajax'=>[
@@ -53,15 +53,21 @@ function citizen_custom_theme() {
         'nids'=>[],
       ],
     ],
-    'courses'=>[
-      'variables'=>[
-        'program_title'=>'',
-      'courses'=>[],
-      'courseleaf_slug'=>'',
+    'courses' => [
+      'variables'=> [
+        'program_title' => '',
+      'courses' => [],
+      'courseleaf_slug' => '',
       ],
     ],
     'form__views_exposed_form_content_page_1' => [
       'template' => 'form--views-exposed-form-content-page-1',
+    ],
+    'start_your_journey_block' => [
+      'variables' => [
+        'title' => t('Start Your Blugold Journey'),
+        'links' => [],
+      ],
     ],
   ];
 }
@@ -474,7 +480,7 @@ function citizen_custom_views_pre_view($view, $display_id, &$args) {
         if(isset($paragraph->field_program[0])){
           //make an array out of the program set in the paragraph
           $programs = $paragraph->field_program[0]->target_id;
-          
+
           // replace the programs_target_id filter with the paragraph program node (we need the double [value][value] because this is a content type reference instead of a term reference)
           $filters['field_programs_target_id']['value']['value'] = $programs;
         } else {
@@ -737,7 +743,7 @@ function citizen_custom_preprocess_field__user__uid(&$variables){
 		->condition('type', 'bios')
 		->condition('field_empl_id', $empl_id)
 		->execute();
-	
+
 	// if it couldn't find a profile, do nothing.
 	if(empty($nid)) return;
 

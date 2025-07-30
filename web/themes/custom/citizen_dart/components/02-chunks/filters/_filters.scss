@@ -56,8 +56,10 @@
 		}
 		input.form-submit.button{
 			@include submitButton;
-      color: $navy;
-			margin: 0 10px;
+      & {
+        color: $navy;
+        margin: 0 10px;
+      }
 			&[data-drupal-selector='edit-reset']{
 				margin: 0 10px;
 			}
@@ -67,4 +69,3 @@
 		margin-top: 5rem;
 	}
 }//end views exposed form
-

@@ -35,6 +35,9 @@
       {% if element['#object'].field_image.0 %}
         <div class="image-right">
           {{ drupal_entity('media',element['#object'].field_image.0.target_id,'730x840') }}
+          <div class="image-waves">
+            <img src="/themes/custom/citizen_dart/images/elements/wavy-blue.svg" width="542px" height="881px" alt="decorative wavy line background shape" />
+          </div>
         </div>
       {% endif %}
 
@@ -69,14 +72,18 @@
           {% if element['#object'].field_admissions_requirements.0.uri or element['#object'].field_tuition_link.0.uri %}
           <div class="field field-links">
             {% if element['#object'].field_admissions_requirements.0.uri %}
-            <a href="{{ element['#object'].field_admissions_requirements.0.url }}">
-              <span>{% if element['#object'].field_admissions_requirements.0.title %}{{ element['#object'].field_admissions_requirements.0.title }}{% else %}{% trans %}See admission requirements{% endtrans %}{% endif %}</span>
-            </a>
+              <div>
+                <a href="{{ element['#object'].field_admissions_requirements.0.url }}">
+                  <span>{% if element['#object'].field_admissions_requirements.0.title %}{{ element['#object'].field_admissions_requirements.0.title }}{% else %}{% trans %}See admission requirements{% endtrans %}{% endif %}</span>
+                </a>
+              </div>
             {% endif %}
             {% if element['#object'].field_tuition_link.0.uri %}
-            <a href="{{ element['#object'].field_tuition_link.0.url }}">
-              <span>{% if element['#object'].field_tuition_link.0.title %}{{ element['#object'].field_tuition_link.0.title }}{% else %}{% trans %}See tuition info{% endtrans %}{% endif %}</span>
-            </a>
+            <div>
+              <a href="{{ element['#object'].field_tuition_link.0.url }}">
+                <span>{% if element['#object'].field_tuition_link.0.title %}{{ element['#object'].field_tuition_link.0.title }}{% else %}{% trans %}See tuition info{% endtrans %}{% endif %}</span>
+              </a>
+            </div>
             {% endif %}
           </div>
           {% endif %}
