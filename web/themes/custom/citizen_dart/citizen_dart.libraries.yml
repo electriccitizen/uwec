@@ -97,9 +97,6 @@ page-structured-section:
 profiles-slider:
   js:
     components/03-composites/views/profiles/profiles-slider.js: {}
-quick-links:
-  js:
-    components/03-composites/paragraphs/quick-links/quick-links.js: {}
 search-block:
   js:
     components/03-composites/blocks/search/search-block.js: {}
