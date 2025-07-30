@@ -62,11 +62,11 @@
   position: relative;
   a{
     @include safeFlex(column,nowrap,center,center);
-    width: 96px;
-    height: 96px;
+    width: 66px;
+    height: 66px;
     position: absolute;
     top: -30px;
-    left: 20px;
+    right: 20px;
     z-index: 500;
     border-radius: 50%;
     background-color: $white;
@@ -77,6 +77,7 @@
     }
     svg{
       fill: none;
+      width: 45%;
     }
     &:active{
       background: $ice;
