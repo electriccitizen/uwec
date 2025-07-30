@@ -157,11 +157,13 @@
     padding: $spaceLg 0 $spaceXl;
     position: relative;
     @include tab {
-      padding-bottom: $spaceSm;
+      padding-bottom: $spaceMd;
+      padding-top: $spaceMdLg;
     }
     > div {
       @include tab {
         @include safeFlex(row, no-wrap, justify, center);
+        gap: 30px;
       }
     }
   }

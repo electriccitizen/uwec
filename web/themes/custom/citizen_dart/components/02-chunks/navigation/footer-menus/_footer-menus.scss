@@ -57,6 +57,7 @@
 					&:hover,&:focus{
 						background-color: $white;
             color: $prefooterBack;
+            min-height: 30px;
             @include animation('breathe .75s 1');
 					}
 				}//end menu button
@@ -140,8 +141,7 @@
 		@include listReset;
 
     @include tab{
-      @include safeFlex(row,wrap,center,center);
-		  @include bleed(padding,30px);
+      @include safeFlex(row,wrap,end,center);
     }
 		li{
 			padding-bottom: $spaceXs;
@@ -155,6 +155,8 @@
       }
       @include tab {
         padding-bottom: $spaceXxs;
+        padding-left: $spaceXxs;
+        padding-right: $spaceXxs;
       }
     }//end li
 
@@ -167,7 +169,6 @@
       text-decoration: underline;
 			&:hover,&:focus{
 				color: $footerLinkHover;
-        background: none;
         text-decoration: none;
 			}
 		}
