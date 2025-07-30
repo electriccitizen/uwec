@@ -11,7 +11,7 @@
 	position: relative;
 	z-index: 1;
   &:before {
-    background: url('../images/elements/wavy-y-white-large.svg') no-repeat scroll 110% center / 100%, $prefooterBack;
+    background: url('../images/elements/wavy-y-white-large.svg') no-repeat scroll right center / 485px, $prefooterBack;
     background-blend-mode: overlay, normal;
     content: '';
     height: 100%;
@@ -19,12 +19,9 @@
     position: absolute;
     top: 0;
     width: 100%;
-    @include desk {
-      background: url('../images/elements/wavy-y-white.svg') no-repeat scroll 110% center / 90%, $prefooterBack;
+    @include tab {
+      background: url('../images/elements/wavy-y-white.svg') no-repeat scroll right -200px center / 1200px, $prefooterBack;
       opacity: .65;
-    }
-    @include menuStop {
-      background-size: 75%;
     }
   }
 	.dialog-off-canvas-main-canvas &{
@@ -38,34 +35,14 @@
 		max-width: $contentStop + 40px;
 		@include auto;
 		position: relative;
-    @include desk{
+    @include tab {
       padding-bottom: 37px;
     }
 		& > div{
 			@include safeFlex(row,wrap,center,start);
-			@include desk{
+			@include tab {
 				@include safeFlex(row,wrap,justify,start);
 			}
-		}
-		//address
-		.block-2{
-			@include onlySmall{
-				width: 100%;
-				order: 99;
-			}
-    }//end address block
-		.block-footer-for-menu{
-			@include auto;
-      @include contentStop{
-        margin-right: $siteMarginDesk;
-      }
-		}
-		.block-footer-menu{
-			width: 100%;
-      @include desk{
-        margin-left: -22px;
-        margin-bottom: 0;
-      }
 		}
 	}//end prefooter inner
 

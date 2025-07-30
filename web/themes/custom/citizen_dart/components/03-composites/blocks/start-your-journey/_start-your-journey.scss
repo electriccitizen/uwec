@@ -12,16 +12,17 @@
   text-align: center;
   @include tab {
 	  @include safeFlex(row,wrap,justify,center);
+    padding: $spaceMd $siteMarginDesk;
   }
   @include desk {
-    padding: $spaceMd $siteMarginDesk;
   }
 
   h2 {
     font-family: $displayHeader;
-    font-size: 26px;
+    font-size: 22px;
     margin-bottom: $spaceMs;
-    @include desk {
+    @include tab {
+      font-size: 26px;
       margin-bottom: 0;
     }
   }
@@ -33,7 +34,7 @@
       @include button($white, $royal, $royal, $white);
       flex: 1;
       margin-bottom: 0;
-      @include desk {
+      @include tab {
         flex: none;
       }
     }
