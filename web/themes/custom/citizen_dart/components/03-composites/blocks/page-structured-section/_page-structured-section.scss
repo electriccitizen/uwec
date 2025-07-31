@@ -7,17 +7,43 @@
 
 .block-structured-section {
   padding-top: $elementSpace;
+  @include edgeToEdge;
   position: relative;
   z-index: 1;
-  @include desk {
-    padding-bottom: 300px;
-  }
-  &:after{
-    @include fullBack($royal);
-  }
+  overflow: hidden;
+  background: radial-gradient(50.13% 157.8% at 6.18% 33.85%, #0F2C46 0%, #232C99 100%);
   > * {
     position: relative;
     z-index: 1;
+  }
+
+  .river-background {
+    position: absolute;
+    top: -216px;
+    left: calc(100vw - 730px);
+    width: 1115px;
+    mix-blend-mode: overlay;
+    transform: rotate(5deg);
+    @media screen and (min-width: 700px) {
+      width: 1260px;
+      left: calc(100vw - 830px);
+    }
+    @include tab {
+      @include fadeOutEdges;
+      width: 1515px;
+      left: calc(100vw - 1050px);
+    }
+    @include menuStop {
+      top: -346px;
+      left: -60px;
+      width: calc(100% + 120px);
+      transform: rotate(-5deg);
+    }
+    @include ultraWidescreen {
+      width: 2372px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
   }
 
   .paragraph--type--wayfinding {
@@ -92,58 +118,45 @@
   }
 
   .field-leadin {
-    @include auto;
     color: $white;
-    line-height: 1.3;
-    font-family: $displayHeader;
-    font-size: 3.5rem;
-    margin-top: $spaceMd;
-    margin-bottom: $spaceLg;
-    max-width: $textMax;
+    line-height: 1.45;
+    font-family: $header;
+    font-size: 3rem;
+    font-weight: $heavy;
+    margin-bottom: $spaceMd;
+    max-width: 70%;
     padding: 0 $siteMarginMobile;
     text-align: left;
     @include desk {
-      font-size: 4rem;
-      margin-top: 12rem;
-      padding: 0;
-      text-align: center;
+      font-size: 3.75rem;
+      max-width: $wideContent;
+      @include auto;
+      padding-right: 32%;
     }
   }
 
   .field-button {
-    @include auto;
-    text-align: center;
+    padding: 0 $siteMarginMobile;
+    @include desk {
+      max-width: $wideContent;
+      @include auto;
+      padding-right: 32%;
+    }
     a {
-      @include outlineButton($white);
+      @include button;
     }
   }
 
   .field-bg-image {
-    bottom: 0;
     display: none;
-    height: 65%;
-    left: -$siteMarginMobile;
-    object-fit: cover;
-    overflow: hidden;
-    position: absolute;
-    width: 100vw;
-    z-index: 0;
-    @include desk {
-      display: block;
-      // Remove size constraints to allow the image to cover.
-      height: auto;
-      width: auto;
-    }
   }
   .cta-section {
     position: relative;
     color: $white;
-    padding-bottom: 100px;
+    padding-bottom: 40px;
   
     .cta-section-inner {
       @include safeFlex(column,wrap,start,start);
-      @include edgeToEdge;
-      padding: $spaceMd 0;
       @include desk {
         @include auto;
         display: grid;
@@ -162,21 +175,45 @@
         order: 1;
         @include desk {
           grid-row-start: span 2;
-          margin: 60px 0 0;
+          margin: 57px 0 0;
         }
       }
       .cta-image {
         order: 0;
         width: 100%;
-        img {
-          @include auto;
-          max-width: 440px;
-        }
+        position: relative;
+        max-width: 320px;
+        padding: 0 $siteMarginMobile;
         @include desk {
           order: 2;
+          max-width: 100%;
+          width: 320px;
+          padding: 0;
         }
         @include menuStop{
           width: 426px;
+        }
+        &:before {
+          content: '';
+          display: block;
+          position: absolute;
+          top: -40px;
+          right: -12px;
+          z-index: 1;
+          width: 67px;
+          height: 257px;
+          background-image: url(../images/elements/gold-slight-wave-thin.svg);
+          background-repeat: no-repeat;
+          background-size: contain;
+          @include desk {
+            top: 90px;
+            right: -33px;
+          }
+          @include menuStop {
+            top: 97px;
+            width: 89px;
+            height: 367px;
+          }
         }
       }
       .last {
@@ -187,41 +224,39 @@
         }
         @include menuStop{
           width: 426px;
+          margin: 0;
         }
       }
       .field-formatted-headline {
-        @include rollingSeal;
         h2 {
-          @include styledHeader(true);
-          color: $white;
+          @include heading1;
+          color: $gold;
+          p {
+            margin-bottom: $spaceSm;
+          }
           @include desk {
             text-align: left;
-            p {
-              margin-bottom: $spaceMd;
-            }
+            max-width: 472px;
+          }
+          @include contentStop {
+            font-size: 10.625rem;
           }
         }
       }
-      .program-search {
-        h3 {
-          color: $white;
-          margin-bottom: $spaceXs;
-        }
-      }
       .body {
-        @include auto;
         color: $white;
         font-size: 14px;
-        line-height: 2.1;
+        line-height: 1.57;
         margin-bottom: $spaceMd;
         max-width: 610px;
-        padding: 0 $siteMarginMobile;
         @include desk {
-          border-bottom: 1px solid $coolGrey;
-          line-height: 2;
-          padding: 0 90px $spaceXl 0;
+          line-height: 1.625;
+          font-size: 2rem;
           margin: 0 0 $spaceMd 0;
-          max-width: 540px;
+          max-width: 546px;
+        }
+        @include menuStop {
+          margin-bottom: $spaceXl;
         }
       }
       .field-cta-image {
@@ -234,24 +269,6 @@
           left: 200vw;
           position: relative;
           transition: left .75s ease-out;
-          @include desk {
-            // No animation on desktop size, since the stripes fly in.
-            left: 0;
-            margin-bottom: -50px;
-            padding-top: 50px; // Fix to let stripes "break out" of top.
-            top: -50px;
-            visibility: visible;
-            &:before {
-              @include fatStripes($royal, 60px);
-              height: 440px;
-              left: auto;
-              right: -200vw;
-              top: -15px;
-              width: 112px;
-              z-index: 2;
-              @include transition-animate(right, 1s, ease-out);
-            }
-          }
         }
         &.visible .media-item {
           left: 0;
@@ -267,48 +284,59 @@
           margin-top: $spaceXxs;
         }
         a {
-          @include linkArrow(white, lg);
-          color: $white;
+          @include linkArrow(gold, lg);
           margin-bottom: 2.5rem;
           min-height: 5rem;
         }
       }//end first last
     }//end CTA section inner
   }//end CTA section
-  #program-search-form {
-    position: relative;
-    max-width: 520px;
+  .home-program-search{ 
+    padding-top: $spaceMd;
+    border-top: 1px solid $white;
     @include desk {
-      max-width: 330px;
+      max-width: 539px;
     }
-    * {
-      transform-style: unset;
+    h3 {
+      color: $white;
+      font-size: 2.75rem;
+      margin-bottom: $spaceSm;
     }
-    input[type="text"] {
-      background: $white;
-      border: 0;
-      border-radius: 30px;
-      font-size: 2rem;
-      font-family: $bodyText;
-      font-weight: $regular;
-      min-height: 50px;
-      padding: 9px 50px 9px 20px;
-    }
-    #edit-program-search-submit {
-      @include browserWipe;
-      background: url(../images/elements/search.svg) center / 21px no-repeat transparent;
-      border: 0;
-      border-radius: 100%;
-      height: 40px;
-      overflow: hidden;
-      position: absolute;
-      right: 5px;
-      text-indent: -9000px;
-      top: calc(50% - 20px);
-      width: 40px;
-      &:hover,&:focus{
-        background-color: color.adjust($ice, $lightness:1%);
-        background-image: url('../images/elements/search-blue.svg');
+    .block-program-search form{
+      position: relative;
+      max-width: 520px;
+      @include desk {
+        max-width: 330px;
+      }
+      * {
+        transform-style: unset;
+      }
+      input[type="text"] {
+        background: $white;
+        border: 0;
+        border-radius: 4px;
+        font-size: 2.25rem;
+        font-family: $bodyText;
+        font-weight: $regular;
+        color: $royal;
+        min-height: 59px;
+        padding: 17px 50px 17px 20px;
+      }
+      #edit-program-search-submit {
+        @include browserWipe;
+        background: url(../images/elements/home-program-search.svg) center / 24px no-repeat transparent;
+        border: 1px solid transparent;
+        height: 40px;
+        overflow: hidden;
+        position: absolute;
+        right: 5px;
+        text-indent: -9000px;
+        top: calc(50% - 20px);
+        width: 40px;
+        &:hover,&:focus{
+          opacity: .6;
+          border-bottom: 1px solid $royal;
+        }
       }
     }
   }

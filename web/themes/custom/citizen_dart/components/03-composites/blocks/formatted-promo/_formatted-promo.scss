@@ -17,15 +17,13 @@
     @include animation('breatheFadeIn 1.5s 1 forwards');
   }
   .field-formatted-headline {
-    @include styledHeader(true);
+    @include heading1;
+    color: $royal;
     margin-bottom: $spaceSm;
-    @include desk {
-      text-align: left;
-    }
   }
   .body {
-    font-size: 2.5rem;
-    line-height: 4.5rem;
+    font-size: 1.75rem;
+    line-height: 1.57;
   }
   .field-link {
     margin-top: $spaceMd;
@@ -33,7 +31,7 @@
       margin-top: $spaceLg;
     }
     a {
-      @include linkArrow($navy, lg);
+      @include linkArrow(goldRoyal, lg);
     }
   }
 }//end block formatted-promo
