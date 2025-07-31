@@ -25,21 +25,26 @@
 .node-teaser-fact{
 	.teaser-title{
 		@include heading2;
-    font-size: 2.25rem;
-    line-height: 1.5;
+    font-size: 24px;
+    line-height: 1.45;
     hyphens: auto;
     margin-bottom: .85rem;
     &.teaser-title-hashtag {
       hyphens: none;
       word-break: break-all;
     }
-    @include desk{
-      font-size: 3rem;
-      line-height: 1.33;
+    @include desk {
+      font-size: 30px;
     }
 	}
   .field-plain-text{
+    font-size: 14px;
+    line-height: 1.57;
     margin-bottom: 10px;
+    @include desk {
+      font-size: 16px;
+      line-height: 1.625;
+    }
   }
   .field-source{
     font-style: italic;

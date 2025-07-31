@@ -643,11 +643,6 @@
     grid-column-end: 4;
     grid-row-start: 1;
     grid-row-end: 2;
-    .field-plain-text,.field-source{
-      @include u.desk{
-        padding-right: 34%;
-      }
-    }
 	}
 	.fact-2{
 		grid-column-start: 1;
@@ -655,11 +650,6 @@
     grid-row-start: 1;
     grid-row-end: 2;
     text-align: right;
-    .field-plain-text,.field-source{
-      @include u.desk{
-        padding-left: 34%;
-      }
-    }
 	}
 	&.facts-count-3,&.facts-count-5{
 		.fact-1{
@@ -676,12 +666,6 @@
 	    grid-row-start: 2;
 	    grid-row-end: 3;
       text-align: center;
-      .field-plain-text,.field-source{
-        @include u.desk{
-          padding-left: 17%;
-          padding-right: 17%;
-        }
-      }
 		}
 	}//end facts count 3
 	&.facts-count-4{
@@ -690,11 +674,6 @@
 	    grid-column-end: 4;
 	    grid-row-start: 2;
 	    grid-row-end: 3;
-      .field-plain-text,.field-source{
-        @include u.desk{
-          padding-right: 34%;
-        }
-      }
 		}
 		.fact-4{
 			grid-column-start: 1;
@@ -702,11 +681,6 @@
 	    grid-row-start: 2;
 	    grid-row-end: 3;
       text-align: right;
-      .field-plain-text,.field-source{
-        @include u.desk{
-          padding-left: 34%;
-        }
-      }
 		}
 	}//end facts count 4
 	&.facts-count-5{
@@ -716,22 +690,12 @@
 	    grid-row-start: 1;
 	    grid-row-end: 2;
       text-align: right;
-      .field-plain-text,.field-source{
-        @include u.desk{
-          padding-left: 34%;
-        }
-      }
 		}
 		.fact-5{
 			grid-column-start: 3;
 	    grid-column-end: 4;
 	    grid-row-start: 1;
 	    grid-row-end: 2;
-      .field-plain-text,.field-source{
-        @include u.desk{
-          padding-right: 34%;
-        }
-      }
 		}
 	}//end facts count 5
 }//end facts grid

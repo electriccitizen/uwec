@@ -6,7 +6,7 @@
 
 .paragraph--type--facts-list{
   @include edgeToEdge;
-  padding: 28px 40px 70px;
+  padding: 28px $siteMarginMobile 70px;
   border-top: 1px solid $coolGrey;
   border-bottom: 1px solid $coolGrey;
   max-width: 1092px;
@@ -84,7 +84,7 @@
     }
   }//edn facts wrapper
   .facts-title{
-    margin-bottom: 7rem;
+    margin-bottom: $spaceSm;
     @include tab{
       grid-column-start: 2;
       grid-column-end: 3;
@@ -94,39 +94,27 @@
     }
     .facts-title-inner{
       @include auto;
-      @include styledHeader;
       & {
-        position: relative;
-        z-index: 1;
         display: block;
-        width: 300px;
-      }
-      span{
+        font-family: $displayHeader;
+        font-size: 46px;
+        line-height: 50px;
+        position: relative;
         text-align: center;
+        width: 300px;
+        z-index: 1;
       }
-    }
-    .fact-stripes{
-      position: absolute;
-      bottom: -39px;
-      left: -18px;
-      z-index: -1;
-      width: 196px;
-      height: 128px;
-      @include tab{
-        bottom: auto;
-        top: 120px;
-        left: -32px;
+      span {
+        font-weight: $regular;
       }
-      @include desk{
-        top: 117px;
-        left: -40px;
-        width: 264px;
-        height: 172px;
-        svg{
-          width: 264px;
-          height: 172px;
+      @include desk {
+        font-size: 75px;
+        line-height: 1;
+        strong {
+          font-size: 85px;
+          line-height: 90px;
         }
       }
-    }//end fact stripes
+    }
   }//end facts title
 }//end facts-list widget
