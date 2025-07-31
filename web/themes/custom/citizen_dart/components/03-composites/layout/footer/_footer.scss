@@ -11,7 +11,7 @@
 	position: relative;
 	z-index: 1;
   &:before {
-    background: url('../images/elements/wavy-y-white-large.svg') no-repeat scroll 110% center / 100%, $prefooterBack;
+    background: url('../images/elements/wavy-y-white-large.svg') no-repeat scroll right center / 485px, $prefooterBack;
     background-blend-mode: overlay, normal;
     content: '';
     height: 100%;
@@ -19,12 +19,9 @@
     position: absolute;
     top: 0;
     width: 100%;
-    @include desk {
-      background: url('../images/elements/wavy-y-white.svg') no-repeat scroll 110% center / 90%, $prefooterBack;
+    @include tab {
+      background: url('../images/elements/wavy-y-white.svg') no-repeat scroll right -200px center / 1200px, $prefooterBack;
       opacity: .65;
-    }
-    @include menuStop {
-      background-size: 75%;
     }
   }
 	.dialog-off-canvas-main-canvas &{
@@ -38,34 +35,14 @@
 		max-width: $contentStop + 40px;
 		@include auto;
 		position: relative;
-    @include desk{
+    @include tab {
       padding-bottom: 37px;
     }
 		& > div{
 			@include safeFlex(row,wrap,center,start);
-			@include desk{
+			@include tab {
 				@include safeFlex(row,wrap,justify,start);
 			}
-		}
-		//address
-		.block-2{
-			@include onlySmall{
-				width: 100%;
-				order: 99;
-			}
-    }//end address block
-		.block-footer-for-menu{
-			@include auto;
-      @include contentStop{
-        margin-right: $siteMarginDesk;
-      }
-		}
-		.block-footer-menu{
-			width: 100%;
-      @include desk{
-        margin-left: -22px;
-        margin-bottom: 0;
-      }
 		}
 	}//end prefooter inner
 
@@ -85,11 +62,11 @@
   position: relative;
   a{
     @include safeFlex(column,nowrap,center,center);
-    width: 96px;
-    height: 96px;
+    width: 66px;
+    height: 66px;
     position: absolute;
     top: -30px;
-    left: 20px;
+    right: 20px;
     z-index: 500;
     border-radius: 50%;
     background-color: $white;
@@ -100,6 +77,7 @@
     }
     svg{
       fill: none;
+      width: 45%;
     }
     &:active{
       background: $ice;
@@ -142,7 +120,7 @@
 		}
 		> div{
 			@include bleed(padding,20px);
-			@include tab{
+			@include desk {
 				align-items: flex-end;
         columns: 2;
 			}
@@ -156,6 +134,10 @@
     }
     .block-footer-for-menu {
       break-before: column;
+      margin-top: $spaceLg;
+      @include desk {
+        margin-top: 0;
+      }
     }
 		.footer-ancillary{
 			margin-bottom: $spaceMd;
@@ -175,11 +157,13 @@
     padding: $spaceLg 0 $spaceXl;
     position: relative;
     @include tab {
-      padding-bottom: $spaceSm;
+      padding-bottom: $spaceMd;
+      padding-top: $spaceMdLg;
     }
     > div {
       @include tab {
         @include safeFlex(row, no-wrap, justify, center);
+        gap: 30px;
       }
     }
   }

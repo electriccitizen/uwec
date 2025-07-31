@@ -27,11 +27,14 @@ $onlyMobile: max-width $desk - 1px;
 
 /* SPACING & LAYOUT VARIABLES
 ----------------------------- */
+$spaceMxxs : .5rem;
 $spaceXxs  : 1rem;
+$spaceXms  : 1.5rem;
 $spaceXs   : 2rem;
 $spaceMs   : 2.5rem; // Medium small.
 $spaceSm   : 3rem;
 $spaceMd   : 4rem;
+$spaceMdLg : 5rem;
 $spaceLg   : 6rem;
 $spaceMl   : 8rem; // Medium large.
 $spaceXl   : 9rem;

@@ -19,14 +19,23 @@ h2{
 
 h3{
 	@include heading3;
+	.text-long &,.text-with-summary &{
+		margin-bottom: $spaceXms;
+	}
 }
 
 h4{
 	@include heading4;
+	.text-long &,.text-with-summary &{
+		margin-bottom: $spaceXxs;
+	}
 }
 
 h5{
 	@include heading5;
+	.text-long &,.text-with-summary &{
+		margin-bottom: $spaceMxxs;
+	}
 }
 
 h6{
@@ -36,8 +45,6 @@ h6{
 h2+ul, h3+ul, h4+ul, h5+ul, h6+ul {
 	margin-top: 0;
 }
-
-
 
 /* BLOCK, SECTION AND WIDGET HEADINGS
 -------------------------- */
@@ -89,15 +96,18 @@ p{
 
 a {
 	color: $link;
-	text-decoration: none;
+  text-decoration: none;
   .text-with-summary &,.text-long &{
-    @include dottedLink($link);
+    color: $textLink;
+    font-weight: $heavy;
+    text-decoration: underline;
   }
 	&:hover,&:focus {
 		color: $hoverLink;
 		text-decoration: none;
 		.text-with-summary &,.text-long &{
-      background-image: none;
+      color: $textLinkHover;
+      text-decoration: none;
 			transition: color .3s ease-in;
 		}
 	}
