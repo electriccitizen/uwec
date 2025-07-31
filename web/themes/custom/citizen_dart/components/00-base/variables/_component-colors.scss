@@ -78,7 +78,9 @@ $prefooterLinkHover        : $white;
 $footerBack                : var(--col-accent4);
 $footerText                : $white;
 $footerLink                : $white;
+$footerLinkActive          : $gold;
 $footerLinkHover           : $gold;
+$footerLinkActiveHover     : $white;
 $footerSocial              : $white;
 $footerSocialHover         : $gold;
 $footerRule                : $gold;
@@ -236,6 +238,18 @@ $accordActiveBorder       : $borderRule;
 $accordActiveBorderHover  : $borderRule;
 $accordActiveBack         : $white;
 $accordActiveBackHover    : $white;
+
+/* GALLERIES
+------------------ */
+$galleryPagerBack         : $gold;
+$galleryPagerHoverBack    : $lightGold;
+$galleryEyebrow           : $elephant;
+$galleryTitle             : $royal;
+$galleryCaption           : $elephant;
+$galleryCaptionAlt        : $navy;
+$galleryDot               : $alto;
+$galleryDotHover          : $lightGold;
+$galleryDotActive         : $gold;
 
 /* MESSAGES
 ------------------ */

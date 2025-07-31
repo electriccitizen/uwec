@@ -71,19 +71,19 @@ iframe.see-higher{
 /* PAUSE ANIMATIONS BUTTON
 ----------------- */
 .animations-button {
-  background: url("../images/elements/pause-sky.svg") left 2px / 24px 24px no-repeat;
+  background: url("../images/elements/pause-white.svg") left 2px / 24px 24px no-repeat;
   display: inline-block;
   padding-left: 30px;
   color: $white;
   &:hover,
   &:focus {
-    background-image: url("../images/elements/pause-white.svg");
+    background-image: url("../images/elements/pause-white-hover.svg");
   }
   html.animations-paused & {
-    background-image: url("../images/elements/play-sky.svg");
+    background-image: url("../images/elements/play-white.svg");
     &:hover,
     &:focus {
-      background-image: url("../images/elements/play-white.svg");
+      background-image: url("../images/elements/play-white-hover.svg");
     }
   }
 }
