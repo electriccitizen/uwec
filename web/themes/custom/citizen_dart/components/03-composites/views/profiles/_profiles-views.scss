@@ -59,15 +59,28 @@
   position: relative;
   .view-wrapper{
     @include profileSlider;
+    padding: 0 $spaceMdLg;
     & {
       padding-bottom: 40px;
     }
-    .node-teaser-bios{
-      padding: 0 10px;
+    @include desk {
+      padding: 0;
+    }
+    .view-content {
+      @include safeFlex(column, nowrap, justify, start);
+      gap: $spaceXs;
+      @include smallTab {
+        @include safeFlex(row, nowrap, justify, start);
+        gap: $spaceMs;
+      }
     }
   }
   h2.block-title{
-    margin-bottom: $spaceSm;
+    margin-bottom: $spaceMdLg;
+    text-align: center;
+    @include tab {
+      margin-bottom: $spaceMl;
+    }
   }
 	.more-link{
     padding-top: 40px;
@@ -79,10 +92,15 @@
     }
 		a{
       @include auto;
-			@include linkArrow(navyLight);
+			@include linkArrow(gold, sm);
+      color: $link;
       display: inline-block;
       max-width: $smallTab;
       text-align: left;
+      @include tab {
+        @include linkArrow(gold);
+        color: $link;
+      }
 		}//end a
 	}//end more link
 }//end department faculty

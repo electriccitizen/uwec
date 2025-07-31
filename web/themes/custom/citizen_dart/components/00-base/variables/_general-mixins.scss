@@ -801,9 +801,9 @@
     margin-right: auto;
   }
   &:after{
-    @include fullBack(c.$gold);
-    top: 58px;
-    height: calc(100% - 58px);
+    @include fullBack(c.$ice);
+    top: 86px;
+    height: calc(100% - 86px);
   }
   .view-content{
     & > div{

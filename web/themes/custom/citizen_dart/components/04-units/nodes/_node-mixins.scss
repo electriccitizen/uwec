@@ -309,7 +309,7 @@
     a{
       padding-bottom: 1px;
       &:hover,&:focus{
-        
+
       }
     }
 	}//end field email
@@ -322,7 +322,7 @@
 
       padding-bottom: 1px;
       &:hover,&:focus{
-        
+
       }
     }
 	}//end field phone
@@ -769,24 +769,23 @@
   .field-image{
     margin-bottom: 2rem;
   }
-  .field:not(.field-image):not(.field-name){
-    font-size: 1.75rem;
-    line-height: 1.285;
-    &:not(:last-of-type){
-      margin-bottom: 1rem;
-    }
+  .field:not(.field-image):not(.field-name):not(:last-of-type) {
+    color: $headingText;
+    margin-bottom: $spaceXs;
   }
   .field-name,.teaser-title{
-    font-weight: $displayHeader;
+    font-family: $displayHeader;
     font-size: 3.25rem;
-    line-height: 1.23;
-    padding-right: 20px;
-    margin-bottom: 1rem;
-    a{
-
-      &:hover,&:focus{
-
+    line-height: 1.25;
+    padding-right: $spaceMs;
+    margin-bottom: $spaceXxs;
+    a {
+      @include lineLink;
+      color: $textLink;
+      &:hover,
+      &:focus{
         background-image: none;
+        color: $textLinkHover;
       }
     }
   }//end name
