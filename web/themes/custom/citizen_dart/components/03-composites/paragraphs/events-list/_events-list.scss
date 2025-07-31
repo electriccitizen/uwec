@@ -61,10 +61,10 @@
       position: absolute;
       top: 108px;
       left: 0;
-      width: 115px;
-      height: 115px;
+      width: 100px;
+      height: 100px;
       padding: 15px 0 15px 20px;
-      background: $navy;
+      background: $royal;
       color: $white;
       @include safeFlex(column,nowrap,center,start);
       font-size: 1.5rem;
@@ -82,23 +82,36 @@
       }
       .day{
         font-family: $header;
-        font-size: 4.5rem;
+        font-size: 3.5rem;
         line-height: 1.1;
+		color:$gold;
       }
     }//end date
+
     .image{
       display: block;
       margin-bottom: $spaceXs;
+	  &:empty{
+	  	width:372px;
+		height:372px;
+		background-color:$ice;
+	  }
+	  @include contentStopMargin{
+		  &:empty{
+			width:315px;
+			height:315px;
+		  }
+	  }
     }
+
     .title{
       display: block;
       a{
-        @include blockArrow(navy, sm);
-        &:hover,&:focus{
+		@include linkArrow(gold, sm);
+		color:$royal;
+      }
+    }
 
-        }
-      }//end a
-    }//end title
     .summary{
       display: block;
       margin: $spaceXxs 0;
@@ -109,6 +122,9 @@
       line-height: 2;
       text-transform: uppercase;
     }
+	.until span{
+		margin:0 .25rem;
+	}
   }//end event
 
   // one event on wider screens can use more width
@@ -137,7 +153,8 @@
     text-align:center;
     padding-top:2rem;
     a{
-      @include linkArrow();
+      @include linkArrow(gold);
+	  color:$royal;
     }
   }
 }//end events-list widget
