@@ -5,13 +5,36 @@
 @use '../../../01-parts/buttons/button-mixins' as *;
 @use 'sass:color';
 
-.block-structured-section {
+.block-structured-section .structured-inner{
   padding-top: $elementSpace;
   @include edgeToEdge;
   position: relative;
   z-index: 1;
   overflow: hidden;
   background: radial-gradient(50.13% 157.8% at 6.18% 33.85%, #0F2C46 0%, #232C99 100%);
+  &.has-wayfinding {
+    overflow: visible;
+    .river-background {
+      @media screen and (max-width: 699px) {
+        top: 400px;
+      }
+      @media screen and (min-width: 700px) {
+        top: -40px;
+        left: calc(100vw - 900px);
+      }
+      @include tab {
+        left: calc(100vw - 1100px);
+      }
+      @include desk {
+
+      }
+      @include menuStop {
+        top: -46px;
+        left: -60px;
+      }
+    }
+  }
+
   > * {
     position: relative;
     z-index: 1;
@@ -25,6 +48,7 @@
     mix-blend-mode: overlay;
     transform: rotate(5deg);
     @media screen and (min-width: 700px) {
+      top: -216px;
       width: 1260px;
       left: calc(100vw - 830px);
     }
@@ -47,30 +71,38 @@
   }
 
   .paragraph--type--wayfinding {
-    margin: -$elementSpace 0;
+    margin: -$elementSpace auto $elementSpace;
     position: relative;
     top: -$elementSpace;
+    max-width: calc(100vw - 48px);
+    @include smallTab {
+      max-width: 440px;
+    }
+    @include desk {
+      max-width: calc(100vw - 48px);
+    }
+    &.wf-single.wf-no-background,&.wf-single.wf-has-background {
+      .wayfinding.single {
+        padding-top: 2.5rem !important;
+        background: $ice !important;
+        padding-bottom: 2.5rem !important;
+      }
+    }
 
     .wayfinding {
-      max-width: $wideContent;
-
+      max-width: 1094px;
       @include desk {
         @include safeFlex(row, no-wrap, justify, start);
       }
-
       &.single {
         margin-bottom: 0;
         margin-top: 0;
         padding: $siteMarginMobile;
+        &:after {
+          content: none !important;
+        }
         @include desk {
           padding: $spaceSm 20px;
-        }
-        &:after {
-          @include auto;
-          background-color: $ice;
-          left: 0;
-          max-width: $wideContent;
-          width: 100%;
         }
       }
 
@@ -81,8 +113,13 @@
         width: 100%;
         @include desk {
           margin: 0;
-          max-width: 426x;
-
+          max-width: 440px;
+        }
+        .field-media-image img {
+          @include desk {
+            max-width: 100%;
+            max-height: 100%;
+          }
         }
 
         .gold-stripes-narrow {
@@ -91,27 +128,13 @@
       }
       .wayfinding-info {
         @include auto;
-        line-height: 1.5;
         max-width: 610px;
         order: 1;
         padding: $siteMarginMobile 0;
         @include desk {
-          line-height: 2;
           margin: 0;
           max-width: 560px;
           padding: $spaceLg 60px $spaceLg $spaceXl;
-        }
-
-        .wayfinding-headline {
-          @include heading2;
-          line-height: 1.14;
-          margin-bottom: $spaceXxs;
-          text-transform: uppercase;
-          @include desk {
-            font-size: 4rem;
-            margin-bottom: $spaceXs;
-            text-transform: none;
-          }
         }
       }
     }
@@ -154,6 +177,9 @@
     position: relative;
     color: $white;
     padding-bottom: 40px;
+    @include desk {
+      padding-bottom: 80px;
+    }
   
     .cta-section-inner {
       @include safeFlex(column,wrap,start,start);
@@ -184,6 +210,18 @@
         position: relative;
         max-width: 320px;
         padding: 0 $siteMarginMobile;
+        &.visible {
+          &:before {
+            right: -12px;
+            transition: right .75s ease-out;
+            @include desk {
+              right: -33px;
+            }
+          }
+          .field-cta-image .media-item {
+            visibility: visible;
+          }
+        }
         @include desk {
           order: 2;
           max-width: 100%;
@@ -198,7 +236,7 @@
           display: block;
           position: absolute;
           top: -40px;
-          right: -12px;
+          right: -100vw;
           z-index: 1;
           width: 67px;
           height: 257px;
@@ -207,7 +245,6 @@
           background-size: contain;
           @include desk {
             top: 90px;
-            right: -33px;
           }
           @include menuStop {
             top: 97px;
@@ -266,16 +303,9 @@
         }
         .media-item {
           visibility: hidden;
-          left: 200vw;
-          position: relative;
-          transition: left .75s ease-out;
-        }
-        &.visible .media-item {
           left: 0;
-          visibility: visible;
-          &:before {
-            right: -56px;
-          }
+          position: relative;
+          transition: visibility .75s ease-out;
         }
       }
       .field-cta-links {
