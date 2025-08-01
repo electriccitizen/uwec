@@ -241,6 +241,12 @@
             width: 100%;
             padding-left: 50%;
           }
+          @include desk {
+            padding-right: 20px;
+          }
+          @include contentStop {
+            padding-right: 50px;
+          }
         }
         .cta-headline{
           font-size: 2.75rem;
