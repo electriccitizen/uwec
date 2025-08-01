@@ -412,7 +412,11 @@
 }
 
 @mixin rightArrow($arrowBack,$arrowBorder,$arrowSize){
-	@if $arrowSize == 'sm'{
+  @if $arrowSize == 'xs' {
+		width: 19px;
+		height: 19px;
+  }
+	@else if $arrowSize == 'sm'{
 		width: 25px;
 		height: 25px;
 	}@else if $arrowSize == 'lg'{
@@ -556,7 +560,10 @@
 
   $top: -10px;
 
-  @if $size == sm {
+  @if $size == xs {
+    $top: -4px;
+  }
+  @else if $size == sm {
     $top: -2px;
   }
 
@@ -572,8 +579,11 @@
 // element.
 @mixin blockArrow($theme: navy, $size: lg) {
   @include arrowLink("after", $theme, $size);
+  $top: 7px;
 
-  $top: 4px;
+  @if $size == xs {
+    $top: 4px;
+  }
 
   &:after {
     display: inline-block;

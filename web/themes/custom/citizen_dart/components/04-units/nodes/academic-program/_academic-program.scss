@@ -493,36 +493,15 @@
     @include auto;
     background: $ice;
     max-width: $wideContent;
-    padding: 9rem $siteMarginMobile;
+    padding: 54px $siteMarginMobile ;
     position: relative;
     @include tab {
-      padding: 40px 130px;
-    }
-    &:after {
-      @include tab {
-        @include fatStripes($gold, 25px);
-        bottom: -15px;
-        left: var(--animation-start-mid);
-        height: 200px;
-        top: auto;
-        transition: left 1.5s ease-in-out;
-        width: 50px;
-        z-index: 5;
-      }
-      @include desk {
-        left: var(--animation-start-wide);
-      }
-    }
-    &.visible:after {
-      @include tab {
-        left: var(--animation-end);
-      }
+      padding: 48px 130px 10px;
     }
     h2 {
       font-size: 28px;
-      margin-bottom: 2.5rem;
+      margin-bottom: $spaceXs;
       text-align: center;
-      text-transform: uppercase;
       @include desk {
         text-align: left;
       }
@@ -530,8 +509,15 @@
     .field-related-programs {
       @include bleed(padding, 20px);
       .related-intro {
+        font-size: 14px;
         line-height: 1.5;
+        margin-bottom: 30px;
         max-width: 650px;
+        @include tab {
+          font-size: 16px;
+          line-height: 1.625;
+          margin-bottom: 50px;
+        }
       }
       .related-items {
         @include safeFlex(row, wrap, start, start);
@@ -542,24 +528,34 @@
       }
       .related-item {
         width: 100%;
-        margin-bottom: 5rem;
+        margin-bottom: $spaceMs;
         padding: 0 1.25rem;
         @include tab {
           width: 33%;
-          margin-bottom: 2.5rem;
+          margin-bottom: $spaceMd;
         }
         @include desk {
           width: 25%;
         }
+        .academic-program-thumbnail {
+          @include auto;
+          max-width: 204px;
+        }
         .content-thumb-title {
           line-height: 1.2;
-          margin-top: 1.5rem;
+          margin-top: $spaceXs;
         }
         a {
-          font-family: $displayHeader;
-          font-size: 16px;
-          font-weight: $heavy;
-          @include blockArrow(navy, sm);
+          @include blockArrow(gold, xs);
+          & {
+            color: $link;
+            font-size: 18px;
+            font-weight: $heavy;
+          }
+          span {
+            display: inline-block;
+            margin-right: 9px;
+          }
         }
       }
     }//end field related programs
@@ -653,11 +649,6 @@
       a{
         @include linkArrow(navy, sm);
         padding-bottom:0.65rem;
-        &:hover,&:focus{
-          span{
-           
-          }
-        }
       }
     }
   }//end program intro
@@ -674,9 +665,6 @@
         transform: rotate(180deg);
       }
       &:hover,&:focus{
-        .type-list span{
-     
-        }
         .chevron-down{
           background: rgba($coolGrey,.3);
         }
