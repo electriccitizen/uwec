@@ -190,7 +190,7 @@
         width: 2000px;
         top: -300px;
       }
-      .widget-section > .layout:not(.layout--onecol) &,.node-support-book &{
+      .widget-section > .layout:not(.layout--onecol) &{
         @include tab{
           display: none;
         }
