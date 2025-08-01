@@ -2,12 +2,15 @@
 @use '../../01-parts/buttons/button-mixins' as *;
 
 @mixin slateFormContainer{
+  @include gradient(right, $bay, 0%, $royal);
 	max-width:1138px;
 	margin-left:auto;
 	margin-right:auto;
-	background: $royal;
 	color: $white;
-	padding: 40px 20px 30px;
+	padding: 50px 20px 30px;
+  @include tab {
+    padding-top: 40px;
+  }
 }
 
 @mixin slateRight{
@@ -16,29 +19,44 @@
 		width: 50%;
 	}
 
-	form{
-		@include slateForm;
-		#form_page_1{
-			margin-bottom: 3rem;
-			.form_p .form_label{
-				font-family: $bodyText;
-				font-size: 16px;
-				line-height: 1.875;
-				font-weight: $regular;
-				letter-spacing: normal;
-			}
-		}
-	}
+  .form_page {
+		@include safeFlex(row,wrap,justify,end);
+    gap: $spaceXms $spaceMs;
+    margin-top: $spaceXms;
 
-	#form_page_2,#form_page_3{
-		@include safeFlex(row,wrap,start,end);
-		.form_question{
+    @include tab {
+      gap: $spaceMs;
+      margin-top: $spaceXs;
+    }
+    .form_question{
 			float: none !important;
 			width: 100% !important;
 			@include tab{
 				&[data-export="sys:first"],&[data-export="sys:last"],&[data-export="sys:field:student_type"],&[data-export="sys:mobile"]{
-					width: 50% !important;
+					flex: 1;
 				}
+			}
+		}
+  }
+
+	form{
+		@include slateForm;
+		#form_page_1{
+      margin-bottom: 56px;
+      @include tab {
+			  margin-bottom: 54px;
+      }
+			.form_p .form_label{
+				font-family: $bodyText;
+        font-size: 14px;
+        line-height: 22px;
+				letter-spacing: normal;
+				font-weight: $regular;
+        margin-bottom: 0;
+        @include tab {
+          font-size: 16px;
+          line-height: 1.625;
+        }
 			}
 		}
 	}
@@ -46,7 +64,8 @@
 
 @mixin slateForm{
   .form_question{
-    margin-bottom: 20px;
+    margin-bottom: 0;
+    padding: 0 !important;
     &[data-required='1']{
       & > .form_label{
         &:after{
@@ -75,10 +94,13 @@
     width: 100%;
     color: $navy;
     letter-spacing: .05em;
-    font-size: 2rem;
+    font-size: 14px;
     line-height: 2;
     &::placeholder{
       color: $placeColor;
+    }
+    @include tab {
+      font-size: 16px;
     }
   }
   textarea{
@@ -148,9 +170,9 @@
     padding: 14px 32px 14px 22px;
     background-image: url('../images/elements/chevron-royal-down-sm.svg');
     background-repeat: no-repeat;
-    background-size: 12px;
+    background-size: 19px;
     background-position: calc(100% - 10px) 50%;
-    font-size: 2rem;
+    font-size: 14px;
     line-height: 2;
     letter-spacing: .05em;
     color: $placeColor;
@@ -166,6 +188,9 @@
       background-size: 12px;
       background-position: calc(100% - 10px) 50%;
     }
+    @include tab {
+      font-size: 16px;
+    }
   }//end select
   fieldset{
     & > div:not(.form_label):not(:last-of-type){
@@ -174,9 +199,17 @@
   }
   button.form_button_submit{
     @include submitButton;
+    font-size: 13px;
+    margin-top: 27px;
     & {
+      height: 42px;
+      width: 100%;
+    }
+    @include tab {
+      font-size: 15px;
       min-height: 60px;
       min-width: 247px;
+      width: auto;
     }
   }
 }
