@@ -692,8 +692,8 @@
 }
 
 @mixin styledHeader($mobile-resize: false) {
-  $main-size: 64px;
-  $strong-size: 70px;
+  $main-size: 75px;
+  $strong-size: 85px;
 
   @if $mobile-resize == true {
     $main-size: 43px;
@@ -701,14 +701,12 @@
   }
   display: block;
   text-align: center;
-  text-transform: uppercase;
   line-height: 1;
   font-weight: 400;
-  font-family: grad, serif;
+  font-family: f.$displayHeader;
   color: #06233d;
   font-feature-settings: "liga", "dlig";
   font-size: $main-size;
-  font-style: italic;
   letter-spacing: .05em;
   @include u.desk{
     font-size: 73px;
@@ -716,7 +714,6 @@
 	strong{
 		font-size: $strong-size;
 		line-height: 1;
-		font-family: f.$header;
 		font-weight: 800;
     display: block;
     letter-spacing: 0;
@@ -725,6 +722,9 @@
       font-size: 79px;
     }
 	}
+  p {
+    margin: 0;
+  }
 }
 
 @mixin profileSlider{
