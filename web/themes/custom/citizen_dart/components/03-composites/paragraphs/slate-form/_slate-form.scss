@@ -12,7 +12,7 @@
   .widget-section > .layout--twocol-section--25-75 > .layout__region--second &,
   .node-support-book &{
     @include tab{
-      padding: 60px 112px 45px;
+      padding: 56px 112px;
     }
   }
 	.widget-wrapper{
@@ -30,12 +30,17 @@
 			  @include desk{
           &:not(:only-child){
             width: 50%;
-            &:first-child{
-              padding-top: 35px;
-            }
           }
-        }
-			}//end desk
+        }//end desk
+			}
+      .widget-section > .layout--twocol-section--75-25 > .layout__region--first &,
+      .widget-section > .layout--twocol-section--25-75 > .layout__region--second & {
+			  @include desk{
+          &:not(:only-child):first-child {
+            padding-top: 35px;
+          }
+        }//end desk
+      }
 		}//end slate-left,slate-right
 	}//end widget wrapper
   .slate-left.slate-visible{
@@ -50,17 +55,16 @@
 		@include styledHeader;
     & {
       text-align: left;
-      margin-bottom: $spaceSm;
+      margin-bottom: $spaceLg;
       color: $gold;
     }
-    strong{
+    strong {
       opacity: 0;
       scale: 1;
       position: relative;
-      bottom: -2px;
     }
 	}
   .field-additional-text{
-    margin-bottom: 2.5rem;
+    margin-bottom: $spaceMs;
   }
 }//end slate form widget

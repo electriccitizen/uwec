@@ -1,4 +1,5 @@
 @use '../../00-base/base' as *;
+@use '../../01-parts/buttons/button-mixins' as *;
 
 @mixin slateFormContainer{
 	max-width:1138px;
@@ -19,21 +20,18 @@
 		@include slateForm;
 		#form_page_1{
 			margin-bottom: 3rem;
-			.form_label{
-				margin-left: -20px;
+			.form_p .form_label{
 				font-family: $bodyText;
 				font-size: 16px;
 				line-height: 1.875;
 				font-weight: $regular;
 				letter-spacing: normal;
-				text-transform: none;
 			}
 		}
 	}
 
 	#form_page_2,#form_page_3{
 		@include safeFlex(row,wrap,start,end);
-		@include bleed(padding,20px);
 		.form_question{
 			float: none !important;
 			width: 100% !important;
@@ -65,15 +63,14 @@
     font-size: $formLabelSize;
     font-weight: $formLabelWeight;
     letter-spacing: .05em;
-    line-height: 16px;
-    text-transform: uppercase;
+    line-height: 1.5;
     display: block;
-    margin: 0 0 5px 20px;
+    margin: 0 0 5px;
   }
   input[type='text'],input[type='email'],input[type='tel'],textarea,input[type='number']{
     @include browserWipe;
     border: 0;
-    border-radius: 10px;
+    border-radius: 4px;
     padding: 14px 22px;
     width: 100%;
     color: $navy;
@@ -81,7 +78,7 @@
     font-size: 2rem;
     line-height: 2;
     &::placeholder{
-      color: transparent;
+      color: $placeColor;
     }
   }
   textarea{
@@ -146,7 +143,7 @@
   select{
     @include browserWipe;
     border: 0;
-    border-radius: 10px;
+    border-radius: 4px;
     background: $white;
     padding: 14px 32px 14px 22px;
     background-image: url('../images/elements/chevron-royal-down-sm.svg');
@@ -156,9 +153,9 @@
     font-size: 2rem;
     line-height: 2;
     letter-spacing: .05em;
-    color: $royal;
+    color: $placeColor;
     &.selected{
-      color: $navy;
+      color: $baseText;
     }
     &:only-of-type{
       width: 100%;
@@ -176,25 +173,10 @@
     }
   }
   button.form_button_submit{
-    @include browserWipe;
-    border: 1px solid $gold;
-    color: $royal;
-    font-family: $header;
-    font-size: 14px;
-    line-height: 1.2;
-    letter-spacing: .1em;
-    font-weight: $heavy;
-    text-align: center;
-    text-transform: uppercase;
-    border-radius: 25px;
-    padding: 12px 21px 11px;
-    background-color: transparent;
-    margin: $spaceXxs 0 $spaceSm;
-    &:hover,&:focus{
-      @include animation('breathe .75s 1');
-      background-color: $ice;
-      color: $royal;
-      transition: background-color .3s ease-in-out;
+    @include submitButton;
+    & {
+      min-height: 60px;
+      min-width: 247px;
     }
   }
 }
