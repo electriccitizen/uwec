@@ -6,6 +6,10 @@
 @use '../../../01-parts/buttons/button-mixins' as *;
 
 .paragraph--type--ctas{
+  .widget-title {
+    text-align: center;
+    margin-bottom: $spaceSm;
+  }
   &.cta-visible{
     .cta-trio .cta-item .cta-item-inner .cta-image{
       .widget-section > .layout--onecol &,
@@ -16,15 +20,17 @@
           opacity: 1;
           @include transition-animate(opacity, 0.5s, ease-in);
         }
+        .cta-bar{
+          .cta-item-inner:before{
+            opacity: 1;
+            @include transition-animate(opacity, 0.75s, ease-in);
+          }
+        }
       }
     }
     .cta-bar{
-      .gold-stripes{
-        right: -20px;
-        @include transition-animate(right, 1s, ease-out);
-      }
-      .cta-item-inner article .field-media-image img{
-        opacity: .3;
+      .cta-item-inner:before{
+        opacity: .8;
         @include transition-animate(opacity, 0.75s, ease-in);
       }
     }
@@ -39,7 +45,7 @@
 		@include auto;
 		.ctas-wrapper{
 			@include safeFlex(row,wrap,start,stretch);
-			@include bleed(padding,16px);
+			@include bleed(padding,24px);
 		}
 		.cta-item{
 			width: 100%;
@@ -89,26 +95,27 @@
           }
         }//end cta image
         .cta-headline{
+          font-size: 3rem;
+          font-weight: $xHeavy;
+          line-height: 1;
           .widget-section > .layout--onecol &,
           .widget-section > .layout--twocol-section--75-25 > .layout__region--first &,
           .widget-section > .layout--twocol-section--25-75 > .layout__region--second &,
           .node-support-book &{
             @include tab{
-              line-height: 1.583;
               &:not(:only-child){
-                margin-bottom: 2.5rem;
+                margin-bottom: 2rem;
               }
             }
           }
         }//end cta headline
         .cta-text{
-          line-height: 1.5;
           .widget-section > .layout--onecol &,
           .widget-section > .layout--twocol-section--75-25 > .layout__region--first &,
           .widget-section > .layout--twocol-section--25-75 > .layout__region--second &,
           .node-support-book &{
             @include tab{
-              margin-bottom: $spaceSm;
+              margin-bottom: 5rem;
             }
           }
         }//end cta text
@@ -124,6 +131,12 @@
               width: calc(100% - 60px);
             }
           }
+          a{
+            @include tab {
+              padding-left: 2rem;
+              padding-right: 2rem;
+            }
+          }
         }//end cta button
 			}//end cta item inner
 		}//end CTA item
@@ -133,147 +146,123 @@
 		max-width: 1094px;
 		@include auto;
     position: relative;
-    padding-top: 70px;
-    @include tab{
-      padding-top: 0;
+    @include tab {
+      margin-bottom: 100px;
     }
-    &:after{
-      @include fullBack($ice);
-      height: calc(100% - 70px);
-      top: 0;
-      z-index: -5;
-      @include tab{
-        height: 76%;
-        top: 12%;
+    @include menuStop {
+      margin-bottom: 140px;
+    }
+    @include contentStop {
+      margin-bottom: 10vw;
+    }
+    @media screen and (min-width: 1800px) {
+      margin-bottom: 11vw;
+    }
+    @include ultraWidescreen {
+      margin-bottom: 210px;
+    }
+    .cta-river{
+      position: absolute;
+      top: -150px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 1508px;
+      height: 691px;
+      @include onlySmall {
+        display: none;
+      }
+      @include contentStop {
+        top: -10vw;
+        width: 100vw;
+        img{
+          -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+          mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+          -webkit-mask-size: 100% 100%;
+          mask-size: 100% 100%;
+          -webkit-mask-repeat: no-repeat;
+          mask-repeat: no-repeat;
+        }
+      }
+      @include largeScreen {
+        top: -13vw;
+      }
+      @include ultraWidescreen {
+        width: 2000px;
+        top: -300px;
       }
       .widget-section > .layout:not(.layout--onecol) &,.node-support-book &{
         @include tab{
-          width: calc(100% + 40px);
-          left: -20px;
-          height: 40%;
-          top: 30%;
+          display: none;
         }
       }
     }
-    .gold-stripes{
-      position: absolute;
-      top: -50px;
-      right: -100vw;
-      z-index: 1;
-      width: 263px;
-      height: 171px;
-      @include tab{
-        top: -128px;
-      }
-      //move strips when in a layout wide enough on a screen large enough
-      .widget-section > .layout--onecol &,
-      .widget-section > .layout--twocol-section--50-50 &,
-      .widget-section > .layout--twocol-section--67-33 > .layout__region--first &,
-      .widget-section > .layout--twocol-section--75-25 > .layout__region--first &,
-      .widget-section > .layout--twocol-section--33-67 > .layout__region--second &,
-      .widget-section > .layout--twocol-section--25-75 > .layout__region--second &,
-      .node-support-book &{
-        @include tab{
-          top: -65px;
-        }
-      }
-    }//end gold stripes
 		.cta-item-inner{
 			position: relative;
+      z-index: 1;
 			overflow: hidden;
 			width: 100%;
-			padding: 86px 20px 50px;
-      //change layout and padding in a layout wide enough on a screen large enough
-      .widget-section > .layout--onecol &,
-      .widget-section > .layout--twocol-section--50-50 &,
-      .widget-section > .layout--twocol-section--67-33 > .layout__region--first &,
-      .widget-section > .layout--twocol-section--75-25 > .layout__region--first &,
-      .widget-section > .layout--twocol-section--33-67 > .layout__region--second &,
-      .widget-section > .layout--twocol-section--25-75 > .layout__region--second &,
-      .node-support-book &{
-        @include tab{
-          @include safeFlex(row,wrap,start,center);
-          padding: 80px 109px 90px;
-        }
+			padding: 86px 20px 40px;
+      background: linear-gradient(90deg, #06233D -98.19%, #2B3594 100%);
+      @include tab {
+        padding-bottom: 82px;
       }
-			&:after{
-				@include fullBack($royal);
-				z-index: -4;
-			}
-			article{
-				position: absolute;
-				top: 0;
-				left: 0;
-				width: 100%;
-				height: 100%;
-				z-index: -1;
-				mix-blend-mode: multiply;
-				.field-media-image{
-					width: 100%;
-					height: 100%;
-					position: relative;
-					overflow: hidden;
-					z-index: -2;
-					img{
-						width: 100%;
-				    height: 100%;
-				    filter: grayscale(100%);
-						position: relative;
-						z-index: -3;
-						object-fit: cover;
-            opacity: 0;
-					}
-				}//end field media image
-			}//end article
-			.cta-text-wrapper{
-        //change layout of elements a layout wide enough on a screen large enough
+      &:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        mix-blend-mode: overlay;
+        background-image: url(../images/elements/river-cta-content-mobile.svg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: top right;
         .widget-section > .layout--onecol &,
-        .widget-section > .layout--twocol-section--50-50 &,
-        .widget-section > .layout--twocol-section--67-33 > .layout__region--first &,
         .widget-section > .layout--twocol-section--75-25 > .layout__region--first &,
-        .widget-section > .layout--twocol-section--33-67 > .layout__region--second &,
         .widget-section > .layout--twocol-section--25-75 > .layout__region--second &,
         .node-support-book &{
           @include tab{
-            @include safeFlex(row,wrap,start,center);
-            .cta-text-left{
-              width: 60%;
-              padding-right: 20px;
-              .cta-text{
-                margin-bottom: 0;
-                line-height: 1.875;
-              }
-            }
-            .cta-text-right{
-              width: 40%;
-            }
-          }// tab
-        }//end layout sections
+            width: 40%;
+            background-image: url(../images/elements/river-cta-content-desk.svg);
+            background-size: 650px;
+            background-position: left -152px top -123px;
+          }
+        }
+      }
+			.cta-text-wrapper{
+        width: 80%;
+        .widget-section > .layout--onecol &,
+        .widget-section > .layout--twocol-section--75-25 > .layout__region--first &,
+        .widget-section > .layout--twocol-section--25-75 > .layout__region--second &,
+        .node-support-book &{
+          @include tab{
+            width: 100%;
+            padding-left: 50%;
+          }
+        }
         .cta-headline{
+          font-size: 2.75rem;
+          line-height: 1.27;
+          font-family: $displayHeader;
+          font-weight: $heavy;
+          @include tab {
+            font-size: 3.125rem;
+          }
           &:not(:only-child){
-            margin-bottom: $spaceMd;
+            margin-bottom: $spaceSm;
           }
         }
         .cta-text{
-          line-height: 2;
+          font-size: 2rem;
+          line-height: 1.625;
+          margin-bottom: $spaceSm;
         }
-
-				.cta-text-right{
-					a{
-            //change button padding and padding in a layout wide enough on a screen large enough
-            .widget-section > .layout--onecol &,
-            .widget-section > .layout--twocol-section--50-50 &,
-            .widget-section > .layout--twocol-section--67-33 > .layout__region--first &,
-            .widget-section > .layout--twocol-section--75-25 > .layout__region--first &,
-            .widget-section > .layout--twocol-section--33-67 > .layout__region--second &,
-            .widget-section > .layout--twocol-section--25-75 > .layout__region--second &,
-            .node-support-book &{
-              @include tab{
-                padding: 2.1rem 3.25rem 1.85rem;
-              }
-            }//end sections
-					}//end a
-				}//end cta text right
+        a {
+          @include button;
+          margin-bottom: 0;
+        }
 			}//end cta text wrapper
 		}//end cita item inner
 	}//end is bar
@@ -281,16 +270,21 @@
 	.cta-item{
 		color: $white;
 		.cta-headline{
-			@include heading2;
       & {
 			  color: $white;
       }
       &:not(:only-child){
-        margin-bottom: $spaceXxs;
+        margin-bottom: $spaceXs;
       }
 		}
     .cta-text{
       margin-bottom: $spaceLg;
+      font-size: 1.75rem;
+      line-height: 1.57;
+      @include desk {
+        font-size: 2rem;
+        line-height: 1.625;
+      }
     }
 		.cta-button,.cta-text-right{
       text-align: center;
