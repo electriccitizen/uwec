@@ -111,6 +111,12 @@ $sectionGutter: 20px;
 	}
 }
 
+@mixin ultraWidescreen {
+	@media screen and (min-width: $ultraWidescreen) {
+		@content;
+	}
+}
+
 @mixin mobileMenu {
 	@media screen and (max-width: $menuStop) {
 		@content;

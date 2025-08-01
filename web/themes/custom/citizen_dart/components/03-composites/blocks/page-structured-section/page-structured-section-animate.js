@@ -2,7 +2,7 @@
 
 Drupal.behaviors.pageStructuredSectionAnimate = {
   attach: function (context, settings) {
-    $(once('academicProgramRelated', '.block-structured-section .field-formatted-headline, .block-structured-section .field-cta-image', context)).each(function(){
+    $(once('academicProgramRelated', '.block-structured-section .field-formatted-headline, .block-structured-section .cta-image', context)).each(function(){
       // Function to handle the intersection observer callback
       function handleIntersection(entries, observer) {
         entries.forEach(entry => {

@@ -364,42 +364,6 @@
 	height: #{$height};
 }
 
-@mixin rollingSeal {
-  padding-top: 8rem;
-  position: relative;
-  margin: 0 auto -3rem;
-  max-width: 400px;
-  &:before {
-    background: url("../images/logos-badges/seal.svg") no-repeat transparent;
-    content: '';
-    display: none;
-    height: 125px;
-    position: absolute;
-    right: 200vw;
-    top: 1rem;
-    width: 125px;
-    z-index: -1;
-  }
-  &.visible:before {
-    @include animation('sealRollRight 1s');
-    display: block;
-    right: 8%;
-  }
-  @include u.desk {
-    max-width: 100%;
-    margin-bottom: 0;
-    &:before {
-      top: 20px;
-      width: 152px;
-      height: 152px;
-    }
-    &.visible:before {
-      @include animation('sealRollRightDesk 1s');
-      right: 86%;
-    }
-  }
-}
-
 @mixin narrowStripes($stripeColor){
 	content: '';
 	display: block;
@@ -436,6 +400,15 @@
 	  transparent calc($size * 2)
 	);
 	@include skew(0,-16);
+}
+
+@mixin fadeOutEdges {
+  -webkit-mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
+  mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
 }
 
 @mixin rightArrow($arrowBack,$arrowBorder,$arrowSize){

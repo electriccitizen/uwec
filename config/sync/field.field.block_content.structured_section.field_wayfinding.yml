@@ -13,7 +13,7 @@ field_name: field_wayfinding
 entity_type: block_content
 bundle: structured_section
 label: Wayfinding
-description: ''
+description: "Its best to only use the 'Single' version of wayfinding with no background."
 required: false
 translatable: false
 default_value: {  }
@@ -54,6 +54,12 @@ settings:
         enabled: false
       events_list:
         weight: 50
+        enabled: false
+      external_articles:
+        weight: 57
+        enabled: false
+      external_articles_item:
+        weight: 58
         enabled: false
       facts_list:
         weight: 51
@@ -103,6 +109,12 @@ settings:
       programs_list:
         weight: 65
         enabled: false
+      quick_links:
+        weight: 75
+        enabled: false
+      quick_links_item:
+        weight: 76
+        enabled: false
       quote:
         weight: 67
         enabled: false
@@ -120,6 +132,12 @@ settings:
         enabled: false
       social_media_links:
         weight: 72
+        enabled: false
+      stats_bar:
+        weight: 83
+        enabled: false
+      stats_bar_item:
+        weight: 84
         enabled: false
       step_item:
         weight: 74
