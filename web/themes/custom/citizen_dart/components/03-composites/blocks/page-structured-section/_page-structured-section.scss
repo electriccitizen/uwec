@@ -81,8 +81,8 @@
     @include desk {
       max-width: calc(100vw - 48px);
     }
-    &.wf-single.wf-no-background,&.wf-single.wf-has-background {
-      .wayfinding.single {
+    &.wf-single.wf-no-background,&.wf-single.wf-has-background,&.wf-box.wf-has-background {
+      .wayfinding.single,.wayfinding.box {
         padding-top: 2.5rem !important;
         background: $ice !important;
         padding-bottom: 2.5rem !important;
@@ -94,7 +94,7 @@
       @include desk {
         @include safeFlex(row, no-wrap, justify, start);
       }
-      &.single {
+      &.single,&.box {
         margin-bottom: 0;
         margin-top: 0;
         padding: $siteMarginMobile;
@@ -167,6 +167,9 @@
     }
     a {
       @include button;
+      @include onlyMobile {
+        margin-bottom: $spaceXl;
+      }
     }
   }
 
