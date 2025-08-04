@@ -211,17 +211,12 @@
     }
   }//end snapshot toprright
   .snapshot-bottom{
-    @include carouselBreak{
       max-width: 762px;
       margin: $spaceSm auto 0;
       width: 100%;
-    }
     .field-plain-text{
       line-height: 1.5;
-      margin-bottom: $spaceSm;
-      @include carouselBreak{
-        margin-bottom: $spaceMd;
-      }
+      margin-bottom: $spaceMd;
     }
     .field-link{
       margin-bottom: $spaceSm;
@@ -239,8 +234,5 @@
     text-transform: uppercase;
     letter-spacing: .05em;
     padding-bottom: $spaceXs;
-    @include carouselBreak{
-      display: none;
-    }
   }//end eyebrow sm
 }//end widget snapshot
