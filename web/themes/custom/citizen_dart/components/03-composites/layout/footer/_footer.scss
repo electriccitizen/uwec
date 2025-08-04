@@ -91,8 +91,7 @@
   overflow: hidden;
   position: relative;
   &:before {
-    background: url('../images/elements/wavy-lines-white.png') -167.691px -117.284px / auto 233.177% no-repeat transparent;
-    background-size: 500%;
+    background: url('../images/elements/wavy-lines-white.png') -167.691px -117.284px / 3000px no-repeat transparent;
     background-blend-mode: overlay;
     content: '';
     height: 100%;
@@ -102,8 +101,10 @@
     top: 0;
     width: 100%;
     @include tab {
-      background-size: 250%;
+      background-size: 2500px;
     }
+  }
+  @include desk {
   }
 	.modal-content{
 		color: $baseText;
