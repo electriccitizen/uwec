@@ -143,15 +143,8 @@
 //snapshot widget (for content carousel)
 .node-widget-snapshot{
   color: $galleryCaption;
-  background: $ice;
-  @include carouselBreak{
-    background: $siteBack;
-  }
-  .snapshot-widget-content{
-    @include carouselBreak{
-      @include safeFlex(row,wrap,start,stretch);
-      background: $siteBack;
-    }
+  .snapshot-widget-content {
+    @include safeFlex(row,wrap,start,stretch);
   }//end snapshot widget content
   .snapshot-top-left{
     position: relative;
@@ -162,24 +155,27 @@
     .waves-gold {
       display: block;
       position: absolute;
-      top: 56px;
-      width: 100%;
-      left: 50%;
+      top: -40px;
+      width: 50%;
+      right: -190px;
       z-index: -1;
+      svg {
+        max-width: 300px;
+      }
       @include tab{
         left: 170px;
-        width: 50vw;
+        right: auto;
+        width: 62vw;
         max-width: 574px;
         svg{
           width: 100%;
           height: auto;
         }
       }
-      @include tab{
-        width: 62vw;
-      }
       @include desk{
         width: 50vw;
+        top: 56px;
+        left: 50%;
       }
     }//end waves gold
   }//end top left
@@ -193,7 +189,6 @@
       width: 43.7%;
     }
     .field-eyebrow {
-      background-color: $siteBack;
       color: $galleryEyebrow;
       display: block;
       font-size: 15px;
@@ -205,7 +200,6 @@
       }
     }
     .snapshot-title{
-      background-color: $siteBack;
       color: $galleryTitle;
       font-family: $displayHeader;
       font-size: 25px;
