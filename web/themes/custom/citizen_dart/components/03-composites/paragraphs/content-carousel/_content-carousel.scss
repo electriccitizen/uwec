@@ -10,11 +10,11 @@
     @include auto;
     max-width: 1192px;
   }
-  h2.block-title{
-    color: $navy;
-    margin-bottom: $spaceXxs;
+  h2.block-title {
+    margin-bottom: $spaceMd;
     padding-left: 26px;
     padding-right: 26px;
+    text-align: center;
     @include desk{
       margin-bottom: $spaceMd;
     }
