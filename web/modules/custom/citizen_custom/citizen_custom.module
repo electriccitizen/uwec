@@ -9,7 +9,6 @@ use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\node\Entity\Node;
-use Drupal\Core\Access\AccessResult;
 
 /**
  * Implements hook_help().
@@ -771,37 +770,6 @@ function citizen_custom_preprocess_field__node__field_phone(&$variables){
 			$variables['items'][0]['content']['#should_show'] = boolval($val->getString());
 		}
 	}
-}
-
-
-function citizen_custom_node_access(\Drupal\Core\Entity\EntityInterface $entity, $operation, \Drupal\Core\Session\AccountInterface $account){
-	// ignore all permissions stuff for super users
-	if(in_array('administrator', $account->getRoles())){
-		return AccessResult::neutral();
-	}
-
-	$type = $entity->bundle();
-
-	// custom access logic for updating profiles (bios)
-	if($type === 'bios' && $operation == 'update'){
-		// site admins can update all profiles
-		if(in_array('site_admin', $account->getRoles())){
-			return AccessResult::allowed()->cachePerPermissions();
-		}
-
-		// non-site-admins can only update their own profile
-		// so let's make sure the profile's username matches the account's username
-		$bio_username = $entity->field_username->getString();
-		$user_username = $account->getAccountName();
-		if($bio_username === $user_username){
-			return AccessResult::allowed()->cachePerUser();
-		}else{
-			return AccessResult::forbidden()->cachePerUser();
-		}
-	}
-
-	// this means this hook has no opinion on access:
-	return AccessResult::neutral();
 }
 
 
