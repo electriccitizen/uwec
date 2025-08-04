@@ -46,22 +46,11 @@
       background: none;
     }
     .slick-arrow{
-      top: calc(90px + 4vw);
-      width: 100px;
-      @include carouselBreak{
-        top: calc(120px + 6%);
-      }
-      @media screen and (min-width: 600px){
-        top: calc(120px + 12%);
-      }
-      @include tab{
-        top: calc(120px + 20%);
-      }
+      top: calc(50% - 20px);
+      width: 40px;
       @include desk{
-        top: calc(130px + 16%);
-      }
-      @media screen and (min-width: 1192px){
-        top: 300px;
+        top: calc(50% - 50px);
+        width: 100px;
       }
       &.slick-prev{
         left: 10px;
