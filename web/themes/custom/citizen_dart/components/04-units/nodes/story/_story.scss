@@ -350,7 +350,6 @@
   .story-eyebrow-lg{
     display: none;
     @include carouselBreak {
-      background-color: $siteBack;
       color: $galleryEyebrow;
       display: block;
       font-size: 16px;
@@ -384,10 +383,15 @@
       position: relative;
       z-index: 1;
       &:after{
-        content: url(../images/elements/wavy-lines-gold.svg);
+        background:  url(../images/elements/wavy-lines-gold.svg) no-repeat center center / cover transparent;
+        content: '';
+        display: block;
+        height: 300px;
         position: absolute;
         top: -53px;
         left: -50px;
+        transform: rotate(180deg);
+        width: 530px;
         z-index: -1;
       }
     }

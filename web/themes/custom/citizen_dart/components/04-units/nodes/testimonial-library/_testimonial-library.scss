@@ -20,7 +20,7 @@
 	}
 }
 
-$quoteWidthDesk: calc($textMax + $siteMarginMobile * 2);
+$quoteWidthDesk: calc($breakoutWidth + $siteMarginMobile);
 
 .node-testimonial{
   padding-top: $elementSpace;

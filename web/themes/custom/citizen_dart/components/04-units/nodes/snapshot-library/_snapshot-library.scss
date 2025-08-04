@@ -153,26 +153,23 @@
       width: 56.3%;
     }
     .waves-gold {
-      display: block;
+      display: none;
       position: absolute;
-      top: -40px;
+      top: 15px;
       right: -190px;
+      width: 75%;
       z-index: -1;
       svg {
-        max-width: 300px;
-      }
-      @include carouselBreak {
-        width: 75%;
-        top: 15px;
+        width: 100%;
+        height: auto;
       }
       @include smallTab {
-        svg {
-          width: 100%;
-          height: auto;
-        }
+        display: block;
+        width: 100%;
       }
       @include tab {
         top: 56px;
+        right: calc(-46% - 44px);
       }
     }//end waves gold
   }//end top left
