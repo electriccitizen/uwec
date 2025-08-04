@@ -123,9 +123,21 @@
 			@include bleed(padding,20px);
 			@include desk {
 				align-items: flex-end;
-        columns: 2;
+        display: grid;
+        grid-template:
+          "a c"
+          "b c" auto / 50% 50%;
 			}
 		}
+    .block-2 {
+      grid-area: a;
+    }
+    .block-3 {
+      grid-area: b;
+    }
+    .footer-for {
+      grid-area: c;
+    }
     //social
     .block-2,
     .block-3{
