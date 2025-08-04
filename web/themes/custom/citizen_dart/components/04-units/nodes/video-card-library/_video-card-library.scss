@@ -99,7 +99,7 @@
     background: $siteBack;
     color: $galleryCaptionAlt;
     padding: 20px 0 12px;
-    @include tab {
+    @include smallTab {
       @include safeFlex(row,nowrap,start,start);
       padding: 20px 0 0;
     }
@@ -123,14 +123,14 @@
   .video-card-title{
     margin-bottom: $spaceXxs;
     @include arrowLinkAfter($royal);
-    @include tab {
+    @include smallTab {
       padding-right: 20px;
       width: 50%;
     }
   }//end video card title
   .field.body{
     line-height: 1.5;
-    @include tab {
+    @include smallTab {
       padding-top: 4px;
       width: 50%;
     }

@@ -149,33 +149,30 @@
   .snapshot-top-left{
     position: relative;
     z-index: 1;
-    @include tab{
+    @include smallTab {
       width: 56.3%;
     }
     .waves-gold {
       display: block;
       position: absolute;
       top: -40px;
-      width: 50%;
       right: -190px;
       z-index: -1;
       svg {
         max-width: 300px;
       }
-      @include tab{
-        left: 170px;
-        right: auto;
-        width: 62vw;
-        max-width: 574px;
-        svg{
+      @include carouselBreak {
+        width: 75%;
+        top: 15px;
+      }
+      @include smallTab {
+        svg {
           width: 100%;
           height: auto;
         }
       }
-      @include desk{
-        width: 50vw;
+      @include tab {
         top: 56px;
-        left: 50%;
       }
     }//end waves gold
   }//end top left
@@ -183,7 +180,7 @@
     padding: $spaceSm 0 $spaceXxs;
     position: relative;
     z-index: 2;
-    @include tab{
+    @include smallTab {
       @include safeFlex(column,nowrap,end,start);
       padding: 0 0 0 44px;
       width: 43.7%;
@@ -195,7 +192,7 @@
       line-height: 1.5;
       margin-bottom: $spaceXxs;
       text-transform: uppercase;
-      @include tab {
+      @include smallTab {
         font-weight: $heavy;
       }
     }
@@ -226,13 +223,4 @@
       }//end a
     }//end field link
   }//end snapshot bottom
-  .snapshot-eyebrow-sm{
-    padding-right: 20px;
-    padding-left: 20px;
-    font-size: 1.5rem;
-    line-height: 1.5;
-    text-transform: uppercase;
-    letter-spacing: .05em;
-    padding-bottom: $spaceXs;
-  }//end eyebrow sm
 }//end widget snapshot
