@@ -161,10 +161,18 @@ body{
 /* SLIDER STYLING
 -------------- */
 .slick-slider {
+  background-color: $galleryMobileBack;
+  @include carouselBreak {
+    background-color: $siteBack;
+  }
 	.slick-list {
 		@include listReset;
     .slick-slide {
       overflow: hidden;
+      padding-bottom: $siteMarginMobile;
+      @include carouselBreak {
+        padding-bottom: 0;
+      }
     }
     .slick-current{
       &:focus{
