@@ -35,7 +35,7 @@
     background: radial-gradient(50.13% 157.8% at 6.18% 33.85%, #0F2C46 0%, #232C99 100%);
     @include desk {
       min-height: 77vw;
-      margin-bottom: $elementSpace;
+      margin-bottom: 80px;
     }
     @include menuStop {
       min-height: 75vw;
@@ -100,7 +100,7 @@
     @include desk {
       margin-bottom: 200px;
       &:after {
-        background-position: left bottom;
+        background-position: center bottom;
         background-size: 1500px auto;
         bottom: -500px;
       }
@@ -109,6 +109,10 @@
   .field.body {
     max-width: $textMax;
     @include auto;
+
+    h2 {
+      margin-bottom: $spaceMd;
+    }
   }
   .available-as {
     margin-bottom: 5rem;
@@ -168,6 +172,7 @@
     .program-details {
       @include desk {
         @include safeFlex(row,wrap,start,start);
+        gap: $spaceMs;
       }
       .program-detail {
         font-weight: $heavy;
@@ -180,8 +185,10 @@
           text-transform: capitalize;
         }
         span.label {
+          color: $baseText;
           display: block;
           font-weight: $regular;
+          line-height: 1.625;
           margin-bottom: 2px;
         }
         a {
@@ -198,16 +205,16 @@
         margin-bottom: 3.625rem;
         padding-bottom: 2rem;
         @include desk {
+          border-right: 1px solid $borderRuleAlt;
           border-bottom: 0;
           margin-bottom: 0;
-          flex: 0 1 calc(50% - 11rem);
+          padding-right: 11rem;
         }
       }
       .last {
         @include safeFlex(row,wrap,start,flex-start);
         @include desk {
           flex: 1 1 50%;
-          padding-left: 11rem;
         }
         margin: 0 -1rem;
         .program-detail {
