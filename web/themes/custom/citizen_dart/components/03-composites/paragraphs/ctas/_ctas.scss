@@ -71,7 +71,7 @@
 			.cta-item-inner{
 				height: 100%;
 				background: $navy;
-				padding: 38px 20px 50px;
+				padding: 28px;
         .widget-section > .layout--onecol &,
         .widget-section > .layout--twocol-section--75-25 > .layout__region--first &,
         .widget-section > .layout--twocol-section--25-75 > .layout__region--second &,
@@ -267,7 +267,9 @@
         }
         a {
           @include button;
-          margin-bottom: 0;
+          & {
+            margin-bottom: 0;
+          }
         }
 			}//end cta text wrapper
 		}//end cita item inner
@@ -284,7 +286,7 @@
       }
 		}
     .cta-text{
-      margin-bottom: $spaceLg;
+      margin-bottom: $spaceMd;
       font-size: 1.75rem;
       line-height: 1.57;
       @include desk {
@@ -298,6 +300,7 @@
 				@include outlineButton($white);
         & {
           margin-bottom: 0 !important;
+          width: 100%;
         }
         &:hover,&:focus{
           color: $royal;

@@ -21,8 +21,10 @@
 
   .form_page {
 		@include safeFlex(row,wrap,justify,end);
-    gap: $spaceXms $spaceMs;
-    margin-top: $spaceXms;
+    & {
+      gap: $spaceXms $spaceMs;
+      margin-top: $spaceXms;
+    }
 
     @include tab {
       gap: $spaceMs;
@@ -205,10 +207,10 @@
   }
   button.form_button_submit{
     @include submitButton;
-    font-size: 13px;
-    margin-top: 27px;
     & {
+      font-size: 13px;
       height: 42px;
+      margin-top: 27px;
       width: 100%;
     }
     @include tab {

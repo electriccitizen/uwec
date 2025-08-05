@@ -23,7 +23,7 @@
 }
 
 .node-academic-program{
-  margin-bottom: 30rem; // This needs to be so high to push down on the footer.
+  margin-bottom: $spaceMdLg;
   @include tab {
     margin-bottom: 0;
   }
@@ -292,13 +292,13 @@
       padding-top: 8.25rem;
     }
     * {
-      color: $royal;
       position: relative;
       z-index: 1;
     }
 
     .field-outcomes-image {
       @include auto;
+      margin: 0 $siteMarginMobile;
       max-width: $largeTab;
     }
     .field-outcome-text {
@@ -326,14 +326,14 @@
         flex: 1 1 30%;
         margin: 0;
       }
-      h2 {
-        font-family: $displayHeader;
-      }
     }
     .example-careers {
       order: 3;
       @include desk {
         order: 2;
+      }
+      h2 {
+        font-family: $displayHeader;
       }
     }
     .recent-grads {
@@ -355,6 +355,7 @@
           box-sizing: border-box;
           line-height: 1.4;
           strong{
+            color: $headingText;
             display: inline-block;
             margin-bottom: $spaceXxs;
           }
@@ -409,6 +410,7 @@
       @include styledHeader(true);
       @include auto;
       color: $royal;
+      padding-bottom: $spaceMdLg;
       text-align: center;
       @include desk {
         margin-left: 0;
@@ -419,7 +421,7 @@
       }
     }//end courses header
     .course-text{
-      margin-top: 2rem;
+      margin: $spaceXs 0 $spaceLg;
       @include tab{
         margin-top: 0;
         padding-left: 20px;
@@ -482,7 +484,7 @@
         }
         h2{
           @include styledHeader;
-          color: $headerTextAlt;
+          color: $headingTextAlt;
           margin-bottom: $spaceSm;
           text-align: center;
           strong{
