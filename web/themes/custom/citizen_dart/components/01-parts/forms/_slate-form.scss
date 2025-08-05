@@ -108,22 +108,25 @@
   }
   .form_checkbox{
     .form_response{
-      position: relative;
+      margin-bottom: $spaceXxs;
       padding-left: 40px;
+      position: relative;
     }
     input[type='checkbox']{
       @include browserWipe;
       width: 22px;
       height: 22px;
-      border: 1px solid $white;
+      border: 1px solid $checkbox;
       background-color: $white;
       position: absolute;
-      top: 2px;
       left: 0;
-      &:hover,&:focus{
-        background-color: $ice;
+
+      &:hover,
+      &:focus {
+        background-color: $checkboxBackHover;
+        border-color: $checkboxHover;
       }
-      &:checked{
+      &:checked {
         background-image: url('../images/elements/check-black.svg');
         background-repeat: no-repeat;
         background-size: contain;
@@ -142,14 +145,16 @@
       @include browserWipe;
       width: 22px;
       height: 22px;
-      border: 1px solid $white;
+      border: 1px solid $checkbox;
       background-color: $white;
       border-radius: 50%;
       position: absolute;
-      top: 4px;
       left: 0;
-      &:hover,&:focus{
-        background-color: $ice;
+
+      &:hover,
+      &:focus {
+        background-color: $checkboxBackHover;
+        border-color: $checkboxHover;
       }
       &:checked{
         background-image: url('../images/elements/radio-dot.svg');
