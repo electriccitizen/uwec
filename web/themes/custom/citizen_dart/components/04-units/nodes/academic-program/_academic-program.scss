@@ -84,6 +84,22 @@
   }
   .block-body {
     margin-bottom: 4rem;
+    position: relative;
+    &:after {
+      background: url('../images/elements/river-cta-program-desk.svg') center bottom / 1500px auto no-repeat scroll transparent;
+      content: '';
+      width: calc(100% + $siteMarginMobile * 2);
+      height: 100%;
+      margin-left: -$siteMarginMobile;
+      margin-right: -$siteMarginMobile;
+      display: block;
+      position: absolute;
+      bottom: -500px;
+      left: 0;
+    }
+    @include desk {
+      margin-bottom: 200px;
+    }
   }
   .field.body {
     max-width: $textMax;
