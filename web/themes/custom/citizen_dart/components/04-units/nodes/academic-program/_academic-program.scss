@@ -174,7 +174,7 @@
   .program-details-wrapper {
     .program-details {
       @include desk {
-        @include safeFlex(row,wrap,start,start);
+        @include safeFlex(row,wrap,justify,start);
         gap: $spaceMs;
       }
       .program-detail {
@@ -206,6 +206,7 @@
       }
       .first {
         border-bottom: 1px solid $borderRuleAlt;
+        flex: 45%;
         margin-bottom: $spaceLg;
         padding-bottom: $spaceMs;
         @include desk {
