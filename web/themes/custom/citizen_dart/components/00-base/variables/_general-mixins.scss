@@ -795,7 +795,7 @@
     @include u.tab{
       .widget-section > .layout--onecol &{
         max-width: 203px;
-        margin-right:40px;
+        margin-right: 20px;
       }
     }
     .field-image{
@@ -835,7 +835,6 @@
     line-height: 1.23;
     padding-right: 20px;
     margin-bottom: 1.5rem;
-    color: c.$royal;
     a{
       color: c.$navy;
       @include dottedLink(c.$navy);
@@ -889,67 +888,64 @@
       }
     }
   }
-
   .field-office{
     @include safeFlex(row,nowrap,start,start);
     padding-right: 20px;
     .icon-wrapper{
-      width: 16px;
-      margin-right: 12px;
-    }
-
-    .field-content{
-      width: calc(100% - 28px);
+			width: 16px;
+			margin-right: 12px;
+		}
+		.field-content{
+			width: calc(100% - 28px);
       a{
         display: inline-block;
-        text-decoration:underline solid c.$gold;
+        @include dottedLink(cc.$link);
+        background-position: 0 94%;
         &:hover,&:focus{
           color: c.$navy;
-          text-decoration-thickness:2px;
+          background: none;
         }
       }
-    }
-
-    svg{
-      max-height: 16px;
-      margin-top: 3px;
+		}//end field-content
+		svg{
+			max-height: 16px;
+			margin-top: 3px;
       position: relative;
       top: 0;
       .cls-1{
         fill: c.$navy;
       }
-    }
-  }
-
-  .field-email{
+		}
+	}//end field office
+	.field-email{
     @extend .field-office;
-    svg{
-      max-height: 16px;
+		svg{
+			max-height: 16px;
       .cls-1{
         fill: c.$navy;
       }
-    }
-  }//end field email
+		}
+	}//end field email
   .field-phone{
     @extend .field-office;
-    svg{
-      max-height: 14px;
+		svg{
+			max-height: 14px;
       fill: none;
       path{
         stroke: c.$navy;
       }
-    }
-  }//end field phone
+		}
+	}//end field phone
   .field-office-hours{
     @extend .field-office;
-    svg{
-      max-height: 14px;
+		svg{
+			max-height: 14px;
       fill: none;
       path{
         stroke: c.$navy;
       }
-    }
-  }//end field phone
+		}
+	}//end field phone
   .text-long{
     margin-top: u.$spaceXs;
     line-height: 1.5;

@@ -148,10 +148,13 @@
       margin-bottom: $elementSpace;
     }
   }
-  .program-details-wrapper, .accreditation-wrapper {
+  .program-details-wrapper,
+  .accreditation-details,
+  .licensure-details {
     @include auto;
     background-color: $ice;
     color: $royal;
+    margin-top: $spaceXxs;
     max-width: $wideContent;
     padding: $siteMarginMobile;
     @include desk {
@@ -192,7 +195,7 @@
           margin-bottom: 2px;
         }
         a {
-          @include blockArrow(royal, sm);
+          @include linkArrow(royal, sm);
           &:after {
             margin-top: -4px; // Fix for inline-block lineheight calcs.
           }
@@ -202,8 +205,9 @@
         }
       }
       .first {
-        margin-bottom: 3.625rem;
-        padding-bottom: 2rem;
+        border-bottom: 1px solid $borderRuleAlt;
+        margin-bottom: $spaceLg;
+        padding-bottom: $spaceMs;
         @include desk {
           border-right: 1px solid $borderRuleAlt;
           border-bottom: 0;
@@ -232,43 +236,35 @@
       margin-bottom: $elementSpace;
     }
   }
-  .accreditation-wrapper {
-    margin-bottom: 3.75rem;
-    margin-top: .375rem;
+
+  .accreditation-details {
+    @include safeFlex(column, wrap, justify, start);
+    @include desk {
+      @include safeFlex(row, wrap, justify, start);
+    }
     @include desk {
       margin-bottom: 0;
     }
-    .accreditation-details {
-      @include safeFlex(column, wrap, justify, start);
-      @include desk {
-        @include safeFlex(row, wrap, justify, start);
-      }
-      .accreditation-text {
-        max-width: $textMax;
-        @include desk{
-          &:not(:only-child){
-            max-width: 424px;
-          }
-        }
-      }
-      .media-item.image {
-        align-self: center;
-        margin: 4rem 0;
-        @include desk {
-          margin: 0;
-        }
-      }
-    }//end accred details
-    .licensure-details {
+
+    .accreditation-text {
       max-width: $textMax;
-      &:not(:first-child){
-        margin-top: 2rem;
-        @include desk {
-          margin-top: 8.875rem;
+      @include desk{
+        &:not(:only-child){
+          max-width: 424px;
         }
       }
     }
-  }// end accreditation-wrapper
+    .media-item.image {
+      align-self: center;
+      margin: 4rem 0;
+      @include desk {
+        margin: 0;
+      }
+    }
+  }//end accred details
+  .licensure-details {
+    max-width: $textMax;
+  }
 
   /* PROGRAM TRACKS */
   .field-tracks {
@@ -291,7 +287,7 @@
     @include edgeToEdge;
     background-color: $ice;
     margin-bottom: 8.75rem;
-    padding: 3rem 0 1px; // 1px bottom padding essentially a clearfix.
+    padding: $spaceXl 0 1px; // 1px bottom padding essentially a clearfix.
     @include tab {
       padding-top: 8.25rem;
     }
@@ -315,11 +311,11 @@
       }
     }
     .outcomes {
-      margin: 0 $siteMarginMobile;
       flex: 1 1 100%;
       @include desk {
         @include auto;
         flex: 1 1 60%;
+        margin: 0 $siteMarginMobile;
       }
     }
     .example-careers,
@@ -351,24 +347,19 @@
         }
       }
       .grads {
-        @include safeFlex(row,wrap,start,start);
+        @include safeFlex(row,wrap,justify,start);
+        column-gap: $spaceMd;
+        row-gap: $spaceSm;
         .grad {
-          flex: 0 0 50%;
+          flex: 0 0 45%;
           box-sizing: border-box;
           line-height: 1.4;
           strong{
             display: inline-block;
             margin-bottom: $spaceXxs;
           }
-          &:nth-child(odd){
-            padding-right: 32px;
-          }
           @include desk {
-            flex: 0 0 33.33%;
-            padding-right: 32px;
-            &:nth-child(3n+3){
-              padding-right: 0;
-            }
+            flex: 0 0 28%;
           }
         }
       }//end grads
@@ -429,7 +420,6 @@
     }//end courses header
     .course-text{
       margin-top: 2rem;
-      padding: $siteMarginMobile;
       @include tab{
         margin-top: 0;
         padding-left: 20px;

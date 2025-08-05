@@ -11,7 +11,8 @@
     flex-direction: column;
     gap: 3rem;
     margin-top: 2rem;
-    padding: $siteMarginMobile;
+    padding-bottom: $spaceMs;
+    padding-top: $spaceMs;
 
     @include tab{
       flex-direction: row;
