@@ -138,8 +138,9 @@
   }//end form checkbox
   .form_radio{
     .form_response{
-      position: relative;
+      margin-bottom: $spaceXxs;
       padding-left: 40px;
+      position: relative;
     }
     input[type='radio']{
       @include browserWipe;
