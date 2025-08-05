@@ -83,22 +83,27 @@
     }
   }
   .block-body {
-    margin-bottom: 4rem;
+    margin-bottom: $spaceXl;
     position: relative;
     &:after {
-      background: url('../images/elements/river-cta-program-desk.svg') center bottom / 1500px auto no-repeat scroll transparent;
+      background: url('../images/elements/river-body-program-desk.svg') left bottom / 977px auto no-repeat scroll transparent;
       content: '';
       width: calc(100% + $siteMarginMobile * 2);
-      height: 100%;
+      height: 440px;
       margin-left: -$siteMarginMobile;
       margin-right: -$siteMarginMobile;
       display: block;
       position: absolute;
-      bottom: -500px;
+      bottom: -280px;
       left: 0;
     }
     @include desk {
       margin-bottom: 200px;
+      &:after {
+        background-position: left bottom;
+        background-size: 1500px auto;
+        bottom: -500px;
+      }
     }
   }
   .field.body {
