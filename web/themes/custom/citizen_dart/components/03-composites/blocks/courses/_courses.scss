@@ -28,7 +28,8 @@
         margin: .75rem 0;
       }
       h3 {
-        color: $black;
+        font-family: $header;
+        margin-bottom: $spaceXxs;
       }
       .number {
         font-size: 12px;

@@ -428,6 +428,7 @@
     }
   }//end course-information
   .block-field-course-links {
+    margin-bottom: $spaceXl;
     @include desk {
       margin-bottom: 9.875rem;
     }
@@ -445,14 +446,17 @@
     }
     a {
       @include heading3;
-      @include linkArrow(navy);
-      color: $black;
+      @include linkArrow(gold, sm);
+      color: $headingText;
+      line-height: 1.5;
+      padding-left: $spaceLg;
     }
   }//end field course links
 
   .more-info-wrapper{
     @include slateFormContainer;
     margin-bottom: 7.5rem;
+    padding-top: $spaceLg;
     @include tab{
       padding: 60px 112px 45px;
     }
@@ -478,9 +482,9 @@
         }
         h2{
           @include styledHeader;
-          text-align: center;
+          color: $headerTextAlt;
           margin-bottom: $spaceSm;
-          color: $royal;
+          text-align: center;
           strong{
             opacity: 0;
             scale: 1;
@@ -492,6 +496,7 @@
           }
         }//end h2
         p{
+          font-size: 14px;
           line-height: 2;
           margin-bottom: 2.5rem;
         }
@@ -580,7 +585,7 @@
     h2.next-title {
       @include styledHeader(true);
       color: $royal;
-      margin: 1.5rem 0;
+      margin: 1.5rem 0 $spaceLg;
       text-align: center;
       @include tab {
         margin: 2.5rem 0;
