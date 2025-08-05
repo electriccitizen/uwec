@@ -231,7 +231,7 @@
   } // end program-details-wrapper
   //accreditation
   .block-created {
-    margin-bottom: 0;
+    margin-bottom: $spaceMdLg;
     @include desk {
       margin-bottom: 140px;
     }
