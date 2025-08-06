@@ -210,21 +210,20 @@ $secondMenuLinkHover : $white;
 /* PAGERS
 --------------------- */
 $pagerBorder                : transparent;
-$pagerBack                  : $ice;
-$pagerNumber                : $baseText;
+$pagerBack                  : transparent;
+$pagerNumber                : $royal;
 $pagerNumberBack            : transparent;
-$pagerNumberHover           : $baseText;
-$pagerNumberBackHover       : $coolGrey;
+$pagerNumberHover           : $navy;
+$pagerNumberBackHover       : transparent;
 $pagerNumberActive          : $white;
-$pagerNumberActiveBack      : $navy;
-$pagerNumberActiveHover     : $baseText;
+$pagerNumberActiveBack      : $royal;
+$pagerNumberActiveHover     : $white;
 $pagerNumberActiveBackHover : $coolGrey;
-$pagerLink                  : $navy;
-$pagerLinkBack              : transparent;
-$pagerLinkHover             : $white;
-$pagerLinkBackHover         : $navy;
+$pagerLink                  : $royal;
+$pagerLinkBack              : $gold;
+$pagerLinkHover             : $navy;
+$pagerLinkBackHover         : $lightGold;
 $resultsText                : $baseText;
-
 
 /* ACCORDIONS
 ------------------- */
