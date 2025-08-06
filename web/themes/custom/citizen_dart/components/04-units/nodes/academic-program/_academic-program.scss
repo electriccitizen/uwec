@@ -601,7 +601,6 @@
     height: 100%;
   }
   .program-inner{
-    border-top: 1px solid $coolGrey;
     min-height: 130px;
     margin-bottom: 20px;
     background: $ice;
@@ -618,7 +617,7 @@
     position: relative;
     z-index: 3;
     .program-inner{
-      background: $coolGrey;
+      background: color.adjust($ice, $lightness:-3%);
       @include tab{
         position: absolute;
         top: 0;
@@ -627,13 +626,13 @@
     }//end program inner
     .program-intro,.program-meta{
       @include tab{
-        background: $coolGrey;
+        background: color.adjust($ice, $lightness:-3%);
       }
     }
     .program-types .program-toggle{
       &:hover,&:focus{
         .chevron-down{
-          background: color.adjust($coolGrey, $lightness:-3%);
+          background: color.adjust($ice, $lightness:-6%);
         }
       }
     }//end program toggle
@@ -666,9 +665,13 @@
       line-height: 1.33;
       color: $navy;
       margin-bottom: $spaceXxs;
-      a{
-        @include linkArrow(navy, sm);
-        padding-bottom:0.65rem;
+      a {
+        @include linkArrow(gold, sm);
+        & {
+          color: $link;
+          font-size: 18px;
+          padding-bottom: 0.65rem;
+        }
       }
     }
   }//end program intro
@@ -689,10 +692,12 @@
           background: rgba($coolGrey,.3);
         }
       }
-      .type-list{
-        max-width: calc(100% - 50px);
-        font-size: 12px;
+      .type-list {
         color: $navy;
+        font-size: 15px;
+        font-weight: $heavy;
+        line-height: 1.45;
+        max-width: calc(100% - 50px);
         text-transform: uppercase;
       }
       .chevron-down {
@@ -706,7 +711,7 @@
         svg{
           transition: transform 0.3s ease;
           fill: none;
-          width: 10px;
+          width: 14px;
         }
       }//end chevron down
     }//end program toggle
@@ -722,9 +727,12 @@
       margin-bottom: $spaceSm;
     }
     .program-link{
-      display: inline-block;
-      @include linkArrow(navy, sm);
-      margin-bottom: $spaceMd;
+      @include linkArrow(gold, sm);
+      & {
+        color: $link;
+        display: inline-block;
+        margin-bottom: $spaceMd;
+      }
     }//end program link
   }//end program body
 } //end academic-program-teaser
