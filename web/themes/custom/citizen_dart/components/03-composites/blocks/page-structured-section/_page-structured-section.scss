@@ -34,6 +34,13 @@
       }
     }
   }
+  &:not(.has-wayfinding){
+    .field-leadin{
+      @include desk {
+        margin-top: 80px;
+      }
+    }
+  }
 
   > * {
     position: relative;
@@ -47,6 +54,7 @@
     width: 1115px;
     mix-blend-mode: overlay;
     transform: rotate(5deg);
+    opacity: .8;
     @media screen and (min-width: 700px) {
       top: -216px;
       width: 1260px;
