@@ -53,21 +53,15 @@ body,.ui-dialog-off-canvas{
 				position: relative;
 				z-index: 999;
 			}
+      .select2-selection__placeholder {
+        color: $placeColor;
+      }
 			//rendered selection
 			.select2-selection__rendered{
 				padding: 15px 40px 15px 20px;
 				color: $placeColor;
 				text-align: left;
 				background: $siteBack;
-        &:before{
-          content: '';
-          height: 100%;
-          width: 1px;
-          background: $ice;
-          position: absolute;
-          right: 40px;
-          top: 0;
-        }
 			}//end selection rendered
 			.select2-selection__arrow{
 				background-image: none;
@@ -201,4 +195,3 @@ body,.ui-dialog-off-canvas{
 .select2-container--default .select2-results__option--highlighted[aria-selected]{
 	background-color: $selectHighlight !important;
 }
-

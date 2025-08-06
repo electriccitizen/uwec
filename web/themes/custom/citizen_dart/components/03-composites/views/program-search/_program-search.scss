@@ -16,7 +16,8 @@
     @include tab{
       @include auto;
     }
-    .keyword-wrapper{
+    .keyword-wrapper {
+      color: $baseTextInvert;
       width: 100%;
       .form-item-programs-fulltext{
         width: 100%;
@@ -24,11 +25,13 @@
       }
     }//end keyword wrapper
 		.advanced-form{
+      color: $baseTextInvert;
       width: 100%;
       @include tab{
         @include safeFlex(row,wrap,justify,start);
       }
-      .filter-toggle{
+      .filter-toggle {
+        color: $baseTextInvert;
         padding-left: 26px;
         padding-right: 20px;
         @include onlySmall{
@@ -37,7 +40,6 @@
           font-family: $header;
           font-weight: $xHeavy;
           letter-spacing: .05em;
-          color: $navy;
           height: 66px;
           margin-bottom: $spaceXxs;
         }

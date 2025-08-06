@@ -16,8 +16,6 @@
 		label{
 			@include formLabel;
 			margin-bottom: $spaceXxs;
-      text-transform: uppercase;
-      padding-left: 20px;
 		}
 		@include tab{
 			width: 50%;
@@ -30,13 +28,10 @@
 			}
 		}
     &.js-form-type-textfield{
-      label{
-        padding-left: 26px;
-      }
       input{
         font-size: 2rem;
         line-height: 2;
-        border-radius: 50px;
+        border-radius: 10px;
         border: none;
         padding-top: 9px;
       }
