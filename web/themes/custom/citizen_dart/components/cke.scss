@@ -19,12 +19,13 @@
 		margin: 0 0 26px;
 	}
 	a{
-		color: $link;
-    @include dottedLink($link);
-		&:hover{
-			color: $hoverLink;
-      @include dottedLink($hoverLink);
-		}
+		color: $textLink;
+    font-weight: $heavy;
+    text-decoration: underline;
+    &:hover,&:focus{
+      text-decoration: none;
+      color: $textLinkHover;
+    }
 	}
 
 	h2{
