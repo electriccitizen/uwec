@@ -232,29 +232,47 @@
 
 	#node-section-2{
 		@include contactHolder;
+    max-width: 904px;
 		position: relative;
 		z-index: 10;
 		margin-bottom: $spaceMd;
+    
     .contact-wrapper{
-      padding-top: 56px;
-      padding-bottom: 50px;
+      @include edgeToEdge;
+      @include desk {
+        margin-top: -100px;
+      }
     }
     .contact-title{
-      @include contactTitle;
+      font-size: 3rem;
+      line-height: 1.45;
 			margin-bottom: 3.5rem;
       @include desk{
-        font-size: 25px;
+        font-size: 30px;
       }
     }
 		.block-field {
 			margin-bottom: 1.5rem;
 		}
-		.nid a {
-			display: block;
-			margin-bottom: 0.25rem;
-			width: fit-content;
-			border-bottom: 1px dotted;
+		.nid,.field-phone,.field-email {
+      a {
+        display: block;
+        width: fit-content;
+        font-weight: $heavy;
+        border-bottom: 1px solid $gold;
+        transition: color .3s, border-bottom-color .3s;
+        &:hover {
+          border-bottom: 1px solid transparent;
+          color: $navy;
+        }
+      }
 		}
+    .nid a{
+      margin-bottom: 1.5rem;
+    }
+    .icon-wrapper {
+      display: none;
+    }
 		#hours-icon {
 			fill: none !important;
 		}
@@ -265,14 +283,44 @@
 			fill: none !important;
 		}
 		.field-platforms .platform-links{
+      li{
+        margin-right: 1rem;
+      }
       a{
+        width: 44px;
+        height: 44px;
+        @include desk{
+          width: 36px;
+          height: 36px;
+        }
+        &.twitter {
+          svg {
+            width: 33px;
+            height: 33px;
+            @include desk{
+              width: 22px;
+              height: 22px;
+            }
+          }
+        }
         &:hover,&:focus{
           background: color.adjust($ice, $lightness:-3%);
           border-radius: 4px;
+          svg,.cls-1 {
+            fill: $navy;
+          }
         }
         svg {
-          width: 2rem;
-          height: 2rem;
+          width: 36px;
+          height: 36px;
+          @include desk{
+            width: 24px;
+            height: 24px;
+          }
+          fill: $royal;
+          .cls-1 {
+            fill: $royal;
+          }
         }
       }
 		}
@@ -295,21 +343,12 @@
     }
 		h2.block-title {
 			text-align: left;
-			@include heading3;
-			text-transform: capitalize;
-			font-size: 2rem;
-			margin-bottom: 0.5rem;
-			line-height: 2;
-      letter-spacing: 0;
-			@include desk {
-				font-size: 2.25rem;
-			}
-		}
-		.block-field {
-			padding: 0 2.5rem;
-			@include desk {
-				padding: 0;
-			}
+      font-size: 3rem;
+      line-height: 1.45;
+      margin-bottom: $spaceXs;
+      @include desk{
+        font-size: 30px;
+      }
 		}
 	}//end node section three
 }//end bios

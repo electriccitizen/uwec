@@ -1,4 +1,5 @@
 <?php
+use Drupal\Core\Access\AccessResult;
 
 // syncs profiles when cron runs,
 // if there is a new file
@@ -81,4 +82,37 @@ function profile_sync_form_user_form_alter(&$form, $form_state, $form_id) {
 			}
 		}
 	}
+}
+
+
+// allow users to update their own profile
+function profile_sync_node_access(\Drupal\Core\Entity\EntityInterface $entity, $operation, \Drupal\Core\Session\AccountInterface $account){
+	// ignore all permissions stuff for super users
+	if(in_array('administrator', $account->getRoles())){
+		return AccessResult::neutral();
+	}
+
+	$type = $entity->bundle();
+
+	// custom access logic for updating profiles (bios)
+	if($type === 'bios' && $operation == 'update'){
+		// site admins can update all profiles
+		if(in_array('site_admin', $account->getRoles())){
+			return AccessResult::allowed()->cachePerPermissions();
+		}
+
+		// non-site-admins can only update their own profile
+		// so let's make sure the profile's empl_id matches the account's empl_id
+		$bio_empl_id = $entity->field_empl_id->getString();
+		$user = \Drupal\user\Entity\User::load($account->id());
+		$user_empl_id = $user->field_empl_id->getString();
+		if($bio_empl_id === $user_empl_id){
+			return AccessResult::allowed()->cachePerUser();
+		}else{
+			return AccessResult::forbidden()->cachePerUser();
+		}
+	}
+
+	// this means this hook has no opinion on access:
+	return AccessResult::neutral();
 }
