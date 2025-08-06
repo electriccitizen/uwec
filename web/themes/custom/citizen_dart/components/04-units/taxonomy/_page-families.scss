@@ -7,17 +7,14 @@
 
 
 .vocab-page-families{
+  margin-top: $elementSpace;
 	@include contactSection;
   @include tab{
     @include safeFlex(row,wrap,start,start);
   }
 	h1{
+    @include contactTitle;
     width: 100%;
-		font-size: 32px;
-		line-height: 40px;
-		color: $royal;
-		width: 100%;
-		padding: 0 20px;
 	}
   & > .field-contact,& > .field-hours{
     margin-bottom: 1.5rem;
@@ -37,7 +34,8 @@
 .vocab-teaser-page-families{
 	@extend .vocab-page-families;
 	h2{
-		font-family: $displayHeader;
+		@include contactTitle;
+    width: 100%;
 	}
 }
 

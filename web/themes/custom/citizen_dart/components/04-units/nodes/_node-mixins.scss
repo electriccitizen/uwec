@@ -210,6 +210,12 @@
         &:hover,&:focus{
           background: color.adjust($ice,$lightness:-3%);
           border-radius: 4px;
+          svg,.cls-1 {
+            fill: $navy;
+          }
+        }
+        svg,.cls-1 {
+          fill: $royal;
         }
       }
     }
@@ -263,71 +269,56 @@
 }
 
 @mixin contactTitle{
-	@include heading4;
-	font-size: 3.5rem;
-	line-height: 1.28;
+	font-size: 3rem;
+  font-family: $header;
+  font-weight: $heavy;
+  line-height: 1.46;
   @include tab{
-    font-size: 4rem;
-    line-height: 1.25;
+    font-size: 3rem;
+    line-height: 1.46;
+  }
+  @include contentStop {
+    font-size: 3.75rem;
+    line-height: 1.45;
   }
 }
 
 @mixin contactContent{
 	color: $navy;
+  font-family: $displayHeader;
 	font-size: 1.75rem;
-	line-height: 1.42;
+	line-height: 1.625;
 	.field{
 		@include safeFlex(row,nowrap,start,start);
-		&:not(:last-child){
-			margin-bottom: $spaceXxs;
-			.address{
-				margin-bottom: 0;
-			}
-		}
-		.icon-wrapper{
-			width: 16px;
-			margin-right: 12px;
-      svg{
-        fill: none;
+    margin-bottom: $spaceXs;
+    .address{
+      margin-bottom: 0;
+      .organization {
+        display: inline-block;
+        font-weight: $heavy;
+        margin-bottom: $spaceXxs;
       }
-		}
-		.field-content{
-			width: calc(100% - 28px);
-		}
-	}
-	.field-address{
-		svg{
-			max-height: 17px;
-			margin-top: 4px;
+    }
+		.icon-wrapper{
+			display: none;
 		}
 	}
 	.field-email{
-		svg{
-			max-height: 16px;
-			margin-top: 1px;
-		}
     a{
-      padding-bottom: 1px;
-      &:hover,&:focus{
-
+      font-family: $header;
+      display: block;
+      width: fit-content;
+      font-weight: $heavy;
+      border-bottom: 1px solid $gold;
+      transition: color .3s, border-bottom-color .3s;
+      &:hover {
+        border-bottom: 1px solid transparent;
+        color: $navy;
       }
     }
 	}//end field email
-	.field-phone{
-		svg{
-			max-height: 15px;
-			margin-top: 2px;
-		}
-    a{
-
-      padding-bottom: 1px;
-      &:hover,&:focus{
-
-      }
-    }
-	}//end field phone
-  .field-fax{
-    @extend .field-phone;
+  .field-phone,.field-fax{
+    @extend .field-email;
   }
 }//end contact contnet
 

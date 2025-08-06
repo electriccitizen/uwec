@@ -34,6 +34,13 @@
       }
     }
   }
+  &:not(.has-wayfinding){
+    .field-leadin{
+      @include desk {
+        margin-top: 80px;
+      }
+    }
+  }
 
   > * {
     position: relative;
@@ -47,6 +54,7 @@
     width: 1115px;
     mix-blend-mode: overlay;
     transform: rotate(5deg);
+    opacity: .8;
     @media screen and (min-width: 700px) {
       top: -216px;
       width: 1260px;
@@ -152,18 +160,18 @@
     text-align: left;
     @include desk {
       font-size: 3.75rem;
-      max-width: $wideContent;
+      max-width: 650px;
       @include auto;
-      padding-right: 32%;
+      text-align: center;
     }
   }
 
   .field-button {
     padding: 0 $siteMarginMobile;
     @include desk {
-      max-width: $wideContent;
+      max-width: 650px;
       @include auto;
-      padding-right: 32%;
+      text-align: center;
     }
     a {
       @include button;
