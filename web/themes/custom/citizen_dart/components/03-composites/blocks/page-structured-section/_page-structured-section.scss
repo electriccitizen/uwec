@@ -211,29 +211,30 @@
         order: 0;
         width: 100%;
         position: relative;
-        max-width: 320px;
-        padding: 0 $siteMarginMobile;
+        max-width: 440px;
+        padding: 0;
+        @include auto;
         &.visible {
-          &:before {
-            right: -12px;
-            transition: right .75s ease-out;
-            @include desk {
-              right: -33px;
-            }
-          }
           .field-cta-image .media-item {
-            visibility: visible;
+            @include onlyMobile {
+              left: 0;
+            }
+            @include desk {
+              visibility: visible;
+            }
           }
         }
         @include desk {
           order: 2;
           max-width: 100%;
-          width: 320px;
           padding: 0;
+          margin-bottom: 40px;
         }
         @include menuStop{
           width: 426px;
+          margin-bottom: 0;
         }
+        /*
         &:before {
           content: '';
           display: block;
@@ -255,6 +256,7 @@
             height: 367px;
           }
         }
+        */
       }
       .last {
         order: 3;
@@ -305,10 +307,17 @@
           margin-bottom: 0;
         }
         .media-item {
-          visibility: hidden;
-          left: 0;
           position: relative;
-          transition: visibility .75s ease-out;
+          @include onlyMobile {
+            left: 200vw;
+            transition: left .75s ease-out;
+          }
+          @include desk {
+            // No animation on desktop size, since the stripes fly in.
+            left: 0;
+            visibility: hidden;
+            transition: visibility .75s ease-out;
+          }
         }
       }
       .field-cta-links {
