@@ -98,7 +98,7 @@
         display: block;
         font-family: $displayHeader;
         font-size: 46px;
-        line-height: 50px;
+        line-height: 1.08;
         position: relative;
         text-align: center;
         width: 300px;
@@ -106,6 +106,10 @@
       }
       span {
         font-weight: $regular;
+      }
+      @include tab {
+        font-size: 62px;
+        line-height: 1.05;
       }
       @include desk {
         font-size: 75px;

@@ -5,26 +5,30 @@
 @use '../../00-base/base' as *;
 
 @mixin sliderPagerBase {
-  visibility: hidden;
   &:before {
     background-color: $galleryPagerBack;
     background-position: center center;
     background-repeat: no-repeat;
-    background-size: 22px;
+    background-size: 11px;
     border-radius: 50%;
     content: "";
     display: block;
-    height: 100px;
+    height: 40px;
     opacity: 1;
     transition: background-color .3s;
-    width: 100px;
+    width: 40px;
   }
   &:hover:before,
   &:active:before {
     background-color: $galleryPagerHoverBack;
   }
   @include desk {
-    visibility: visible;
+    &:before {
+      background-position: 36px center;
+      background-size: 22px;
+      height: 100px;
+      width: 100px;
+    }
   }
 }
 
@@ -33,7 +37,6 @@
   @include sliderPagerBase;
   &:before {
 	  background-image: url(../images/arrows/slider-arrow-left-royal.svg);
-    background-position: 36px center;
   }
 }
 
@@ -41,7 +44,11 @@
   @include sliderPagerBase;
   &:before {
 	  background-image: url(../images/arrows/slider-arrow-right-royal.svg);
-    background-position: 44px center;
+  }
+  @include desk {
+    &:before {
+      background-position: 42px center;
+    }
   }
 }
 
@@ -154,10 +161,18 @@ body{
 /* SLIDER STYLING
 -------------- */
 .slick-slider {
+  background-color: $galleryMobileBack;
+  @include carouselBreak {
+    background-color: $siteBack;
+  }
 	.slick-list {
 		@include listReset;
     .slick-slide {
       overflow: hidden;
+      padding-bottom: $siteMarginMobile;
+      @include carouselBreak {
+        padding-bottom: 0;
+      }
     }
     .slick-current{
       &:focus{
@@ -183,34 +198,4 @@ body{
       @include sliderNext;
 		}
 	}//end slick arrow
-  .slick-dots {
-    @include desk {
-      height: 0;
-      visibility: hidden;
-      width: 0;
-    }
-    li,
-    li button,
-    li button:before {
-      height: 16px;
-      width: 16px;
-    }
-    li {
-      margin: 0;
-      button {
-        padding: 0;
-        &:before {
-          color: $galleryDot;
-          font-size: 9px;
-          opacity: 1;
-        }
-        &:hover:before {
-          color: $galleryDotHover;
-        }
-      }
-      &.slick-active button:before {
-        color: $galleryDotActive;
-      }
-    }
-  }
 }//end slick-slider

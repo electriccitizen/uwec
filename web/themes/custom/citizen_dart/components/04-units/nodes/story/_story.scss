@@ -350,7 +350,6 @@
   .story-eyebrow-lg{
     display: none;
     @include carouselBreak {
-      background-color: $siteBack;
       color: $galleryEyebrow;
       display: block;
       font-size: 16px;
@@ -368,13 +367,12 @@
     }
   }//end story eyebrow lg
   .story-text{
-    background-color: $siteBack;
-    padding: 20px 0 12px;
+    padding: $spaceMd 0 12px;
     color: $royal;
     @include carouselBreak{
-      padding: 20px 0;
+      padding: $spaceMd 0;
     }
-    @include tab{
+    @include smallTab{
       @include safeFlex(row,nowrap,start,start);
       padding-top: 49px;
     }
@@ -384,17 +382,22 @@
       position: relative;
       z-index: 1;
       &:after{
-        content: url(../images/elements/wavy-lines-gold.svg);
+        background:  url(../images/elements/wavy-lines-gold.svg) no-repeat center center / cover transparent;
+        content: '';
+        display: block;
+        height: 300px;
         position: absolute;
         top: -53px;
         left: -50px;
+        transform: rotate(180deg);
+        width: 530px;
         z-index: -1;
       }
     }
   }//end field image
   .story-title{
-    margin-bottom: $spaceXxs;
-    @include tab {
+    margin-bottom: $spaceXs;
+    @include smallTab {
       padding-right: 20px;
       width: 50%;
       margin-bottom: 0;
@@ -406,7 +409,7 @@
   .field-intro-text{
     color: $galleryCaptionAlt;
     margin-top: $spaceXxs;
-    @include tab {
+    @include smallTab {
       margin-top: -9px;
       width: 50%;
     }

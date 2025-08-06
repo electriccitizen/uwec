@@ -15,10 +15,12 @@
 	}
 }
 
-.node-section:last-child{
-	& > .layout > .layout__region:last-child{
-		margin-bottom: $siteBottomSpace;
-	}
+@include desk {
+  .node-section:last-child{
+    & > .layout > .layout__region:last-child{
+      margin-bottom: $siteBottomSpace;
+    }
+  }
 }
 
 /* TWO COLUMN EVEN */

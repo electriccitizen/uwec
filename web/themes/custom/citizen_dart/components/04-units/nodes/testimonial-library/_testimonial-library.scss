@@ -20,7 +20,7 @@
 	}
 }
 
-$quoteWidthDesk: calc($textMax + $siteMarginMobile * 2);
+$quoteWidthDesk: calc($breakoutWidth + $siteMarginMobile);
 
 .node-testimonial{
   padding-top: $elementSpace;
@@ -206,7 +206,7 @@ $quoteWidthDesk: calc($textMax + $siteMarginMobile * 2);
       p{
         text-align: left;
         font-family: $displayHeader;
-        font-size: 21px;
+        font-size: 24px;
         line-height: 1.33;
         font-style: italic;
         @include largeTab{
@@ -247,6 +247,7 @@ $quoteWidthDesk: calc($textMax + $siteMarginMobile * 2);
       .testimonial-title{
         font-family: $displayHeader;
         font-size: 22px;
+        font-weight: $heavy;
         line-height: 1.33;
         margin-bottom: $spaceMs;
         @include desk{

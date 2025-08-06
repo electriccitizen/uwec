@@ -97,12 +97,6 @@ page-structured-section:
 profiles-slider:
   js:
     components/03-composites/views/profiles/profiles-slider.js: {}
-search-block:
-  js:
-    components/03-composites/blocks/search/search-block.js: {}
-search-page:
-  js:
-    components/04-units/pages/search.js: {}
 section-menu:
   js:
     components/02-chunks/navigation/section-menu/section-menu.js: {}

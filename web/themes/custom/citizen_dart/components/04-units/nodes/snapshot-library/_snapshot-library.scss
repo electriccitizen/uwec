@@ -143,43 +143,33 @@
 //snapshot widget (for content carousel)
 .node-widget-snapshot{
   color: $galleryCaption;
-  background: $ice;
-  @include carouselBreak{
-    background: $siteBack;
-  }
-  .snapshot-widget-content{
-    @include carouselBreak{
-      @include safeFlex(row,wrap,start,stretch);
-      background: $siteBack;
-    }
+  .snapshot-widget-content {
+    @include safeFlex(row,wrap,start,stretch);
   }//end snapshot widget content
   .snapshot-top-left{
     position: relative;
     z-index: 1;
-    @include tab{
+    @include smallTab {
       width: 56.3%;
     }
     .waves-gold {
-      display: block;
+      display: none;
       position: absolute;
-      top: 56px;
-      width: 100%;
-      left: 50%;
+      top: 15px;
+      right: -190px;
+      width: 75%;
       z-index: -1;
-      @include tab{
-        left: 170px;
-        width: 50vw;
-        max-width: 574px;
-        svg{
-          width: 100%;
-          height: auto;
-        }
+      svg {
+        width: 100%;
+        height: auto;
       }
-      @include tab{
-        width: 62vw;
+      @include smallTab {
+        display: block;
+        width: 100%;
       }
-      @include desk{
-        width: 50vw;
+      @include tab {
+        top: 56px;
+        right: calc(-46% - 44px);
       }
     }//end waves gold
   }//end top left
@@ -187,25 +177,23 @@
     padding: $spaceSm 0 $spaceXxs;
     position: relative;
     z-index: 2;
-    @include tab{
+    @include smallTab {
       @include safeFlex(column,nowrap,end,start);
       padding: 0 0 0 44px;
       width: 43.7%;
     }
     .field-eyebrow {
-      background-color: $siteBack;
       color: $galleryEyebrow;
       display: block;
       font-size: 15px;
       line-height: 1.5;
       margin-bottom: $spaceXxs;
       text-transform: uppercase;
-      @include tab {
+      @include smallTab {
         font-weight: $heavy;
       }
     }
     .snapshot-title{
-      background-color: $siteBack;
       color: $galleryTitle;
       font-family: $displayHeader;
       font-size: 25px;
@@ -217,17 +205,12 @@
     }
   }//end snapshot toprright
   .snapshot-bottom{
-    @include carouselBreak{
       max-width: 762px;
       margin: $spaceSm auto 0;
       width: 100%;
-    }
     .field-plain-text{
       line-height: 1.5;
-      margin-bottom: $spaceSm;
-      @include carouselBreak{
-        margin-bottom: $spaceMd;
-      }
+      margin-bottom: $spaceMd;
     }
     .field-link{
       margin-bottom: $spaceSm;
@@ -237,16 +220,4 @@
       }//end a
     }//end field link
   }//end snapshot bottom
-  .snapshot-eyebrow-sm{
-    padding-right: 20px;
-    padding-left: 20px;
-    font-size: 1.5rem;
-    line-height: 1.5;
-    text-transform: uppercase;
-    letter-spacing: .05em;
-    padding-bottom: $spaceXs;
-    @include carouselBreak{
-      display: none;
-    }
-  }//end eyebrow sm
 }//end widget snapshot

@@ -10,11 +10,11 @@
     @include auto;
     max-width: 1192px;
   }
-  h2.block-title{
-    color: $navy;
-    margin-bottom: $spaceXxs;
+  h2.block-title {
+    margin-bottom: $spaceMd;
     padding-left: 26px;
     padding-right: 26px;
+    text-align: center;
     @include desk{
       margin-bottom: $spaceMd;
     }
@@ -41,13 +41,9 @@
     }
   }//end view
   .slick-slider{
-    background: $ice;
-    @include carouselBreak{
-      background: none;
-    }
     .slick-arrow{
-      top: calc(90px + 4vw);
-      width: 100px;
+      top: calc(90px - 4vw);
+      width: 40px;
       @include carouselBreak{
         top: calc(120px + 6%);
       }
@@ -59,9 +55,7 @@
       }
       @include desk{
         top: calc(130px + 16%);
-      }
-      @media screen and (min-width: 1192px){
-        top: 300px;
+        width: 100px;
       }
       &.slick-prev{
         left: 10px;

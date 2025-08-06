@@ -170,9 +170,12 @@
       }
       .wayfinding-links{
         a{
-          @include linkArrow(goldRoyal, lg);
-          min-height: 32px;
+          @include button;
           margin-bottom: $spaceSm;
+          @include desk {
+            padding-left: 2.5rem;
+            padding-right: 2.5rem;
+          }
         }
       }
     }//end combo

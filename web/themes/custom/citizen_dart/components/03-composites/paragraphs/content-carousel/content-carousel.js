@@ -16,7 +16,6 @@
             centerMode: false,
             slidesToShow: 1,
             slidesToScroll: 1,
-            dots: true,
             responsive: [
               {
                 breakpoint: 984,
@@ -24,7 +23,6 @@
                   adaptiveHeight: false,
                   centerMode: true,
                   centerPadding: '20px',
-                  dots: false,
                 }
               }
             ]

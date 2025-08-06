@@ -70,8 +70,13 @@
       @include safeFlex(column, nowrap, justify, start);
       gap: $spaceXs;
       @include smallTab {
-        @include safeFlex(row, nowrap, justify, start);
+        @include safeFlex(row, nowrap, center, start);
         gap: $spaceMs;
+      }
+      @include desk {
+        .views-row {
+          max-width: 33%;
+        }
       }
     }
   }
@@ -88,6 +93,7 @@
     margin-left: $siteMarginMobile;
     margin-right: $siteMarginMobile;
     @include tab{
+      padding-bottom: 40px;
       text-align: center;
     }
 		a{
