@@ -152,18 +152,18 @@
     text-align: left;
     @include desk {
       font-size: 3.75rem;
-      max-width: $wideContent;
+      max-width: 650px;
       @include auto;
-      padding-right: 32%;
+      text-align: center;
     }
   }
 
   .field-button {
     padding: 0 $siteMarginMobile;
     @include desk {
-      max-width: $wideContent;
+      max-width: 650px;
       @include auto;
-      padding-right: 32%;
+      text-align: center;
     }
     a {
       @include button;
