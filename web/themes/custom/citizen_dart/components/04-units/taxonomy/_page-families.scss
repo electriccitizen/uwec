@@ -15,9 +15,6 @@
 	h1{
     @include contactTitle;
     width: 100%;
-    @include tab {
-      width: 50%;
-    }
 	}
   & > .field-contact,& > .field-hours{
     margin-bottom: 1.5rem;
@@ -39,9 +36,6 @@
 	h2{
 		@include contactTitle;
     width: 100%;
-    @include tab {
-      width: 50%;
-    }
 	}
 }
 
