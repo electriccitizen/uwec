@@ -310,38 +310,15 @@
   max-width: 426px;
   @include auto;
   .field-image{
-    margin-bottom: $spaceXs;
+    margin-bottom: $spaceSm;
   }
   .teaser-title{
-    margin-bottom: $spaceXxs;
+    margin-bottom: $spaceXs;
     a{
-      @include blockArrow(navy, sm);
-      .views-block.block-related-stories & {
-        color: $white;
-      }
-      &:after{
-        .views-block.block-related-stories &{
-          @include rightArrow($gold,$royal,sm);
-        }
-      }
-      &:hover,&:focus{
-        &:after{
-          .views-block.block-related-stories &{
-            @include rightArrow($white,$royal,sm);
-          }
-        }
-        span{
-          @include dottedLink($royal);
-          .views-block.block-related-stories &{
-            @include dottedLink($white);
-          }
-        }
-      }//end hover, focus
+      @include linkArrow(goldRoyal, lg);
+      min-height: 32px;
     }//end a
   }//end teaser-title
-  .field.body{
-    line-height: 1.5;
-  }
 }//end teaser story
 
 /* STORY WIDGET

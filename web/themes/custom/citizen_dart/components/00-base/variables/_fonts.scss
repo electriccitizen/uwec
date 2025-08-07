@@ -91,7 +91,7 @@ $h6Lg: 2.25rem;
 
 @mixin heading2 {
 	@include headerGlobals;
-  line-height: 1.66;
+  line-height: 1.45;
 	font-family: $header;
 	font-size: $h2;
   @include contentStop{

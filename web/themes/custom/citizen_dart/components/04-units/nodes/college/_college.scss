@@ -7,9 +7,6 @@
 
 .node-college{
   padding-bottom: $spaceXl;
-  @include menuStop{
-    padding-bottom: 0;
-  }
 	#node-section-1 {
 		@include headerInvasion;
     @include heroRightImage;

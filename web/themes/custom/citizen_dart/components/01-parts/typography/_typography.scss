@@ -62,6 +62,8 @@ h2.section-title{
 }
 .widget-title,.field-widget-title{
 	@include blockTitle;
+  text-align: center;
+  margin-bottom: $spaceXs;
 }
 
 /* TEXT STYLES
