@@ -163,13 +163,11 @@
         width: 100%;
         height: auto;
       }
-      @include smallTab {
-        display: block;
-        width: 100%;
-      }
       @include tab {
+        display: block;
         top: 56px;
         right: calc(-46% - 44px);
+        width: 100%;
       }
     }//end waves gold
   }//end top left
