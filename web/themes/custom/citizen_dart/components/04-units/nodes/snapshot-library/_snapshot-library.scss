@@ -60,24 +60,11 @@
     bottom: 0;
     left: 0;
     z-index: -1;
-    background: $coolGrey;
+    background: $ice;
   }
-  &.snapshot-visible{
-    .field-image{
-      &:after{
-        right: -130px;
-        @include transition-animate(right, 1s, ease-out);
-
-        @include desk{
-          right: -40px;
-          @include transition-animate(right, .001s, ease-out);
-        }
-      }
-      article img{
-        opacity: 1;
-        @include transition-animate(opacity, .5s, ease-in);
-      }
-    }//end field image
+  &.snapshot-visible .field-image article img {
+    opacity: 1;
+    @include transition-animate(opacity, .5s, ease-in);
   }//end snapshot visible
 	.field-image{
 		margin-bottom: $spaceXs;
@@ -95,18 +82,6 @@
         opacity: 0;
       }
     }
-    &:after{
-      content: url(../images/elements/stripes-narrow-gold.svg);
-      width: 264px;
-      height: 172px;
-      position: absolute;
-      top: 31px;
-      z-index: -1;
-      @include rotate(180);
-      @include onlyMobile{
-        right: 100vw;
-      }
-    }//end image after
 	}//end field image
   .snapshot-teaser-text{
     max-width: $textMax;
@@ -119,10 +94,11 @@
     }
   }
 	.teaser-title{
-		@include heading2;
-    font-size: 18px;
+    @include heading2;
+    font-family: $displayHeader;
+    font-size: 25px;
     line-height: 1.33;
-    margin-bottom: $spaceXxs;
+    margin-bottom: $spaceXs;
 	}
   .field-plain-text{
     line-height: 1.5;
@@ -131,7 +107,8 @@
   .field-link{
     a{
       display: inline-block;
-      @include linkArrow(navy, sm);
+      @include linkArrow(gold, sm);
+      color: $link;
       &:before {
         top: -2px;
       }//end before
