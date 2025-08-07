@@ -17,22 +17,21 @@
       @include auto;
     }
     .keyword-wrapper {
-      color: $baseTextInvert;
       width: 100%;
       .form-item-programs-fulltext{
         width: 100%;
         max-width: 100%;
       }
     }//end keyword wrapper
-		.advanced-form{
-      color: $baseTextInvert;
+		.advanced-form {
       width: 100%;
       @include tab{
         @include safeFlex(row,wrap,justify,start);
       }
       .filter-toggle {
-        color: $baseTextInvert;
-        padding-left: 26px;
+        @include lineLink;
+        font-size: 14px;
+        font-weight: $heavy;
         padding-right: 20px;
         @include onlySmall{
           @include safeFlex(row,nowrap,justify,center);
@@ -46,13 +45,9 @@
         @include tab{
           order: 2;
           max-width: 50%;
-          span{
-            @include dottedLink($royal);
-          }
         }
         &:hover,&:focus{
           span{
-            @include dottedLink($royal);
             @include tab{
               background: none;
             }
@@ -92,7 +87,7 @@
           margin-bottom: $spaceMd;
           padding-top: $spaceMd;
           padding-bottom: $spaceMd;
-          margin-top: $spaceMd;
+          margin-top: $spaceSm;
           @include tab{
             gap: 20px;
           }

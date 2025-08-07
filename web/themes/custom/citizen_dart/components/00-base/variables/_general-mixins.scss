@@ -683,7 +683,7 @@
 }//end facts grid
 
 @mixin exposedForm{
-	background: c.$royal;
+	background: c.$ice;
 	max-width: 894px;
 	margin: 0 auto 60px;
   padding: 36px 20px 40px;
@@ -692,11 +692,10 @@
     margin-bottom: 80px;
   }
   & > h2{
-    font-family: f.$displayHeader;
-    font-size: 21px;
-    line-height: 1.14;
+    font-family: f.$header;
+    font-size: 30px;
+    line-height: 1.46;
     margin-bottom: u.$spaceMd;
-    margin-left: 20px;
   }
 }
 

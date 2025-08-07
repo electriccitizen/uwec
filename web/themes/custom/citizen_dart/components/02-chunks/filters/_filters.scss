@@ -15,6 +15,7 @@
 		width: 100%;
 		label{
 			@include formLabel;
+      color: $labelColor;
 			margin-bottom: $spaceXxs;
 		}
 		@include tab{
@@ -31,13 +32,11 @@
       input{
         font-size: 2rem;
         line-height: 2;
-        border-radius: 10px;
+        border-radius: 4px;
         border: none;
         padding-top: 9px;
       }
       .description{
-        margin-left: 20px;
-        margin-right: 20px;
         font-size: 1.75rem;
         line-height: 1.71;
         padding-bottom: $spaceXs;
@@ -53,7 +52,6 @@
 			@include submitButton;
       & {
         color: $navy;
-        margin: 0 10px;
       }
 			&[data-drupal-selector='edit-reset']{
 				margin: 0 10px;

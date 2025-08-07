@@ -1,10 +1,6 @@
 @use 'colors' as *;
 @use 'sass:color';
 
-
-/* HIDDEN FROM PL SWATCHES BUT USED ON SITE */
-
-
 /* CHANGEABLE SUBSITE COLORS
 ----------------------- */
 .themeset-uwec{
@@ -20,7 +16,6 @@
 	--col-accent2: #011e54;
 	--col-accent3: aqua;
 }
-
 
 /* ===========================
     COMPONENT SPECIFIC COLORS
@@ -117,12 +112,12 @@ $searchCloseHover          : $navy;
 $searchCloseBack           : $navy;
 $searchCloseBackHover      : $white;
 
-
 /* FORMS
 --------------------- */
 $inputBorderColor         : transparent;
 $inputBorderHover         : $ice;
 $inputBorderFocus         : $royal;
+$labelColor               : $royal;
 $placeColor               : $royal;
 $placeFocusColor          : $placeColor;
 $validation               : $royal;
@@ -168,8 +163,6 @@ $oddRowText          : $baseText;
 $evenRowBack         : $ice;
 $evenRowText         : $baseText;
 
-
-
 /* SUPERFISH
 ---------------------- */
 //desktop
@@ -192,7 +185,6 @@ $sfMobileTop             : $white;
 $sfMobileChild           : $white;
 $sfMobileChildActive     : $gold;
 
-
 /* MENU BLOCK (Sidebar)
 --------------------- */
 $menuBlockTitle       : $white;
@@ -200,7 +192,6 @@ $menuBlockTitleBack   : $royal;
 $menuBack             : $ice;
 $menuTop              : $link;
 $menuTopHover         : $royal;
-
 
 /* SECONDARY MENU
 ----------------------- */
