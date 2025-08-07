@@ -31,7 +31,11 @@
       h3 {
         font-family: $header;
         font-size: 18px;
+        font-weight: $xHeavy;
         margin-bottom: $spaceXxs;
+        @include desk {
+          font-size: 20px;
+        }
       }
       .number {
         font-size: 12px;

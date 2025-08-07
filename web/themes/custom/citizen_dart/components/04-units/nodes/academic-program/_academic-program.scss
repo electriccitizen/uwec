@@ -163,9 +163,12 @@
 
     h2 {
       color: $royal;
+      font-size: 24px;
+      line-height: 1.45;
       margin: 2.5rem 0 4rem;
       text-align: center;
       @include desk {
+        font-size: 30px;
         margin: 0 0 2.625rem;
         text-align: left;
       }
@@ -194,8 +197,15 @@
           line-height: 1.625;
           margin-bottom: 2px;
         }
+        &.colleges,
+        &.departments {
+          span.label {
+            margin-bottom: 4px;
+          }
+        }
         a {
           @include linkArrow(royal, sm);
+          min-height: $spaceMd;
           &:after {
             margin-top: -4px; // Fix for inline-block lineheight calcs.
           }
@@ -334,6 +344,8 @@
       }
       h2 {
         font-family: $displayHeader;
+        font-size: 22px;
+        line-height: 1.25;
       }
       ul li {
         padding: 0 0 0 $spaceSm;
@@ -435,7 +447,7 @@
       @include linkArrow(gold, sm);
       color: $headingText;
       line-height: 1.5;
-      padding-left: $spaceLg;
+      padding-left: 41px;
       @include desk {
         @include linkArrow(gold, lg);
         color: $headingText;

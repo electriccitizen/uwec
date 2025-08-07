@@ -68,10 +68,21 @@
     }
     .view-content {
       @include safeFlex(column, nowrap, justify, start);
-      gap: $spaceXs;
+      gap: $spaceMdLg;
+
+      .node-teaser-bios {
+        padding-bottom: 0;
+      }
+
       @include smallTab {
-        @include safeFlex(row, nowrap, center, start);
+        @include safeFlex(row, wrap, center, start);
         gap: $spaceMs;
+        .views-row {
+          max-width: 45%;
+        }
+      }
+      @include tab {
+        @include safeFlex(row, nowrap, center, start);
       }
       @include desk {
         .views-row {
@@ -90,8 +101,6 @@
 	.more-link{
     padding-top: 40px;
 		text-align: left;
-    margin-left: $siteMarginMobile;
-    margin-right: $siteMarginMobile;
     @include tab{
       padding-bottom: 40px;
       text-align: center;
