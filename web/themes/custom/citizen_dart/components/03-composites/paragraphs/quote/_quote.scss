@@ -6,17 +6,19 @@
 
 @mixin quote{
 	font-size: 21px;
-	line-height: 2;
+	line-height: 1.42;
 	font-family: $displayHeader;
 	font-style: italic;
   max-width: 650px;
   @include auto;
   @include tab{
-    font-size: 32px;
-	  line-height: 1.5;
+    font-size: 30px;
+	  line-height: 1.43;
   }
 	.quote-mark{
 		@include quoteMark;
+    margin-bottom: $spaceMs;
+    width: 100%;
 	}//quote mark
 }//end quote
 
@@ -43,6 +45,9 @@
       @include tab{
         margin: 20px auto 4px;
       }
+    }
+    @include desk {
+      padding: 106px $siteMarginMobile;
     }
   }//end quote wrapper
 }//end paragraph type quote
