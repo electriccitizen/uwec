@@ -11,8 +11,8 @@
   max-height: 0;
   position: fixed;
   z-index: 20;
-  border-top:5px solid $gold;
-  bottom:-5px;
+  border-top: 5px solid $menuBorder;
+  bottom: -5px;
   &.active-nav {
     max-height: 75vh;
   }
@@ -32,7 +32,7 @@
     top: 0;
     width: $sideBar;
     border-top:none;
-    border-right:5px solid $gold;
+    border-right: 16px solid $menuBorder;
     .node-type-support-book &{
       border-right: none;
     }
@@ -75,12 +75,11 @@
   .hide-nav &{
 		display: none;
 	}
-  .section-menu-toggle,.close-section-toggle {
+  .section-menu-toggle,
+  .close-section-toggle {
     @include safeFlex(column, nowrap, end, center);
-    background-color: $menuBack;
+    background-color: $menuBlockTitleBack;
     border-radius: 50%;
-    border: 5px solid $gold;
-    box-shadow: 2px 2px 6px 0 $transGrey;
     color: $link;
     cursor: pointer;
     height: 150px;
@@ -93,13 +92,14 @@
       @include safeFlex(row, nowrap, end, center);
       height: 215px;
       left: auto;
-      right: -103px;
+      right: -120px;
       text-align: left;
       top: calc(50vh - 103px);
       width: 215px;
     }
     &:hover {
-      color: $hoverLink;
+      background-color: $menuBlockTitleHoverBack;
+      color: $menuBlockTitleHover;
     }
     .node-type-support-book &{
       display: none;
@@ -162,14 +162,14 @@
     text-align: left;
     a {
       display: block;
-      font-size: 16px;
-      line-height: 1.5;
+      font-size: 20px;
+      line-height: 1;
       letter-spacing: .05em;
       max-width: calc(100% - 112px);
       width: 100%;
       max-width: 100%;
       color: $royal;
-      padding: 10px;
+      text-transform: uppercase;
       &:hover,&:focus {
         background: $white;
       }
@@ -192,10 +192,10 @@
 	@include menuStop {
     display: none;
     margin-bottom: $spaceLg;
-    padding: 89px 10px 20px;
+    padding: 89px 20px 20px;
     width: auto;
     .node-type-support-book &{
-      padding: 20px 10px; 
+      padding: 20px 10px;
       display: block !important;
     }
 	}
@@ -225,13 +225,13 @@
           padding: 12px 10px;
           &:hover,&:focus{
             color: $menuTopHover;
-            background: $white;
+            background: $menuLinkHoverBack;
           }
         }
 				&.is-active{
-					background: $siteBack;
+					background: $menuLinkHoverBack;
           &:hover,&:focus{
-            background: $ice;
+            background: $alto;
           }
           + ul{
             display: block;
