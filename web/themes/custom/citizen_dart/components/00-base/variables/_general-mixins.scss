@@ -594,14 +594,13 @@
 }
 
 @mixin lineLink {
-  border-bottom: 1px solid cc.$linkUnderline;
   display: inline-block;
-  text-decoration: none;
-  transition: color .3s, border-bottom-color .3s;
+  text-decoration: underline cc.$linkUnderline;
+  text-underline-offset: 5px;
+  transition: color .3s, text-decoration-color .3s;
   &:hover {
-    border-bottom: 1px solid transparent;
+    text-decoration: underline transparent;
     color: cc.$linkUnderline;
-    text-decoration: none;
   }
 }
 
