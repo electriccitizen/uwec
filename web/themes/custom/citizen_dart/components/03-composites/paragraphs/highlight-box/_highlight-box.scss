@@ -6,42 +6,41 @@
 
 .paragraph--type--highlight-box{
   background-color: $ice;
-  border: 6px solid $navy;
-  padding: 44px 20px 60px 72px;
+  padding: 20px;
   position: relative;
   max-width: 874px;
   @include auto;
-  .widget-section > .layout--onecol &,
-  .widget-section > .layout--twocol-section--67-33 > .layout__region--first &,
-  .widget-section > .layout--twocol-section--75-25 > .layout__region--first &,
-  .widget-section > .layout--twocol-section--33-67 > .layout__region--second &,
-  .widget-section > .layout--twocol-section--25-75 > .layout__region--second &,
-  .node-support-book &{
-    @include desk{
-      padding: 70px 92px 70px 112px;
-    }
-  }//end layout checks
-  .navy-stripes{
-    position: absolute;
-    top: -34px;
-    left: -6px;
-    z-index: 1;
-    width: 53px;
-    height: 207px;
-  }
+  
   .widget-wrapper {
+    padding: 24px 20px 40px;
+    border: 1px solid $gold;
+    .widget-section > .layout--onecol &,
+      .widget-section > .layout--twocol-section--67-33 > .layout__region--first &,
+      .widget-section > .layout--twocol-section--75-25 > .layout__region--first &,
+      .widget-section > .layout--twocol-section--33-67 > .layout__region--second &,
+      .widget-section > .layout--twocol-section--25-75 > .layout__region--second &,
+      .node-support-book &{
+        @include desk{
+          padding: 50px 72px;
+        }
+      }//end layout checks
     .field-additional-text {
-      color: $navy;
+      color: $royal;
       font-family: $displayHeader;
-      font-size: 3.25rem;
-      line-height: 1.23;
+      font-style: italic;
+      font-size: 3rem;
+      line-height: 1.45;
+      @include desk {
+        font-size: 3.75rem;
+        line-height: 1.43;
+      }
     }
     .field-link {
       margin-top: 40px;
       text-align: center;
       a {
-        @include linkArrow(navy);
-        display: inline-block;
+        @include linkArrow(goldRoyal, lg);
+        min-height: 32px;
       }//end a
     }//end field link
   }//end widget wrapper

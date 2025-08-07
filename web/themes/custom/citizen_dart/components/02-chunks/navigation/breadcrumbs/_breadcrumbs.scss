@@ -16,6 +16,7 @@
     display: inline-block;
     color: $white;
     font-weight: $heavy;
+    text-transform: uppercase;
 		&:not(:last-of-type){
 			padding-right: .25rem;
 			&:after{
