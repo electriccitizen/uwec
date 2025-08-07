@@ -59,16 +59,14 @@
   max-width: 426px;
   @include auto;
   .field-video{
-    margin-bottom: $spaceXs;
+    margin-bottom: $spaceSm;
   }
   .teaser-title{
-    margin-bottom: $spaceXxs;
-    font-family: $header;
-    font-size: 2rem;
-    line-height: 1.2;
-  }
-  .field.body{
-    line-height: 1.5;
+    margin-bottom: $spaceXs;
+    font-size: 2.25rem;
+    line-height: 1.22;
+    font-weight: $heavy;
+    color: $royal;
   }
 }//end node teaser video card
 
