@@ -599,7 +599,13 @@
       margin: 1.5rem 0 $spaceLg;
       text-align: center;
       @include tab {
-        margin: 2.5rem 0;
+        margin: 2.5rem 0 $spaceLg;
+        strong {
+          display: inline-block;
+        }
+      }
+      @include desk {
+        margin: 100px 0 $spaceXl;
       }
     }
   }
