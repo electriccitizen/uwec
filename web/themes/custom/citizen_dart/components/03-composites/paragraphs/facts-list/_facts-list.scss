@@ -5,14 +5,11 @@
 @use '../../../00-base/base' as *;
 
 .paragraph--type--facts-list{
-  @include edgeToEdge;
+  @include auto;
   padding: 28px $siteMarginMobile 70px;
   border-top: 1px solid $coolGrey;
   border-bottom: 1px solid $coolGrey;
   max-width: 1092px;
-  @include tab{
-    @include auto;
-  }
   @include menuStop{
     padding: 36px 40px 0;
   }
