@@ -209,17 +209,21 @@
         margin-bottom: 10rem;
       }
       &:before {
-        background-color: $navy;
+        background-color: $borderRule;
         content: '';
         display: block;
         height: 1px;
         margin-bottom: $spaceSm;
-        width: 202px;
-
+        @include desk {
+          margin-bottom: 70px;
+          margin-left: -200px;
+          margin-right: -200px;
+        }
       }
       .field-label {
         @include headerGlobals;
-        font-size: 26px;
+        color: $baseText;
+        font-size: 25px;
         line-height: 32px;
         margin-bottom: $spaceXxs;
       }
