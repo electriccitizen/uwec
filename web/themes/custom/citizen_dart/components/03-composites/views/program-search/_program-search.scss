@@ -17,7 +17,6 @@
       @include auto;
     }
     .keyword-wrapper {
-      color: $baseTextInvert;
       width: 100%;
       .form-item-programs-fulltext{
         width: 100%;
@@ -31,9 +30,9 @@
         @include safeFlex(row,wrap,justify,start);
       }
       .filter-toggle {
-        color: $baseTextInvert;
-        padding-left: 26px;
-        padding-right: 20px;
+        @include lineLink;
+        color: $link;
+        font-weight: $heavy;
         @include onlySmall{
           @include safeFlex(row,nowrap,justify,center);
           font-size: 14px;
@@ -46,17 +45,6 @@
         @include tab{
           order: 2;
           max-width: 50%;
-          span{
-            @include dottedLink($royal);
-          }
-        }
-        &:hover,&:focus{
-          span{
-            @include dottedLink($royal);
-            @include tab{
-              background: none;
-            }
-          }
         }
         &.active-drawer{
           svg#filter-caret{

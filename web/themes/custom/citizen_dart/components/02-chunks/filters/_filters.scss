@@ -55,8 +55,19 @@
         color: $navy;
         margin: 0 10px;
       }
-			&[data-drupal-selector='edit-reset']{
-				margin: 0 10px;
+			&[data-drupal-selector='edit-reset'] {
+        background-color: $royal;
+        border-color: $royal;
+        color: $white;
+        &:hover,
+        &:focus {
+          background-color: $white;
+          border-color: $white;
+          color: $royal;
+        }
+        & {
+				  margin: 0 10px;
+        }
 			}
 		}
 	}
