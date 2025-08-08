@@ -99,6 +99,7 @@
           top: calc(50% - 15px);
         }
 				svg{
+          width: 22px;
 					fill: none;
 				}
 			}
@@ -108,9 +109,6 @@
 				border-color: $accordHeaderBorderHover;
 				@include transAll(.3s);
         text-decoration: none;
-        .accordion-header-text{
-          @include dottedLink($royal);
-        }
 			}
 		}//end a
 	}//end accorion header
@@ -143,9 +141,6 @@
 					background: $accordActiveBackHover;
 					border-color: $accordActiveBorderHover;
           text-decoration: none;
-          .accordion-header-text{
-            @include dottedLink($royal);
-          }
 				}
 				.accordion-chevron{
 					@include rotate(180);
