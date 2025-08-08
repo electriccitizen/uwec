@@ -99,19 +99,20 @@
           top: calc(50% - 15px);
         }
 				svg{
+          width: 22px;
 					fill: none;
 				}
 			}
-			&:hover,&:focus{
+			&:hover{
 				color: $accordHeaderHover;
 				background: $accordHeaderBackHover;
 				border-color: $accordHeaderBorderHover;
 				@include transAll(.3s);
         text-decoration: none;
-        .accordion-header-text{
-          @include dottedLink($royal);
-        }
 			}
+      &:focus{
+        color: $accordHeaderHover;
+      }
 		}//end a
 	}//end accorion header
 
@@ -138,15 +139,15 @@
 				color: $accordActive;
 				background: $accordActiveBack;
 				border-bottom: 0;
-				&:hover,&:focus{
+				&:hover{
 					color: $accordActiveHover;
 					background: $accordActiveBackHover;
 					border-color: $accordActiveBorderHover;
           text-decoration: none;
-          .accordion-header-text{
-            @include dottedLink($royal);
-          }
 				}
+        &:focus {
+          color: $royal;
+        }
 				.accordion-chevron{
 					@include rotate(180);
 				}

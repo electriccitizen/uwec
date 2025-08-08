@@ -596,16 +596,12 @@
     h2.next-title {
       @include styledHeader(true);
       color: $royal;
-      margin: 1.5rem 0 $spaceLg;
+      margin: 1.5rem 0 $spaceMd;
       text-align: center;
       @include tab {
-        margin: 2.5rem 0 $spaceLg;
         strong {
           display: inline-block;
         }
-      }
-      @include desk {
-        margin: 100px 0 $spaceXl;
       }
     }
   }

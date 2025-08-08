@@ -92,11 +92,8 @@
     }
   }
   h2.block-title{
-    margin-bottom: $spaceMdLg;
+    margin-bottom: 3rem;
     text-align: center;
-    @include tab {
-      margin-bottom: $spaceMl;
-    }
   }
 	.more-link{
     padding-top: 40px;
