@@ -14,6 +14,9 @@
 		margin-bottom: $elementSpace;
 		border-bottom: 1px solid $borderRule;
 		padding-bottom: $elementSpace;
+    h1.page-title {
+      font-size: 25px;
+    }
 		.block-field:not(.block-field-image):not(.block-title){
 			margin-bottom: $spaceXxs;
 		}
@@ -21,6 +24,14 @@
 			max-width: 360px;
 			@include auto;
 		}
+    .field-link a {
+      @include linkArrow(gold, sm);
+      color: $link;
+      &:hover,
+      &:focus {
+        text-decoration: underline;
+      }
+    }
 	}
 	#node-section-2{
 		.block-field{
