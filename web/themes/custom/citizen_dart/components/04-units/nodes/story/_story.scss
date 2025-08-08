@@ -32,7 +32,6 @@
     max-width: $textMax;
     .layout__region--content {
       @include safeFlex(row,nowrap,start,start);
-      max-width: 75%;
       @include desk {
         @include safeFlex(row,nowrap,justify,start);
         gap: $spaceSm;
@@ -235,7 +234,6 @@
   }//end node section 4
 
   #node-section-5 {
-    color: $white;
     position: relative;
 
     .layout__region {
@@ -282,6 +280,7 @@
           }
         }
         .term-page {
+          color: $baseTextInvert;
           padding: 0 $siteMarginMobile;
           @include desk {
             @include auto;
@@ -305,7 +304,8 @@
     }//end authors fields block
 
     .block-related-stories {
-      padding: $spaceXl $siteMarginMobile $siteMarginMobile;
+      background-color: $ice;
+      padding: $spaceXl $siteMarginMobile $spaceLg;
       @include desk {
         max-width: none;
         padding: $spaceXl $siteMarginDesk $siteMarginDesk;
