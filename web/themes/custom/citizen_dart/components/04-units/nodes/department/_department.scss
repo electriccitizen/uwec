@@ -11,21 +11,11 @@
     padding-bottom: 0;
   }
 	#node-section-1 {
+    @include headerInvasion;
     @include patternHero;
     position: relative;
     z-index: 0;
     margin-bottom: $elementSpace;
-    .hero-pattern:not(.hero-pattern-links) &{
-      @include largeTab{
-        margin-bottom: 70px;
-      }
-      @include menuStop{
-        margin-bottom: $elementSpace;
-      }
-    }
-    &:after{
-      @include patternHeroSwirl;
-    }//end after swirl
     .layout__region--content{
       .block-field{
         max-width: 100%;
@@ -33,31 +23,51 @@
           margin-bottom: 0;
         }
       }
-      .hero-pattern-links &{
-        & > .block-field:nth-last-child(2){
-          @include heroBlue;
-          @include desk{
-            & > .field{
-              @include stripesRoyalNarrow;
-            }
-          }
-        }
-      }//end pattern
-      .hero-pattern:not(.hero-pattern-links) &{
-        padding-bottom: 115px;
-        & > .block-field:last-child{
-          @include heroBlue;
-          @include desk{
-            & > .field{
-              @include stripesRoyalNarrow;
-            }
-          }
-        }
-      }//end non-pattern
+
     }//end layout region content
     .block-system-breadcrumb-block{
       @include onlyMobile{
         display: none;
+      }
+    }
+    .block-field-college {
+      margin-bottom: $spaceSm;
+      .field-college{
+        @include tag;
+        max-width: $textMax;
+        @include auto;
+        padding-left: 20px;
+        padding-right: 20px;
+        font-size: 1.75rem;
+        line-height: 1.71;
+        text-transform: uppercase;
+        a{
+          margin-left: -20px;
+          color: $gold;
+          &:hover,&:focus {
+            color: $white;
+            text-decoration: underline;
+            text-decoration-color: $gold;
+          }
+        }
+      }
+    }
+    .block-field.block-title {
+      margin-bottom: $spaceXs;
+      h1 {
+        @include contentStop {
+          font-size: 8.75rem;
+        }
+      }
+    }
+    .block-field-subtitle {
+      margin-bottom: $spaceSm;
+      h2 {
+        color: $gold;
+        line-height: 1.466;
+        @include desk {
+          font-size: 3.75rem;
+        }
       }
     }
 	}// end node section 1
@@ -66,60 +76,24 @@
 	.field-subtitle,
 	.field-intro-text,
   .field-links {
-		max-width: $textMax;
-    padding-left: 20px;
-    padding-right: 20px;
+		max-width: 650px;
 		@include auto;
-    position: relative;
-    z-index: 5;
-    @include desk{
-      padding-left: 0;
-      padding-right: 0;
-    }
 	}
-  .field-college{
-    max-width: $textMax;
-    @include auto;
-    padding-left: 20px;
-    padding-right: 20px;
-    font-size: 1.75rem;
-    line-height: 1.71;
-    text-transform: uppercase;
-    a{
-      margin-left: -20px;
-    }
-  }
-  .block-field.block-title{
-    margin-bottom: 8rem;
-  }
-  .block-field-subtitle{
-    margin-bottom: $spaceSm;
-  }
+
   .field-links{
-    padding-top: 100px;
-    padding-bottom: 60px;
-    max-width: 984px;
+    max-width: 650px;
+    @include auto;
     @include smallTab{
-      padding-top: 40px;
-      padding-right: 0;
-      @include safeFlex(column,nowrap,end,end);
       & > div{
         width: 210px;
       }
     }
     @include desk {
-      margin-top: 10vw;
+      max-width: 984px;
+      margin-top: 70px;
 			margin-bottom: 0;
+      @include safeFlex(column,nowrap,end,end);
 		}
-    @media screen and (min-width: 1650px){
-      margin-top: 11vw;
-    }
-    @media screen and (min-width: 2100px){
-      margin-top: 12vw;
-    }
-    @media screen and (min-width: 2500px){
-      margin-top: 13vw;
-    }
   }//end field links
   //section two - nav and body
   .layout--twocol-sideleft{
@@ -169,9 +143,6 @@
       z-index: 1;
       max-width: $textMax;
       @include auto;
-      &:after{
-        @include fullBack($lightGrey);
-      }
       .paragraph--type--accordions{
         .widget-title{
           @include widgetTitleAlt;
@@ -189,18 +160,14 @@
 
   .block-field-whats-next{
     h2.next-title{
-      @include styledHeader;
-      text-align: left;
-      margin-bottom: $spaceSm;
-      color: $brightBlue;
-      font-size: 43px;
-      @include onlyMobile{
-        strong{
-          font-size: 46px;
+      @include styledHeader(true);
+      color: $royal;
+      margin: 1.5rem 0 $spaceMd;
+      text-align: center;
+      @include tab {
+        strong {
+          display: inline-block;
         }
-      }
-      @include tab{
-        text-align: center;
       }
     }//end next title
   }//end whats next

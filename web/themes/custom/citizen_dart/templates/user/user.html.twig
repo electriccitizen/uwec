@@ -16,8 +16,11 @@
  * @see template_preprocess_user()
  */
 #}
-<article{{ attributes.addClass('user-dashboard') }}>
-  {% if content %}
-    {{- content -}}
-  {% endif %}
-</article>
+<div class="dashboard-wrapper">
+  <div class="page-intro-simple"></div>
+  <article{{ attributes.addClass('user-dashboard') }}>
+    {% if content %}
+      {{- content -}}
+    {% endif %}
+  </article>
+</div>

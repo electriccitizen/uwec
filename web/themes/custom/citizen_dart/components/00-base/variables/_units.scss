@@ -12,11 +12,11 @@ $tab: 800px;
 $largeTab: 874px;
 $desk: 984px;
 $menuStop: 1200px;
-$contentStopMargin: 1320px;
+$contentStopMargin: 1368px;
 $contentStop: 1440px;
 $largeScreen: 1600px;
 $ultraWidescreen: 2000px;
-$textMax: 650px;
+$textMax: 720px;
 $exposedFilterWidth: 894px;
 $breakoutWidth: 914px;
 $onlyTab: $tab $desk - 1px;
@@ -24,15 +24,19 @@ $onlySmall: max-width $tab - 1px;
 $onlyPhone: max-width $smallTab - 1px;
 $onlyMobile: max-width $desk - 1px;
 
-
 /* SPACING & LAYOUT VARIABLES
 ----------------------------- */
-$spaceXxs : 1rem;
-$spaceXs  : 2rem;
-$spaceSm  : 3rem;
-$spaceMd  : 4rem;
-$spaceLg  : 6rem;
-$spaceXl  : 9rem;
+$spaceMxxs : .5rem;
+$spaceXxs  : 1rem;
+$spaceXms  : 1.5rem;
+$spaceXs   : 2rem;
+$spaceMs   : 2.5rem; // Medium small.
+$spaceSm   : 3rem;
+$spaceMd   : 4rem;
+$spaceMdLg : 5rem;
+$spaceLg   : 6rem;
+$spaceMl   : 8rem; // Medium large.
+$spaceXl   : 9rem;
 
 $siteMarginMobile: 2.5rem;
 $siteMarginDesk: 7.5rem;
@@ -42,8 +46,9 @@ $elementSpace: $spaceLg;
 $siteBottomSpace: 12rem;
 $wideContent: 1136px;
 
-$buttonPadding: 1.625rem 3rem 1.35rem;
-$submitPadding: 2px 2rem 0;
+$buttonPaddingMobile: 15px 37px;
+$buttonPaddingDesk: 20px 37px;
+$submitPadding: 2px 4rem 0;
 
 $sideBar: 300px;
 $sectionGutter: 20px;
@@ -101,6 +106,12 @@ $sectionGutter: 20px;
 
 @mixin largeScreen {
 	@media screen and (min-width: $largeScreen) {
+		@content;
+	}
+}
+
+@mixin ultraWidescreen {
+	@media screen and (min-width: $ultraWidescreen) {
 		@content;
 	}
 }

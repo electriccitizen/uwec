@@ -36,25 +36,23 @@
 
 {% block fieldSingleNo %}
   {% if element['#object'].field_accreditation.0 or element['#object'].field_licensure.0 %}
-    <div class="accreditation-wrapper">
-      {% if element['#object'].field_accreditation.0 %}
-        <div class="accreditation-details">
-          <div class="accreditation-text text-long">
-            <h2>{% trans %}Accreditation Information{% endtrans %}</h2>
-            {{ accreditationText }}
-          </div>
-          {% if element['#object'].field_accreditation_logo.0.target_id %}
-            {{ drupal_entity('media',element['#object'].field_accreditation_logo.0.target_id,'200x200_non_crop') }}
-          {% endif %}
+    {% if element['#object'].field_accreditation.0 %}
+      <div class="accreditation-details">
+        <div class="accreditation-text text-long">
+          <h2>{% trans %}Accreditation Information{% endtrans %}</h2>
+          {{ accreditationText }}
         </div>
-      {% endif %}
-      {% if element['#object'].field_licensure.0 %}
-        <div class="licensure-details text-long">
-          <h2>{% trans %}Licensure Information{% endtrans %}</h2>
-          {{ licensureText }}
-        </div>
-      {% endif %}
-    </div>
+        {% if element['#object'].field_accreditation_logo.0.target_id %}
+          {{ drupal_entity('media',element['#object'].field_accreditation_logo.0.target_id,'200x200_non_crop') }}
+        {% endif %}
+      </div>
+    {% endif %}
+    {% if element['#object'].field_licensure.0 %}
+      <div class="licensure-details text-long">
+        <h2>{% trans %}Licensure Information{% endtrans %}</h2>
+        {{ licensureText }}
+      </div>
+    {% endif %}
   {% endif %}
 
 {% endblock %}

@@ -22,9 +22,9 @@
 
 /*  FAMILIES
 -------------------- */
-$header       : vinila-extended, sans-serif;
-$displayHeader: grad, serif;
-$bodyText     : neue-haas-grotesk-text, sans-serif;
+$header       : "Inter", sans-serif;
+$displayHeader: "PT Serif", serif;
+$bodyText     : "Inter", sans-serif;
 
 /*  WEIGHTS
 -------------------- */
@@ -35,47 +35,54 @@ $xHeavy: 800;
 /*  SIZES
 -------------------- */
 $baseSize: 2rem;
-$formLabelSize: 1.5rem;
-$formLabelWeight: 800;
-$button: 1.75rem;
+$formLabelSize: 2rem;
+$formLabelWeight: 700;
+$button: 15px;
 $socialIcons: 2.5rem;
 
 //h1 sizes
-$h1Sm: 6.5rem;
-$h1Mid: 6rem;
-$h1Lg: 7.5rem;
+$h1Sm: 5.75rem;
+$h1Mid: 7.75rem;
+$h1Lg: 9.375rem;
 
 //h2 sizes
-$h2: 3rem;
+$h2: 3.5rem;
+$h2Lg: 3.75rem;
 
 //h3 sizes
-$h3: 2.25rem;
+$h3: 3.25rem;
+$h3Lg: 3.5rem;
 
 //h4 sizes
-$h4: 2.5rem;
+$h4: 2.75rem;
+$h4Lg: 3rem;
 
 //h5 sizes
-$h5: 2rem;
+$h5: 2.25rem;
+$h5Lg: 2.5rem;
 
 //h6 sizes
-$h6: 2.25rem;
+$h6: 2rem;
+$h6Lg: 2.25rem;
 
 /* FONT AND TYPE MIXINS
 --------------------------- */
 @mixin headerGlobals{
-	line-height: 1.1;
-	font-weight: $regular;
+	font-weight: $heavy;
 	font-family: $displayHeader;
-	color: $navy;
+	color: $headingText;
 	margin: 0;
 	font-feature-settings: "liga", "dlig";
 }
 
 @mixin heading1{
 	@include headerGlobals;
+  line-height: 1;
 	font-size: $h1Sm;
+  font-weight: $regular;
 	@include tab{
 		font-size: $h1Mid;
+    line-height: 1.05;
 	}
 	@include contentStop{
 		font-size: $h1Lg;
@@ -84,69 +91,78 @@ $h6: 2.25rem;
 
 @mixin heading2 {
 	@include headerGlobals;
+  line-height: 1.45;
 	font-family: $header;
-	font-weight: $xHeavy;
-	line-height: 1.33;
 	font-size: $h2;
+  @include contentStop{
+		font-size: $h2Lg;
+    line-height: 1.46;
+	}
 }
 
 @mixin heading3{
 	@include headerGlobals;
-	font-family: $header;
-	font-weight: $xHeavy;
-	line-height: 1.66;
-	color: $brightBlue;
+	font-family: $displayHeader;
+	line-height: 1.27;
 	font-size: $h3;
+  @include contentStop{
+		font-size: $h3Lg;
+    line-height: 1.12;
+	}
 }
 
 @mixin heading4{
 	@include headerGlobals;
-	color: $brightBlue;
+	font-family: $header;
 	font-size: $h4;
+  line-height: 1.84;
+  text-transform: capitalize;
+  @include contentStop{
+		font-size: $h4Lg;
+    line-height: 1.5;
+	}
 }
 
 @mixin heading5{
 	@include headerGlobals;
-	font-family: $bodyText;
-	line-height: 1.875;
+	font-family: $header;
+	line-height: 1.69;
 	font-size: $h5;
-  color: $brightBlue;
+  @include contentStop{
+		font-size: $h5Lg;
+    line-height: 1.466;
+	}
 }
 
 @mixin heading6{
 	@include headerGlobals;
-	font-style: italic;
 	font-size: $h6;
+  line-height: 2;
+  @include contentStop{
+		font-size: $h6Lg;
+    line-height: 1.57;
+	}
 }
 
 @mixin blockTitle{
-	font-family: $header;
-	font-weight: $xHeavy;
-	font-size: 2.25rem;
-  line-height: 1.5;
-	letter-spacing: 1.4px;
-	text-transform: uppercase;
-	text-align: center;
-	max-width: $textMax;
+	@include heading2;
 	@include auto;
-  @include desk{
-    line-height: 1.07143;
-	  font-size: 3.5rem;
+  & {
+    max-width: $textMax;
+    color: $headingText;
   }
 }
 
-@mixin widgetTitleStandard{
-  @include heading2;
-  text-align: center;
-  max-width: $textMax;
-	@include auto;
-  margin-bottom: $spaceSm;
-}
-
 @mixin widgetTitleAlt{
-  @include blockTitle;
-	letter-spacing: .05em;
+  font-family: $displayHeader;
+  color: $headingText;
+  size: 2.875rem;
+  line-height: 1.03;
 	margin-bottom: $spaceSm;
+  @include contentStop {
+    font-size: 3.25rem;
+    line-height: 1.34;
+  }
 }
 
 @mixin metaText{
@@ -156,30 +172,31 @@ $h6: 2.25rem;
 }
 
 @mixin quoteMark{
-	width: 20px;
-	height: 19px;
-	background: url(../images/elements/quote.svg);
-	background-repeat: no-repeat;
-	background-size: 100%;
+	width: 41px;
+	font-family: $displayHeader;
+  color: $gold;
+  size: 10.625rem;
+  line-height: 1.05;
 }
 @mixin quote{
 	font-family: $displayHeader;
-	line-height: 1.5;
+	line-height: 1.433;
 	font-style: italic;
-	font-size: 4rem;
+	font-size: 3.75rem;
 	padding-top: 3.75rem;
 	padding-bottom: $spaceSm;
-	color: $brightBlue;
+	color: $headingText;
 	.quote-pre{
 		@include auto;
 	}
 }//end quote
+
 @mixin tag {
-  display: inline-block;
-  color: $white;
+  color: $gold;
   font-family: $bodyText;
-  font-size: 1.5rem;
-  letter-spacing: 1px;
+  font-weight: $heavy;
+  font-size: 1.875rem;
+  line-height: 1.466;
   text-transform: uppercase;
 }
 

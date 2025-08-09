@@ -4,9 +4,17 @@
 
 @use '../../../00-base/base' as *;
 
-.paragraph--type--programs-list{
+.paragraph--type--programs-list {
 	max-width: 985px;
 	@include auto;
+  .field-widget-title {
+    line-height: 1.2;
+    margin-bottom: $spaceSm;
+    max-width: 100%;
+    @include desk {
+      margin-bottom: $spaceMd;
+    }
+  }
   .field-programs{
     @include tab{
       width: 100%;

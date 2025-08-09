@@ -16,7 +16,7 @@
 					});
 				});
 			});
-			//Slider
+			//Slick Slider
 			$(once('slider', '.gallery-style.slider', context)).each(function(){
 				$(document).ready(function(){
 					$('.field-gallery-items', this).slick({

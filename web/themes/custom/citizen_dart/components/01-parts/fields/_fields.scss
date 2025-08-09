@@ -35,6 +35,7 @@
 -------------------- */
 .field-platforms{
 	margin-bottom: -$spaceXxs;
+  margin-left: -13px;
 	.platform-links{
 		@include listReset;
 		@include safeFlex(row,wrap,start,start);

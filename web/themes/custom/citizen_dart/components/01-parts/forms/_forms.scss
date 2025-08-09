@@ -74,7 +74,7 @@ fieldset{
 		font-size: 2.5rem;
 		margin-bottom: $spaceXs;
 	}
-	
+
 	&.webform-composite-hidden-title{
 		margin-top: 0;
 		margin-bottom: $spaceMd;
@@ -198,7 +198,7 @@ h1.webform-title {
 				line-height: 1;
 				padding-bottom: 0;
 				font-weight: 700;
-				font-size: 2rem;	
+				font-size: 2rem;
 			}
 		}//end progress step
 	}//end progress tracker
@@ -357,7 +357,7 @@ h1.webform-title {
 			top: 54px;
 			right: 12px;
 			font-size: 1.4rem;
-			color: $warmGrey;
+			color: $coolGrey;
 			&:hover,&:focus{
 				color: $hoverLink;
 			}
@@ -374,7 +374,9 @@ h1.webform-title {
 	}
 	#edit-submit.button{
 		@include button;
-		margin: 0;
+    & {
+		  margin: 0;
+    }
 	}
 }//end user login form
 
@@ -386,7 +388,7 @@ details.form-wrapper{
 		padding-bottom: 1px;
 		summary{
 			border-color: $inputBorderFocus;
-			box-shadow: inset 0 0 0 1px $inputBorderFocus; 
+			box-shadow: inset 0 0 0 1px $inputBorderFocus;
 			margin-bottom: $spaceMd;
 		}
 		& > *:not(summary){
@@ -407,8 +409,7 @@ details.form-wrapper{
 		}
 		&:hover{
 			border-color: $inputBorderHover;
-			box-shadow: inset 0 0 0 1px $inputBorderHover; 
+			box-shadow: inset 0 0 0 1px $inputBorderHover;
 		}
 	}//end summary
 }//end details form-wrapper
-

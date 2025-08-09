@@ -35,8 +35,10 @@
 
 {% block viewRows %}
   {% if rows %}
-    {{ attach_library('citizen_dart/slick') }}
-    {{ attach_library('citizen_dart/profiles-slider') }}
+    {% block attachments %}
+      {{ attach_library('citizen_dart/slick') }}
+      {{ attach_library('citizen_dart/profiles-slider') }}
+    {% endblock %}
   	<h2 class="block-title">Meet the Faculty</h2>
     <div class="view-wrapper">
       <div class="view-content">

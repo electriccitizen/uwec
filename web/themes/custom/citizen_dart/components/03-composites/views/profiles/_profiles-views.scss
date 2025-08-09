@@ -10,7 +10,9 @@
 .profile-search.directory{
 	.views-exposed-form{
 		@include exposedForm;
-    @include edgeToEdge;
+    & {
+      @include edgeToEdge;
+    }
     @include tab{
       @include auto;
     }
@@ -57,28 +59,60 @@
   position: relative;
   .view-wrapper{
     @include profileSlider;
-    padding-bottom: 40px;
-    .node-teaser-bios{
-      padding: 0 10px;
+    padding: 0 $spaceMdLg;
+    & {
+      padding-bottom: 40px;
+    }
+    @include desk {
+      padding: 0;
+    }
+    .view-content {
+      @include safeFlex(column, nowrap, justify, start);
+      gap: $spaceMdLg;
+
+      .node-teaser-bios {
+        padding-bottom: 0;
+      }
+
+      @include smallTab {
+        @include safeFlex(row, wrap, center, start);
+        gap: $spaceMs;
+        .views-row {
+          max-width: 45%;
+        }
+      }
+      @include tab {
+        @include safeFlex(row, nowrap, center, start);
+      }
+      @include desk {
+        .views-row {
+          max-width: 33%;
+        }
+      }
     }
   }
   h2.block-title{
-    margin-bottom: $spaceSm;
+    margin-bottom: 3rem;
+    text-align: center;
   }
 	.more-link{
     padding-top: 40px;
 		text-align: left;
-    margin-left: $siteMarginMobile;
-    margin-right: $siteMarginMobile;
     @include tab{
+      padding-bottom: 40px;
       text-align: center;
     }
 		a{
       @include auto;
-			@include linkArrow(navyLight);
+			@include linkArrow(gold, sm);
+      color: $link;
       display: inline-block;
       max-width: $smallTab;
       text-align: left;
+      @include tab {
+        @include linkArrow(gold);
+        color: $link;
+      }
 		}//end a
 	}//end more link
 }//end department faculty

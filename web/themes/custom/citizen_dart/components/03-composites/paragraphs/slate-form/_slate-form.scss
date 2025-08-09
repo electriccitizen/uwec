@@ -12,7 +12,7 @@
   .widget-section > .layout--twocol-section--25-75 > .layout__region--second &,
   .node-support-book &{
     @include tab{
-      padding: 60px 112px 45px;
+      padding: 56px 112px;
     }
   }
 	.widget-wrapper{
@@ -26,16 +26,26 @@
       .widget-section > .layout--onecol &,
       .widget-section > .layout--twocol-section--75-25 > .layout__region--first &,
       .widget-section > .layout--twocol-section--25-75 > .layout__region--second &,
-      .node-support-book &{
+      .node-support-book & {
 			  @include desk{
           &:not(:only-child){
             width: 50%;
-            &:first-child{
-              padding-top: 35px;
-            }
           }
+        }//end desk
+			}
+      .widget-section > .layout--twocol-section--75-25 > .layout__region--first &,
+      .widget-section > .layout--twocol-section--25-75 > .layout__region--second &,
+      .widget-section > .layout--twocol-section--50-50 > .layout__region--first &,
+      .widget-section > .layout--twocol-section--50-50 > .layout__region--second & {
+        .field-formatted-headline {
+          text-align: center;
         }
-			}//end desk
+			  @include desk {
+          &:not(:only-child):first-child {
+            padding-top: 35px;
+          }
+        }//end desk
+      }
 		}//end slate-left,slate-right
 	}//end widget wrapper
   .slate-left.slate-visible{
@@ -48,17 +58,28 @@
   }
 	.field-formatted-headline{
 		@include styledHeader;
-		text-align: left;
-    margin-bottom: $spaceSm;
-    color: $brightBlue;
-    strong{
+    & {
+      margin-bottom: $spaceMs;
+      color: $gold;
+    }
+    strong {
       opacity: 0;
       scale: 1;
       position: relative;
-      bottom: -2px;
+    }
+    @include tab {
+      margin-bottom: $spaceLg;
+      text-align: left;
     }
 	}
   .field-additional-text{
-    margin-bottom: 2.5rem;
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: $spaceXxs;
+    @include tab {
+      font-size: 16px;
+      line-height: 1.625;
+      margin-bottom: $spaceMs;
+    }
   }
 }//end slate form widget

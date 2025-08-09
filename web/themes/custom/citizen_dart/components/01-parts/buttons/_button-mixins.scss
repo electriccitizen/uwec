@@ -29,13 +29,13 @@
 }
 
 ///mixin - button
-@mixin button{
-	background-color: $buttonBack;
-	border: 1px solid $buttonText;
-	border-radius: 25px;
-	color: $buttonText;
+@mixin button($color: $buttonBack, $textColor: $buttonText, $hoverColor: $buttonBackHover, $hoverTextColor: $buttonTextHover) {
+	background-color: $color;
+	border: 1px solid $color;
+	border-radius: 5px;
+	color: $textColor;
 	line-height: 1.2;
-	padding: $buttonPadding;
+	padding: $buttonPaddingMobile;
 	display: inline-block;
 	vertical-align: top;
 	text-decoration: none;
@@ -47,9 +47,9 @@
 	margin-bottom: $spaceMd;
 	letter-spacing: .1em;
 	&:hover,&:focus {
-		color: $buttonTextHover;
-		background-color: $buttonBackHover;
-		border-color: $buttonBackHover;
+		color: $hoverTextColor;
+		background-color: $hoverColor;
+		border-color: $hoverColor;
 		@include transAll(.3s);
 		text-decoration: none;
 		outline: 0;
@@ -68,14 +68,33 @@
 	&.js-hide{
 		display: none;
 	}
+  @include desk {
+    padding: $buttonPaddingDesk;
+  }
+}//end button mixin
+
+@mixin buttonAlt{
+	@include button;
+	&:hover,&:focus {
+		color: $buttonTextHover;
+		background-color: $buttonBackHover;
+		border-color: $buttonBackHover;
+	}
+	&:active{
+		color: $buttonTextActive;
+		background-color: $buttonBackActive;
+		border-color: $buttonBackActive;
+	}
 }//end button mixin
 
 ///mixin - outlineButton
 @mixin outlineButton($outlineColor){
 	@include button;
-	background: transparent;
-	border: 1px solid $outlineColor;
-	color: $outlineColor;
+  & {
+    background: transparent;
+    border: 1px solid $outlineColor;
+    color: $outlineColor;
+  }
 	&:hover,&:focus{
 		background: $buttonBackHover;
 		color: $buttonTextHover;
@@ -92,19 +111,22 @@
 		background: none;
 		border: none;
 		width: auto;
-	}//end wysiwyg 
+	}//end wysiwyg
 }
 
 @mixin submitButton{
-	@include button;
-	background: $submitBack;
-	color: $submitText;
-	padding: $submitPadding;
-	height: 44px;
-	line-height: 1;
 	@include safeFlex(column,nowrap,center,center);
-	min-width: 120px;
-	cursor: pointer;
+	@include button;
+  & {
+    background: $submitBack;
+    color: $submitText;
+    padding: $submitPadding;
+    height: 48px;
+    font-weight: $heavy;
+    line-height: 1;
+    min-width: 120px;
+    cursor: pointer;
+  }
 	&:hover,&:focus{
 		background: $buttonBackHover;
 		border-color: $buttonBackHover;
@@ -119,12 +141,12 @@
 
 @mixin cautionButton{
 	@include submitButton;
-	background: $warmGrey;
+	background: $coolGrey;
 	color: $navy;
-	border-color: $warmGrey;
+	border-color: $coolGrey;
 	&:hover,&:focus{
-		background: $lightGrey;
-		border-color: $lightGrey;
+		background: $ice;
+		border-color: $ice;
 		color: $navy;
 	}
 	&:active{

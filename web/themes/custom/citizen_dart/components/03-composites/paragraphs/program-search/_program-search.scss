@@ -17,10 +17,12 @@
 		.form-actions{
 			input.form-submit.button{
 				@include submitButton;
-        color: $navy;
-        height: 56px;
-        border-width: 2px;
-				margin: 0;
+        & {
+          color: $navy;
+          height: 56px;
+          border-width: 2px;
+          margin: 0;
+        }
 			}
 		}//end form actions
 	}//end program search form

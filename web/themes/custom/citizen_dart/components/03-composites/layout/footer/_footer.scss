@@ -4,129 +4,45 @@
 
 @use '../../../00-base/base' as *;
 
-.prefooter-wrapper{
-	background: $prefooterBack;
+.prefooter-inner{
+	background-color: $prefooterBack;
 	color: $prefooterText;
+  overflow: hidden;
 	position: relative;
 	z-index: 1;
-	margin-top: calc(20px + 29vw);
-	&:after{
-		content: '';
-		display: block;
-		position: absolute;
-		bottom: calc(100% - 1px);
-		right: 0;
-		width: 100vw;
-		height: 29vw;
-		clip-path: polygon(100% 0%, 0% 100%, 100% 100%);
-		background: $prefooterBack;
-		z-index: -2;
-	}
-	.back-anchor{
-		a{
-			@include safeFlex(column,nowrap,center,center);
-			width: 96px;
-			height: 96px;
-			position: absolute;
-			top: -70px;
-			left: 20px;
-			z-index: 500;
-			border-radius: 50%;
-			background-color: $white;
-			border-radius: 50%;
-			box-shadow: 0 4px 4px rgba(0,0,0,.25);
-      opacity: 0;
-      @include rotate(180);
-			@include desk{
-				display: none;
-			}
-			svg{
-				fill: none;
-			}
-			&:active{
-				background: $lightGrey;
-			}
-		}
-	}//end back anchor
+  &:before {
+    background: url('../images/elements/wavy-y-white-large.svg') no-repeat scroll right center / 485px, $prefooterBack;
+    background-blend-mode: overlay, normal;
+    content: '';
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    @include tab {
+      background: url('../images/elements/wavy-y-white.svg') no-repeat scroll right -200px center / 1200px, $prefooterBack;
+      opacity: .65;
+    }
+  }
 	.dialog-off-canvas-main-canvas &{
 		transform-style: unset;
 		*{
 			transform-style: unset;
 		}
 	}
-	.prefooter-guard{
-		background: $prefooterBack;
-	}
 	.prefooter-inner{
 		padding: 32px $siteMarginMobile 67px;
 		max-width: $contentStop + 40px;
 		@include auto;
 		position: relative;
-    @include desk{
+    @include tab {
       padding-bottom: 37px;
     }
 		& > div{
 			@include safeFlex(row,wrap,center,start);
-			@include desk{
+			@include tab {
 				@include safeFlex(row,wrap,justify,start);
 			}
-		}
-		//address
-		.block-2{
-			@include onlySmall{
-				width: 100%;
-				order: 99;
-			}
-			@include desk{
-				position: absolute;
-				top: -275px;
-				left: 100vw;
-				z-index: -2;
-			}
-      @media screen and (min-width: 1600px){
-        top: calc(180px - 29vw);
-      }
-      @media screen and (min-width: 1700px){
-        top: calc(180px - 28.5vw);
-      }
-      @media screen and (min-width: 1800px){
-        top: calc(180px - 27.5vw);
-      }
-      @media screen and (min-width: 1900px){
-        top: calc(180px - 26.5vw);
-      }
-      @media screen and (min-width: 2000px){
-        top: calc(180px - 25.75vw);
-      }
-      @media screen and (min-width: 2300px){
-        top: calc(180px - 25vw);
-      }
-      @media screen and (min-width: 2500px){
-        top: calc(180px - 24vw);
-      }
-      @media screen and (min-width: 2900px){
-        top: calc(180px - 22.5vw);
-      }
-      @media screen and (min-width: 3300px){
-        top: calc(180px - 21vw);
-      }
-    }//end address block
-		.block-footer-for-menu{
-			@include auto;
-			@include desk{
-				margin: calc(80px - 27vw) $siteMarginMobile 0 auto;
-			}
-      @include contentStop{
-        margin-top: -300px;
-        margin-right: $siteMarginDesk;
-      }
-		}
-		.block-footer-menu{
-			width: 100%;
-      @include desk{
-        margin-left: -22px;
-        margin-bottom: 0;
-      }
 		}
 	}//end prefooter inner
 
@@ -139,57 +55,101 @@
         transition: opacity 0.5s ease-in, transform .5s ease-in-out;
       }
     }
-    .block-2{
-      @include desk{
-        left: 60px;
-        @include transition-animate(left, 0.75s, ease-in);
-      }
-    }
   }//end visible
 }//end prefooter-wrapper
 
+.back-anchor{
+  position: relative;
+  a{
+    @include safeFlex(column,nowrap,center,center);
+    width: 66px;
+    height: 66px;
+    position: absolute;
+    top: -30px;
+    right: 20px;
+    z-index: 500;
+    border-radius: 50%;
+    background-color: $white;
+    border-radius: 50%;
+    box-shadow: 0 4px 4px rgba(0,0,0,.25);
+    @include desk{
+      display: none;
+    }
+    svg{
+      fill: none;
+      width: 45%;
+    }
+    &:active{
+      background: $ice;
+    }
+  }
+}//end back anchor
 
 .site-footer{
-	background: $footerBack;
+	background-color: $footerBack;
 	color: $footerText;
-	.dialog-off-canvas-main-canvas &{
-		transform-style: unset;
-		*{
-			transform-style: unset;
-		}
-	}
+  overflow: hidden;
+  position: relative;
+  &:before {
+    background: url('../images/elements/wavy-lines-white.png') -167.691px -117.284px / 3000px no-repeat transparent;
+    background-blend-mode: overlay;
+    content: '';
+    height: 100%;
+    left: 0;
+    opacity: .05;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    @include tab {
+      background-size: 2500px;
+    }
+  }
+  @include desk {
+  }
 	.modal-content{
 		color: $baseText;
 	}
 	//set style for footer (need inner for fixed footer script)
 	.footer-inner{
-		padding: 0 $siteMarginMobile 115px;
+		padding: $spaceMl $siteMarginMobile $spaceLg;
 		@include auto;
+    max-width: $contentStopMargin;
 		position: relative;
-    @include smallTab{
-			padding-top: 20px;
-		}
 		@include tab{
-			padding-bottom: 100px;
+			padding-bottom: 45px;
+			padding-top: 75px;
 		}
-    @media screen and (min-width: 1024px){
-      padding-bottom: 20px;
-      .logged-in &{
-        padding-bottom: 80px;
-      }
-    }
-		& > div{
-			@include safeFlex(row,wrap,center,end);
+		> div{
 			@include bleed(padding,20px);
-			@include tab{
+			@include desk {
 				align-items: flex-end;
+        display: grid;
+        grid-template:
+          "a c"
+          "b c" auto / 50% 50%;
 			}
 		}
+    .block-2 {
+      grid-area: a;
+    }
+    .block-3 {
+      grid-area: b;
+    }
+    .footer-for {
+      grid-area: c;
+    }
     //social
+    .block-2,
     .block-3{
-      margin-bottom: $spaceSm;
       @include smallTab{
         margin-bottom: $spaceXxs;
+      }
+    }
+    .block-footer-for-menu {
+      break-before: column;
+      margin-top: $spaceLg;
+      @include desk {
+        margin-top: 0;
       }
     }
 		.footer-ancillary{
@@ -198,12 +158,26 @@
         margin-bottom: $spaceXxs;
       }
 		}
-		//copy right
-		.block-1{
-			width: 100%;
-			// @include contentStopMargin{
-			// 	width: 360px;
-			// }
-		}
 	}//end footer-inner
 }//end footer
+
+.postfooter {
+  @include auto;
+  max-width: $contentStopMargin;
+  padding: 0 $siteMarginMobile;
+  .postfooter-inner {
+    border-top: 1px solid $footerRule;
+    padding: $spaceLg 0 $spaceXl;
+    position: relative;
+    @include tab {
+      padding-bottom: $spaceMd;
+      padding-top: $spaceMdLg;
+    }
+    > div {
+      @include tab {
+        @include safeFlex(row, no-wrap, justify, center);
+        gap: 30px;
+      }
+    }
+  }
+}

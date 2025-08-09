@@ -3,10 +3,10 @@
 .node-teaser-job{
 	margin:0 auto 4rem;
 	max-width:894px;
-	border-bottom:1px solid $lightGrey;
+	border-bottom:1px solid $borderRule;
 
 	h2 a{
-		border-bottom:1px dashed $brightBlue;
+		border-bottom:1px dashed $navy;
 		&:hover{
 			border-bottom:none;
 		}

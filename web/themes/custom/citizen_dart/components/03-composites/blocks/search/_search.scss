@@ -2,6 +2,7 @@
 	 SEARCH
 =================== */
 @use '../../../00-base/base' as *;
+@use '../../../01-parts/buttons/button-mixins' as *;
 @use 'sass:color';
 
 ///mixin placholder
@@ -66,12 +67,12 @@
 		z-index: 9;
 		width: 100%;
 		height: 0;
-		background: $navy;
+		background: $royal;
 		transition:height .2s ease,visibility .2s ease,opacity .2s ease;
 		visibility:hidden;
 		opacity:0;
 		&.expanded{
-			height:30rem;
+			height:33rem;
 			opacity:1;
 			visibility:visible;
 		}
@@ -79,14 +80,15 @@
 			content: '';
 			display: block;
 			top: 0;
-			left: 2rem;
+			left: 4rem;
 			position: absolute;
-			width: 405px;
-			height: 405px;
-			background-image: url(../images/logos-badges/uwec-seal-white.svg);
-			background-position: center -203px;
+			width: 313px;
+			height: 313px;
+      opacity: .3;
+			background-image: url(../images/logos-badges/seal.svg);
+			background-position: center -108px;
 			background-repeat: no-repeat;
-			background-size: 405px 405px;
+			background-size: 313px 313px;
 			z-index: -1;
 		}
 		.logged-in &{
@@ -101,7 +103,7 @@
 			padding: 0 20px;
 			@include safeFlex(column,nowrap,center,center);
 			.gsc-control-searchbox-only{
-				width: 820px;
+				width: 674px;
 				max-width: 100%;
 				//clear search box
 				.gsst_a .gscb_a {
@@ -116,161 +118,159 @@
 	}//end google search container
 }//end search block form
 
-//search console wrapper
-.gsc-control-wrapper-cse,.gsc-control-searchbox-only{
-	font-family: $bodyText;
-	.paragraph--type--custom-embed &{
-		visibility: visible !important;
-		.gsc-search-box{
-			display: table !important;
-		}
+// the search form at the top of /search
+#search-results-wrapper .gsc-control-wrapper-cse{
+	visibility: visible !important;
+	label{
+		font-size:2rem;
+		color:$royal;
 	}
-	.gsc-search-box{
-		width: 100%;
-		@include auto;
-		position: relative;
-		padding: 0;
-		margin: 0;
-		background: none;
-		border: 0;
-		box-shadow: none;
-		.layout__region--content &{
-			@include exposedForm;
-			@include edgeToEdge;
-			max-width: calc(100% + 40px);
-			width: calc(100% + 40px);
-			@include desk{
-				@include edgeReset;
-				width: 100%;
-			}
+	form.gsc-search-box{
+		display:table !important;
+		width:100%;
+		max-width:894px;
+		margin:0 auto;
+		background-color:$ice;
+		padding:4rem;
+	}
+	input.gsc-input{
+		height:48px !important;
+		padding:1px 16px !important;
+		border-top-left-radius:4px;
+		border-bottom-left-radius:4px;
+	}
+	td.gsc-input{
+		padding-right:12px;
+	}
+	.gsc-input-box{
+		border-radius:4px;
+		padding:0;
+	}
+	.gsib_a{
+		padding:1px 0 0 0;
+	}
+
+	button.gsc-search-button{
+		@include submitButton;
+		margin:auto;
+	}
+}
+
+// header search box
+.search-box-wrapper{
+	.gsc-control-wrapper-cse,.gsc-control-searchbox-only{
+		font-family: $bodyText;
+		.paragraph--type--custom-embed &{
+			visibility: visible !important;
 			.gsc-search-box{
-				padding: 0;
-				margin: 0;
-				width: 100%;
+				display: table !important;
 			}
 		}
-		& > label{
-			@include heading3;
-			margin-bottom: $spaceXxs;
-			color: $navy;
-			margin-left: 3rem;
-			header &{
-				color: $white;
-			}
+		.gsc-search-box{
+			width: 100%;
+			@include auto;
+			position: relative;
+			padding: 0;
+			margin: 0;
+			background: none;
+			border: 0;
+			box-shadow: none;
 			.layout__region--content &{
-				font-family: $displayHeader;
-				font-size: 21px;
-				line-height: 1.17;
-				font-weight: $regular;
-				margin-bottom: $spaceXs;
-				display: inline-block;
+				@include exposedForm;
+				@include edgeToEdge;
+				max-width: calc(100% + 40px);
+				width: calc(100% + 40px);
+				@include desk{
+					@include edgeReset;
+					width: 100%;
+				}
+				.gsc-search-box{
+					padding: 0;
+					margin: 0;
+					width: 100%;
+				}
 			}
-		}
-		//search box input
-		td.gsc-input{
-			padding-right: 0;
-			.gsc-input-box{
-				padding: 11px 50px 11px 20px;
-				border-radius: 25px;
-				border: 0;
-				background: $ice;
+			& > label{
+				font-weight: $heavy;
+				line-height: 1.5;
+				margin-bottom: $spaceXxs;
+				color: white;
+				margin-left: 2rem;
+				header &{
+					color: $white;
+					@include menuStop {
+						font-size: 2rem;
+						margin-left: 0;
+						margin-bottom: 1.5rem;
+					}
+				}
 				.layout__region--content &{
-					background: $white;
-				}
-				header &{
-					@include menuStop{
-						padding: 4px 20px 5px;
-						margin-right: 12px;
-					}
-				}
-				input.gsc-input{
-					@include browserWipe;
-					font-size: 2rem;
-					font-family: $bodyText;
+					font-family: $displayHeader;
+					font-size: 21px;
+					line-height: 1.17;
 					font-weight: $regular;
-					@extend %searchBlockPlaceholder;
-					background: none !important;
-					&:focus{
-						@extend %searchBlockPlaceholderFocus;
-					}
-				}//end input
-			}//end gsc input box
-		}// end gsc input td
-
-    //clear search box
-    .gsst_a .gscb_a {
-      padding-top: 4px;
-      color: $transNavy !important;
-      font-family: $bodyText;
-      font-size: 22px;
-      line-height: 1;
-      &:hover,&:focus {
-        color: inherit !important;
-      }
-    }
-
-		.gsc-search-button{
-      position: absolute;
-      top: 0;
-      right: 0;
-      header &{
-        @include menuStop{
-          position: static;
-        }
-      }
-			button.gsc-search-button-v2{
-				@include browserWipe;
-				border: 1px solid $navy;
-				border-radius: 25px;
-				color: $navy;
-				background-color: transparent;
-				margin-bottom: 0;
-				height: 50px;
-				padding: 3px 23px 0;
-				text-transform: uppercase;
-        background-image: url('../images/elements/search.svg');
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: 17px 17px;
-        .layout__region--content &{
-          border: none;
-          top: 5px;
-          right: 5px;
-          background-image: url('../images/elements/search.svg');
-          background-repeat: no-repeat;
-          background-size: 17px;
-          background-position: center;
-        } 
-				&:hover,&:focus{
-					background-color: $navy;
-					color: $white;
-          .layout__region--content &{
-			background-color: color.adjust($ice, $lightness: 1%);
-            background-image: url('../images/elements/search-blue.svg');
-          }
+					margin-bottom: $spaceXs;
+					display: inline-block;
 				}
-				header &{
-					border: 1px solid $white;
-					color: $white;
-          @include menuStop{
-            font-size: 14px;
-            line-height: 1.2;
-            font-family: $header;
-            font-weight: $xHeavy;
-            background-image: none;
-          }
-					&:hover,&:focus{
-						background-color: $white;
-						color: $navy;
+			}
+
+			//search box input
+			td.gsc-input{
+				padding-right: 0;
+				.gsc-input-box{
+					border-radius: 25px;
+					border: 0;
+					background: $ice;
+					.layout__region--content &{
+						background: $white;
 					}
+					header &{
+						@include menuStop{
+							padding:0;
+							margin-right: 15px;
+							border-radius: 4px;
+						}
+					}
+					.gsib_a{
+						padding:1px 0 0 0;
+					}
+					input.gsc-input{
+						height:48px !important;
+						padding-left:2rem !important;
+						font-size: 2rem;
+						font-family: $bodyText;
+						font-weight: $regular;
+						@extend %searchBlockPlaceholder;
+						background: none !important;
+						@include menuStop{
+							padding-left:1rem !important;
+						}
+						&:focus{
+							@extend %searchBlockPlaceholderFocus;
+						}
+					}//end input
+				}//end gsc input box
+			}// end gsc input td
+
+			//clear search box
+			.gsst_a .gscb_a {
+				padding-top: 4px;
+				color: $transNavy !important;
+				font-family: $bodyText;
+				font-size: 22px;
+				line-height: 1;
+				&:hover,&:focus {
+					color: inherit !important;
 				}
-				svg{
-					display: none;
-				}//end svg
-			}//end button v2
-		}//end gsc search button
-	}//end gsc search box
-}//end google search control wrapper
+			}
+
+			button.gsc-search-button{
+				@include submitButton;
+				margin:0;
+			}
+		}//end gsc search box
+	}//end google search control wrapper
+}
 
 //search autocomplete suggestions
 .gssb_c{
@@ -298,17 +298,24 @@
 }//end autocomplete suggestions table
 
 .search-box-wrapper.mobile-search {
-	padding: 40px 2.5rem 0;
-	margin-bottom: 6rem;
+	padding: 0 2.5rem;
+	margin-bottom: 5rem;
 	.gsc-search-box {
 		label {
 			display: block;
+      font-family: $header;
+      font-weight: $xHeavy;
+      font-size: 2rem;
+      line-height: 1.5;
 			margin-bottom: $spaceXxs;
 		}
 		.gsc-input-box {
 			.gsst_a {
 				padding: 0;
 			}
+      .gsc-input {
+        font-size: 1.75rem;
+      }
 		}
 		.gsc-search-button .gsc-search-button-v2 {
 			border: unset !important;
@@ -327,127 +334,4 @@
 	max-width: 894px;
 	margin: $elementSpace auto 0;
 }
-
-
-
-#search-results-wrapper {
-  max-width: 984px;
-  @include auto;
-  //general wrapper
-  .gsc-control-cse{
-    padding: 0;
-    background: transparent;
-    border: none;
-  }
-	a, a *:not(.gscb_a) {
-		color: $link !important;
-	}
-  // sorting/ordering
-  .gsc-result-info,.gsc-orderby-label{
-    color: $navy;
-    font-size: 1.5rem;
-  }
-  .gsc-selected-option-container{
-    background: $lightGrey;
-    border: none;
-  }
-	.gsc-tabsArea{
-		display: none;
-	}
-	.gsc-refinementBlock {
-		.gsc-refinementhInactive {
-			color: $link;
-		}
-	}
-	.gsc-result {
-		padding: 0 0 4rem;
-		margin-top: $spaceXs;
-		margin-bottom: 4rem;
-    border-bottom: 1px solid $borderRule;
-    &:nth-last-child(2){
-      border-bottom: 0;
-    }
-	}
-	.gs-per-result-labels{
-		display: none;
-	}
-	a.gs-title {
-    font-family: $header;
-    font-weight: $xHeavy;
-    font-size: 2.25rem;
-    line-height: 1.33;
-    @include dottedLink($brightBlue);
-    padding-bottom: 1px;
-    &:hover,&:focus{
-      color: $navy !important;
-      background-image: none;
-    }//end hover, focus
-    b {
-    	font-size:inherit;
-    	color:inherit !important;
-    }
-	}//end title link
-	.gsc-url-top{
-    margin-bottom: $spaceXxs;
-    *{
-      font-size: 1.75rem;
-      color: $royal;
-    }
-	}
-  .gsc-table-result{
-    .gs-web-image-box{
-      margin-right: 12px;
-      width: 90px;
-      @include tab{
-        width: 150px;
-      }
-      .gs-image{
-        border: none;
-        max-width: 100%;
-        max-height: 100%;
-      }
-    }
-    .gsc-table-cell-snippet-close{
-      font-size: 2rem;
-      line-height: 1.5;
-    }
-  }
-	.gsc-cursor-box {
-		text-align: center;
-		margin-bottom: $elementSpace;
-		border-top: 1px solid var(--border);
-		padding-top: 4.5rem;
-		.gsc-cursor{
-			background: $lightGrey;
-			padding: 14px 20px;
-			border-radius: 25px;
-			.gsc-cursor-page {
-				color: $navy;
-				font-size: 14px;
-				line-height: 32px;
-				margin: 0 4px;
-				padding: 2px 0;
-				width: 30px;
-				text-align: center;
-				display: inline-block;
-				border: 0;
-				background-color: transparent;
-				&:hover,&:focus{
-					background: $warmGrey;
-				}
-				&.gsc-cursor-current-page{
-					color: $white;
-					background: $navy;
-					&:hover,&:focus{
-						color: $navy;
-						background: $warmGrey;
-					}
-				}
-			}//end cursor page
-		}	//end cursor
-	}//end GSC cursor box
-	.gcsc-find-more-on-google-magnifier {
-		fill: $link;
-	}
-}//end search results wrapper
 

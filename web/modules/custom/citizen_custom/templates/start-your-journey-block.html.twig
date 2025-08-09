@@ -1,0 +1,22 @@
+{#
+/**
+ * @file
+ * Custom theme implementation for a 'Start Your Blugold Journey' element.
+ *
+ * Available variables
+ * - title: by default is "Start Your Blugold Journey
+ * - links: Array of text/url pairs intended for buttons in the element:
+ *   - text: The text inside the link.
+ *   - url: The path for the link to follow.
+ *
+ * @ingroup themeable
+ * @see src/Plugin/Block/StartYourJourney.php
+ */
+#}
+
+<h2>{{ title }}</h2>
+<div class="start-your-journey-buttons">
+  {% for link in links %}
+    <a href="{{ link.url }}">{{ link.text }}</a>
+  {% endfor %}
+</div>

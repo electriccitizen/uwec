@@ -5,14 +5,14 @@
 
 .paragraph--type--accordions{
   //and background for the accordions depending on layout section
-  background: $lightGrey;
+  background: $ice;
   position: relative;
   padding: 35px 0;
   @include menuStop{
     padding: 60px 20px 80px;
   }
   &:after{
-    @include fullBack($lightGrey);
+    @include fullBack($ice);
   }
   .node-type-page & {
     @include menuStop {
@@ -34,7 +34,7 @@
   }
   .widget-section > .layout:not(.layout--onecol) &,.node-support-book &{
     @include tab{
-      background: $lightGrey;
+      background: $ice;
       margin-left: -20px;
       margin-right: -20px;
       padding-left: 20px;
@@ -71,18 +71,20 @@
 	//accordion header bar
 	.accordion-header{
 		a{
-			color: $accordHeader;
 			@include heading2;
-			font-size: 2.25rem;
-			line-height: 24px;
-			position: relative;
-			border-top: 1px solid $accordHeaderBorder;
-			border-bottom: 1px solid $accordHeaderBorder;
-			margin-top: -1px;
-			padding: 10px 40px 10px 10px;
-			background: $accordHeaderBack;
-			min-height: 84px;
+      & {
 			@include safeFlex(column,nowrap,center,start);
+        color: $accordHeader;
+        font-size: 2.25rem;
+        line-height: 24px;
+        position: relative;
+        border-top: 1px solid $accordHeaderBorder;
+        border-bottom: 1px solid $accordHeaderBorder;
+        margin-top: -1px;
+        padding: 10px 40px 10px 10px;
+        background: $accordHeaderBack;
+        min-height: 84px;
+      }
       @include desk{
         font-size: 2.5rem;
         line-height: 32px;
@@ -97,19 +99,20 @@
           top: calc(50% - 15px);
         }
 				svg{
+          width: 22px;
 					fill: none;
 				}
 			}
-			&:hover,&:focus{
+			&:hover{
 				color: $accordHeaderHover;
 				background: $accordHeaderBackHover;
 				border-color: $accordHeaderBorderHover;
 				@include transAll(.3s);
         text-decoration: none;
-        .accordion-header-text{
-          @include dottedLink($brightBlue);
-        }
 			}
+      &:focus{
+        color: $accordHeaderHover;
+      }
 		}//end a
 	}//end accorion header
 
@@ -136,15 +139,15 @@
 				color: $accordActive;
 				background: $accordActiveBack;
 				border-bottom: 0;
-				&:hover,&:focus{
+				&:hover{
 					color: $accordActiveHover;
 					background: $accordActiveBackHover;
 					border-color: $accordActiveBorderHover;
           text-decoration: none;
-          .accordion-header-text{
-            @include dottedLink($brightBlue);
-          }
 				}
+        &:focus {
+          color: $royal;
+        }
 				.accordion-chevron{
 					@include rotate(180);
 				}

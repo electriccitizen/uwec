@@ -10,20 +10,25 @@ section.alert-wrapper{
 }
 
 .site-header {
-	body:not(.hero-full_image):not(.node-type-news):not(.hero-video):not(.node-type-bios) &{
-		background: $headerBack;
-	}
-	body.node-type-bios & {
-		background: $navy;
-	}
-	padding: 29px $siteMarginMobile;
+	padding: 34px $siteMarginMobile;
+  .node-type-announcement &,
+  .node-type-contact &,
+  .node-type-fact &,
+  .node-type-hours &,
+  .node-type-snapshot &,
+  .node-type-support-book &,
+  .node-type-testimonial &,
+  .node-type-video-card &,
+  .path-taxonomy & {
+    background: radial-gradient(50.13% 157.8% at 6.18% 33.85%, #0F2C46 0%, #232C99 100%);
+  }
 	& > div{
 		max-width: $contentStopMargin;
 		@include auto;
 		position: relative;
 		@include safeFlex(row,wrap,justify,center);
     @include menuStop{
-      padding-bottom: 10px;
+      padding: 30px $siteMarginMobile 6px;
     }
 		.contextual-region{
 			.contextual{
@@ -42,14 +47,11 @@ section.alert-wrapper{
 	position: relative;
 	z-index: 13;
 	@include desk{
-		width: 151px;
+		width: 171px;
 	}
-  @include menuStop{
-    bottom: -21px;
-  }
 	a{
 		img{
-			max-width: 106px;
+			max-width: 129px;
 			margin-right: 4px;
 			@include desk{
 				max-width: 100%;
@@ -80,7 +82,7 @@ section.alert-wrapper{
 .block-secondary-menu{
 	@include menuStop{
 		position: absolute !important;
-		right: 60px;
+		right: 64px;
 		top: 0;
 		z-index: 16;
 		width: calc(100% - 300px);
@@ -97,7 +99,7 @@ section.alert-wrapper{
     position: absolute;
     height: 40px;
     width: 40px;
-    top: -8px;
+    top: -3px;
     right: 0;
     z-index: 23;
   }
@@ -106,10 +108,8 @@ section.alert-wrapper{
     position: absolute !important;
 		right: 0;
     top: auto;
-		bottom: -20px;
+		bottom: 0;
 		z-index: 12;
 		width: 100%;
-		padding-left: 0;
-		padding-right: 40px;
 	}//end desk
 }//end main nav

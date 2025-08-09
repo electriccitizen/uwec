@@ -43,7 +43,7 @@
 		padding: 6rem 2.5rem 2rem;
 		text-align: center;
 		margin-top: 0;
-		@include gradient(bottom,$lightGrey,0%,transparent);
+		@include gradient(bottom,$ice,0%,transparent);
 		&:after{
 			bottom: 2.5rem;
 			right: calc(50% - 74px);
