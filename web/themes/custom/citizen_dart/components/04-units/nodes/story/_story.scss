@@ -337,6 +337,7 @@
     a{
       @include linkArrow(goldRoyal, lg);
       min-height: 32px;
+      font-size: 2rem;
     }//end a
   }//end teaser-title
 }//end teaser story

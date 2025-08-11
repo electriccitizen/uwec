@@ -285,7 +285,7 @@
 
 @mixin contactContent{
 	color: $navy;
-  font-family: $displayHeader;
+  font-family: $header;
 	font-size: 1.75rem;
 	line-height: 1.625;
 	.field{
@@ -299,9 +299,6 @@
         margin-bottom: $spaceXxs;
       }
     }
-		.icon-wrapper{
-			display: none;
-		}
 	}
 	.field-email{
     a{
@@ -317,8 +314,29 @@
       }
     }
 	}//end field email
+  .field {
+    .icon-wrapper {
+      width: 16px;
+      margin-right: 12px;
+      svg,path {
+        stroke: $royal;
+      }
+      .cls-1 {
+        fill: $royal;
+      }
+    }
+  }
+  .field-phone{
+    svg{
+      max-height: 15px;
+      margin-top: 4px;
+    }
+  }
   .field-phone,.field-fax{
     @extend .field-email;
+    #phone-icon {
+			fill: none !important;
+		}
   }
 }//end contact contnet
 
