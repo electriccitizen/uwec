@@ -41,6 +41,8 @@
         .select-item{
           width: 33.33%;
           max-width: 330px;
+          border-left: 1px solid $white;
+          border-right: 1px solid $white;
         }
         &.items-4{
           .select-item{
