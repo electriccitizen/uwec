@@ -54,7 +54,7 @@
     width: 1115px;
     mix-blend-mode: overlay;
     transform: rotate(5deg);
-    opacity: .8;
+    opacity: .5;
     @media screen and (min-width: 700px) {
       top: -216px;
       width: 1260px;
@@ -68,6 +68,7 @@
     @include menuStop {
       top: -346px;
       left: -60px;
+      opacity: .7;
       width: calc(100% + 120px);
       transform: rotate(-5deg);
     }
@@ -154,13 +155,12 @@
     font-family: $header;
     font-size: 3rem;
     font-weight: $heavy;
-    margin-bottom: $spaceMd;
-    max-width: 70%;
+    margin: 0 auto $spaceMd;
+    max-width: 650px;
     padding: 0 $siteMarginMobile;
     text-align: left;
     @include desk {
       font-size: 3.75rem;
-      max-width: 650px;
       @include auto;
       text-align: center;
     }
@@ -168,9 +168,9 @@
 
   .field-button {
     padding: 0 $siteMarginMobile;
-    @include desk {
-      max-width: 650px;
-      @include auto;
+    max-width: 650px;
+    @include auto;
+    @include desk {  
       text-align: center;
     }
     a {
