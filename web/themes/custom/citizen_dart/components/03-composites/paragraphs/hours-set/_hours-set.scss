@@ -49,12 +49,19 @@
 .paragraph--type--hours-set{
   color: $navy;
   font-size: 1.75rem;
-  font-family: $displayHeader;
   line-height: 1.625;
   .widget-wrapper{
     @include safeFlex(row,nowrap,start,start);
     .icon-wrapper{
-      display: none;
+      width: 16px;
+      margin-right: 12px;
+      svg{
+        fill: none;
+        path {
+          stroke: $royal;
+        }
+      }
+
     }
   }
   .field-set-title{

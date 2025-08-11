@@ -250,6 +250,18 @@
 		.block-field {
 			margin-bottom: 1.5rem;
 		}
+    .field {
+      .icon-wrapper {
+        width: 16px;
+			  margin-right: 12px;
+        svg,path {
+          stroke: $royal;
+        }
+        .cls-1 {
+          fill: $royal;
+        }
+      }
+    }
 		.nid,.field-phone,.field-email {
       a {
         display: block;
@@ -266,9 +278,6 @@
     .nid a{
       margin-bottom: 1.5rem;
     }
-    .icon-wrapper {
-      display: none;
-    }
 		#hours-icon {
 			fill: none !important;
 		}
@@ -278,6 +287,29 @@
 		#cv-icon {
 			fill: none !important;
 		}
+    .field-address {
+      svg {
+        max-height: 17px;
+			  margin-top: 6px;
+      }
+    }
+    .field-email {
+      svg{
+        max-height: 16px;
+        margin-top: 3px;
+      }
+    }
+    .field-phone{
+      svg{
+        max-height: 15px;
+        margin-top: 4px;
+      }
+    }
+    .field-office-hours,.field-info{
+      svg{
+        margin-top: 2px;
+      }
+    }
 		.field-platforms .platform-links{
       li{
         margin-right: 1rem;
