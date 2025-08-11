@@ -17,6 +17,11 @@
       }
     }
   }
+  .widget-title {
+    @include desk {
+      margin-bottom: $spaceMdLg;
+    }
+  }
 	article{
 		opacity: 0;
 	}
