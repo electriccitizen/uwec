@@ -111,10 +111,11 @@ $quoteWidthDesk: calc($breakoutWidth + $siteMarginMobile);
     }
   	.body-wrapper{
 			@include quote;
-      font-size: 3rem;
+      color: $headingText;
+      font-size: 24px;
       line-height: 1.5;
       @include contentStop{
-        font-size: 4rem;
+        font-size: 30px;
       }
 		}
   }//end field body
@@ -127,12 +128,15 @@ $quoteWidthDesk: calc($breakoutWidth + $siteMarginMobile);
   		width: 240px;
       margin: 0;
   	}
-    .stripes{
+    .stripes {
+      background: url('../images/elements/gold-wave-fat.svg') no-repeat left top / auto 230px transparent;
+      height: 235px;
+      left: -37px;
+      opacity: 0;
       position: absolute;
       top: -46px;
-      left: -57px;
+      width: 170px;
       z-index: 0;
-      opacity: 0;
       .testimonial-visible &{
         opacity: 1;
         @include transition-animate(opacity, 1s, ease-out);
@@ -145,21 +149,26 @@ $quoteWidthDesk: calc($breakoutWidth + $siteMarginMobile);
       z-index: 1;
       min-height: 175px;
       .testimonial-eyebrow{
-        font-size: 1.5rem;
+        font-size: 15px;
+        font-weight: $heavy;
         text-transform: uppercase;
         margin-bottom: 1.5rem;
       }
       .field-image{
         max-width: 240px;
-        margin-bottom: $spaceMd;
+        margin-bottom: $spaceXms;
       }
       .testimonial-title{
-        @include heading2;
-        margin-bottom: $spaceXs;
+        color: $headingText;
+        font-family: $displayHeader;
+        font-size: 25px;
+        font-weight: $heavy;
+        line-height: 1.32;
+        margin-bottom: $spaceXms;
       }
       .testimonial-major{
         font-size: 2rem;
-        line-height: 2;
+        line-height: 1.625;
       }
     }//end details inner
   }//end testimonial details
