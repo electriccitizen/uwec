@@ -97,26 +97,25 @@
             &:after{
               content: none;
             }
-            .gold-stripes{
+            &:before {
               display: none;
             }
           }
         }
-        .gold-stripes{
+        &:before {
+          background: url('../images/elements/gold-wave-fat.svg') no-repeat scroll center / 100% transparent;
           position: absolute;
+          display: block;
+          content: "";
           top: 20px;
           right: -20px;
           z-index: 0;
           width: 77px;
-          height: 136px;
+          height: 226px;
           @include desk{
-            width: 195px;
+            width: 105px;
             height: 344px;
             right: -23px;
-            svg{
-              width: 195px;
-              height: 344px;
-            }
           }
         }//end gold striptes
         .image{
