@@ -2,6 +2,7 @@
    COOKIE POPUP!
 ===============*/
 @use '../../../00-base/base' as *;
+@use '../../../01-parts/buttons/_button-mixins.scss' as *;
 
 #sliding-popup.sliding-popup-bottom {
   background-color: $royal;
@@ -9,6 +10,13 @@
   padding: $spaceSm 0;
   width: 100%;
   border-top: 2px solid $white;
+
+  .popup-content{
+    max-width:900px;
+    padding:2rem;
+    box-sizing:border-box;
+  }
+
   h2 {
     color: $white;
     font-size: 2rem;
@@ -32,25 +40,7 @@
     }
   }
   .eu-cookie-compliance-buttons button {
-    background-color: $royal;
-    border: 1px solid $white;
-    border-radius: 25px;
-    color: $white;
-    display: inline-block;
-    font-family: $header;
-    min-width: 116px;
-    padding: 13px 20px 10px;
-    text-align: center;
-    text-transform: uppercase;
-    @include transAll(.3s);
-    &:not(:last-of-type) {
-      margin-bottom: $spaceSm;
-      margin-right: $spaceSm;
-    }
-    &:hover,&:focus{
-      background-color: $white;
-      color: $royal;
-      @include animation('breathe .75s 1');
-    }
+    @include button;
+    margin-bottom:1rem;
   }
 }
