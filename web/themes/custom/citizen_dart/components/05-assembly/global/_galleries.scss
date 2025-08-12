@@ -56,9 +56,9 @@
 ------------------- */
 body{
   .featherlight{
-    background: $navy !important;
+    background: $royal !important;
     .featherlight-content {
-      background: $navy;
+      background: $royal;
       padding: 0px;
       border-bottom: 0px;
       overflow: visible;
@@ -72,7 +72,7 @@ body{
         height: 100%;
         width: 100%;
         max-height: 100vh;
-        overflow-y: scroll;
+        overflow-y: auto;
       }
       .featherlight-counter{
         font-family: $header;
@@ -99,17 +99,13 @@ body{
         background: none;
         top: 20px;
         right: 20px;
-        color: $gold;
-        @include dottedLink($gold);
+        color: $white;
+        @include lineLink;
         font-family: $bodyText;
-        font-size: 2rem;
+        font-size: 14px;
         line-height: 1.875;
         width: auto;
         height: auto;
-        &:hover,&:focus{
-          color: $white;
-          @include dottedLink($white);
-        }
         @include desk{
           right: 40px;
         }
@@ -120,6 +116,9 @@ body{
         bottom: auto;
         right: auto;
         @include sliderPrev;
+        &:hover {
+          background: none;
+        }
         span {
           display: block;
           font-size: 0;
@@ -133,6 +132,9 @@ body{
         bottom: auto;
         left: auto;
         top: calc(40% - 48px);
+        &:hover {
+          background: none;
+        }
         span {
           display: block;
           font-size: 0;
@@ -150,7 +152,8 @@ body{
         max-width: 872px;
         .field-caption-headline {
           font-family: $header;
-          font-size: 2.25rem;
+          font-size: 2.5rem;
+          font-weight: $heavy;
           margin-bottom: $spaceXxs;
         }
       }//end featherlight caption
