@@ -10,6 +10,9 @@
     z-index: 1;
     @include headerInvasion;
     @include heroFullWidthImage;
+    & {
+      margin-bottom: 0;
+    }
     @include onlyMobile {
       margin-bottom: 0;
       .block-field.block-nid {
@@ -60,7 +63,6 @@
       padding: 0;
       @include desk {
         display: block;
-        margin-top: -0.5rem;
       }
       li,
       li a {
@@ -68,7 +70,10 @@
       }
       li a {
         @include linkArrow(gold, sm);
-        color: $headingText;
+        & {
+          color: $headingText;
+          line-height: 1.5;
+        }
       }
     }
     .block-field-story-categories {
@@ -82,7 +87,7 @@
       }
       .category {
         font-size: 16px;
-        line-height: 2;
+        line-height: 1.5;
         &:after {
           color: $gold;
           content: "|";
