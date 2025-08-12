@@ -79,11 +79,8 @@
     .block-field-story-categories {
       color: $navy;
       .field-story-categories {
-        @include safeFlex(row, wrap, start, start);
+        @include safeFlex(row, wrap, end, start);
         min-height: 31px;
-        @include desk {
-          @include safeFlex(row, wrap, end, start);
-        }
       }
       .category {
         font-size: 16px;
