@@ -35,7 +35,6 @@
       @include desk {
         @include safeFlex(row,nowrap,justify,start);
         gap: $spaceSm;
-        margin-right: -12rem;
         max-width: none;
         width: auto;
       }
@@ -44,16 +43,15 @@
     .block-field-story-categories {
       margin: $spaceSm 0;
       @include desk {
-        flex: 1 1 50%;
         margin-bottom: $spaceXl;
       }
     }
     @include desk {
       .block-system-breadcrumb-block {
-        flex: 1 1 25%;
+        flex: 1 0 25%;
       }
       .block-field-story-categories {
-        flex: 1 1 50%;
+        flex: 1 1 100%;
       }
     }
 
@@ -75,21 +73,11 @@
     }
     .block-field-story-categories {
       color: $navy;
-      @include menuStop{
-        width: 100%;
-        margin-right: -12vw;
-      }
-      @include contentStopMargin{
-        margin-right: -16vw;
-      }
-      @include contentStop{
-        margin-right: -400px;
-      }
       .field-story-categories {
-        @include safeFlex(row, wrap, end, start);
+        @include safeFlex(row, wrap, start, start);
         min-height: 31px;
         @include desk {
-          @include safeFlex(row, wrap, start, start);
+          @include safeFlex(row, wrap, end, start);
         }
       }
       .category {
