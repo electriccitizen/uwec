@@ -25,7 +25,6 @@
 .paragraph--type--quote {
 	color: $royal;
   background: $ice;
-  @include edgeToEdge;
 	@media screen and (min-width: 954px){
 		@include auto;
 	}
