@@ -69,7 +69,8 @@
         color: $navy;
       }
       li a {
-        @include lineLink;
+        @include linkArrow(gold, sm);
+        color: $headingText;
       }
     }
     .block-field-story-categories {
@@ -241,7 +242,7 @@
 
     .block-field-authors {
       @include edgeToEdge;
-      background-color: $royal;
+      background-color: $ice;
       margin-bottom: 0;
       margin-top: 12rem; // Needs to be large to accommodate overlapping.
       padding: 0 $siteMarginMobile;
