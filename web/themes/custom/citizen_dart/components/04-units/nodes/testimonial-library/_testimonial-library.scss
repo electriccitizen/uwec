@@ -231,10 +231,10 @@ $quoteWidthDesk: calc($breakoutWidth + $siteMarginMobile);
   }//end field body
   .testimonial-details{
     background: $ice;
-    @include safeFlex(row,nowrap,start,stretch);
+    @include safeFlex(row,nowrap,end,stretch);
     @include auto;
     @include desk{
-      padding: 0 103px 20px;
+      padding: 0 0 20px;
     }
     .testimonial-meta{
       flex: 1 1;
@@ -247,7 +247,7 @@ $quoteWidthDesk: calc($breakoutWidth + $siteMarginMobile);
       }
       @include desk{
         &:not(:only-child){
-          flex: 0 0 335px;
+          flex: 0 0 360px;
           order: 2;
           font-size: 2rem;
           padding: 20px 32px;
