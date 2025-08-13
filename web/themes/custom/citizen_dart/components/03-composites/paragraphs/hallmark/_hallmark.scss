@@ -87,7 +87,6 @@
   }
   &.hallmark-visible .content{
     .hallmark-image {
-      margin-bottom: $spaceMs;
       .field-image {
         position: relative;
         z-index: 2;
@@ -224,8 +223,6 @@
       position: relative;
       max-width: 874px;
       z-index: 1;
-      width: calc(100% - 40px);
-      left: 20px;
       @include tab{
         flex: 0 0 58%;
         z-index: -2;
