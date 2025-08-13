@@ -138,8 +138,6 @@
       }
     }//end left
     &.right{
-      .hallmark-image {
-      }
       @include tab{
         .hallmark-image{
           @include animation('hallmarkDeskRight 1.5s 1 forwards');
