@@ -75,18 +75,18 @@
 .node-widget-video-card{
   .video-card-eyebrow-lg{
     display: none;
-    @include carouselBreak{
-      color: $galleryEyebrow;
+    color: $galleryEyebrow;
+    font-size: 16px;
+    font-weight: $heavy;
+    letter-spacing: .05em;
+    line-height: 1.5;
+    margin-bottom: $spaceMs;
+    position: relative;
+    text-align: right;
+    text-transform: uppercase;
+    z-index: 2;
+    @include smallTab {
       display: block;
-      font-size: 16px;
-      font-weight: $heavy;
-      letter-spacing: .05em;
-      line-height: 1.5;
-      margin-bottom: $spaceMs;
-      position: relative;
-      text-align: right;
-      text-transform: uppercase;
-      z-index: 2;
     }
     @include desk{
       padding-top: 22px;
@@ -136,13 +136,14 @@
       width: 50%;
     }
   }
-  .field-eyebrow{
+  .field-eyebrow {
+    color: $royal;
     margin-top: $spaceSm;
     font-size: 1.5rem;
     line-height: 1.5;
     text-transform: uppercase;
     letter-spacing: .05em;
-    @include carouselBreak{
+    @include smallTab {
       display: none;
     }
   }
