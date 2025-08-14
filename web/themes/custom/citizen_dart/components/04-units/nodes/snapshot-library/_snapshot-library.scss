@@ -169,15 +169,17 @@
       width: 43.7%;
     }
     .field-eyebrow {
-      color: $galleryEyebrow;
-      display: none;
-      font-size: 15px;
-      font-weight: $heavy;
+      color: $royal;
+      font-size: 1.5rem;
+      letter-spacing: .05em;
       line-height: 1.5;
       margin-bottom: $spaceXxs;
       text-transform: uppercase;
       @include smallTab {
-        display: block;
+        color: $galleryEyebrow;
+        font-size: 15px;
+        font-weight: $heavy;
+        letter-spacing: normal;
       }
     }
     .snapshot-title{
