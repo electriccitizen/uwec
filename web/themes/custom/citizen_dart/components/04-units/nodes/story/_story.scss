@@ -34,7 +34,7 @@
     @include auto;
     max-width: $textMax;
     .layout__region--content {
-      @include safeFlex(row,nowrap,start,start);
+      @include safeFlex(row,nowrap,end,start);
       @include desk {
         @include safeFlex(row,nowrap,justify,start);
         gap: $spaceSm;
@@ -45,9 +45,6 @@
     .block-system-breadcrumb-block,
     .block-field-story-categories {
       margin: $spaceSm 0;
-      @include desk {
-        margin-bottom: $spaceXl;
-      }
     }
     @include desk {
       .block-system-breadcrumb-block {
