@@ -94,7 +94,7 @@
   }//end eyebrow lg
   .video-card-text{
     color: $galleryCaptionAlt;
-    padding: 20px 0 12px;
+    padding: 24px 0 12px;
     @include smallTab {
       @include safeFlex(row,nowrap,start,start);
       padding: 20px 0 0;
