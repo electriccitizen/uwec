@@ -43,6 +43,9 @@
           max-width: 330px;
           border-left: 1px solid $white;
           border-right: 1px solid $white;
+          &:not(:last-child){
+            border-bottom: 0;
+          }
         }
         &.items-4{
           .select-item{
@@ -68,6 +71,9 @@
       z-index: 1;
       &:nth-child(even) {
         background: $royal;
+      }
+      &:not(:last-child){
+        border-bottom: 2px solid $white;
       }
       @include desk{
         padding-top: 150px;
