@@ -37,6 +37,9 @@ class SyncService {
 		// load that file into an array
 		$data = $this->getFileData($filename);
 
+		// keep track of all profile IDs so we can un-publish all the other ones later
+		$profile_ids_in_feed = [];
+
 		// create/update/unpublish Users and Profiles
 		foreach($data as $row){
 			$user = $this->findExistingUser($row['id']);
@@ -79,7 +82,14 @@ class SyncService {
 				$profile->setOwnerId($user->id());
 				$profile->save();
 			}
+
+			// remember the profile id
+			$profile_ids_in_feed[] = $profile->id();
 		}
+
+		// next, deactivate all profiles that are not in the feed,
+		// and are set to "automatic"
+		$this->unpublishProfiles($profile_ids_in_feed);
 	}
 
 	// deletes the oldest files, keeping FILES_TO_KEEP number of files in the dir.
@@ -346,5 +356,27 @@ class SyncService {
 		}
 
 		return $csv;
+	}
+
+	// un-publishes all "automatic" profiles other than the given profile nids.
+	protected function unpublishProfiles($profile_ids_in_feed){
+		$node_storage = \Drupal::entityTypeManager()->getStorage('node');
+
+		$query = $node_storage->getQuery()
+			->condition('type', 'bios')
+			->condition('status', 1) // only published
+			->condition('field_active', 1) // only unpublish "automatic" profiles
+			->condition('nid', $profile_ids_in_feed, 'NOT IN'); // exclude profiles currently in the feed
+
+		// get all the nids to unpublish
+		$nids = $query->accessCheck(false)->execute();
+		if(empty($nids)) return;
+
+		// unpublish them
+		foreach($nids as $nid){
+			$profile = $node_storage->load($nid);
+			$profile->setUnpublished();
+			$profile->save();
+		}
 	}
 }
