@@ -558,10 +558,7 @@ linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4));
         li{
           color: $navy;
           a{
-            color: $navy;
-            &:hover,&:focus{
-              @include dottedLink($navy);
-            }
+            @include lineLink;
           }
         }
       }//end breadcrumb

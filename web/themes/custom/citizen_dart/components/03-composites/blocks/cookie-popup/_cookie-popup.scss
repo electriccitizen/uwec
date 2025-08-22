@@ -32,7 +32,7 @@
     }
     button {
       @include buttonWipe;
-      @include dottedLink($white);
+      @include lineLink;
       padding: 0;
       &:hover {
         background: none;

@@ -87,24 +87,6 @@
 /* LAYOUT MIXINS
 ---------------------------- */
 
-@mixin cssColumns($columns, $gap, $break){
-	-webkit-column-count: #{$columns};
-	-moz-column-count: #{$columns};
-	column-count: #{$columns};
-	-webkit-column-gap: #{$gap};
-	-moz-column-gap: #{$gap};
-	column-gap: #{$gap};
-	@if $break == 'nobreak'{
-		& > *{
-			display: block;
-			-webkit-column-break-inside: avoid;
-			page-break-inside: avoid;
-			break-inside: avoid;
-			overflow: hidden;
-		}
-	}
-}
-
 @mixin clearFix {
 	&::after {
 		clear: both;
@@ -212,20 +194,6 @@
 	@include visuallyHidden;
 }
 
-@mixin overlay($overlayColor){
-	&:before{
-		content: '';
-		display: block;
-		width: 100%;
-		height: 100%;
-		background: $overlayColor;
-		position: absolute;
-		top: 0;
-		left: 0;
-		z-index: 2;
-	}
-}
-
 @mixin listReset {
 	list-style: none;
 	margin: 0;
@@ -274,132 +242,9 @@
   }
 }
 
-@mixin fullImageOverlay{
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	width: 100%;
-	height: 70%;
-	z-index: 1;
-	@include gradient(top,rgba(217, 217, 217, 0),0, c.$navy);
-}
-
-@mixin triangle($triDirection,$triHeight,$triWidth,$triColor){
-	width: 0;
-	height: 0;
-	-webkit-transform: rotate(0.05deg);
-	-moz-transform: scale(1.1);
-	transform: rotate(0.05deg);
-	$actualWidth: math.div($triWidth, 2);
-	$actualHeight: math.div($triWidth, 2);
-	@if $triDirection == 'up'{
-		border-right: $actualWidth double rgba(0,0,0,0);
-		border-left: $actualWidth double rgba(0,0,0,0);
-		border-bottom: $triHeight solid $triColor;
-	}@else if $triDirection == 'down'{
-		border-right: $actualWidth double rgba(0,0,0,0);
-		border-left: $actualWidth double rgba(0,0,0,0);
-		border-top: $triHeight solid $triColor;
-	}@else if $triDirection == 'left'{
-		border-top: $actualHeight double rgba(0,0,0,0);
-		border-bottom: $actualHeight double rgba(0,0,0,0);
-		border-right: $triWidth solid $triColor;
-	}@else if $triDirection == 'right'{
-		border-top: $actualHeight double rgba(0,0,0,0);
-		border-bottom: $actualHeight double rgba(0,0,0,0);
-		border-left: $triWidth solid $triColor;
-	}
-}
-
-@mixin blueTriangle{
-  content: '';
-  display: block;
-  position: absolute;
-  top: calc(100% - 1px);
-  left: 0;
-  height: 29vw;
-  width: 100vw;
-  z-index: -1;
-  background: c.$royal;
-  clip-path: polygon(0 0, 100% 0, 0 100%);
-}
-
-@mixin lightBack($lightText,$lightLink) {
-	h1,h2,h3,h4,h5,h6,p,div,li,.field-caption {
-		color: $lightText;
-		-webkit-font-smoothing: subpixel-antialiased;
-
-	}
-	:before,:after{
-		color: $lightText;
-	}
-	a{
-		color: $lightLink;
-		&:hover,&:focus{
-			opacity: .6;
-			@include transAll(.3s);
-		}
-	}
-}//end lightBack
-
-@mixin darkBack($darkText,$darkLink) {
-	h1,h2,h3,h4,h5,h6,p,div,li,.field-caption {
-		color: $darkText;
-		-webkit-font-smoothing: antialiased;
-	}
-	:before,:after{
-		color: $darkText;
-	}
-	a{
-		color: $darkLink;
-		&:hover,&:focus{
-			opacity: .6;
-			@include transAll(.3s);
-		}
-	}
-}//end lightBack
-
 @mixin setDimensions($width,$height){
 	width: #{$width};
 	height: #{$height};
-}
-
-@mixin narrowStripes($stripeColor){
-	content: '';
-	display: block;
-	position: absolute;
-	bottom: -50px;
-	left: -100px;
-	width: 263px;
-	height: 171px;
-	z-index: -1;
-	background: repeating-linear-gradient(
-	  -16deg,
-	  #{$stripeColor},
-	  #{$stripeColor} 1px,
-	  transparent 1px,
-	  transparent 16px
-	);
-	clip-path: polygon(0 0, 100% 0, 100% 43%, 0 100%);
-}
-
-@mixin fatStripes($stripeColor, $size: 40px){
-	content: '';
-	display: block;
-	position: absolute;
-	top: 0px;
-	left: -100px;
-	width: 170px;
-	height: 230px;
-	z-index: -1;
-	background: repeating-linear-gradient(
-	  0deg,
-	  $stripeColor,
-	  $stripeColor $size,
-	  transparent $size,
-	  transparent calc($size * 2)
-	);
-	@include skew(0,-16);
 }
 
 @mixin fadeOutEdges {
@@ -468,13 +313,6 @@
   font-weight: 700;
   font-size: $font-size;
   line-height: $line-height;
-}
-
-@mixin dottedLink($dotColor){
-	background-image: linear-gradient(to right, $dotColor 33%, rgba(0,0,0,0) 0%);
-	background-position: bottom;
-	background-size: 4px 1px;
-	background-repeat: repeat-x;
 }
 
 // Parent mixin for both linkArrow and blockArrow, setting all themes and size
@@ -837,7 +675,7 @@
     margin-bottom: 1.5rem;
     a{
       color: c.$navy;
-      @include dottedLink(c.$navy);
+      @include lineLink;
       &:hover,&:focus{
         color: c.$royal;
         background-image: none;
@@ -899,7 +737,7 @@
 			width: calc(100% - 28px);
       a{
         display: inline-block;
-        @include dottedLink(cc.$link);
+        @include lineLink;
         background-position: 0 94%;
         &:hover,&:focus{
           color: c.$navy;
@@ -1063,28 +901,6 @@
 	100%{
 		opacity: 1;
 	}
-}
-
-@include keyframes(sealRollRight) {
-  from {
-    right: 200vw;
-    transform: rotateZ(-360deg);
-  }
-  to {
-    right: 10%;
-    transform: rotateZ(0);
-  }
-}
-
-@include keyframes(sealRollRightDesk) {
-  from {
-    right: 200vw;
-    transform: rotateZ(-360deg);
-  }
-  to {
-    right: 85%;
-    transform: rotateZ(0);
-  }
 }
 
 .fadeIn {

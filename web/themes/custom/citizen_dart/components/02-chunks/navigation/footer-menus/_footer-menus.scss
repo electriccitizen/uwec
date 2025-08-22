@@ -38,7 +38,7 @@
 						display: none;
 					}
           &:hover,&:focus{
-            @include dottedLink($white);
+            text-decoration: underline;
           }
 				}
 				&:hover,&:focus{
