@@ -105,6 +105,11 @@
         bottom: -500px;
       }
     }
+    @include contentStop {
+      &:after {
+        @include fadeOutEdges;
+      }
+    }
   }
   .field.body {
     max-width: $textMax;
