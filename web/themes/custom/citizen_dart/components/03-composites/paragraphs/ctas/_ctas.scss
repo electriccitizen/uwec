@@ -168,6 +168,7 @@
       transform: translateX(-50%);
       width: 1508px;
       height: 691px;
+      pointer-events:none;
       @include onlySmall {
         display: none;
       }
