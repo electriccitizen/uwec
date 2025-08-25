@@ -340,10 +340,12 @@
         margin-bottom: 16px;
         a{
           font-weight: $heavy;
+          color: $white;
           text-decoration: underline;
+          text-decoration-color: $gold;
           &:hover,&:focus{
             text-decoration: none;
-            opacity: .7;
+            color: $gold;
           }
         }
       }

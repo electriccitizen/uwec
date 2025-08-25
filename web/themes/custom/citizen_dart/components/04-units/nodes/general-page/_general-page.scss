@@ -152,15 +152,6 @@
             font-size: 3rem;
             line-height: 1.45;
           }
-          .node-subtitle,.node-body{
-            a{
-              font-weight: $heavy;
-              text-decoration: underline;
-              &:hover,&:focus{
-                text-decoration-color: $gold;
-              }
-            }
-          }//end subtitle/body
         }//end page header text inner
       }//end page header text
       .field-links{
