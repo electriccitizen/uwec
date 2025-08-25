@@ -333,5 +333,23 @@
 	width: 100%;
 	max-width: 894px;
 	margin: $elementSpace auto 0;
+	.gs-result{
+		.gs-title .gs-title{
+			font-size:20px;
+			color:$royal;
+
+			// thanks google
+			*{
+				font-size:inherit;
+				color:inherit;
+			}
+		}
+		.gs-visibleUrl-breadcrumb{
+			font-size:16px;
+		}
+		.gs-image{
+			border:0;
+		}
+	}
 }
 
