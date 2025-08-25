@@ -15,15 +15,44 @@ jobs:
     steps:
       - checkout
 
+      # Restore Pantheon Build Tools' env detection (PRs, tags, default branch, etc.)
       - run:
-          name: Set custom multidev env name from branch
+          name: setup-environment-vars (Pantheon)
+          command: /build-tools-ci/scripts/set-environment
+
+      # Copy what set-environment wrote into a file for the workspace step (unchanged pattern)
+      - run:
+          name: snapshot $BASH_ENV
+          command: cp "$BASH_ENV" bash_env.txt
+
+      # Override TERMINUS_ENV only for NON-default branches to use your branch-based name
+      - run:
+          name: override multidev name on non-default branches
           command: |
-            export MULTIDEV_BRANCH=$(echo "$CIRCLE_BRANCH" | tr '[:upper:]' '[:lower:]' | tr '/' '-' | tr -cd '[:alnum:]-' | cut -c1-11)
-            echo "export TERMINUS_ENV=$MULTIDEV_BRANCH" >> bash_env.txt
-            echo "export MULTIDEV_ENV=$MULTIDEV_BRANCH" >> bash_env.txt
-            echo "✅ Created bash_env.txt:"
-            cat bash_env.txt
-            ls -alh
+            # shellcheck disable=SC1090
+            source bash_env.txt
+            if [ "$CIRCLE_BRANCH" != "$DEFAULT_BRANCH" ]; then
+              ENV_NAME="$(echo "$CIRCLE_BRANCH" \
+                | tr '[:upper:]' '[:lower:]' \
+                | tr '/_' '-' \
+                | sed 's/[^a-z0-9-]//g' \
+                | sed 's/^[^a-z]*/x/' \
+                | cut -c1-11)"
+              {
+                echo "export TERMINUS_ENV=$ENV_NAME"
+                echo "export MULTIDEV_ENV=$ENV_NAME"
+              } >> bash_env.txt
+              echo "Using branch-named multidev: $ENV_NAME"
+            else
+              # On main (default branch), force deploy to Pantheon dev
+              {
+                echo "export TERMINUS_ENV=dev"
+                echo "export MULTIDEV_ENV="
+              } >> bash_env.txt
+              echo "Using DEV environment (default branch build)."
+            fi
+            echo "----- bash_env.txt -----"
+            sed 's/TERMINUS_TOKEN=.*/TERMINUS_TOKEN=****/' bash_env.txt
 
       - persist_to_workspace:
           root: .
@@ -34,32 +63,20 @@ jobs:
     <<: *defaults
     steps:
       - checkout
-
       - attach_workspace:
           at: .
 
       - run:
-          name: Debug workspace
+          name: load env
           command: |
-            echo "📂 Current directory: $(pwd)"
-            ls -alh
+            test -f bash_env.txt || { echo "Missing bash_env.txt"; exit 1; }
+            cp bash_env.txt "$BASH_ENV"
+            # shellcheck disable=SC1090
+            source "$BASH_ENV"
+            echo "TERMINUS_ENV=${TERMINUS_ENV}"
 
       - run:
-          name: Load multidev env name
-          command: |
-            if [ ! -f bash_env.txt ]; then echo "❌ bash_env.txt not found"; exit 1; fi
-            cp bash_env.txt $BASH_ENV
-            source $BASH_ENV
-            echo "✅ Loaded TERMINUS_ENV=$TERMINUS_ENV"
-
-      - run:
-          name: Set Git user identity
-          command: |
-            git config --global user.email "${GIT_EMAIL:-ci@example.com}"
-            git config --global user.name "Pantheon CI"
-
-      - run:
-          name: Deploy to Pantheon
+          name: deploy to Pantheon
           command: ./.ci/deploy/pantheon/dev-multidev
           no_output_timeout: 20m
 
