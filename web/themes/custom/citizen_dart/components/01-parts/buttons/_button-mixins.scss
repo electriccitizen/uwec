@@ -115,7 +115,6 @@
 }
 
 @mixin submitButton{
-	@include safeFlex(column,nowrap,center,center);
 	@include button;
   & {
     background: $submitBack;
