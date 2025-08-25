@@ -87,24 +87,6 @@
 /* LAYOUT MIXINS
 ---------------------------- */
 
-@mixin cssColumns($columns, $gap, $break){
-	-webkit-column-count: #{$columns};
-	-moz-column-count: #{$columns};
-	column-count: #{$columns};
-	-webkit-column-gap: #{$gap};
-	-moz-column-gap: #{$gap};
-	column-gap: #{$gap};
-	@if $break == 'nobreak'{
-		& > *{
-			display: block;
-			-webkit-column-break-inside: avoid;
-			page-break-inside: avoid;
-			break-inside: avoid;
-			overflow: hidden;
-		}
-	}
-}
-
 @mixin clearFix {
 	&::after {
 		clear: both;
@@ -185,15 +167,6 @@
 	}
 }
 
-@mixin height100{
-  @include u.desk{
-    min-height: calc(100vh - 100px);
-  }
-  @include u.menuStop{
-    min-height: calc(100vh - 110px);
-  }
-}//end height 100
-
 /*  STYLE MIXINS
 ------------------- */
 
@@ -219,20 +192,6 @@
 }
 .visually-hidden {
 	@include visuallyHidden;
-}
-
-@mixin overlay($overlayColor){
-	&:before{
-		content: '';
-		display: block;
-		width: 100%;
-		height: 100%;
-		background: $overlayColor;
-		position: absolute;
-		top: 0;
-		left: 0;
-		z-index: 2;
-	}
 }
 
 @mixin listReset {
@@ -278,176 +237,33 @@
 	}@else if $grad-direction == 'right'{
 		background: linear-gradient(to left, $grad-start $gradStartPercent,$grad-stop 100%); /* W3C */
 	}
+  @else {
+    background: linear-gradient($grad-direction, $grad-start $gradStartPercent, $grad-stop 100%);
+  }
 }
-
-@mixin fullImageOverlay{
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	width: 100%;
-	height: 70%;
-	z-index: 1;
-	@include gradient(top,rgba(217, 217, 217, 0),0, c.$navy);
-}
-
-@mixin triangle($triDirection,$triHeight,$triWidth,$triColor){
-	width: 0;
-	height: 0;
-	-webkit-transform: rotate(0.05deg);
-	-moz-transform: scale(1.1);
-	transform: rotate(0.05deg);
-	$actualWidth: math.div($triWidth, 2);
-	$actualHeight: math.div($triWidth, 2);
-	@if $triDirection == 'up'{
-		border-right: $actualWidth double rgba(0,0,0,0);
-		border-left: $actualWidth double rgba(0,0,0,0);
-		border-bottom: $triHeight solid $triColor;
-	}@else if $triDirection == 'down'{
-		border-right: $actualWidth double rgba(0,0,0,0);
-		border-left: $actualWidth double rgba(0,0,0,0);
-		border-top: $triHeight solid $triColor;
-	}@else if $triDirection == 'left'{
-		border-top: $actualHeight double rgba(0,0,0,0);
-		border-bottom: $actualHeight double rgba(0,0,0,0);
-		border-right: $triWidth solid $triColor;
-	}@else if $triDirection == 'right'{
-		border-top: $actualHeight double rgba(0,0,0,0);
-		border-bottom: $actualHeight double rgba(0,0,0,0);
-		border-left: $triWidth solid $triColor;
-	}
-}
-
-@mixin blueTriangle{
-  content: '';
-  display: block;
-  position: absolute;
-  top: calc(100% - 1px);
-  left: 0;
-  height: 29vw;
-  width: 100vw;
-  z-index: -1;
-  background: c.$brightBlue;
-  clip-path: polygon(0 0, 100% 0, 0 100%);
-}
-
-@mixin lightBack($lightText,$lightLink) {
-	h1,h2,h3,h4,h5,h6,p,div,li,.field-caption {
-		color: $lightText;
-		-webkit-font-smoothing: subpixel-antialiased;
-
-	}
-	:before,:after{
-		color: $lightText;
-	}
-	a{
-		color: $lightLink;
-		&:hover,&:focus{
-			opacity: .6;
-			@include transAll(.3s);
-		}
-	}
-}//end lightBack
-
-@mixin darkBack($darkText,$darkLink) {
-	h1,h2,h3,h4,h5,h6,p,div,li,.field-caption {
-		color: $darkText;
-		-webkit-font-smoothing: antialiased;
-	}
-	:before,:after{
-		color: $darkText;
-	}
-	a{
-		color: $darkLink;
-		&:hover,&:focus{
-			opacity: .6;
-			@include transAll(.3s);
-		}
-	}
-}//end lightBack
 
 @mixin setDimensions($width,$height){
 	width: #{$width};
 	height: #{$height};
 }
 
-@mixin rollingSeal {
-  padding-top: 8rem;
-  position: relative;
-  margin: 0 auto -3rem;
-  max-width: 400px;
-  &:before {
-    background: url("../images/logos-badges/seal.svg") no-repeat transparent;
-    content: '';
-    display: none;
-    height: 125px;
-    position: absolute;
-    right: 200vw;
-    top: 1rem;
-    width: 125px;
-    z-index: -1;
-  }
-  &.visible:before {
-    @include animation('sealRollRight 1s');
-    display: block;
-    right: 8%;
-  }
-  @include u.desk {
-    max-width: 100%;
-    margin-bottom: 0;
-    &:before {
-      top: 20px;
-      width: 152px;
-      height: 152px;
-    }
-    &.visible:before {
-      @include animation('sealRollRightDesk 1s');
-      right: 86%;
-    }
-  }
+@mixin fadeOutEdges {
+  -webkit-mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
+  mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
 }
 
-@mixin narrowStripes($stripeColor){
-	content: '';
-	display: block;
-	position: absolute;
-	bottom: -50px;
-	left: -100px;
-	width: 263px;
-	height: 171px;
-	z-index: -1;
-	background: repeating-linear-gradient(
-	  -16deg,
-	  #{$stripeColor},
-	  #{$stripeColor} 1px,
-	  transparent 1px,
-	  transparent 16px
-	);
-	clip-path: polygon(0 0, 100% 0, 100% 43%, 0 100%);
-}
-
-@mixin fatStripes($stripeColor, $size: 40px){
-	content: '';
-	display: block;
-	position: absolute;
-	top: 0px;
-	left: -100px;
-	width: 170px;
-	height: 230px;
-	z-index: -1;
-	background: repeating-linear-gradient(
-	  0deg,
-	  $stripeColor,
-	  $stripeColor $size,
-	  transparent $size,
-	  transparent calc($size * 2)
-	);
-	@include skew(0,-16);
-}
-
-@mixin rightArrow($arrowColor,$arrowBack,$arrowBorder,$arrowSize){
-	@if $arrowSize == 'sm'{
-		width: 20px;
-		height: 20px;
+@mixin rightArrow($arrowBack,$arrowBorder,$arrowSize){
+  @if $arrowSize == 'xs' {
+		width: 19px;
+		height: 19px;
+  }
+	@else if $arrowSize == 'sm'{
+		width: 25px;
+		height: 25px;
 	}@else if $arrowSize == 'lg'{
 		width: 40px;
 		height: 40px;
@@ -455,7 +271,7 @@
 	border-radius: 50%;
 	border: 1px solid $arrowBorder;
 	background-color: $arrowBack;
-	background-image: url(../images/arrows/right-arrow-#{$arrowColor}-#{$arrowSize}.svg);
+	background-image: url(../images/arrows/right-arrow-royal-sm.svg);
 	background-repeat: no-repeat;
 	background-size: 50%;
 	background-position: 50% 50%;
@@ -464,19 +280,20 @@
 
 @mixin arrowLinkBefore($arrowLinkColor, $size: lg) {
   $font-size: 18px;
-  $line-height: 1.44;
+  $line-height: 1.22;
   $padding-left: 56px;
 
   @if $size == sm {
     $font-size: 16px;
     $line-height: 1.2;
-    $padding-left: 30px;
+    $padding-left: 32px;
   }
 
   color: #{$arrowLinkColor};
   display: inline-block;
   font-family: f.$header;
   font-size: $font-size;
+  font-weight: 700;
   line-height: $line-height;
   position: relative;
   padding-left: $padding-left;
@@ -484,7 +301,7 @@
 
 @mixin arrowLinkAfter($arrowLinkColor, $size: lg) {
   $font-size: 18px;
-  $line-height: 1.44;
+  $line-height: 1.22;
 
   @if $size == sm {
     $font-size: 16px;
@@ -493,20 +310,15 @@
 
   color: $arrowLinkColor;
   font-family: f.$header;
+  font-weight: 700;
   font-size: $font-size;
   line-height: $line-height;
 }
 
-@mixin dottedLink($dotColor){
-	background-image: linear-gradient(to right, $dotColor 33%, rgba(0,0,0,0) 0%);
-	background-position: bottom;
-	background-size: 4px 1px;
-	background-repeat: repeat-x;
-}
-
 // Parent mixin for both linkArrow and blockArrow, setting all themes and size
 // choices regardless of whether the arrow appears before or after the element.
-@mixin arrowLink($location: 'before', $theme: navy, $size: lg, $dotted-selector: 'span') {
+@mixin arrowLink($location: 'before', $theme: navy, $size: lg) {
+  @include transAll(.3s);
   // Defaults are the settings for navy, lg.
   $arrow: c.$navy;
   $arrow-string: navy;
@@ -515,50 +327,46 @@
   $hover-border: c.$navy;
   $back: transparent;
   $hover-back: $arrow;
-  $dots: c.$brightBlue;
-
-  $dotted-padding: 2px;
 
   @if $theme == navyLight {
     $arrow-invert: navy;
     $hover-back: c.$white;
     $hover-border: c.$white;
-    $dots: c.$white;
-  }
-  @if $theme == brightBlue {
-    $arrow: c.$brightBlue;
-    $arrow-string: blue;
-    $border: c.$brightBlue;
-    $hover-back: $arrow;
-    $hover-border: $arrow;
   }
   @if $theme == royal {
     $arrow: c.$royal;
     $arrow-string: royal;
-    $border: c.$royal;
-    $hover-back: $arrow;
-    $dots: c.$royal;
+    $border: c.$gold;
+    $back: c.$gold;
+    $hover-border: c.$lightGold;
+    $hover-back: c.$lightGold;
   }
   @if $theme == white {
     $arrow: c.$white;
     $arrow-string: white;
-    $border: c.$white;
+    $border: c.$gold;
     $arrow-invert: royal;
-    $hover-border: $arrow;
-    $hover-back: $arrow;
-    $dots: c.$white;
+    $hover-border: c.$lightGold;
+    $back: c.$gold;
+    $hover-back: c.$lightGold;
   }
   @if $theme == gold {
     $arrow: c.$gold;
     $arrow-string: gold;
     $border: c.$gold;
-    $hover-border: c.$white;
+    $hover-border: c.$lightGold;
     $arrow-invert: navy;
-    $hover-back: c.$white;
-    $dots: c.$white;
+    $back: c.$gold;
+    $hover-back: c.$lightGold;
   }
-  @if $size == sm {
-    $dotted-padding: 1px;
+  @if $theme == goldRoyal {
+    $arrow: c.$royal;
+    $arrow-string: gold;
+    $border: c.$gold;
+    $hover-border: c.$lightGold;
+    $arrow-invert: royal;
+    $back: c.$gold;
+    $hover-back: c.$lightGold;
   }
 
   @if $location == "after" {
@@ -570,28 +378,30 @@
 
   &:#{$location} {
     content: '';
-    @include rightArrow($arrow-string, $back, $border, $size);
+    @include rightArrow($back, $border, $size);
   }
   &:hover, &:focus {
     &:#{$location} {
-      @include rightArrow($arrow-invert, $hover-back, $hover-border, $size);
+      @include rightArrow($hover-back, $hover-border, $size);
     }
-    #{$dotted-selector} {
-      @include dottedLink($dots);
-      padding-bottom: $dotted-padding;
+    span {
+      text-decoration: underline;
     }
   }
 }
 
 // Based on the "Link Arrow" design, this adds a circle-arrow at the start of an
 // element.
-@mixin linkArrow($theme: navy, $size: lg, $dotted-selector: 'span') {
+@mixin linkArrow($theme: navy, $size: lg) {
   // Defaults are the settings for navy, lg.
-  @include arrowLink("before", $theme, $size, $dotted-selector);
+  @include arrowLink("before", $theme, $size);
 
   $top: -10px;
 
-  @if $size == sm {
+  @if $size == xs {
+    $top: -4px;
+  }
+  @else if $size == sm {
     $top: -2px;
   }
 
@@ -605,19 +415,42 @@
 
 // Based on the "Block Arrow" design, this adds a circle-arrow at the end of an
 // element.
-@mixin blockArrow($theme: navy, $size: lg, $dotted-selector: 'span') {
-  @include arrowLink("after", $theme, $size, $dotted-selector);
+@mixin blockArrow($theme: navy, $size: lg) {
+  @include arrowLink("after", $theme, $size);
+  $top: 7px;
 
-  $top: 4px;
-
-  #{$dotted-selector} {
-    margin-right: 10px;
+  @if $size == xs {
+    $top: 4px;
   }
+
   &:after {
     display: inline-block;
     margin-top: -$top;
     position: relative;
     top: $top;
+  }
+}
+
+@mixin lineLink {
+  display: inline-block;
+  text-decoration: underline cc.$linkUnderline;
+  text-underline-offset: 5px;
+  transition: color .3s, text-decoration-color .3s;
+  &:hover {
+    text-decoration: underline transparent;
+    color: cc.$linkUnderline;
+  }
+}
+
+@mixin lineLinkHover {
+  border-bottom: 1px solid transparent;
+  display: inline-block;
+  text-decoration: none;
+  transition: color .3s, border-bottom-color .3s;
+  &:hover {
+    border-bottom: 1px solid cc.$linkUnderline;
+    color: cc.$linkUnderline;
+    text-decoration: none;
   }
 }
 
@@ -630,11 +463,6 @@
     grid-column-end: 4;
     grid-row-start: 1;
     grid-row-end: 2;
-    .field-plain-text,.field-source{
-      @include u.desk{
-        padding-right: 34%;
-      }
-    }
 	}
 	.fact-2{
 		grid-column-start: 1;
@@ -642,11 +470,6 @@
     grid-row-start: 1;
     grid-row-end: 2;
     text-align: right;
-    .field-plain-text,.field-source{
-      @include u.desk{
-        padding-left: 34%;
-      }
-    }
 	}
 	&.facts-count-3,&.facts-count-5{
 		.fact-1{
@@ -663,12 +486,6 @@
 	    grid-row-start: 2;
 	    grid-row-end: 3;
       text-align: center;
-      .field-plain-text,.field-source{
-        @include u.desk{
-          padding-left: 17%;
-          padding-right: 17%;
-        }
-      }
 		}
 	}//end facts count 3
 	&.facts-count-4{
@@ -677,11 +494,6 @@
 	    grid-column-end: 4;
 	    grid-row-start: 2;
 	    grid-row-end: 3;
-      .field-plain-text,.field-source{
-        @include u.desk{
-          padding-right: 34%;
-        }
-      }
 		}
 		.fact-4{
 			grid-column-start: 1;
@@ -689,11 +501,6 @@
 	    grid-row-start: 2;
 	    grid-row-end: 3;
       text-align: right;
-      .field-plain-text,.field-source{
-        @include u.desk{
-          padding-left: 34%;
-        }
-      }
 		}
 	}//end facts count 4
 	&.facts-count-5{
@@ -703,47 +510,38 @@
 	    grid-row-start: 1;
 	    grid-row-end: 2;
       text-align: right;
-      .field-plain-text,.field-source{
-        @include u.desk{
-          padding-left: 34%;
-        }
-      }
 		}
 		.fact-5{
 			grid-column-start: 3;
 	    grid-column-end: 4;
 	    grid-row-start: 1;
 	    grid-row-end: 2;
-      .field-plain-text,.field-source{
-        @include u.desk{
-          padding-right: 34%;
-        }
-      }
 		}
 	}//end facts count 5
 }//end facts grid
 
 @mixin exposedForm{
-	background: c.$lightGrey;
+	background: c.$ice;
 	max-width: 894px;
 	margin: 0 auto 60px;
   padding: 36px 20px 40px;
   @include u.desk{
-	  padding: 30px 60px 60px;
+	  padding: 64px 60px 60px;
     margin-bottom: 80px;
   }
-  & > h2{
-    font-family: f.$displayHeader;
-    font-size: 21px;
+  & > h2 {
+    font-size: 30px;
     line-height: 1.14;
-    margin-bottom: u.$spaceMd;
-    margin-left: 20px;
+    margin-bottom: u.$spaceMs;
+  }
+  label {
+    color: cc.$label;
   }
 }
 
 @mixin styledHeader($mobile-resize: false) {
-  $main-size: 64px;
-  $strong-size: 70px;
+  $main-size: 75px;
+  $strong-size: 85px;
 
   @if $mobile-resize == true {
     $main-size: 43px;
@@ -751,14 +549,12 @@
   }
   display: block;
   text-align: center;
-  text-transform: uppercase;
   line-height: 1;
   font-weight: 400;
-  font-family: grad, serif;
+  font-family: f.$displayHeader;
   color: #06233d;
   font-feature-settings: "liga", "dlig";
   font-size: $main-size;
-  font-style: italic;
   letter-spacing: .05em;
   @include u.desk{
     font-size: 73px;
@@ -766,7 +562,6 @@
 	strong{
 		font-size: $strong-size;
 		line-height: 1;
-		font-family: f.$header;
 		font-weight: 800;
     display: block;
     letter-spacing: 0;
@@ -775,6 +570,9 @@
       font-size: 79px;
     }
 	}
+  p {
+    margin: 0;
+  }
 }
 
 @mixin profileSlider{
@@ -788,9 +586,9 @@
     margin-right: auto;
   }
   &:after{
-    @include fullBack(c.$gold);
-    top: 58px;
-    height: calc(100% - 58px);
+    @include fullBack(c.$ice);
+    top: 86px;
+    height: calc(100% - 86px);
   }
   .view-content{
     & > div{
@@ -844,7 +642,7 @@
     .profile-stacked-icons{
       margin-bottom: u.$spaceSm;
       .profile-stacked-icon{
-        color: c.$oldGoldDark;
+        color: c.$gold;
         font-size: 1.5rem;
         line-height: 2;
         @include safeFlex(row,nowrap,start,center);
@@ -855,7 +653,7 @@
           margin-right: u.$spaceXxs;
           svg path {
             fill: none;
-            stroke: c.$oldGold;
+            stroke: c.$gold;
           }
         }//end icon wrapper
       }//end profile stacked icon
@@ -877,7 +675,7 @@
     margin-bottom: 1.5rem;
     a{
       color: c.$navy;
-      @include dottedLink(c.$navy);
+      @include lineLink;
       &:hover,&:focus{
         color: c.$royal;
         background-image: none;
@@ -939,7 +737,7 @@
 			width: calc(100% - 28px);
       a{
         display: inline-block;
-        @include dottedLink(cc.$link);
+        @include lineLink;
         background-position: 0 94%;
         &:hover,&:focus{
           color: c.$navy;
@@ -1103,28 +901,6 @@
 	100%{
 		opacity: 1;
 	}
-}
-
-@include keyframes(sealRollRight) {
-  from {
-    right: 200vw;
-    transform: rotateZ(-360deg);
-  }
-  to {
-    right: 10%;
-    transform: rotateZ(0);
-  }
-}
-
-@include keyframes(sealRollRightDesk) {
-  from {
-    right: 200vw;
-    transform: rotateZ(-360deg);
-  }
-  to {
-    right: 85%;
-    transform: rotateZ(0);
-  }
 }
 
 .fadeIn {

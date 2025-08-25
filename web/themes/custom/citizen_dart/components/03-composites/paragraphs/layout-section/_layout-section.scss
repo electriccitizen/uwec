@@ -8,8 +8,10 @@
 	.field-section-title{
 		@include textConstrain;
 		@include heading3;
-		text-align: center;
-		margin-bottom: $spaceSm;
+    & {
+      text-align: center;
+      margin-bottom: $spaceSm;
+    }
 	}
 
 	.widget-section{
@@ -20,4 +22,3 @@
 	}
 
 }//end layout section paragraph
-

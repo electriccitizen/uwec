@@ -3,7 +3,8 @@
 .block-courses{
   > p {
     @include headerGlobals;
-    font-size: $h2;
+    line-height: 1.25;
+    font-size: 22px;
   }
 
   .courses{
@@ -11,7 +12,8 @@
     flex-direction: column;
     gap: 3rem;
     margin-top: 2rem;
-    padding: $siteMarginMobile;
+    padding-bottom: $spaceMs;
+    padding-top: $spaceMs;
 
     @include tab{
       flex-direction: row;
@@ -27,7 +29,13 @@
         margin: .75rem 0;
       }
       h3 {
-        color: $black;
+        font-family: $header;
+        font-size: 18px;
+        font-weight: $xHeavy;
+        margin-bottom: $spaceXxs;
+        @include desk {
+          font-size: 20px;
+        }
       }
       .number {
         font-size: 12px;

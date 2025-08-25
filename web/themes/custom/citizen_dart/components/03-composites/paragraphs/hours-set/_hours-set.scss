@@ -6,29 +6,36 @@
 
 //hours field on the set paragraph
 .field-hours.entity-reference-revisions{
+  
+  .additional-select {
+    & > label {
+      font-size: 1.75rem;
+      line-height: 1.57;
+      text-transform: capitalize;
+      margin-bottom: $spaceXxs;
+      display: block;
+    }
+  }
+
   select.panel-select{
     @include browserWipe;
     width: 100%;
-    font-family: $baseText;
-    color: $brightBlue;
+    background: $white;
+    color: $navy;
     font-size: 14px;
-    line-height: 2.28;
-    letter-spacing: .05em;
-    border-top: 0;
-    border-left: 0;
-    border-right: 0; 
-    border-bottom: 1px solid rgba($brightBlue,.25);
-    background-image: url('../images/elements/caret-down-bright-blue-sm.svg');
+    border: 0;
+    border-radius: 4px;
+    padding: 21px 20px;
+    background-image: url('../images/elements/chevron-royal-down-sm.svg');
     background-repeat: no-repeat;
-    background-size: 9px;
-    background-position: 98% 50%;
+    background-size: 16px;
+    background-position: top 50% right 20px;
     margin-bottom: 24px;
-    padding-left: 6px;
     &:focus{
-      background-image: url('../images/elements/caret-up-bright-blue-sm.svg');
+      background-image: url('../images/elements/chevron-royal-up-sm.svg');
       background-repeat: no-repeat;
-      background-size: 9px;
-      background-position: 98% 50%;
+      background-size: 16px;
+      background-position: top 50% right 20px;
     }
   }//end select
 	.select-panel{
@@ -40,9 +47,9 @@
 
 
 .paragraph--type--hours-set{
-  color: $brightBlue;
+  color: $navy;
   font-size: 1.75rem;
-  line-height: 1.42;
+  line-height: 1.625;
   .widget-wrapper{
     @include safeFlex(row,nowrap,start,start);
     .icon-wrapper{
@@ -50,10 +57,11 @@
       margin-right: 12px;
       svg{
         fill: none;
+        path {
+          stroke: $royal;
+        }
       }
-    }
-    .hours-inner-wrapper{
-      width: calc(100% - 28px);
+
     }
   }
   .field-set-title{
@@ -61,9 +69,9 @@
   }
   .field-hours-set{
     .office-hours__item-label{
-      width: 87px;
+      width: 105px;
       display: inline-block;
-      font-weight: $regular;
+      font-weight: $heavy;
     }
   }//end field hours
   .office-hours{
@@ -71,12 +79,12 @@
     .office-hours__item{
       @include safeFlex(row,nowrap,start,start);
       &:nth-child(5){
-        margin-bottom: $spaceXxs;
+        margin-bottom: $spaceXs;
       }
       .office-hours__item-label{
-        flex: 0 0 87px;
+        flex: 0 0 105px;
         display: block;
-        font-weight: $regular;
+        font-weight: $heavy;
       }
       .office-hours__item-slots{
         margin-right: .5em;

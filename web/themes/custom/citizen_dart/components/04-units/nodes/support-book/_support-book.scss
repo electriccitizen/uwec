@@ -17,10 +17,7 @@
       li{
         color: $navy;
         a{
-          color: $navy;
-          &:hover,&:focus{
-            @include dottedLink($navy);
-          }
+          @include lineLink;
         }
       }
     }

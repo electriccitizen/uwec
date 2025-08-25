@@ -1,0 +1,4 @@
+adding:
+  hostname: rebuild-uwec.pantheonsite.io
+removing:
+  hostname: www.uwec.edu

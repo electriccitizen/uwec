@@ -36,7 +36,6 @@
 	}
 }
 
-
 /* REVISIONS
 -------------------- */
 .revisions-actions{
@@ -87,29 +86,4 @@ body .layout-content{
 -------------------- */
 .node-section{
 	position: relative;
-}
-
-/* HOME PAGE
----------------- */
-.is-front{
-  .node-page #node-section-2{
-    z-index: 1
-  }
-  #node-section-3{
-    @media screen and (min-width: 1600px){
-      margin-top: -3vw;
-    }
-    @media screen and (min-width: 1800px){
-      margin-top: -4vw;
-    }
-    @media screen and (min-width: 2000px){
-      margin-top: -5vw;
-    }
-    @media screen and (min-width: 2200px){
-      margin-top: -5.5vw;
-    }
-    @media screen and (min-width: 2600px){
-      margin-top: -6vw;
-    }
-  }
 }

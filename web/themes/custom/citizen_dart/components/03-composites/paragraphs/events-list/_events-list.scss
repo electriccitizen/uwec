@@ -11,8 +11,10 @@
   @include animation('fadeInDelay 1.5s 1 forwards');
   .events-title{
     @include styledHeader;
-    text-align: left;
-    margin-bottom: $spaceXxs;
+    & {
+      text-align: left;
+      margin-bottom: $spaceXxs;
+    }
     span{
       font-size: 5.375rem;
     }
@@ -59,13 +61,13 @@
       position: absolute;
       top: 108px;
       left: 0;
-      width: 115px;
-      height: 115px;
-      padding: 15px 0 15px 20px;
-      background: $navy;
+      width: 100px;
+      height: 100px;
+      padding:15px 0;
+      background: $royal;
       color: $white;
-      @include safeFlex(column,nowrap,center,start);
-      font-size: 1.5rem;
+      @include safeFlex(column,nowrap,center,center);
+      font-size: 2rem;
       line-height: 2;
       letter-spacing: .05em;
       text-transform: uppercase;
@@ -75,30 +77,41 @@
       }
       .month{
         font-family: $header;
-        font-size: 2.25rem;
+        font-size:2.5rem;
         line-height: 1.33;
       }
       .day{
         font-family: $header;
-        font-size: 4.5rem;
+        font-size:4rem;
         line-height: 1.1;
+		color:$gold;
       }
     }//end date
+
     .image{
       display: block;
       margin-bottom: $spaceXs;
+	  &:empty{
+	  	width:372px;
+		height:372px;
+		background-color:$ice;
+	  }
+	  @include contentStopMargin{
+		  &:empty{
+			width:315px;
+			height:315px;
+		  }
+	  }
     }
+
     .title{
       display: block;
       a{
-        @include blockArrow(navy, sm);
-        &:hover,&:focus{
-          span{
-            @include dottedLink($brightBlue);
-          }
-        }
-      }//end a
-    }//end title
+		@include linkArrow(gold, sm);
+		color:$royal;
+      }
+    }
+
     .summary{
       display: block;
       margin: $spaceXxs 0;
@@ -109,6 +122,9 @@
       line-height: 2;
       text-transform: uppercase;
     }
+	.until span{
+		margin:0 .25rem;
+	}
   }//end event
 
   // one event on wider screens can use more width
@@ -137,7 +153,8 @@
     text-align:center;
     padding-top:2rem;
     a{
-      @include linkArrow();
+      @include linkArrow(gold);
+	  color:$royal;
     }
   }
 }//end events-list widget

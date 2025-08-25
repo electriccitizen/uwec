@@ -7,9 +7,6 @@
 
 .paragraph--type--steps{
   @include edgeToEdge;
-  .widget-title{
-    text-align: left;
-  }
   .step {
     border-bottom: 1px solid $borderRule;
     padding: 6rem 40px;
@@ -44,11 +41,15 @@
     }//end step visible
     .step-number {
       @include safeFlex(row,wrap,start,center);
-      font-family: $header;
+      font-family: $displayHeader;
       font-size: 4.5rem;
+      font-size: 5.75rem;
+      color: $royal;
       line-height: 1;
-      letter-spacing: .05em;
       margin-bottom: 4rem;
+      @include contentStop {
+        font-size: 9.375rem;
+      }
       .widget-section > .layout--onecol &,
       .widget-section > .layout--twocol-section--50-50 &,
       .widget-section > .layout--twocol-section--67-33 > .layout__region--first &,
@@ -75,9 +76,15 @@
       .step-icon{
         width: 31px;
         transform: rotateY(0);
+        @include contentStop {
+          width: 35px;
+        }
         img,svg {
-          width: 31px;
+          width: 32px;
           height: auto;
+          @include contentStop {
+            width: 35px;
+          }
         }
       }//end step icon
     }//end step number
@@ -99,15 +106,20 @@
       }//end layout checks
       .field-headline {
         font-family: $header;
-        font-size: 2.625rem;
-        line-height: 1.42;
+        font-size: 3rem;
+        line-height: 1.45;
+        color: $royal;
+        font-weight: $heavy;
         margin-bottom: $spaceXs;
+        @include contentStop {
+          font-size: 3.75rem;
+        }
       }
       .field-link{
         margin-top: $spaceSm;
         a{
-          @include outlineButton($navy);
-          margin-bottom: 0;
+          @include linkArrow(goldRoyal,lg);
+          min-height: 32px;
         }
       }//end field link
     }//end step details

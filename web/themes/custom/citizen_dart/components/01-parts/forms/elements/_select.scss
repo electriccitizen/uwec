@@ -53,21 +53,15 @@ body,.ui-dialog-off-canvas{
 				position: relative;
 				z-index: 999;
 			}
+      .select2-selection__placeholder {
+        color: $placeColor;
+      }
 			//rendered selection
 			.select2-selection__rendered{
 				padding: 15px 40px 15px 20px;
 				color: $placeColor;
 				text-align: left;
 				background: $siteBack;
-        &:before{
-          content: '';
-          height: 100%;
-          width: 1px;
-          background: $lightGrey;
-          position: absolute;
-          right: 40px;
-          top: 0;
-        }
 			}//end selection rendered
 			.select2-selection__arrow{
 				background-image: none;
@@ -83,7 +77,7 @@ body,.ui-dialog-off-canvas{
 				}
 				// arrow symbol
 				&:after {
-					content: url('../images/elements/chevron-navy-down-sm.svg');
+					content: url('../images/elements/chevron-royal-down-sm.svg');
 					pointer-events: none;
 				}
 			}
@@ -97,13 +91,13 @@ body,.ui-dialog-off-canvas{
         content: '';
         height: 100%;
         width: 1px;
-        background: $lightGrey;
+        background: $ice;
         position: absolute;
         right: 40px;
         top: 0;
       }
 			&:after{
-				content: url('../images/elements/chevron-navy-down-sm.svg');
+				content: url('../images/elements/chevron-royal-down-sm.svg');
         transition: transform .3s ease-out;
         position: absolute;
 				top: 12px;
@@ -144,7 +138,7 @@ body,.ui-dialog-off-canvas{
 			//selected item
 			.select2-selection__choice{
 				border-radius: 0;
-				background-color: $lightGrey;
+				background-color: $ice;
 			}
 		}//end multi
 
@@ -182,7 +176,7 @@ body,.ui-dialog-off-canvas{
 ---------------- */
 .select2-container{
 	.select2-dropdown{
-		border: 1px solid $warmGrey;
+		border: 1px solid $coolGrey;
 		border-radius: 0;
 		border-top: 0;
 		padding: 0;
@@ -196,9 +190,8 @@ body,.ui-dialog-off-canvas{
 	}
 }
 .select2-container--default .select2-results__option[aria-selected="true"]{
-	background-color: $lightGrey;
+	background-color: $ice;
 }
 .select2-container--default .select2-results__option--highlighted[aria-selected]{
 	background-color: $selectHighlight !important;
 }
-

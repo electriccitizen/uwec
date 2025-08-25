@@ -13,26 +13,24 @@
 	}
 
 	li{
-    @include tag;
+    display: inline-block;
+    color: $white;
+    font-weight: $heavy;
+    text-transform: uppercase;
 		&:not(:last-of-type){
 			padding-right: .25rem;
 			&:after{
 				content: " /";
-				font-family: $bodyText;
-				font-size: 1.5rem;
-				letter-spacing: 1px;
-				text-transform: uppercase;
         margin-left: .25em;
-        margin-right: .25em;
 			}
 		}
 		a{
 			@include tag;
       padding-bottom: 3px; // So the hover underline doesn't shift everything.
 			&:hover,&:focus{
-				color: $breadLinkHover;
-        padding-bottom: 2px;
-        @include dottedLink($white);
+        color: $white;
+        text-decoration: underline;;
+				text-decoration-color: $gold;
 			}
 		}
 	}

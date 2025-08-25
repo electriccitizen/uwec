@@ -33,36 +33,33 @@
 //bio node
 .node-bios{
 	#node-section-1{
-    position: relative;
-    z-index: 1;
-		padding-bottom: 14rem;
-    padding-top: 10px;
-    @include onlyMobile{
-      &:before{
-        @include fullBack($brightBlue);
-        top: 100%;
-        height: 42px;
+    @include headerInvasion;
+    background: radial-gradient(50.13% 157.8% at 6.18% 33.85%, #0F2C46 0%, #232C99 100%);
+    overflow: hidden;
+    @include desk{
+      position: relative;
+      padding-bottom: 200px;
+      &:after{
+        content: '';
+        display: block;
+        position: absolute;
+        top: calc(100% - 666px);
+        right: -532px;
         z-index: 0;
+        transform: rotate(-160.31deg);
+        width: 1833px;
+        height: 1337px;
+        background-image: url(../images/elements/river-background-shape.svg);
+        background-repeat: no-repeat;
+        mix-blend-mode: overlay;
       }
     }
-    @include desk{
-      padding-top: 8.75rem;
-      padding-bottom: calc(80px + 16vw);
-    }
-		@media screen and (min-width: 1650px){
-      padding-bottom: calc(80px + 14vw);
-    }
-    @media screen and (min-width: 2100px){
-      padding-bottom: calc(80px + 12vw);
-    }
-    &:after {
-			@include fullBack($navy);
-		}
 		& > .layout--twocol-even {
 			max-width: $contentStopMargin;
 			position: relative;
       @include contentStopMargin{
         width: 100%;
+        padding-top: 80px;
         @include auto
       }
       .layout__region{
@@ -93,8 +90,12 @@
 
     //image - but need to use uid (authored by) field because of logic needed when no image
     .block-field.block-uid {
-      max-width: 426px;
-      margin: 0 auto;
+      padding-left: 32px;
+      @include smallTab{
+        padding-left: 0;
+        max-width: 426px;
+        margin: 0 auto $spaceMd;
+      }
       .field-uid{
         @include desk{
           @include safeFlex(row,wrap,end,start);
@@ -103,27 +104,22 @@
       .image-wrapper {
         position: relative;
         margin-bottom: 2.5rem;
+        
         html.animations-paused & {
           opacity: 1;
         }
         @include animation('fadeInDelay 1.5s 1');
         &:before {
-          background-image: url(../images/elements/fat-stripes-gold.svg);
+          background-image: url(../images/elements/gold-wave-fat.svg);
           content: '';
           display: block;
-          width: 140px;
-          height: 247px;
+          width: 87px;
+          height: 316px;
           position: absolute;
-          bottom: -41px;
+          bottom: -54px;
           left: -30px;
           background-repeat: no-repeat;
           background-size: 100% 100%;
-          @include desk {
-            bottom: -30px;
-            left: -50px;
-            width: 220px;
-            height: 340px;
-          }
         }//end before
         .field-media-image,.favicon-image {
           position: relative;
@@ -141,10 +137,6 @@
       margin-bottom: 1rem;
       margin-left: auto;
       @include safeFlex(row,nowrap,start,start);
-      @include desk{
-        width: auto;
-        margin-left: 3rem;
-      }
 			.icon-wrapper {
 				width: 15px;
 				height: 18px;
@@ -163,37 +155,46 @@
     .block-title {
       margin-bottom: 0;
       @include edgeReset;
+      padding-left: $siteMarginMobile;
+      padding-right: $siteMarginMobile;
       @include desk{
         margin-top: 28px;
       }
       .field.title {
 				margin-bottom: 1rem;
-				margin-top: 3rem;
-				@include desk {
-					margin-top: 0;
-				}
+        h1,.suffixes {
+          color: $gold;
+          @include contentStop {
+            font-size: 9.375rem;
+          }
+        }
 			}
     }//end title block
 
     .block-created {
       margin-bottom: 0;
+      padding-left: $siteMarginMobile;
+      padding-right: $siteMarginMobile;
     }
 
     .block-field-pronouns {
+      padding-left: $siteMarginMobile;
+      padding-right: $siteMarginMobile;
       text-transform: uppercase;
       margin-bottom: 0;
       letter-spacing: 0.05em;
+      .field-pronouns{
+        color: $gold;
+      }
     }
 
     .block-field-positions {
       font-family: $header;
-      margin-top: 6rem;
+      margin-top: 2rem;
       margin-bottom: 0;
-      font-size: 2.5rem;
-      line-height: 1.5;
-      @include desk{
-        margin-top: 8rem;
-      }
+      font-size: 4rem;
+      line-height: 1.45;
+      font-weight: $heavy;
       .field-positions > div:not(:last-child){
         margin-bottom: $spaceXxs;
       }
@@ -201,7 +202,9 @@
 
     //departments & page families -- need type placeholder field because neither is required
     .block-field.block-type {
-      margin-top: 6rem;
+      margin-top: 3rem;
+      padding-left: $siteMarginMobile;
+      padding-right: $siteMarginMobile;
       h2.block-title{
         font-family: $bodyText;
         font-size: 1.75rem;
@@ -213,117 +216,68 @@
       }//end block title
       .departments-offices {
         a {
-          @include blockArrow(gold,sm);
-          font-family: $bodyText;
-          font-size: 2rem;
-          line-height: 1.875;
-          font-weight: $heavy;
-          span{
-            color: $gold;
-          }
+          @include linkArrow(gold,sm);
+         margin-bottom: $spaceXs;
         }//end a
         .office{
           font-family: $bodyText;
           font-size: 2rem;
-          line-height: 1.875;
+          line-height: 1.2;
           font-weight: $heavy;
+          padding-left: 30px;
         }
       }//end field departments
     }//end departments block
-    .blue-triangle {
-      position: absolute;
-      bottom: -1px;
-      left: -20px;
-      height: 29vw;
-      width: 100vw;
-      clip-path: polygon(100% 0%, 0% 100%, 100% 100%);
-      background: $brightBlue;
-      overflow: hidden;
-      @include desk{
-        background: $white;
-        &:after{
-          content: '';
-          display: block;
-          height: 500%;
-          width: 60%;
-          position: absolute;
-          bottom: -2px;
-          right: 0;
-          background: $brightBlue;
-          z-index: 1;
-        }
-      }
-    }//end after
-    .blue-swirl{
-      position: absolute;
-      bottom: -92px;
-      z-index: 5;
-      @include profileSwirlAnimation;
-      @include menuStop{
-        bottom: -100px;
-      }
-      svg{
-        path{
-          stroke: $royal;
-        }
-      }
-    }//end blue swirl
 	}//end node section one
 
 	#node-section-2{
 		@include contactHolder;
-		margin-top: -6rem;
+    max-width: 904px;
 		position: relative;
 		z-index: 10;
 		margin-bottom: $spaceMd;
-    @include smallTab{
-      margin-top: calc(-10px + -8vw);
-    }
-		@include desk {
-      margin-top: calc(-20px + -16vw);
-			margin-bottom: 0;
-		}
-    @media screen and (min-width: 1650px){
-      margin-top: calc(-20px + -14vw);
-    }
-    @media screen and (min-width: 2100px){
-      margin-top: calc(-20px - 12vw);
-    }
-    @media screen and (min-width: 2500px){
-      margin-top: calc(-20px - 11vw);
-    }
-    @media screen and (min-width: 2800px){
-      margin-top: calc(-20px - 10vw);
-    }
+    
     .contact-wrapper{
-      padding-top: 56px;
-      padding-bottom: 50px;
-      @include menuStop{
-        min-height: 20vw;
-      }
-      @media screen and (min-width: 1800px){
-        min-height: 18vw;
-      }
-      @media screen and (min-width: 2100px){
-        min-height: 15vw;
+      @include edgeToEdge;
+      @include desk {
+        margin-top: -100px;
       }
     }
     .contact-title{
       @include contactTitle;
 			margin-bottom: 3.5rem;
-      @include desk{
-        font-size: 25px;
-      }
     }
 		.block-field {
 			margin-bottom: 1.5rem;
 		}
-		.nid a {
-			display: block;
-			margin-bottom: 0.25rem;
-			width: fit-content;
-			border-bottom: 1px dotted;
+    .field {
+      .icon-wrapper {
+        width: 16px;
+			  margin-right: 12px;
+        svg,path {
+          stroke: $royal;
+        }
+        .cls-1 {
+          fill: $royal;
+        }
+      }
+    }
+		.nid,.field-phone,.field-email {
+      a {
+        display: block;
+        width: fit-content;
+        font-weight: $heavy;
+        border-bottom: 1px solid $gold;
+        transition: color .3s, border-bottom-color .3s;
+        &:hover {
+          border-bottom: 1px solid transparent;
+          color: $navy;
+        }
+      }
 		}
+    .nid a{
+      margin-bottom: 1.5rem;
+    }
 		#hours-icon {
 			fill: none !important;
 		}
@@ -333,15 +287,56 @@
 		#cv-icon {
 			fill: none !important;
 		}
+    .field-address {
+      svg {
+        max-height: 17px;
+			  margin-top: 6px;
+      }
+    }
+    .field-email {
+      svg{
+        max-height: 16px;
+        margin-top: 3px;
+      }
+    }
+    .field-phone{
+      svg{
+        max-height: 15px;
+        margin-top: 4px;
+      }
+    }
+    .field-office-hours,.field-info{
+      svg{
+        margin-top: 2px;
+      }
+    }
 		.field-platforms .platform-links{
+      li{
+        margin-right: 1rem;
+      }
       a{
+        width: 36px;
+        height: 36px;
+        &.twitter {
+          svg {
+            width: 22px;
+            height: 22px;
+          }
+        }
         &:hover,&:focus{
           background: color.adjust($ice, $lightness:-3%);
           border-radius: 4px;
+          svg,.cls-1 {
+            fill: $navy;
+          }
         }
         svg {
-          width: 2rem;
-          height: 2rem;
+          width: 24px;
+          height: 24px;
+          fill: $royal;
+          .cls-1 {
+            fill: $royal;
+          }
         }
       }
 		}
@@ -364,21 +359,12 @@
     }
 		h2.block-title {
 			text-align: left;
-			@include heading3;
-			text-transform: capitalize;
-			font-size: 2rem;
-			margin-bottom: 0.5rem;
-			line-height: 2;
-      letter-spacing: 0;
-			@include desk {
-				font-size: 2.25rem;
-			}
-		}
-		.block-field {
-			padding: 0 2.5rem;
-			@include desk {
-				padding: 0;
-			}
+      font-size: 3rem;
+      line-height: 1.45;
+      margin-bottom: $spaceXs;
+      @include desk{
+        font-size: 30px;
+      }
 		}
 	}//end node section three
 }//end bios

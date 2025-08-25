@@ -1,0 +1,20 @@
+uuid: 1255378d-c178-4566-9f23-eb9b1fedf88d
+langcode: en
+status: true
+dependencies:
+  module:
+    - citizen_custom
+  theme:
+    - citizen_dart
+id: citizen_dart_startyourjourney
+theme: citizen_dart
+region: prefooter
+weight: 0
+provider: null
+plugin: start_your_journey
+settings:
+  id: start_your_journey
+  label: 'Start Your Journey'
+  label_display: '0'
+  provider: citizen_custom
+visibility: {  }

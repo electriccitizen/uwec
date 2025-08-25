@@ -16,7 +16,7 @@ Drupal.behaviors.heroVideo = {
       if (video) {
         const videoWrapper = $(this);
         let videoState = localStorage.getItem('heroVideoState') || 'playing';
-        const videoButton = $(`<a href="#" class="video-button" title="${pickButtonLanguage(videoState)}" aria-label="${pickButtonLanguage(videoState)}">${getButtonText(videoState)}</a>`);
+        const videoButton = $(`<a href="#" class="video-button" title="${pickButtonLanguage(videoState)}" aria-label="${pickButtonLanguage(videoState)}"><span>${getButtonText(videoState)}</span></a>`);
 
         if(window.matchMedia('(min-width:600px)').matches){
           // we have a large screen, so show the video

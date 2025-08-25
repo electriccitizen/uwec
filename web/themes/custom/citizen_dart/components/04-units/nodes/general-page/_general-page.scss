@@ -8,28 +8,6 @@
 
 /* PAGE CONTENT */
 .node-page{
-  //nug up to footer at larger screen sizes
-  @include contentStop{
-    margin-bottom: -5vw;
-  }
-  @media screen and (min-width: 1600px){
-    margin-bottom: -5.5vw;
-  }
-  @media screen and (min-width: 1800px){
-    margin-bottom: -6vw;
-  }
-  @media screen and (min-width: 2000px){
-    margin-bottom: -6.5vw;
-  }
-  @media screen and (min-width: 2300px){
-    margin-bottom: -7vw;
-  }
-  @media screen and (min-width: 2500px){
-    margin-bottom: -8vw;
-  }
-  @media screen and (min-width: 2900px){
-    margin-bottom: -9vw;
-  }
   //remove contextual stuff
   &.contextual-region{
     position: static;
@@ -50,9 +28,6 @@
       background: $royal;
       @include edgeToEdge;
     }
-    .hero-image &{
-      padding-bottom: $spaceLg;
-    }
   }
 
   //hero setups
@@ -62,50 +37,13 @@
 
     /* PATTERN HERO */
     &.page-hero-pattern{
+      @include headerInvasion;
       @include patternHero;
       margin-bottom: $elementSpace;
-      @include largeTab{
-        margin-bottom: 60px;
-      }
-      @include desk{
-        margin-bottom: 70px;
-      }
-      .hero-pattern:not(.hero-pattern-links) &{
-        @include largeTab{
-          margin-bottom: 80px;
-        }
-        @include desk{
-          margin-bottom: 90px;
-        }
-        @include menuStop{
-          margin-bottom: 100px;
-        }
-      }
-      //set a shield to prevent swirl from interfering the page title at small screens
-      &:before{
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        background: $brightBlue;
-        width: 100vw;
-        height: 25%;
-        z-index: 1;
-        @include desk{
-          height: 30%;
-        }
-      }
-      &:after{
-        @include patternHeroSwirl;
-      }
       .page-header-text{
-        @include heroBlue;
         @include desk{
           .hide-nav &{
             padding-top: 60px;
-          }
-          .page-header-text-inner > .field:last-child{
-            @include stripesRoyalNarrow;
           }
         }
         .hero-pattern:not(.hero-pattern-links) &{
@@ -121,17 +59,14 @@
           @include desk{
             padding-left: 0;
             padding-right: 0;
-            &:last-child:not(.node-title){
-              @include stripesRoyalNarrow;
-            }
           }
           .node-body{
             a{
               font-weight: $heavy;
-              @include dottedLink($white);
-              &:hover,&:focus{
-                background-image: none;
-                opacity: .7;
+              text-decoration: underline;
+              text-decoration-color: $gold;
+              &:hover,&:focus {
+                text-decoration: none;
               }
             }
           }
@@ -148,31 +83,57 @@
     }//end hero pattern
 
     /* HERO IMAGE RIGHT HALF */
+    @keyframes imageRightWavy{
+      0%{
+        left: 200vw;
+      }
+      100%{
+        left: 0;
+      }
+    }
     &.page-hero-image{
+      @include headerInvasion;
       @include heroRightImage;
-      @include desk{
-        margin-bottom: 2rem;
-        padding-bottom: 29vw;
+      background: radial-gradient(50.13% 157.8% at 6.18% 33.85%, #0F2C46 0%, #232C99 100%);
+      @include desk {
+        min-height: 77vw;
+        margin-bottom: $elementSpace;
         &.vertical-window{
-          margin-bottom: 6vw;
+          min-height: 1030px;
         }
       }
-      @include contentStopMargin{
-        &.vertical-window{
-          margin-bottom: 4vw;
+      @include menuStop {
+        min-height: 75vw;
+      }
+      @include contentStop {
+        min-height: 1170px;
+      }
+      .image-right{
+        &:after {
+          content: none;
         }
-      }
-      @media screen and (min-width: 1600px){
-        margin-bottom: -2vw;
-        &.vertical-window{
-          margin-bottom: 4vw;
+        .image-waves {
+          position: absolute;
+          top: 0;
+          width: 70vw;
+          z-index: -1;
+          left: 200vw;
+          animation:.5s ease .4s 1 imageRightWavy;
+          animation-fill-mode: forwards;
+          @include smallTab {
+            width: 350px;
+          }
+          @include desk {
+            width: 35vw;
+            max-width: 542px;
+          }
+          @include contentStop {
+            width: 40vw;
+          }
+          img {
+            height: 182%;
+          }
         }
-      }
-      @media screen and (min-width: 1900px){
-        margin-bottom: -6vw;
-      }
-      @media screen and (min-width: 2400px){
-        margin-bottom: -8vw;
       }
       .page-header-text{
         margin-bottom: 0;
@@ -181,33 +142,22 @@
             padding-top: 80px;
           }
         }
-        .breadcrumb{
-          padding-left: 20px;
-          padding-right: 20px;
-          @include desk{
-            .breadcrumb-list{
-              max-width: calc(50% - 80px);
-              body:not(.hero-has-image) &{
-                max-width: 100%;
-              }
-            }
-          }
-        }
         .page-header-text-inner{
           .node-title{
-            margin-bottom: $spaceMd;
+            h1 {
+              color: $white;
+            }
+          }
+          .node-subtitle {
+            font-size: 3rem;
+            line-height: 1.45;
           }
           .node-subtitle,.node-body{
-            @include onlyMobile{
-              padding-left: 20px;
-              padding-right: 20px;
-            }
             a{
               font-weight: $heavy;
-              @include dottedLink($white);
+              text-decoration: underline;
               &:hover,&:focus{
-                background-image: none;
-                opacity: .7;
+                text-decoration-color: $gold;
               }
             }
           }//end subtitle/body
@@ -224,191 +174,49 @@
       }
     }//end page hero image
 
-    /* BACKGROUND PATTERNED HERO WITH IMAGE RIGHT HALF */
+    /* BACKGROUND RIVER HERO WITH IMAGE RIGHT HALF */
     &.page-hero-background-image {
+      @include headerInvasion;
       @include heroRightImage;
-      overflow: hidden;
-      padding-bottom: 29vw;
-      background-size: 1273px 958px !important;
-      background-position: left -250px bottom -70px !important;
-      @include heroHeaderInvade;
+      background: radial-gradient(50.13% 157.8% at 6.18% 33.85%, #0F2C46 0%, #232C99 100%);
       &.vertical-window{
         @include desk{
           min-height: 1030px;
         }
       }
-      @include onlyMobile{
-        margin-bottom: $elementSpace;
-      }
-      @include smallTab{
-        background-size: cover !important;
-        background-position: center !important;
-      }
-      @include desk{
-        margin-bottom: 2rem;
-        padding-bottom: 29vw;
-      }
-      @include contentStopMargin{
-        margin-bottom: $elementSpace;
-      }
-      @media screen and (min-width: 1600px){
-        margin-bottom: -2vw;
-      }
-      @media screen and (min-width: 1900px){
-        margin-bottom: -4vw;
-      }
-      @media screen and (min-width: 2400px){
-        margin-bottom: -6vw;
-      }
-      &:before{
-        top: auto;
-        bottom: -1px;
-        background: $siteBack;
-        z-index: 1;
-        clip-path: polygon(100% 0, 100% 100%, 0 100%,);
-        @include desk{
-          content: '';
-          display: block;
-          position: absolute;
-          left: 0;
-          height: 29vw;
-          width: 100vw;
+      .river-background {
+        position: absolute;
+        top: -10px;
+        left: -30px;
+        width: calc(100vw + 120px);
+        height: 100%;
+        overflow: hidden;
+        mix-blend-mode: overlay;
+        @include desk {
+          left: -90px;
+          top: -30px;
         }
-      }
-      .hero-image{
-        .image-right{
-          @include desk{
-            top: 100px;
-            html.animations-paused & {
-              opacity: 1;
-            }
-            @include animation('fadeIn 1.25s 1');
+        img {
+          mix-blend-mode: overlay;
+          width: 1150px;
+          @include desk {
+            width: 1460px;
+            transform: rotate(6deg);
           }
-          @include menuStop{
-            top: 120px;
-          }
-          &:before{
-            html.animations-paused & {
-              opacity: 1;
-              right: 0;
-            }
-            content: '';
-            position: absolute;
-            bottom: -195px;
-            z-index: 0;
-            width: 72px;
-            height: 128px;
-            background-image: url(../images/elements/fat-stripes-blue.svg);
-            background-repeat: no-repeat;
-            background-size: 100%;
-            @keyframes heroSwirlSlideImage {
-              from {
-                right: -200vw;
-              }
-              to {
-                right: 0;
-              }
-            }
-            @include animation('heroSwirlSlideImage 1.5s forwards');
-            @include smallTab{
-              bottom: -68px;
-            }
-            @include desk{
-              bottom: -20px;
-              z-index: -1;
-              width: 150px;
-              height: 242px;
-              background-position: bottom left;
-              right: auto;
-              html.animations-paused & {
-                left: -30px;
-              }
-              @keyframes heroSwirlSlideImage {
-                from {
-                  left: 200vw;
-                }
-                to {
-                  left: -30px;
-                }
-              }
-              @include animation('heroSwirlSlideImage 1.5s forwards');
-            }//end desk
-            @include contentStop{
-              width: 222px;
-              height: 344px;
-              bottom: -35px;
-            }//end content stop
-          }//end image before
-          &:after{
-            content: none;
-          }
-        }//end image right
-      }//end hero image
-      .page-header-text{
-        margin-bottom: 0;
-        @include desk{
-          background: none;
-          .hide-nav &{
-            padding-top: 80px;
-          }
-          &:after{
-            content: none;
-          }
-        }
-        .breadcrumb{
-          padding-left: 20px;
-          padding-right: 20px;
-          @include desk{
-            .breadcrumb-list{
-              max-width: calc(50% - 80px);
-              body:not(.hero-has-image) &{
-                max-width: 100%;
-              }
-            }
-          }
-        }
-        .page-header-text-inner{
-          .node-title{
-            margin-bottom: $spaceMd;
-          }
-          .node-subtitle,.node-body{
-            @include onlyMobile{
-              padding-left: 20px;
-              padding-right: 20px;
-            }
-            a{
-              font-weight: $heavy;
-              @include dottedLink($white);
-              &:hover,&:focus{
-                background-image: none;
-                opacity: .7;
-              }
-            }
-          }//end subtitle/body
-        }//end page header text inner
-      }//end page header text
-      .field-links{
-        padding-left: 40px;
-        max-width: 1092px;
-        @include desk{
-          align-items: flex-start;
-          padding-left: 20px;
-          margin-top: 20px;
         }
       }
     }//end background hero
 
     /* FULL WIDTH IMAGE HERO */
     &.page-hero-full-image {
+      @include headerInvasion;
       @include heroFullWidthImage;
-      margin-top: -88px;
-      padding-top: -88px;
       .page-header-text{
         .page-header-text-inner{
           .in-main-menu &{
             @include menuStop{
               .node-title{
-                margin-bottom: 100px;
+                margin-bottom: 148px;
               }
             }
           }
@@ -418,14 +226,11 @@
 
     /* VIDEO HERO */
     &.page-hero-video{
-      @include heroHeaderInvade;
-      @include edgeToEdge;
+      @include headerInvasion;
       padding-left: 40px;
       padding-right: 40px;
-      padding-top: 88px;
       color: $white;
-      min-height: calc(100vh + 88px);
-      margin-top: -88px;
+      min-height: 100vh;
       background-size: 1440px 1024px !important;
       background-position: left 40% bottom -70px !important;
       position:relative;
@@ -443,6 +248,11 @@
       }
 
       @include desk{
+        &.vertical-window {
+          min-height: unset;
+          height: 100vh;
+          max-height: 1100px;
+        }
         video{
           width:100vw;
         }
@@ -453,23 +263,8 @@
           right:-92px;
         }
         100%{
-          right:0;
+          right:20px;
         }
-      }
-
-      // thick gold slashes in the top right corner, over video hero
-      &:after{
-        content:"";
-        display:block;
-        position:absolute;
-        width:112px;
-        height:300px;
-        top:120px;
-        right:-92px;
-        background:repeating-linear-gradient(0deg, #edac1a, #edac1a 40px, transparent 40px, transparent 80px);
-        transform:skew(0deg, -16deg);
-        animation:.5s ease .4s 1 videoHeroSlashAnim;
-        animation-fill-mode:forwards;
       }
 
       .page-header-text{
@@ -484,42 +279,36 @@
             left:100px;
           }
           @include desk{
-            width:50%;
-            left:200px;
-            bottom:150px;
+            width: 50%;
+            left: 200px;
+            bottom: 120px;
           }
 
           // align left edge with left edge of top nav on large screens
           @include contentStop{
             left:calc((100vw - 1280px) / 2.0);
             width:40%;
-          }
-          .node-body{
-            @include desk{
-              margin-bottom:4rem;
-            }
+            padding-left: 26px;
           }
           .node-title{
-            margin-bottom:2rem;
-            @include desk{
-              margin-bottom:4rem;
-            }
+            margin-bottom:3rem;
             h1.formatted-title{
               color: $white;
-              font-size:40px;
-              @include desk{
-                font-size: 54px;
+              @include contentStop {
+                font-size: 10.625rem;
               }
-              strong{
-                font-size:44px;
-                font-style: normal;
-                font-family: $header;
-                @include desk {
-                  font-size: 58px;
-                }
-              }//end strong
             }//end formatted title
           }//end node-title
+          .video-text {
+            font-size: 1.75rem;
+            line-height: 1.57;
+            margin-bottom: 3rem;
+            max-width: 630px;
+            @include desk {
+              font-size: 2.5rem;
+              line-height: 1.6;
+            }
+          }
         }// end video page header text inner
       }//end video page header text
 
@@ -533,24 +322,14 @@
         align-items: center;
         justify-content: center;
 
-        // top gradient to provide contrast for main nav
+        // gradient over video
         &::before{
           content:"";
           position:absolute;
           width:100%;
           height:100%;
-          background: rgb(6,35,61);
-          background: linear-gradient(180deg, rgba(6,35,61,0.8) 0%, rgba(6,35,61,0.2) 20%, rgba(6,35,61,0.0) 100%);
-        }
-
-        // bottom-left angled gradient to provide contrast for text
-        &::after{
-          content:"";
-          position:absolute;
-          width:100%;
-          height:100%;
-          background: rgb(6,35,61);
-          background: linear-gradient(45deg, rgba(6,35,61,0.8) 0%, rgba(6,35,61,0.5) 50%, rgba(6,35,61,0.1) 100%);
+          background: linear-gradient(360deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.15) 100%),
+linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4));
         }
       }
 
@@ -564,14 +343,8 @@
         position:relative;
         a{
           @include button;
-          color:white;
-          border-color:white;
           margin-bottom:1rem;
           margin-right:2rem;
-          &:hover{
-            color:black;
-            background-color:white;
-          }
         }
       }
     }
@@ -602,19 +375,6 @@
           width: 210px;
         }
       }
-      @include desk {
-        margin-top: 10vw;
-        margin-bottom: 0;
-      }
-      @media screen and (min-width: 1650px){
-        margin-top: 11vw;
-      }
-      @media screen and (min-width: 2100px){
-        margin-top: 12vw;
-      }
-      @media screen and (min-width: 2500px){
-        margin-top: 13vw;
-      }
     }//end field links
 
     .block-system-breadcrumb-block{
@@ -630,19 +390,18 @@
 
   /* WHEN THERE IS NO HERO */
   .hero-none &{
-    .main-node-content{
+    .main-node-content {
       position: relative;
     }
     .node-intro-simple{
+      @include headerInvasion;
       @include heroSimpleBackground;
-      left: -20px;
-      top: -10px;
     }//end intro simple
     .page-header-text{
       .block-system-breadcrumb-block{
         max-width: 1116px;
         @include auto;
-        margin-bottom: $spaceMd;
+        margin-bottom: $spaceXs;
         .breadcrumb{
           li{
             a{
@@ -654,15 +413,14 @@
         }
       }
       .page-header-text-inner{
-        margin-top: 10px;
         position: relative;
         z-index: 1;
         max-width: 1116px;
         @include auto;
-        padding: 80px $siteMarginMobile 60px;
+        padding: 75px $siteMarginMobile 60px;
         &:first-child{
           @include desk{
-            border-top: 40px solid $brightBlue;
+            border-top: 40px solid $royal;
           }
         }
         &:after{
@@ -681,10 +439,9 @@
           max-width: 867px;
           @include auto;
           h1.page-title{
-            color: $brightBlue;
-            @include tab{
-              font-size: 6.5rem;
-              line-height: 1.1;
+            color: $royal;
+            @include contentStop {
+              font-size: 9.375;
             }
           }
         }
@@ -801,10 +558,7 @@
         li{
           color: $navy;
           a{
-            color: $navy;
-            &:hover,&:focus{
-              @include dottedLink($navy);
-            }
+            @include lineLink;
           }
         }
       }//end breadcrumb

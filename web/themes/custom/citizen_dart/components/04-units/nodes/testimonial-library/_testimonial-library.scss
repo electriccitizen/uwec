@@ -20,6 +20,8 @@
 	}
 }
 
+$quoteWidthDesk: calc($breakoutWidth + $siteMarginMobile);
+
 .node-testimonial{
   padding-top: $elementSpace;
 	max-width: $breakoutWidth;
@@ -69,7 +71,7 @@
 //testimonial teasers
 .node-teaser-testimonial{
   position: relative;
-  background: $lightGrey;
+  background: $ice;
   padding: 72px 0 60px;
   @include tab{
     @include safeFlex(row,wrap,start,start);
@@ -96,7 +98,7 @@
     }
   }
   &:after{
-    @include fullBack($lightGrey);
+    @include fullBack($ice);
   }
   .field.body{
   	max-width: 650px;
@@ -109,10 +111,11 @@
     }
   	.body-wrapper{
 			@include quote;
-      font-size: 3rem;
+      color: $headingText;
+      font-size: 24px;
       line-height: 1.5;
       @include contentStop{
-        font-size: 4rem;
+        font-size: 30px;
       }
 		}
   }//end field body
@@ -125,39 +128,47 @@
   		width: 240px;
       margin: 0;
   	}
-    .stripes{
+    .stripes {
+      background: url('../images/elements/gold-wave-fat.svg') no-repeat left top / auto 230px transparent;
+      height: 235px;
+      left: -37px;
+      opacity: 0;
       position: absolute;
       top: -46px;
-      left: -57px;
+      width: 170px;
       z-index: 0;
-      opacity: 0;
       .testimonial-visible &{
         opacity: 1;
         @include transition-animate(opacity, 1s, ease-out);
       }
     }
     .testimonial-details-inner{
-      background: $lightGrey;
+      background: $ice;
       padding: 28px 28px 0;
       position: relative;
       z-index: 1;
       min-height: 175px;
       .testimonial-eyebrow{
-        font-size: 1.5rem;
+        font-size: 15px;
+        font-weight: $heavy;
         text-transform: uppercase;
         margin-bottom: 1.5rem;
       }
       .field-image{
         max-width: 240px;
-        margin-bottom: $spaceMd;
+        margin-bottom: $spaceXms;
       }
       .testimonial-title{
-        @include heading2;
-        margin-bottom: $spaceXs;
+        color: $headingText;
+        font-family: $displayHeader;
+        font-size: 25px;
+        font-weight: $heavy;
+        line-height: 1.32;
+        margin-bottom: $spaceXms;
       }
       .testimonial-major{
         font-size: 2rem;
-        line-height: 2;
+        line-height: 1.625;
       }
     }//end details inner
   }//end testimonial details
@@ -165,51 +176,48 @@
 
 /* TESTIMONIAL WIDGET (content carousel) */
 .node-widget-testimonial{
+  @include auto;
+  max-width: $quoteWidthDesk;
   .testimonial-quote{
-    background: $brightBlue;
+    background: $royal;
     color: $white;
-    padding: 50px 32px 90px;
+    padding: 20px 32px 90px;
     @include carouselBreak{
       padding: 20px 50px 90px;
     }
     @include desk{
-      padding-bottom: 150px;
+      padding-bottom: 120px;
     }
     .testimonial-eyebrow-lg{
-      display: none;
-      @include carouselBreak{
-        display: block;
-        text-transform: uppercase;
-        letter-spacing: .05em;
-        font-size: 1.5rem;
-        line-height: 1.5;
-        margin-bottom: $spaceSm;
-        max-width: 874px;
-        @include auto;
-      }
+      text-transform: uppercase;
+      letter-spacing: .05em;
+      font-size: 1.5rem;
+      line-height: 1.5;
+      margin-bottom: $spaceSm;
+      max-width: 874px;
+      @include auto;
       @include desk{
         margin-bottom: 6rem;
       }
     }//end testimonial eyebrow lg
   }//end testimonial quote
   .field.body{
-    max-width: $largeTab;
     .body-wrapper{
       @include quote;
       .quote-mark{
         margin: 0 auto 40px;
         width: 21px;
-        svg,.cls-1{
-          fill: $white;
-        }
       }
       p{
-        text-align: center;
-        font-size: 21px;
+        text-align: left;
+        font-family: $displayHeader;
+        font-size: 24px;
         line-height: 1.33;
+        font-style: italic;
         @include largeTab{
-          font-size: 31px;
-          line-height: 1.54;
+          font-size: 30px;
+          line-height: 1.433;
+          padding: 0 53px;
         }
         &:last-child{
           margin-bottom: 0;
@@ -218,18 +226,16 @@
     }//end body wrapper
   }//end field body
   .testimonial-details{
-    background: $lightGrey;
-    @include safeFlex(row,nowrap,start,stretch);
-    max-width: $largeTab;
+    background: $ice;
+    @include safeFlex(row,nowrap,end,stretch);
     @include auto;
     @include desk{
-      justify-content: flex-end;
-      padding-bottom: 20px;
+      padding: 0 0 20px;
     }
     .testimonial-meta{
       flex: 1 1;
       padding: 28px 20px 12px;
-      color: $brightBlue;
+      color: $royal;
       font-size: 1.5rem;
       line-height: 1.5;
       @include carouselBreak{
@@ -237,30 +243,30 @@
       }
       @include desk{
         &:not(:only-child){
-          flex: 0 0 335px;
+          flex: 0 0 360px;
           order: 2;
           font-size: 2rem;
-          padding: 36px 28px 24px;
+          padding: 20px 32px;
         }
       }
       .testimonial-title{
-        font-family: $header;
-        font-size: 2.25rem;
+        font-family: $displayHeader;
+        font-size: 22px;
+        font-weight: $heavy;
         line-height: 1.33;
-        margin-bottom: $spaceXs;
+        margin-bottom: $spaceMs;
         @include desk{
-          font-size: 3rem;
+          font-size: 26px;
         }
       }//end testimonial title
-      .field-eyebrow{
-        margin-top: $spaceSm;
-        text-transform: uppercase;
-        letter-spacing: .05em;
-        @include carouselBreak{
-          display: none;
-        }
-      }
       //when no ptoho
+      .field-major {
+        font-size: 16px;
+        font-weight: $heavy;
+      }
+      .field-grad-year {
+        font-size: 14px;
+      }
       &:only-child{
         text-align: center;
         .field-eyebrow{
@@ -276,8 +282,8 @@
       article{
         @include desk{
           position: relative;
-          top: -20px;
-          height: 203px;
+          top: -28px;
+          height: 200px;
         }
       }
       img{

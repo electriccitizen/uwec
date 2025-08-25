@@ -71,31 +71,19 @@ iframe.see-higher{
 /* PAUSE ANIMATIONS BUTTON
 ----------------- */
 .animations-button {
-  background: url("../images/elements/pause-sky.svg") left center / 24px 24px no-repeat;
+  background: url("../images/elements/pause-white.svg") left 2px / 24px 24px no-repeat;
   display: inline-block;
-  height: 34px;
-  font-size: 1.5rem;
   padding-left: 30px;
-  color: $sky;
+  color: $white;
   &:hover,
   &:focus {
-    color: $white;
-    background-image: url("../images/elements/pause-white.svg");
-  }
-  @include desk{
-    position: absolute;
-    top: -6px;
-    right: 8px;
+    background-image: url("../images/elements/pause-white-hover.svg");
   }
   html.animations-paused & {
-    background-image: url("../images/elements/play-sky.svg");
+    background-image: url("../images/elements/play-white.svg");
     &:hover,
     &:focus {
-      background-image: url("../images/elements/play-white.svg");
+      background-image: url("../images/elements/play-white-hover.svg");
     }
-  }
-  span{
-    position: relative;
-    top: 6px;
   }
 }

@@ -14,6 +14,9 @@
 		margin-bottom: $elementSpace;
 		border-bottom: 1px solid $borderRule;
 		padding-bottom: $elementSpace;
+    h1.page-title {
+      font-size: 25px;
+    }
 		.block-field:not(.block-field-image):not(.block-title){
 			margin-bottom: $spaceXxs;
 		}
@@ -21,6 +24,14 @@
 			max-width: 360px;
 			@include auto;
 		}
+    .field-link a {
+      @include linkArrow(gold, sm);
+      color: $link;
+      &:hover,
+      &:focus {
+        text-decoration: underline;
+      }
+    }
 	}
 	#node-section-2{
 		.block-field{
@@ -60,24 +71,11 @@
     bottom: 0;
     left: 0;
     z-index: -1;
-    background: $warmGrey;
+    background: $ice;
   }
-  &.snapshot-visible{
-    .field-image{
-      &:after{
-        right: -130px;
-        @include transition-animate(right, 1s, ease-out);
-
-        @include desk{
-          right: -40px;
-          @include transition-animate(right, .001s, ease-out);
-        }
-      }
-      article img{
-        opacity: 1;
-        @include transition-animate(opacity, .5s, ease-in);
-      }
-    }//end field image
+  &.snapshot-visible .field-image article img {
+    opacity: 1;
+    @include transition-animate(opacity, .5s, ease-in);
   }//end snapshot visible
 	.field-image{
 		margin-bottom: $spaceXs;
@@ -95,18 +93,6 @@
         opacity: 0;
       }
     }
-    &:after{
-      content: url(../images/elements/stripes-narrow-gold.svg);
-      width: 264px;
-      height: 172px;
-      position: absolute;
-      top: 31px;
-      z-index: -1;
-      @include rotate(180);
-      @include onlyMobile{
-        right: 100vw;
-      }
-    }//end image after
 	}//end field image
   .snapshot-teaser-text{
     max-width: $textMax;
@@ -119,10 +105,11 @@
     }
   }
 	.teaser-title{
-		@include heading2;
-    font-size: 18px;
+    @include heading2;
+    font-family: $displayHeader;
+    font-size: 25px;
     line-height: 1.33;
-    margin-bottom: $spaceXxs;
+    margin-bottom: $spaceXs;
 	}
   .field-plain-text{
     line-height: 1.5;
@@ -131,7 +118,8 @@
   .field-link{
     a{
       display: inline-block;
-      @include linkArrow(navy, sm);
+      @include linkArrow(gold, sm);
+      color: $link;
       &:before {
         top: -2px;
       }//end before
@@ -140,119 +128,96 @@
 
 }//end snaptshot teaser
 
-//snapshot widget (for conten carousel)
+//snapshot widget (for content carousel)
 .node-widget-snapshot{
-  color: $brightBlue;
-  background: $lightGrey;
-  @include carouselBreak{
-    background: $siteBack;
-  }
-  .snapshot-widget-content{
-    @include carouselBreak{
-      @include safeFlex(row,wrap,start,stretch);
-      background: $siteBack;
-      padding-top: 27px;
-    }
-    @include carouselBreak{
-      padding-top: 53px;
-    }
+  color: $galleryCaption;
+  .snapshot-widget-content {
+    @include safeFlex(row,wrap,start,stretch);
   }//end snapshot widget content
   .snapshot-top-left{
-    @include carouselBreak{
-      width: 50%;
-      position: relative;
-      z-index: 1;
-    }
-    @include tab{
+    position: relative;
+    z-index: 1;
+    @include smallTab {
       width: 56.3%;
     }
-    .swirl-blue{
+    .waves-gold {
       display: none;
-      @include carouselBreak{
+      position: absolute;
+      top: 15px;
+      right: -190px;
+      width: 75%;
+      z-index: -1;
+      svg {
+        width: 100%;
+        height: auto;
+      }
+      @include tab {
         display: block;
-        position: absolute;
-        top: -53px;
-        left: 112px;
-        width: 50vw;
-        max-width: 611px;
-        z-index: -1;
-        svg{
-          width: 100%;
-          height: auto;
-        }
+        top: 56px;
+        right: calc(-46% - 44px);
+        width: 100%;
       }
-      @include tab{
-        width: 62vw;
-      }
-      @include desk{
-        width: 50vw;
-      }
-    }//end swirl blue;
+    }//end waves gold
   }//end top left
-  .snapshot-top-right{
-    padding: 20px 20px 8px;
-    @include carouselBreak{
-      width: 50%;
+  .snapshot-top-right {
+    padding: $spaceSm 0 $spaceXxs;
+    position: relative;
+    z-index: 2;
+    @include smallTab {
       @include safeFlex(column,nowrap,end,start);
-      padding: 0 0 0 20px;
-    }
-    @include tab{
-      padding: 0 0 0 47px;
+      padding: 0 0 0 44px;
       width: 43.7%;
     }
-    .field-eyebrow{
-      display: none;
-      @include carouselBreak{
-        display: block;
-        font-size: 1.5rem;
-        line-height: 1.5;
-        text-transform: uppercase;
-        letter-spacing: .05em;
-        margin-bottom: $spaceXxs;
+    .field-eyebrow {
+      color: $royal;
+      font-size: 1.5rem;
+      letter-spacing: .05em;
+      line-height: 1.5;
+      margin-bottom: $spaceXxs;
+      text-transform: uppercase;
+      @include smallTab {
+        color: $galleryEyebrow;
+        font-size: 15px;
+        font-weight: $heavy;
+        letter-spacing: normal;
       }
     }
     .snapshot-title{
-      font-family: $header;
-      font-size: 2.25rem;
+      color: $galleryTitle;
+      font-family: $displayHeader;
+      font-size: 25px;
+      font-weight: $heavy;
       line-height: 1.33;
       @include desk{
-        font-size: 3rem;
+        font-size: 25px;
       }
     }
   }//end snapshot toprright
   .snapshot-bottom{
-    padding-right: 20px;
-    padding-left: 20px;
-    @include carouselBreak{
       max-width: 762px;
       margin: $spaceSm auto 0;
       width: 100%;
-    }
     .field-plain-text{
       line-height: 1.5;
-      margin-bottom: $spaceSm;
-      @include carouselBreak{
-        margin-bottom: $spaceXs;
-      }
+      margin-bottom: $spaceMd;
     }
     .field-link{
       margin-bottom: $spaceSm;
       a{
         display: inline-block;
-        @include linkArrow(brightBlue, sm);
+        @include linkArrow(royal, lg);
       }//end a
     }//end field link
   }//end snapshot bottom
   .snapshot-eyebrow-sm{
-    padding-right: 20px;
-    padding-left: 20px;
+    color: $royal;
+    margin-top: $spaceSm;
     font-size: 1.5rem;
     line-height: 1.5;
     text-transform: uppercase;
     letter-spacing: .05em;
-    padding-bottom: $spaceXs;
-    @include carouselBreak{
+    @include smallTab {
       display: none;
     }
-  }//end eyebrow sm
+  }
 }//end widget snapshot

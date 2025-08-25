@@ -10,11 +10,13 @@
   @include auto;
 	.views-exposed-form{
     @include exposedForm;
-    @include edgeToEdge;
+    & {
+      @include edgeToEdge;
+    }
     @include tab{
       @include auto;
     }
-    .keyword-wrapper{
+    .keyword-wrapper {
       width: 100%;
       .form-item-programs-fulltext{
         width: 100%;
@@ -22,37 +24,27 @@
       }
     }//end keyword wrapper
 		.advanced-form{
+      color: $baseTextInvert;
       width: 100%;
       @include tab{
         @include safeFlex(row,wrap,justify,start);
       }
-      .filter-toggle{
-        padding-left: 26px;
-        padding-right: 20px;
+      .filter-toggle {
+        @include lineLink;
+        color: $link;
+        font-weight: $heavy;
         @include onlySmall{
           @include safeFlex(row,nowrap,justify,center);
           font-size: 14px;
           font-family: $header;
           font-weight: $xHeavy;
           letter-spacing: .05em;
-          color: $navy;
           height: 66px;
           margin-bottom: $spaceXxs;
         }
         @include tab{
           order: 2;
           max-width: 50%;
-          span{
-            @include dottedLink($brightBlue);
-          }
-        }
-        &:hover,&:focus{
-          span{
-            @include dottedLink($brightBlue);
-            @include tab{
-              background: none;
-            }
-          }
         }
         &.active-drawer{
           svg#filter-caret{
@@ -80,7 +72,7 @@
         display: none;
         @include tab{
           order: 1;
-        } 
+        }
         .advanced-form-inner-filters{
           @include safeFlex(row,wrap,start,center);
           border-top: 1px solid $borderRule;

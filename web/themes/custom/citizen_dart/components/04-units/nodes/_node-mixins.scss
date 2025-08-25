@@ -5,172 +5,6 @@
 @use '../../00-base/base' as *;
 @use 'sass:color';
 
-@mixin swirlAnimationNoImage {
-  left: auto;
-  html.animations-paused & {
-    right: -240px;
-  }
-  @keyframes heroSwirlSlide {
-    from {
-      right: -200vw;
-    }
-    to {
-      right: -240px;
-    }
-  }
-  @include animation("heroSwirlSlide 1.5s forwards");
-  @include smallTab {
-    html.animations-paused & {
-      right: -220px;
-    }
-    @keyframes heroSwirlSlide {
-      from {
-        right: -200vw;
-      }
-      to {
-        right: -220px;
-      }
-    }
-    @include animation("heroSwirlSlide 1.5s forwards");
-  }
-  @include menuStop {
-    html.animations-paused & {
-      right: -80px;
-    }
-    @keyframes heroSwirlSlide {
-      from {
-        right: -200vw;
-      }
-      to {
-        right: -80px;
-      }
-    }
-    @include animation("heroSwirlSlide 1.5s forwards");
-  }
-  @include contentStop {
-    html.animations-paused & {
-      right: 0;
-    }
-    @keyframes heroSwirlSlide {
-      from {
-        right: -200vw;
-      }
-      to {
-        right: 0;
-      }
-    }
-    @include animation("heroSwirlSlide 1.5s forwards");
-  }
-}//end swirlAnimationNoImage
-
-@mixin swirlAnimationRightImage{
-  left: auto;
-  html.animations-paused & {
-    right: -12px;
-  }
-  @keyframes heroSwirlSlideImage {
-    from {
-      right: -200vw;
-    }
-    to {
-      right: -12px;
-    }
-  }
-  @include animation("heroSwirlSlideImage 1.5s forwards");
-  @include smallTab{
-    html.animations-paused & {
-      right: -30px;
-    }
-    @keyframes heroSwirlSlideImage {
-      from {
-        right: -200vw;
-      }
-      to {
-        right: -30px;
-      }
-    }
-    @include animation("heroSwirlSlideImage 1.5s forwards");
-  }
-  @include desk{
-    right: auto;
-    html.animations-paused & {
-      left: -80px;
-    }
-    @keyframes heroSwirlSlideImage {
-      from {
-        left: 200vw;
-      }
-      to {
-        left: -80px;
-      }
-    }
-    @include animation("heroSwirlSlideImage 1.5s forwards");
-  }
-}//end swirlAnimationRightImage
-
-@mixin swirlAnimationFullImage{
-  left: auto;
-  html.animations-paused & {
-    right: -80px;
-  }
-  @keyframes heroSwirlSlideFullImage {
-    from {
-      right: -200vw;
-    }
-    to {
-      right: -80px;
-    }
-  }
-  animation: heroSwirlSlideFullImage 1.5s forwards;
-  @include smallTab{
-    html.animations-paused & {
-      right: -60px;
-    }
-    @keyframes heroSwirlSlideFullImage {
-      from {
-        right: -200vw;
-      }
-      to {
-        right: -60px;
-      }
-    }
-    html.animations-playing & {
-      animation: heroSwirlSlideFullImage 1.5s forwards;
-    }
-  }
-  @include desk{
-    html.animations-paused & {
-      right: -70px;
-    }
-    @keyframes heroSwirlSlideFullImage {
-      from {
-        right: -200vw;
-      }
-      to {
-        right: -70px;
-      }
-    }
-    html.animations-playing & {
-      animation: heroSwirlSlideFullImage 1.5s forwards;
-    }
-  }
-  @include contentStop{
-    html.animations-paused & {
-      right: -100px;
-    }
-    @keyframes heroSwirlSlideFullImage {
-      from {
-        right: -200vw;
-      }
-      to {
-        right: -100px;
-      }
-    }
-    html.animations-playing & {
-      animation: heroSwirlSlideFullImage 1.5s forwards;
-    }
-  }
-}//end swirlAnimationRightImage
 
 @mixin sectionLimit{
 	max-width: $contentStop;
@@ -210,6 +44,12 @@
         &:hover,&:focus{
           background: color.adjust($ice,$lightness:-3%);
           border-radius: 4px;
+          svg,.cls-1 {
+            fill: $navy;
+          }
+        }
+        svg,.cls-1 {
+          fill: $royal;
         }
       }
     }
@@ -263,72 +103,74 @@
 }
 
 @mixin contactTitle{
-	@include heading4;
-	font-size: 3.5rem;
-	line-height: 1.28;
+	font-size: 3rem;
+  font-family: $header;
+  font-weight: $heavy;
+  line-height: 1.46;
   @include tab{
-    font-size: 4rem;
-    line-height: 1.25;
+    font-size: 3rem;
+    line-height: 1.46;
+  }
+  @include contentStop {
+    font-size: 3.75rem;
+    line-height: 1.45;
   }
 }
 
 @mixin contactContent{
-	color: $brightBlue;
+	color: $navy;
+  font-family: $header;
 	font-size: 1.75rem;
-	line-height: 1.42;
+	line-height: 1.625;
 	.field{
 		@include safeFlex(row,nowrap,start,start);
-		&:not(:last-child){
-			margin-bottom: $spaceXxs;
-			.address{
-				margin-bottom: 0;
-			}
-		}
-		.icon-wrapper{
-			width: 16px;
-			margin-right: 12px;
-      svg{
-        fill: none;
+    margin-bottom: $spaceXs;
+    .address{
+      margin-bottom: 0;
+      .organization {
+        display: inline-block;
+        font-weight: $heavy;
+        margin-bottom: $spaceXxs;
       }
-		}
-		.field-content{
-			width: calc(100% - 28px);
-		}
-	}
-	.field-address{
-		svg{
-			max-height: 17px;
-			margin-top: 4px;
-		}
+    }
 	}
 	.field-email{
-		svg{
-			max-height: 16px;
-			margin-top: 1px;
-		}
     a{
-      @include dottedLink($brightBlue);
-      padding-bottom: 1px;
-      &:hover,&:focus{
-        @include dottedLink($navy);
+      font-family: $header;
+      display: block;
+      width: fit-content;
+      font-weight: $heavy;
+      border-bottom: 1px solid $gold;
+      transition: color .3s, border-bottom-color .3s;
+      &:hover {
+        border-bottom: 1px solid transparent;
+        color: $navy;
       }
     }
 	}//end field email
-	.field-phone{
-		svg{
-			max-height: 15px;
-			margin-top: 2px;
-		}
-    a{
-      @include dottedLink($brightBlue);
-      padding-bottom: 1px;
-      &:hover,&:focus{
-        @include dottedLink($navy);
+  .field {
+    .icon-wrapper {
+      width: 16px;
+      margin-right: 12px;
+      svg,path {
+        stroke: $royal;
+      }
+      .cls-1 {
+        fill: $royal;
       }
     }
-	}//end field phone
-  .field-fax{
-    @extend .field-phone;
+  }
+  .field-phone{
+    svg{
+      max-height: 15px;
+      margin-top: 4px;
+    }
+  }
+  .field-phone,.field-fax{
+    @extend .field-email;
+    #phone-icon {
+			fill: none !important;
+		}
   }
 }//end contact contnet
 
@@ -344,35 +186,42 @@
 	}
 }
 
-@mixin heroRightImage{
+@mixin headerInvasion {
+  margin-top: -104px;
+  padding-top: 104px;
   @include edgeToEdge;
-  position: relative;
-  min-height: calc(82vh - 88px);
-  @include height100;
-  @include onlyMobile{
-    background: $brightBlue;
-    margin-bottom: 29vw;
-    &:before{
-      @include blueTriangle;
-      z-index: 0;
-    }
+  @include desk {
+    margin-top: -116px;
+    padding-top: 116px;
   }
+  @include menuStop {
+    margin-top: -152px;
+    padding-top: 152px;
+  }
+}
+
+@mixin heroRightImage{
+  position: relative;
+  margin-bottom: $elementSpace;
+  padding-bottom: $elementSpace;
   @include desk{
-    padding-bottom: 1px;
+    min-height: 61vw;
+    margin-bottom: 160px;
+  }
+  @include contentStop {
+    margin-bottom: 180px;
+    min-height: 916px;
   }
   &.vertical-window{
     @include desk{
-      min-height: 828px;
       .image-right{
         img{
-          min-height: 0;
-          height: calc(100vh - 82px);
+          height: 100vh;
           max-height: 828px;
         }
       }
     }
     @include contentStopMargin{
-      height: calc(100vh - 100px);
       .image-right{
         img{
           height: calc(100vh - 100px);
@@ -380,7 +229,6 @@
       }
     }
     @include contentStop{
-      height: calc(100vh - 100px);
       .image-right{
         img{
           height: calc(100vh - 110px);
@@ -391,11 +239,12 @@
   .image-right{
     max-width: 520px;
     @include auto;
+    padding-left: 36px;
     position: relative;
     z-index: 1;
     @include desk{
       position: absolute;
-      top: 6px;
+      top: 165px;
       right: 0;
       width: 50%;
       z-index: 2;
@@ -403,7 +252,6 @@
       margin: 0;
       img{
         object-fit: cover;
-        @include height100;
       }
     }//end desk
     @include contentStop{
@@ -413,182 +261,118 @@
         min-height: 0;
       }
     }
-    &:after{
-      @include goldSwirl;
-      width: 189px;
-      height: 351px;
-      bottom: -66px;
-      z-index: -1;
-      @include desk{
-        bottom: -125px;
+    @keyframes imageRightSquig{
+      0%{
+        right: -100vw;
       }
-      @include contentStop{
-        bottom: -146px;
+      100%{
+        right: calc(100% - 96px);
       }
-      .hero-image &,
-      .node-type-college.hero-has-image &,
-      .node-type-academic-program & {
-        @include swirlAnimationRightImage;
-      }
-    }//end after swirl
-  }//end image right
+    }
 
-  .swirl-pattern{
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 2;
-  }
+    // thick gold squiggles in the top right corner, over video hero
+    &:after{
+      content:"";
+      display:block;
+      position:absolute;
+      width:87px;
+      height: 316px;
+      bottom: -38px;
+      right: -100vw;
+      z-index: -1;
+      background-image: url(../images/elements/gold-wave-fat.svg);
+      background-repeat: no-repeat;
+      background-size: contain;
+      animation:.5s ease .4s 1 imageRightSquig;
+      animation-fill-mode: forwards;
+    }
+  }//end image right
 
   .page-header-text{
     position: relative;
     z-index: 1;
-    margin-bottom: 29vw;
     max-width: 690px;
     @include auto;
     @include desk{
       max-width: 100%;
       position: relative;
-      background: $brightBlue;
-      &:after{
-        @include blueTriangle;
-      }
     }
     .block-system-breadcrumb-block{
       @include onlyMobile{
         display: none;
       }
       .breadcrumb{
-        max-width: 1096px;
-        padding-top: 62px;
+        max-width: 1180px;
+        padding: 62px 20px 0;
         margin-bottom: 40px;
-        @include menuStop{
-          margin-bottom: 80px;
-        }
-        a{
-          &:hover,&:focus{
-            color: $white;
-            @include dottedLink($white);
+        @include desk{
+          .breadcrumb-list {
+            max-width: calc(50% - 40px);
+            body:not(.hero-has-image) &{
+              max-width: 100%;
+            }
           }
         }
       }//end breadcrumb
     }//end breadcrumb block
     .page-header-text-inner{
       color: $white;
-      padding: 58px 20px 0;
-      max-width: 1092px;
+      padding: 60px 2.5rem 0;
+      max-width: 1180px;
       @include auto;
-      body:not(.hero-has-image) &{
-        & > *:not(.block-system-breadcrumb-block){
-          max-width: 650px;
-          @include auto;
-        }
-      }
       @include desk{
         padding-top: 0;
         min-height: 300px;
-        & > *{
-          max-width: calc(50% - 80px);
-          body:not(.hero-has-image) &{
-            max-width: 100%;
-          }
+        & > *:not(.block-system-breadcrumb-block){
+          max-width: calc(50% - 40px);
         }
       }
-      h1,h2,h3,h4,h5,h6,li,a{
+      h1,h2,h3,h4,h5,h6,li{
         color: $white;
       }
-	  .field-banner{
-	    color:black;
-	    background: $gold;
-		display:inline-block;
-		padding:0 2rem;
-		font-size:90%;
-		margin-bottom:1rem;
-        clip-path: polygon(4px 50%, 0% 100%, 100% 100%, calc(100% - 4px) 50%, 100% 0%, 0% 0%);
-	  }
-      .field.title{
-        margin-bottom: 30px;
-      }
-      .field-subtitle{
-        margin-bottom: 20px;
-        padding-left: 20px;
-        padding-right: 20px;
-        @include desk{
-          padding-left: 0;
-          padding-right: 0;
+      .field.title,.node-title{
+        margin-bottom: 16px;
+        h1 {
+          color: $gold;
         }
       }
-      .field-intro{
-        padding-left: 20px;
-        padding-right: 20px;
+      .field-subtitle,.node-subtitle,.node-body,.field-intro{
+        margin-bottom: 16px;
         a{
           font-weight: $heavy;
-          @include dottedLink($white);
+          text-decoration: underline;
           &:hover,&:focus{
-            background-image: none;
+            text-decoration: none;
             opacity: .7;
           }
         }
-        @include desk{
-          padding-left: 0;
-          padding-right: 0;
+      }
+      .field-subtitle,.node-subtitle {
+        color: $gold;
+      }
+      .field-links {
+        max-width: 1092px;
+        a {
+          display: inline-block;
+          min-height: 32px;
         }
       }
     }//end page header text inner
   }//end page header text
-  body:not(.hero-has-image) &{
-    &:after{
-      @include goldSwirl;
-      max-height: 100%;
-      bottom: -180px;
-      @include swirlAnimationNoImage;
-      @include desk{
-        z-index: 1;
-      }
-      @media screen and (min-width: 1600px){
-        bottom: auto;
-        top: 60px;
-      }
-    }//end after swirl
-  }//end not has hero image
-  .field-links{
-    padding-top: 20px;
-    padding-bottom: 0;
-    a{
-      display: inline-block;
-      @include linkArrow(white, sm, "span");
-      min-height: 32px;
-    }
-  }//end field links
 }//end hero image right
 
 @mixin patternHero{
-  padding-top: 40px;
-  background: $royal;
+  background: radial-gradient(50.13% 157.8% at 6.18% 33.85%, #0F2C46 0%, #232C99 100%);
   @include edgeToEdge;
   padding-left: $siteMarginMobile;
   padding-right: $siteMarginMobile;
+  padding-bottom: $elementSpace;
   color: $white;
-  //set min heights for main section
-  min-height: calc(100vh - 88px);
-  @include desk{
-    min-height: calc(100vh - 100px);
+  overflow: hidden;
+  .wavy-lines {
+    @include patternHeroLines;
   }
-  @include menuStop{
-    min-height: calc(100vh - 110px);
-  }
-  .hero-pattern:not(.hero-pattern-links) &{
-    @include menuStop{
-      padding-bottom: 150px;
-    }
-    @media screen and (min-width: 1600px){
-      padding-bottom: 10vw;
-    }
-    @media screen and (min-width: 1800px){
-      padding-bottom: 12vw;
-    }
-  }
-  h1,h2,h3,h4,h5,h6,li,a{
+  h1,h2,h3,h4,h5,h6,li,.node-body a,.text-long a{
     color: $white;
   }
   //specific link colors
@@ -596,23 +380,18 @@
     max-width: 1096px;
     a{
       &:hover,&:focus{
-        color: $white;
-        @include dottedLink($white);
       }
     }
   }//end breadcrumb
   .field-college a{
     padding-bottom: 1px;
-    @include dottedLink($white);
     &:hover,&:focus{
-      color: $transWhite;
       background-image: none;
     }
   }
   .field-intro-text{
     a{
       font-weight: $heavy;
-      @include dottedLink($white);
       &:hover,&:focus{
         background-image: none;
         opacity: .7;
@@ -621,50 +400,61 @@
   }
   .field-links a{
     display: inline-block;
-    @include linkArrow(white, sm, "span");
+    @include linkArrow(white, sm);
     min-height: 32px;
   }//end links field a
+
 }//end patternHero
 
-@mixin patternHeroSwirl{
-  html.animations-paused & {
-    opacity: 1;
-  }
-  content: '';
+@mixin patternHeroLines {
+  width: 355px;
+  padding-bottom: 469px;
   position: absolute;
-  bottom: -8px;
-  z-index: 0;
-  width: 308px;
-  height: 572px;
-  background-image: url(../images/elements/swirl-vertical-blue.svg);
-  background-repeat: no-repeat;
-  background-size: 100%;
-  @include swirlAnimationNoImage;
-  @include desk{
-    width: 380px;
-    height: 706px;
-    bottom: -83px;
+  overflow: hidden;
+  bottom: -344px;
+  right: -100vw;
+  @keyframes linesRight{
+    0%{
+      right: -100vw;
+    }
+    100%{
+      right: -170px;
+    }
   }
-  @include contentStop{
-    left: auto;
-    width: 452px;
-    height: 839px;
-    bottom: -95px;
+  @keyframes linesRightDesk{
+    0%{
+      right: -100vw;
+    }
+    100%{
+      right: -230px;
+    }
   }
-}
-
-@mixin heroHeaderInvade{
-  @include smallTab{
-    margin-top: -88px;
-    padding-top: 88px;
+  @keyframes linesRightLarge{
+    0%{
+      right: -100vw;
+    }
+    100%{
+      right: -30px;
+    }
   }
-  @include desk{
-    margin-top: -100px;
-    padding-top: 100px;
+  animation:.5s ease .4s 1 linesRight;
+  animation-fill-mode: forwards;
+  @include desk {
+    bottom: auto;
+    top: 130px;
+    animation:.5s ease .4s 1 linesRightDesk;
+    animation-fill-mode: forwards;
   }
-  @include menuStop{
-    margin-top: -110px;
-    padding-top: 110px;
+  @include contentStop {
+    top: 200px;
+    animation:.5s ease .4s 1 linesRightLarge;
+    animation-fill-mode: forwards;
+  }
+  img {
+    width: 542px;
+    position: absolute;
+    top: -359px;
+    left: 0;
   }
 }
 
@@ -674,245 +464,45 @@
   left:0;
   width: 100vw;
   z-index: 0;
-  height: 140px;
-  padding: 0 $siteMarginMobile;
-  background: $brightBlue;
+  height: 184px;
+  padding-left: $siteMarginMobile;
+  padding-right: $siteMarginMobile;
+  background: radial-gradient(50.13% 157.8% at 6.18% 33.85%, #0F2C46 0%, #232C99 100%);
+  @include tab {
+    height: 300px;
+  }
   @include desk{
-    height: 180px;
-  }
-  &:after{
-    content: '';
-    display: block;
-    position: absolute;
-    top: calc(100% - 1px);
-    left: 0;
-    height: 29vw;
-    width: 100vw;
-    z-index: -1;
-    background: $brightBlue;
-    clip-path: polygon(0 0, 100% 0, 100% 100%);
-  }
-}
-
-@mixin heroBlue{
-  position: relative;
-  &:before{
-    @include fullBack($brightBlue);
-    top: auto;
-    bottom: 0;
-    height: 1000px;
-    z-index: -1;
-  }//end before
-  &:after{
-    content: '';
-    display: block;
-    position: absolute;
-    top: calc(100% - 1px);
-    left: -$siteMarginMobile;
-    height: 29vw;
-    width: 100vw;
-    z-index: -1;
-    background: $brightBlue;
-    clip-path: polygon(0 0, 100% 0, 0 100%);
-  }
-}//end hero bright blue
-
-@mixin heroText {
-	position: relative;
-	z-index: 10;
-	padding-left: $siteMarginDesk;
-	& > * {
-		margin-bottom: $spaceXs;
-	}
-	.breadcrumb{
-		li,a{
-			color: $white;
-		}
-	}
-	.field-links {
-		a {
-			color: $white;
-			display: block;
-		}
-	}
-	.field,
-	.field > *{
-		color: $white;
-		margin-bottom: $spaceXs;
-	}
-}//end page header text
-
-@mixin heroCornerSlice {
-  margin-left: -$siteMarginMobile;
-  margin-top: -88px;
-  position: relative;
-  width: 100vw;
-  z-index: 0;
-  @include heroHeaderInvade;
-  @include smallTab{
-    padding-top: 0;
-  }
-  @include desk {
-    background-color: $brightBlue;
-    .gin--vertical-toolbar:not(.responsive-preview-frame) &{
-      width: calc(100vw - 66px);
-    }
-  }
-  .layout {
-    position: relative;
-    @include desk {
-      height: 100vh;
-      @include auto;
-      max-width: $ultraWidescreen;
-      max-height: 1000px;
-    }
-    &:after { // Right gold stripes.
-      content: '';
-      display: block;
-      position: absolute;
-      background: url(../images/elements/fat-stripes-gold.svg) left top / cover no-repeat transparent;
-      bottom: -80px;
-      height: 155px;
-      width: 87px;
-      z-index: 2;
-      margin-right: 40px;
-      @include swirlAnimationFullImage;
-      @include desk {
-        bottom: 0;
-        height: 260px;
-        width: 147px;
-        top: 136px;
-        margin-right: 0;
-      }
-      @include contentStop{
-        height: 346px;
-        width: 195px;
-      }
-    }
-  }
-  .block-field-image {
-    margin-bottom: 0;
-    overflow: hidden;
-    width: 100%;
-    height: 100%;
-    @include desk {
-      left: 0;
-      position: absolute;
-      top: 0;
-      z-index: -1;
-    }
-    &:before { // Top gradient.
-      html.animations-paused & {
-        opacity: 1;
-      }
-      html.animations-playing & {
-        @include animation('fadeIn 1.25s 1');
-      }
-      @include fullBack(transparent); // BG will be replaced by gradient.
-      @include gradient('top', #{$navy}ff, 0, #d9d9d900);
-      height: 110px;
-      z-index: 1;
-      @include desk {
-        height: 249px;
-      }
-    }
-    &:after { // Bottom gradient, only exists on desktop.
-      @include desk {
-        html.animations-paused & {
-          opacity: 1;
-        }
-        html.animations-playing & {
-          @include animation('fadeIn 1.25s 1');
-        }
-        @include fullBack(transparent); // BG will be replaced by gradient.
-        @include gradient('bottom', #{$navy}ff, 0, #d9d9d900);
-        bottom: 0;
-        height: 50%;
-        top: auto;
-        z-index: 1;
-      }
-    }
-    * {
-      height: 100%;
-    }
-    .field-label{
-      display: none;
-    }
-    img {
-      object-fit: cover;
-      object-position: top center;
-    }
-  }//end main section 1 image
-  .block-field.block-title {
-    @include auto;
-    margin-bottom: 0;
-    max-width: 1092px;
-    opacity: 0; // Hide on mobile but still be screen-reader accessible.
-    @include desk {
-      @include safeFlex(row, no-wrap, start, end);
-      max-height: 1000px;
-      height: 100vh;
-      padding-bottom: 138px;
-      opacity: 1;
-    }
-    h1 {
-      color: $white;
-      font-size: 1px;
-      max-width: $textMax;
-      text-align: left;
-      @include desk {
-        font-size: $h1Mid;
-        padding-left: $siteMarginMobile;
-      }
-      @include contentStop {
-        font-size: $h1Lg;
-        padding-left: 0;
-      }
-    }
-  }//end title
-  &:after { // Right bottom corner triangles.
-    background: $navy;
-    clip-path: polygon(0 0, 100% 0, 100% 100%);
-    content: '';
-    display: block;
-    height: 29vw;
-    left: calc(100vw - 45%);
-    position: absolute;
-    top: calc(100% - 2px);
-    width: 100vw;
-    z-index: 1;
-    @include desk {
-      background: $white;
-      bottom: -1px;
-      clip-path: polygon(0 100%, 100% 0, 100% 100%);
-      left: calc(100vw - 25%);
-      top: auto;
-      z-index: 3;
-    }
+    height: 446px;
   }
 }
 
 @mixin heroFullWidthImage {
-  @include heroHeaderInvade;
-  padding-top: 40px;
-  @include edgeToEdge;
-  padding-left: $siteMarginMobile;
-  padding-right: $siteMarginMobile;
   color: $white;
-  height: 100vh;
   max-height: 1000px;
   margin-bottom: $elementSpace;
+  padding-top: 0;
+  padding-left: 0;
+  padding-right: 0;
   @include safeFlex(column,nowrap,end,start);
+  @include desk {
+    height: 100vh;
+  }
   @media screen and (min-width: 2001px){
-    background: $brightBlue;
+    background: $royal;
   }
   .hero-background{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
+    width: 100vw;
+    margin-bottom: $spaceMd;
+    position: relative;
+    @include desk {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      margin-bottom: 0;
+    }
     @media screen and (min-width: 2001px){
       width: 2000px;
       left: calc(50% - 1000px);
@@ -921,46 +511,17 @@
       content: '';
       display: block;
       position: absolute;
-      height: 110px;
+      height: 100%;
       width: 100%;
       z-index: 1;
       top: 0;
       left: 0;
-      background: linear-gradient(0deg, rgba(#d9d9d9, 0) 0%, $navy 100%);
+      background: linear-gradient(0deg, rgba(6, 35, 61, 0.7) 0%, rgba(6, 35, 61, 0.2) 36.09%, rgba(6, 35, 61, 0.2) 80.62%, rgba(6, 35, 61, 0.7) 97.5%);
       html.animations-paused & {
         opacity: 1;
       }
       html.animations-playing & {
         @include animation('fadeIn 1.25s 1');
-      }
-      @include desk{
-        height: 160px;
-      }
-      @include menuStop{
-        height: 220px;
-      }
-    }
-    &:after {
-      content: '';
-      display: block;
-      position: absolute;
-      width: 100%;
-      height: calc(100% - 110px);
-      z-index: 0;
-      bottom: 0;
-      left: 0;
-      background: linear-gradient(180deg, rgba(#d9d9d9, 0) 0%, $navy 100%);
-      html.animations-paused & {
-        opacity: 1;
-      }
-      html.animations-playing & {
-        @include animation('fadeIn 1.25s 1');
-      }
-      @include desk{
-        height: calc(100% - 160px);
-      }
-      @include menuStop{
-        height: calc(100% - 220px);
       }
     }
     *{
@@ -970,42 +531,35 @@
         object-position: top center;
       }
     }
-    .field-media-image{
-      &:after{
-        content: '';
-        position: absolute;
-        top: 90px;
-        z-index: 2;
-        width: 113px;
-        height: 200px;
-        background-image: url(../images/elements/fat-stripes-gold.svg);
-        background-repeat: no-repeat;
-        background-size: 100%;
-        @include swirlAnimationFullImage();
-        @include desk{
-          top: 120px;
-          width: 140px;
-          height: 248px;
-          background-position: bottom left;
-        }
-        @include contentStop{
-          top: 140px;
-          width: 196px;
-          height: 347px;
-        }
-      }//end after
-    }//end field media image
   }//end hero background
   h1,h2,h3,h4,h5,h6,li,a{
     color: $white;
   }
   .page-header-text{
-    max-width: 1104px;
+    max-width: $textMax;
     width: 100%;
+    padding-left: $siteMarginMobile;
+    padding-right: $siteMarginMobile;
     @include auto;
-    .page-title{
-      max-width: 800px;
-      margin-left: 0;
+    @include desk {
+      max-width: 1104px;
+    }
+    .page-header-text-inner{
+      .node-title {
+        margin-bottom: 0;
+      }
+      h1.page-title{
+        max-width: 800px;
+        margin-left: 0;
+        color: $royal;
+        @include desk {
+          margin-bottom: 100px;
+          color: $white;
+        }
+        @include contentStop {
+          margin-bottom: 148px;
+        }
+      }
     }
   }
   .field-links{
@@ -1022,7 +576,7 @@
     }
     a{
       display: inline-block;
-      @include linkArrow(white, sm, "span");
+      @include linkArrow(white, sm);
       min-height: 32px;
     }
   }//end links field a
@@ -1033,28 +587,23 @@
   .field-image{
     margin-bottom: 2rem;
   }
-  .field:not(.field-image):not(.field-name){
-    font-size: 1.75rem;
-    line-height: 1.285;
-    &:not(:last-of-type){
-      margin-bottom: 1rem;
-    }
+  .field:not(.field-image):not(.field-name):not(:last-of-type) {
+    color: $headingText;
+    margin-bottom: $spaceXs;
   }
   .field-name,.teaser-title{
-    font-weight: $displayHeader;
+    font-family: $displayHeader;
     font-size: 3.25rem;
-    line-height: 1.23;
-    padding-right: 20px;
-    margin-bottom: 1rem;
-    a{
-      color: $navy;
-      @include dottedLink($navy);
-      &:hover,&:focus{
-        color: $royal;
+    line-height: 1.25;
+    padding-right: $spaceMs;
+    margin-bottom: $spaceXxs;
+    a {
+      @include lineLink;
+      color: $textLink;
+      &:hover,
+      &:focus{
         background-image: none;
-        .profile-search.directory &{
-          color: $brightBlue;
-        }
+        color: $textLinkHover;
       }
     }
   }//end name
@@ -1087,13 +636,8 @@
 		.field-content{
 			width: calc(100% - 28px);
       a{
-        color: $navy;
-        @include dottedLink($navy);
+        @include lineLink;
         display: inline-block;
-        &:hover,&:focus{
-          color: $royal;
-          background-image: none;
-        }
       }
 		}
 		svg{
@@ -1114,87 +658,3 @@
 		}
 	}
 }//end profileTeaser
-
-@mixin goldSwirl{
-  html.animations-paused & {
-    opacity: 1;
-  }
-  html.animations-playing & {
-    @include animation('fadeInDelay 1s 1');
-  }
-  content: '';
-  position: absolute;
-  bottom: -83px;
-  animation: heroSwirlSlideMobileLeft 1.5s forwards;
-  z-index: 0;
-  width: 308px;
-  height: 572px;
-  background-image: url(../images/elements/swirl-vertical-gold.svg);
-  background-repeat: no-repeat;
-  background-size: 100%;
-  @include desk{
-    animation: heroSwirlSlideMidLeft 1.5s forwards;
-    width: 380px;
-    height: 706px;
-  }
-  @include contentStop{
-    left: auto;
-    animation: heroSwirlSlideWideRight 1.5s forwards;
-    width: 452px;
-    height: 839px;
-    bottom: -95px;
-  }
-}//end gold swirl
-
-@mixin royalSwirl{
-  html.animations-paused & {
-    opacity: 1;
-  }
-  html.animations-playing & {
-    @include animation('fadeInDelay 1s 1');
-  }
-  content: '';
-  position: absolute;
-  top: 212px;
-  left: 77vw;
-  z-index: 0;
-  width: 308px;
-  height: 572px;
-  background-image: url(../images/elements/swirl-vertical-wide-royal.svg);
-  background-repeat: no-repeat;
-  background-size: 100%;
-  @include desk{
-    left: 77vw;
-    width: 380px;
-    height: 706px;
-  }
-  @include contentStop{
-    left: auto;
-    right: -104px;
-    width: 452px;
-    height: 839px;
-    bottom: -95px;
-  }
-}//end royal swirl
-
-@mixin stripesRoyalNarrow{
-  position: relative;
-  &:before{
-    html.animations-paused & {
-      opacity: 1;
-    }
-    html.animations-playing & {
-      @include animation('fadeInDelay 1s 1');
-    }
-    content: url(../images/elements/stripes-narrow-royal.svg);
-    position: absolute;
-    top: calc(100% - 22px);
-    left: -23px;
-    z-index: -1;
-    width: 263px;
-    height: 171px;
-    @include tab{
-      left: -43px;
-    }
-  }
-}

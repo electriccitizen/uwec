@@ -37,7 +37,7 @@
 } %}
 
 {% block fieldSingleNo %}
-  <div class="page-header-wrapper{% if element['#object'].field_hero.0 %} has-hero page-hero-{{ hero_type|clean_class }}{% endif %}"{% if hero_type == 'background_image' %} style="background:url({{ file_url(element['#object'].field_hero.0.entity.field_background_image.0.entity.field_media_image.entity.fileuri) }}) no-repeat"{% endif %}>
+  <div class="page-header-wrapper{% if element['#object'].field_hero.0 %} has-hero page-hero-{{ hero_type|clean_class }}{% endif %}">
 
     {# render a large version image for certain heros #}
     {% if hero_type == 'image' or hero_type == 'background_image' %}
@@ -45,9 +45,26 @@
         <div class="hero-image">
           <div class="image-right">
             {{ drupal_entity('media',element['#object'].field_hero.0.entity.field_image.0.target_id,'730x840') }}
+            {% if hero_type == 'image' %}
+              <div class="image-waves">
+                <img src="/themes/custom/citizen_dart/images/elements/wavy-blue.svg" width="542px" height="881px" alt="decorative wavy line background shape" />
+              </div>
+            {% endif %}
           </div>
         </div>
       {% endif %}
+    {% endif %}
+
+    {% if hero_type == 'pattern' %}
+      <div class="wavy-lines">
+        <img src="/themes/custom/citizen_dart/images/elements/wavy-blue.svg" width="542px" height="919px" alt="decorative background shape of wavy lines like a river contour" />
+      </div>
+    {% endif %}
+
+    {% if hero_type == 'background_image' %}
+      <div class="river-background">
+        <img src="/themes/custom/citizen_dart/images/elements/river-alt.svg" width="1512px" height="1028px" alt="decorative background shape of a river" />
+      </div>
     {% endif %}
 
     {# add a background/full image for certain heros #}
@@ -82,7 +99,9 @@
         <div class="node-title">
           <h1 class="page-title formatted-title">{{ formattedTitle|render|striptags('<strong>')|trim|raw }}</h1>
         </div>
+        
         {% if element['#object'].field_subtitle.0 and (hero_type == 'pattern' or hero_type == 'image' or hero_type == 'background_image') %}
+          
           <h2 class="node-subtitle">
             {{ element['#object'].field_subtitle.0.value }}
           </h2>
@@ -95,7 +114,11 @@
 
         {# render links if this is a video hero #}
         {% if hero_type == 'video' %}
-          {{ element['#object'].field_hero.0.entity.field_video_description.0.value|raw }}
+          {% if element['#object'].field_hero.0.entity.field_video_description.0 %}
+            <div class="video-text">
+              {{ element['#object'].field_hero.0.entity.field_video_description.0.value|raw }}
+            </div>
+          {% endif %}
           {% if element['#object'].field_hero.0.entity.field_links.0 %}
             <div class="field field-links">
               {% for link in element['#object'].field_hero.0.entity.field_links %}

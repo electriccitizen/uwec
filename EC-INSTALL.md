@@ -3,7 +3,7 @@ UWEC Local Development
 Reviewed by David, 2023-07-18
 
 # Project Details
-- **NAME:** uwec 
+- **NAME:** uwec
 - **URL:** http://dev-uwec.pantheonsite.io/
 - **LOCAL URL:** https://uwec.ddev.site:33001/
 - **BRANCH:** main
@@ -15,6 +15,34 @@ Reviewed by David, 2023-07-18
 - [EC: Local development requirements](https://docs.google.com/document/d/1_yeISu5bW5637TCeXByi82LUUfD1jeeSDHh5IeiPz4o/edit?usp=sharing)
 - [EC: Developing on Pantheon](https://docs.google.com/document/d/1oTBHep57WENbf8PnM4LSn2Zx6x5EKA1rSYDEMvBEsUY/edit)
 
+## ** **REBUILD PROJECT** **
+
+(July 2025) This project is undergoing a major design transition and we are doing the work on a semi-permanent Pantheon Multidev. Eventually this will be merged back to the `main` branch once the work is complete.
+
+### Details
+
+Github Branch: [rebuild](https://github.com/electriccitizen/uwec/tree/rebuild)
+
+Multidev Dashboard: [rebuild-uwec](https://dashboard.pantheon.io/sites/dfeadf45-ac5d-48f4-a701-c121589cff0e#rebuild)
+
+Multidev URL: https://rebuild-uwec.pantheonsite.io
+
+### Development
+
+This is a new process that may need refining. For now, developers can push directly to the `rebuild` branch, or submit PRs against that branch.
+
+**Track the `main` branch:**
+
+It will be important to keep the `rebuild` branch updated with changes on the `main` branch. My advice for now is to do a daily merge of `main` into `rebuild`. This will avoid painful merge conflicts down the road.
+
+```angular2html
+git checkout uwec-rebuild
+git fetch origin
+git merge origin/main
+
+```
+
+Important: Don't merge or delete the open PR against this branch, and don't delete the multidev!
 
 # Local Development Setup
 
@@ -48,6 +76,9 @@ you may need to modify the main domain alias in the site's configuration. A conf
 different, you will need to modify the number in the site configuration. Go to
 `/admin/config/domain/alias/edit/uwec_ddev_site_port` and change the port number to match your local DDEV port.
 Be sure save the configuration, then clear the cache.
+
+If you're on a Mac using DDEV and the site is *not* served through a no-standard port,
+go to `/admin/config/domain/alias/edit/uwec_ddev_site_port` and delete the 33001 alias.
 
 ## Setting session cookies in development.services.yml
 You will need to add the following code in your development.services.yml to access the site due to domain configuration (starting on line 5).
@@ -89,7 +120,7 @@ Open the generated login URL and you should be set to go.
 ## !!-Mac users may need to modify the main domain alias
 If you're on a Mac using DDEV and the site is being served through a non-standard port (i.e. 33001),
 you may need to modify the main domain alias in the site's configuration. A configuration for
-`uwec.ddev.site:33001` has been added to the local configuration split. But if your port number is 
+`uwec.ddev.site:33001` has been added to the local configuration split. But if your port number is
 different, you will need to modify the number in the site configuration. Go to
 `/admin/config/domain/alias/edit/uwec_ddev_site_port` and change the port number to match your local DDEV port.
 Be sure save the configuration, then clear the cache.
@@ -116,7 +147,7 @@ These aliases are always available via:
 ```
 Note that not all projects will have all environments enabled.
 
-**PR-NNN** (Multidevs) 
+**PR-NNN** (Multidevs)
 
 Whenever you create a Github pull request, a new Pantheon multidev is created in the format `PR-NNN`  (e.g. PR-123) You can interact with this environment via:
 
@@ -141,4 +172,4 @@ For other platforms and documentation see:
 
 # Backstop Testing
 
-Refer to [EC-BACKSTOP.md](/tests/backstop/EC-BACKSTOP.md) for complete instructions for Visual Regression Testing using Backstop JS. 
+Refer to [EC-BACKSTOP.md](/tests/backstop/EC-BACKSTOP.md) for complete instructions for Visual Regression Testing using Backstop JS.

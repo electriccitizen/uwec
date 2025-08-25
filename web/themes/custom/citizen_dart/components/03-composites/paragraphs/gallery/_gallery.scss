@@ -133,21 +133,24 @@
 			.slide-meta{
 				display:flex;
 				flex-direction:column;
+				padding: 2rem 2.5rem 0;
+				color: $royal;
+				line-height: 1.5;
 				@include tab{
 					flex-direction:row;
 				}
-				padding: 2rem 2.5rem 0;
-				color: $brightBlue;
-				line-height: 1.5;
 				.slide-counter{
 					flex:1;
+          font-size: 2.5rem;
+          font-weight: $heavy;
 					margin-bottom: $spaceXxs;
 				}
 				.slide-caption{
 					flex:2;
 					.field-caption-headline{
 						font-family: $header;
-						font-size: 2.25rem;
+						font-size: 2.5rem;
+            font-weight: $heavy;
 						margin-bottom: $spaceXxs;
 					}
 				}//end slide caption
@@ -163,7 +166,7 @@
 					left: 10px;
 				}
 				&.slick-next{
-					right: 10px;
+					right: 30px;
 				}
 				@include smallTab{
 					top: calc(120px + 6%);
@@ -184,7 +187,7 @@
 							left: -10px;
 						}
 						&.slick-next{
-							right: -10px;
+							right: 70px;
 						}
 					}
 				}//end layout checks
@@ -196,7 +199,7 @@
 							left: -48px;
 						}
 						&.slick-next{
-							right: -48px;
+							right: 30px;
 						}
 					}
 				}//end when on one column only

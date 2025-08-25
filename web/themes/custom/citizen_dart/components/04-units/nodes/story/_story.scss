@@ -7,19 +7,37 @@
 
 .node-news {
   #node-section-1 {
-    @include heroCornerSlice;
+    z-index: 1;
+    @include headerInvasion;
+    @include heroFullWidthImage;
+    & {
+      margin-bottom: 0;
+    }
+    @include onlyMobile {
+      margin-bottom: 0;
+      .block-field.block-nid {
+        margin-bottom: 0;
+      }
+      .hero-background {
+        margin-bottom: 0;
+      }
+      .page-header-text {
+        display: none;
+      }
+    }
+    & > .layout--onecol {
+      width: 100%;
+    }
   }//end node section 1
 
   #node-section-2 {
     @include auto;
     max-width: $textMax;
     .layout__region--content {
-      @include safeFlex(row,nowrap,start,start);
-      max-width: 75%;
+      @include safeFlex(row,nowrap,end,start);
       @include desk {
         @include safeFlex(row,nowrap,justify,start);
         gap: $spaceSm;
-        margin-right: -12rem;
         max-width: none;
         width: auto;
       }
@@ -27,49 +45,45 @@
     .block-system-breadcrumb-block,
     .block-field-story-categories {
       margin: $spaceSm 0;
-      @include desk {
-        flex: 1 1 50%;
+    }
+    @include desk {
+      .block-system-breadcrumb-block {
+        flex: 1 0 25%;
+      }
+      .block-field-story-categories {
+        flex: 1 1 100%;
       }
     }
+
     .breadcrumb {
       display: none;
       padding: 0;
       @include desk {
         display: block;
-        margin-top: -0.5rem;
       }
       li,
       li a {
         color: $navy;
       }
-      li a:hover {
-        @include dottedLink($navy);
+      li a {
+        @include linkArrow(gold, sm);
+        & {
+          color: $headingText;
+          line-height: 1.5;
+        }
       }
     }
     .block-field-story-categories {
       color: $navy;
-      @include menuStop{
-        width: 100%;
-        margin-right: -12vw;
-      }
-      @include contentStopMargin{
-        margin-right: -16vw;
-      }
-      @include contentStop{
-        margin-right: -400px;
-      }
       .field-story-categories {
         @include safeFlex(row, wrap, end, start);
         min-height: 31px;
-        @include desk {
-          @include safeFlex(row, wrap, start, start);
-        }
       }
       .category {
-        font-size: 1.5rem;
-        line-height: 2;
-        text-transform: uppercase;
+        font-size: 16px;
+        line-height: 1.5;
         &:after {
+          color: $gold;
           content: "|";
           margin-right: .5rem;
         }
@@ -78,10 +92,11 @@
         }
       }
       a {
-        color: $navy;
-        display: inline-block;
+        color: $link;
+        font-weight: $heavy;
         &:hover {
-          @include dottedLink($navy);
+          color: $textLinkHover;
+          text-decoration: underline;
         }
       }
     }
@@ -98,11 +113,10 @@
     .block-created {
       margin-bottom: $spaceSm;
       .field-created {
-        @include heading2;
         display: block;
-        font-size: $h5;
-        line-height: 1.2;
-        padding: 0 $siteMarginMobile;
+        font-size: 20px;
+        font-weight: $heavy;
+        line-height: 1.3;
         @include desk {
           padding: 0;
           margin-bottom: $spaceLg;
@@ -119,6 +133,7 @@
     }//end created
     .block-social-share{
       h2.block-title{
+        color: $baseText;
         font-size: $baseSize;
         font-family: $bodyText;
         font-weight: $regular;
@@ -128,10 +143,7 @@
         text-align: left;
       }
       .social-share{
-        padding: 0 $siteMarginMobile;
-        @include desk{
-          padding: 0;
-        }
+        padding: 0;
       }
     }
   }//end node section 3
@@ -148,23 +160,22 @@
     // Text-based fields have extra-wide margins on mobile.
     .field-authors,
     .block-field-intro-text{
-      padding: 0 $siteMarginMobile;
-      @include desk {
-        padding: 0;
-      }
+      padding: 0;
     }
 
     .field-authors {
       @include safeFlex(row,wrap,start,start);
     }
     .block-field-intro-text {
-      font-size: 20px;
+      font-size: 25px;
       margin-bottom: $spaceMd;
+      @include desk {
+        margin-bottom: $spaceXl;
+      }
     }
     .block-field-paragraphs {
-      padding: 0 $siteMarginMobile;
       h2, h3, h4, h5, h6 {
-        color: $brightBlue;
+        color: $royal;
       }
       .widget {
         padding: 0;
@@ -177,28 +188,32 @@
         margin-bottom: 10rem;
       }
       &:before {
-        background-color: $navy;
+        background-color: $borderRule;
         content: '';
         display: block;
         height: 1px;
         margin-bottom: $spaceSm;
-        width: 202px;
-
+        @include desk {
+          margin-bottom: 70px;
+          margin-left: -200px;
+          margin-right: -200px;
+        }
       }
       .field-label {
         @include headerGlobals;
-        font-size: 26px;
+        color: $baseText;
+        font-size: 25px;
         line-height: 32px;
         margin-bottom: $spaceXxs;
       }
       a {
-        @include linkArrow(navy, sm);
+        @include linkArrow(gold, sm);
+        color: $link;
       }
     }
   }//end node section 4
 
   #node-section-5 {
-    color: $white;
     position: relative;
 
     .layout__region {
@@ -208,13 +223,12 @@
     .block-field-authors,
     .block-related-stories {
       @include edgeToEdge;
-      background-color: $brightBlue;
       margin-bottom: 0;
     }
 
     .block-field-authors {
       @include edgeToEdge;
-      background-color: $brightBlue;
+      background-color: $ice;
       margin-bottom: 0;
       margin-top: 12rem; // Needs to be large to accommodate overlapping.
       padding: 0 $siteMarginMobile;
@@ -246,6 +260,7 @@
           }
         }
         .term-page {
+          color: $baseTextInvert;
           padding: 0 $siteMarginMobile;
           @include desk {
             @include auto;
@@ -269,7 +284,8 @@
     }//end authors fields block
 
     .block-related-stories {
-      padding: $spaceXl $siteMarginMobile $siteMarginMobile;
+      background-color: $ice;
+      padding: $spaceXl $siteMarginMobile $spaceLg;
       @include desk {
         max-width: none;
         padding: $spaceXl $siteMarginDesk $siteMarginDesk;
@@ -294,38 +310,16 @@
   max-width: 426px;
   @include auto;
   .field-image{
-    margin-bottom: $spaceXs;
+    margin-bottom: $spaceSm;
   }
   .teaser-title{
-    margin-bottom: $spaceXxs;
+    margin-bottom: $spaceXs;
     a{
-      @include blockArrow(navy, sm);
-      .views-block.block-related-stories & {
-        color: $white;
-      }
-      &:after{
-        .views-block.block-related-stories &{
-          @include rightArrow(white,transparent,$white,sm);
-        }
-      }
-      &:hover,&:focus{
-        &:after{
-          .views-block.block-related-stories &{
-            @include rightArrow(blue,$white,$white,sm);
-          }
-        }
-        span{
-          @include dottedLink($brightBlue);
-          .views-block.block-related-stories &{
-            @include dottedLink($white);
-          }
-        }
-      }//end hover, focus
+      @include linkArrow(goldRoyal, lg);
+      min-height: 32px;
+      font-size: 2rem;
     }//end a
   }//end teaser-title
-  .field.body{
-    line-height: 1.5;
-  }
 }//end teaser story
 
 /* STORY WIDGET
@@ -333,31 +327,32 @@
 .node-widget-news{
   .story-eyebrow-lg{
     display: none;
-    @include carouselBreak{
+    @include carouselBreak {
+      color: $galleryEyebrow;
       display: block;
-      text-align: right;
-      font-size: 1.5rem;
-      line-height: 1.5;
-      text-transform: uppercase;
+      font-size: 16px;
+      font-weight: $heavy;
       letter-spacing: .05em;
-      margin-bottom: $spaceXxs;
-      color: $brightBlue;
+      line-height: 1.5;
+      margin-bottom: $spaceMs;
+      position: relative;
+      text-align: right;
+      text-transform: uppercase;
+      z-index: 2;
     }
-    @include desk{
-      padding-top: 22px;
+    @include desk {
+      padding-top: $spaceMs;
     }
   }//end story eyebrow lg
   .story-text{
-    padding: 20px 20px 12px;
-    color: $brightBlue;
-    background: $lightGrey;
+    padding: $spaceMd 0 12px;
+    color: $royal;
     @include carouselBreak{
-      background: $siteBack;
-      @include safeFlex(row,nowrap,start,start);
-      padding: 20px 0 0;
+      padding: $spaceMd 0;
     }
-    @include desk{
-      padding-top: 30px;
+    @include smallTab{
+      @include safeFlex(row,nowrap,start,start);
+      padding-top: 49px;
     }
   }//end story text
   .field-image{
@@ -365,34 +360,40 @@
       position: relative;
       z-index: 1;
       &:after{
-        content: url(../images/elements/swirl-horizontal-blue.svg);
+        background:  url(../images/elements/wavy-lines-gold.svg) no-repeat center center / cover transparent;
+        content: '';
+        display: block;
+        height: 300px;
         position: absolute;
         top: -53px;
         left: -50px;
+        transform: rotate(180deg);
+        width: 530px;
         z-index: -1;
       }
     }
   }//end field image
   .story-title{
-    margin-bottom: $spaceXxs;
-    @include carouselBreak{
+    margin-bottom: $spaceXs;
+    @include smallTab {
       padding-right: 20px;
       width: 50%;
       margin-bottom: 0;
     }
     a{
-      @include blockArrow(brightBlue, sm);
+      @include linkArrow(royal, lg);
     }//end a
   }//end story title
   .field-intro-text{
-    line-height: 1.5;
-    @include carouselBreak{
-      padding-top: 4px;
+    color: $galleryCaptionAlt;
+    margin-top: $spaceXxs;
+    @include smallTab {
+      margin-top: -9px;
       width: 50%;
     }
   }//end field intro text
   .field-eyebrow{
-    margin-top: $spaceSm;
+    margin-bottom: $spaceSm;
     font-size: 1.5rem;
     line-height: 1.5;
     text-transform: uppercase;

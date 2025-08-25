@@ -5,69 +5,47 @@ PAGERS
 
 %pagerItemStyle{
 	@include safeFlex(column,nowrap,center,center);
-	height: 36px;
-  width: 30px;
-	padding: 0px 4px;
-	text-align: center;
-	color: $pagerNumber;
 	background-color: $pagerNumberBack;
-  font-size: 1.75rem;
+  border-radius: 50%;
+	color: $pagerNumber;
+  font-size: 16px;
+  font-weight: $heavy;
+	height: 40px;
+	text-align: center;
+  width: 40px;
+
 	&:hover,&:focus{
 		color: $pagerNumberHover;
 		background-color: $pagerNumberBackHover;
-		text-decoration: none;
+		text-decoration: underline;
 		@include transAll(.3s);
 	}
 }
 
 @mixin prevLink{
-	background-image: url(../images/arrows/pager-left.svg);
-	background-repeat: no-repeat;
-	background-size: contain;
-	background-position: center;
-	&:hover,&:focus{
-		background-image: url(../images/arrows/pager-left-navy.svg);
-		@include transition(background-image, 0.3s, ease);
-    background-color: transparent;
-	}
+	@include transform(rotate(180deg));
 }
 @mixin nextLink{
-	background-image: url(../images/arrows/pager-right.svg);
-	background-repeat: no-repeat;
-	background-size: contain;
-	background-position: center;
-	&:hover,&:focus{
-		background-image: url(../images/arrows/pager-right-navy.svg);
-		@include transition(background-image, 0.3s, ease);
-    background-color: transparent;
-	}
 }
 
 %firstLast{
-  border: 1px solid $buttonText;
-  border-radius: 25px;
-  color: $buttonText;
+  color: $pagerLink;
   line-height: 1;
   height: 30px;
-  width: 100px;
   @include safeFlex(column,nowrap,center,center);
   text-decoration: none;
   text-align: center;
   text-transform: uppercase;
   font-family: $header;
-  font-size: $button;
+  font-size: 20px;
   position: relative;
+  width: auto;
   @include onlySmall{
     display: none;
   }
   &:hover,&:focus{
-    background: $navy;
-    color: $white;
-    svg{
-      path,g{
-        stroke: $white;
-      }
-    }
+    text-decoration: underline;
+    color: $pagerLinkHover;
   }
   svg{
     display: none;
@@ -88,12 +66,10 @@ PAGERS
 	text-align: center;
 	margin-bottom: $spaceSm;
 	@include safeFlex(row,wrap,start,start);
+  gap: $spaceMxxs;
 	li{
-		*{
+		* {
 			display: block;
-		}
-		&:not(:first-child):not(:last-child){
-			margin: 0 .5rem;
 		}
 	}
 }
@@ -106,10 +82,8 @@ PAGERS
 		margin-top: $spaceXl;
 	}
 	.pager__items{
-		padding: 10px 47px;
+		padding: 10px $spaceMs;
 		margin-bottom: 0;
-		background: $lightGrey;
-    border-radius: 50px;
 	}
 	.pager__item{
 		a{
@@ -128,37 +102,31 @@ PAGERS
 		&.pager__item--ellipsis{
 			display: none;
 		}
-		&.pager__item--previous{
-			margin-right: 2rem;
-			& > a{
-				@include prevLink;
-			}
+    &.pager__item--previous,
+    &.pager__item--next {
+      & > a {
+        background: url(../images/arrows/right-arrow-royal-sm.svg) 50% 50% / 50% no-repeat scroll $pagerLinkBack;
+        &:hover {
+          background-color: $pagerLinkBackHover;
+        }
+      }
+    }
+		&.pager__item--previous > a {
+      @include prevLink;
 		}
-		&.pager__item--next{
-			margin-left: 2rem;
-			& > a{
-				@include nextLink;
-			}
+		&.pager__item--next > a {
+      @include nextLink;
 		}
     &.pager__item--first{
 			margin-right: 2.5rem;
 			& > a{
 				@extend %firstLast;
-        // padding-right: 1.75rem;
-        // svg{
-        //   left: 1.75rem;
-        // }
 			}
 		}
 		&.pager__item--last{
 			margin-left: 2.5rem;
 			& > a{
         @extend %firstLast;
-        //align-items: flex-start;
-        // padding-left: 2rem;
-        // svg{
-        //   right: 2rem;
-        // }
 			}
 		}
 	}//end page number items

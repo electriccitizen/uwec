@@ -12,7 +12,7 @@
 	label.button{
 		display: inline-block;
 		color: $buttonText;
-		padding: $buttonPadding;
+		padding: $buttonPaddingMobile;
 		font-size: $button;
 		&:hover,&:focus{
 			color: $buttonTextHover;

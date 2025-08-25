@@ -76,19 +76,44 @@
 }//end hallmarks field
 
 .paragraph--type--hallmark{
+  margin-top: $spaceMl;
   max-width: 1400px;
   @include auto;
   * {
     transform-style: unset;
   }
+  @include tab {
+    margin-top: 0;
+  }
   &.hallmark-visible .content{
-    .hallmark-image{
-      .stripes-before,.stripes-after{
+    .hallmark-image {
+      .field-image {
+        position: relative;
+        z-index: 2;
+      }
+      &:before {
+        background: url('../images/elements/gold-wave-medium.svg') no-repeat scroll center center/100% transparent;
+        content: '';
+        display: block;
+        height: 69px;
+        left: -$siteMarginMobile;
         opacity: 1;
+        position: absolute;
+        top: -$siteMarginMobile;
+        width: 127px;
+        z-index: 1;
         html.animations-playing & {
           transition-delay: 1.5s;
         }
         @include transition-animate(opacity, .5s, ease-in);
+      }
+      @include tab {
+        margin-bottom: 0;
+        &:before {
+          background-image: url('../images/elements/gold-wave-thin.svg');
+          height: 172px;
+          width: 306px;
+        }
       }
     }
     &.left{
@@ -101,6 +126,9 @@
       @include tab{
         .hallmark-image{
           @include animation('hallmarkDeskLeft 1.5s 1 forwards');
+          &:before {
+            @include transform(scaleX(-1));
+          }
         }
       }
       @include contentStopMargin{
@@ -110,15 +138,14 @@
       }
     }//end left
     &.right{
-      .hallmark-image {
-        html.animations-paused & {
-          left: -60px;
-          z-index: 2;
-        }
-      }
       @include tab{
         .hallmark-image{
           @include animation('hallmarkDeskRight 1.5s 1 forwards');
+
+          html.animations-paused & {
+            left: -60px;
+            z-index: 2;
+          }
         }
       }
       @include contentStopMargin{
@@ -140,11 +167,11 @@
       }
     }
     @include tab{
+      @include gradient(right, $navy, 0%, $royal);
       width: calc(100% - 20px);
-      background: $navy;
       padding-top: 70px;
       padding-bottom: 70px;
-      @include safeFlex(row,nowrap,justify,start);
+      @include safeFlex(row,nowrap,justify,center);
     }
     &.left{
       @include tab{
@@ -153,13 +180,8 @@
           left: auto;
           right: 0;
           order: 2;
-          .stripes-before{
-            display: block;
+          &:before {
             left: -35px;
-          }
-          .stripes-after{
-            left: auto;
-            right: -35px;
           }
         }//end hallmark image
         .hallmark-text{
@@ -179,13 +201,9 @@
         .hallmark-image{
           right: auto;
           left: 0;
-          .stripes-before{
-            display: block;
+          &:before {
             left: auto;
             right: -60px;
-          }
-          .stripes-after{
-            left: 30px;
           }
         }//end hallmark image
         .hallmark-text{
@@ -203,42 +221,29 @@
       position: relative;
       max-width: 874px;
       z-index: 1;
-      width: calc(100% - 40px);
-      left: 20px;
       @include tab{
         flex: 0 0 58%;
         z-index: -2;
+
+        &:before {
+          left: auto;
+          right: 0;
+          top: -30px;
+          opacity: 0;
+          z-index: -1;
+        }
       }
       @include contentStopMargin{
         flex: 0 0 65%;
       }
-      .stripes-before{
-        display: none;
-        position: absolute;
-        right: 0;
-        top: -30px;
-        opacity: 0;
-        z-index: -1;
-      }
-      .stripes-after{
-        display: block;
-        position: absolute;
-        left: -30px;
-        bottom: -118px;
-        opacity: 0;
-        z-index: -1;
-        @include tab{
-          bottom: -90px;
-        }
-      }
     }//end hallmark image
     .hallmark-text{
-      padding: 90px 40px 65px;
-      background: $navy;
+      @include gradient(right, $navy, 0%, $royal);
+      padding: 44px $siteMarginMobile 65px;
       color: $white;
       @include tab{
-        padding-top: 10px;
-        padding-bottom: 0;
+        background: none;
+        padding: 10px 40px 0;
         flex: 0 0 42%;
       }
       @include contentStopMargin{
@@ -246,17 +251,20 @@
       }
       .field-headline{
         @include heading2;
-        color: $white;
-        margin-bottom: $spaceSm;
+        & {
+          color: $white;
+          font-size: 24px;
+          line-height: 1.25;
+          margin-bottom: $spaceSm;
+          max-width: 75%;
+        }
+        @include tab {
+          font-size: 26px;
+        }
       }
       .field-long-text{
         a{
           color: $gold;
-          @include dottedLink($gold);
-          &:hover,&:focus{
-            color: $oldGold;
-            @include dottedLink($white);
-          }
         }
         h2,h6{
           color: $white;
@@ -272,6 +280,7 @@
         padding-top: 14px;
         a{
           @include linkArrow(gold);
+          color: $linkInvert;
         }//end a
       }//end field link
     }//end hallmark text

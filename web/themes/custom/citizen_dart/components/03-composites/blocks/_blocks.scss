@@ -9,6 +9,7 @@
 @forward 'cookie-popup/cookie-popup';
 @forward 'courses/courses';
 @forward 'env-banner/env-banner';
+@forward 'footer-blocks/footer-blocks';
 @forward 'formatted-promo/formatted-promo';
 @forward 'omnilert/omnilert';
 @forward 'page-structured-section/page-structured-section';
@@ -16,88 +17,4 @@
 @forward 'search/search';
 @forward 'social-links/social-links';
 @forward 'social-share/social-share';
-
-@use '../../00-base/base' as *;
-
-/* MISC BLOCKS
--------------- */
-
-// FOOTER ADDRESS
-.block-2{
-	color: $gold;
-	@include onlyMobile{
-		padding-top: 150px;
-		margin-top: 20px;
-		max-width: 282px;
-		@include auto;
-		background-image: url(../images/logos-badges/uwec-stacked-gold.svg);
-		background-repeat: no-repeat;
-		background-size: 63px 92px;
-		background-position: top center;
-	}
-	@include desk{
-		color: $black;
-		background: $gold;
-		padding: 45px 40px 200px;
-		width: 100%;
-		max-width: $contentStop;
-		position: relative;
-	}
-	p{
-		margin-bottom: $spaceXxs;
-		font-size: 14px;
-		line-height: 22px;
-		&:first-child{
-			font-family: $header;
-			font-weight: $xHeavy;
-		}
-	}
-}//end block 2
-
-// SOCIAL MEDIA
-.block-3{
-  .field-platforms{
-    .platform-links{
-      justify-content: center;
-      li{
-        a{
-          *{
-            transform-style: unset;
-          }
-          svg{
-            width: 22px;
-            height: 22px;
-          }
-          svg,.cls-1{
-            fill: $footerLink;
-          }
-          &:hover,&:focus{
-            svg,.cls-1{
-              fill: $footerLinkHover;
-            }
-          }
-        }//end a
-      }//end li
-    }//end platform links
-  }//end field platforms
-}//end block social media
-
-// copyright block (block-1)
-.block-1{
-  text-align: center;
-  position: relative;
-  .copyright{
-    text-align: center;
-    font-size: 1.5rem;
-    line-height: 24px;
-    & > span:first-child{
-      padding-right: .25em;
-      & + *{
-        display: inline;
-      }
-    }
-    p{
-      margin: 0;
-    }
-  }
-}
+@forward 'start-your-journey/start-your-journey';

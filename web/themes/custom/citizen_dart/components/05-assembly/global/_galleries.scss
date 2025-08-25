@@ -4,41 +4,61 @@
 
 @use '../../00-base/base' as *;
 
-@mixin sliderPrevSm{
-	background-image: url(../images/arrows/slider-arrow-left-ltgrey-sm.svg);
-	background-repeat: no-repeat;
-	background-size: contain;
-	background-position: center;
+@mixin sliderPagerBase {
+  &:before {
+    background-color: $galleryPagerBack;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 11px;
+    border-radius: 50%;
+    content: "";
+    display: block;
+    height: 40px;
+    opacity: 1;
+    transition: background-color .3s;
+    width: 40px;
+  }
+  &:hover:before,
+  &:active:before {
+    background-color: $galleryPagerHoverBack;
+  }
+  @include desk {
+    &:before {
+      background-position: 36px center;
+      background-size: 22px;
+      height: 100px;
+      width: 100px;
+    }
+  }
 }
 
-@mixin sliderPrev{
-	background-image: url(../images/arrows/slider-arrow-left-ltgrey.svg);
-	background-repeat: no-repeat;
-	background-size: contain;
-	background-position: center;
+
+@mixin sliderPrev {
+  @include sliderPagerBase;
+  &:before {
+	  background-image: url(../images/arrows/slider-arrow-left-royal.svg);
+  }
 }
 
-@mixin sliderNextSm{
-	background-image: url(../images/arrows/slider-arrow-right-ltgrey-sm.svg);
-	background-repeat: no-repeat;
-	background-size: contain;
-	background-position: center;
-}
-
-@mixin sliderNext{
-	background-image: url(../images/arrows/slider-arrow-right-ltgrey.svg);
-	background-repeat: no-repeat;
-	background-size: contain;
-	background-position: center;
+@mixin sliderNext {
+  @include sliderPagerBase;
+  &:before {
+	  background-image: url(../images/arrows/slider-arrow-right-royal.svg);
+  }
+  @include desk {
+    &:before {
+      background-position: 42px center;
+    }
+  }
 }
 
 /* FEATHERLIGHT
 ------------------- */
 body{
   .featherlight{
-    background: $navy !important;
+    background: $royal !important;
     .featherlight-content {
-      background: $navy;
+      background: $royal;
       padding: 0px;
       border-bottom: 0px;
       overflow: visible;
@@ -52,7 +72,7 @@ body{
         height: 100%;
         width: 100%;
         max-height: 100vh;
-        overflow-y: scroll;
+        overflow-y: auto;
       }
       .featherlight-counter{
         font-family: $header;
@@ -79,42 +99,25 @@ body{
         background: none;
         top: 20px;
         right: 20px;
-        color: $oldGold;
-        @include dottedLink($oldGold);
+        color: $white;
+        @include lineLink;
         font-family: $bodyText;
-        font-size: 2rem;
+        font-size: 14px;
         line-height: 1.875;
         width: auto;
         height: auto;
-        &:hover,&:focus{
-          color: $white;
-          @include dottedLink($white);
-        }
         @include desk{
           right: 40px;
         }
       }//end close icon
       .featherlight-previous {
-        width: 40px;
-        height: 40px;
-        top: calc(40% - 20px);
+        top: calc(40% - 48px);
         left: 10px;
         bottom: auto;
         right: auto;
-        @include sliderPrevSm;
-          @include desk{
-            width: 96px;
-            height: 96px;
-            top: calc(40% - 48px);
-            @include sliderPrev;
-          }
-        &:hover,&:focus {
-          background-image: url(../images/arrows/slider-arrow-left-ice-sm.svg);
-          background-color: transparent;
-          @include transition(background-image, 0.3s, ease);
-          @include desk{
-            background-image: url(../images/arrows/slider-arrow-left-ice.svg);
-          }
+        @include sliderPrev;
+        &:hover {
+          background: none;
         }
         span {
           display: block;
@@ -124,26 +127,13 @@ body{
       }
       //end previous
       .featherlight-next {
-        width: 40px;
-        height: 40px;
-        top: calc(40% - 20px);
+        @include sliderNext;
         right: 10px;
         bottom: auto;
         left: auto;
-        @include sliderNextSm;
-          @include desk{
-            width: 96px;
-            height: 96px;
-            top: calc(40% - 48px);
-            @include sliderNext;
-          }
-        &:hover,&:focus {
-          background-image: url(../images/arrows/slider-arrow-right-ice-sm.svg);
-          background-color: transparent;
-          @include transition(background-image, 0.3s, ease);
-          @include desk{
-            background-image: url(../images/arrows/slider-arrow-right-ice.svg);
-          }
+        top: calc(40% - 48px);
+        &:hover {
+          background: none;
         }
         span {
           display: block;
@@ -162,7 +152,8 @@ body{
         max-width: 872px;
         .field-caption-headline {
           font-family: $header;
-          font-size: 2.25rem;
+          font-size: 2.5rem;
+          font-weight: $heavy;
           margin-bottom: $spaceXxs;
         }
       }//end featherlight caption
@@ -173,71 +164,41 @@ body{
 /* SLIDER STYLING
 -------------- */
 .slick-slider {
+  background-color: $galleryMobileBack;
+  @include carouselBreak {
+    background-color: $siteBack;
+  }
 	.slick-list {
 		@include listReset;
+    .slick-slide {
+      overflow: hidden;
+      padding-bottom: $siteMarginMobile;
+      @include carouselBreak {
+        padding-bottom: 0;
+      }
+    }
     .slick-current{
       &:focus{
         outline: 0;
-        border: 1px inset $brightBlue;
+        border: 1px inset $royal;
       }
     }
 	}
 	.slick-arrow {
 		z-index: 1;
-    width: 40px;
-    height: 40px;
-    @include desk{
-      width: 96px;
-		  height: 96px;
-    }
-		&:before {
-			content: '';
-			display: block;
-			width: 100%;
-			height: 100%;
-			opacity: 1;
-		}
 		&.slick-prev {
       left: 20px;
       @include desk{
 			  left: -48px;
       }
-			&:before{
-				@include sliderPrevSm;
-        @include desk{
-          @include sliderPrev;
-        }
-			}
-			&:hover,&:focus{
-				&:before{
-					background-image: url(../images/arrows/slider-arrow-left-ice-sm.svg);
-					@include transition(background-image, 0.3s, ease);
-          @include desk{
-            background-image: url(../images/arrows/slider-arrow-left-ice.svg);
-          }
-				}
-			}
+      @include sliderPrev;
 		}
 		&.slick-next {
       right: 20px;
       @include desk{
 			  right: -48px;
       }
-			&:before{
-				@include sliderNextSm;
-        @include desk{
-          @include sliderNext;
-        }
-			}
-			&:hover,&:focus{
-				&:before{
-					background-image: url(../images/arrows/slider-arrow-right-ice-sm.svg);
-					@include transition(background-image, 0.3s, ease);
-          @include desk{
-            background-image: url(../images/arrows/slider-arrow-right-ice.svg);
-          }
-				}
-			}
+      @include sliderNext;
 		}
 	}//end slick arrow
 }//end slick-slider

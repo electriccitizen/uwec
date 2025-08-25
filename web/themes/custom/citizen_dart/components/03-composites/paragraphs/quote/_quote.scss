@@ -6,42 +6,31 @@
 
 @mixin quote{
 	font-size: 21px;
-	line-height: 2;
+	line-height: 1.42;
 	font-family: $displayHeader;
 	font-style: italic;
   max-width: 650px;
   @include auto;
   @include tab{
-    font-size: 32px;
-	  line-height: 1.5;
+    font-size: 30px;
+	  line-height: 1.43;
   }
 	.quote-mark{
-		display: block;
-		width: 16px;
-		height: 14px;
-		margin: -16px auto 36px;
-    @include tab{
-      width: 20px;
-      height: 19px;
-      margin-bottom: 42px;
-    }
-		svg,.cls-1{
-			fill: $brightBlue;
-		}
+		@include quoteMark;
+    margin-bottom: $spaceMs;
+    width: 100%;
 	}//quote mark
 }//end quote
 
 .paragraph--type--quote {
-	color: $brightBlue;
-  @include edgeToEdge;
+	color: $royal;
+  background: $ice;
 	@media screen and (min-width: 954px){
 		@include auto;
 	}
   .quote-wrapper {
   	max-width: $breakoutWidth;
   	@include auto;
-    border-top: $brightBlue 1px solid;
-    border-bottom: $brightBlue 1px solid;
     padding: 36px $siteMarginMobile 36px;
     text-align: center;
     .quote {
@@ -55,6 +44,9 @@
       @include tab{
         margin: 20px auto 4px;
       }
+    }
+    @include desk {
+      padding: 106px $siteMarginMobile;
     }
   }//end quote wrapper
 }//end paragraph type quote

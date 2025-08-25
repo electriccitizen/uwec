@@ -24,17 +24,16 @@
 	a{
 		display:inline-block;
 		margin-top:2rem;
-		@include arrowLinkAfter($navy);
+		@include arrowLinkAfter($royal);
 
 		&:after{
-			@include rightArrow(navy, transparent, $navy, sm);
+			@include rightArrow($gold, $royal, sm);
 		}
 		&:hover, &:focus{
 			&:after{
-				@include rightArrow(white, $navy, $navy, sm);
+				@include rightArrow($white, $royal, sm);
 			}
 			span{
-				@include dottedLink($navy);
 				padding-bottom:1px;
 			}
 		}

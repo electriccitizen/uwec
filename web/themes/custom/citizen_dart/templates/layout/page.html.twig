@@ -104,32 +104,40 @@
 
 	{% block pagePreFooter %}
 		{% if page.prefooter %}
-			<section class="prefooter-wrapper" role="complementary">
-				<div class="prefooter-guard">
-					<div class="back-anchor">
-						<a href="#" role="button" aria-label="back-to-top">
-							<svg width="41" height="49" viewBox="0 0 41 49" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20.2866 48.9609L20.2866 1.60872" stroke="#232C99" stroke-width="2" stroke-miterlimit="10"/><path d="M39.4922 20.8145L20.2866 1.60889L1.09219 20.8145" stroke="#232C99" stroke-width="2" stroke-miterlimit="10"/></svg>
-						</a>
-					</div>
-					<div class="prefooter-inner">
-						{% block prefooterContent %}
-							{{ page.prefooter }}
-						{% endblock %}
-					</div>
-				</div>
-			</section>
+      <section class="prefooter" role="complementary">
+        <div class="prefooter-inner">
+          {{ page.prefooter }}
+        </div>
+      </section>
 		{% endif %}
 	{% endblock %}
 
+  <div class="back-anchor">
+    <a href="#" role="button" aria-label="back-to-top">
+      <svg width="41" height="49" viewBox="0 0 41 49" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20.2866 48.9609L20.2866 1.60872" stroke="#232C99" stroke-width="2" stroke-miterlimit="10"/><path d="M39.4922 20.8145L20.2866 1.60889L1.09219 20.8145" stroke="#232C99" stroke-width="2" stroke-miterlimit="10"/></svg>
+    </a>
+  </div>
+
 	{% block pageFooter %}
-		{% if page.footer %}
+		{% if page.footer or page.postFooter %}
 			<footer role="contentinfo" class="site-footer">
-			<div class="footer-inner">
-				{% block footerContent %}
-					{{ page.footer }}
-				{% endblock %}
-			</div>
-		</footer>
+        {% if page.footer %}
+        <div class="footer-inner">
+          {% block footerContent %}
+            {{ page.footer }}
+          {% endblock %}
+        </div>
+        {% endif %}
+        {% if page.postfooter %}
+          <section class="postfooter">
+            <div class="postfooter-inner">
+              {% block postFooterContent %}
+                {{ page.postfooter }}
+              {% endblock %}
+            </div>
+          </footer>
+        {% endif %}
+		  </footer>
 		{% endif %}
 	{% endblock %}
 </div>

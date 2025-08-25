@@ -10,8 +10,8 @@ dependencies:
     - citizen_dart
 id: citizen_dart_footerfor
 theme: citizen_dart
-region: prefooter
-weight: -9
+region: footer
+weight: -6
 provider: null
 plugin: 'menu_block:footer-for'
 settings:
@@ -21,6 +21,7 @@ settings:
   provider: menu_block
   follow: false
   follow_parent: child
+  display_empty: false
   label_link: false
   label_type: block
   level: 1

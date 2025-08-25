@@ -41,6 +41,11 @@
         .select-item{
           width: 33.33%;
           max-width: 330px;
+          border-left: 1px solid $white;
+          border-right: 1px solid $white;
+          &:not(:last-child){
+            border-bottom: 0;
+          }
         }
         &.items-4{
           .select-item{
@@ -57,7 +62,7 @@
       }//end media query
     }//end one column selects
     .select-item {
-      background-color: $navy;
+      background: linear-gradient(180deg, #232C99 0%, #163E63 100%);
       padding: $spaceLg;
       padding: 40px;
       transition: transform .3s ease-in-out;
@@ -65,7 +70,10 @@
       overflow: hidden;
       z-index: 1;
       &:nth-child(even) {
-        background-color: rgba(6, 35, 61, .93);
+        background: $royal;
+      }
+      &:not(:last-child){
+        border-bottom: 2px solid $white;
       }
       @include desk{
         padding-top: 150px;
@@ -84,13 +92,16 @@
         color: $white;
         @include safeFlex(column,nowrap,justify,start);
         .field-headline{
-          font-family: $displayHeader;
-          font-size: 4rem;
-          line-height: 1.25;
+          font-size: 3rem;
+          line-height: 1.4;
+          font-weight: $heavy;
           margin-bottom: 40px;
           @include desk{
             margin-bottom: 45px;
             word-break: break-word;
+          }
+          @include contentStop {
+            font-size: 3.75rem;
           }
         }
         .field-additional-text {
@@ -106,11 +117,7 @@
         }
         .field-link{
           a{
-            display: inline-block;
-            @include linkArrow(gold, sm);
-            &:before{
-              top: -2px;
-            }//end before
+            @include linkArrow(gold, lg);
           }//end a
         }//end field link
       }//end paragraph select item

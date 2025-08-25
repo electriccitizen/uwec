@@ -65,7 +65,7 @@
 	height: auto;
 	background: $siteBack;
   .select2-selection__rendered{
-    border-radius: 10px; 
+    border-radius: 10px;
   }
 }
 
@@ -107,9 +107,9 @@
 		&[type="radio"]{
 			border-radius: 50%;
 			&:checked{
-				background-color: $brightBlue;
+				background-color: $royal;
 				&:hover,&:focus{
-					background-color: $warmGrey;
+					background-color: $coolGrey;
 				}
 			}
 		}
@@ -121,8 +121,10 @@
 	.js-form-managed-file,.form-managed-file{
 		input.js-form-submit,input.form-submit{
 			@include submitButton;
-			font-size: 1.5rem;
-			padding: 1rem 4rem;
+      & {
+        font-size: 1.5rem;
+        padding: 1rem 4rem;
+      }
 		}
 		//allowed upload file types description
 		.description{

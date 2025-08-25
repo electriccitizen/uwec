@@ -8,14 +8,15 @@ ul {
 	list-style-position: inside;
   .text-long &,.text-with-summary &{
     & > li {
-      padding: 0 0 $spaceXxs 2.25rem;
+      padding: 0 0 $spaceXxs 3rem;
       position: relative;
       &:before {
+        color: $listMarker;
         content: '•';
         display: inline-block;
-        font-size: 12px;
+        font-size: 20px;
         position: absolute;
-        top: 0;
+        top: -4px;
         left: 0;
         width: 2.25rem;
       }
@@ -58,7 +59,7 @@ ol {
       }
     }//end li
   }//end text-long, text-with-summary
-}//ol 
+}//ol
 
 //set list spacing in WYSGIWYG
 .text-with-summary,.text-long{
@@ -73,6 +74,3 @@ ol {
 		}
 	}
 }//end text-with-summary,text-long
-
-
-

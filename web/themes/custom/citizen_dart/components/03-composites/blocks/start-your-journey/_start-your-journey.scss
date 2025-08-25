@@ -1,0 +1,42 @@
+/* =================
+   START YOUR BLUGOLD JOURNEY
+=================== */
+@use '../../../00-base/base' as *;
+@use '../../../01-parts/buttons/button-mixins.scss' as *;
+
+.block-start-your-journey {
+  @include auto;
+  max-width: $menuStop;
+  padding: $spaceXl $siteMarginMobile;
+  position: relative;
+  text-align: center;
+  @include tab {
+	  @include safeFlex(row,wrap,justify,center);
+    padding: $spaceMd $siteMarginDesk;
+  }
+  @include desk {
+  }
+
+  h2 {
+    font-family: $displayHeader;
+    font-size: 22px;
+    margin-bottom: $spaceMs;
+    @include tab {
+      font-size: 26px;
+      margin-bottom: 0;
+    }
+  }
+
+  .start-your-journey-buttons {
+    @include safeFlex(row, wrap, center, center);
+    gap: $spaceMs;
+    a {
+      @include button($white, $royal, $royal, $white);
+      flex: 1;
+      margin-bottom: 0;
+      @include tab {
+        flex: none;
+      }
+    }
+  }
+}
