@@ -420,7 +420,7 @@ linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4));
         padding: 75px $siteMarginMobile 60px;
         &:first-child{
           @include desk{
-            border-top: 40px solid $royal;
+            margin-top: 40px;
           }
         }
         &:after{
