@@ -98,17 +98,14 @@
         margin-bottom: $spaceLg;
       }
       .views-field-field-image{
-        margin-bottom: $spaceXs;
+        margin-bottom: $spaceSm;
       }
       .story-title{
         margin-bottom: $spaceXxs;
         a{
-          @include blockArrow(navy, sm);
+          @include linkArrow(goldRoyal, lg);
         }//end a
       }//end title
-      .intro-text{
-        line-height: 1.5;
-      }
 		}//end views row
 	}//end view contnet
 }//end featured news
