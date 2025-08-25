@@ -165,7 +165,7 @@ ul.sf-menu.sf-horizontal{
 
 		//dropdown wrapper
 		& > ul{
-			padding: 2.5rem 0;
+			padding:0 2rem;
 			top: 100%;
 			min-width: 328px;
 			@extend %menuDropdown;
@@ -180,26 +180,26 @@ ul.sf-menu.sf-horizontal{
 	}//end main dropdown
 
 	li.sf-depth-2 {
-		border-bottom: 1px solid $coolGrey;
-		margin: 0 20px;
-		width: calc(100% - 42px);
+		border-bottom:1px solid $coolGrey;
+		margin:0;
+		width:100%;
 	}
 
 	//level 2 links
 	a.sf-depth-2{
 		line-height: 1;
-		padding: 1.5rem 0 2.5rem;
-    font-size: 2rem;
-    line-height: 1;
-    font-weight: $heavy;
+		padding:2rem;
+		font-size: 2rem;
+		line-height: 1;
+		font-weight: $heavy;
 		&:hover, &:focus, &.is-active {
 			background: $white;
 		}
-    &.is-active{
-      &:hover,&:focus{
-        background: $ice;
-      }
-    }
+		&.is-active{
+			&:hover,&:focus{
+				background: $ice;
+			}
+		}
 	}
 
 	// sub menu toggles
