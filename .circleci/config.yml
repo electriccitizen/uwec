@@ -20,7 +20,7 @@ jobs:
           name: setup-environment-vars (Pantheon)
           command: /build-tools-ci/scripts/set-environment
 
-      # Copy what set-environment wrote into a file for the workspace step (unchanged pattern)
+      # Snapshot the environment into a file for the workspace.
       - run:
           name: snapshot $BASH_ENV
           command: cp "$BASH_ENV" bash_env.txt
@@ -74,6 +74,14 @@ jobs:
             # shellcheck disable=SC1090
             source "$BASH_ENV"
             echo "TERMINUS_ENV=${TERMINUS_ENV}"
+
+      # *** New: Git identity required for build:env:push/create commits ***
+      - run:
+          name: set git identity (required by build:env:push)
+          command: |
+            git config --global user.email "ci@electriccitizen.com"
+            git config --global user.name  "Electric Citizen CI"
+            echo "git user: $(git config --global user.name) <$(git config --global user.email)>"
 
       - run:
           name: deploy to Pantheon
