@@ -34,4 +34,29 @@ class Commands extends DrushCommands {
 			}
 		}
 	}
+
+	// scan profiles for dirty data
+	#[CLI\Command(name: 'profile_sync:dirty')]
+	#[CLI\Usage(name: 'profile_sync:dirty', description: 'Finds profiles with dirty data.')]
+	public function dirty(){
+		$node_storage = \Drupal::entityTypeManager()->getStorage('node');
+
+		// query all automatic profiles
+		$query = $node_storage->getQuery()
+			->condition('type', 'bios')
+			->condition('field_active', 1);
+		$auto_nids = $query->accessCheck(false)->execute();
+
+		// print username for all profiles with no empl_id
+		echo "Checking for automatic users with no empl_id..\n";
+		foreach($auto_nids as $nid){
+			$profile = $node_storage->load($nid);
+			$empl_id = $profile->field_empl_id->getString();
+			if(empty($empl_id)){
+				$username = $profile->field_username->getString();
+				echo "$username\n";
+			}
+		}
+		echo '..done!';
+	}
 }
