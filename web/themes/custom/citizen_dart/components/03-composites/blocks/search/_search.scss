@@ -156,7 +156,7 @@
 	}
 }
 
-// header search box
+// header search box (mobile and desktop)
 .search-box-wrapper{
 	.gsc-control-wrapper-cse,.gsc-control-searchbox-only{
 		font-family: $bodyText;
@@ -263,11 +263,6 @@
 					color: inherit !important;
 				}
 			}
-
-			button.gsc-search-button{
-				@include submitButton;
-				margin:0;
-			}
 		}//end gsc search box
 	}//end google search control wrapper
 }
@@ -297,34 +292,39 @@
 	}//end completion container
 }//end autocomplete suggestions table
 
+
+// header search box (desktop only)
+.search-box-wrapper:not(.mobile-search){
+	button.gsc-search-button{
+		@include submitButton;
+		margin:0;
+	}
+}
+
+// header search box (mobile only)
 .search-box-wrapper.mobile-search {
 	padding: 0 2.5rem;
 	margin-bottom: 5rem;
 	.gsc-search-box {
-		label {
-			display: block;
-      font-family: $header;
-      font-weight: $xHeavy;
-      font-size: 2rem;
-      line-height: 1.5;
-			margin-bottom: $spaceXxs;
-		}
-		.gsc-input-box {
-			.gsst_a {
-				padding: 0;
-			}
-      .gsc-input {
-        font-size: 1.75rem;
-      }
-		}
-		.gsc-search-button .gsc-search-button-v2 {
-			border: unset !important;
-			height: 52px;
-			padding-top: 0;
-			&:hover,&:focus{
-				background-color: transparent;
+		td.gsc-search-button{
+			position:absolute;
+			right:74px;
+			top:0;
+
+			button{
+				padding:16px 40px;
+				background:none;
+				border:none;
+				svg{
+					fill:#777;
+				}
 			}
 		}
+	}
+
+	// remove "clear search" icon
+	.gsib_b{
+		display:none;
 	}
 }
 
