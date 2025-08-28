@@ -39,7 +39,7 @@ content:
     type: entity_reference_entity_view
     label: hidden
     settings:
-      view_mode: 426x426
+      view_mode: wayfinding_new
       link: false
     third_party_settings: {  }
     weight: 0

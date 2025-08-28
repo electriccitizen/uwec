@@ -1,0 +1,11 @@
+uuid: 8bde6ab7-b539-4209-b27b-d5e4562e77cc
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+id: media.wayfinding_new
+label: 'Wayfinding New'
+description: ''
+targetEntityType: media
+cache: true

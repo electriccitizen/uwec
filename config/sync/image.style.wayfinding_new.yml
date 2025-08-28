@@ -1,0 +1,30 @@
+uuid: 1ba1eb9d-47fb-417f-9c01-4cb766bbc600
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+    - image_effects
+name: wayfinding_new
+label: 'Wayfinding New'
+effects:
+  94129f77-6dcf-4024-ba99-6799d1ee269e:
+    uuid: 94129f77-6dcf-4024-ba99-6799d1ee269e
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 500
+      height: 500
+      crop_type: focal_point
+  b90b034d-d252-42af-91dc-ca5f3b55740a:
+    uuid: b90b034d-d252-42af-91dc-ca5f3b55740a
+    id: image_effects_convolution_sharpen
+    weight: 2
+    data:
+      level: 13
+  10ef3354-faaf-418f-8bda-2ad842cee3e9:
+    uuid: 10ef3354-faaf-418f-8bda-2ad842cee3e9
+    id: image_effects_contrast
+    weight: 3
+    data:
+      level: 8
