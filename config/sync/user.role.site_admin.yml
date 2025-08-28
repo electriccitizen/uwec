@@ -76,6 +76,7 @@ dependencies:
     - smart_date_recur
     - system
     - taxonomy
+    - trash
     - view_unpublished
     - workbench_access
 id: site_admin
@@ -93,6 +94,7 @@ permissions:
   - 'access responsive preview'
   - 'access shortcuts'
   - 'access taxonomy overview'
+  - 'access trash'
   - 'access user profiles'
   - 'administer content-support-book menu items'
   - 'administer departments menu items'
@@ -405,7 +407,11 @@ permissions:
   - 'perform batch updates entity usage'
   - 'publish to any assigned domain'
   - 'publish to any domain'
+  - 'purge media entities'
+  - 'purge node entities'
   - 'reschedule smart date recur instances'
+  - 'restore media entities'
+  - 'restore node entities'
   - 'revert academic_program revisions'
   - 'revert all revisions'
   - 'revert announcement revisions'
@@ -497,6 +503,7 @@ permissions:
   - 'view assigned domains'
   - 'view college revisions'
   - 'view contact revisions'
+  - 'view deleted entities'
   - 'view department revisions'
   - 'view domain aliases'
   - 'view domain list'

@@ -88,6 +88,7 @@
     "drupal/superfish": "^1.13",
     "drupal/svg_image": "^3.0",
     "drupal/token": "^1.7",
+    "drupal/trash": "^3.0",
     "drupal/twig_tweak": "^3.1",
     "drupal/view_unpublished": "^1.2",
     "drupal/views_bulk_operations": "^4.0",
