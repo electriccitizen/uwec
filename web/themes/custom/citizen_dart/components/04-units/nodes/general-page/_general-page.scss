@@ -411,7 +411,8 @@ linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4));
         padding: 75px $siteMarginMobile 60px;
         &:first-child{
           @include desk{
-            margin-top: 40px;
+            // TODO make this work on /myblugold
+            //margin-top: 40px;
           }
         }
         &:after{
