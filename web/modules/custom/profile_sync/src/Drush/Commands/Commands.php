@@ -48,15 +48,29 @@ class Commands extends DrushCommands {
 		$auto_nids = $query->accessCheck(false)->execute();
 
 		// print username for all profiles with no empl_id
-		echo "Checking for automatic users with no empl_id..\n";
+		echo "Checking for automatic profiles with no empl_id..\n";
+		$count = 0;
 		foreach($auto_nids as $nid){
 			$profile = $node_storage->load($nid);
 			$empl_id = $profile->field_empl_id->getString();
 			if(empty($empl_id)){
 				$username = $profile->field_username->getString();
-				echo "$username\n";
+				echo "$username (nid $nid)\n";
+				$count++;
 			}
 		}
+		echo "..done! Found ".$count."\n";
+
+		// print usernames for all profiles with no author
+		$query = \Drupal::entityQuery('node');
+		$query->condition('type', 'bios');
+		$query->condition('uid', 0);
+		$nids = $query->accessCheck(false)->execute();
+		echo 'There are '.count($nids)." profiles with no author\n";
+		foreach($nids as $nid){
+			echo "$nid\n";
+		}
+
 		echo '..done!';
 	}
 }
