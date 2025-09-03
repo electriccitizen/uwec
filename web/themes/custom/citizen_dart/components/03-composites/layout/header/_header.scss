@@ -19,7 +19,8 @@ section.alert-wrapper{
   .node-type-support-book &,
   .node-type-testimonial &,
   .node-type-video-card &,
-  .path-taxonomy & {
+  .path-taxonomy &,
+  .role-anonymous.path-user & {
     background: radial-gradient(50.13% 157.8% at 6.18% 33.85%, #0F2C46 0%, #232C99 100%);
   }
 	& > div{

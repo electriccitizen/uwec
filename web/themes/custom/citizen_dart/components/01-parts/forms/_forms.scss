@@ -336,6 +336,7 @@ h1.webform-title {
 /* USER LOGIN
 --------------- */
 .user-login-form,#user-pass,#user-register-form{
+  margin-top: $elementSpace;
 	max-width: $desk;
 	@include auto;
 	.form-item:not([type="submit"]),details{
@@ -351,15 +352,19 @@ h1.webform-title {
 			top: -1px;
 			right: 0;
 			font-size: 1.5rem;
+      &:hover,&:focus {
+        text-decoration: underline;
+      }
 		}
 		.show-password{
 			position: absolute;
 			top: 54px;
 			right: 12px;
 			font-size: 1.4rem;
-			color: $coolGrey;
+			color: $royal;
 			&:hover,&:focus{
 				color: $hoverLink;
+        text-decoration: underline;
 			}
 		}
 		input#edit-pass{
