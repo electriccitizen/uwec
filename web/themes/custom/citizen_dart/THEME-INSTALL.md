@@ -1,6 +1,6 @@
 # THEME-INSTALL.md
 
-## ABOUT CITIZEN DART THEME
+## ABOUT CITIZEN DART THEME FOR UWEC
 
 For Drupal 11, Citizen Dart uses the Stable theme starting place, and is meant to expand on that to theme this website.
 
