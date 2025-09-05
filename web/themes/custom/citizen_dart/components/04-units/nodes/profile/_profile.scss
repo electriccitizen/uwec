@@ -161,14 +161,14 @@
         margin-top: 28px;
       }
       .field.title {
-				margin-bottom: 1rem;
-        h1,.suffixes {
+        margin-bottom: 1rem;
+        h1,.prefixes,.suffixes {
           color: $gold;
           @include contentStop {
             font-size: 9.375rem;
           }
         }
-			}
+      }
     }//end title block
 
     .block-created {
