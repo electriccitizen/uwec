@@ -101,7 +101,7 @@
     .wayfinding {
       max-width: 1094px;
       @include desk {
-        @include safeFlex(row, no-wrap, justify, start);
+        @include safeFlex(row, no-wrap, justify, center);
       }
       &.single,&.box {
         margin-bottom: 0;
