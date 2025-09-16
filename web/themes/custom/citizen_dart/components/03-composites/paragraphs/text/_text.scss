@@ -5,10 +5,13 @@
 @use '../../../00-base/base' as *;
 
 .paragraph--type--text{
-	@include textConstrain;
+  @include textConstrain;
   .node-page &,.node-news &{
     padding-left: 20px;
     padding-right: 20px;
     max-width: 690px;
+  }
+  blockquote{
+    padding:30px;
   }
 }//end links-files widget
