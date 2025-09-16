@@ -57,9 +57,10 @@
   @include desk{
     @include edgeReset;
     overflow: hidden;
-    .widget-section > .layout--onecol &{
+    .widget-section > .layout--onecol &,.node-type-support-book &{
       margin-bottom: 0;
       height: 100%;
+      z-index: 1;
     }
   }
   &:after{
@@ -97,7 +98,7 @@
   .snapshot-teaser-text{
     max-width: $textMax;
     @include auto;
-    .widget-section > .layout--onecol &{
+    .widget-section > .layout--onecol &,.node-type-support-book &{
       @include desk{
         height: calc(100% - 256px);
         @include safeFlex(column,nowrap,justify,start);

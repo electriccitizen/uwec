@@ -9,7 +9,7 @@
 ------------- */
 .snapshots.list{
   .view-content{
-    .widget-section > .layout--onecol &{
+    .widget-section > .layout--onecol &,.node-type-support-book &{
       @include desk{
           @include safeFlex(row,nowrap,start,stretch);
           @include bleed(padding,20px);

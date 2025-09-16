@@ -78,6 +78,9 @@ $quoteWidthDesk: calc($breakoutWidth + $siteMarginMobile);
     padding-top: 32px;
     padding-bottom: 80px;
   }
+  .node-type-support-book & {
+    padding-left: 32px;
+  }
   &:after{
     @include fullBack($ice);
   }
