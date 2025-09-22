@@ -3,74 +3,43 @@
 ============== */
 @use '../../00-base/base' as *;
 
-ul {
-	list-style-type: none;
-	list-style-position: inside;
-  .text-long &,.text-with-summary &{
-    & > li {
-      padding: 0 0 $spaceXxs 3rem;
-      position: relative;
-      &:before {
-        color: $listMarker;
-        content: '•';
-        display: inline-block;
-        font-size: 20px;
-        position: absolute;
-        top: -4px;
-        left: 0;
-        width: 2.25rem;
-      }
-    }//end li
-  }//end text long
-  ol,ul {
-    margin: $spaceXxs 0 0 $spaceSm;
-  }
-}//end ul
+.text-long,.text-with-summary{
+	ol{
+		// default nested lists start at "a"
+		ol{
+			list-style-type:lower-alpha;
 
-ol {
-	list-style-type: none;
-	list-style-position: inside;
-	&[type="A"]{
-		list-style-type: lower-alpha;
-	}
-	&[type="I"]{
-		list-style-type: upper-roman;
-	}
-  .text-long &,.text-with-summary &{
-    counter-reset: number;
-    & > li {
-      counter-increment: number;
-      padding: 0 0 $spaceXxs 3rem;
-      list-style-type:none;
-      position: relative;
-      &:before {
-        content: counter(number) '. ';
-        font-style: italic;
-        font-family: $displayHeader;
-        display: inline-block;
-        width: 2.25rem;
-        text-align: left;
-        position: absolute;
-        top: 0;
-        left: 0;
-      }
-      ol,ul {
-        margin: $spaceXxs 0 0 $spaceSm;
-      }
-    }//end li
-  }//end text-long, text-with-summary
-}//ol
+			// default nested-nested lists start at "i"
+			ol{
+				list-style-type:lower-roman;
+			}
+		}
 
-//set list spacing in WYSGIWYG
-.text-with-summary,.text-long{
-	ul,ol {
-		//overflow hidden is needed for lists next to floated elements
-		overflow: hidden;
-		margin: $spaceXs 0 $spaceSm;
-		padding: 0 0 0 1.25rem;
-		ul,ol{
-			margin: $spaceXs 0;
-			padding: 0 0 0 1rem;
+		// the above defaults override the type attribute (unfortunately)
+		// this makes all types work at all nested levels.
+		&[type="a"]{
+			list-style-type:lower-alpha !important;
+		}
+		&[type="A"]{
+			list-style-type:upper-alpha !important;
+		}
+		&[type="i"]{
+			list-style-type:lower-roman !important;
+		}
+		&[type="I"]{
+			list-style-type:upper-roman !important;
+		}
+		&[type="1"]{
+			list-style-type:decimal !important;
 		}
 	}
-}//end text-with-summary,text-long
+
+	// add a bit of spacing in between bullet points
+	li{
+		margin-bottom:1rem;
+		ol,ul{
+			margin-top:1rem;
+		}
+	}
+}
+

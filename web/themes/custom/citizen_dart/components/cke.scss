@@ -93,37 +93,43 @@
     }
 	}//end ul
 
-	ol:not([type]){
-		list-style-type: none;
-    list-style-position: inside;
-    counter-reset: number;
-    &[type="A"]{
-      list-style-type: lower-alpha;
-    }
-    &[type="I"]{
-      list-style-type: upper-roman;
-    }
-		& > li {
-      counter-increment: number;
-      padding: 0 0 $spaceXxs 1.5rem;
-      text-indent: -1rem;
-      list-style-type:none;
-      &:before {
-        content: counter(number) '. ';
-        font-style: italic;
-        font-family: $displayHeader;
-        display: inline-block;
-        width: .75rem;
-        text-align: left;
-      }
-			ol,ul {
-        margin: $spaceXxs 0 0 $spaceXs;
-      }
-		}// end > li
-    .ck-list-bogus-paragraph {
-      display: inline;
-    }
-	}//end ol
+	ol{
+		// default nested lists start at "a"
+		ol{
+			list-style-type:lower-alpha;
+
+			// default nested-nested lists start at "i"
+			ol{
+				list-style-type:lower-roman;
+			}
+		}
+
+		// the above defaults override the type attribute (unfortunately)
+		// this makes all types work at all nested levels.
+		&[type="a"]{
+			list-style-type:lower-alpha !important;
+		}
+		&[type="A"]{
+			list-style-type:upper-alpha !important;
+		}
+		&[type="i"]{
+			list-style-type:lower-roman !important;
+		}
+		&[type="I"]{
+			list-style-type:upper-roman !important;
+		}
+		&[type="1"]{
+			list-style-type:decimal !important;
+		}
+
+		// add a bit of spacing in between bullet points
+		li{
+			margin-bottom:1rem;
+			ol,ul{
+				margin-top:1rem;
+			}
+		}
+	}
 
 	.ck-content blockquote{
 		@include quote;
