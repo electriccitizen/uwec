@@ -107,4 +107,41 @@ final class CitizenCustomCommands extends DrushCommands {
 
 		$this->io()->success('Done!');
 	}
+
+	#[CLI\Command(name: 'citizen_custom:find_nav_cycles')]
+	public function find_nav_cycles(){
+
+		// recursively gets child links and flattens them into an array
+		// to test for any link that gets added twice
+		function getLinks($key, $link){
+			$links = [];
+			$links[$key] = $link->link->getTitle().' '.$link->link->getUrlObject()->toString();
+
+			foreach($link->subtree as $childKey=>$child){
+				if(isset($links[$childKey])){
+					die('cycle found! '.$childKey.': '.$child->link->getMenuName());
+				}
+				$childLinks = getLinks($childKey, $child);
+				$links = $links + $childLinks;
+			}
+
+			return $links;
+		}
+
+		$parameters = new \Drupal\Core\Menu\MenuTreeParameters();
+		//$parameters->onlyEnabledLinks();
+
+		// set active trail
+		//$menu_active_trail = \Drupal::service('menu.active_trail')->getActiveTrailIds($menu_name);
+		//$parameters->setActiveTrail($menu_active_trail);
+		$tree = \Drupal::menuTree()->load('main', $parameters);
+
+		$allLinks = [];
+		foreach($tree as $key=>$link){
+			$childLinks = getLinks($key, $link);
+			$allLinks = $allLinks + $childLinks;
+		}
+
+		var_dump($allLinks);
+	}
 }

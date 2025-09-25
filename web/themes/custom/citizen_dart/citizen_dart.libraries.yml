@@ -85,6 +85,9 @@ layout:
 list-view:
   js:
     components/03-composites/views/list-view.js: {}
+main-menu:
+  js:
+    components/02-chunks/navigation/main/main-navigation.js: {}
 modal:
   js:
     components/02-chunks/modals/modals.js: {}
