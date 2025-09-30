@@ -110,6 +110,19 @@
         @include safeFlex(row,wrap,justify,start);
       }
     }
+
+    .block-updated-on{
+      margin-bottom: $spaceXxs;
+      .inline-label {
+        display: block;
+      }
+      .field-updated-on {
+        font-size: 20px;
+        font-weight: $heavy;
+        line-height: 1.3;
+      }
+    }
+
     .block-created {
       margin-bottom: $spaceSm;
       .field-created {
