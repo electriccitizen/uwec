@@ -29,7 +29,7 @@
 
 {% block mobileToggle %}
 <a id="main-navigation"></a>
-<div class="nav-toggle-container hide"><a href="#" id="main-nav-toggle"><span>Show main navigation</span></a></div>
+<a href="#" class="toggle-button">Show main navigation</a>
 {% endblock %}
 
 {{ menus.menu_links(items, attributes, 0) }}
@@ -45,11 +45,7 @@
     {% for item in items %}
       {%
         set classes = [
-          'menu-item',
-          item.is_expanded ? 'menu-item--expanded',
-          item.is_collapsed ? 'menu-item--collapsed',
-          item.in_active_trail ? 'menu-item--active-trail',
-          'item-level-' ~ (menu_level + 1),
+          item.in_active_trail ? 'active-trail',
         ]
       %}
       <li{{ item.attributes.addClass(classes) }}>

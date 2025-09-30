@@ -11,26 +11,25 @@ section.alert-wrapper{
 
 .site-header {
 	padding: 34px $siteMarginMobile;
-  .node-type-announcement &,
-  .node-type-contact &,
-  .node-type-fact &,
-  .node-type-hours &,
-  .node-type-snapshot &,
-  .node-type-support-book &,
-  .node-type-testimonial &,
-  .node-type-video-card &,
-  .path-taxonomy &,
-  .role-anonymous.path-user & {
-    background: radial-gradient(50.13% 157.8% at 6.18% 33.85%, #0F2C46 0%, #232C99 100%);
-  }
+	position:relative;
+	z-index:4;
+
+	.node-type-announcement &,
+	.node-type-contact &,
+	.node-type-fact &,
+	.node-type-hours &,
+	.node-type-snapshot &,
+	.node-type-support-book &,
+	.node-type-testimonial &,
+	.node-type-video-card &,
+	.path-taxonomy &,
+	.role-anonymous.path-user & {
+		background: radial-gradient(50.13% 157.8% at 6.18% 33.85%, #0F2C46 0%, #232C99 100%);
+	}
 	& > div{
 		max-width: $contentStopMargin;
 		@include auto;
 		position: relative;
-		@include safeFlex(row,wrap,justify,center);
-    @include menuStop{
-      padding: 30px $siteMarginMobile 6px;
-    }
 		.contextual-region{
 			.contextual{
 				display: none;
@@ -38,6 +37,17 @@ section.alert-wrapper{
 		}
 	}//end > div
 }//end layout container
+
+
+// open on mobile (user clicked hamburger)
+.site-header.open{
+	background:linear-gradient(270deg, #06233D -98.19%, #2B3594 100%);
+}
+@include menuStop{
+	.site-header{
+		background:none !important;
+	}
+}
 
 
 /* BRANDING BLOCK PLACEMENT
@@ -60,57 +70,3 @@ section.alert-wrapper{
 		}
 	}//end a
 }//end branding block
-
-
-/* SEARCH BLOCK PLACEMENT
-------------------- */
-.block-citizen-google-search-block{
-	display: none;
-	position: absolute !important;
-	top: -5px;
-	right: 1rem;
-	z-index: 22;
-	@include menuStop{
-		display: block;
-	}
-	.contextual{
-		display: none !important;
-	}
-}//end search block
-
-/* SECONDARY MENU BLOCK
---------------------- */
-.block-secondary-menu{
-	@include menuStop{
-		position: absolute !important;
-		right: 64px;
-		top: 0;
-		z-index: 16;
-		width: calc(100% - 300px);
-	}//end desk
-}
-
-/* MAIN NAVIGATION BLOCK
------------------------- */
-.block-superfishmain{
-  &.contextual-region{
-    position: static;
-  }
-  #superfish-main-toggle{
-    position: absolute;
-    height: 40px;
-    width: 40px;
-    top: -3px;
-    right: 0;
-    z-index: 23;
-  }
-	//desktop position
-	@include menuStop{
-    position: absolute !important;
-		right: 0;
-    top: auto;
-		bottom: 0;
-		z-index: 12;
-		width: 100%;
-	}//end desk
-}//end main nav

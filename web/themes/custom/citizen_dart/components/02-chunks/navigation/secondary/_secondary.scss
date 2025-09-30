@@ -4,109 +4,111 @@
 @use '../../../00-base/base' as *;
 
 .block-secondary-menu{
-	@media screen and (max-width: 1200px){
-		display: none;
+	display:none;
+	@include menuStop{
+		display:block;
+		text-align:right;
 	}
-	ul:not(.contextual-links){
-		@include listReset;
-		@include desk{
-			@include safeFlex(row,wrap,end,start);
-			@include bleed(padding,16px);
+
+	ul{
+		list-style-type:none;
+		margin:3rem 0 0 0;
+		padding:0;
+
+		@include menuStop{
+			margin:0;
 		}
+
 		li{
 			margin: 0 .5rem;
 			padding-bottom: 0;
-			a{
-				display: block;
-				position: relative;
-				color: $secondMenuLink;
-        font-weight: $heavy;
-				font-size: 1.875rem;
-        line-height: 1.466;
-				text-transform: uppercase;
-        &[target="_blank"]:after {
-          font-size: 1.875rem;
-          position: relative;
-        }
-				&:after {
-					display: block;
-					content: '';
-					border-bottom: solid 1px $gold;  
-					transform: scaleX(1);  
-					transition: transform 250ms ease-in-out;
-				}
-				&.is-active:after {
-					color: $gold;
-				}
-				&.external {
-					padding-right: 17px;
-					&:before {
-						background-image: url(../images/elements/external-link-white.svg);
-						background-repeat: no-repeat;
-						display: inline-block;
-						content: '';
-						width: 10px;
-						height: 10px;
-						background-size: cover;
-						margin-left: 1rem;
-						position: absolute;
-						right: 0;
-						top: calc(50% - 7px);
-					}
-				}
-				&:hover,&:focus{
-					color: $secondMenuLinkHover;
-					@include transAll(.3s);
-					&:after {
-						transform: scaleX(0);
-					}
-          &.is-active{
-            opacity: .85;
-            color: $gold;
-            &:after{
-              border-bottom-color: $white;
-            }
-          }
-				}//end hover/focus
-			}//end a
-		}//end li
-	}//end ul
-}//end secondary-menu
 
-//mobile secondary menu
-ul.sf-menu.sf-accordion{
-	.mobile-secondary-container{
-		padding: 3rem 0;
-		ul.mobile-secondary{
-			position: static;
-			width: 100%;
-			li{
-				a{
-					color: $sfMobileChild;
-          font-weight: $heavy;
-					padding: .5rem 4.5rem; 
+			@include menuStop{
+				display:inline-block;
+			}
+
+			a{
+				color: $sfMobileChild;
+				font-weight: $heavy;
+				padding:.5rem 0; 
+				text-transform: uppercase;
+				font-size: 1.75rem;
+				&.is-active{
+					color: $sfMobileChildActive;
+				}
+
+				@include menuStop{
+					display: block;
+					position: relative;
+					color: $secondMenuLink;
+					font-weight: $heavy;
+					font-size: 1.875rem;
+					line-height: 1.466;
 					text-transform: uppercase;
-					font-size: 1.75rem;
-					&.is-active{
-						color: $sfMobileChildActive;
+
+					&[target="_blank"]:after {
+						font-size: 1.875rem;
+						position: relative;
 					}
-          &.external {
-            padding-right: 17px;
-            &:after {
-              background-image: url(../images/elements/external-link-white.svg);
-              background-repeat: no-repeat;
-              display: inline-block;
-              content: '';
-              width: 10px;
-              height: 10px;
-              background-size: cover;
-              margin-left: 1rem;
-              position: relative;
-            }
-          }
+					&:after {
+						display: block;
+						content: '';
+						border-bottom: solid 1px $gold;  
+						transform: scaleX(1);  
+						transition: transform 250ms ease-in-out;
+					}
+					&.is-active:after {
+						color: $gold;
+					}
+					&.external {
+						padding-right: 17px;
+						&:before {
+							background-image: url(../images/elements/external-link-white.svg);
+							background-repeat: no-repeat;
+							display: inline-block;
+							content: '';
+							width: 10px;
+							height: 10px;
+							background-size: cover;
+							margin-left: 1rem;
+							position: absolute;
+							right: 0;
+							top: calc(50% - 7px);
+						}
+					}
+					&:hover,&:focus{
+						color: $secondMenuLinkHover;
+						@include transAll(.3s);
+						&:after {
+							transform: scaleX(0);
+						}
+						&.is-active{
+							opacity: .85;
+							color: $gold;
+							&:after{
+								border-bottom-color: $white;
+							}
+						}
+					}
 				}
 			}
-		}//end mobile secondary
-	}//end secondary container
-}//end ul.sf-menu
+		}
+	}
+}
 
+// display on mobile on hamburger open
+.site-header.open .block-secondary-menu{
+	display:block;
+}
+
+.site-header .block-secondary-menu{
+	@include menuStop{
+		position: absolute;
+		right: 64px;
+		top: 0;
+		width: calc(100% - 300px);
+	}
+}
+.site-header.open .block-secondary-menu{
+	display:block;
+}

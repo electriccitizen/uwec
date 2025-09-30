@@ -1,2 +1,235 @@
 @use '../../../00-base/base' as *;
 
+.site-header.open #block-main-menu ul{
+	display:block;
+}
+
+#block-main-menu{
+	position:static;
+
+	@include menuStop{
+		position:absolute;
+		top:0;
+		right:0;
+		width:100%;
+		text-align:right;
+	}
+
+	// all uls
+	ul{
+		display:none;
+		list-style-type:none;
+		padding:0;
+	}
+
+	// top level a
+	.menuparent{
+		color:white;
+		font-family: "Inter", sans-serif;
+		font-weight: 800;
+		font-size: 2.5rem;
+		line-height:2;
+		text-transform: uppercase;
+		padding:1rem 0;
+		display:block;
+
+		@include menuStop{
+			border:none;
+			display:inline-block;
+		}
+	}
+
+	// top level ul
+	ul.menu-main-navigation{
+		display:none;
+		margin:0;
+
+		@include menuStop{
+			display:block;
+			position:absolute;
+			top:36px;
+			right:0;
+			width:100%;
+			margin:0;
+		}
+
+		// nested ul
+		ul{
+			position:absolute;
+			left:0;
+			top:44px;
+			min-width:328px;
+			margin-bottom:14px;
+
+			@include menuStop{
+				background:$ice;
+			}
+
+			// nested li
+			li{
+				display:none;
+
+				// nested a
+				a{
+					display:block;
+					padding:.5rem 30px .5rem 15px;
+					font-size:1.75rem;
+					line-height:1.57;
+					color:white;
+
+					@include menuStop{
+						font-size:2rem;
+						font-weight:700;
+						margin:0 2rem;
+						padding:2rem;
+						border-bottom:1px solid $coolGrey;
+						color:$royal;
+						&:hover{
+							background:white;
+						}
+					}
+				}
+			}
+		}
+
+		// top-level li
+		&>li{
+			position:relative;
+			display:block;
+
+			@include menuStop{
+				display:inline-block;
+				padding-bottom:8px;
+				margin-right:4rem;
+			}
+
+			&.open{
+				ul{
+					position:static;
+					@include menuStop{
+						position:absolute;
+					}
+				}
+				li{
+					display:block;
+				}
+			}
+
+			&>.menuparent{
+				border-top:1px solid #ffffff80;
+				@include menuStop{
+					border-top:none;
+				}
+			}
+			&:first-child>.menuparent{
+				border-top:none;
+			}
+
+			// right-align the last subnav dropdown
+			// so it doesn't go off the right edge
+			&:last-child ul{
+				left:unset;
+				right:0;
+			}
+
+			// animated gold underline
+			@include menuStop{
+				&:hover:after,
+				&.open:after,
+				&.active-trail:after{
+					transform:scaleX(1);
+				}
+				&:after{
+					content:' ';
+					display:block;
+					border-bottom:2px solid $gold;
+					transform:scaleX(0);
+					transition:transform .4s ease;
+					position:absolute;
+					bottom:24px;
+					width:100%;
+				}
+			}
+		}
+	}
+
+	// all li tags
+	li{
+		display:inline-block;
+	}
+
+	// all a tags
+	a{
+		color:$royal;
+		font-size:2.5rem;
+		line-height:1;
+	}
+
+	// the little expandy arrow
+	.menu-item-expand{
+		display:block;
+		text-indent:9999px;
+		overflow:hidden;
+		width:20px;
+		height:20px;
+		position:absolute;
+		right:0;
+		top:20px;
+
+		@include menuStop{
+			right:-20px;
+			top:17px;
+		}
+
+		// dropdown arrow
+		&:after{
+			content:' ';
+			display:block;
+			width:100%;
+			height:100%;
+			background:white;
+			position:absolute;
+			right:0;
+			top:0;
+			mask-image:url(../images/elements/caret-down-mobile-main-nav.svg);
+			mask-repeat:no-repeat;
+			mask-position:center center;
+			mask-size:10px;
+			transition:transform .1s ease;
+		}
+	}
+
+	li.open .menu-item-expand:after{
+		transform:rotate(-180deg);
+	}
+
+	.toggle-button{
+		position:absolute;
+		display:block;
+		width:40px;
+		height:40px;
+		top:0px;
+		right:40px;
+		text-indent:-9999px;
+
+		&:after{
+			content:' ';
+			background:url(../images/elements/menu-open-white.svg);
+			position:absolute;
+			left:0;
+			width:40px;
+			height:40px;
+		}
+	}
+	.site-header.open &{
+		.toggle-button:after{
+			background:url(../images/elements/menu-close-white.svg);
+		}
+	}
+
+	@include menuStop{
+		.toggle-button{
+			display:none;
+		}
+	}
+}

@@ -37,86 +37,104 @@
 	}
 }
 
+// show/hide on mobile/desktop/hamburger
 .block-citizen-google-search-block{
-	.t-search{
-		@include safeFlex(column,nowrap,center,center);
-		width: 40px;
-		height: 40px;
-		background-image: url('../images/elements/search-open-white.svg');
-		background-repeat: no-repeat;
-		background-size: 100%;
-		position: absolute;
-		z-index: 10;
-		top: -4px;
-		right: 0;
-		&:hover,&:focus{
-			background-image: url('../images/elements/search-open-hover.svg');
-		}
-		&.close-search {
-			background-image: url('../images/elements/search-close-white.svg');
-			&:hover,&:focus{
-				background-image: url('../images/elements/search-close-hover.svg');
-			}
-		}
-	}
-	.google-search-container {
+	display:none;
+	@include menuStop{
 		display:block;
-		position: fixed;
-		top: 0;
-		left: 0;
-		z-index: 9;
-		width: 100%;
-		height: 0;
-		background: $royal;
-		transition:height .2s ease,visibility .2s ease,opacity .2s ease;
-		visibility:hidden;
-		opacity:0;
-		&.expanded{
-			height:33rem;
-			opacity:1;
-			visibility:visible;
-		}
-		&:before {
-			content: '';
-			display: block;
-			top: 0;
-			left: 4rem;
-			position: absolute;
-			width: 313px;
-			height: 313px;
-      opacity: .3;
-			background-image: url(../images/logos-badges/seal.svg);
-			background-position: center -108px;
-			background-repeat: no-repeat;
-			background-size: 313px 313px;
-			z-index: -1;
-		}
-		.logged-in &{
-			top: 56px;
-		}
-		.search-box-wrapper{
-			position: relative;
-			width: 100%;
-			height: 100%;
-			max-width: $contentStop;
-			@include auto;
-			padding: 0 20px;
+	}
+	.site-header.open &{
+		display:block;
+	}
+}
+
+// desktop header search button and panel
+@include menuStop{
+	.block-citizen-google-search-block{
+		position:absolute !important;
+		right:0;
+		top:0;
+
+		.t-search{
 			@include safeFlex(column,nowrap,center,center);
-			.gsc-control-searchbox-only{
-				width: 674px;
-				max-width: 100%;
-				//clear search box
-				.gsst_a .gscb_a {
-					padding-top: 4px;
-					color: $navy !important;
-					&:hover,&:focus {
-						color: $link !important;
-					}
+			width: 40px;
+			height: 40px;
+			background-image: url('../images/elements/search-open-white.svg');
+			background-repeat: no-repeat;
+			background-size: 100%;
+			position: absolute;
+			z-index: 10;
+			top: -4px;
+			right: 0;
+			&:hover,&:focus{
+				background-image: url('../images/elements/search-open-hover.svg');
+			}
+			&.close-search {
+				background-image: url('../images/elements/search-close-white.svg');
+				&:hover,&:focus{
+					background-image: url('../images/elements/search-close-hover.svg');
 				}
 			}
 		}
-	}//end google search container
-}//end search block form
+		.google-search-container {
+			display:block;
+			position: fixed;
+			top: 0;
+			left: 0;
+			z-index: 9;
+			width: 100%;
+			height: 0;
+			background: $royal;
+			transition:height .2s ease,visibility .2s ease,opacity .2s ease;
+			visibility:hidden;
+			opacity:0;
+			&.expanded{
+				height:33rem;
+				opacity:1;
+				visibility:visible;
+			}
+			&:before {
+				content: '';
+				display: block;
+				top: 0;
+				left: 4rem;
+				position: absolute;
+				width: 313px;
+				height: 313px;
+				opacity: .3;
+				background-image: url(../images/logos-badges/seal.svg);
+				background-position: center -108px;
+				background-repeat: no-repeat;
+				background-size: 313px 313px;
+				z-index: -1;
+			}
+			.logged-in &{
+				top: 56px;
+			}
+			.search-box-wrapper{
+				position: relative;
+				width: 100%;
+				height: 100%;
+				max-width: $contentStop;
+				@include auto;
+				padding: 0 20px;
+				@include safeFlex(column,nowrap,center,center);
+				.gsc-control-searchbox-only{
+					width: 674px;
+					max-width: 100%;
+					//clear search box
+					.gsst_a .gscb_a {
+						padding-top: 4px;
+						color: $navy !important;
+						&:hover,&:focus {
+							color: $link !important;
+						}
+					}
+				}
+			}
+		}//end google search container
+	}//end search block form
+}
 
 // the search form at the top of /search
 #search-results-wrapper .gsc-control-wrapper-cse{
@@ -221,6 +239,7 @@
 					border-radius: 25px;
 					border: 0;
 					background: $ice;
+					padding:0;
 					.layout__region--content &{
 						background: $white;
 					}
@@ -294,17 +313,18 @@
 
 
 // header search box (desktop only)
-.search-box-wrapper:not(.mobile-search){
-	button.gsc-search-button{
-		@include submitButton;
-		margin:0;
+.search-box-wrapper{
+	@include menuStop{
+		button.gsc-search-button{
+			@include submitButton;
+			margin:0;
+		}
 	}
 }
 
 // header search box (mobile only)
-.search-box-wrapper.mobile-search {
-	padding: 0 2.5rem;
-	margin-bottom: 5rem;
+.search-box-wrapper {
+	margin:5rem 0;
 	.gsc-search-box {
 		td.gsc-search-button{
 			position:absolute;
@@ -328,7 +348,7 @@
 	}
 }
 
-//search results
+// search results
 .gsc-results-wrapper-visible{
 	width: 100%;
 	max-width: 894px;
@@ -352,4 +372,3 @@
 		}
 	}
 }
-

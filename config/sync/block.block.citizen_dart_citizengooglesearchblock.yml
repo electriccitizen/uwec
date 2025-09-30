@@ -10,7 +10,7 @@ dependencies:
 id: citizen_dart_citizengooglesearchblock
 theme: citizen_dart
 region: header
-weight: -6
+weight: -7
 provider: null
 plugin: citizen_google_search_block
 settings:
