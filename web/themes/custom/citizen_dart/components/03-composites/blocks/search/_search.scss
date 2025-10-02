@@ -54,16 +54,14 @@
 		position:absolute !important;
 		right:0;
 		top:0;
+		width:100%;
 
 		.t-search{
-			@include safeFlex(column,nowrap,center,center);
 			width: 40px;
 			height: 40px;
 			background-image: url('../images/elements/search-open-white.svg');
-			background-repeat: no-repeat;
-			background-size: 100%;
-			position: absolute;
-			z-index: 10;
+			position:absolute;
+			z-index:10;
 			top: -4px;
 			right: 0;
 			&:hover,&:focus{
@@ -78,11 +76,11 @@
 		}
 		.google-search-container {
 			display:block;
-			position: fixed;
-			top: 0;
-			left: 0;
-			z-index: 9;
-			width: 100%;
+			position:absolute;
+			z-index:9;
+			top:-34px;
+			width:100vw;
+			margin-left:calc(50% - 50vw);
 			height: 0;
 			background: $royal;
 			transition:height .2s ease,visibility .2s ease,opacity .2s ease;
@@ -108,12 +106,8 @@
 				background-size: 313px 313px;
 				z-index: -1;
 			}
-			.logged-in &{
-				top: 56px;
-			}
 			.search-box-wrapper{
 				position: relative;
-				width: 100%;
 				height: 100%;
 				max-width: $contentStop;
 				@include auto;
@@ -176,6 +170,16 @@
 
 // header search box (mobile and desktop)
 .search-box-wrapper{
+	margin:5rem 0;
+	@include menuStop{
+		margin:0;
+	}
+
+	// remove "clear search" icon
+	.gsib_b{
+		display:none;
+	}
+
 	.gsc-control-wrapper-cse,.gsc-control-searchbox-only{
 		font-family: $bodyText;
 		.paragraph--type--custom-embed &{
@@ -186,7 +190,6 @@
 		}
 		.gsc-search-box{
 			width: 100%;
-			@include auto;
 			position: relative;
 			padding: 0;
 			margin: 0;
@@ -311,42 +314,40 @@
 	}//end completion container
 }//end autocomplete suggestions table
 
-
-// header search box (desktop only)
-.search-box-wrapper{
+// search button on on mobile header, desktop header, and results forms
+td.gsc-search-button{
+	position:absolute;
+	right:74px;
+	top:0;
 	@include menuStop{
-		button.gsc-search-button{
-			@include submitButton;
-			margin:0;
+		position:static;
+	}
+
+	// on /search
+	#search-results-wrapper &{
+		position:static;
+		svg{
+			display:none;
 		}
 	}
-}
 
-// header search box (mobile only)
-.search-box-wrapper {
-	margin:5rem 0;
-	.gsc-search-box {
-		td.gsc-search-button{
-			position:absolute;
-			right:74px;
-			top:0;
-
-			button{
-				padding:16px 40px;
-				background:none;
-				border:none;
-				svg{
-					fill:#777;
-				}
+	button{
+		padding:16px 40px;
+		background:none;
+		border:none;
+		svg{
+			fill:#777;
+		}
+		@include menuStop{
+			@include submitButton;
+			margin:0;
+			svg{
+				display:none;
 			}
 		}
 	}
-
-	// remove "clear search" icon
-	.gsib_b{
-		display:none;
-	}
 }
+
 
 // search results
 .gsc-results-wrapper-visible{

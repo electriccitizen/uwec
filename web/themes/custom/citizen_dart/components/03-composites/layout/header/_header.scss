@@ -56,7 +56,7 @@ section.alert-wrapper{
 	//leave room for search toogle and menu hamburger on mobile
 	width: calc(100% - 70px);
 	position: relative;
-	z-index: 13;
+	z-index: 9;
 	@include desk{
 		width: 171px;
 	}
