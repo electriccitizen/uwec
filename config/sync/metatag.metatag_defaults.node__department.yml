@@ -7,3 +7,6 @@ label: 'Content: Department'
 tags:
   abstract: '[node:field_meta_description]'
   description: '[node:field_meta_description]'
+  image_src: /themes/custom/citizen_dart/images/logos-badges/profile-favicon/profile-favicon-426-508.jpg
+  og_image: /themes/custom/citizen_dart/images/logos-badges/profile-favicon/profile-favicon-426-508.jpg
+  twitter_cards_image: /themes/custom/citizen_dart/images/logos-badges/profile-favicon/profile-favicon-426-508.jpg

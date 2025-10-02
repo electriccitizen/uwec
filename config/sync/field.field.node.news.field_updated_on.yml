@@ -1,0 +1,21 @@
+uuid: 5fafa0a7-95a4-4b0a-bad3-7e77d7329328
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_updated_on
+    - node.type.news
+  module:
+    - datetime
+id: node.news.field_updated_on
+field_name: field_updated_on
+entity_type: node
+bundle: news
+label: 'Updated On'
+description: 'Use this field to inform readers when the last major update (after initial publishing) to this content occurred. <strong>Do not use this field the first time the story is published.</strong>'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

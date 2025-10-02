@@ -19,7 +19,19 @@
  * @see field.html.twig
  */
 #}
+
+
 <div class="mobile-title">{{ element['#object'].title.0.value }}</div>
+
+{% if element['#object'].field_updated_on.0 %}
+  <div class="block-updated-on">
+    <span class="inline-label">Updated on:</span>
+    <span{{ attributes.addClass("field-updated-on") }}>
+      {{ element['#object'].field_updated_on.0.value|date('F j, Y') }}
+    </span>
+  </div>
+{% endif %}
+
 <span class="inline-label">Published on:</span>
 <span{{ attributes.addClass("field-created") }}>
   {%- for item in items -%}
