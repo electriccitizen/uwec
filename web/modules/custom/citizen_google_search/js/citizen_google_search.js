@@ -2,16 +2,26 @@
 // this uses the window "load" event so it fires after the google search form js
 // because the google js creates these elements
 window.addEventListener('load', ()=>{
+	// add new label
 	let form = document.querySelector('form.gsc-search-box');
+	if(form){
+		let label = document.createElement("label");
+		label.htmlFor = 'gsc-i-id1';
+		label.innerHTML = 'Search the UW-Eau Claire Website';
+		form.prepend(label);
+	}
+
+	// set placeholder
 	let input = document.querySelector('input.gsc-input');
+	if(input){
+		input.setAttribute('placeholder', 'What are you searching for?');
+	}
 
-	let label = document.createElement("label");
-	label.htmlFor = 'gsc-i-id1';
-	label.innerHTML = 'Search the UW-Eau Claire Website';
-	form.prepend(label);
-
-	input.setAttribute('placeholder', 'What are you searching for?');
-	document.querySelector('button.gsc-search-button').append('Search');
+	// add the word "Search" to the search button
+	let searchButton = document.querySelector('button.gsc-search-button');
+	if(searchButton){
+		searchButton.append('Search');
+	}
 });
 
 (function(Drupal) {
