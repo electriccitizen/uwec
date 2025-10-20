@@ -6,23 +6,23 @@
 @use '../node-mixins' as *;
 
 .node-hours{
-	padding-top: $elementSpace;
-	.main-node-content{
-		@include hoursHolder;
-	}
-	#node-section-1{
-		margin-bottom: $elementSpace;
-		.block-field:not(.block-title){
-			margin-bottom: $spaceXxs;
-		}
+  padding-top: $elementSpace;
+  .main-node-content{
+    @include hoursHolder;
+  }
+  #node-section-1{
+    margin-bottom: $elementSpace;
+    .block-field:not(.block-title){
+      margin-bottom: $spaceXxs;
+    }
     h1.page-title{
-			@include contactTitle;
-		}
-	}//end node section 1
+      @include contactTitle;
+    }
+  }//end node section 1
 }//end hours-library
 
 .node-widget-hours{
-	@include hoursHolder;
+  @include hoursHolder;
   .widget-section > .layout:not(.layout--onecol) &{
     & > *:first-child{
       @include desk{
@@ -33,8 +33,8 @@
   .paragraph--type--hours-set{
     margin-bottom: 0!important;
   }
-	.hours-wrapper{
-		//only go to two columns if there is room
+  .hours-wrapper{
+    //only go to two columns if there is room
     .widget-section > .layout--onecol &,
     .widget-section > .layout--twocol-section--50-50 &,
     .widget-section > .layout--twocol-section--67-33 > .layout__region--first &,

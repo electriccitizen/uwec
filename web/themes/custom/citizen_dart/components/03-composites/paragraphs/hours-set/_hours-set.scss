@@ -38,11 +38,11 @@
       background-position: top 50% right 20px;
     }
   }//end select
-	.select-panel{
-		&:not(.show-panel){
-			@include visuallyHidden;
-		}
-	}
+  .select-panel{
+    &:not(.show-panel){
+      @include visuallyHidden;
+    }
+  }
 }//end hours set
 
 
@@ -77,17 +77,23 @@
   .office-hours{
     margin-bottom: $spaceXs;
     .office-hours__item{
-      @include safeFlex(row,nowrap,start,start);
+      display:grid;
+      grid-template-columns:fit-content(105px) 1fr;
+      &>span{
+        // put everything but the label in col 2
+        grid-column:2/3;
+
+        // the view adds dumb extra spans with br so hide those
+        &:has(br){
+          display:none;
+        }
+      }
       &:nth-child(5){
         margin-bottom: $spaceXs;
       }
       .office-hours__item-label{
-        flex: 0 0 105px;
-        display: block;
+        grid-column:1/2;
         font-weight: $heavy;
-      }
-      .office-hours__item-slots{
-        margin-right: .5em;
       }
     }
   }//end office hours
