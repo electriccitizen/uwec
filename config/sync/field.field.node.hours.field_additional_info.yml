@@ -10,7 +10,7 @@ field_name: field_additional_info
 entity_type: node
 bundle: hours
 label: 'Additional Information'
-description: ''
+description: 'This content will appear below the Hours Title.'
 required: false
 translatable: false
 default_value: {  }

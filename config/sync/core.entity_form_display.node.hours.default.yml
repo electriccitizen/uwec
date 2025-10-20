@@ -46,7 +46,7 @@ mode: default
 content:
   field_additional_info:
     type: string_textarea
-    weight: 2
+    weight: 1
     region: content
     settings:
       rows: 1
@@ -79,7 +79,7 @@ content:
     third_party_settings: {  }
   field_hours:
     type: paragraphs
-    weight: 1
+    weight: 2
     region: content
     settings:
       title: Paragraph
