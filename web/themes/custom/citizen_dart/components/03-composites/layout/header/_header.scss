@@ -26,6 +26,7 @@ section.alert-wrapper{
 	.path-media &,
 	.role-anonymous.path-user & {
 		background: radial-gradient(50.13% 157.8% at 6.18% 33.85%, #0F2C46 0%, #232C99 100%);
+		margin-bottom:4rem;
 	}
 	& > div{
 		max-width: $contentStopMargin;
