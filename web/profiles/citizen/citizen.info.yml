@@ -81,7 +81,6 @@ dependencies:
   - shortcut
   - smart_date
   - smart_date_recur
-  - superfish
   - system
   - taxonomy
   - telephone
