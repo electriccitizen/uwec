@@ -4,10 +4,12 @@ status: true
 dependencies:
   config:
     - field.field.paragraph.hero.field_background_image
+    - field.field.paragraph.hero.field_body
     - field.field.paragraph.hero.field_hero_type
     - field.field.paragraph.hero.field_hero_video
     - field.field.paragraph.hero.field_image
     - field.field.paragraph.hero.field_links
+    - field.field.paragraph.hero.field_subheading
     - field.field.paragraph.hero.field_video_description
     - field.field.paragraph.hero.field_video_poster
     - field.field.paragraph.hero.field_video_title
@@ -28,6 +30,14 @@ content:
     region: content
     settings:
       media_types: {  }
+    third_party_settings: {  }
+  field_body:
+    type: string_textarea
+    weight: 8
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
     third_party_settings: {  }
   field_hero_type:
     type: options_select
@@ -51,13 +61,21 @@ content:
     third_party_settings: {  }
   field_links:
     type: linkit
-    weight: 7
+    weight: 9
     region: content
     settings:
       placeholder_url: ''
       placeholder_title: ''
       linkit_profile: default
       linkit_auto_link_text: false
+    third_party_settings: {  }
+  field_subheading:
+    type: string_textfield
+    weight: 7
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
   field_video_description:
     type: text_textarea_with_summary

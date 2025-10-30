@@ -235,8 +235,8 @@
         $('.field--name-field-hero-type').each(function(){
           let typeField = $(this);
 
-          // hide all fields
-          typeField.siblings().hide();
+          // hide the fields that don't apply to all heroes
+          typeField.siblings('.field--name-field-image,.field--name-field-background-image,.field--name-field-hero-video,.field--name-field-video-poster,.field--name-field-video-title,.field--name-field-video-description').hide();
 
           // show fields if they are relevant to the selected type
           let type = typeField.find('option:selected').val();
@@ -249,7 +249,7 @@
           }else if(type == 'pattern'){
             // none
           }else if(type == 'video'){
-            $('.field--name-field-hero-video,.field--name-field-video-poster,.field--name-field-video-title,.field--name-field-video-description,.field--name-field-links').show();
+            $('.field--name-field-hero-video,.field--name-field-video-poster,.field--name-field-video-title,.field--name-field-video-description').show();
           }
         });
       }
