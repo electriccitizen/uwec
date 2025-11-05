@@ -38,6 +38,7 @@
     overflow: hidden;
     @include desk{
       position: relative;
+      padding-top: 162px;
       padding-bottom: 200px;
       &:after{
         content: '';
