@@ -200,6 +200,7 @@
 
     /* FULL WIDTH IMAGE HERO */
     &.page-hero-full-image {
+      @include headerInvasion;
       @include heroFullWidthImage;
       .page-header-text{
         .page-header-text-inner{
@@ -214,69 +215,9 @@
       }//end page header test
     }//end full image
 
-    /* HOMEPAGE BANNER (video & full-image) */
-    &.page-hero-full-image,
-    &.page-hero-video{
-      @include headerInvasion;
-      .page-header-text{
-        .page-header-text-inner{
-          position:absolute;
-          z-index: 5;
-
-          width:70%;
-          left:40px;
-          bottom:100px;
-          @include tab{
-            left:100px;
-          }
-          @include desk{
-            width: 50%;
-            left: 200px;
-            bottom: 120px;
-          }
-
-          // align left edge with left edge of top nav on large screens
-          @include contentStop{
-            left:calc((100vw - 1280px) / 2.0);
-            width:40%;
-            padding-left: 26px;
-          }
-
-          .node-title{
-            margin-bottom:3rem;
-            h1.formatted-title{
-              color: $white;
-              @include contentStop {
-                font-size: 10.625rem;
-              }
-            }
-          }
-
-          .node-body {
-            font-size: 1.75rem;
-            line-height: 1.57;
-            margin-bottom: 3rem;
-            max-width: 630px;
-            @include desk {
-              font-size: 2.5rem;
-              line-height: 1.6;
-            }
-          }
-        }// end video page header text inner
-      }//end video page header text
-
-      .field-links{
-        position:relative;
-        a{
-          @include button;
-          margin-bottom:1rem;
-          margin-right:2rem;
-        }
-      }
-    }
-
     /* VIDEO HERO */
     &.page-hero-video{
+      @include headerInvasion;
       padding-left: 40px;
       padding-right: 40px;
       color: $white;
@@ -308,6 +249,60 @@
         }
       }
 
+      @keyframes videoHeroSlashAnim{
+        0%{
+          right:-92px;
+        }
+        100%{
+          right:20px;
+        }
+      }
+
+      .page-header-text{
+        .page-header-text-inner{
+          position:absolute;
+          z-index: 5;
+
+          width:70%;
+          left:40px;
+          bottom:100px;
+          @include tab{
+            left:100px;
+          }
+          @include desk{
+            width: 50%;
+            left: 200px;
+            bottom: 120px;
+          }
+
+          // align left edge with left edge of top nav on large screens
+          @include contentStop{
+            left:calc((100vw - 1280px) / 2.0);
+            width:40%;
+            padding-left: 26px;
+          }
+          .node-title{
+            margin-bottom:3rem;
+            h1.formatted-title{
+              color: $white;
+              @include contentStop {
+                font-size: 10.625rem;
+              }
+            }//end formatted title
+          }//end node-title
+          .video-text {
+            font-size: 1.75rem;
+            line-height: 1.57;
+            margin-bottom: 3rem;
+            max-width: 630px;
+            @include desk {
+              font-size: 2.5rem;
+              line-height: 1.6;
+            }
+          }
+        }// end video page header text inner
+      }//end video page header text
+
       .video-hero{
         position: absolute;
         top: 0;
@@ -334,6 +329,15 @@ linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4));
         bottom: 10px;
         left: 0;
       }
+
+      .field-links{
+        position:relative;
+        a{
+          @include button;
+          margin-bottom:1rem;
+          margin-right:2rem;
+        }
+      }
     }
 
     /* GLOBAL HEADER TEXT & FIELD THEMING */
@@ -348,7 +352,7 @@ linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4));
       }//end page header text inner
     }//end page header text
 
-    &:not(.page-hero-video,.page-hero-full-image) .field-links{
+    &:not(.page-hero-video) .field-links{
       padding: 120px 20px 40px;
       max-width: 984px;
       position: relative;

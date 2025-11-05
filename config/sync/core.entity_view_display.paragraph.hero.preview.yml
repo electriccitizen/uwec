@@ -5,13 +5,13 @@ dependencies:
   config:
     - core.entity_view_mode.paragraph.preview
     - field.field.paragraph.hero.field_background_image
-    - field.field.paragraph.hero.field_body
     - field.field.paragraph.hero.field_hero_type
     - field.field.paragraph.hero.field_hero_video
     - field.field.paragraph.hero.field_image
     - field.field.paragraph.hero.field_links
-    - field.field.paragraph.hero.field_title_override
+    - field.field.paragraph.hero.field_video_description
     - field.field.paragraph.hero.field_video_poster
+    - field.field.paragraph.hero.field_video_title
     - image.style.paragraph_preview
     - paragraphs.paragraphs_type.hero
   module:
@@ -77,8 +77,8 @@ content:
     weight: 4
     region: content
 hidden:
-  field_body: true
   field_hero_video: true
   field_links: true
-  field_title_override: true
+  field_video_description: true
+  field_video_title: true
   search_api_excerpt: true

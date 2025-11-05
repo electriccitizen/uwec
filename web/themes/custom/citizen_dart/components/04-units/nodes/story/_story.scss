@@ -10,23 +10,6 @@
     z-index: 1;
     @include headerInvasion;
     @include heroFullWidthImage;
-    .page-header-text{
-      .page-header-text-inner{
-        h1.page-title{
-          max-width: 800px;
-          margin-left: 0;
-          color: $royal;
-          @include desk {
-            margin-bottom: 100px;
-            color: $white;
-          }
-          @include contentStop {
-            margin-bottom: 148px;
-          }
-        }
-      }
-    }
-
     & {
       margin-bottom: 0;
     }

@@ -1,4 +1,4 @@
-(function($, Drupal, once) {
+(function($, Drupal, once, cookies) {
 
 /* HERO VIDEO CONTROLS
 ------------------ */
@@ -76,4 +76,4 @@ Drupal.behaviors.heroVideo = {
   }
 }
 
-})(jQuery, Drupal, once);
+})(jQuery, Drupal, once, window.Cookies);

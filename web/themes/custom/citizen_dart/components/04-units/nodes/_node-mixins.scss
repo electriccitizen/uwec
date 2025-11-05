@@ -550,8 +550,38 @@
       .node-title {
         margin-bottom: 0;
       }
+      h1.page-title{
+        max-width: 800px;
+        margin-left: 0;
+        color: $royal;
+        @include desk {
+          margin-bottom: 100px;
+          color: $white;
+        }
+        @include contentStop {
+          margin-bottom: 148px;
+        }
+      }
     }
   }
+  .field-links{
+    padding-top: 0;
+    margin-top: -30px;
+    width: 100%;
+    @include desk{
+      position: absolute;
+      bottom: 0;
+      right: 20px;
+    }
+    @include menuStop{
+      right: calc(50% - 560px);
+    }
+    a{
+      display: inline-block;
+      @include linkArrow(white, sm);
+      min-height: 32px;
+    }
+  }//end links field a
 }//end heroFullWidthImage
 
 @mixin profileTeaser{
