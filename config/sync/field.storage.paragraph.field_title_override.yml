@@ -1,17 +1,18 @@
-uuid: 57650f07-19d8-452a-b90f-e2f39554eb5d
+uuid: 7e3754f2-9726-4f05-ae84-c4305fd430db
 langcode: en
 status: true
 dependencies:
   module:
     - paragraphs
-    - text
-id: paragraph.field_video_title
-field_name: field_video_title
+id: paragraph.field_title_override
+field_name: field_title_override
 entity_type: paragraph
-type: text
+type: string
 settings:
   max_length: 255
-module: text
+  case_sensitive: false
+  is_ascii: false
+module: core
 locked: false
 cardinality: 1
 translatable: true

@@ -1,0 +1,19 @@
+uuid: 240a9165-def1-4c90-96bb-1f0eb921b3ed
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_title_override
+    - paragraphs.paragraphs_type.hero
+id: paragraph.hero.field_title_override
+field_name: field_title_override
+entity_type: paragraph
+bundle: hero
+label: 'Title Override'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

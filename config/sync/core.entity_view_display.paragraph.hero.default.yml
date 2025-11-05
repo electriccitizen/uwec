@@ -4,13 +4,13 @@ status: true
 dependencies:
   config:
     - field.field.paragraph.hero.field_background_image
+    - field.field.paragraph.hero.field_body
     - field.field.paragraph.hero.field_hero_type
     - field.field.paragraph.hero.field_hero_video
     - field.field.paragraph.hero.field_image
     - field.field.paragraph.hero.field_links
-    - field.field.paragraph.hero.field_video_description
+    - field.field.paragraph.hero.field_title_override
     - field.field.paragraph.hero.field_video_poster
-    - field.field.paragraph.hero.field_video_title
     - paragraphs.paragraphs_type.hero
   module:
     - file
@@ -65,6 +65,14 @@ content:
     third_party_settings: {  }
     weight: 3
     region: content
+  field_title_override:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 6
+    region: content
   field_video_poster:
     type: entity_reference_entity_view
     label: hidden
@@ -75,6 +83,5 @@ content:
     weight: 5
     region: content
 hidden:
-  field_video_description: true
-  field_video_title: true
+  field_body: true
   search_api_excerpt: true

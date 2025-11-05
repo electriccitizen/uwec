@@ -4,43 +4,39 @@
   ----------------------- */
   Drupal.behaviors.listWidget = {
     attach: function (context, settings) {
-    	$(once('isListWidget', '.field--name-field-list-type .js-form-type-select', context)).each(function(){
+      $(once('isListWidget', '.field--name-field-list-type .js-form-type-select', context)).each(function(){
  
- 				let manualFields = $('.field--name-field-manual-select,.field--name-field-testimonial,.field--name-field-facts,.field--name-field-profiles,.field--name-field-programs');
+      let manualFields = $('.field--name-field-manual-select,.field--name-field-testimonial,.field--name-field-facts,.field--name-field-profiles,.field--name-field-programs');
+      let autoFields = $('.field--name-field-placement-tag,.field--name-field-page-family,.field--name-field-type,.field--name-field-program,.field--name-field-snapshot-type,.field--name-field-limit-list,.field--name-field-randomize,.field--name-field-college,.field--name-field-department,.field--name-field-program,.field--name-field-office,.field--name-field-degree-type,.field--name-field-program-type,.field--name-field-campus,.field--name-field-degree-level');
 
-        let autoFields = $('.field--name-field-placement-tag,.field--name-field-page-family,.field--name-field-type,.field--name-field-program,.field--name-field-snapshot-type,.field--name-field-limit-list,.field--name-field-randomize,.field--name-field-college,.field--name-field-department,.field--name-field-program,.field--name-field-office,.field--name-field-degree-type,.field--name-field-program-type,.field--name-field-campus,.field--name-field-degree-level');
-
-        $(this).closest('.paragraphs-subform,.layout-paragraphs-component-form').find(manualFields).hide();
-
+      $(this).closest('.paragraphs-subform,.layout-paragraphs-component-form').find(manualFields).hide();
         $(document).ajaxComplete(function () {
-        // detect the chosen list type and show the proper select or manual field options
+          // detect the chosen list type and show the proper select or manual field options
           $('.field--name-field-list-type .js-form-type-select').each(function () {
-          	
-            
-          	//when an existing content placer is opened, check the type chosen and show/hide the appropriate fields 
-	          if($(this).find("option:selected").val()){
-	            var chosen = $(this).find("option:selected").text().toLowerCase().replace(/_/g, '-');
-	            if (chosen == 'auto'){
-	            	$(this).closest('.paragraphs-subform,.layout-paragraphs-component-form').find(manualFields).hide();
-	            	$(this).closest('.paragraphs-subform,.layout-paragraphs-component-form').find(autoFields).show();
-	            }else{
-	            	$(this).closest('.paragraphs-subform,.layout-paragraphs-component-form').find(autoFields).hide();
-	            	$(this).closest('.paragraphs-subform,.layout-paragraphs-component-form').find(manualFields).show();
-	            }
-	          }
+            //when an existing content placer is opened, check the type chosen and show/hide the appropriate fields 
+            if($(this).find("option:selected").val()){
+              let chosen = $(this).find("option:selected").text().toLowerCase().replace(/_/g, '-');
+              if (chosen == 'auto'){
+                $(this).closest('.paragraphs-subform,.layout-paragraphs-component-form').find(manualFields).hide();
+                $(this).closest('.paragraphs-subform,.layout-paragraphs-component-form').find(autoFields).show();
+              }else{
+                $(this).closest('.paragraphs-subform,.layout-paragraphs-component-form').find(autoFields).hide();
+                $(this).closest('.paragraphs-subform,.layout-paragraphs-component-form').find(manualFields).show();
+              }
+            }
 
             //when the content type select is changed run the same checks
             $(this).find('select').change(function () {
-            	$(this).closest('.paragraphs-subform,.layout-paragraphs-component-form').find(manualFields).hide()
+              $(this).closest('.paragraphs-subform,.layout-paragraphs-component-form').find(manualFields).hide()
               //get the option
-              var choice = $(this).find("option:selected").text().toLowerCase().replace(/_/g, '-');
+              let choice = $(this).find("option:selected").text().toLowerCase().replace(/_/g, '-');
               
               if (choice == 'auto'){
-              	$(this).closest('.paragraphs-subform,.layout-paragraphs-component-form').find(manualFields).hide();
-              	$(this).closest('.paragraphs-subform,.layout-paragraphs-component-form').find(autoFields).show();
+                $(this).closest('.paragraphs-subform,.layout-paragraphs-component-form').find(manualFields).hide();
+                $(this).closest('.paragraphs-subform,.layout-paragraphs-component-form').find(autoFields).show();
               }else{
-              	$(this).closest('.paragraphs-subform,.layout-paragraphs-component-form').find(autoFields).hide();
-              	$(this).closest('.paragraphs-subform,.layout-paragraphs-component-form').find(manualFields).show();
+                $(this).closest('.paragraphs-subform,.layout-paragraphs-component-form').find(autoFields).hide();
+                $(this).closest('.paragraphs-subform,.layout-paragraphs-component-form').find(manualFields).show();
               }
             });
 
@@ -230,41 +226,55 @@
   Drupal.behaviors.hero = {
     attach: function (context, settings) {
 
+      // define which hero types have access to which fields
+      const fieldsByType = {
+        image: ['image'],
+        background_image: ['image'],
+        full_image: ['background-image', 'title-override', 'body', 'links'],
+        pattern: [],
+        video: ['hero-video', 'video-poster', 'title-override', 'body', 'links'],
+      };
+
+      // gather which fields are toggleable from the above definition
+      let toggleableFields = new Set();
+      for(let heroType in fieldsByType){
+        for(let fieldName of fieldsByType[heroType]){
+          toggleableFields.add(fieldName);
+        }
+      }
+
       // shows and hides fields based on the selected hero type
       function updateHeroFields(){
-        $('.field--name-field-hero-type').each(function(){
-          let typeField = $(this);
+        document.querySelectorAll('.field--name-field-hero-type').forEach((typeField)=>{
+          let container = typeField.parentNode;
+          let type = typeField.querySelector('select').value;
+          let showFields = fieldsByType[type];
 
-          // hide all fields
-          typeField.siblings().hide();
-
-          // show fields if they are relevant to the selected type
-          let type = typeField.find('option:selected').val();
-          if(type == 'image'){
-            $('.field--name-field-image').show();
-          }else if(type == 'background_image'){
-            $('.field--name-field-image').show();
-          }else if(type == 'full_image'){
-            $('.field--name-field-background-image').show();
-          }else if(type == 'pattern'){
-            // none
-          }else if(type == 'video'){
-            $('.field--name-field-hero-video,.field--name-field-video-poster,.field--name-field-video-title,.field--name-field-video-description,.field--name-field-links').show();
+          // toggle visibility of all toggleable fields
+          // depending on the currently selected hero type
+          for(const field of toggleableFields){
+            let fieldDiv = container.querySelector('.field--name-field-'+field);
+            if(showFields && showFields.includes(field)){
+              fieldDiv.style.display = 'block';
+            }else{
+              fieldDiv.style.display = 'none';
+            }
           }
         });
       }
 
+      // set up event handlers to call updateHeroFields if it might be needed
       $(once('isHero', '.field--name-field-hero-type', context)).each(function(){
         // update fields on ajax complete, for the initial "edit" click
         $(document).ajaxComplete(function(){
-          updateHeroFields($(this));
+          updateHeroFields();
         });
 
         // also update fields whenever the user changes the hero type
-        $(this).find('select').change(function(){
-          updateHeroFields($(this));
+        this.querySelector('select').addEventListener('change', ()=>{
+          updateHeroFields();
         });
-     });
+      });
     }
   };
   
