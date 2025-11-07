@@ -42,9 +42,6 @@
   </h2>
   <div id="section-menu-wrapper">
     {{ title_prefix }}
-    <h2 class="block-title block-page-title{% if not configuration.label_display %} visually-hidden{% endif %}">
-      {{ configuration.label }}
-    </h2>
     {{ title_suffix }}
     {% block sectionMenu %}
       {{ content }}
