@@ -3,6 +3,7 @@
 ====================*/
 
 @use '../../00-base/base' as *;
+@use "sass:color";
 
 @mixin sliderPagerBase {
   &:before {
@@ -21,6 +22,10 @@
   &:hover:before,
   &:active:before {
     background-color: $galleryPagerHoverBack;
+  }
+  &:focus:before {
+    background-color: $galleryPagerHoverBack;
+    outline: 2px solid color.adjust($galleryPagerHoverBack,$lightness: -10%);
   }
   @include desk {
     &:before {
