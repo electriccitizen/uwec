@@ -173,15 +173,15 @@
 		display:block;
 		text-indent:9999px;
 		overflow:hidden;
-		width:20px;
-		height:20px;
+		width:24px;
+		height:24px;
 		position:absolute;
-		right:0;
-		top:20px;
+		right:-2px;
+		top:18px;
 
 		@include menuStop{
-			right:-20px;
-			top:17px;
+			right:-22px;
+			top:15px;
 		}
 
 		// dropdown arrow
