@@ -18,6 +18,10 @@
         color: $navy;
         a{
           @include lineLink;
+          color: $link;
+          &:hover,&:focus {
+            color: $black;
+          }
         }
       }
     }
