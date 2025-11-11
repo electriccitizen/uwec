@@ -40,7 +40,7 @@
     {% if menu_level == 0 %}
       <ul{{ attributes.addClass('menu-main-navigation').setAttribute('role', 'list') }}>
     {% else %}
-      <ul{{ attributes.setAttribute('role', 'list') }}>
+      <ul{{ attributes.removeClass('menu-main-navigation').setAttribute('role', 'list') }}>
     {% endif %}
     {% for item in items %}
       {%
