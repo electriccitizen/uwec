@@ -28,6 +28,20 @@
     & > .layout--onecol {
       width: 100%;
     }
+    .page-header-text {
+      max-width: 2000px;
+
+      @include contentStop {
+        padding-left: 60px;
+        padding-right: 60px;
+      }
+
+      .page-header-text-inner {
+        h1.page-title {
+          max-width: 1200px;
+        }
+      }
+    }
   }//end node section 1
 
   #node-section-2 {
