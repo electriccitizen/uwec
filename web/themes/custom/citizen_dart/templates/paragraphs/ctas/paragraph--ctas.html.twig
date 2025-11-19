@@ -59,7 +59,9 @@
 						<div class="cta-item">
 							<div class="cta-item-inner">
 								<div class="cta-image">
-									{{ drupal_entity('media', cta['#paragraph'].field_image.0.target_id, '393x221') }}
+									{% if cta['#paragraph'].field_image.0 %}
+										{{ drupal_entity('media', cta['#paragraph'].field_image.0.target_id, '393x221') }}
+									{% endif %}
 								</div>
 								<div class="cta-text">
 									<div class="cta-headline">
@@ -81,16 +83,18 @@
 			</div>
 		</div>
 	{% else %}
-		<div class="cta-bar">
+    <div class="cta-bar">
       <div class="cta-river">
         <img src="/themes/custom/citizen_dart/images/elements/river-cta-bar.svg" alt="a wavy river shaped light blue decorative element behind the call to action content" width="1508px" height="371px" />
       </div>
-			<div class="cta-item">
-				<div class="cta-item-inner">
-          <div class="cta-image">
-						{{ drupal_entity('media', content.field_cta_bar.0['#paragraph'].field_image.0.target_id, '1920x1445') }}
-					</div>
-					<div class="cta-text-wrapper">
+        <div class="cta-item">
+          <div class="cta-item-inner">
+            <div class="cta-image">
+            {% if content.field_cta_bar.0['#paragraph'].field_image.0 %}
+              {{ drupal_entity('media', content.field_cta_bar.0['#paragraph'].field_image.0.target_id, '1920x1445') }}
+            {% endif %}
+          </div>
+          <div class="cta-text-wrapper">
             <div class="cta-headline">
               {{- content.field_cta_bar.0['#paragraph'].field_headline.0.value -}}
             </div>
@@ -100,10 +104,9 @@
               </div>
             {% endif %}
             <a href="{{ content.field_cta_bar.0['#paragraph'].field_link.0.url }}">{{ content.field_cta_bar.0['#paragraph'].field_link.0.title }}</a> 
-
-					</div>
-				</div>
-			</div>
-		</div>
-	{% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+  {% endif %}
 {% endblock %}
