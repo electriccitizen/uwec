@@ -1,0 +1,24 @@
+uuid: bd8ea349-ed8b-4ee1-87d4-80bce202e148
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_intro_text
+    - filter.format.limited_html
+    - paragraphs.paragraphs_type.steps
+  module:
+    - text
+id: paragraph.steps.field_intro_text
+field_name: field_intro_text
+entity_type: paragraph
+bundle: steps
+label: 'Intro Text'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - limited_html
+field_type: text_long

@@ -3,17 +3,27 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.paragraph.steps.field_intro_text
     - field.field.paragraph.steps.field_step_items
     - field.field.paragraph.steps.field_use_icon
     - field.field.paragraph.steps.field_widget_title
     - paragraphs.paragraphs_type.steps
   module:
     - paragraphs
+    - text
 id: paragraph.steps.default
 targetEntityType: paragraph
 bundle: steps
 mode: default
 content:
+  field_intro_text:
+    type: text_textarea
+    weight: 1
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
   field_step_items:
     type: paragraphs
     weight: 2

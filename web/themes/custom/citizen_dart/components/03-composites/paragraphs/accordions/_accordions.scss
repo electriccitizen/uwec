@@ -61,6 +61,10 @@
 
   .widget-wrapper {
 	  @include textConstrain;
+
+    .field-intro-text {
+      margin-bottom: $spaceLg;
+    }
   }
 }//end paragraph type accordions
 

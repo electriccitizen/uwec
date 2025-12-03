@@ -3,17 +3,26 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.paragraph.steps.field_intro_text
     - field.field.paragraph.steps.field_step_items
     - field.field.paragraph.steps.field_use_icon
     - field.field.paragraph.steps.field_widget_title
     - paragraphs.paragraphs_type.steps
   module:
     - entity_reference_revisions
+    - text
 id: paragraph.steps.default
 targetEntityType: paragraph
 bundle: steps
 mode: default
 content:
+  field_intro_text:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
   field_step_items:
     type: entity_reference_revisions_entity_view
     label: hidden
