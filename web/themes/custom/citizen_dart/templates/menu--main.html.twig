@@ -38,9 +38,9 @@
   {% import _self as menus %}
   {% if items %}
     {% if menu_level == 0 %}
-      <ul{{ attributes.addClass('menu-main-navigation').setAttribute('role', 'list') }}>
+      <ul{{ attributes.addClass('menu-main-navigation') }}>
     {% else %}
-      <ul{{ attributes.removeClass('menu-main-navigation').setAttribute('role', 'list') }}>
+      <ul{{ attributes.removeClass('menu-main-navigation') }}>
     {% endif %}
     {% for item in items %}
       {%
@@ -48,7 +48,7 @@
           item.in_active_trail ? 'active-trail',
         ]
       %}
-      <li{{ item.attributes.addClass(classes).setAttribute('role', 'listitem') }}>
+      <li{{ item.attributes.addClass(classes) }}>
         <a href="{{ "nolink" not in item.link_classes ? item.url : "#" }}" class="{{ item['link_classes']|join(' ') }}">{{ item.title }}</a>
         {% if item.below %}
           <a href="#" class="menu-item-expand">{{ "Expand Menu Item"|t }}</a>
