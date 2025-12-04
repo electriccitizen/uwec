@@ -354,9 +354,15 @@
       }
       .field-links {
         max-width: 1092px;
+        div {
+          &:not(:last-child){
+            margin-bottom: 3px;
+          }
+        }
         a {
           display: inline-block;
           min-height: 32px;
+          
         }
       }
     }//end page header text inner
@@ -400,10 +406,17 @@
       }
     }
   }
-  .field-links a{
-    display: inline-block;
-    @include linkArrow(white, sm);
-    min-height: 32px;
+  .field-links {
+    div {
+      &:not(:last-child){
+        margin-bottom: 3px;
+      }
+    }
+    a{
+      display: inline-block;
+      @include linkArrow(white, sm);
+      min-height: 32px;
+    }
   }//end links field a
 
 }//end patternHero
@@ -575,6 +588,11 @@
     }
     @include menuStop{
       right: calc(50% - 560px);
+    }
+    div {
+      &:not(:last-child){
+        margin-bottom: 3px;
+      }
     }
     a{
       display: inline-block;

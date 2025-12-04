@@ -7,6 +7,11 @@
 
 .paragraph--type--steps{
   @include edgeToEdge;
+
+  .field-intro-text {
+    @include textConstrain;
+  }
+
   .step {
     border-bottom: 1px solid $borderRule;
     padding: 6rem 40px;

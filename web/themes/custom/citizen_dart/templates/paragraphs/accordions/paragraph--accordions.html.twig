@@ -43,6 +43,16 @@
 
 {% block widgetContent %}
 	{{ attach_library('citizen_dart/accordion') }}
+  {% if content.field_intro_text.0 %}
+    {% set intro = {
+      '#type': 'processed_text',
+      '#text': content.field_intro_text.0['#text'],
+      '#format': content.field_intro_text.0['#format']
+    } %}
+    <div class="field field-intro-text">
+      {{ intro }}
+    </div>
+  {% endif %}
 	<div class="field field-accordion-items">
 		{%- for key, accordion in content.field_accordion_items -%}
 			{% if key|first != '#' %}

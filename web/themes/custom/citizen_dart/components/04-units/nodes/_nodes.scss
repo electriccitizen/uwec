@@ -26,6 +26,10 @@
 @mixin warning{
 	min-height: 400px;
 	@include safeFlex(column,nowrap,center,center);
+  h1 {
+    @include heading3;
+    margin-bottom: $spaceSm;
+  }
 	& > div{
 		max-width: $textMax + 40px;
 		border: 1px solid $borderRule;
@@ -66,7 +70,7 @@
 
 /* RESTRICTED NODE TYPES
 ---------------------- */
-.node{
+.node,.path-media{
 	//restricted access message
 	&:not(.logged-in){
 		.restricted-node{

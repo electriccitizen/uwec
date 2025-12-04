@@ -1,0 +1,24 @@
+uuid: 871f09ce-c239-44a2-b759-50c1e56d1df8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_intro_text
+    - filter.format.limited_html
+    - paragraphs.paragraphs_type.accordions
+  module:
+    - text
+id: paragraph.accordions.field_intro_text
+field_name: field_intro_text
+entity_type: paragraph
+bundle: accordions
+label: 'Intro Text'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - limited_html
+field_type: text_long

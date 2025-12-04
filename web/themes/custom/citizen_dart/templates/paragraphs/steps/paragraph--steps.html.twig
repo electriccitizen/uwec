@@ -41,21 +41,31 @@
 
 {% block widgetContent %}
   {{ attach_library('citizen_dart/steps') }}
-	{# Check if the 'Use Icon' field is true #}
-		{# Render 'Step Item' paragraphs with icons #}
-		{% for item in paragraph.field_step_items %}
-      <div class="step">
-        <div class="step-number">
-          <span>{{ loop.index > 9 ? loop.index : '0' ~ loop.index }}</span>
-          {% if paragraph.field_use_icon.value %}
-            <div class="step-icon">{{ drupal_field('field_icon', 'paragraph', item.target_id) }}</div>
-          {% endif %}
-        </div>
-        <div class="step-details">
-          {{ drupal_field('field_headline', 'paragraph', item.target_id) }}
-          {{ drupal_field('field_long_text', 'paragraph', item.target_id) }}
-          {{ drupal_field('field_link', 'paragraph', item.target_id) }}
-        </div>
+
+  {% if content.field_intro_text.0 %}
+    {% set intro = {
+      '#type': 'processed_text',
+      '#text': content.field_intro_text.0['#text'],
+      '#format': content.field_intro_text.0['#format']
+    } %}
+    <div class="field field-intro-text">
+      {{ intro }}
+    </div>
+  {% endif %}
+  
+  {% for item in paragraph.field_step_items %}
+    <div class="step">
+      <div class="step-number">
+        <span>{{ loop.index > 9 ? loop.index : '0' ~ loop.index }}</span>
+        {% if paragraph.field_use_icon.value %}
+          <div class="step-icon">{{ drupal_field('field_icon', 'paragraph', item.target_id) }}</div>
+        {% endif %}
       </div>
-		{% endfor %}
+      <div class="step-details">
+        {{ drupal_field('field_headline', 'paragraph', item.target_id) }}
+        {{ drupal_field('field_long_text', 'paragraph', item.target_id) }}
+        {{ drupal_field('field_link', 'paragraph', item.target_id) }}
+      </div>
+    </div>
+  {% endfor %}
 {% endblock %}

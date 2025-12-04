@@ -44,22 +44,4 @@
  */
 #}
 
-{% extends "page.html.twig" %}
-
-{# check if a user is authenticated and replace the support page content if they are not #}
-{% block pageMain %}
-	{%- if logged_in -%}
-		{{ parent() }}
-	{%- else -%}
-		<main role="main">
-
-      <div class="layout-content">
-        <div class="restricted-node">
-          <h1>Access Denied</h1>
-          <div>You must be <a href="/user">logged in</a> to view this page.</div>
-        </div>
-      </div>{# /.layout-content #}
-
-    </main>
-	{%- endif -%}
-{% endblock %}
+{% extends "page--support-book.html.twig" %}

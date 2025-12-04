@@ -23,9 +23,12 @@
   &:active:before {
     background-color: $galleryPagerHoverBack;
   }
-  &:focus:before {
-    background-color: $galleryPagerHoverBack;
-    outline: 2px solid color.adjust($galleryPagerHoverBack,$lightness: -10%);
+  &:focus{
+    outline: 2px solid rgba(255,255,255,0);
+    &:before {
+      background-color: $galleryPagerHoverBack;
+      outline: 2px solid color.adjust($galleryPagerHoverBack,$lightness: -10%);
+    }
   }
   @include desk {
     &:before {
