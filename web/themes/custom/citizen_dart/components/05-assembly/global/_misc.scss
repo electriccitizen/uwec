@@ -50,6 +50,21 @@ iframe.npc-frame{
 	}
 }
 
+/* BOXCAST
+-------------------- */
+.boxcast-playlist {
+  .boxcast-page-controls {
+    a {
+      &[disabled] {
+        opacity: 1;
+        color: #737373;
+        background: #fafafa;
+        border-color: #737373;
+      }
+    }
+  }
+}
+
 
 /* GDPR
 -------------------- */
