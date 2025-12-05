@@ -71,7 +71,11 @@
 /* ITEM STYLING
 ------------------- */
 .accordion-item{
-
+  &:first-child {
+    .accordion-header a {
+      border-top: 1px solid $accordHeaderBorder;
+    }
+  }
 	//accordion header bar
 	.accordion-header{
 		a{
@@ -82,9 +86,8 @@
         font-size: 2.25rem;
         line-height: 24px;
         position: relative;
-        border-top: 1px solid $accordHeaderBorder;
         border-bottom: 1px solid $accordHeaderBorder;
-        margin-top: -1px;
+        margin-bottom: 1px;
         padding: 10px 40px 10px 10px;
         background: $accordHeaderBack;
         min-height: 84px;
@@ -138,6 +141,11 @@
 
 	//active accordion
 	&.accord-active{
+    & + .accordion-item {
+      .accordion-header a {
+        border-top: 1px solid $accordHeaderBorder;
+      }
+    }
 		.accordion-header{
 			a{
 				color: $accordActive;
