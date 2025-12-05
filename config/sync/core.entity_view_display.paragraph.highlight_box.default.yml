@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.paragraph.highlight_box.field_additional_text
+    - field.field.paragraph.highlight_box.field_headline
     - field.field.paragraph.highlight_box.field_link
     - paragraphs.paragraphs_type.highlight_box
   module:
@@ -19,6 +20,14 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: 3
+    region: content
+  field_headline:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 2
     region: content
   field_link:
     type: link

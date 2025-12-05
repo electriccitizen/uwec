@@ -23,7 +23,16 @@
         @include desk{
           padding: 50px 72px;
         }
-      }//end layout checks
+    }//end layout checks
+
+    .field-headline {
+      @include heading2;
+
+      & {
+        margin-bottom: $spaceMd;
+      }
+    }
+
     .field-additional-text {
       color: $royal;
       font-family: $displayHeader;
