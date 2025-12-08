@@ -66,7 +66,7 @@
       <div class="step">
         <div class="step-number">
           <span>{{ step_counter > 9 ? step_counter : '0' ~ step_counter }}</span>
-          {% if paragraph.field_use_icon.value and step_entity.field_icon.0 %}
+          {% if content.field_use_icon.0['#markup'] == 'On' and step_entity.field_icon.0 %}
             <div class="step-icon">
               {{ drupal_field('field_icon', 'paragraph', step_entity.id.value, 'default', null, step_entity.revision_id.value ?? null) }}
             </div>
