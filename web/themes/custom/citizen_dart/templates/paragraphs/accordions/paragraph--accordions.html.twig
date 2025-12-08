@@ -56,17 +56,18 @@
 	<div class="field field-accordion-items">
 		{%- for key, accordion in content.field_accordion_items -%}
 			{% if key|first != '#' %}
+        {% set accordion_entity = accordion['#paragraph'] %}
+        {% set text = accordion_entity.field_long_text.0 is defined ? {
+          '#type': 'processed_text',
+          '#text': accordion_entity.field_long_text.0.value,
+          '#format': accordion_entity.field_long_text.0.format
+         } : null %}
 				{% set controlParent = 'accordion-content-' ~ paragraph.id() ~ '-' ~ (key + 1) %}
-				{% set text = {
-					'#type': 'processed_text',
-					'#text': accordion['#paragraph'].field_long_text.0.value,
-					'#format': accordion['#paragraph'].field_long_text.0.format
-				 } %}
 				<div class="accordion-item">
 					<div class="accordion-header">
 						<a href="#" role="button" aria-controls="{{ controlParent }}" aria-expanded="false">
               <span class="accordion-header-text">
-							  {{- accordion['#paragraph'].field_accordion_header.0.value -}}
+							  {{ accordion_entity.field_accordion_header.0.value }}
               </span>
 							<span class="accordion-chevron">
 								<svg width="26" height="15" viewBox="0 0 26 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 2L13 12L24 2" stroke="#06233D" stroke-width="4"/>

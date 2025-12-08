@@ -52,20 +52,40 @@
       {{ intro }}
     </div>
   {% endif %}
-  
-  {% for item in paragraph.field_step_items %}
-    <div class="step">
-      <div class="step-number">
-        <span>{{ loop.index > 9 ? loop.index : '0' ~ loop.index }}</span>
-        {% if paragraph.field_use_icon.value %}
-          <div class="step-icon">{{ drupal_field('field_icon', 'paragraph', item.target_id) }}</div>
-        {% endif %}
+
+  {% set step_counter = 0 %}
+  {% for key, step in content.field_step_items %}
+    {% if key|first != '#' %}
+      {% set step_counter = step_counter + 1 %}
+      {% set step_entity = step['#paragraph'] %}
+      {% set long_text = step_entity.field_long_text.0 is defined ? {
+        '#type': 'processed_text',
+        '#text': step_entity.field_long_text.0.value,
+        '#format': step_entity.field_long_text.0.format
+      } : null %}
+      <div class="step">
+        <div class="step-number">
+          <span>{{ step_counter > 9 ? step_counter : '0' ~ step_counter }}</span>
+          {% if paragraph.field_use_icon.value and step_entity.field_icon.0 %}
+            <div class="step-icon">
+              {{ drupal_field('field_icon', 'paragraph', step_entity.id.value, 'default', null, step_entity.revision_id.value ?? null) }}
+            </div>
+          {% endif %}
+        </div>
+        <div class="step-details">
+          {% if step_entity.field_headline.0 %}
+            <div class="step-headline field-headline">{{ step_entity.field_headline.0.value }}</div>
+          {% endif %}
+          {% if long_text %}
+            <div class="step-long-text field-long-text text-long">{{ long_text }}</div>
+          {% endif %}
+          {% if step_entity.field_link.0 %}
+            <div class="step-link field-link">
+              <a href="{{ step_entity.field_link.0.url }}"><span>{{ step_entity.field_link.0.title }}</span></a>
+            </div>
+          {% endif %}
+        </div>
       </div>
-      <div class="step-details">
-        {{ drupal_field('field_headline', 'paragraph', item.target_id) }}
-        {{ drupal_field('field_long_text', 'paragraph', item.target_id) }}
-        {{ drupal_field('field_link', 'paragraph', item.target_id) }}
-      </div>
-    </div>
+    {% endif %}
   {% endfor %}
 {% endblock %}
