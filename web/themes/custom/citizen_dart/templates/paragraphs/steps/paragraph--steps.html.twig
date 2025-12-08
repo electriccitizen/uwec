@@ -68,7 +68,9 @@
           <span>{{ step_counter > 9 ? step_counter : '0' ~ step_counter }}</span>
           {% if content.field_use_icon.0['#markup'] == 'On' and step_entity.field_icon.0 %}
             <div class="step-icon">
-              {{ drupal_field('field_icon', 'paragraph', step_entity.id.value, 'default', null, step_entity.revision_id.value ?? null) }}
+              <div class="field field-icon">
+                {{ drupal_entity('media',step_entity.field_icon.0.target_id, 'icon_img') }}
+              </div>
             </div>
           {% endif %}
         </div>
