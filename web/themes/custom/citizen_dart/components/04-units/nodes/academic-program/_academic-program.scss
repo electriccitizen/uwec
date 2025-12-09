@@ -80,6 +80,13 @@
       .field-intro {
         margin-bottom: 6.5rem;
       }
+      .field-links {
+        div {
+          &:not(:last-child){
+            margin-bottom: $spaceSm;
+          }
+        }
+      }
     }
   }
   .block-body {
@@ -138,11 +145,6 @@
     }
   }
   .field-links{
-    div {
-      &:not(:last-child){
-        margin-bottom: $spaceSm;
-      }
-    }
     a {
       @include linkArrow(gold, lg);
     }
