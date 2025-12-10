@@ -897,7 +897,6 @@ display:
           buttons: false
           action_title: Action
           clear_on_exposed: true
-          force_selection_info: false
           selected_actions:
             0:
               action_id: 'moderation_state_change:node'
@@ -913,6 +912,7 @@ display:
               preconfiguration:
                 add_confirmation: false
                 label_override: Save
+          force_selection_info: false
         title:
           id: title
           table: node_field_data
@@ -1405,14 +1405,6 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-              editor: '0'
-              site_admin: '0'
-              section_manager: '0'
-              marketing_editor: '0'
-              personnel: '0'
-              jobs_and_editor: '0'
             min_placeholder: ''
             max_placeholder: ''
             placeholder: ''
@@ -1456,13 +1448,6 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-              editor: '0'
-              site_admin: '0'
-              section_manager: '0'
-              marketing_editor: '0'
-              personnel: '0'
             placeholder: ''
           is_grouped: false
           group_info:
@@ -1502,15 +1487,6 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-              editor: '0'
-              site_admin: '0'
-              section_manager: '0'
-              marketing_editor: '0'
-              personnel: '0'
-              jobs_and_editor: '0'
-              stories_and_editor: '0'
             reduce: false
           is_grouped: false
           group_info:
@@ -1556,15 +1532,6 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-              editor: '0'
-              site_admin: '0'
-              section_manager: '0'
-              marketing_editor: '0'
-              personnel: '0'
-              jobs_and_editor: '0'
-              stories_and_editor: '0'
             reduce: false
           is_grouped: false
           group_info:
@@ -1613,15 +1580,6 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-              editor: '0'
-              site_admin: '0'
-              section_manager: '0'
-              marketing_editor: '0'
-              personnel: '0'
-              jobs_and_editor: '0'
-              stories_and_editor: '0'
             min_placeholder: ''
             max_placeholder: ''
             placeholder: ''
@@ -1666,15 +1624,6 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-              editor: '0'
-              site_admin: '0'
-              section_manager: '0'
-              marketing_editor: '0'
-              personnel: '0'
-              jobs_and_editor: '0'
-              stories_and_editor: '0'
             min_placeholder: ''
             max_placeholder: ''
             placeholder: ''
@@ -1719,15 +1668,6 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-              editor: '0'
-              site_admin: '0'
-              section_manager: '0'
-              marketing_editor: '0'
-              personnel: '0'
-              jobs_and_editor: '0'
-              stories_and_editor: '0'
             min_placeholder: ''
             max_placeholder: ''
             placeholder: ''
