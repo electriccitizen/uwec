@@ -24,6 +24,7 @@ dependencies:
     - paragraphs.paragraphs_type.program_search
     - paragraphs.paragraphs_type.programs_list
     - paragraphs.paragraphs_type.quick_links
+    - paragraphs.paragraphs_type.quote
     - paragraphs.paragraphs_type.select_type
     - paragraphs.paragraphs_type.slate_form
     - paragraphs.paragraphs_type.snapshot_list
@@ -73,6 +74,7 @@ settings:
       programs_list: programs_list
       program_search: program_search
       quick_links: quick_links
+      quote: quote
       select_type: select_type
       slate_form: slate_form
       snapshot_list: snapshot_list
@@ -179,7 +181,7 @@ settings:
         enabled: false
       quote:
         weight: -70
-        enabled: false
+        enabled: true
       select_item:
         weight: -52
         enabled: false
