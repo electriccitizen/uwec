@@ -243,16 +243,13 @@
       .hero-background{
         width: 100vw;
         margin-bottom: $spaceMd;
-        position: relative;
-        @include desk {
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          z-index: -1;
-          margin-bottom: 0;
-        }
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        margin-bottom: 0;
         @media screen and (min-width: 2001px){
           width: 2000px;
           left: calc(50% - 1000px);
