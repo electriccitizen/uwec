@@ -1,0 +1,30 @@
+uuid: bd7a1fc8-89d2-4858-92cd-df30de4690fd
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+    - image_effects
+name: video_banner_tablet
+label: 'Video Banner Tablet'
+effects:
+  79fa486a-6117-49c0-946d-20431e56cb81:
+    uuid: 79fa486a-6117-49c0-946d-20431e56cb81
+    id: image_effects_auto_orient
+    weight: 1
+    data:
+      scan_exif: true
+  4ba3c9a4-ccf6-443e-87b3-5f8244bf1491:
+    uuid: 4ba3c9a4-ccf6-443e-87b3-5f8244bf1491
+    id: focal_point_scale_and_crop
+    weight: 2
+    data:
+      width: 800
+      height: 1210
+      crop_type: focal_point
+  10972756-4ade-4102-be90-e1cf05907f50:
+    uuid: 10972756-4ade-4102-be90-e1cf05907f50
+    id: image_convert
+    weight: 3
+    data:
+      extension: webp

@@ -1,0 +1,37 @@
+uuid: 94294624-8217-40bd-b17d-5ba0bd74b984
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+    - image_effects
+    - image_style_quality
+name: video_banner_mobile_1_5x
+label: 'Video Banner Mobile 1.5x'
+effects:
+  81fb2bff-7816-421c-b707-497255c3df58:
+    uuid: 81fb2bff-7816-421c-b707-497255c3df58
+    id: image_effects_auto_orient
+    weight: 1
+    data:
+      scan_exif: true
+  2c592c9c-d09e-4f64-b5ef-ef11fcd2c968:
+    uuid: 2c592c9c-d09e-4f64-b5ef-ef11fcd2c968
+    id: focal_point_scale_and_crop
+    weight: 2
+    data:
+      width: 600
+      height: 1305
+      crop_type: focal_point
+  d4f41e6a-e70a-4fd6-8497-c5967e27e0bc:
+    uuid: d4f41e6a-e70a-4fd6-8497-c5967e27e0bc
+    id: image_style_quality
+    weight: 3
+    data:
+      quality: 40
+  0c2b9598-5e35-4108-9071-b284a6ce89e2:
+    uuid: 0c2b9598-5e35-4108-9071-b284a6ce89e2
+    id: image_convert
+    weight: 4
+    data:
+      extension: webp

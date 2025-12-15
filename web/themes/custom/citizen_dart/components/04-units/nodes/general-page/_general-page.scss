@@ -275,7 +275,10 @@
           height: 100%;
           img{
             object-fit: cover;
-            object-position: top center;
+
+            @include desk {
+              object-position: top center;
+            }
           }
         }
       }

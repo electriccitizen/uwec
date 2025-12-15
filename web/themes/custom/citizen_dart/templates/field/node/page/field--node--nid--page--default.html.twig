@@ -90,7 +90,7 @@
       {% elseif element['#object'].field_hero.0.entity.field_video_poster.0 %}
         {# no video, but we have a video poster, so just display the poster like a full with image #}
         <div class="hero-background">
-          {{ drupal_entity('media', element['#object'].field_hero.0.entity.field_video_poster.0.target_id, 'banner') }}
+          {{ drupal_entity('media', element['#object'].field_hero.0.entity.field_video_poster.0.target_id, 'video_banner') }}
         </div>
       {% endif %}
     {% endif %}
