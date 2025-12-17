@@ -5,9 +5,6 @@ dependencies:
   config:
     - core.entity_view_mode.node.content_thumbnail
     - field.field.node.hours.field_additional_info
-    - field.field.node.hours.field_domain_access
-    - field.field.node.hours.field_domain_all_affiliates
-    - field.field.node.hours.field_domain_source
     - field.field.node.hours.field_editorial_sections
     - field.field.node.hours.field_hours
     - field.field.node.hours.field_metatags
@@ -32,9 +29,6 @@ content:
     region: content
 hidden:
   field_additional_info: true
-  field_domain_access: true
-  field_domain_all_affiliates: true
-  field_domain_source: true
   field_editorial_sections: true
   field_hours: true
   field_metatags: true

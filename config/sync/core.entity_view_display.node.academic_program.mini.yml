@@ -20,9 +20,6 @@ dependencies:
     - field.field.node.academic_program.field_degree_types
     - field.field.node.academic_program.field_delivery_mode
     - field.field.node.academic_program.field_departments
-    - field.field.node.academic_program.field_domain_access
-    - field.field.node.academic_program.field_domain_all_affiliates
-    - field.field.node.academic_program.field_domain_source
     - field.field.node.academic_program.field_editorial_sections
     - field.field.node.academic_program.field_example_careers
     - field.field.node.academic_program.field_facts_list
@@ -96,9 +93,6 @@ hidden:
   field_degree_types: true
   field_delivery_mode: true
   field_departments: true
-  field_domain_access: true
-  field_domain_all_affiliates: true
-  field_domain_source: true
   field_editorial_sections: true
   field_example_careers: true
   field_facts_list: true

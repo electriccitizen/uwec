@@ -6,9 +6,6 @@ dependencies:
     - field.field.node.fact.field_colleges
     - field.field.node.fact.field_date
     - field.field.node.fact.field_departments
-    - field.field.node.fact.field_domain_access
-    - field.field.node.fact.field_domain_all_affiliates
-    - field.field.node.fact.field_domain_source
     - field.field.node.fact.field_editorial_sections
     - field.field.node.fact.field_list_widget
     - field.field.node.fact.field_metatags
@@ -31,9 +28,6 @@ third_party_settings:
     group_access:
       children:
         - field_editorial_sections
-        - field_domain_access
-        - field_domain_source
-        - field_domain_all_affiliates
       label: Access
       region: content
       parent_name: ''
@@ -77,25 +71,6 @@ content:
       match_limit: 10
       size: 60
       placeholder: ''
-    third_party_settings: {  }
-  field_domain_access:
-    type: options_buttons
-    weight: 20
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  field_domain_all_affiliates:
-    type: boolean_checkbox
-    weight: 22
-    region: content
-    settings:
-      display_label: true
-    third_party_settings: {  }
-  field_domain_source:
-    type: options_select
-    weight: 21
-    region: content
-    settings: {  }
     third_party_settings: {  }
   field_editorial_sections:
     type: options_buttons

@@ -8,9 +8,6 @@ dependencies:
     - field.field.node.testimonial.field_colleges
     - field.field.node.testimonial.field_date
     - field.field.node.testimonial.field_departments
-    - field.field.node.testimonial.field_domain_access
-    - field.field.node.testimonial.field_domain_all_affiliates
-    - field.field.node.testimonial.field_domain_source
     - field.field.node.testimonial.field_editorial_sections
     - field.field.node.testimonial.field_eyebrow
     - field.field.node.testimonial.field_grad_year
@@ -97,9 +94,6 @@ hidden:
   field_colleges: true
   field_date: true
   field_departments: true
-  field_domain_access: true
-  field_domain_all_affiliates: true
-  field_domain_source: true
   field_editorial_sections: true
   field_is_quote: true
   field_list_widget: true

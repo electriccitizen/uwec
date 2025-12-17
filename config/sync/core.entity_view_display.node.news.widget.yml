@@ -7,9 +7,6 @@ dependencies:
     - field.field.node.news.field_authors
     - field.field.node.news.field_colleges
     - field.field.node.news.field_departments
-    - field.field.node.news.field_domain_access
-    - field.field.node.news.field_domain_all_affiliates
-    - field.field.node.news.field_domain_source
     - field.field.node.news.field_eyebrow
     - field.field.node.news.field_image
     - field.field.node.news.field_intro_text
@@ -99,9 +96,6 @@ hidden:
   field_authors: true
   field_colleges: true
   field_departments: true
-  field_domain_access: true
-  field_domain_all_affiliates: true
-  field_domain_source: true
   field_list_widget: true
   field_meta_description: true
   field_metatags: true

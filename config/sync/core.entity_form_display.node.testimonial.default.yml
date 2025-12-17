@@ -7,9 +7,6 @@ dependencies:
     - field.field.node.testimonial.field_colleges
     - field.field.node.testimonial.field_date
     - field.field.node.testimonial.field_departments
-    - field.field.node.testimonial.field_domain_access
-    - field.field.node.testimonial.field_domain_all_affiliates
-    - field.field.node.testimonial.field_domain_source
     - field.field.node.testimonial.field_editorial_sections
     - field.field.node.testimonial.field_eyebrow
     - field.field.node.testimonial.field_grad_year
@@ -35,9 +32,6 @@ third_party_settings:
     group_access:
       children:
         - field_editorial_sections
-        - field_domain_access
-        - field_domain_source
-        - field_domain_all_affiliates
       label: Access
       region: content
       parent_name: ''
@@ -91,25 +85,6 @@ content:
       match_limit: 10
       size: 60
       placeholder: ''
-    third_party_settings: {  }
-  field_domain_access:
-    type: options_buttons
-    weight: 15
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  field_domain_all_affiliates:
-    type: boolean_checkbox
-    weight: 17
-    region: content
-    settings:
-      display_label: true
-    third_party_settings: {  }
-  field_domain_source:
-    type: options_select
-    weight: 16
-    region: content
-    settings: {  }
     third_party_settings: {  }
   field_editorial_sections:
     type: options_buttons

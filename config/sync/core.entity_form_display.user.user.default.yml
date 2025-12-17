@@ -3,9 +3,6 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.user.user.field_domain_access
-    - field.field.user.user.field_domain_admin
-    - field.field.user.user.field_domain_all_affiliates
     - field.field.user.user.field_empl_id
     - field.field.user.user.field_first_name
     - field.field.user.user.field_last_name
@@ -47,25 +44,6 @@ content:
   contact:
     weight: 5
     region: content
-  field_domain_access:
-    type: options_buttons
-    weight: 3
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  field_domain_admin:
-    type: options_buttons
-    weight: 5
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  field_domain_all_affiliates:
-    type: boolean_checkbox
-    weight: 4
-    region: content
-    settings:
-      display_label: true
-    third_party_settings: {  }
   field_empl_id:
     type: string_textfield
     weight: 7
