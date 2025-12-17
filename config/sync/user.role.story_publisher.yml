@@ -7,7 +7,6 @@ dependencies:
     - workflows.workflow.marketing
   module:
     - content_moderation
-    - domain_access
     - node
     - taxonomy
 id: story_publisher
@@ -17,15 +16,12 @@ is_admin: false
 permissions:
   - 'access taxonomy overview'
   - 'create news content'
-  - 'create news content on assigned domains'
   - 'delete any news content'
-  - 'delete news content on assigned domains'
   - 'delete news revisions'
   - 'delete own news content'
   - 'edit any news content'
   - 'edit own news content'
   - 'revert news revisions'
-  - 'update news content on assigned domains'
   - 'use marketing transition archive'
   - 'use marketing transition create_new_draft'
   - 'use marketing transition publish'

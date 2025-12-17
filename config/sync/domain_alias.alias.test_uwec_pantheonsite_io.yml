@@ -1,9 +1,0 @@
-uuid: dc9c8811-3559-4b46-87bc-2de966c3e0e2
-langcode: en
-status: true
-dependencies: {  }
-id: test_uwec_pantheonsite_io
-domain_id: uwec_docksal_site
-pattern: test-uwec.pantheonsite.io
-redirect: 0
-environment: testing

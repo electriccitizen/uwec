@@ -24,9 +24,6 @@ dependencies:
   module:
     - addanother
     - content_moderation
-    - domain
-    - domain_access
-    - domain_alias
     - entity_usage
     - filter
     - help
@@ -54,10 +51,8 @@ permissions:
   - 'cancel smart date recur instances'
   - 'create document media'
   - 'create fact content'
-  - 'create fact content on assigned domains'
   - 'create image media'
   - 'create news content'
-  - 'create news content on assigned domains'
   - 'create paragraph content external_articles'
   - 'create paragraph content external_articles_item'
   - 'create paragraph content facts_list'
@@ -73,11 +68,8 @@ permissions:
   - 'create paragraph content wayfinding'
   - 'create remote_video media'
   - 'create snapshot content'
-  - 'create snapshot content on assigned domains'
   - 'create testimonial content'
-  - 'create testimonial content on assigned domains'
   - 'create video_card content'
-  - 'create video_card content on assigned domains'
   - 'delete paragraph content accordion_item'
   - 'delete paragraph content accordions'
   - 'delete paragraph content block_placer'
@@ -122,7 +114,6 @@ permissions:
   - 'edit own testimonial content'
   - 'edit own video_card content'
   - 'make smart dates recur'
-  - 'publish to any assigned domain'
   - 'reschedule smart date recur instances'
   - 'revert contact revisions'
   - 'revert fact revisions'
@@ -132,18 +123,10 @@ permissions:
   - 'revert snapshot revisions'
   - 'revert testimonial revisions'
   - 'revert video_card revisions'
-  - 'update bios content on assigned domains'
-  - 'update fact content on assigned domains'
-  - 'update news content on assigned domains'
-  - 'update page content on assigned domains'
   - 'update paragraph content external_articles'
   - 'update paragraph content external_articles_item'
   - 'update paragraph content quote'
-  - 'update snapshot content on assigned domains'
-  - 'update testimonial content on assigned domains'
-  - 'update video_card content on assigned domains'
   - 'use add another'
-  - 'use domain nav block'
   - 'use marketing transition create_new_draft'
   - 'use marketing transition review'
   - 'use non_moderated transition create_new_draft'
@@ -157,9 +140,7 @@ permissions:
   - 'view any unpublished department content'
   - 'view any unpublished news content'
   - 'view any unpublished page content'
-  - 'view assigned domains'
   - 'view contact revisions'
-  - 'view domain aliases'
   - 'view fact revisions'
   - 'view hours revisions'
   - 'view news revisions'
@@ -168,6 +149,5 @@ permissions:
   - 'view snapshot revisions'
   - 'view testimonial revisions'
   - 'view the administration theme'
-  - 'view unpublished domain content'
   - 'view video_card revisions'
   - 'view workbench access information'

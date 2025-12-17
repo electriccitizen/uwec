@@ -14,9 +14,6 @@ dependencies:
     - workflows.workflow.non_moderated
   module:
     - content_moderation
-    - domain
-    - domain_access
-    - domain_alias
     - entity_usage
     - filter
     - help
@@ -39,9 +36,6 @@ permissions:
   - 'edit any image media'
   - 'edit own bios content'
   - 'edit own image media'
-  - 'publish to any assigned domain'
-  - 'update bios content on assigned domains'
-  - 'use domain nav block'
   - 'use non_moderated transition create_new_draft'
   - 'use non_moderated transition publish'
   - 'use text format short_text_formatted_html'
@@ -52,8 +46,6 @@ permissions:
   - 'view any unpublished department content'
   - 'view any unpublished news content'
   - 'view any unpublished page content'
-  - 'view assigned domains'
-  - 'view domain aliases'
   - 'view own unpublished content'
   - 'view page revisions'
   - 'view the administration theme'
