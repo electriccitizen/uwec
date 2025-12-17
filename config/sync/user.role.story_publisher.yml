@@ -9,11 +9,13 @@ dependencies:
     - content_moderation
     - domain_access
     - node
+    - taxonomy
 id: story_publisher
 label: 'Story Publisher'
 weight: 13
 is_admin: false
 permissions:
+  - 'access taxonomy overview'
   - 'create news content'
   - 'create news content on assigned domains'
   - 'delete any news content'
