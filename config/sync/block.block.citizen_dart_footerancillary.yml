@@ -1,0 +1,34 @@
+uuid: 484dea26-0a7a-4cc1-a278-4784973b997b
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.footer-ancillary
+  module:
+    - menu_block
+  theme:
+    - citizen_dart
+id: citizen_dart_footerancillary
+theme: citizen_dart
+region: postfooter
+weight: -7
+provider: null
+plugin: 'menu_block:footer-ancillary'
+settings:
+  id: 'menu_block:footer-ancillary'
+  label: 'Footer Ancillary'
+  label_display: '0'
+  provider: menu_block
+  follow: false
+  follow_parent: child
+  display_empty: false
+  label_link: false
+  label_type: block
+  level: 1
+  depth: 1
+  expand_all_items: false
+  parent: 'footer-ancillary:'
+  render_parent: false
+  suggestion: footer_ancillary
+  hide_on_nonactive: false
+visibility: {}
