@@ -26,7 +26,7 @@ dependencies:
     - workbench_access
 id: stories
 label: Stories
-weight: 12
+weight: -5
 is_admin: null
 permissions:
   - 'access content overview'

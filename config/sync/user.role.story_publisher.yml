@@ -11,7 +11,7 @@ dependencies:
     - taxonomy
 id: story_publisher
 label: 'Story Publisher'
-weight: 13
+weight: -4
 is_admin: false
 permissions:
   - 'access taxonomy overview'

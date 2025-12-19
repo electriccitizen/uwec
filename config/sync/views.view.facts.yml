@@ -12,7 +12,6 @@ dependencies:
     - taxonomy.vocabulary.page_families
     - taxonomy.vocabulary.placement_tags
     - user.role.administrator
-    - user.role.marketing_editor
     - user.role.site_admin
   content:
     - 'taxonomy_term:page_families:1b9e2509-ebaf-47ba-ae02-0baaba0f363b'
@@ -1304,7 +1303,6 @@ display:
           role:
             administrator: administrator
             site_admin: site_admin
-            marketing_editor: marketing_editor
       empty:
         area_text_custom:
           id: area_text_custom

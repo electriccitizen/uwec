@@ -23,7 +23,7 @@ dependencies:
     - view_unpublished
 id: personnel
 label: Personnel
-weight: 9
+weight: -2
 is_admin: null
 permissions:
   - 'access administration pages'

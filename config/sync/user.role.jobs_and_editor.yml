@@ -29,8 +29,8 @@ dependencies:
     - view_unpublished
     - workbench_access
 id: jobs_and_editor
-label: 'Jobs and Editor'
-weight: 10
+label: Jobs
+weight: -3
 is_admin: null
 permissions:
   - 'access content overview'

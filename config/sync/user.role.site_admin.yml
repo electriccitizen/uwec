@@ -78,7 +78,7 @@ dependencies:
     - workbench_access
 id: site_admin
 label: 'Site Admin'
-weight: 6
+weight: -7
 is_admin: null
 permissions:
   - 'access administration pages'
@@ -112,9 +112,7 @@ permissions:
   - 'administer workbench access'
   - 'assign editor role'
   - 'assign jobs_and_editor role'
-  - 'assign marketing_editor role'
   - 'assign personnel role'
-  - 'assign section_manager role'
   - 'assign selected workbench access'
   - 'assign site_admin role'
   - 'assign stories role'
