@@ -54,7 +54,9 @@
 			<a href="{{ path('entity.node.edit_form', {'node':profile_nid}) }}" class="ec-button">Edit Profile</a>
 		{% endif %}
 		<a href="/admin/content" class="ec-button view-admin-content">View Content</a>
-		<a href="/node/add" class="ec-button add-node-content">+ Add Content</a>
+		{% if user.hasPermission('create news content') or user.hasPermission('create page content') or user.hasPermission('create job content') %}
+			<a href="/node/add" class="ec-button add-node-content">+ Add Content</a>
+		{% endif %}
 		<a href="{{ path('entity.node.canonical', {'node':'28'}) }}" class="ec-button view-support-book">Support Book</a>
 	</div>
 {% endblock %}
