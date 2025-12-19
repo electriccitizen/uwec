@@ -118,7 +118,6 @@ permissions:
   - 'assign selected workbench access'
   - 'assign site_admin role'
   - 'assign stories role'
-  - 'assign stories_and_editor role'
   - 'assign story_publisher role'
   - 'assign workbench access'
   - 'batch update workbench access'

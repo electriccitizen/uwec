@@ -31,4 +31,4 @@ settings:
   render_parent: false
   suggestion: footer_ancillary
   hide_on_nonactive: false
-visibility: {}
+visibility: {  }
