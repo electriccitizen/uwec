@@ -276,4 +276,57 @@ Drupal.behaviors.pauseAnimations = {
   }
 }
 
+/* COOKIE COMPLIANCE TAB INDEX
+------------------ */
+Drupal.behaviors.cookieTabs = {
+  attach: function (context, settings) {
+  	$(once('cookieIndexWatcher', 'body', context)).each(function(){
+      var baseTabIndex = 9994;
+
+      function applyTabOrder($banner) {
+        if (!$banner.length || $banner.data('cookie-tabbed')) {
+          return;
+        }
+
+        var $focusables = $banner.find('a, button, input, [role="button"], [tabindex]').filter(function() {
+          var $el = $(this);
+          var isHidden = !$el.is(':visible') || $el.attr('aria-hidden') === 'true';
+          var isDisabled = this.disabled;
+          return !isHidden && !isDisabled;
+        });
+
+        $focusables.each(function(index) {
+          $(this).attr('tabindex', baseTabIndex + index);
+        });
+
+        $banner.data('cookie-tabbed', true);
+      }
+
+      // If the banner is already present, apply immediately.
+      applyTabOrder($('.eu-cookie-compliance-banner', context));
+
+      // Watch for the banner to be injected later.
+      var observer = new MutationObserver(function(mutations, obs) {
+        mutations.forEach(function(mutation) {
+          $(mutation.addedNodes).each(function() {
+            var $node = $(this);
+            if ($node.hasClass('eu-cookie-compliance-banner')) {
+              applyTabOrder($node);
+              obs.disconnect();
+            } else {
+              var $banner = $node.find('.eu-cookie-compliance-banner');
+              if ($banner.length) {
+                applyTabOrder($banner);
+                obs.disconnect();
+              }
+            }
+          });
+        });
+      });
+
+      observer.observe(document.body, { childList: true, subtree: true });
+    });
+  }
+}
+
 })(jQuery, Drupal, once);
