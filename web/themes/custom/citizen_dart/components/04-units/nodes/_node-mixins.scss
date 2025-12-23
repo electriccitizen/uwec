@@ -6,11 +6,6 @@
 @use 'sass:color';
 
 
-@mixin sectionLimit{
-	max-width: $contentStop;
-	@include auto;
-}//end section limit
-
 @mixin textContent{
 	max-width: $textMax;
 	@include auto;
@@ -270,7 +265,7 @@
       }
     }
 
-    // thick gold squiggles in the top right corner, over video hero
+    // thick gold wave that animates in from off screen right behind image
     &:after{
       content:"";
       display:block;
