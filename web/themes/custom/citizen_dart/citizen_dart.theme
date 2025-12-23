@@ -179,32 +179,6 @@ function citizen_dart_preprocess_html(&$variables) {
   }
 }
 
-/**
- * Implements hook_preprocess webform to add form titles as twig variables.
- */
-function citizen_dart_preprocess_webform(&$variables){
-  $webform_id = $variables["element"]["#webform_id"];
-  $webform = \Drupal\webform\Entity\Webform::load($webform_id);
-  if ($webform->get('webform_placer')) {
-    $variables['webform_placer'] = TRUE;
-  }
-  if ($webform->get('show_placer_title')) {
-    $variables['show_placer_title'] = TRUE;
-  }
-  $variables['title'] = $webform->label();
-}
-
-function citizen_dart_preprocess_paragraph__form_placer(&$variables) {
-  $paragraph = isset($variables['paragraph']) ? $variables['paragraph'] : '';
-  if (isset($paragraph->field_form_title->value)) {
-    $form_title = $paragraph->field_form_title->value;
-    $webform = $variables['elements']['field_form'][0]['#webform'];
-    $webform->set('webform_placer', TRUE);
-    $webform->set('show_placer_title', $form_title);
-  }
-}
-
-
 // provide width and height dimensions for use in the responsive image template to prevent layout shifts
 function citizen_dart_preprocess_responsive_image(&$variables) {
   // get responsive image style in order to map hard-coded dimension values
