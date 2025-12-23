@@ -11,16 +11,8 @@
 	--col-primary: #{$royal};
 	--col-accent1: #{$gold};
 	--col-accent2: #{$navy};
-	--col-accent3: lemonchiffon;
   --col-accent4: #{$bay};
 }
-.themeset-example{
-	--col-primary: #{$gold};
-	--col-accent1: #{$ice};
-	--col-accent2: #011e54;
-	--col-accent3: aqua;
-}
-
 
 /* ===========================
     COMPONENT SPECIFIC COLORS
@@ -89,17 +81,6 @@ $footerSocialHover         : $gold;
 $footerRule                : $gold;
 $borderRule                : $coolGrey;
 $borderRuleAlt             : $gold;
-$modalBack                 : $navy;
-$modalContent              : $white;
-$modalContentBack          : $navy;
-$modalHeader               : $white;
-$modalHeaderBack           : $navy;
-$modalHeaderClose          : $white;
-$modalHeaderCloseHover     : $white;
-$modalGalButton            : $navy;
-$modalGalButtonHover       : $navy;
-$modalGalButtonBack        : $ice;
-$modalGalButtonBackHover   : $coolGrey;
 $hamburger                 : $white;
 $hamburgerActive           : $white;
 $searchIcon                : $white;
@@ -116,7 +97,6 @@ $searchClose               : $white;
 $searchCloseHover          : $navy;
 $searchCloseBack           : $navy;
 $searchCloseBackHover      : $white;
-
 
 /* FORMS
 --------------------- */
