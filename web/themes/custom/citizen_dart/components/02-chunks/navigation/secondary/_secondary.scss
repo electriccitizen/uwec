@@ -28,13 +28,13 @@
 			}
 
 			a{
-				color: $sfMobileChild;
+				color: $white;
 				font-weight: $heavy;
 				padding:.5rem 0; 
 				text-transform: uppercase;
 				font-size: 1.75rem;
 				&.is-active{
-					color: $sfMobileChildActive;
+					color: $gold;
 				}
 
 				@include menuStop{
