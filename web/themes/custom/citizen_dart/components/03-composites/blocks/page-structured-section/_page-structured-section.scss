@@ -242,29 +242,6 @@
           width: 426px;
           margin-bottom: 0;
         }
-        /*
-        &:before {
-          content: '';
-          display: block;
-          position: absolute;
-          top: -40px;
-          right: -100vw;
-          z-index: 1;
-          width: 67px;
-          height: 257px;
-          background-image: url(../images/elements/gold-slight-wave-thin.svg);
-          background-repeat: no-repeat;
-          background-size: contain;
-          @include desk {
-            top: 90px;
-          }
-          @include menuStop {
-            top: 97px;
-            width: 89px;
-            height: 367px;
-          }
-        }
-        */
       }
       .last {
         order: 3;

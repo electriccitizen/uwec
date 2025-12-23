@@ -27,34 +27,3 @@
 		outline: 0;
 	}
 }
-
-/* DROPBUTTONS
---------------- */
-.js{
-	.dropbutton-multiple,.dropbutton-wrapper,.dropbutton-single{
-		.dropbutton-widget{
-			border-radius: 0;
-			text-shadow: none;
-			background: $siteBack;
-			border: 1px solid $borderRule;
-			min-width: 120px;
-			&:empty{
-				border: 0;
-			}
-			.dropbutton-action,.dropbutton-toggle{
-				@include dropbutton;
-			}
-			.dropbutton-toggle{
-				button{
-					border-left: 1px solid $borderRule;
-				}
-			}
-		}//end dropbutton widget
-		.dropbutton-action{
-			@include dropbutton;
-			a{
-				padding: .5rem 2.5rem;
-			}
-		}
-	}//end dropbutton
-}//end js

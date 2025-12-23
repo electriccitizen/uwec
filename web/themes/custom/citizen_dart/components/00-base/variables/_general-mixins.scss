@@ -20,35 +20,8 @@
 	transform: $transforms;
 }
 
-@mixin translate ($x, $y) {
-	@include transform(translate($x, $y));
-}
-@mixin translateX ($x) {
-	@include transform(translateX($x));
-}
-@mixin translateY ($y) {
-	@include transform(translateY($y));
-}
-@mixin translate3d ($x, $y, $z) {
-	@include transform(translate3d($x, $y, $z));
-}
-
-@mixin skew ($x, $y) {
-	@include transform(skew(#{$x}deg, #{$y}deg));
-}
-
-@mixin scale($scalex, $scaley) {
-	@include transform(scale($scalex, $scaley));
-}
-@mixin scale3d($scalex, $scaley, $scalez) {
-	@include transform(scale($scalex, $scaley, $scalez));
-}
-
 @mixin rotate ($deg) {
 	@include transform(rotate(#{$deg}deg));
-}
-@mixin rotate3d ($rotx, $roty, $rotz, $deg) {
-	@include transform(rotate3d($rotx, $roty, $rotz, #{$deg}deg));
 }
 
 @mixin backfaceVisibility($backface){
@@ -71,18 +44,6 @@
 	-webkit-transition: all $time ease;
 	-webkit-transform: translateZ(0);
 }
-@mixin transClear{
-	transition: none;
-	-moz-transition: none;
-	-webkit-transition: none;
-}
-@mixin transFormAnimate{
-	-webkit-transition: -webkit-transform 0.15s ease-in 0s;
-	transition: -webkit-transform 0.15s ease-in 0s;
-	transition: transform 0.15s ease-in 0s;
-	transition: transform 0.15s ease-in 0s, -webkit-transform 0.15s ease-in 0s;
-}
-
 
 /* LAYOUT MIXINS
 ---------------------------- */

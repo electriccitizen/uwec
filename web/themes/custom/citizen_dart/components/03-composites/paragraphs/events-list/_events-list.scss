@@ -122,8 +122,8 @@
     .title{
       display: block;
       a{
-		@include linkArrow(gold, sm);
-		color:$royal;
+        @include linkArrow(gold, sm);
+        color:$royal;
       }
     }
 
@@ -137,9 +137,9 @@
       line-height: 2;
       text-transform: uppercase;
     }
-	.until span{
-		margin:0 .25rem;
-	}
+    .until span{
+      margin:0 .25rem;
+    }
   }//end event
 
   // one event on wider screens can use more width

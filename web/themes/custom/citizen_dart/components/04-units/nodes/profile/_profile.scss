@@ -6,30 +6,6 @@
 @use '../node-mixins' as *;
 @use 'sass:color';
 
-@mixin profileSwirlAnimation{
-  @keyframes profileSwirlSlide {
-    from {
-      left: 200vw;
-    }
-    to {
-      left: 73vw;
-    }
-  }
-  animation: profileSwirlSlide 1.5s forwards;
-  @include contentStop{
-    left: auto;
-    @keyframes profileSwirlSlide {
-      from {
-        right: -200vw;
-      }
-      to {
-        right: -74px;
-      }
-    }
-    animation: profileSwirlSlide 1.5s forwards;
-  }
-}
-
 //bio node
 .node-bios{
 	#node-section-1{
@@ -311,36 +287,39 @@
         margin-top: 2px;
       }
     }
-		.field-platforms .platform-links{
-      li{
-        margin-right: 1rem;
-      }
-      a{
-        width: 36px;
-        height: 36px;
-        &.twitter {
+		.field-platforms{
+      margin-left: -4px;
+      .platform-links{
+        li{
+          margin-right: 1rem;
+        }
+        a{
+          width: 36px;
+          height: 36px;
+          &.twitter {
+            svg {
+              width: 22px;
+              height: 22px;
+            }
+          }
+          &:hover,&:focus{
+            background: color.adjust($ice, $lightness:-3%);
+            border-radius: 4px;
+            svg,.cls-1 {
+              fill: $navy;
+            }
+          }
           svg {
-            width: 22px;
-            height: 22px;
-          }
-        }
-        &:hover,&:focus{
-          background: color.adjust($ice, $lightness:-3%);
-          border-radius: 4px;
-          svg,.cls-1 {
-            fill: $navy;
-          }
-        }
-        svg {
-          width: 24px;
-          height: 24px;
-          fill: $royal;
-          .cls-1 {
+            width: 24px;
+            height: 24px;
             fill: $royal;
+            .cls-1 {
+              fill: $royal;
+            }
           }
         }
       }
-		}
+    }
     .layout--twocol-even{
       .layout__region{
         @include contactContent;
