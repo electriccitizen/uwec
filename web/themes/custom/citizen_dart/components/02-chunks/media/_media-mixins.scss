@@ -18,13 +18,6 @@
 	}
 }
 
-@mixin caption{
-	text-align: center;
-	font-size: 2rem;
-	font-style: italic;
-	color: $coolGrey;
-}
-
 @mixin responsiveVideo{
 	position: relative;
 	padding-bottom: 56.25%;
@@ -36,34 +29,6 @@
 		bottom: 0;
 		width: 100%;
 		height: 100%;
-	}
-}
-
-@mixin smallEmbed{
-	width: 280px;
-	max-width: 100%;
-}
-
-@mixin mediumEmbed{
-	width: 480px;
-	max-width: 100%;
-}
-
-@mixin largeEmbed{
-	width: 640px;
-	max-width: 100%;
-}
-
-@mixin fullEmbed{
-	width: 100%;
-}
-
-@mixin defaultEmbed{
-	img{
-		width: auto;
-		height: auto;
-		max-width: 100%;
-		@include auto;		
 	}
 }
 
