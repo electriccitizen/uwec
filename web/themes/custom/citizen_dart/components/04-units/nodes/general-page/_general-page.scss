@@ -552,7 +552,6 @@ linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4));
         .block-system-breadcrumb-block{
           max-width: 1092px;
           @include auto;
-          margin-top: -60px;
           .in-main-menu &{
             @include menuStop{
               max-width: $textMax;
