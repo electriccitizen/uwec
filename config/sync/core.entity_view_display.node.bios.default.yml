@@ -9,9 +9,6 @@ dependencies:
     - field.field.node.bios.field_colleges
     - field.field.node.bios.field_cv
     - field.field.node.bios.field_departments
-    - field.field.node.bios.field_domain_access
-    - field.field.node.bios.field_domain_all_affiliates
-    - field.field.node.bios.field_domain_source
     - field.field.node.bios.field_education
     - field.field.node.bios.field_email
     - field.field.node.bios.field_emeriti_status
@@ -752,9 +749,6 @@ content:
     weight: 100
     region: content
 hidden:
-  field_domain_access: true
-  field_domain_all_affiliates: true
-  field_domain_source: true
   field_list_widget: true
   field_metatags: true
   layout_builder__layout: true

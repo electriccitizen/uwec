@@ -6,9 +6,6 @@ dependencies:
     - field.field.node.job.body
     - field.field.node.job.field_apply_by
     - field.field.node.job.field_campus
-    - field.field.node.job.field_domain_access
-    - field.field.node.job.field_domain_all_affiliates
-    - field.field.node.job.field_domain_source
     - field.field.node.job.field_editorial_sections
     - field.field.node.job.field_employment_category
     - field.field.node.job.field_employment_type
@@ -29,9 +26,6 @@ third_party_settings:
     group_access:
       children:
         - field_editorial_sections
-        - field_domain_access
-        - field_domain_source
-        - field_domain_all_affiliates
       label: Access
       region: content
       parent_name: ''
@@ -69,25 +63,6 @@ content:
   field_campus:
     type: options_buttons
     weight: 1
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  field_domain_access:
-    type: options_buttons
-    weight: 17
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  field_domain_all_affiliates:
-    type: boolean_checkbox
-    weight: 19
-    region: content
-    settings:
-      display_label: true
-    third_party_settings: {  }
-  field_domain_source:
-    type: options_select
-    weight: 18
     region: content
     settings: {  }
     third_party_settings: {  }

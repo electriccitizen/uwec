@@ -6,9 +6,6 @@ dependencies:
     - field.field.node.video_card.body
     - field.field.node.video_card.field_colleges
     - field.field.node.video_card.field_departments
-    - field.field.node.video_card.field_domain_access
-    - field.field.node.video_card.field_domain_all_affiliates
-    - field.field.node.video_card.field_domain_source
     - field.field.node.video_card.field_editorial_sections
     - field.field.node.video_card.field_eyebrow
     - field.field.node.video_card.field_list_widget
@@ -316,8 +313,5 @@ content:
     weight: 100
     region: content
 hidden:
-  field_domain_access: true
-  field_domain_all_affiliates: true
-  field_domain_source: true
   layout_builder__layout: true
   search_api_excerpt: true

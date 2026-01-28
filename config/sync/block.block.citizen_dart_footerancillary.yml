@@ -5,7 +5,6 @@ dependencies:
   config:
     - system.menu.footer-ancillary
   module:
-    - domain
     - menu_block
   theme:
     - citizen_dart
@@ -32,11 +31,4 @@ settings:
   render_parent: false
   suggestion: footer_ancillary
   hide_on_nonactive: false
-visibility:
-  domain:
-    id: domain
-    negate: false
-    context_mapping:
-      domain: '@domain.current_domain_context:domain'
-    domains:
-      uwec_docksal_site: uwec_docksal_site
+visibility: {  }

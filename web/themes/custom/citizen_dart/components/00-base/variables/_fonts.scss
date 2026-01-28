@@ -165,12 +165,6 @@ $h6Lg: 2.25rem;
   }
 }
 
-@mixin metaText{
-	font-size: 2rem;
-	font-style: italic;
-	font-family: $displayHeader;
-}
-
 @mixin quoteMark{
 	width: 41px;
 	font-family: $displayHeader;
@@ -178,6 +172,7 @@ $h6Lg: 2.25rem;
   size: 10.625rem;
   line-height: 1.05;
 }
+
 @mixin quote{
 	font-family: $displayHeader;
 	line-height: 1.433;

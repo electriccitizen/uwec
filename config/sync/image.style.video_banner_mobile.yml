@@ -1,0 +1,30 @@
+uuid: 120b2eb5-9189-4ba3-a98d-7af7299cde52
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+    - image_effects
+name: video_banner_mobile
+label: 'Video Banner Mobile'
+effects:
+  3c51f36b-5dcb-4dd6-b1d7-621c102d347f:
+    uuid: 3c51f36b-5dcb-4dd6-b1d7-621c102d347f
+    id: focal_point_scale_and_crop
+    weight: -9
+    data:
+      width: 400
+      height: 870
+      crop_type: focal_point
+  064ae0c4-a113-48bf-9bd0-5657cd1d1b33:
+    uuid: 064ae0c4-a113-48bf-9bd0-5657cd1d1b33
+    id: image_convert
+    weight: -8
+    data:
+      extension: webp
+  e8efe499-dcb3-4ac8-9824-fd986c368980:
+    uuid: e8efe499-dcb3-4ac8-9824-fd986c368980
+    id: image_effects_auto_orient
+    weight: -10
+    data:
+      scan_exif: true

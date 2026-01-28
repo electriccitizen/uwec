@@ -5,9 +5,6 @@ dependencies:
   config:
     - field.field.node.announcement.body
     - field.field.node.announcement.field_dates
-    - field.field.node.announcement.field_domain_access
-    - field.field.node.announcement.field_domain_all_affiliates
-    - field.field.node.announcement.field_domain_source
     - field.field.node.announcement.field_section_url
     - field.field.node.announcement.field_urgency
     - field.field.node.announcement.layout_builder__layout
@@ -15,29 +12,8 @@ dependencies:
     - workflows.workflow.non_moderated
   module:
     - content_moderation
-    - field_group
     - smart_date
     - text
-third_party_settings:
-  field_group:
-    group_access:
-      children:
-        - field_domain_access
-        - field_domain_source
-        - field_domain_all_affiliates
-      label: Access
-      region: content
-      parent_name: ''
-      weight: 7
-      format_type: details_sidebar
-      format_settings:
-        classes: ''
-        show_empty_fields: false
-        id: ''
-        open: false
-        description: ''
-        required_fields: true
-        weight: 0
 id: node.announcement.default
 targetEntityType: node
 bundle: announcement
@@ -70,26 +46,8 @@ content:
       hide_date: false
       allday: true
       remove_seconds: false
+      duration_overlay: true
       separator: to
-    third_party_settings: {  }
-  field_domain_access:
-    type: options_buttons
-    weight: 7
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  field_domain_all_affiliates:
-    type: boolean_checkbox
-    weight: 9
-    region: content
-    settings:
-      display_label: true
-    third_party_settings: {  }
-  field_domain_source:
-    type: options_select
-    weight: 8
-    region: content
-    settings: {  }
     third_party_settings: {  }
   field_section_url:
     type: string_textfield

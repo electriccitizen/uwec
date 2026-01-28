@@ -3,31 +3,6 @@
 ================== */
 @use '../../00-base/base' as *;
 
-@mixin dropbutton{
-	input,.button,a,button{
-		border-radius: 0 !important;
-		box-shadow: none;
-		background: $siteBack;
-		text-shadow: none;
-		border-color: $borderRule;
-		font-size: 2rem;
-		color: $baseText;
-		text-decoration: none;
-		&:hover,&:focus{
-			background-color: $buttonTextHover !important;
-			background-image: none !important;
-			border-radius: 0 !important;
-			box-shadow: none;
-			outline: 0;
-		}
-		&:active{
-			background: $buttonBackActive;
-			border-radius: 0;
-			box-shadow: none;
-		}
-	}
-}
-
 ///mixin - button
 @mixin button($color: $buttonBack, $textColor: $buttonText, $hoverColor: $buttonBackHover, $hoverTextColor: $buttonTextHover) {
 	background-color: $color;

@@ -15,9 +15,6 @@ global:
 academic-program-toggle:
   js:
     components/04-units/nodes/academic-program/program-toggle.js: {}
-academic-program-animate:
-  js:
-    components/04-units/nodes/academic-program/program-animate.js: {}
 accordion:
   js:
     components/03-composites/paragraphs/accordions/accordions.js: {}

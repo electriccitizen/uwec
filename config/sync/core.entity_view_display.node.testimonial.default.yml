@@ -7,9 +7,6 @@ dependencies:
     - field.field.node.testimonial.field_colleges
     - field.field.node.testimonial.field_date
     - field.field.node.testimonial.field_departments
-    - field.field.node.testimonial.field_domain_access
-    - field.field.node.testimonial.field_domain_all_affiliates
-    - field.field.node.testimonial.field_domain_source
     - field.field.node.testimonial.field_editorial_sections
     - field.field.node.testimonial.field_eyebrow
     - field.field.node.testimonial.field_grad_year
@@ -488,8 +485,5 @@ content:
     weight: 100
     region: content
 hidden:
-  field_domain_access: true
-  field_domain_all_affiliates: true
-  field_domain_source: true
   layout_builder__layout: true
   search_api_excerpt: true

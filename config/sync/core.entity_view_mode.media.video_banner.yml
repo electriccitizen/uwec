@@ -1,0 +1,11 @@
+uuid: 15044033-7929-4d32-8242-f3217aa2cbd1
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+id: media.video_banner
+label: 'Video Banner'
+description: null
+targetEntityType: media
+cache: true

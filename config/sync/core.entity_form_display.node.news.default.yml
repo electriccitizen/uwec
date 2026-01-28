@@ -6,9 +6,6 @@ dependencies:
     - field.field.node.news.field_authors
     - field.field.node.news.field_colleges
     - field.field.node.news.field_departments
-    - field.field.node.news.field_domain_access
-    - field.field.node.news.field_domain_all_affiliates
-    - field.field.node.news.field_domain_source
     - field.field.node.news.field_eyebrow
     - field.field.node.news.field_image
     - field.field.node.news.field_intro_text
@@ -28,33 +25,12 @@ dependencies:
   module:
     - content_moderation
     - datetime
-    - field_group
     - layout_paragraphs
     - media_library
     - path
     - scheduler
     - scheduler_content_moderation_integration
     - text
-third_party_settings:
-  field_group:
-    group_access:
-      children:
-        - field_domain_access
-        - field_domain_source
-        - field_domain_all_affiliates
-      label: Access
-      region: content
-      parent_name: ''
-      weight: 16
-      format_type: details_sidebar
-      format_settings:
-        classes: ''
-        show_empty_fields: false
-        id: ''
-        open: false
-        description: ''
-        required_fields: true
-        weight: 0
 _core:
   default_config_hash: zASDME4eXWm_j6TmjAx525qHB9rZtHeNJyDyV7Hj4NA
 id: node.news.default
@@ -97,25 +73,6 @@ content:
       match_limit: 10
       size: 60
       placeholder: ''
-    third_party_settings: {  }
-  field_domain_access:
-    type: options_buttons
-    weight: 22
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  field_domain_all_affiliates:
-    type: boolean_checkbox
-    weight: 24
-    region: content
-    settings:
-      display_label: true
-    third_party_settings: {  }
-  field_domain_source:
-    type: options_select
-    weight: 23
-    region: content
-    settings: {  }
     third_party_settings: {  }
   field_eyebrow:
     type: options_select

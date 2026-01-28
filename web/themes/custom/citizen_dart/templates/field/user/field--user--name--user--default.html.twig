@@ -59,31 +59,6 @@
         </div>
       </div>
     </div>
-    <div class="domains-access">
-      <span class="inline-label">Domains: </span>
-      <ul>
-        {% for key, domain in element['#object'].field_domain_access %}
-          {% if key|first != '#' %}
-            {% set domainURL = domain.entity.get('url') %}
-            {% set domainName = domain.entity.get('name') %}
-            {% if domainName == 'UWEC Example Subsite' %}
-              {% set logo = '/themes/custom/citizen_dart/example-logo.svg' %}
-              {% set logoAlt = 'UWEC Example logo' %}
-              {% set logoClass = 'example-logo' %}
-            {% else %}
-              {% set logo = '/themes/custom/citizen_dart/logo.svg' %}
-              {% set logoAlt = 'UWEC site logo' %}
-              {% set logoClass = 'uwec-logo' %}
-            {% endif %}
-            <li class="domain-icon">
-              <a href="{{ domainURL }}">
-                <img class="domain-logo {{ logoClass }}" src="{{ logo }}" alt="{{ logoAlt }}" />
-              </a>
-            </li>
-          {% endif %}
-        {% endfor %}
-      </ul>
-    </div>
   </div>
 {% endblock %}
          

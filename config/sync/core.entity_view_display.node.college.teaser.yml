@@ -6,9 +6,6 @@ dependencies:
     - core.entity_view_mode.node.teaser
     - field.field.node.college.body
     - field.field.node.college.field_contact
-    - field.field.node.college.field_domain_access
-    - field.field.node.college.field_domain_all_affiliates
-    - field.field.node.college.field_domain_source
     - field.field.node.college.field_editorial_sections
     - field.field.node.college.field_facts_list
     - field.field.node.college.field_hours_library
@@ -50,9 +47,6 @@ content:
     region: content
 hidden:
   field_contact: true
-  field_domain_access: true
-  field_domain_all_affiliates: true
-  field_domain_source: true
   field_editorial_sections: true
   field_facts_list: true
   field_hours_library: true

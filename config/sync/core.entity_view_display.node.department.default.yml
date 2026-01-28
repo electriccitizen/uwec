@@ -7,9 +7,6 @@ dependencies:
     - field.field.node.department.field_college
     - field.field.node.department.field_contact
     - field.field.node.department.field_content_carousel
-    - field.field.node.department.field_domain_access
-    - field.field.node.department.field_domain_all_affiliates
-    - field.field.node.department.field_domain_source
     - field.field.node.department.field_editorial_sections
     - field.field.node.department.field_facts_list
     - field.field.node.department.field_faculty_link
@@ -83,7 +80,7 @@ third_party_settings:
                 settings:
                   link_to_entity: false
                 third_party_settings: {  }
-            weight: 2
+            weight: 3
             additional: {  }
           4ac292f0-c80a-43c4-9e01-fa12494f6932:
             uuid: 4ac292f0-c80a-43c4-9e01-fa12494f6932
@@ -102,7 +99,7 @@ third_party_settings:
                 settings:
                   link_to_entity: false
                 third_party_settings: {  }
-            weight: 3
+            weight: 4
             additional: {  }
           c16c43e5-2b9d-4562-bc55-83284805813b:
             uuid: c16c43e5-2b9d-4562-bc55-83284805813b
@@ -120,7 +117,7 @@ third_party_settings:
                 label: hidden
                 settings: {  }
                 third_party_settings: {  }
-            weight: 4
+            weight: 5
             additional: {  }
           fd402a00-843c-4748-bcf4-2dbde222284b:
             uuid: fd402a00-843c-4748-bcf4-2dbde222284b
@@ -143,26 +140,7 @@ third_party_settings:
                   rel: '0'
                   target: '0'
                 third_party_settings: {  }
-            weight: 5
-            additional: {  }
-          fe334ee4-7944-4de8-a155-663b696fe2f9:
-            uuid: fe334ee4-7944-4de8-a155-663b696fe2f9
-            region: content
-            configuration:
-              id: 'field_block:node:department:field_college'
-              label: College
-              label_display: '0'
-              provider: layout_builder
-              context_mapping:
-                entity: layout_builder.entity
-                view_mode: view_mode
-              formatter:
-                type: entity_reference_label
-                label: hidden
-                settings:
-                  link: false
-                third_party_settings: {  }
-            weight: 1
+            weight: 6
             additional: {  }
         third_party_settings: {  }
       -
@@ -226,7 +204,7 @@ third_party_settings:
               provider: views
               context_mapping: {  }
               views_label: ''
-              items_per_page: none
+              items_per_page: 0
             weight: 6
             additional: {  }
           3037c218-b849-40b4-b4eb-82a887b60c9b:
@@ -258,7 +236,7 @@ third_party_settings:
               provider: views
               context_mapping: {  }
               views_label: ''
-              items_per_page: none
+              items_per_page: 0
             weight: 5
             additional: {  }
           104ae027-7111-4077-b7c4-8447f9a471ca:
@@ -611,8 +589,5 @@ content:
     weight: 100
     region: content
 hidden:
-  field_domain_access: true
-  field_domain_all_affiliates: true
-  field_domain_source: true
   layout_builder__layout: true
   search_api_excerpt: true

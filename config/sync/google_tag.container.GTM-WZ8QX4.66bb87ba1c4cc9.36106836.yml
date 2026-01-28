@@ -45,14 +45,15 @@ conditions:
       section_manager: section_manager
       marketing_editor: marketing_editor
       jobs_and_editor: jobs_and_editor
-      stories_and_editor: stories_and_editor
+      stories: stories
+      story_publisher: story_publisher
 events:
   sign_up:
     method: CMS
-  custom: {  }
   login:
     method: CMS
   search: {  }
+  custom: {  }
   generate_lead:
     value: ''
     currency: ''

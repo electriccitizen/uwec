@@ -1,0 +1,73 @@
+uuid: eabc90d2-3600-4273-975a-1a03cc1d6cbc
+langcode: en
+status: true
+dependencies:
+  config:
+    - image.style.banner_big_desk
+    - image.style.banner_desk
+    - image.style.banner_desk_non_webp
+    - image.style.banner_middesk
+    - image.style.banner_wide_desk
+    - image.style.video_banner_mobile
+    - image.style.video_banner_mobile_1_5x
+    - image.style.video_banner_mobile_2x
+    - image.style.video_banner_tablet
+    - image.style.video_banner_tablet_1_5x
+    - image.style.video_banner_tablet_2x
+  theme:
+    - citizen_dart
+id: video_banner
+label: 'Video Banner'
+image_style_mappings:
+  -
+    image_mapping_type: image_style
+    image_mapping: banner_wide_desk
+    breakpoint_id: citizen_dart.widedesk
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: banner_big_desk
+    breakpoint_id: citizen_dart.bigdesk
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: banner_middesk
+    breakpoint_id: citizen_dart.middesk
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: banner_desk
+    breakpoint_id: citizen_dart.desk
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: video_banner_tablet
+    breakpoint_id: citizen_dart.tab
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: video_banner_tablet_1_5x
+    breakpoint_id: citizen_dart.tab
+    multiplier: 1.5x
+  -
+    image_mapping_type: image_style
+    image_mapping: video_banner_tablet_2x
+    breakpoint_id: citizen_dart.tab
+    multiplier: 2x
+  -
+    image_mapping_type: image_style
+    image_mapping: video_banner_mobile
+    breakpoint_id: citizen_dart.mobile
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: video_banner_mobile_1_5x
+    breakpoint_id: citizen_dart.mobile
+    multiplier: 1.5x
+  -
+    image_mapping_type: image_style
+    image_mapping: video_banner_mobile_2x
+    breakpoint_id: citizen_dart.mobile
+    multiplier: 2x
+breakpoint_group: citizen_dart
+fallback_image_style: banner_desk_non_webp

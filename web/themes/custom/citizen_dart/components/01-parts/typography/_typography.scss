@@ -140,23 +140,6 @@ strong{
 	}
 }
 
-blockquote{
-	@include quote;
-	margin: 0;
-	position: relative;
-	padding-top: 8rem;
-  background: $ice;
-	text-align: center;
-	&:before{
-		content: '“';
-		display: block;
-		position: absolute;
-		top: 3rem;
-		left: calc(50% - 20px);
-		@include quoteMark;
-	}
-}
-
 //clear floats in common long text fields, remove bottom margin from last child
 .text-with-summary,.text-long{
 	@include clearFix;

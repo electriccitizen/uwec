@@ -131,26 +131,6 @@
 		}
 	}
 
-	.ck-content blockquote{
-		@include quote;
-		font-size: 28px;
-		margin: 0 0 26px;
-		position: relative;
-		padding-top: 5.75rem;
-		padding-left: 0;
-		padding-right: 0;
-		padding-bottom: 0;
-		text-align: center;
-		&:before{
-			content: '';
-			display: block;
-			position: absolute;
-			top: 3rem;
-			left: calc(50% - 10px);
-			@include quoteMark;
-		}
-	}
-
 	.ck-content hr{
 		height: 1px;
 		background: currentColor;

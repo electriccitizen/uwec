@@ -19,9 +19,6 @@ dependencies:
     - field.field.node.academic_program.field_degree_types
     - field.field.node.academic_program.field_delivery_mode
     - field.field.node.academic_program.field_departments
-    - field.field.node.academic_program.field_domain_access
-    - field.field.node.academic_program.field_domain_all_affiliates
-    - field.field.node.academic_program.field_domain_source
     - field.field.node.academic_program.field_editorial_sections
     - field.field.node.academic_program.field_example_careers
     - field.field.node.academic_program.field_facts_list
@@ -401,7 +398,7 @@ third_party_settings:
               provider: views
               context_mapping: {  }
               views_label: ''
-              items_per_page: none
+              items_per_page: 0
             weight: 7
             additional: {  }
           f09af091-db08-48be-9daf-af981683f759:
@@ -828,9 +825,6 @@ content:
 hidden:
   field_courseleaf_slug: true
   field_courses: true
-  field_domain_access: true
-  field_domain_all_affiliates: true
-  field_domain_source: true
   field_faculty_link: true
   layout_builder__layout: true
   search_api_excerpt: true

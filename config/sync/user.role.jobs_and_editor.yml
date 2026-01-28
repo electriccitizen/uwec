@@ -19,9 +19,6 @@ dependencies:
   module:
     - addanother
     - content_moderation
-    - domain
-    - domain_access
-    - domain_alias
     - entity_usage
     - media
     - node
@@ -32,8 +29,8 @@ dependencies:
     - view_unpublished
     - workbench_access
 id: jobs_and_editor
-label: 'Jobs and Editor'
-weight: 10
+label: Jobs
+weight: -3
 is_admin: null
 permissions:
   - 'access content overview'
@@ -44,7 +41,6 @@ permissions:
   - 'cancel smart date recur instances'
   - 'create image media'
   - 'create job content'
-  - 'create job content on assigned domains'
   - 'create paragraph content accordion_item'
   - 'create paragraph content fauxfile_item'
   - 'create remote_video media'
@@ -84,22 +80,15 @@ permissions:
   - 'edit own page content'
   - 'edit own remote_video media'
   - 'make smart dates recur'
-  - 'publish to any assigned domain'
   - 'reschedule smart date recur instances'
   - 'revert contact revisions'
   - 'revert hours revisions'
   - 'revert job revisions'
   - 'revert page revisions'
-  - 'update bios content on assigned domains'
-  - 'update contact content on assigned domains'
-  - 'update hours content on assigned domains'
-  - 'update job content on assigned domains'
-  - 'update page content on assigned domains'
   - 'update paragraph content external_articles'
   - 'update paragraph content external_articles_item'
   - 'update paragraph content profiles_list'
   - 'use add another'
-  - 'use domain nav block'
   - 'use non_moderated transition archive'
   - 'use non_moderated transition create_new_draft'
   - 'use non_moderated transition publish'
@@ -111,12 +100,9 @@ permissions:
   - 'view any unpublished department content'
   - 'view any unpublished news content'
   - 'view any unpublished page content'
-  - 'view assigned domains'
   - 'view contact revisions'
-  - 'view domain aliases'
   - 'view hours revisions'
   - 'view job revisions'
   - 'view own unpublished content'
   - 'view page revisions'
-  - 'view unpublished domain content'
   - 'view workbench access information'
