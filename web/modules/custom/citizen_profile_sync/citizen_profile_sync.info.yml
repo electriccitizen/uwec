@@ -1,5 +1,0 @@
-name: Citizen Profile Sync
-type: module
-description: 'Provides citizen profile synchronization functionality.'
-core_version_requirement: ^10 || ^11
-package: Custom
