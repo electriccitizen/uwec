@@ -225,6 +225,10 @@
       background-size: 1440px 1024px !important;
       background-position: left 40% bottom -70px !important;
       position:relative;
+
+      display:flex;
+      align-items:flex-end;
+
       @include tab{
         background-size: cover !important;
         background-position: center !important;
@@ -295,27 +299,26 @@
       }
 
       .page-header-text{
+        position:relative;
         .page-header-text-inner{
-          position:absolute;
-          z-index: 5;
-
           width:70%;
-          left:40px;
-          bottom:100px;
+          margin-left:40px;
+          margin-bottom:100px;
+          margin-top:2rem;
+
           @include tab{
-            left:100px;
+            margin-left:100px;
           }
           @include desk{
             width: 50%;
-            left: 200px;
-            bottom: 120px;
+            margin-left:200px;
+            margin-bottom:120px;
           }
 
           // align left edge with left edge of top nav on large screens
           @include contentStop{
-            left:calc((100vw - 1280px) / 2.0);
-            width:40%;
-            padding-left: 26px;
+            margin-left:calc((100vw - 1280px) / 2.0);
+            width:40vw;
           }
           .node-title{
             margin-bottom:3rem;
@@ -420,10 +423,12 @@ linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4));
     .main-node-content {
       position: relative;
     }
+
     .node-intro-simple{
       @include headerInvasion;
       @include heroSimpleBackground;
-    }//end intro simple
+    }
+
     .page-header-text{
       .block-system-breadcrumb-block{
         max-width: 1116px;
