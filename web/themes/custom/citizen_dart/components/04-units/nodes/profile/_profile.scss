@@ -8,7 +8,7 @@
 
 //bio node
 .node-bios{
-	#node-section-1{
+  #node-section-1{
     @include headerInvasion;
     background: radial-gradient(50.13% 157.8% at 6.18% 33.85%, #0F2C46 0%, #232C99 100%);
     overflow: hidden;
@@ -31,9 +31,10 @@
         mix-blend-mode: overlay;
       }
     }
-		& > .layout--twocol-even {
-			max-width: $contentStopMargin;
-			position: relative;
+
+    & > .layout--twocol-even {
+      max-width: $contentStopMargin;
+      position: relative;
       @include contentStopMargin{
         width: 100%;
         padding-top: 80px;
@@ -63,7 +64,7 @@
           }
         }
       }//end layout region
-		}//end layout two column even
+    }//end layout two column even
 
     //image - but need to use uid (authored by) field because of logic needed when no image
     .block-field.block-uid {
@@ -114,20 +115,20 @@
       margin-bottom: 1rem;
       margin-left: auto;
       @include safeFlex(row,nowrap,start,start);
-			.icon-wrapper {
-				width: 15px;
-				height: 18px;
-				margin-top: 3px;
-				margin-right: $spaceXxs;
-				svg path {
-					fill: none;
-				}
-			}//end icon wrapper
-		}//end emeriti
+      .icon-wrapper {
+        width: 15px;
+        height: 18px;
+        margin-top: 3px;
+        margin-right: $spaceXxs;
+        svg path {
+          fill: none;
+        }
+      }//end icon wrapper
+    }//end emeriti
 
-		.alumni-wrapper {
+    .alumni-wrapper {
       @extend .emeriti-wrapper;
-		}//end is alumni
+    }
 
     .block-title {
       margin-bottom: 0;
@@ -190,22 +191,15 @@
         text-transform: capitalize;
         letter-spacing: unset;
         margin-bottom: 0.5rem;
-      }//end block title
+      }
       .departments-offices {
         a {
           @include linkArrow(gold,sm);
-         margin-bottom: $spaceXs;
-        }//end a
-        .office{
-          font-family: $bodyText;
-          font-size: 2rem;
-          line-height: 1.2;
-          font-weight: $heavy;
-          padding-left: 30px;
+          margin-bottom: $spaceXs;
         }
       }//end field departments
     }//end departments block
-	}//end node section one
+  }//end node section one
 
 	#node-section-2{
 		@include contactHolder;

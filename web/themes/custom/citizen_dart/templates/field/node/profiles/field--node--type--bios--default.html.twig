@@ -59,7 +59,7 @@
       <div class="office">
         {%- if office_general_page_nid -%}
           <a href="{{ path('entity.node.canonical', {'node': office_general_page_nid}) }}">
-            {{ office.entity.name.0.value }}
+            <span>{{ office.entity.name.0.value }}</span>
           </a>
         {%- else -%}
           {{ office.entity.name.0.value }}
@@ -68,4 +68,3 @@
     {%- endfor -%}
   </div>
 {% endif %}
-          
