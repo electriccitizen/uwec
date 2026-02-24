@@ -81,9 +81,15 @@
           {% if long_text %}
             <div class="step-long-text field-long-text text-long">{{ long_text }}</div>
           {% endif %}
+
           {% if step_entity.field_link.0 %}
             <div class="step-link field-link">
-              <a href="{{ step_entity.field_link.0.url }}"><span>{{ step_entity.field_link.0.title }}</span></a>
+              {% if step_entity.field_link.0.uri starts with 'entity:media/' %}
+                {% set media_id = step_entity.field_link.0.uri | slice(13) %}
+                {{ drupal_entity('media', media_id) }}
+              {% else %}
+                <a href="{{ step_entity.field_link.0.url }}"><span>{{ step_entity.field_link.0.title }}</span></a>
+              {% endif %}
             </div>
           {% endif %}
         </div>
