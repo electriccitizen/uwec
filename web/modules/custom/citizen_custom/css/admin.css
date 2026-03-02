@@ -8,6 +8,13 @@
 	display: none;
 }
 
+/* SET UI AUTOCOMPLETE SCROLL
+------------------------- */
+.ui-widget.ui-autocomplete {
+  max-height: 200px;
+  overflow-y: scroll;
+}
+
 /* style disabled buttons in gin
 --------------------------------- */
 button[disabled],button.disabled{
@@ -39,7 +46,7 @@ button[disabled]:hover,button.disabled:hover{
 #media-library-wrapper .media-library-item--grid .media-library-item__content,.views-live-preview .media-library-item--grid .media-library-item__content{
   flex-direction: column;
 }
-#media-library-wrapper .media-library-item--grid .media-library-item__content .dimensions,.views-live-preview .media-library-item--grid .media-library-item__content .dimensions{
+#media-library-wrapper .media-library-item--grid .media-library-item__content .dimensions,.vomiews-live-preview .media-library-item--grid .media-library-item__content .dimensions{
   font-size: 12px;
   width: 100%;
   padding-left: 8px;
@@ -363,5 +370,16 @@ body:not(.role-super-user):not(.role-administrator):not(.role-site_admin) .node-
 	border: 0;
 	padding: 0;
 	margin-top: 18px;
+}
+
+.view-id-taxonomy_dashboard .views-table .views-field-name{
+  @media screen and (min-width: 60em) {
+    width: 300px;
+  }
+}
+.view-id-taxonomy_dashboard .views-table .views-field-vid{
+  @media screen and (min-width: 60em) {
+    width: 200px;
+  }
 }
 
