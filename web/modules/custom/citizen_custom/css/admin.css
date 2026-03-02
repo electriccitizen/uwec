@@ -8,6 +8,13 @@
 	display: none;
 }
 
+/* SET UI AUTOCOMPLETE SCROLL
+------------------------- */
+.ui-widget.ui-autocomplete {
+  max-height: 200px;
+  overflow-y: scroll;
+}
+
 /* style disabled buttons in gin
 --------------------------------- */
 button[disabled],button.disabled{
@@ -39,7 +46,7 @@ button[disabled]:hover,button.disabled:hover{
 #media-library-wrapper .media-library-item--grid .media-library-item__content,.views-live-preview .media-library-item--grid .media-library-item__content{
   flex-direction: column;
 }
-#media-library-wrapper .media-library-item--grid .media-library-item__content .dimensions,.views-live-preview .media-library-item--grid .media-library-item__content .dimensions{
+#media-library-wrapper .media-library-item--grid .media-library-item__content .dimensions,.vomiews-live-preview .media-library-item--grid .media-library-item__content .dimensions{
   font-size: 12px;
   width: 100%;
   padding-left: 8px;
