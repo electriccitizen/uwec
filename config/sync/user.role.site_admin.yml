@@ -56,7 +56,6 @@ dependencies:
     - content_moderation
     - contextual
     - entity_usage
-    - file
     - filter
     - help
     - layout_builder
@@ -87,7 +86,6 @@ permissions:
   - 'access content overview'
   - 'access contextual links'
   - 'access entity usage statistics'
-  - 'access files overview'
   - 'access help pages'
   - 'access media overview'
   - 'access responsive preview'
@@ -211,7 +209,6 @@ permissions:
   - 'delete any department content'
   - 'delete any document media'
   - 'delete any fact content'
-  - 'delete any file'
   - 'delete any formatted_promo block content'
   - 'delete any formatted_promo block content revisions'
   - 'delete any hours content'

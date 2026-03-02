@@ -377,9 +377,4 @@ body:not(.role-super-user):not(.role-administrator):not(.role-site_admin) .node-
     width: 300px;
   }
 }
-.view-id-taxonomy_dashboard .views-table .views-field-vid{
-  @media screen and (min-width: 60em) {
-    width: 200px;
-  }
-}
 
