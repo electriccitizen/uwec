@@ -5,5 +5,5 @@ enabled_entity_types:
   media: {  }
 auto_purge:
   enabled: true
-  after: '30 days'
+  after: '2 months'
 compact_overview: true
