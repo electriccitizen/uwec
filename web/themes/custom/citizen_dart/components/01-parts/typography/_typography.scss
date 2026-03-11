@@ -97,9 +97,9 @@ p{
 }
 
 a {
-	color: $link;
+  color: $link;
   text-decoration: none;
-  .text-with-summary &,.text-long &{
+  .text-with-summary &,.text-long &,.field-intro-text &{
     color: $textLink;
     font-weight: $heavy;
     text-decoration: underline;
