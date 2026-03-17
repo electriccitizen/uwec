@@ -607,53 +607,6 @@ function citizen_custom_views_pre_view($view, $display_id, &$args) {
 				$view->display_handler->setOption('sorts', $sorts);
       }
     }
-
-    // Define valid combinations of view names and display names.
-		$validCombinations = [
-		  ['view_name' => 'video_cards', 'display_names' => ['most_recent', 'second_recent']],
-		  ['view_name' => 'testimonials', 'display_names' => ['most_recent', 'second_recent']],
-		  ['view_name' => 'news', 'display_names' => ['most_recent', 'second_recent']],
-		  ['view_name' => 'snapshots', 'display_names' => ['most_recent', 'second_recent']],
-		];
-
-		foreach ($validCombinations as $combination) {
-		  if (
-		    ($view->element['#name'] == $combination['view_name']) &&
-		    in_array($view->current_display, $combination['display_names'])
-		  ) {
-		    $filters = $view->display_handler->getOption('filters');
-		    $paragraph_id = $view->args[0];
-
-		    if ($paragraph_id) {
-		      $paragraph = Paragraph::load($paragraph_id);
-		      $parentNode = $paragraph->parent_id;
-
-		      if ($parentNode && !empty($parentNode->value)) {
-		        $node = Node::load($parentNode->value);
-
-		        if ($node) {
-		          $nodeType = $node->getType();
-
-		          if ($nodeType == 'department' || $nodeType == 'academic_program') {
-		            $targetField = ($nodeType == 'department') ? 'field_departments_target_id' : 'field_programs_target_id';
-		            //$fieldValue = array_column($parentNode->getValue(), 'value');
-                //dd($parentNode->value);
-                $fieldValue = $parentNode->value;
-
-		            if (isset($filters[$targetField])) {
-		              $filters[$targetField]['value']['value'] = $fieldValue;
-		            }
-
-		            $oppositeField = ($nodeType == 'department') ? 'field_programs_target_id' : 'field_departments_target_id';
-		            unset($filters[$oppositeField]);
-		          }
-		        }
-		      }//end if parent node
-
-		      $view->display_handler->setOption('filters', $filters);
-		    }
-		  }//end for earch combination
-		}//end content carousel
   }
 }
 
@@ -795,4 +748,29 @@ function citizen_custom_preprocess_links__toolbar_user(&$vars){
 set_exception_handler('citizen_custom_exception_handler');
 function citizen_custom_exception_handler(\Throwable $exception){
 	include('error.php');
+}
+
+
+function citizen_custom_preprocess_paragraph__content_carousel(&$vars){
+	// load the 2 most recent nodes of these node types
+	$types = [
+		'snapshot',
+		'news', // stories
+		'testimonial',
+		'video_card',
+	];
+
+	$nids = [];
+	foreach($types as $type){
+		$more_nids = \Drupal::entityQuery('node')
+			->condition('type', $type)
+			->condition('status', 1)
+			->sort('field_date', 'desc')
+			->range(0, 2)
+			->accessCheck(true)
+			->execute();
+		$nids = array_merge($nids, $more_nids);
+	}
+	shuffle($nids);
+	$vars['carousel_nids'] = $nids;
 }

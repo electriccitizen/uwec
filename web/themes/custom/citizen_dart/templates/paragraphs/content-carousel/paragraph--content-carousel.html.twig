@@ -43,62 +43,13 @@
   <h2 class="block-title">Blugold Stories</h2>
 {% endblock %}
 
-{# #}
 {% block widgetContent %}
-    {{ attach_library('citizen_dart/content-carousel') }}
-    {% set showMe = [] %}
-    {% for item in paragraph.field_list_widgets %}
-        {% set showItem = null %}
-        {% set showItem2 = null %}
+  {{ attach_library('citizen_dart/content-carousel') }}
 
-        {% if item.entity.label == 'Snapshot' %}
-					{% set viewOne = drupal_view('snapshots','most_recent', paragraph.id.value) %}
-					{% set viewTwo =  drupal_view('snapshots','second_recent', paragraph.id.value) %}
-					{% if viewOne|render|striptags|trim|length > 0 and viewOne not in showMe %}
-							{% set showItem = viewOne %}
-					{% endif %}
-					{% if viewTwo|render|striptags|trim|length > 0 and viewTwo not in showMe %}
-							{% set showItem2 = viewTwo %}
-					{% endif %}
-        {% endif %}
+  {% for nid in carousel_nids %}
+    <div class="carousel-slide">
+      {{ drupal_entity('node', nid, 'widget') }}
+    </div>
+  {% endfor %}
 
-        {% if item.entity.label == 'Story' %}
-					{% set viewOne = drupal_view('news','most_recent', paragraph.id.value) %}
-					{% set viewTwo =  drupal_view('news','second_recent', paragraph.id.value) %}
-					{% if viewOne|render|striptags|trim|length > 0 and viewOne not in showMe %}
-							{% set showItem = viewOne %}
-					{% endif %}
-					{% if viewTwo|render|striptags|trim|length > 0 and viewTwo not in showMe %}
-							{% set showItem2 = viewTwo %}
-					{% endif %}
-        {% endif %}
-
-        {% if item.entity.label == 'Testimonial' %}
-          {% set viewOne = drupal_view('testimonials','most_recent', paragraph.id.value) %}
-					{% set viewTwo =  drupal_view('testimonials','second_recent', paragraph.id.value) %}
-					{% if viewOne|render|striptags|trim|length > 0 and viewOne not in showMe %}
-							{% set showItem = viewOne %}
-					{% endif %}
-					{% if viewTwo|render|striptags|trim|length > 0 and viewTwo not in showMe %}
-							{% set showItem2 = viewTwo %}
-					{% endif %}
-				{% endif %}
-
-        {% if item.entity.label == 'Video Card' %}
-					{% set viewOne = drupal_view('video_cards','most_recent', paragraph.id.value) %}
-					{% set viewTwo =  drupal_view('video_cards','second_recent', paragraph.id.value) %}
-					{% if viewOne|render|striptags|trim|length > 0 and viewOne not in showMe %}
-							{% set showItem = viewOne %}
-					{% endif %}
-					{% if viewTwo|render|striptags|trim|length > 0 and viewTwo not in showMe %}
-							{% set showItem2 = viewTwo %}
-					{% endif %}
-        {% endif %}
-
-        {% if showItem or showItem2 %}
-            {% set showMe = showMe|merge([showItem, showItem2]) %}
-        {% endif %}
-
-    {% endfor %}
-    {{ showMe|shuffle }}
 {% endblock %}
