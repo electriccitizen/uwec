@@ -752,6 +752,24 @@ function citizen_custom_exception_handler(\Throwable $exception){
 
 
 function citizen_custom_preprocess_paragraph__content_carousel(&$vars){
+	// get node, to filter on department or program node id
+	$parent_id = $vars['elements']['#paragraph']->parent_id;
+	if(empty($parent_id)) return;
+	$nid = $parent_id->value;
+	if(empty($nid)) return;
+	$node = Node::load($nid);
+	if(!$node) return;
+
+	// determine the name of the field to filter on, based on what type of node we're one
+	$nodeType = $node->getType();
+	if($nodeType == 'department'){
+		$associationField = 'field_departments';
+	}elseif($nodeType == 'academic_program'){
+		$associationField = 'field_programs';
+	}else{
+		return;
+	}
+
 	// load the 2 most recent nodes of these node types
 	$types = [
 		'snapshot',
@@ -765,6 +783,7 @@ function citizen_custom_preprocess_paragraph__content_carousel(&$vars){
 		$more_nids = \Drupal::entityQuery('node')
 			->condition('type', $type)
 			->condition('status', 1)
+			->condition($associationField, $nid)
 			->sort('field_date', 'desc')
 			->range(0, 2)
 			->accessCheck(true)
