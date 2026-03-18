@@ -18,7 +18,7 @@ mode: default
 content:
   field_accessible:
     type: boolean_checkbox
-    weight: 27
+    weight: 4
     region: content
     settings:
       display_label: true
@@ -32,7 +32,7 @@ content:
     third_party_settings: {  }
   field_page_families:
     type: entity_reference_autocomplete
-    weight: 26
+    weight: 3
     region: content
     settings:
       match_operator: CONTAINS
@@ -48,12 +48,16 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+  replace_file:
+    weight: 2
+    region: content
+    settings: {  }
+    third_party_settings: {  }
 hidden:
   created: true
   path: true
   publish_on: true
   publish_state: true
-  replace_file: true
   status: true
   uid: true
   unpublish_on: true
