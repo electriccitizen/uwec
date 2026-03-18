@@ -144,4 +144,31 @@ final class CitizenCustomCommands extends DrushCommands {
 
 		var_dump($allLinks);
 	}
+
+	#[CLI\Command(name: 'citizen_custom:default_emeriti')]
+	public function default_emeriti(){
+		// load all bios to set the default on
+		$nodes = \Drupal::entityTypeManager()->getStorage('node')->loadByProperties([
+			'type'=>'bios',
+		]);
+
+		$count = 0;
+		foreach($nodes as $node){
+			$needs_save = false;
+
+			// if there is no value for field_show_email, set one
+			if($node->get('field_emeriti_status')->isEmpty()){
+				$node->set('field_emeriti_status', 'not_emeritus');
+				$needs_save = true;
+			}
+
+			if($needs_save){
+				echo 'Setting defaults on node ('.$node->id().')'."\n";
+				$node->save();
+				$count++;
+			}
+		}
+
+		$this->logger()->success('Set defaults on '.$count.' profiles.');
+	}
 }

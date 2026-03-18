@@ -76,7 +76,16 @@
   'node-stacked-' ~ node.type.0.target_id|clean_class,
 ] %}
 
+
 {% if elements['#node'].published %}
+
+  {% set is_emeritus = true %}
+  {% if content.field_emeriti_status.0 is empty %}
+    {% set is_emeritus = false %}
+  {% endif %}
+  {% if content.field_emeriti_status.0['#markup'] == 'not_emeritus' %}
+    {% set is_emeritus = false %}
+  {% endif %}
 
   {{ attach_library('citizen_dart/list-view') }}
 
@@ -102,7 +111,7 @@
         </div>
       {% endif %}
 
-      {% if content.field_is_alumni.0['#markup'] == 'Alumnus' or content.field_emeriti_status.0['#markup'] != 'not_emeritus' %}
+      {% if content.field_is_alumni.0['#markup'] == 'Alumnus' or is_emeritus %}
         <div class="profile-stacked-icons">
           {% if content.field_is_alumni.0['#markup'] == 'Alumnus' %}
             <div class="alumni-wrapper profile-stacked-icon">
@@ -124,7 +133,7 @@
             </div>
           {% endif %}
 
-          {% if content.field_emeriti_status.0['#markup'] != 'not_emeritus' %}
+          {% if is_emeritus %}
             <div class="emeritus-wrapper profile-stacked-icon">
               <div class="icon-wrapper">
                 <svg width="15" height="16" viewbox="0 0 15 16" fill="none" xmlns="http://www.w3.org/2000/svg">
