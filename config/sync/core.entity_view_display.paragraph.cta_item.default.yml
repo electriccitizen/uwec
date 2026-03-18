@@ -9,7 +9,7 @@ dependencies:
     - field.field.paragraph.cta_item.field_link
     - paragraphs.paragraphs_type.cta_item
   module:
-    - link
+    - linkit
 id: paragraph.cta_item.default
 targetEntityType: paragraph
 bundle: cta_item
@@ -40,7 +40,7 @@ content:
     weight: 0
     region: content
   field_link:
-    type: link
+    type: linkit
     label: hidden
     settings:
       trim_length: null
@@ -48,6 +48,7 @@ content:
       url_plain: true
       rel: '0'
       target: '0'
+      linkit_profile: wysiwyg
     third_party_settings: {  }
     weight: 3
     region: content

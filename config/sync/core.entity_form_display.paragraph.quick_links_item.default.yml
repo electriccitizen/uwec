@@ -7,7 +7,7 @@ dependencies:
     - field.field.paragraph.quick_links_item.field_link
     - paragraphs.paragraphs_type.quick_links_item
   module:
-    - link
+    - linkit
     - media_library
 id: paragraph.quick_links_item.default
 targetEntityType: paragraph
@@ -22,12 +22,14 @@ content:
       media_types: {  }
     third_party_settings: {  }
   field_link:
-    type: link_default
+    type: linkit
     weight: 3
     region: content
     settings:
       placeholder_url: ''
       placeholder_title: ''
+      linkit_profile: wysiwyg
+      linkit_auto_link_text: false
     third_party_settings: {  }
 hidden:
   created: true

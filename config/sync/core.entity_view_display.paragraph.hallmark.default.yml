@@ -10,7 +10,7 @@ dependencies:
     - field.field.paragraph.hallmark.field_text_placement
     - paragraphs.paragraphs_type.hallmark
   module:
-    - link
+    - linkit
     - options
     - text
 id: paragraph.hallmark.default
@@ -36,14 +36,15 @@ content:
     weight: 1
     region: content
   field_link:
-    type: link
+    type: linkit
     label: hidden
     settings:
       trim_length: 80
       url_only: false
       url_plain: false
-      rel: ''
-      target: ''
+      rel: '0'
+      target: '0'
+      linkit_profile: wysiwyg
     third_party_settings: {  }
     weight: 3
     region: content

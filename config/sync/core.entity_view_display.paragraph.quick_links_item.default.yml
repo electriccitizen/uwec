@@ -7,7 +7,7 @@ dependencies:
     - field.field.paragraph.quick_links_item.field_link
     - paragraphs.paragraphs_type.quick_links_item
   module:
-    - link
+    - linkit
 id: paragraph.quick_links_item.default
 targetEntityType: paragraph
 bundle: quick_links_item
@@ -23,14 +23,15 @@ content:
     weight: 0
     region: content
   field_link:
-    type: link
+    type: linkit
     label: hidden
     settings:
       trim_length: 80
       url_only: false
       url_plain: false
-      rel: ''
-      target: ''
+      rel: '0'
+      target: '0'
+      linkit_profile: wysiwyg
     third_party_settings: {  }
     weight: 3
     region: content

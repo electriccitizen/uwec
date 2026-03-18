@@ -40,7 +40,7 @@ content:
     settings:
       placeholder_url: ''
       placeholder_title: ''
-      linkit_profile: default
+      linkit_profile: wysiwyg
       linkit_auto_link_text: false
     third_party_settings: {  }
   field_long_text:
