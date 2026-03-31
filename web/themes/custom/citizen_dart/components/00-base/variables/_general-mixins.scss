@@ -714,40 +714,65 @@
       .cls-1{
         fill: c.$navy;
       }
-		}
-	}//end field office
-	.field-email{
+    }
+  }//end field office
+
+  .field-email{
     @extend .field-office;
-		svg{
-			max-height: 16px;
+    svg{
+      max-height: 16px;
       .cls-1{
         fill: c.$navy;
       }
-		}
-	}//end field email
+    }
+  }//end field email
+
   .field-phone{
     @extend .field-office;
-		svg{
-			max-height: 14px;
+    svg{
+      max-height: 14px;
       fill: none;
       path{
         stroke: c.$navy;
       }
-		}
-	}//end field phone
+    }
+  }//end field phone
+
   .field-office-hours{
     @extend .field-office;
-		svg{
-			max-height: 14px;
+    svg{
+      max-height: 14px;
       fill: none;
       path{
         stroke: c.$navy;
       }
-		}
-	}//end field phone
+    }
+  }
+
   .text-long{
     margin-top: u.$spaceXs;
     line-height: 1.5;
+  }
+
+  .field-links{
+    display:block;
+    &>.link{
+      margin-bottom:1rem;
+      margin-right:2rem;
+      display:flex;
+      svg{
+        width:20px;
+      }
+      a{
+        @include lineLink;
+        flex:1;
+        margin-left:1rem;
+        &:hover,&:focus{
+          color: c.$navy;
+          background: none;
+        }
+      }
+    }
   }
 }//end profile stacked
 
