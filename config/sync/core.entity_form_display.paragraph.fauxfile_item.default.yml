@@ -6,11 +6,13 @@ dependencies:
     - field.field.paragraph.fauxfile_item.field_email
     - field.field.paragraph.fauxfile_item.field_image
     - field.field.paragraph.fauxfile_item.field_job_title
+    - field.field.paragraph.fauxfile_item.field_links
     - field.field.paragraph.fauxfile_item.field_long_text
     - field.field.paragraph.fauxfile_item.field_name
     - field.field.paragraph.fauxfile_item.field_phone
     - paragraphs.paragraphs_type.fauxfile_item
   module:
+    - linkit
     - media_library
     - telephone
     - text
@@ -41,6 +43,16 @@ content:
     settings:
       size: 60
       placeholder: ''
+    third_party_settings: {  }
+  field_links:
+    type: linkit
+    weight: 7
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+      linkit_profile: wysiwyg
+      linkit_auto_link_text: false
     third_party_settings: {  }
   field_long_text:
     type: text_textarea
