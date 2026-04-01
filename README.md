@@ -5,7 +5,6 @@
 [![Dev Site uwec](https://img.shields.io/badge/site-uwec-blue.svg)](http://dev-uwec.pantheonsite.io/)
 
 
-
 ## Secrets
 Some secrets are stored in [Pantheon Terminus](https://docs.pantheon.io/terminus) using the [Secrets Manager Plugin](https://github.com/pantheon-systems/terminus-secrets-manager-plugin).
 To see the list of secrets, you can run `terminus secret:site:list uwec`.
