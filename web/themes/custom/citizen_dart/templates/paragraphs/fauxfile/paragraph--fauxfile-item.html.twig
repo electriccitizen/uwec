@@ -52,7 +52,7 @@
       </div>
       {{ content.field_job_title }}
     </div>
-    {% if content.field_email.0 or content.field_phone.0 %}
+    {% if content.field_email.0 or content.field_phone.0 or content.field_links.0 %}
       <div class="stacked-text-contact">
         <div class="stacked-contact-left">
           {{ content.field_email }}
