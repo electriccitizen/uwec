@@ -589,6 +589,7 @@
       @include safeFlex(row,nowrap,start,start);
     }
   }
+
   .stacked-intro{
     max-width: 380px;
     @include u.tab{
@@ -642,13 +643,15 @@
         background-image: none;
       }
     }
-  }//end name
+  }
+
   .field-pronouns{
     font-size: 1.5rem;
     line-height: 2;
     text-transform: uppercase;
     margin-bottom: 1rem;
   }
+
   .field-departments{
     font-weight: f.$heavy;
     padding-right: 20px;
@@ -665,11 +668,12 @@
       }
     }
   }//end field departments
-  .field-job-title,.field-long-text,.field-position,.field-position-override{
+
+  .field-job-title,.field-position,.field-position-override{
     @extend .field-departments;
     font-family: f.$bodyText;
     font-weight: f.$regular;
-  }//end job title
+  }
 
   .stacked-text-contact{
     border-top: 1px solid cc.$borderRule;
@@ -687,6 +691,7 @@
       }
     }
   }
+
   .field-office{
     @include safeFlex(row,nowrap,start,start);
     padding-right: 20px;
