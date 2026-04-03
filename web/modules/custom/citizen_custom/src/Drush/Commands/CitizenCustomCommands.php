@@ -171,4 +171,45 @@ final class CitizenCustomCommands extends DrushCommands {
 
 		$this->logger()->success('Set defaults on '.$count.' profiles.');
 	}
+
+	#[CLI\Command(name: 'citizen_custom:missing_videos')]
+	public function missing_videos(){
+		// get the oembed resolver and fetcher
+		$url_resolver = \Drupal::service('media.oembed.url_resolver');
+		$resource_fetcher = \Drupal::service('media.oembed.resource_fetcher');
+
+		// load all videos
+		$videos = \Drupal::entityTypeManager()
+			->getStorage('media')
+			->loadByProperties(['bundle'=>'remote_video']);
+
+		$good = 0;
+		$bad_ids = [];
+		foreach($videos as $video){
+			$url = $video->field_media_oembed_video->getString();
+			$resource_url = $url_resolver->getResourceUrl($url);
+
+			try{
+				$resource = $resource_fetcher->fetchResource($resource_url);
+				$good += 1;
+			}catch(\Exception $e){
+				$bad_ids[] = $video->id();
+			}
+
+			// calling fetchResources hits youtube.com,
+			// so let's play nice and try to avoid getting blocked.
+			sleep(1);
+		}
+
+		$this->io()->info('There are '.$good.' good video records.');
+
+		if(count($bad_ids) > 0){
+			$this->io()->warning('There are '.count($bad_ids).' bad video records. Here are the bad IDs');
+			foreach($bad_ids as $id){
+				$this->io()->info($id);
+			}
+		}else{
+			$this->io()->success('There are 0 bad video records!');
+		}
+	}
 }
