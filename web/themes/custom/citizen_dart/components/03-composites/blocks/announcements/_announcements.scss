@@ -5,29 +5,26 @@
 
 .block-announcements{
 	.announcement{
-		display:flex;
 		padding:$spaceXs;
 	}
 	.announcement-title,
 	.announcement-body{
-		flex:1;
 		padding: $spaceXxs;
 		color: $royal;
+		max-width:1116px;
+		margin:0 auto;
 	}
 
 	.announcement-title{
 		font-family: $displayHeader;
-		font-style:italic;
-		text-transform:uppercase;
+		font-size:110%;
+		font-weight:bold;
 		p{
 			margin-bottom: 0;
 		}
 	}
 
 	.announcement-body{
-		font-size: 12px;
-		line-height: 1.5;
-		letter-spacing: 0.6px;
 		& > *:last-child{
 			margin:0;
 		}
@@ -41,23 +38,10 @@
 	}
 
 	.announcement{
-		flex-direction:column;
 		a{
 			color: $royal;
 			font-weight: $heavy;
 			text-decoration: underline;
-			&:hover,&:focus{
-				text-decoration: none;
-			}
-		}
-	}
-	@include tab{
-		.announcement{
-			flex-direction:row;
-			align-items:center;
-		}
-		.announcement-title{
-			text-align:right;
 		}
 	}
 
