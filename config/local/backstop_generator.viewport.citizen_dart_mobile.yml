@@ -1,0 +1,9 @@
+uuid: 8b11db67-38f1-4ed6-8790-6c6e76999f5c
+langcode: en
+status: null
+dependencies: {  }
+id: citizen_dart_mobile
+label: 'citizen_dart: Mobile'
+description: null
+height: 900
+width: 300

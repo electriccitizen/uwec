@@ -1,0 +1,9 @@
+uuid: e25d2805-982b-4acf-95d1-65dd2bb9dfea
+langcode: en
+status: null
+dependencies: {  }
+id: citizen_dart_wide_desk
+label: 'citizen_dart: Wide Desk'
+description: null
+height: 900
+width: 1800

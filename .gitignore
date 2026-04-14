@@ -123,3 +123,9 @@ upstream/web/
 
 # ignore dev camps_profiles_feed dir
 /web/camps_profiles_feed/
+
+# Backstop visual regression artifacts (baselines + test bitmaps + html reports)
+/tests/backstop/backstop_data/bitmaps_reference/
+/tests/backstop/backstop_data/bitmaps_test/
+/tests/backstop/backstop_data/html_report/
+/tests/backstop/backstop_data/ci_report/

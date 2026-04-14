@@ -1,0 +1,170 @@
+uuid: f68dab66-aa11-4f75-b94e-0ccb95093947
+langcode: en
+status: null
+dependencies: {  }
+id: backstop
+label: Backstop
+description: 'UWEC monthly-update visual regression baseline.'
+test_domain: 'http://uwec.ddev.site'
+reference_domain: 'https://uwec.ddev.site'
+viewports:
+  citizen_dart_desk: citizen_dart_desk
+  citizen_dart_mobile: citizen_dart_mobile
+  citizen_dart_tablet: citizen_dart_tablet
+  citizen_dart_wide_desk: citizen_dart_wide_desk
+  citizen_dart_big_desk: 0
+  citizen_dart_mid_desk: 0
+onBeforeScript: false
+onReadyScript: false
+paths: "bitmaps_reference|backstop_data/bitmaps_reference\r\nbitmaps_test|backstop_data/bitmaps_test\r\nengine_scripts|backstop_data/engine_scripts\r\nhtml_report|backstop_data/html_report\r\nci_report|backstop_data/ci_report"
+define_scenario_defaults: null
+scenarioDefaults:
+  delay: 500
+  hideSelectors: ''
+  removeSelectors: ''
+  misMatchThreshold: '0.25'
+  requireSameDimensions: true
+  cookiePath: ''
+  readyEvent: ''
+  readySelector: ''
+  readyTimeout: null
+  onBeforeScript: 0
+  onReadyScript: 0
+  keyPressSelectors: ''
+  hoverSelector: ''
+  hoverSelectors: ''
+  clickSelector: ''
+  clickSelectors: ''
+  postInteractionWait: null
+  scrollToSelector: ''
+  selectors: ''
+  selectorExpansion: false
+  expect: null
+  gotoParameters: ''
+scenario_list:
+  backstop_node-5034: backstop_node-5034
+  backstop_node-4963: backstop_node-4963
+  backstop_node-4939: backstop_node-4939
+  backstop_node-5060: backstop_node-5060
+  backstop_node-4968: backstop_node-4968
+  backstop_node-7307: backstop_node-7307
+  backstop_node-6470: backstop_node-6470
+  backstop_node-11037: backstop_node-11037
+  backstop_node-11071: backstop_node-11071
+  backstop_node-10389: backstop_node-10389
+  backstop_node-5561: backstop_node-5561
+  backstop_node-5567: backstop_node-5567
+  backstop_node-5566: backstop_node-5566
+  backstop_node-5565: backstop_node-5565
+  backstop_node-5590: backstop_node-5590
+  backstop_node-5586: backstop_node-5586
+  backstop_node-5574: backstop_node-5574
+  backstop_node-5571: backstop_node-5571
+  backstop_node-5591: backstop_node-5591
+  backstop_home: backstop_home
+  backstop_node-10558: backstop_node-10558
+  backstop_node-11126: backstop_node-11126
+  backstop_node-11059: backstop_node-11059
+  backstop_node-11045: backstop_node-11045
+  backstop_node-10844: backstop_node-10844
+  backstop_about: backstop_about
+  backstop_academic-experience: backstop_academic-experience
+  backstop_academic-support: backstop_academic-support
+  backstop_academics: backstop_academics
+  backstop_accreditation: backstop_accreditation
+  backstop_apply: backstop_apply
+  backstop_athletics-sports-uwec: backstop_athletics-sports-uwec
+  backstop_blugold-life: backstop_blugold-life
+  backstop_campus-events-and-calendars: backstop_campus-events-and-calendars
+  backstop_campus-history: backstop_campus-history
+  backstop_uwec-collaborations-and-partnerships: backstop_uwec-collaborations-and-partnerships
+  backstop_colleges: backstop_colleges
+  backstop_contact-admissions: backstop_contact-admissions
+  backstop_dining: backstop_dining
+  backstop_financial-aid: backstop_financial-aid
+  backstop_first-year-student: backstop_first-year-student
+  backstop_first-year-visits: backstop_first-year-visits
+  backstop_get-involved: backstop_get-involved
+  backstop_graduate-programs: backstop_graduate-programs
+  backstop_graduate-student: backstop_graduate-student
+  backstop_group-visits: backstop_group-visits
+  backstop_high-school-special-student: backstop_high-school-special-student
+  backstop_housing: backstop_housing
+  backstop_international-students: backstop_international-students
+  backstop_leaders-healthcare-education: backstop_leaders-healthcare-education
+  backstop_leadership: backstop_leadership
+  backstop_living-eau-claire: backstop_living-eau-claire
+  backstop_majors-minors: backstop_majors-minors
+  backstop_mark-stephen-cosby-honors-college: backstop_mark-stephen-cosby-honors-college
+  backstop_mcintyre-library: backstop_mcintyre-library
+  backstop_meet-blugolds: backstop_meet-blugolds
+  backstop_music-arts-culture: backstop_music-arts-culture
+  backstop_net-price-calculator: backstop_net-price-calculator
+  backstop_news: backstop_news
+  backstop_other-student: backstop_other-student
+  backstop_plan-your-trip: backstop_plan-your-trip
+  backstop_points-pride: backstop_points-pride
+  backstop_scholarships-uwec: backstop_scholarships-uwec
+  backstop_sustainability-uw-eau-claire: backstop_sustainability-uw-eau-claire
+  backstop_transfer-student: backstop_transfer-student
+  backstop_transfer-visits: backstop_transfer-visits
+  backstop_tuition-aid: backstop_tuition-aid
+  backstop_tuition-fees: backstop_tuition-fees
+  backstop_uwec-application: backstop_uwec-application
+  backstop_university-mission: backstop_university-mission
+  backstop_virtual-tour-options: backstop_virtual-tour-options
+  backstop_visit: backstop_visit
+  backstop_wellness: backstop_wellness
+  backstop_what-expect-your-visit: backstop_what-expect-your-visit
+  backstop_work-uw-eau-claire: backstop_work-uw-eau-claire
+  backstop_node-8213: backstop_node-8213
+  backstop_node-9654: backstop_node-9654
+  backstop_node-7655: backstop_node-7655
+  backstop_node-8370: backstop_node-8370
+  backstop_node-9817: backstop_node-9817
+report: browser
+engine: puppeteer
+engineOptions: '--no-sandbox'
+asyncCaptureLimit: 5
+asyncCompareLimit: 50
+debug: false
+debugWindow: false
+scenario_generator:
+  language_list:
+    en: en
+  include_homepage: 1
+  menu_list:
+    main: main
+    account: 0
+    admin: 0
+    content-support-book: 0
+    departments: 0
+    devel: 0
+    example-site-main-menu: 0
+    footer: 0
+    footer-ancillary: 0
+    footer-audience-additional: 0
+    footer-for: 0
+    offices-services: 0
+    secondary: 0
+    support-book: 0
+    tools: 0
+  menu_depth: '2'
+  node_quantity: '5'
+  content_type_list:
+    academic_program: academic_program
+    bios: bios
+    college: college
+    department: department
+    job: job
+    page: page
+    announcement: 0
+    contact: 0
+    fact: 0
+    hours: 0
+    news: 0
+    snapshot: 0
+    support_book: 0
+    testimonial: 0
+    video_card: 0
+  path_list: ''
