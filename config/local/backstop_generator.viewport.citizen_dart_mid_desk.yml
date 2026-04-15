@@ -1,0 +1,9 @@
+uuid: c4f1b611-418b-4f59-81a9-ec6f91fb3b32
+langcode: en
+status: null
+dependencies: {  }
+id: citizen_dart_mid_desk
+label: 'citizen_dart: Mid Desk'
+description: null
+height: 900
+width: 1248

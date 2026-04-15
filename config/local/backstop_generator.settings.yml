@@ -1,0 +1,37 @@
+_core:
+  default_config_hash: dS-fodDCRwvHQOJPigoZcIr3vEyVMVLgwxOj0NZI20s
+backstop_directory: /tests/backstop
+test_domain: 'http://uwec.ddev.site'
+reference_domain: 'https://uwec.ddev.site'
+scenarioDefaults:
+  delay: 2500
+  hideSelectors: 'iframe,.field-media-oembed-video,.hero--video,video,.paragraph--type--stories-video-list,.paragraph--type--content-carousel,.paragraph--type--gallery,.views-row--story,.views-row--news'
+  removeSelectors: ''
+  misMatchThreshold: 1.0
+  requireSameDimensions: false
+  cookiePath: ''
+  readyEvent: ''
+  readySelector: ''
+  readyTimeout: null
+  onReadyScript: false
+  onBeforeScript: false
+  keyPressSelectors: ''
+  hoverSelector: ''
+  hoverSelectors: ''
+  clickSelector: ''
+  clickSelectors: ''
+  postInteractionWait: null
+  scrollToSelector: ''
+  selectors: ''
+  selectorExpansion: false
+  expect: null
+  gotoParameters: ''
+profile_parameters:
+  onBeforeScript: false
+  paths: "bitmaps_reference|backstop_data/bitmaps_reference\r\nbitmaps_test|backstop_data/bitmaps_test\r\nengine_scripts|backstop_data/engine_scripts\r\nhtml_report|backstop_data/html_report\r\nci_report|backstop_data/ci_report"
+  report: browser
+  asyncCaptureLimit: 5
+  asyncCompareLimit: 50
+  engine: puppeteer
+  engineOptions: '--no-sandbox'
+  onReadyScript: 0

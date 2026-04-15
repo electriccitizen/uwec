@@ -1,0 +1,12 @@
+uuid: 75e417e0-0c6c-4d35-b3fd-0d922f1b4250
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+    - trash
+id: media_restore_action
+label: 'Restore media item from trash'
+type: media
+plugin: 'entity:restore_action:media'
+configuration: {  }

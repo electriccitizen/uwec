@@ -1,0 +1,9 @@
+uuid: f2fc91b4-935e-43d9-923a-100dc8a268b1
+langcode: en
+status: null
+dependencies: {  }
+id: citizen_dart_tablet
+label: 'citizen_dart: Tablet'
+description: null
+height: 900
+width: 496

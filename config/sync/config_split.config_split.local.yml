@@ -19,9 +19,9 @@ module:
   masquerade: 0
   stage_file_proxy: 0
   update: 0
+  backstop_generator: 0
 theme: {  }
-complete_list:
-  - domain_alias.alias.uwec_ddev_site_port
+complete_list: {  }
 partial_list:
   - system.logging
   - system.performance

@@ -1,0 +1,9 @@
+uuid: 10bd4b50-d5d0-453c-8f17-e2766c0a2732
+langcode: en
+status: null
+dependencies: {  }
+id: citizen_dart_desk
+label: 'citizen_dart: Desk'
+description: null
+height: 900
+width: 896

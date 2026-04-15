@@ -1,0 +1,463 @@
+{
+    "id": "backstop",
+    "viewports": [
+        {
+            "label": "citizen_dart: Desk",
+            "height": 900,
+            "width": 896
+        },
+        {
+            "label": "citizen_dart: Mobile",
+            "height": 900,
+            "width": 300
+        },
+        {
+            "label": "citizen_dart: Tablet",
+            "height": 900,
+            "width": 496
+        },
+        {
+            "label": "citizen_dart: Wide Desk",
+            "height": 900,
+            "width": 1800
+        }
+    ],
+    "scenarioDefaults": {
+        "delay": 2500,
+        "misMatchThreshold": 1.0,
+        "requireSameDimensions": false,
+        "hideSelectors": [
+            "iframe",
+            ".field-media-oembed-video",
+            ".hero--video",
+            "video",
+            ".paragraph--type--stories-video-list",
+            ".paragraph--type--content-carousel",
+            ".paragraph--type--gallery",
+            ".views-row--story",
+            ".views-row--news"
+        ]
+    },
+    "scenarios": [
+        {
+            "label": "node:academic_program:Geospatial Analysis and Technology",
+            "url": "http://uwec.ddev.site/node/5034",
+            "referenceUrl": "https://uwec.ddev.site/node/5034"
+        },
+        {
+            "label": "node:academic_program:Latin American and Latinx Studies - Language Emphasis",
+            "url": "http://uwec.ddev.site/node/4963",
+            "referenceUrl": "https://uwec.ddev.site/node/4963"
+        },
+        {
+            "label": "node:academic_program:Music - Composition",
+            "url": "http://uwec.ddev.site/node/4939",
+            "referenceUrl": "https://uwec.ddev.site/node/4939"
+        },
+        {
+            "label": "node:academic_program:Physics and Engineering Dual Degree",
+            "url": "http://uwec.ddev.site/node/5060",
+            "referenceUrl": "https://uwec.ddev.site/node/5060"
+        },
+        {
+            "label": "node:academic_program:Spanish for Health Professions",
+            "url": "http://uwec.ddev.site/node/4968",
+            "referenceUrl": "https://uwec.ddev.site/node/4968"
+        },
+        {
+            "label": "node:bios:bauerta",
+            "url": "http://uwec.ddev.site/node/7307",
+            "referenceUrl": "https://uwec.ddev.site/node/7307"
+        },
+        {
+            "label": "node:bios:karkulja",
+            "url": "http://uwec.ddev.site/node/6470",
+            "referenceUrl": "https://uwec.ddev.site/node/6470"
+        },
+        {
+            "label": "node:bios:nelsonwa",
+            "url": "http://uwec.ddev.site/node/11037",
+            "referenceUrl": "https://uwec.ddev.site/node/11037"
+        },
+        {
+            "label": "node:bios:traicoam",
+            "url": "http://uwec.ddev.site/node/11071",
+            "referenceUrl": "https://uwec.ddev.site/node/11071"
+        },
+        {
+            "label": "node:bios:whytesm",
+            "url": "http://uwec.ddev.site/node/10389",
+            "referenceUrl": "https://uwec.ddev.site/node/10389"
+        },
+        {
+            "label": "node:college:College of Arts and Sciences",
+            "url": "http://uwec.ddev.site/node/5561",
+            "referenceUrl": "https://uwec.ddev.site/node/5561"
+        },
+        {
+            "label": "node:college:College of Business",
+            "url": "http://uwec.ddev.site/node/5567",
+            "referenceUrl": "https://uwec.ddev.site/node/5567"
+        },
+        {
+            "label": "node:college:College of Health and Human Sciences",
+            "url": "http://uwec.ddev.site/node/5566",
+            "referenceUrl": "https://uwec.ddev.site/node/5566"
+        },
+        {
+            "label": "node:college:College of Nursing",
+            "url": "http://uwec.ddev.site/node/5565",
+            "referenceUrl": "https://uwec.ddev.site/node/5565"
+        },
+        {
+            "label": "node:department:Communication and Journalism Department",
+            "url": "http://uwec.ddev.site/node/5590",
+            "referenceUrl": "https://uwec.ddev.site/node/5590"
+        },
+        {
+            "label": "node:department:Economics Department",
+            "url": "http://uwec.ddev.site/node/5586",
+            "referenceUrl": "https://uwec.ddev.site/node/5586"
+        },
+        {
+            "label": "node:department:Geography and Anthropology Department",
+            "url": "http://uwec.ddev.site/node/5574",
+            "referenceUrl": "https://uwec.ddev.site/node/5574"
+        },
+        {
+            "label": "node:department:Public Health and Environmental Studies Department",
+            "url": "http://uwec.ddev.site/node/5571",
+            "referenceUrl": "https://uwec.ddev.site/node/5571"
+        },
+        {
+            "label": "node:department:Sociology Department",
+            "url": "http://uwec.ddev.site/node/5591",
+            "referenceUrl": "https://uwec.ddev.site/node/5591"
+        },
+        {
+            "label": "Home",
+            "url": "http://uwec.ddev.site/",
+            "referenceUrl": "https://uwec.ddev.site/"
+        },
+        {
+            "label": "node:job:Facilities: Custodian",
+            "url": "http://uwec.ddev.site/node/10558",
+            "referenceUrl": "https://uwec.ddev.site/node/10558"
+        },
+        {
+            "label": "node:job:Housing Mail Room and Towers Desk Supervisor",
+            "url": "http://uwec.ddev.site/node/11126",
+            "referenceUrl": "https://uwec.ddev.site/node/11126"
+        },
+        {
+            "label": "node:job:Housing and Residence Life: Residence Hall Director",
+            "url": "http://uwec.ddev.site/node/11059",
+            "referenceUrl": "https://uwec.ddev.site/node/11059"
+        },
+        {
+            "label": "node:job:Management and Leadership Programs: Assistant/Associate Professor   JR10008355",
+            "url": "http://uwec.ddev.site/node/11045",
+            "referenceUrl": "https://uwec.ddev.site/node/11045"
+        },
+        {
+            "label": "node:job:Nursing: Instructional Academic Staff Adjunct Pool",
+            "url": "http://uwec.ddev.site/node/10844",
+            "referenceUrl": "https://uwec.ddev.site/node/10844"
+        },
+        {
+            "label": "menu:main:page:About",
+            "url": "http://uwec.ddev.site/about",
+            "referenceUrl": "https://uwec.ddev.site/about"
+        },
+        {
+            "label": "menu:main:page:Academic Experience",
+            "url": "http://uwec.ddev.site/academics/academic-experience",
+            "referenceUrl": "https://uwec.ddev.site/academics/academic-experience"
+        },
+        {
+            "label": "menu:main:page:Academic Support",
+            "url": "http://uwec.ddev.site/academics/academic-support",
+            "referenceUrl": "https://uwec.ddev.site/academics/academic-support"
+        },
+        {
+            "label": "menu:main:page:Academics",
+            "url": "http://uwec.ddev.site/academics",
+            "referenceUrl": "https://uwec.ddev.site/academics"
+        },
+        {
+            "label": "menu:main:page:Accreditation",
+            "url": "http://uwec.ddev.site/about/accreditation",
+            "referenceUrl": "https://uwec.ddev.site/about/accreditation"
+        },
+        {
+            "label": "menu:main:page:Apply",
+            "url": "http://uwec.ddev.site/apply",
+            "referenceUrl": "https://uwec.ddev.site/apply"
+        },
+        {
+            "label": "menu:main:page:Athletics & Sports at UWEC",
+            "url": "http://uwec.ddev.site/blugold-life/athletics-sports-uwec",
+            "referenceUrl": "https://uwec.ddev.site/blugold-life/athletics-sports-uwec"
+        },
+        {
+            "label": "menu:main:page:Blugold Life",
+            "url": "http://uwec.ddev.site/blugold-life",
+            "referenceUrl": "https://uwec.ddev.site/blugold-life"
+        },
+        {
+            "label": "menu:main:page:Campus Events and Calendars",
+            "url": "http://uwec.ddev.site/about/campus-events-and-calendars",
+            "referenceUrl": "https://uwec.ddev.site/about/campus-events-and-calendars"
+        },
+        {
+            "label": "menu:main:page:Campus History",
+            "url": "http://uwec.ddev.site/about/campus-history",
+            "referenceUrl": "https://uwec.ddev.site/about/campus-history"
+        },
+        {
+            "label": "menu:main:page:Collaborations and Partnerships",
+            "url": "http://uwec.ddev.site/about/uwec-collaborations-and-partnerships",
+            "referenceUrl": "https://uwec.ddev.site/about/uwec-collaborations-and-partnerships"
+        },
+        {
+            "label": "menu:main:page:Colleges",
+            "url": "http://uwec.ddev.site/academics/colleges",
+            "referenceUrl": "https://uwec.ddev.site/academics/colleges"
+        },
+        {
+            "label": "menu:main:page:Contact Admissions",
+            "url": "http://uwec.ddev.site/apply/contact-admissions",
+            "referenceUrl": "https://uwec.ddev.site/apply/contact-admissions"
+        },
+        {
+            "label": "menu:main:page:Dining",
+            "url": "http://uwec.ddev.site/blugold-life/dining",
+            "referenceUrl": "https://uwec.ddev.site/blugold-life/dining"
+        },
+        {
+            "label": "menu:main:page:Financial Aid",
+            "url": "http://uwec.ddev.site/tuition-aid/financial-aid",
+            "referenceUrl": "https://uwec.ddev.site/tuition-aid/financial-aid"
+        },
+        {
+            "label": "menu:main:page:First-Year Student",
+            "url": "http://uwec.ddev.site/apply/first-year-student",
+            "referenceUrl": "https://uwec.ddev.site/apply/first-year-student"
+        },
+        {
+            "label": "menu:main:page:First-Year Visits",
+            "url": "http://uwec.ddev.site/visit/first-year-visits",
+            "referenceUrl": "https://uwec.ddev.site/visit/first-year-visits"
+        },
+        {
+            "label": "menu:main:page:Get Involved",
+            "url": "http://uwec.ddev.site/blugold-life/get-involved",
+            "referenceUrl": "https://uwec.ddev.site/blugold-life/get-involved"
+        },
+        {
+            "label": "menu:main:page:Graduate Programs",
+            "url": "http://uwec.ddev.site/academics/graduate-programs",
+            "referenceUrl": "https://uwec.ddev.site/academics/graduate-programs"
+        },
+        {
+            "label": "menu:main:page:Graduate Student",
+            "url": "http://uwec.ddev.site/apply/graduate-student",
+            "referenceUrl": "https://uwec.ddev.site/apply/graduate-student"
+        },
+        {
+            "label": "menu:main:page:Group Visits",
+            "url": "http://uwec.ddev.site/visit/group-visits",
+            "referenceUrl": "https://uwec.ddev.site/visit/group-visits"
+        },
+        {
+            "label": "menu:main:page:High School Special Student",
+            "url": "http://uwec.ddev.site/apply/high-school-special-student",
+            "referenceUrl": "https://uwec.ddev.site/apply/high-school-special-student"
+        },
+        {
+            "label": "menu:main:page:Housing",
+            "url": "http://uwec.ddev.site/blugold-life/housing",
+            "referenceUrl": "https://uwec.ddev.site/blugold-life/housing"
+        },
+        {
+            "label": "menu:main:page:International Students",
+            "url": "http://uwec.ddev.site/apply/international-students",
+            "referenceUrl": "https://uwec.ddev.site/apply/international-students"
+        },
+        {
+            "label": "menu:main:page:Leaders in Healthcare Education",
+            "url": "http://uwec.ddev.site/academics/leaders-healthcare-education",
+            "referenceUrl": "https://uwec.ddev.site/academics/leaders-healthcare-education"
+        },
+        {
+            "label": "menu:main:page:Leadership",
+            "url": "http://uwec.ddev.site/about/leadership",
+            "referenceUrl": "https://uwec.ddev.site/about/leadership"
+        },
+        {
+            "label": "menu:main:page:Living in Eau Claire",
+            "url": "http://uwec.ddev.site/blugold-life/living-eau-claire",
+            "referenceUrl": "https://uwec.ddev.site/blugold-life/living-eau-claire"
+        },
+        {
+            "label": "menu:main:page:Majors & Minors",
+            "url": "http://uwec.ddev.site/academics/majors-minors",
+            "referenceUrl": "https://uwec.ddev.site/academics/majors-minors"
+        },
+        {
+            "label": "menu:main:page:Mark Stephen Cosby Honors College",
+            "url": "http://uwec.ddev.site/academics/mark-stephen-cosby-honors-college",
+            "referenceUrl": "https://uwec.ddev.site/academics/mark-stephen-cosby-honors-college"
+        },
+        {
+            "label": "menu:main:page:McIntyre Library",
+            "url": "http://uwec.ddev.site/academics/mcintyre-library",
+            "referenceUrl": "https://uwec.ddev.site/academics/mcintyre-library"
+        },
+        {
+            "label": "menu:main:page:Meet Blugolds",
+            "url": "http://uwec.ddev.site/blugold-life/meet-blugolds",
+            "referenceUrl": "https://uwec.ddev.site/blugold-life/meet-blugolds"
+        },
+        {
+            "label": "menu:main:page:Music, Arts, & Culture",
+            "url": "http://uwec.ddev.site/blugold-life/music-arts-culture",
+            "referenceUrl": "https://uwec.ddev.site/blugold-life/music-arts-culture"
+        },
+        {
+            "label": "menu:main:page:Net Price Calculator",
+            "url": "http://uwec.ddev.site/tuition-aid/net-price-calculator",
+            "referenceUrl": "https://uwec.ddev.site/tuition-aid/net-price-calculator"
+        },
+        {
+            "label": "menu:main:page:News",
+            "url": "http://uwec.ddev.site/about/news",
+            "referenceUrl": "https://uwec.ddev.site/about/news"
+        },
+        {
+            "label": "menu:main:page:Other Student",
+            "url": "http://uwec.ddev.site/apply/other-student",
+            "referenceUrl": "https://uwec.ddev.site/apply/other-student"
+        },
+        {
+            "label": "menu:main:page:Plan Your Trip",
+            "url": "http://uwec.ddev.site/visit/plan-your-trip",
+            "referenceUrl": "https://uwec.ddev.site/visit/plan-your-trip"
+        },
+        {
+            "label": "menu:main:page:Points of Pride",
+            "url": "http://uwec.ddev.site/about/points-pride",
+            "referenceUrl": "https://uwec.ddev.site/about/points-pride"
+        },
+        {
+            "label": "menu:main:page:Scholarships",
+            "url": "http://uwec.ddev.site/tuition-aid/scholarships-uwec",
+            "referenceUrl": "https://uwec.ddev.site/tuition-aid/scholarships-uwec"
+        },
+        {
+            "label": "menu:main:page:Sustainability at UW-Eau Claire",
+            "url": "http://uwec.ddev.site/blugold-life/sustainability-uw-eau-claire",
+            "referenceUrl": "https://uwec.ddev.site/blugold-life/sustainability-uw-eau-claire"
+        },
+        {
+            "label": "menu:main:page:Transfer Student",
+            "url": "http://uwec.ddev.site/apply/transfer-student",
+            "referenceUrl": "https://uwec.ddev.site/apply/transfer-student"
+        },
+        {
+            "label": "menu:main:page:Transfer Visits",
+            "url": "http://uwec.ddev.site/visit/transfer-visits",
+            "referenceUrl": "https://uwec.ddev.site/visit/transfer-visits"
+        },
+        {
+            "label": "menu:main:page:Tuition & Aid",
+            "url": "http://uwec.ddev.site/tuition-aid",
+            "referenceUrl": "https://uwec.ddev.site/tuition-aid"
+        },
+        {
+            "label": "menu:main:page:Tuition & Fees",
+            "url": "http://uwec.ddev.site/tuition-aid/tuition-fees",
+            "referenceUrl": "https://uwec.ddev.site/tuition-aid/tuition-fees"
+        },
+        {
+            "label": "menu:main:page:UWEC Application",
+            "url": "http://uwec.ddev.site/apply/uwec-application",
+            "referenceUrl": "https://uwec.ddev.site/apply/uwec-application"
+        },
+        {
+            "label": "menu:main:page:University Mission",
+            "url": "http://uwec.ddev.site/about/university-mission",
+            "referenceUrl": "https://uwec.ddev.site/about/university-mission"
+        },
+        {
+            "label": "menu:main:page:Virtual Tour Options",
+            "url": "http://uwec.ddev.site/visit/virtual-tour-options",
+            "referenceUrl": "https://uwec.ddev.site/visit/virtual-tour-options"
+        },
+        {
+            "label": "menu:main:page:Visit",
+            "url": "http://uwec.ddev.site/visit",
+            "referenceUrl": "https://uwec.ddev.site/visit"
+        },
+        {
+            "label": "menu:main:page:Wellness",
+            "url": "http://uwec.ddev.site/blugold-life/wellness",
+            "referenceUrl": "https://uwec.ddev.site/blugold-life/wellness"
+        },
+        {
+            "label": "menu:main:page:What to Expect",
+            "url": "http://uwec.ddev.site/visit/what-expect-your-visit",
+            "referenceUrl": "https://uwec.ddev.site/visit/what-expect-your-visit"
+        },
+        {
+            "label": "menu:main:page:Work at UW-Eau Claire ",
+            "url": "http://uwec.ddev.site/about/work-uw-eau-claire",
+            "referenceUrl": "https://uwec.ddev.site/about/work-uw-eau-claire"
+        },
+        {
+            "label": "node:page:Blugold Fellowship",
+            "url": "http://uwec.ddev.site/node/8213",
+            "referenceUrl": "https://uwec.ddev.site/node/8213"
+        },
+        {
+            "label": "node:page:Master of Science in Nursing Admission Requirements",
+            "url": "http://uwec.ddev.site/node/9654",
+            "referenceUrl": "https://uwec.ddev.site/node/9654"
+        },
+        {
+            "label": "node:page:NSE Application",
+            "url": "http://uwec.ddev.site/node/7655",
+            "referenceUrl": "https://uwec.ddev.site/node/7655"
+        },
+        {
+            "label": "node:page:Services in Student Support Services",
+            "url": "http://uwec.ddev.site/node/8370",
+            "referenceUrl": "https://uwec.ddev.site/node/8370"
+        },
+        {
+            "label": "node:page:Work at UW-Eau Claire ",
+            "url": "http://uwec.ddev.site/node/9817",
+            "referenceUrl": "https://uwec.ddev.site/node/9817"
+        }
+    ],
+    "paths": {
+        "bitmaps_reference": "backstop_data/bitmaps_reference",
+        "bitmaps_test": "backstop_data/bitmaps_test",
+        "engine_scripts": "backstop_data/engine_scripts",
+        "html_report": "backstop_data/html_report_backstop/",
+        "ci_report": "backstop_data/ci_report_backstop/"
+    },
+    "report": [
+        "browser"
+    ],
+    "engine": "puppeteer",
+    "engineOptions": {
+        "args": [
+            "--no-sandbox"
+        ]
+    },
+    "asyncCaptureLimit": 5,
+    "asyncCompareLimit": 50,
+    "debug": false,
+    "debugWindow": false
+}

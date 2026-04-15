@@ -1,0 +1,18 @@
+_core:
+  default_config_hash: KfPL3e74_yVko6fVa_mp4LzaRAlcyECSeIfibjLu0jU
+backstop_directory: /tests/backstop
+profile_parameters:
+  onBeforeScript: false
+  onReadyScript: false
+  paths: "bitmaps_reference|backstop_data/bitmaps_reference\r\nbitmaps_test|backstop_data/bitmaps_test\r\nengine_scripts|backstop_data/engine_scripts\r\nhtml_report|backstop_data/html_report\r\nci_report|backstop_data/ci_report"
+  report: browser
+  asyncCaptureLimit: 5
+  asyncCompareLimit: 50
+  engine: puppeteer
+  engineOptions: '--no-sandbox'
+  debug: 0
+  debugWindow: 0
+scenarioDefaults:
+  delay: 500
+  misMatchThreshold: 0.25
+  requireSameDimensions: true

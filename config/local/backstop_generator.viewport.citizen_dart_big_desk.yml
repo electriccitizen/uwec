@@ -1,0 +1,9 @@
+uuid: 1888a71e-8060-488b-8403-f36e29bca420
+langcode: en
+status: null
+dependencies: {  }
+id: citizen_dart_big_desk
+label: 'citizen_dart: Big Desk'
+description: null
+height: 900
+width: 1560
