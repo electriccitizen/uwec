@@ -21,8 +21,7 @@ module:
   update: 0
   backstop_generator: 0
 theme: {  }
-complete_list:
-  - domain_alias.alias.uwec_ddev_site_port
+complete_list: {  }
 partial_list:
   - system.logging
   - system.performance

@@ -1,14 +1,18 @@
-UWEC Local Development - test
-=============================
-Reviewed by David, 2023-07-19
+UWEC Local Development
+======================
+Updated by Brian, 2026-04-15
 
 # Project Details
 - **NAME:** uwec
 - **URL:** http://dev-uwec.pantheonsite.io/
-- **LOCAL URL:** https://uwec.ddev.site:33001/
+- **LOCAL URL:** https://uwec.ddev.site/
 - **BRANCH:** main
 - **HOSTING:** [Pantheon Dashboard](https://dashboard.pantheon.io/sites/dfeadf45-ac5d-48f4-a701-c121589cff0e#dev/code)
 - **CIRCLE CI:** [Logs](https://app.circleci.com/pipelines/github/electriccitizen/uwec)
+- **DRUPAL:** 11 (core 11.3.x)
+- **PHP:** 8.3
+- **DB:** MariaDB 10.11
+- **DRUSH:** 13.x
 
 ## Requirements and platform docs
 
@@ -69,26 +73,22 @@ ddev drush uli
 
 Open the generated login URL and you should be set to go.
 
-## !!-Mac users may need to modify the main domain alias
-If you're on a Mac using DDEV and the site is being served through a non-standard port (i.e. 33001),
-you may need to modify the main domain alias in the site's configuration. A configuration for
-`uwec.ddev.site:33001` has been added to the local configuration split. But if your port number is
-different, you will need to modify the number in the site configuration. Go to
-`/admin/config/domain/alias/edit/uwec_ddev_site_port` and change the port number to match your local DDEV port.
-Be sure save the configuration, then clear the cache.
+## Domain alias for non-standard local ports (only if needed)
+Standard DDEV routes the site at `https://uwec.ddev.site` (port 443). **If** your local DDEV is forced onto a non-standard port — e.g., another project is already bound to 443 — check the port shown by `ddev describe` and update the `uwec_ddev_site_port` domain alias at `/admin/config/domain/alias/edit/uwec_ddev_site_port` to match. Save the form, then `ddev drush cr`.
 
-If you're on a Mac using DDEV and the site is *not* served through a no-standard port,
-go to `/admin/config/domain/alias/edit/uwec_ddev_site_port` and delete the 33001 alias.
+If your DDEV is on the standard port, **no action is needed** — the default alias is harmless.
 
-## Setting session cookies in development.services.yml
-You will need to add the following code in your development.services.yml to access the site due to domain configuration (starting on line 5).
+## Setting session cookies in development.services.yml (only for non-standard ports)
+If your DDEV is on a non-standard port and you run into login / session issues, add to `web/sites/development.services.yml`:
 
+```yaml
 parameters:
   http.response.debug_cacheability_headers: true
   session.storage.options:
-    cookie_domain: '.uwec.ddev.site:33001'
+    cookie_domain: '.uwec.ddev.site:<your-port>'
+```
 
-You may need to clear cache, hard reset your browser, fin project start, shutdown and restart your computer and/or sacrifice a chicken to get it to kick in.
+Then `ddev drush cr` and hard-reload the browser.
 
 # Refreshing your local environment
 Whenever you start a new task, you'll want to refresh your local environment to pull in the latest changes from other developers.
@@ -117,20 +117,14 @@ ddev drush uli
 
 Open the generated login URL and you should be set to go.
 
-## !!-Mac users may need to modify the main domain alias
-If you're on a Mac using DDEV and the site is being served through a non-standard port (i.e. 33001),
-you may need to modify the main domain alias in the site's configuration. A configuration for
-`uwec.ddev.site:33001` has been added to the local configuration split. But if your port number is
-different, you will need to modify the number in the site configuration. Go to
-`/admin/config/domain/alias/edit/uwec_ddev_site_port` and change the port number to match your local DDEV port.
-Be sure save the configuration, then clear the cache.
+See the "Domain alias" note above if your DDEV is on a non-standard port.
 
 # Theming
 The active theme for this project is **citizen_dart**:
 `~/Projects/uwec/web/themes/custom/citizen_dart`
 
 See the THEME-INSTALL.md file inside of the theme root for install instructions.
-[THEME-INSTALL.md](/web/themes/citizen_dart/THEME-INSTALL.md)
+[THEME-INSTALL.md](/web/themes/custom/citizen_dart/THEME-INSTALL.md)
 
 # Drush aliases
 
