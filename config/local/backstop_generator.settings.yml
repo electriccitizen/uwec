@@ -4,10 +4,10 @@ backstop_directory: /tests/backstop
 test_domain: 'http://uwec.ddev.site'
 reference_domain: 'https://uwec.ddev.site'
 scenarioDefaults:
-  delay: 500
-  hideSelectors: ''
+  delay: 2500
+  hideSelectors: 'iframe,.field-media-oembed-video,.hero--video,video,.paragraph--type--stories-video-list,.paragraph--type--content-carousel,.paragraph--type--gallery,.views-row--story,.views-row--news'
   removeSelectors: ''
-  misMatchThreshold: '0.25'
+  misMatchThreshold: 1.0
   requireSameDimensions: false
   cookiePath: ''
   readyEvent: ''

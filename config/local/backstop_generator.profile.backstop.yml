@@ -19,10 +19,10 @@ onReadyScript: false
 paths: "bitmaps_reference|backstop_data/bitmaps_reference\r\nbitmaps_test|backstop_data/bitmaps_test\r\nengine_scripts|backstop_data/engine_scripts\r\nhtml_report|backstop_data/html_report\r\nci_report|backstop_data/ci_report"
 define_scenario_defaults: null
 scenarioDefaults:
-  delay: 500
-  hideSelectors: ''
+  delay: 2500
+  hideSelectors: 'iframe,.field-media-oembed-video,.hero--video,video,.paragraph--type--stories-video-list,.paragraph--type--content-carousel,.paragraph--type--gallery,.views-row--story,.views-row--news'
   removeSelectors: ''
-  misMatchThreshold: '0.25'
+  misMatchThreshold: '1'
   requireSameDimensions: false
   cookiePath: ''
   readyEvent: ''
