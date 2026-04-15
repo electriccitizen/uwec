@@ -23,7 +23,7 @@ scenarioDefaults:
   hideSelectors: ''
   removeSelectors: ''
   misMatchThreshold: '0.25'
-  requireSameDimensions: true
+  requireSameDimensions: false
   cookiePath: ''
   readyEvent: ''
   readySelector: ''

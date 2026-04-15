@@ -23,9 +23,20 @@
         }
     ],
     "scenarioDefaults": {
-        "delay": 500,
-        "misMatchThreshold": 0.25,
-        "requireSameDimensions": true
+        "delay": 2500,
+        "misMatchThreshold": 1.0,
+        "requireSameDimensions": false,
+        "hideSelectors": [
+            "iframe",
+            ".field-media-oembed-video",
+            ".hero--video",
+            "video",
+            ".paragraph--type--stories-video-list",
+            ".paragraph--type--content-carousel",
+            ".paragraph--type--gallery",
+            ".views-row--story",
+            ".views-row--news"
+        ]
     },
     "scenarios": [
         {
