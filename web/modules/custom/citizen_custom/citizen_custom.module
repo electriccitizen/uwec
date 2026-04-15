@@ -784,7 +784,7 @@ function citizen_custom_preprocess_paragraph__content_carousel(&$vars){
 			->condition('type', $type)
 			->condition('status', 1)
 			->condition($associationField, $nid)
-			->sort('field_date', 'desc')
+			->sort('changed', 'desc')
 			->range(0, 2)
 			->accessCheck(true)
 			->execute();
