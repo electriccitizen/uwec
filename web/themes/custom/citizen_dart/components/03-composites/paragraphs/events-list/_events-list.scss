@@ -130,6 +130,9 @@
     .summary{
       display: block;
       margin: $spaceXxs 0;
+      a{
+        text-decoration:underline;
+      }
     }
     .time,.until,.location{
       display: block;
