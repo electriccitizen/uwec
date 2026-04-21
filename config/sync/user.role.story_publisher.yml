@@ -10,6 +10,7 @@ dependencies:
     - content_moderation
     - media
     - node
+    - paragraphs_type_permissions
     - taxonomy
     - view_unpublished
 id: story_publisher
@@ -19,17 +20,20 @@ is_admin: false
 permissions:
   - 'access taxonomy overview'
   - 'create news content'
+  - 'create paragraph content quote'
   - 'create remote_video media'
   - 'delete any news content'
   - 'delete any remote_video media'
   - 'delete news revisions'
   - 'delete own news content'
   - 'delete own remote_video media'
+  - 'delete paragraph content quote'
   - 'edit any news content'
   - 'edit any remote_video media'
   - 'edit own news content'
   - 'edit own remote_video media'
   - 'revert news revisions'
+  - 'update paragraph content quote'
   - 'use marketing transition archive'
   - 'use marketing transition create_new_draft'
   - 'use marketing transition publish'
