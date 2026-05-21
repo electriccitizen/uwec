@@ -40,7 +40,7 @@
         @include safeFlex(row,nowrap,center,stretch);
         .select-item{
           width: 33.33%;
-          max-width: 330px;
+          max-width: 350px;
           border-left: 1px solid $white;
           border-right: 1px solid $white;
           &:not(:last-child){
