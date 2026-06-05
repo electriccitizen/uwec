@@ -86,9 +86,11 @@
             <div class="step-link field-link">
               {% if step_entity.field_link.0.uri starts with 'entity:media/' %}
                 {% set media_id = step_entity.field_link.0.uri | slice(13) %}
-                {{ drupal_entity('media', media_id) }}
+                {% set media_render_arr = drupal_entity('media', media_id) %}
+                {% set media_entity = media_render_arr['#media'] %}
+                <a href="{{ media_entity.field_media_file | file_url }}">{{ step_entity.field_link.0.title }}</a>
               {% else %}
-                <a href="{{ step_entity.field_link.0.url }}"><span>{{ step_entity.field_link.0.title }}</span></a>
+                <a href="{{ step_entity.field_link.0.url }}">{{ step_entity.field_link.0.title }}</a>
               {% endif %}
             </div>
           {% endif %}
