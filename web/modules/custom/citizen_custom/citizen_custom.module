@@ -793,3 +793,60 @@ function citizen_custom_preprocess_paragraph__content_carousel(&$vars){
 	shuffle($nids);
 	$vars['carousel_nids'] = $nids;
 }
+
+function citizen_custom_mail($key, &$message, $params){
+	switch($key){
+		case 'profile_office_changed':
+			$message['headers']['Content-Type'] = 'text/plain; charset=UTF-8; format=flowed; delsp=yes';
+			$message['subject'] = $params['subject'];
+			$message['body'][] = $params['body'];
+			break;
+	}
+}
+
+function citizen_custom_entity_presave(EntityInterface $entity){
+	// if a profile office location changed, email some LTS folks
+ 	if(!$entity->isNew() && isset($entity->original)){
+		if($entity->bundle() === 'bios'){
+			if(!$entity->get('field_office')->equals($entity->original->get('field_office'))) {
+				$mail_manager = \Drupal::service('plugin.manager.mail');
+				$language_manager = \Drupal::service('language_manager');
+
+				$body = $entity->field_first_name->getString().' '.$entity->field_last_name->getString().' ('.$entity->field_username->getString().')';
+				$body .= " just updated their office on their www.uwec.edu profile.\n";
+
+				$body .= "--- Old Office\n";
+				$body .= $entity->original->get('field_office')->getString()."\n";
+
+				$body .= "--- New Office\n";
+				$body .= $entity->field_office->getString();
+
+				$params = [
+					'subject'=>'www profile office update',
+					'body'=>$body,
+				];
+
+				$to = implode(',', [
+					'larsomat@uwec.edu',
+					'ernstcs@uwec.edu',
+					//'browers@uwec.edu',
+					//'hakesbr@uwec.edu',
+					//'hansonbj@uwec.edu',
+					//'egelande@uwec.edu',
+					//'garveyn@uwec.edu',
+					//'stevenej@uwec.edu',
+				]);
+
+				$module = 'citizen_custom';
+				$key = 'profile_office_changed';
+				$langcode = $language_manager->getDefaultLanguage()->getId();
+				$reply_to = null;
+				$send_now = true;
+				$result = $mail_manager->mail($module, $key, $to, $langcode, $params, $reply_to, $send_now);
+				if($result['result'] !== true){
+					\Drupal::logger('citizen_custom')->error('profile_office_changed email failed to send.');
+				}
+			}
+		}
+	}
+}
