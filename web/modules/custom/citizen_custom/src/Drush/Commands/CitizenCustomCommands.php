@@ -212,4 +212,93 @@ final class CitizenCustomCommands extends DrushCommands {
 			$this->io()->success('There are 0 bad video records!');
 		}
 	}
+
+	#[CLI\Command(name: 'citizen_custom:unused_files')]
+	public function unused_files(){
+		// zero usages
+		$noRefFiles = [];
+
+		// >=1 usages, but to only bad entities.
+		$badRefFiles = [];
+
+		// >=1 usages, some of which are good, some of which are bad.
+		$mixedRefFiles = [];
+
+		// >=1 usages, all of which are good.
+		$goodRefFiles = [];
+
+		// keep track of how many files per entity type
+		$entityTypeCounts = [];
+
+		// get some services
+		$entityManager = \Drupal::entityTypeManager();
+		$usage = \Drupal::service('file.usage');
+
+		// get all file ids
+		$fids = $entityManager->getStorage('file')->getQuery()->accessCheck(false)->execute();
+		foreach($fids as $fid){
+			$file = \Drupal\file\Entity\File::load($fid);
+			$u = $usage->listUsage($file);
+			if(!empty($u)){
+				$goodRefCount = 0;
+				$badRefCount = 0;
+
+				foreach($u as $usage_records){
+					// figure out which entity refs are naughty or nice, ho ho ho!
+					foreach($usage_records as $entity_type => $entity_ids_with_count){
+						$entity_ids = array_keys($entity_ids_with_count);
+						$storage = $entityManager->getStorage($entity_type);
+						foreach($entity_ids as $entity_id){
+							$entity = $storage->load($entity_id);
+							if($entity){
+								$goodRefCount++;
+							}else{
+								$badRefCount++;
+							}
+						}
+					}
+				}
+
+				// add this fid to the correct list,
+				// depending on the good and bad counts.
+				if($goodRefCount == 0){
+					if($badRefCount == 0){
+						$noRefFiles[] = $fid;
+					}else{
+						$badRefFiles[] = $fid;
+					}
+				}else{
+					if($badRefCount == 0){
+						$goodRefFiles[] = $fid;
+					}else{
+						$mixedRefFiles[] = $fid;
+					}
+				}
+			}else{
+				// no usage at all
+				$noRefFiles[] = $fid;
+			}
+		}
+
+		$this->io()->success('Files summary: There are '.count($fids).' files. '.count($goodRefFiles).' good, '.count($mixedRefFiles).' mixed, '.count($badRefFiles).' bad, and '.count($noRefFiles).' unused files.');
+
+		if(!empty($noRefFiles)){
+			$this->io()->warning('These '.count($noRefFiles).' file(s) have no usage references at all.');
+			foreach($noRefFiles as $fid){
+				echo $fid.PHP_EOL;
+			}
+		}
+		if(!empty($badRefFiles)){
+			$this->io()->warning('These '.count($badRefFiles).' file(s) have some usage, but only to entities that no longer exist.');
+			foreach($badRefFiles as $fid){
+				echo $fid.PHP_EOL;
+			}
+		}
+		if(!empty($mixedRefFiles)){
+			$this->io()->warning('These '.count($mixedRefFiles).' file(s) have some good, and some bad usage info.');
+			foreach($mixedRefFiles as $fid){
+				echo $fid.PHP_EOL;
+			}
+		}
+	}
 }
