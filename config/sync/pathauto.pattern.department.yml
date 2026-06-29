@@ -2,17 +2,18 @@ uuid: f26439bf-7920-4a93-899b-cbbe6c064707
 langcode: en
 status: true
 dependencies:
+  config:
+    - node.type.department
   module:
     - node
 id: department
 label: Department
 type: 'canonical_entities:node'
-pattern: 'academics/[node:field_college]/departments-programs/[node:menu-link:parents:join:/]/[node:title]'
+pattern: '/academics/[node:field_college]/departments-programs/[node:menu-link:parents:join:/]/[node:title]'
 selection_criteria:
   fe28fa4b-7ca8-4738-af83-1a9b7a7a2f32:
     id: 'entity_bundle:node'
     negate: false
-    uuid: fe28fa4b-7ca8-4738-af83-1a9b7a7a2f32
     context_mapping:
       node: node
     bundles:
