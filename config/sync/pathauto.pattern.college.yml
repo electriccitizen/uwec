@@ -2,17 +2,18 @@ uuid: 1f93477e-c4c2-4144-85aa-e32bec748ca1
 langcode: en
 status: true
 dependencies:
+  config:
+    - node.type.college
   module:
     - node
 id: college
 label: College
 type: 'canonical_entities:node'
-pattern: 'academics/[node:title]'
+pattern: '/academics/[node:title]'
 selection_criteria:
   cb6d0166-2fd5-4b36-b0a5-90f028ac68cb:
     id: 'entity_bundle:node'
     negate: false
-    uuid: cb6d0166-2fd5-4b36-b0a5-90f028ac68cb
     context_mapping:
       node: node
     bundles:

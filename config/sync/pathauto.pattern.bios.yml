@@ -2,6 +2,8 @@ uuid: 07a71d76-c197-44b7-8aaf-f5b2316bb772
 langcode: en
 status: true
 dependencies:
+  config:
+    - node.type.bios
   module:
     - node
 _core:
@@ -9,12 +11,11 @@ _core:
 id: bios
 label: Profiles
 type: 'canonical_entities:node'
-pattern: 'profiles/[node:field_username]'
+pattern: '/profiles/[node:field_username]'
 selection_criteria:
   bd7f044a-d8da-42f0-a2cf-71dcfc19f80a:
     id: 'entity_bundle:node'
     negate: false
-    uuid: bd7f044a-d8da-42f0-a2cf-71dcfc19f80a
     context_mapping:
       node: node
     bundles:

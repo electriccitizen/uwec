@@ -10,8 +10,8 @@ profile_parameters:
   asyncCompareLimit: 50
   engine: puppeteer
   engineOptions: '--no-sandbox'
-  debug: 0
-  debugWindow: 0
+  debug: false
+  debugWindow: false
 scenarioDefaults:
   delay: 500
   misMatchThreshold: 0.25

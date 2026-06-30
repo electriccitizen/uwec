@@ -2,17 +2,18 @@ uuid: 006e7984-b80f-4da6-9725-e26d4cf1728e
 langcode: en
 status: true
 dependencies:
+  config:
+    - node.type.academic_program
   module:
     - node
 id: academic_programs
 label: 'Academic Programs'
 type: 'canonical_entities:node'
-pattern: 'academics/programs/[node:field_degree_level]/[node:title]'
+pattern: '/academics/programs/[node:field_degree_level]/[node:title]'
 selection_criteria:
   ad7d1ab9-201b-4aac-bc6e-b20e752d9d09:
     id: 'entity_bundle:node'
     negate: false
-    uuid: ad7d1ab9-201b-4aac-bc6e-b20e752d9d09
     context_mapping:
       node: node
     bundles:
