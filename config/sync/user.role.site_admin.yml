@@ -114,6 +114,7 @@ permissions:
   - 'administer workbench access'
   - 'assign editor role'
   - 'assign jobs_and_editor role'
+  - 'assign library_content_viewer role'
   - 'assign personnel role'
   - 'assign selected workbench access'
   - 'assign site_admin role'
