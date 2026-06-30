@@ -828,13 +828,13 @@ function citizen_custom_entity_presave(EntityInterface $entity){
 
 				$to = implode(',', [
 					'larsomat@uwec.edu',
-					'ernstcs@uwec.edu',
+					//'ernstcs@uwec.edu',
 					//'browers@uwec.edu',
 					//'hakesbr@uwec.edu',
 					//'hansonbj@uwec.edu',
 					//'egelande@uwec.edu',
 					//'garveyn@uwec.edu',
-					//'stevenej@uwec.edu',
+					'stevenej@uwec.edu',
 				]);
 
 				$module = 'citizen_custom';

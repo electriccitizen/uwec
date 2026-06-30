@@ -84,6 +84,7 @@
     "drupal/search_api": "^1.18",
     "drupal/simple_sitemap": "^4.2",
     "drupal/smart_date": "^4.0",
+    "drupal/smtp": "^1.4",
     "drupal/stable": "^2.0",
     "drupal/stage_file_proxy": "^3.1",
     "drupal/superfish": "^1.13",
