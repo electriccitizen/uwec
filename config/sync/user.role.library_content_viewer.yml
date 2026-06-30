@@ -1,0 +1,12 @@
+uuid: 31a4687e-4812-41df-9013-d82570217d13
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: library_content_viewer
+label: 'Library Content Viewer'
+weight: -5
+is_admin: false
+permissions:
+  - 'access content overview'

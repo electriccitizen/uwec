@@ -1,0 +1,14 @@
+uuid: e4990f17-4444-4174-88fb-0b92724b69d9
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.library_content_viewer
+  module:
+    - user
+id: user_remove_role_action.library_content_viewer
+label: 'Remove the Library Content Viewer role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: library_content_viewer

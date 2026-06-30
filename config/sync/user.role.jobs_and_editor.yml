@@ -29,7 +29,7 @@ dependencies:
     - workbench_access
 id: jobs_and_editor
 label: Jobs
-weight: -3
+weight: -2
 is_admin: null
 permissions:
   - 'access content overview'
