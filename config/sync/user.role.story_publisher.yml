@@ -18,6 +18,7 @@ label: 'Story Publisher'
 weight: -3
 is_admin: false
 permissions:
+  - 'access content overview'
   - 'access taxonomy overview'
   - 'create news content'
   - 'create paragraph content quote'

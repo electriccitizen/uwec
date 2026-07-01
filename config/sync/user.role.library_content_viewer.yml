@@ -4,9 +4,11 @@ status: true
 dependencies:
   module:
     - node
+    - shortcut
 id: library_content_viewer
 label: 'Library Content Viewer'
 weight: -5
 is_admin: false
 permissions:
   - 'access content overview'
+  - 'access shortcuts'

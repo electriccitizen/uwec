@@ -4,19 +4,14 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
-    - core.entity_view_mode.node.widget
     - field.storage.node.body
     - field.storage.node.field_date
-    - field.storage.node.field_eyebrow
-    - field.storage.node.field_grad_year
     - field.storage.node.field_image
-    - field.storage.node.field_is_quote
-    - field.storage.node.field_major
-    - field.storage.node.field_position
     - node.type.testimonial
     - taxonomy.vocabulary.page_families
     - taxonomy.vocabulary.placement_tags
     - user.role.administrator
+    - user.role.library_content_viewer
     - user.role.site_admin
   content:
     - 'taxonomy_term:page_families:1b9e2509-ebaf-47ba-ae02-0baaba0f363b'
@@ -1029,6 +1024,7 @@ display:
           role:
             administrator: administrator
             site_admin: site_admin
+            library_content_viewer: library_content_viewer
       sorts:
         field_date_value:
           id: field_date_value

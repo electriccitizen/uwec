@@ -13,6 +13,7 @@ dependencies:
     - taxonomy.vocabulary.placement_tags
     - taxonomy.vocabulary.snapshot_types
     - user.role.administrator
+    - user.role.library_content_viewer
     - user.role.site_admin
   content:
     - 'taxonomy_term:page_families:1b9e2509-ebaf-47ba-ae02-0baaba0f363b'
@@ -1135,6 +1136,7 @@ display:
           role:
             administrator: administrator
             site_admin: site_admin
+            library_content_viewer: library_content_viewer
       empty:
         area_text_custom:
           id: area_text_custom
