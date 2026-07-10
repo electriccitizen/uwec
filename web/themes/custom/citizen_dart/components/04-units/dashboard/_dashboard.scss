@@ -14,13 +14,14 @@
 }
 .user-dashboard{
 	max-width: 945px;
+	position:relative;
 	@include auto;
-  background: $white;
-  padding: 75px $siteMarginMobile 60px;
-  @include desk {
-    padding-left: 80px;
-    padding-right: 80px;
-  }
+	background: $white;
+	padding: 75px $siteMarginMobile 60px;
+	@include desk {
+		padding-left: 80px;
+		padding-right: 80px;
+	}
 	.field-user-image{
 		border-radius: 50%;
 		overflow: hidden;
