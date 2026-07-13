@@ -4,7 +4,6 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
-    - field.storage.node.field_date
     - field.storage.node.field_plain_text
     - field.storage.node.field_source
     - field.storage.node.field_source_link_internal
@@ -18,11 +17,9 @@ dependencies:
     - 'taxonomy_term:page_families:1b9e2509-ebaf-47ba-ae02-0baaba0f363b'
     - 'taxonomy_term:placement_tags:c007c106-551e-4d9c-b679-91fe6ad84dc5'
   module:
-    - datetime
     - node
     - options
     - paragraphs
-    - smart_date
     - taxonomy
     - user
     - views_bulk_operations
@@ -1166,83 +1163,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-        field_date:
-          id: field_date
-          table: node__field_date
-          field: field_date
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: field
-          label: 'Expiration Date'
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: smartdate_default
-          settings:
-            timezone_override: America/North_Dakota/Center
-            format: date_only
-            force_chronological: false
-            add_classes: false
-            time_wrapper: false
-            localize: false
-            parts:
-              start: start
-              end: '0'
-              duration: '0'
-            duration:
-              separator: ' | '
-              unit: ''
-              decimals: 2
-              suffix: h
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
         operations:
           id: operations
           table: node
@@ -1360,54 +1280,6 @@ display:
             remember_roles:
               authenticated: authenticated
             reduce: false
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-        field_date_value:
-          id: field_date_value
-          table: node__field_date
-          field: field_date_value
-          relationship: none
-          group_type: group
-          admin_label: 'Expiration Date'
-          plugin_id: datetime
-          operator: '<'
-          value:
-            min: ''
-            max: ''
-            value: ''
-            type: date
-          group: 1
-          exposed: true
-          expose:
-            operator_id: field_date_value_op
-            label: 'Expiration Date'
-            description: ''
-            use_operator: true
-            operator: field_date_value_op
-            operator_limit_selection: true
-            operator_list:
-              '<': '<'
-              '>': '>'
-              between: between
-            identifier: field_date_value
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-            min_placeholder: ''
-            max_placeholder: ''
-            placeholder: ''
           is_grouped: false
           group_info:
             label: ''
@@ -1767,7 +1639,6 @@ display:
         - 'user.node_grants:view'
         - user.roles
       tags:
-        - 'config:field.storage.node.field_date'
         - 'config:field.storage.node.field_plain_text'
         - 'config:field.storage.node.field_source'
         - 'config:field.storage.node.field_source_link_internal'
