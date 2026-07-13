@@ -5,7 +5,6 @@ dependencies:
   config:
     - core.entity_view_mode.node.content_thumbnail
     - field.field.node.fact.field_colleges
-    - field.field.node.fact.field_date
     - field.field.node.fact.field_departments
     - field.field.node.fact.field_editorial_sections
     - field.field.node.fact.field_list_widget
@@ -45,7 +44,6 @@ content:
     region: content
 hidden:
   field_colleges: true
-  field_date: true
   field_departments: true
   field_editorial_sections: true
   field_list_widget: true

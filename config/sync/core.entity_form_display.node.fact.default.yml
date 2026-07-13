@@ -4,7 +4,6 @@ status: true
 dependencies:
   config:
     - field.field.node.fact.field_colleges
-    - field.field.node.fact.field_date
     - field.field.node.fact.field_departments
     - field.field.node.fact.field_editorial_sections
     - field.field.node.fact.field_list_widget
@@ -20,7 +19,6 @@ dependencies:
     - workflows.workflow.marketing
   module:
     - content_moderation
-    - datetime
     - field_group
     - path
 third_party_settings:
@@ -55,12 +53,6 @@ content:
       match_limit: 10
       size: 60
       placeholder: ''
-    third_party_settings: {  }
-  field_date:
-    type: datetime_default
-    weight: 4
-    region: content
-    settings: {  }
     third_party_settings: {  }
   field_departments:
     type: entity_reference_autocomplete

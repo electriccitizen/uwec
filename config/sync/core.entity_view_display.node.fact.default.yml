@@ -4,7 +4,6 @@ status: true
 dependencies:
   config:
     - field.field.node.fact.field_colleges
-    - field.field.node.fact.field_date
     - field.field.node.fact.field_departments
     - field.field.node.fact.field_editorial_sections
     - field.field.node.fact.field_list_widget
@@ -18,7 +17,6 @@ dependencies:
     - field.field.node.fact.layout_builder__layout
     - node.type.fact
   module:
-    - datetime
     - layout_builder
     - layout_builder_restrictions
     - layout_discovery
@@ -128,39 +126,6 @@ third_party_settings:
                 third_party_settings: {  }
             weight: 14
             additional: {  }
-          e3fefe5d-bd84-4bcf-abe3-62d4f7940c34:
-            uuid: e3fefe5d-bd84-4bcf-abe3-62d4f7940c34
-            region: content
-            configuration:
-              id: 'field_block:node:fact:field_date'
-              label: 'Expiration date'
-              label_display: '0'
-              provider: layout_builder
-              context_mapping:
-                entity: layout_builder.entity
-                view_mode: view_mode
-              formatter:
-                type: smartdate_default
-                label: inline
-                settings:
-                  timezone_override: America/North_Dakota/Center
-                  format: date_only
-                  force_chronological: false
-                  add_classes: false
-                  time_wrapper: false
-                  localize: false
-                  parts:
-                    start: start
-                    end: '0'
-                    duration: '0'
-                  duration:
-                    separator: ' | '
-                    unit: ''
-                    decimals: 2
-                    suffix: h
-                third_party_settings: {  }
-            weight: 10
-            additional: {  }
           259d248c-a05d-480a-98a1-055c22187d13:
             uuid: 259d248c-a05d-480a-98a1-055c22187d13
             region: content
@@ -262,15 +227,6 @@ content:
       link: true
     third_party_settings: {  }
     weight: 123
-    region: content
-  field_date:
-    type: datetime_default
-    label: above
-    settings:
-      timezone_override: ''
-      format_type: medium
-    third_party_settings: {  }
-    weight: 107
     region: content
   field_departments:
     type: entity_reference_label
