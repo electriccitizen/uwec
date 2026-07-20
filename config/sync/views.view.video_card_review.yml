@@ -4,15 +4,11 @@ status: true
 dependencies:
   config:
     - field.storage.node.body
-    - field.storage.node.field_colleges
-    - field.storage.node.field_departments
-    - field.storage.node.field_page_families
     - field.storage.node.field_placement_tags
     - field.storage.node.field_programs
     - field.storage.node.field_video
     - image.style.thumbnail
     - node.type.video_card
-    - taxonomy.vocabulary.page_families
     - taxonomy.vocabulary.placement_tags
     - user.role.administrator
     - user.role.library_content_viewer
@@ -37,7 +33,7 @@ display:
     display_plugin: default
     position: 0
     display_options:
-      title: 'Video Card Review'
+      title: 'Video Cards Dashboard'
       fields:
         title:
           id: title
@@ -205,195 +201,6 @@ display:
           type: text_default
           settings: {  }
           group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-        field_colleges:
-          id: field_colleges
-          table: node__field_colleges
-          field: field_colleges
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: field
-          label: College(s)
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: target_id
-          type: entity_reference_label
-          settings:
-            link: true
-          group_column: target_id
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-        field_departments:
-          id: field_departments
-          table: node__field_departments
-          field: field_departments
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: field
-          label: Department(s)
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: target_id
-          type: entity_reference_label
-          settings:
-            link: true
-          group_column: target_id
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-        field_page_families:
-          id: field_page_families
-          table: node__field_page_families
-          field: field_page_families
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: field
-          label: 'Page Families'
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: target_id
-          type: entity_reference_label
-          settings:
-            link: true
-          group_column: target_id
           group_columns: {  }
           group_rows: true
           delta_limit: 0
@@ -686,51 +493,6 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-        field_page_families_target_id:
-          id: field_page_families_target_id
-          table: node__field_page_families
-          field: field_page_families_target_id
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: taxonomy_index_tid
-          operator: or
-          value: {  }
-          group: 1
-          exposed: true
-          expose:
-            operator_id: field_page_families_target_id_op
-            label: 'Page Families'
-            description: ''
-            use_operator: false
-            operator: field_page_families_target_id_op
-            operator_limit_selection: false
-            operator_list: {  }
-            identifier: field_page_families_target_id
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-            reduce: false
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          reduce_duplicates: false
-          vid: page_families
-          type: textfield
-          hierarchy: false
-          limit: true
-          error_message: true
         field_placement_tags_target_id:
           id: field_placement_tags_target_id
           table: node__field_placement_tags
@@ -776,94 +538,6 @@ display:
           hierarchy: false
           limit: true
           error_message: true
-        field_colleges_target_id:
-          id: field_colleges_target_id
-          table: node__field_colleges
-          field: field_colleges_target_id
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: numeric
-          operator: '='
-          value:
-            min: ''
-            max: ''
-            value: ''
-          group: 1
-          exposed: true
-          expose:
-            operator_id: field_colleges_target_id_op
-            label: College(s)
-            description: ''
-            use_operator: false
-            operator: field_colleges_target_id_op
-            operator_limit_selection: false
-            operator_list: {  }
-            identifier: field_colleges_target_id
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-            min_placeholder: ''
-            max_placeholder: ''
-            placeholder: ''
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-        field_departments_target_id:
-          id: field_departments_target_id
-          table: node__field_departments
-          field: field_departments_target_id
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: numeric
-          operator: '='
-          value:
-            min: ''
-            max: ''
-            value: ''
-          group: 1
-          exposed: true
-          expose:
-            operator_id: field_departments_target_id_op
-            label: Department(s)
-            description: ''
-            use_operator: false
-            operator: field_departments_target_id_op
-            operator_limit_selection: false
-            operator_list: {  }
-            identifier: field_departments_target_id
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-            min_placeholder: ''
-            max_placeholder: ''
-            placeholder: ''
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
         field_programs_target_id:
           id: field_programs_target_id
           table: node__field_programs
@@ -938,21 +612,18 @@ display:
         - user.roles
       tags:
         - 'config:field.storage.node.body'
-        - 'config:field.storage.node.field_colleges'
-        - 'config:field.storage.node.field_departments'
-        - 'config:field.storage.node.field_page_families'
         - 'config:field.storage.node.field_placement_tags'
         - 'config:field.storage.node.field_programs'
         - 'config:field.storage.node.field_video'
   video_card_review:
     id: video_card_review
-    display_title: 'Video Card Review'
+    display_title: 'Video Cards Dashboard'
     display_plugin: page
     position: 1
     display_options:
       display_description: ''
       display_extenders: {  }
-      path: admin/video-card-review
+      path: admin/video-cards-dashboard
     cache_metadata:
       max-age: -1
       contexts:
@@ -963,9 +634,6 @@ display:
         - user.roles
       tags:
         - 'config:field.storage.node.body'
-        - 'config:field.storage.node.field_colleges'
-        - 'config:field.storage.node.field_departments'
-        - 'config:field.storage.node.field_page_families'
         - 'config:field.storage.node.field_placement_tags'
         - 'config:field.storage.node.field_programs'
         - 'config:field.storage.node.field_video'

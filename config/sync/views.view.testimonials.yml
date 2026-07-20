@@ -560,11 +560,11 @@ display:
       tags: {  }
   review:
     id: review
-    display_title: 'Testimonial Review'
+    display_title: 'Testimonials Dashboard'
     display_plugin: page
     position: 2
     display_options:
-      title: 'Testimonial Review'
+      title: 'Testimonials Dashboard'
       fields:
         title:
           id: title
@@ -1195,34 +1195,7 @@ display:
             administrator: administrator
             site_admin: site_admin
             library_content_viewer: library_content_viewer
-      sorts:
-        field_date_value:
-          id: field_date_value
-          table: node__field_date
-          field: field_date_value
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: datetime
-          order: DESC
-          expose:
-            label: 'Add Date'
-            field_identifier: field_date_value
-          exposed: true
-          granularity: day
-        field_image_target_id:
-          id: field_image_target_id
-          table: node__field_image
-          field: field_image_target_id
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: standard
-          order: ASC
-          expose:
-            label: 'Lack of Image'
-            field_identifier: field_image
-          exposed: true
+      sorts: {  }
       filters:
         type:
           id: type
@@ -1410,94 +1383,6 @@ display:
           hierarchy: false
           limit: true
           error_message: true
-        field_colleges_target_id:
-          id: field_colleges_target_id
-          table: node__field_colleges
-          field: field_colleges_target_id
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: numeric
-          operator: '='
-          value:
-            min: ''
-            max: ''
-            value: ''
-          group: 1
-          exposed: true
-          expose:
-            operator_id: field_colleges_target_id_op
-            label: College
-            description: ''
-            use_operator: false
-            operator: field_colleges_target_id_op
-            operator_limit_selection: false
-            operator_list: {  }
-            identifier: field_colleges_target_id
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-            min_placeholder: ''
-            max_placeholder: ''
-            placeholder: ''
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-        field_departments_target_id:
-          id: field_departments_target_id
-          table: node__field_departments
-          field: field_departments_target_id
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: numeric
-          operator: '='
-          value:
-            min: ''
-            max: ''
-            value: ''
-          group: 1
-          exposed: true
-          expose:
-            operator_id: field_departments_target_id_op
-            label: Department
-            description: ''
-            use_operator: false
-            operator: field_departments_target_id_op
-            operator_limit_selection: false
-            operator_list: {  }
-            identifier: field_departments_target_id
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-            min_placeholder: ''
-            max_placeholder: ''
-            placeholder: ''
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
         field_programs_target_id:
           id: field_programs_target_id
           table: node__field_programs
@@ -1554,11 +1439,73 @@ display:
           default_row_class: true
           columns:
             title: title
-          default: '-1'
+            body: body
+            field_date: field_date
+            uid: uid
+            field_image: field_image
+            field_departments: field_departments
+            field_programs: field_programs
+            field_placement_tags: field_placement_tags
+            field_colleges: field_colleges
+            operations: operations
+          default: field_date
           info:
             title:
               sortable: false
               default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            body:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_date:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            uid:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_image:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_departments:
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_programs:
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_placement_tags:
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_colleges:
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            operations:
               align: ''
               separator: ''
               empty_column: false
@@ -1586,14 +1533,14 @@ display:
         filter_groups: false
       display_description: ''
       display_extenders: {  }
-      path: admin/testimonial-review
+      path: admin/testimonials-dashboard
     cache_metadata:
       max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url
-        - 'url.query_args:sort_by'
+        - url.query_args
         - 'user.node_grants:view'
         - user.roles
       tags:

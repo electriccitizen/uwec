@@ -242,101 +242,71 @@ function citizen_custom_for_job_search_form_alter(&$form, FormStateInterface $fo
 }
 
 function citizen_custom_form_views_exposed_form_alter(&$form, FormStateInterface $form_state, $form_id) {
-
-    /* Build custom select filters from node references for program search */
-    if ($form['#id'] == 'views-exposed-form-program-search-program-search') {
-      $storage = Drupal::getContainer()->get('entity_type.manager')->getStorage('node');
-      $nids = $storage->getQuery();
-      $nids = $nids->condition('type', 'college')
-      ->condition('status', 1)
-      ->sort('title')
-      ->accessCheck(TRUE)
-      ->execute();
-      if (!$nids) {
+  // Build custom select filters from node references for program search
+  if ($form['#id'] == 'views-exposed-form-program-search-program-search') {
+    $storage = Drupal::getContainer()->get('entity_type.manager')->getStorage('node');
+    $nids = $storage->getQuery();
+    $nids = $nids->condition('type', 'college')
+    ->condition('status', 1)
+    ->sort('title')
+    ->accessCheck(TRUE)
+    ->execute();
+    if (!$nids) {
       return FALSE;
-      }
-      $options = [];
-      $nodes = $storage->loadMultiple($nids);
-      $options[''] = '- Any -';
-      foreach ($nodes as $node) {
-        $options[$node->id()] = $node->getTitle();
-      }
-      $college_filter = 'college_filter';
-      $form[$college_filter]['#type'] = 'select';
-      $form[$college_filter]['#multiple'] = FALSE;
-      $form[$college_filter]['#options'] = $options;
-      unset($form[$college_filter]['#size']);
     }
-
-    /* Build custom select lists for departments and programs on admin content & review displays */
-    if (($form['#id'] == 'views-exposed-form-content-page-1') || ($form['#id'] == 'views-exposed-form-facts-review') || ($form['#id'] == 'views-exposed-form-snapshots-review') || ($form['#id'] == 'views-exposed-form-testimonials-review') || ($form['#id'] == 'views-exposed-form-video-card-review-video-card-review')) {
-      $storage = Drupal::getContainer()->get('entity_type.manager')->getStorage('node');
-
-      /* department filter */
-      $departmentNodes = $storage->getQuery();
-      $departmentNodes = $departmentNodes->condition('type', 'department')
-      ->sort('title')
-      ->accessCheck(TRUE)
-      ->execute();
-      if (!$departmentNodes) {
-        return FALSE;
-      }
-      $options = [];
-      $departments = $storage->loadMultiple($departmentNodes);
-      $options[''] = '- Any -';
-      foreach ($departments as $department) {
-        $options[$department->id()] = $department->getTitle();
-      }
-      $department_filter = 'field_departments_target_id';
-      $form[$department_filter]['#type'] = 'select';
-      $form[$department_filter]['#multiple'] = FALSE;
-      $form[$department_filter]['#options'] = $options;
-      unset($form[$department_filter]['#size']);
-
-      /* program filter */
-      $programNodes = $storage->getQuery();
-      $programNodes = $programNodes->condition('type', 'academic_program')
-      ->sort('title')
-      ->accessCheck(TRUE)
-      ->execute();
-      if (!$programNodes) {
-        return FALSE;
-      }
-      $options = [];
-      $programs = $storage->loadMultiple($programNodes);
-      $options[''] = '- Any -';
-      foreach ($programs as $program) {
-        $options[$program->id()] = $program->getTitle();
-      }
-      $program_filter = 'field_programs_target_id';
-      $form[$program_filter]['#type'] = 'select';
-      $form[$program_filter]['#multiple'] = FALSE;
-      $form[$program_filter]['#options'] = $options;
-      unset($form[$program_filter]['#size']);
-
-      /* college filter */
-      $collegeNodes = $storage->getQuery();
-      $collegeNodes = $collegeNodes->condition('type', 'college')
-      ->sort('title')
-      ->accessCheck(TRUE)
-      ->execute();
-      if (!$programNodes) {
-        return FALSE;
-      }
-      $options = [];
-      $colleges = $storage->loadMultiple($collegeNodes);
-      $options[''] = '- Any -';
-      foreach ($colleges as $college) {
-        $options[$college->id()] = $college->getTitle();
-      }
-      $college_filter = 'field_colleges_target_id';
-      $form[$college_filter]['#type'] = 'select';
-      $form[$college_filter]['#multiple'] = FALSE;
-      $form[$college_filter]['#options'] = $options;
-      unset($form[$college_filter]['#size']);
+    $options = [];
+    $nodes = $storage->loadMultiple($nids);
+    $options[''] = '- Any -';
+    foreach ($nodes as $node) {
+      $options[$node->id()] = $node->getTitle();
     }
+    $college_filter = 'college_filter';
+    $form[$college_filter]['#type'] = 'select';
+    $form[$college_filter]['#multiple'] = FALSE;
+    $form[$college_filter]['#options'] = $options;
+    unset($form[$college_filter]['#size']);
+  }
 
-    // Trim the Office terms to only those actually referenced by Job content.
+	// select list filters on content dashboards
+	if(($form['#id'] == 'views-exposed-form-content-page-1')
+	|| ($form['#id'] == 'views-exposed-form-facts-review')
+	|| ($form['#id'] == 'views-exposed-form-snapshots-review')
+	|| ($form['#id'] == 'views-exposed-form-testimonials-review')
+	|| ($form['#id'] == 'views-exposed-form-video-card-review-video-card-review')){
+		$storage = Drupal::getContainer()->get('entity_type.manager')->getStorage('node');
+
+		$select_fields = [
+			'field_departments_target_id'=>'department',
+			'field_programs_target_id'=>'academic_program',
+			'field_colleges_target_id'=>'college',
+		];
+		foreach($select_fields as $field_name=>$node_type){
+			// skip if this field doesn't exist on this form
+			if(!isset($form[$field_name])) continue;
+
+			// get the options as nodes
+			$nids = $storage->getQuery()
+				->condition('type', $node_type)
+				->sort('title')
+				->accessCheck(TRUE)
+				->execute();
+			if(!$nids) continue;
+			$nodes = $storage->loadMultiple($nids);
+
+			// put the nodes into an options list
+			$options = [];
+			$options[''] = '- Any -';
+			foreach ($nodes as $node) {
+				$options[$node->id()] = $node->getTitle();
+			}
+			$form[$field_name]['#type'] = 'select';
+			$form[$field_name]['#multiple'] = FALSE;
+			$form[$field_name]['#options'] = $options;
+			unset($form[$field_name]['#size']);
+		}
+	}
+
+  // Trim the Office terms to only those actually referenced by Job content.
   if ($form['#id'] === 'views-exposed-form-job-search-default') {
     if (isset($form['office']) && is_array($form['office'])) {
       /** @var \Drupal\citizen_custom\Services\CitizenOfficeFilter $office_filter */
@@ -382,7 +352,7 @@ function citizen_custom_field_widget_single_element_form_alter(&$element, FormSt
  */
 
 function citizen_custom_views_pre_view($view, $display_id, &$args) {
-	// Alters views to accept fields from related paragraphs to be used for filters.
+  // Alters views to accept fields from related paragraphs to be used for filters.
   if(isset($view->element['#name'])) {
     if ((($view->element['#name'] === 'facts') && ($view->current_display === 'list')) || (($view->element['#name'] === 'news') && ($view->current_display === 'recent_three')) || (($view->element['#name'] === 'news') && ($view->current_display === 'recent_two')) || (($view->element['#name'] === 'video_cards') && ($view->current_display === 'recent_three')) || (($view->element['#name'] === 'bios') && ($view->current_display === 'profiles_list')) || (($view->element['#name'] === 'snapshots') && ($view->current_display === 'list')) || (($view->element['#name'] === 'testimonials') && ($view->current_display === 'list')) || (($view->element['#name'] === 'programs') && ($view->current_display === 'list'))) {
       $filters = $view->display_handler->getOption('filters');
@@ -540,8 +510,8 @@ function citizen_custom_views_pre_view($view, $display_id, &$args) {
           }
           // replace the story_type_tid filter with the paragraph type (need to check if the filter is there first since videos don't have them)
           if (isset($filters['field_story_type_target_id'])) {
-	          $filters['field_story_type_target_id']['value'] = $types;
-	        }
+            $filters['field_story_type_target_id']['value'] = $types;
+          }
         } else {
           //if the type field is not used, then unset the type filter
           if (isset($filters['field_story_type_target_id'])) {
