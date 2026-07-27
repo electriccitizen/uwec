@@ -8,3 +8,6 @@ services:
     class: Drupal\citizen_custom\Services\CitizenOfficeFilter
     arguments:
       - '@entity_type.manager'
+
+  citizen_custom.office_change_notifier:
+    class: Drupal\citizen_custom\Services\OfficeChangeNotifier
