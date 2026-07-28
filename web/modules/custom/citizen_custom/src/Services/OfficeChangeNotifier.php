@@ -38,7 +38,7 @@ class OfficeChangeNotifier{
 				$to_emails = [
 					'larsomat@uwec.edu',
 					'ernstcs@uwec.edu',
-					'browers@uwec.edu',
+					'browersm@uwec.edu',
 					'hakesbr@uwec.edu',
 					'hansonbj@uwec.edu',
 					'egelande@uwec.edu',
