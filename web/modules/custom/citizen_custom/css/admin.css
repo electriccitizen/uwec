@@ -378,3 +378,10 @@ body:not(.role-super-user):not(.role-administrator):not(.role-site_admin) .node-
   }
 }
 
+
+/* facts dashboard: stretch 'text' col as much as possible */
+.facts-dashboard{
+	.views-field-field-plain-text{
+		width:100%;
+	}
+}

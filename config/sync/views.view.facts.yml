@@ -1687,7 +1687,7 @@ display:
           empty_table: false
           caption: ''
           description: ''
-          class: ''
+          class: facts-dashboard
       row:
         type: fields
         options:
