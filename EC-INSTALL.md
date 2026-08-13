@@ -1,6 +1,6 @@
 UWEC Local Development
 ======================
-Updated by Brian, 2026-04-15
+Updated by Brian, 2026-08-12
 
 # Project Details
 - **NAME:** uwec
@@ -141,13 +141,21 @@ These aliases are always available via:
 ```
 Note that not all projects will have all environments enabled.
 
-**PR-NNN** (Multidevs)
+**Multidevs (branch-named, NOT `pr-NNN`)**
 
-Whenever you create a Github pull request, a new Pantheon multidev is created in the format `PR-NNN`  (e.g. PR-123) You can interact with this environment via:
+Whenever you push a non-default branch, CircleCI creates a Pantheon multidev named after the **branch**, not the PR number. The `configure_env_vars` job in `.circleci/config.yml` lowercases the branch, maps `/` and `_` to `-`, strips any other character, forces a leading `x`, and truncates to 11 characters.
+
+So branch `UWEC-383-monthly-updates` becomes multidev `xuwec-383-m`, served at `https://xuwec-383-m-uwec.pantheonsite.io/`, and you interact with it via:
 
 ```
-@uwec.pr-123
+@uwec.xuwec-383-m
 ```
+
+Don't guess the name — list them with `terminus multidev:list uwec`. Note that `terminus env:info uwec.pr-484` will fail with "Could not find an environment" even when the PR built fine, because no `pr-NNN` environment is ever created here.
+
+Two things to expect when smoke-testing a multidev over its `*.pantheonsite.io` hostname. The homepage and content nodes return **403**, because Domain Access does not recognize that host as a registered domain — this is normal, not a regression. `/user/login` returns 200, and `drush @uwec.<multidev> status` confirms the deployed core version, so use those instead. Real functional QA runs locally against the `uwec.ddev.site` domain alias.
+
+Because these names are branch-derived rather than PR-derived, Pantheon's PR cleanup does not reap them. Stale `x...` multidevs accumulate against the site's multidev cap, so clean them up periodically — but never delete `rebuild`.
 # Enabling Xdebug
 
 Enable xdebug by running `ddev xdebug`. It will remain enabled for the entirety of your session and you can re-enable when needed. This should remain off in the DDEV config.

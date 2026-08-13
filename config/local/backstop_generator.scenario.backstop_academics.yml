@@ -5,6 +5,10 @@ dependencies: {  }
 page: null
 id: backstop_academics
 label: 'menu:main:page:Academics'
+profile_id: backstop
+bundle: page
+override_profile_domains: null
+locked: null
 description: null
 cookiePath: null
 url: 'http://uwec.ddev.site/academics'
@@ -32,7 +36,3 @@ misMatchThreshold: null
 requireSameDimensions: null
 viewports: null
 gotoParameters: null
-profile_id: backstop
-locked: null
-bundle: page
-override_profile_domains: null

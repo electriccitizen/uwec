@@ -82,6 +82,9 @@ upstream/web/
 /web/example.gitignore
 /web/index.php
 /web/robots.txt
+# Artifacts left behind by patch(1) when a scaffold patch fails to apply.
+*.orig
+*.rej
 /web/update.php
 /web/web.config
 /web/modules/README.txt

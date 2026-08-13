@@ -20,7 +20,13 @@ fi
 terminus -n drush "$TERMINUS_SITE.$TERMINUS_ENV" -- updatedb -y
 
 # If exported configuration is available, then import it.
-if [ -f "config/system.site.yml" ] ; then
+# The guard path must match $settings['config_sync_directory'] in
+# web/sites/default/settings.php, which is ../config/sync on this site.
+# The Pantheon build-tools default points one directory higher, where
+# this site has nothing, so the guard was false on every deploy and
+# config was never imported -- while updatedb and cr on either side
+# kept succeeding, which is why it went unnoticed.
+if [ -f "config/sync/system.site.yml" ] ; then
   terminus -n drush "$TERMINUS_SITE.$TERMINUS_ENV" -- config-import --yes
 fi
 
