@@ -16,6 +16,34 @@ else
   terminus -n build:env:create "$TERMINUS_SITE.dev" "$TERMINUS_ENV" --yes
 fi
 
+# Wait for Pantheon to finish applying the code before touching the database.
+#
+# terminus build:env:push stops waiting on the sync workflow after 180 seconds
+# and returns success regardless ("giving up waiting for workflow to finish").
+# On a large deploy -- a core minor, for instance -- the environment can still
+# be syncing when we reach updatedb, which then fails with "needs a higher
+# bootstrap level to run". Under `set -e` that aborts the deploy *after* the
+# code has already landed, leaving the environment running new code against an
+# un-migrated database. That happened on the 11.3.14 -> 11.4.5 deploy.
+#
+# Poll the precondition we actually care about rather than guessing a duration.
+echo "Waiting for $TERMINUS_SITE.$TERMINUS_ENV to become bootstrappable..."
+bootstrap_ready=""
+for attempt in $(seq 1 60); do
+  if terminus -n drush "$TERMINUS_SITE.$TERMINUS_ENV" -- status --field=bootstrap 2>/dev/null \
+      | grep -qi successful; then
+    echo "Environment ready after ~$((attempt * 10))s."
+    bootstrap_ready=1
+    break
+  fi
+  sleep 10
+done
+if [ -z "$bootstrap_ready" ]; then
+  echo "ERROR: $TERMINUS_SITE.$TERMINUS_ENV did not bootstrap within 600s." >&2
+  echo "Code may be deployed without database updates -- check before promoting." >&2
+  exit 1
+fi
+
 # Update the Drupal database
 terminus -n drush "$TERMINUS_SITE.$TERMINUS_ENV" -- updatedb -y
 
