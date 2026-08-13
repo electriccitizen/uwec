@@ -5,6 +5,10 @@ dependencies: {  }
 page: null
 id: backstop_node-5574
 label: 'node:department:Geography and Anthropology Department'
+profile_id: backstop
+bundle: department
+override_profile_domains: null
+locked: null
 description: null
 cookiePath: null
 url: 'http://uwec.ddev.site/node/5574'
@@ -32,7 +36,3 @@ misMatchThreshold: null
 requireSameDimensions: null
 viewports: null
 gotoParameters: null
-profile_id: backstop
-locked: null
-bundle: department
-override_profile_domains: null

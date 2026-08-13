@@ -5,6 +5,10 @@ dependencies: {  }
 page: null
 id: backstop_node-4963
 label: 'node:academic_program:Latin American and Latinx Studies - Language Emphasis'
+profile_id: backstop
+bundle: academic_program
+override_profile_domains: null
+locked: null
 description: null
 cookiePath: null
 url: 'http://uwec.ddev.site/node/4963'
@@ -32,7 +36,3 @@ misMatchThreshold: null
 requireSameDimensions: null
 viewports: null
 gotoParameters: null
-profile_id: backstop
-locked: null
-bundle: academic_program
-override_profile_domains: null

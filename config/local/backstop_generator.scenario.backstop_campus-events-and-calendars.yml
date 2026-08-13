@@ -5,6 +5,10 @@ dependencies: {  }
 page: null
 id: backstop_campus-events-and-calendars
 label: 'menu:main:page:Campus Events and Calendars'
+profile_id: backstop
+bundle: page
+override_profile_domains: null
+locked: null
 description: null
 cookiePath: null
 url: 'http://uwec.ddev.site/about/campus-events-and-calendars'
@@ -32,7 +36,3 @@ misMatchThreshold: null
 requireSameDimensions: null
 viewports: null
 gotoParameters: null
-profile_id: backstop
-locked: null
-bundle: page
-override_profile_domains: null

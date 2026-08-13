@@ -5,6 +5,10 @@ dependencies: {  }
 page: null
 id: backstop_node-11059
 label: 'node:job:Housing and Residence Life: Residence Hall Director'
+profile_id: backstop
+bundle: job
+override_profile_domains: null
+locked: null
 description: null
 cookiePath: null
 url: 'http://uwec.ddev.site/node/11059'
@@ -32,7 +36,3 @@ misMatchThreshold: null
 requireSameDimensions: null
 viewports: null
 gotoParameters: null
-profile_id: backstop
-locked: null
-bundle: job
-override_profile_domains: null
