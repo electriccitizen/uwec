@@ -1,0 +1,9 @@
+{%- if items is not empty -%}
+	<div class="wayfinding-links">
+		{%- for item in items -%}
+			<div class="wayfinding-link">
+				{{ item.content }}
+			</div>
+		{%- endfor -%}
+	</div>
+{%- endif -%}
