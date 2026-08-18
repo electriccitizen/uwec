@@ -5,11 +5,11 @@
 @use '../../../00-base/base' as *;
 
 .prefooter-inner{
-	background-color: $prefooterBack;
-	color: $prefooterText;
+  background-color: $prefooterBack;
+  color: $prefooterText;
   overflow: hidden;
-	position: relative;
-	z-index: 1;
+  position: relative;
+  z-index: 1;
   &:before {
     background: url('../images/elements/wavy-y-white-large.svg') no-repeat scroll right center / 485px, $prefooterBack;
     background-blend-mode: overlay, normal;
@@ -75,10 +75,11 @@
 }//end back anchor
 
 .site-footer{
-	background-color: $footerBack;
-	color: $footerText;
+  background-color: $footerBack;
+  color: $footerText;
   overflow: hidden;
   position: relative;
+  z-index:1;
   &:before {
     background: url('../images/elements/wavy-lines-white.png') -167.691px -117.284px / 3000px no-repeat transparent;
     background-blend-mode: overlay;
@@ -92,8 +93,6 @@
     @include tab {
       background-size: 2500px;
     }
-  }
-  @include desk {
   }
 	.modal-content{
 		color: $baseText;
