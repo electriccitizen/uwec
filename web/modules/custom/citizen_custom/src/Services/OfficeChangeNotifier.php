@@ -44,6 +44,7 @@ class OfficeChangeNotifier{
 					'egelande@uwec.edu',
 					'garveyn@uwec.edu',
 					'stevenej@uwec.edu',
+					'sotkast@uwec.edu',
 				];
 			}else{
 				$env = $_ENV['PANTHEON_ENVIRONMENT'];
