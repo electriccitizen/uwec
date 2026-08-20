@@ -30,30 +30,15 @@ class OfficeChangeNotifier{
 		$url = "https://graph.microsoft.com/v1.0/users/$from/sendMail";
 
 		// determine who gets the email based on which env we're on
-		$to_emails = [];
+		$to_emails = ['larsomat@uwec.edu'];
 		$env = '';
 		if(isset($_ENV['PANTHEON_ENVIRONMENT'])){
+			$env = $_ENV['PANTHEON_ENVIRONMENT'];
 			if($_ENV['PANTHEON_ENVIRONMENT'] == 'live'){
-				$env = 'live';
-				$to_emails = [
-					'larsomat@uwec.edu',
-					'ernstcs@uwec.edu',
-					'browersm@uwec.edu',
-					'hakesbr@uwec.edu',
-					'hansonbj@uwec.edu',
-					'egelande@uwec.edu',
-					'garveyn@uwec.edu',
-					'stevenej@uwec.edu',
-					'sotkast@uwec.edu',
-				];
-			}else{
-				$env = $_ENV['PANTHEON_ENVIRONMENT'];
-				$to_emails = ['larsomat@uwec.edu'];
+				$to_emails = ['LIST.PUBLICPROFILE.OFFICECHANGES@uwec.edu'];
 			}
 		}else{
-			// only send to a developer on any other env
 			$env = 'local';
-			$to_emails = ['larsomat@uwec.edu'];
 		}
 
 		// convert normal array of "to" addresses
