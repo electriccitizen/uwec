@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.paragraph.stats_bar_item.field_headline
+    - field.field.paragraph.stats_bar_item.field_icon
     - field.field.paragraph.stats_bar_item.field_long_text
     - paragraphs.paragraphs_type.stats_bar_item
   module:
@@ -18,6 +19,16 @@ content:
     label: hidden
     settings:
       link_to_entity: false
+      link_rel: canonical
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_icon:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: icon_img
+      link: false
     third_party_settings: {  }
     weight: 0
     region: content

@@ -12,23 +12,31 @@
 		padding-left:2rem;
 	}
 
+	.field-icon{
+		max-width:12rem;
+		margin:2rem auto;
+		img{
+			filter:brightness(0) invert(1);
+		}
+	}
+
+	h3{
+		margin-bottom:2rem;
+	}
+
 	.field-intro-text{
 		margin-bottom:4rem;
 	}
 
 	.field-stats-bar-items{
-		display:flex;
-		flex-direction:column;
+		display:grid;
+		grid-template-columns:repeat(auto-fit, minmax(36rem, 1fr));
 		gap:2rem;
-		margin-top:2rem;
-
-		@include tab{
-			flex-direction:row;
-		}
-
-		// each individual stat:
 		&>div{
-			flex:1;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			height: 100%;
 		}
 	}
 

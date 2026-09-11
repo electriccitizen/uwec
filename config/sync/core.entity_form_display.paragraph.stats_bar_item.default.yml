@@ -4,9 +4,11 @@ status: true
 dependencies:
   config:
     - field.field.paragraph.stats_bar_item.field_headline
+    - field.field.paragraph.stats_bar_item.field_icon
     - field.field.paragraph.stats_bar_item.field_long_text
     - paragraphs.paragraphs_type.stats_bar_item
   module:
+    - media_library
     - text
 id: paragraph.stats_bar_item.default
 targetEntityType: paragraph
@@ -15,11 +17,18 @@ mode: default
 content:
   field_headline:
     type: string_textfield
-    weight: 0
+    weight: 1
     region: content
     settings:
       size: 60
       placeholder: ''
+    third_party_settings: {  }
+  field_icon:
+    type: media_library_widget
+    weight: 0
+    region: content
+    settings:
+      media_types: {  }
     third_party_settings: {  }
   field_long_text:
     type: text_textarea
