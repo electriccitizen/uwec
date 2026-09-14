@@ -1,0 +1,20 @@
+uuid: 202151ad-fcba-4966-a57a-482d207dd551
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_campus_id
+  module:
+    - user
+id: user.user.field_campus_id
+field_name: field_campus_id
+entity_type: user
+bundle: user
+label: 'Campus ID'
+description: 'Uniquely identifies this person in the profiles feed.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.user.user.field_campus_id
     - field.field.user.user.field_empl_id
     - field.field.user.user.field_first_name
     - field.field.user.user.field_last_name
@@ -44,6 +45,14 @@ content:
   contact:
     weight: 5
     region: content
+  field_campus_id:
+    type: string_textfield
+    weight: 8
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
   field_empl_id:
     type: string_textfield
     weight: 7

@@ -6,6 +6,7 @@ dependencies:
     - field.field.node.bios.body
     - field.field.node.bios.field_active
     - field.field.node.bios.field_campus
+    - field.field.node.bios.field_campus_id
     - field.field.node.bios.field_colleges
     - field.field.node.bios.field_cv
     - field.field.node.bios.field_departments
@@ -460,6 +461,15 @@ content:
     third_party_settings: {  }
     weight: 118
     region: content
+  field_campus_id:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+      link_rel: canonical
+    third_party_settings: {  }
+    weight: 140
+    region: first
   field_colleges:
     type: entity_reference_label
     label: inline

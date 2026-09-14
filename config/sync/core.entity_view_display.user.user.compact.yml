@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.user.compact
+    - field.field.user.user.field_campus_id
     - field.field.user.user.field_empl_id
     - field.field.user.user.field_first_name
     - field.field.user.user.field_last_name
@@ -46,6 +47,7 @@ content:
     region: content
 hidden:
   field_authored_placeholder: true
+  field_campus_id: true
   field_empl_id: true
   field_first_name: true
   field_last_name: true

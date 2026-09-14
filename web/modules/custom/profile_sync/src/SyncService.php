@@ -13,37 +13,18 @@ use Drupal\Core\Database\Database;
  * You can retrieve an object of this class with \Drupal::service('profile_sync.sync')
  */
 class SyncService {
-	// defines how many files we want to keep around in the dir.
-	const FILES_TO_KEEP = 5;
-
-	// returns true if there is a new file that may not have been imported yet.
-	public function hasNewFile() {
-		return count($this->getFiles()) > self::FILES_TO_KEEP;
-	}
-
-	// returns true if there are some files that could be deleted.
-	public function hasOldFiles(){
-		// weirdly, this is the same logic as hasNewFile for now.
-		// but it's a different question from outside this service
-		// so just in case it changes, let's keep both public functions.
-		return $this->hasNewFile();
-	}
-
 	// gets the most recent data and performs a sync on Users and Profiles.
 	public function run() {
-		// get most recent file
-		$filename = $this->getFiles()[0];
-
-		// load that file into an array
-		$data = $this->getFileData($filename);
+		$data = $this->fetchData();
+		if(empty($data)) return;
 
 		// keep track of all profile IDs so we can un-publish all the other ones later
 		$profile_ids_in_feed = [];
 
 		// create/update/unpublish Users and Profiles
 		foreach($data as $row){
-			$user = $this->findExistingUser($row['id']);
-			$profile = $this->findExistingProfile($row['id']);
+			$user = $this->findExistingUser($row['camps_empl_id'], $row['username']);
+			$profile = $this->findExistingProfile($row['camps_empl_id']);
 
 			// create or update user
 			if($user){
@@ -92,21 +73,6 @@ class SyncService {
 		$this->unpublishProfiles($profile_ids_in_feed);
 	}
 
-	// deletes the oldest files, keeping FILES_TO_KEEP number of files in the dir.
-	public function deleteOldFiles() {
-		// get all files other than the first FILES_TO_KEEP number of files.
-		$files = $this->getFiles();
-		for($i = 0; $i < self::FILES_TO_KEEP; $i++){
-			array_shift($files);
-		}
-
-		// now delete the files we still have
-		$dir = $this->getDir();
-		foreach($files as $file){
-			unlink($dir.$file);
-		}
-	}
-
 	// returns the profile node for the given $empl_id
 	// returns false if there isn't one.
 	protected function findExistingProfile($empl_id) {
@@ -132,12 +98,13 @@ class SyncService {
 	protected function createProfile($row){
 		$profile = Node::create([
 			'type' => 'bios',
-			'field_empl_id' => $row['id'],
+			'field_empl_id' => $row['camps_empl_id'],
+			'field_campus_id' => $row['campus_id'],
 			'field_username' => $row['username'],
 			'field_email' => $row['email'],
 			'field_phone' => $row['phone'],
-			'field_first_name' => $row['firstname'],
-			'field_last_name' => $row['lastname'],
+			'field_first_name' => $row['first_name'],
+			'field_last_name' => $row['last_name'],
 			'field_position' => $row['title'],
 			'field_active' => true,
 		]);
@@ -145,7 +112,7 @@ class SyncService {
 		try{
 			$profile->save();
 		}catch(\Exception $e){
-			\Drupal::logger('profile_sync')->error('Could not create profile with EmplID: "'.$row['id'].'" Username: "'.$row['username'].'" because '.$e->getMessage());
+			\Drupal::logger('profile_sync')->error('Could not create profile with EmplID: "'.$row['camps_empl_id'].'" Username: "'.$row['username'].'" because '.$e->getMessage());
 		}
 
 		return $profile;
@@ -158,11 +125,13 @@ class SyncService {
 			return;
 		}
 
+		// TODO delete this one after prod profiles have campus IDs
+		$profile->set('field_campus_id', $row['campus_id']);
 		$profile->set('field_username', $row['username']);
 		$profile->set('field_email', $row['email']);
 		$profile->set('field_phone', $row['phone']);
-		$profile->set('field_first_name', $row['firstname']);
-		$profile->set('field_last_name', $row['lastname']);
+		$profile->set('field_first_name', $row['first_name']);
+		$profile->set('field_last_name', $row['last_name']);
 		$profile->set('field_position', $row['title']);
 
 		// set to published.
@@ -175,24 +144,46 @@ class SyncService {
 		try{
 			$profile->save();
 		}catch(\Exception $e){
-			\Drupal::logger('profile_sync')->error('Could not update profile with EmplID: "'.$row['id'].'" Username: "'.$row['username'].'" because '.$e->getMessage());
+			\Drupal::logger('profile_sync')->error('Could not update profile with EmplID: "'.$row['camps_empl_id'].'" Username: "'.$row['username'].'" because '.$e->getMessage());
 		}
 	}
 
 	// returns a User object for the given $empl_id
-	protected function findExistingUser($empl_id){
-		$query = \Drupal::entityQuery('user')
+	// otherwise, returns null
+	protected function findExistingUser($empl_id, $username){
+		$uids = \Drupal::entityQuery('user')
 			->condition('field_empl_id', $empl_id)
-			->range(0, 1);
-
-		$uids = $query->accessCheck(false)->execute();
-
+			->range(0, 1)
+			->accessCheck(false)
+			->execute();
 		if (!empty($uids)) {
 			$user = User::load(reset($uids));
-			return $user instanceof UserInterface ? $user : false;
+			if($user instanceof UserInterface){
+				return $user;
+			}
 		}
+		// in this context, a user was not found by empl_id
 
-		return false;
+		// let's see if there is a User with a matching username and blank empl_id
+		$uids = \Drupal::entityQuery('user')
+			->condition('name', $username)
+			->range(0, 1)
+			->accessCheck(false)
+			->execute();
+		if(!empty($uids)){
+			$user = User::load(reset($uids));
+			if($user instanceof UserInterface){
+				if(empty($user->field_empl_id->value)){
+					// update this user's empl_id
+					$user->set('field_empl_id', $empl_id);
+					$user->save();
+
+					return $user;
+				}else{
+					\Drupal::logger('profile_sync')->error('User "'.$username.'" (empl_id "'.$empl_id.'") found User record by username but that User has empl_id "'.$user->field_empl_id.'"');
+				}
+			}
+		}
 	}
 
 	// creates a new user based on the info in $row and returns it.
@@ -204,10 +195,10 @@ class SyncService {
 		$user = User::create([
 			'name' => $row['username'],
 			'mail' => $row['email'],
-			'field_empl_id' => $row['id'],
-			'field_first_name' => $row['firstname'],
-			'field_last_name' => $row['lastname'],
-			'empl_id' => $row['id'],
+			'field_empl_id' => $row['camps_empl_id'],
+			'field_campus_id' => $row['campus_id'],
+			'field_first_name' => $row['first_name'],
+			'field_last_name' => $row['last_name'],
 			'pass' => $pass,
 			'status' => 1,
 			'roles' => ['personnel'],
@@ -216,7 +207,7 @@ class SyncService {
 		try{
 			$user->save();
 		}catch(\Exception $e){
-			\Drupal::logger('profile_sync')->error('Could not import user with EmplID: "'.$row['id'].'" Username: "'.$row['username'].'" because '.$e->getMessage());
+			\Drupal::logger('profile_sync')->error('Could not import user with EmplID: "'.$row['camps_empl_id'].'" Username: "'.$row['username'].'" because '.$e->getMessage());
 		}
 
 		return $user;
@@ -227,11 +218,13 @@ class SyncService {
 		try{
 			$user->set('name', $row['username']);
 			$user->set('mail', $row['email']);
-			$user->set('field_first_name', $row['firstname']);
-			$user->set('field_last_name', $row['lastname']);
+			// TODO delete this after users in prod db have campus_id
+			$user->set('field_campus_id', $row['campus_id']);
+			$user->set('field_first_name', $row['first_name']);
+			$user->set('field_last_name', $row['last_name']);
 			$user->save();
 		}catch(\Exception $e){
-			\Drupal::logger('profile_sync')->error('Could not update user with EmplID: "'.$row['id'].'" Username: "'.$row['username'].'" because '.$e->getMessage());
+			\Drupal::logger('profile_sync')->error('Could not update user with EmplID: "'.$row['camps_empl_id'].'" Username: "'.$row['username'].'" because '.$e->getMessage());
 		}
 	}
 
@@ -294,70 +287,6 @@ class SyncService {
 		return $resultArray ? reset($resultArray) : $resultArray;
 	}
 
-	// returns an absolute path to the directory that contains profiles feed files
-	protected function getDir() {
-		// if we're on pantheon, use the sftp path
-		// to see this dir, click "connection settings" in pantheon and use sftp
-		if(isset($_ENV['PANTHEON_ENVIRONMENT'])){
-			return '/files/private/camps_profiles_feed/';
-		}
-
-		// we are not on pantheon, so fall back to drupal root
-		return DRUPAL_ROOT.'/camps_profiles_feed/';
-	}
-
-	// returns an array of filenames for all files that exist in the dir.
-	protected function getFiles() {
-		static $files = null;
-
-		// if we haven't loaded the files yet, load them
-		if($files === null){
-			$files = scandir($this->getDir(), SCANDIR_SORT_DESCENDING);
-			if($files === false){
-				$files = [];
-				\Drupal::logger('profile_sync')->warning('There is something wrong with the sync dir ('.$this->getDir().')');
-				return $files;
-			}
-
-			// remove "." and ".."
-			$files = array_filter($files, function($file){return $file != '.' && $file != '..';});
-		}
-
-		return $files;
-	}
-
-	// returns a big array with all the profile data that exists in the given $filename
-	protected function getFileData($filename) {
-		$filepath = $this->getDir().$filename;
-
-		// get rows and split out the first row as the headers
-		$rows = array_map('str_getcsv', file($filepath));
-
-		$headers = array_shift($rows);
-		$headers = array_map('strtolower', $headers);
-
-		// there is a weird BOM (or something) so let's just remove all non a-z (and space) characters
-		$headers = array_map(function($h){
-			return preg_replace('/[^a-z]/', '', $h);
-		}, $headers);
-
-		// stick all the data in a nice array
-		$csv = [];
-		foreach ($rows as $row) {
-			$row = array_combine($headers, $row);
-
-			// lowercase username
-			$row['username'] = strtolower($row['username']);
-
-			// format phone number from "123/456-7899" to "123-456-7899"
-			$row['phone'] = str_replace('/', '-', $row['phone']);
-
-			$csv[] = $row;
-		}
-
-		return $csv;
-	}
-
 	// un-publishes all "automatic" profiles other than the given profile nids.
 	protected function unpublishProfiles($profile_ids_in_feed){
 		$node_storage = \Drupal::entityTypeManager()->getStorage('node');
@@ -377,6 +306,38 @@ class SyncService {
 			$profile = $node_storage->load($nid);
 			$profile->setUnpublished();
 			$profile->save();
+		}
+	}
+
+	// returns a big array of all the current profiles data.
+	// returns null if unsuccessful.
+	function fetchData(){
+		// we can only fetch data if we can get the apikey from pantheon secrets
+		if(!function_exists('pantheon_get_secret')) return;
+		$apikey = pantheon_get_secret('profiles_data_apikey');
+
+		$url = 'https://profilesdata.appstaging.uwec.edu/?apikey='.$apikey;
+
+		try{
+			$response = \Drupal::httpClient()->request('GET', $url, [
+				'timeout'=>10,
+				'headers'=>[
+					'Accept'=>'application/json',
+				],
+			]);
+
+			if($response->getStatusCode() == 200){
+				$data = json_decode($response->getBody()->getContents(), true);
+
+				// lowercase usernames
+				foreach($data as $key=>$dat){
+					$data[$key]['username'] = strtolower($dat['username']);
+				}
+
+				return $data;
+			}
+		}catch(\Exception $e){
+			\Drupal::logger('profile_sync')->error($e->getMessage());
 		}
 	}
 }

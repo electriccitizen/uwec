@@ -7,6 +7,7 @@ dependencies:
     - field.field.node.bios.body
     - field.field.node.bios.field_active
     - field.field.node.bios.field_campus
+    - field.field.node.bios.field_campus_id
     - field.field.node.bios.field_colleges
     - field.field.node.bios.field_cv
     - field.field.node.bios.field_departments
@@ -93,6 +94,7 @@ hidden:
   content_moderation_control: true
   field_active: true
   field_campus: true
+  field_campus_id: true
   field_colleges: true
   field_cv: true
   field_education: true

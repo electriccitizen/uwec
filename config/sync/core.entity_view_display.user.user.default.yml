@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.user.user.field_campus_id
     - field.field.user.user.field_empl_id
     - field.field.user.user.field_first_name
     - field.field.user.user.field_last_name
@@ -90,6 +91,15 @@ targetEntityType: user
 bundle: user
 mode: default
 content:
+  field_campus_id:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+      link_rel: canonical
+    third_party_settings: {  }
+    weight: 52
+    region: content
   field_empl_id:
     type: string
     label: above

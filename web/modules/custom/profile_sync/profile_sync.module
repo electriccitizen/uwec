@@ -30,6 +30,7 @@ function profile_sync_form_node_bios_edit_form_alter(&$form, $form_state, $form_
 		];
 		$hide_fields = [
 			'field_empl_id',
+			'field_campus_id',
 		];
 		if (isset($form['field_position']['widget']['add_more'])) {
 			// Hide the "Add another item" button.

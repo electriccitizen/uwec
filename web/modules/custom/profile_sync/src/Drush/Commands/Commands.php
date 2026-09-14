@@ -15,24 +15,10 @@ class Commands extends DrushCommands {
 	public function run() {
 		$sync = \Drupal::service('profile_sync.sync');
 
-		// quit if there's no new file, and they don't want to run it anyway
-		if(!$sync->hasNewFile()){
-			if(!$this->io()->confirm('No new file. Sync anyway?', true)){
-				return;
-			}
-		}
-
 		// perform the sync
 		$this->io()->text('Starting sync...');
 		$sync->run();
 		$this->io()->text('..done!');
-
-		// if there are old files we could delete, ask if we should delete them:
-		if($sync->hasOldFiles()){
-			if($this->io()->confirm('There are some old files. Delete them?', true)){
-				$sync->deleteOldFiles();
-			}
-		}
 	}
 
 	// scan profiles for dirty data
