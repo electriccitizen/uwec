@@ -316,7 +316,7 @@ class SyncService {
 		if(!function_exists('pantheon_get_secret')) return;
 		$apikey = pantheon_get_secret('profiles_data_apikey');
 
-		$url = 'https://profilesdata.appstaging.uwec.edu/?apikey='.$apikey;
+		$url = 'https://profilesdata.apps.uwec.edu/?apikey='.$apikey;
 
 		try{
 			$response = \Drupal::httpClient()->request('GET', $url, [
