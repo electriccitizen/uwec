@@ -4,46 +4,39 @@
   ----------------------- */
   Drupal.behaviors.listWidget = {
     attach: function (context, settings) {
-    	$(once('isListWidget', '.field--name-field-list-type .js-form-type-select', context)).each(function(){
- 
- 				let manualFields = $('.field--name-field-manual-select,.field--name-field-testimonial,.field--name-field-facts,.field--name-field-profiles,.field--name-field-programs');
-
-        let autoFields = $('.field--name-field-placement-tag,.field--name-field-page-family,.field--name-field-type,.field--name-field-program,.field--name-field-snapshot-type,.field--name-field-limit-list,.field--name-field-randomize,.field--name-field-college,.field--name-field-department,.field--name-field-program,.field--name-field-office,.field--name-field-degree-type,.field--name-field-program-type,.field--name-field-campus,.field--name-field-degree-level');
+      $(once('isListWidget', '.field--name-field-list-type .js-form-type-select', context)).each(function(){
+        let manualFields = $('.field--name-field-manual-select,.field--name-field-testimonial,.field--name-field-facts,.field--name-field-profiles,.field--name-field-programs');
+        let autoFields = $('.field--name-field-placement-tag,.field--name-field-page-family,.field--name-field-type,.field--name-field-program,.field--name-field-snapshot-type,.field--name-field-limit-list,.field--name-field-randomize,.field--name-field-college,.field--name-field-department,.field--name-field-program,.field--name-field-office,.field--name-field-degree-type,.field--name-field-program-type,.field--name-field-campus,.field--name-field-degree-level,.field--name-field-faculty-staff');
 
         $(this).closest('.paragraphs-subform,.layout-paragraphs-component-form').find(manualFields).hide();
 
         $(document).ajaxComplete(function () {
-        // detect the chosen list type and show the proper select or manual field options
+          // detect the chosen list type and show the proper select or manual field options
           $('.field--name-field-list-type .js-form-type-select').each(function () {
-          	
-            
-          	//when an existing content placer is opened, check the type chosen and show/hide the appropriate fields 
-	          if($(this).find("option:selected").val()){
-	            var chosen = $(this).find("option:selected").text().toLowerCase().replace(/_/g, '-');
-	            if (chosen == 'auto'){
-	            	$(this).closest('.paragraphs-subform,.layout-paragraphs-component-form').find(manualFields).hide();
-	            	$(this).closest('.paragraphs-subform,.layout-paragraphs-component-form').find(autoFields).show();
-	            }else{
-	            	$(this).closest('.paragraphs-subform,.layout-paragraphs-component-form').find(autoFields).hide();
-	            	$(this).closest('.paragraphs-subform,.layout-paragraphs-component-form').find(manualFields).show();
-	            }
-	          }
+            //when an existing content placer is opened, check the type chosen and show/hide the appropriate fields
+            if($(this).find("option:selected").val()){
+              let chosen = $(this).find("option:selected").text().toLowerCase().replace(/_/g, '-');
+              if (chosen == 'auto'){
+                $(this).closest('.paragraphs-subform,.layout-paragraphs-component-form').find(manualFields).hide();
+                $(this).closest('.paragraphs-subform,.layout-paragraphs-component-form').find(autoFields).show();
+              }else{
+                $(this).closest('.paragraphs-subform,.layout-paragraphs-component-form').find(autoFields).hide();
+                $(this).closest('.paragraphs-subform,.layout-paragraphs-component-form').find(manualFields).show();
+              }
+            }
 
             //when the content type select is changed run the same checks
             $(this).find('select').change(function () {
-            	$(this).closest('.paragraphs-subform,.layout-paragraphs-component-form').find(manualFields).hide()
-              //get the option
-              var choice = $(this).find("option:selected").text().toLowerCase().replace(/_/g, '-');
-              
+              $(this).closest('.paragraphs-subform,.layout-paragraphs-component-form').find(manualFields).hide();
+              let choice = $(this).find("option:selected").text().toLowerCase().replace(/_/g, '-');
               if (choice == 'auto'){
-              	$(this).closest('.paragraphs-subform,.layout-paragraphs-component-form').find(manualFields).hide();
-              	$(this).closest('.paragraphs-subform,.layout-paragraphs-component-form').find(autoFields).show();
+                $(this).closest('.paragraphs-subform,.layout-paragraphs-component-form').find(manualFields).hide();
+                $(this).closest('.paragraphs-subform,.layout-paragraphs-component-form').find(autoFields).show();
               }else{
-              	$(this).closest('.paragraphs-subform,.layout-paragraphs-component-form').find(autoFields).hide();
-              	$(this).closest('.paragraphs-subform,.layout-paragraphs-component-form').find(manualFields).show();
+                $(this).closest('.paragraphs-subform,.layout-paragraphs-component-form').find(autoFields).hide();
+                $(this).closest('.paragraphs-subform,.layout-paragraphs-component-form').find(manualFields).show();
               }
             });
-
           });
         });//end ajax complete
       });
