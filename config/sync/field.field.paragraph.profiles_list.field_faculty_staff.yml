@@ -11,7 +11,7 @@ id: paragraph.profiles_list.field_faculty_staff
 field_name: field_faculty_staff
 entity_type: paragraph
 bundle: profiles_list
-label: Faculty/Staff
+label: 'Employee Type'
 description: ''
 required: false
 translatable: false
