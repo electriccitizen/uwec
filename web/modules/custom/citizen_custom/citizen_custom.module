@@ -653,17 +653,17 @@ function citizen_custom_preprocess_field__user__uid(&$variables){
 
 	$user = \Drupal\user\Entity\User::load($user_id);
 
-	$empl_id = $user->field_empl_id->getString();
+	$campus_id = $user->field_campus_id->getString();
 
-	// if this user does not have an empl_id, there is no profile, so do nothing.
-	if(empty($empl_id)) return;
+	// if this user does not have an campus_id, there is no profile, so do nothing.
+	if(empty($campus_id)) return;
 
-	// try to load a profile with this empl_id
+	// try to load a profile with this campus_id
 	$nodeStorage = \Drupal::entityTypeManager()->getStorage('node');
 	$nid = $nodeStorage->getQuery()
 		->accessCheck(true)
 		->condition('type', 'bios')
-		->condition('field_empl_id', $empl_id)
+		->condition('field_campus_id', $campus_id)
 		->execute();
 
 	// if it couldn't find a profile, do nothing.

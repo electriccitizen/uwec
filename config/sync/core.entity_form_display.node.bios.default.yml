@@ -13,7 +13,6 @@ dependencies:
     - field.field.node.bios.field_education
     - field.field.node.bios.field_email
     - field.field.node.bios.field_emeriti_status
-    - field.field.node.bios.field_empl_id
     - field.field.node.bios.field_faculty_staff
     - field.field.node.bios.field_first_name
     - field.field.node.bios.field_first_override
@@ -201,14 +200,6 @@ content:
     weight: 14
     region: content
     settings: {  }
-    third_party_settings: {  }
-  field_empl_id:
-    type: string_textfield
-    weight: 41
-    region: content
-    settings:
-      size: 60
-      placeholder: ''
     third_party_settings: {  }
   field_faculty_staff:
     type: options_select

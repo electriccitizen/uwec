@@ -33,13 +33,13 @@ class Commands extends DrushCommands {
 			->condition('field_active', 1);
 		$auto_nids = $query->accessCheck(false)->execute();
 
-		// print username for all profiles with no empl_id
-		echo "Checking for automatic profiles with no empl_id..\n";
+		// print username for all profiles with no campus_id
+		echo "Checking for automatic profiles with no campus_id..\n";
 		$count = 0;
 		foreach($auto_nids as $nid){
 			$profile = $node_storage->load($nid);
-			$empl_id = $profile->field_empl_id->getString();
-			if(empty($empl_id)){
+			$campus_id = $profile->field_campus_id->getString();
+			if(empty($campus_id)){
 				$username = $profile->field_username->getString();
 				echo "$username (nid $nid)\n";
 				$count++;

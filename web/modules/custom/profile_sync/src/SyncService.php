@@ -23,8 +23,8 @@ class SyncService {
 
 		// create/update/unpublish Users and Profiles
 		foreach($data as $row){
-			$user = $this->findExistingUser($row['camps_empl_id'], $row['username']);
-			$profile = $this->findExistingProfile($row['camps_empl_id']);
+			$user = $this->findExistingUser($row['campus_id'], $row['username']);
+			$profile = $this->findExistingProfile($row['campus_id']);
 
 			// create or update user
 			if($user){
@@ -73,14 +73,14 @@ class SyncService {
 		$this->unpublishProfiles($profile_ids_in_feed);
 	}
 
-	// returns the profile node for the given $empl_id
+	// returns the profile node for the given $campus_id
 	// returns false if there isn't one.
-	protected function findExistingProfile($empl_id) {
+	protected function findExistingProfile($campus_id) {
 		$node_storage = \Drupal::entityTypeManager()->getStorage('node');
 
 		$query = $node_storage->getQuery()
 			->condition('type', 'bios')
-			->condition('field_empl_id', $empl_id)
+			->condition('field_campus_id', $campus_id)
 			->range(0, 1);
 
 		$nids = $query->accessCheck(false)->execute();
@@ -98,7 +98,6 @@ class SyncService {
 	protected function createProfile($row){
 		$profile = Node::create([
 			'type' => 'bios',
-			'field_empl_id' => $row['camps_empl_id'],
 			'field_campus_id' => $row['campus_id'],
 			'field_username' => $row['username'],
 			'field_email' => $row['email'],
@@ -112,7 +111,7 @@ class SyncService {
 		try{
 			$profile->save();
 		}catch(\Exception $e){
-			\Drupal::logger('profile_sync')->error('Could not create profile with EmplID: "'.$row['camps_empl_id'].'" Username: "'.$row['username'].'" because '.$e->getMessage());
+			\Drupal::logger('profile_sync')->error('Could not create profile with CampusID: "'.$row['campus_id'].'" Username: "'.$row['username'].'" because '.$e->getMessage());
 		}
 
 		return $profile;
@@ -125,8 +124,6 @@ class SyncService {
 			return;
 		}
 
-		// TODO delete this one after prod profiles have campus IDs
-		$profile->set('field_campus_id', $row['campus_id']);
 		$profile->set('field_username', $row['username']);
 		$profile->set('field_email', $row['email']);
 		$profile->set('field_phone', $row['phone']);
@@ -144,15 +141,15 @@ class SyncService {
 		try{
 			$profile->save();
 		}catch(\Exception $e){
-			\Drupal::logger('profile_sync')->error('Could not update profile with EmplID: "'.$row['camps_empl_id'].'" Username: "'.$row['username'].'" because '.$e->getMessage());
+			\Drupal::logger('profile_sync')->error('Could not update profile with CampusID: "'.$row['campus_id'].'" Username: "'.$row['username'].'" because '.$e->getMessage());
 		}
 	}
 
-	// returns a User object for the given $empl_id
+	// returns a User object for the given $campus_id
 	// otherwise, returns null
-	protected function findExistingUser($empl_id, $username){
+	protected function findExistingUser($campus_id, $username){
 		$uids = \Drupal::entityQuery('user')
-			->condition('field_empl_id', $empl_id)
+			->condition('field_campus_id', $campus_id)
 			->range(0, 1)
 			->accessCheck(false)
 			->execute();
@@ -162,9 +159,9 @@ class SyncService {
 				return $user;
 			}
 		}
-		// in this context, a user was not found by empl_id
+		// in this context, a user was not found by campus_id
 
-		// let's see if there is a User with a matching username and blank empl_id
+		// let's see if there is a User with a matching username and blank campus_id
 		$uids = \Drupal::entityQuery('user')
 			->condition('name', $username)
 			->range(0, 1)
@@ -173,14 +170,14 @@ class SyncService {
 		if(!empty($uids)){
 			$user = User::load(reset($uids));
 			if($user instanceof UserInterface){
-				if(empty($user->field_empl_id->value)){
-					// update this user's empl_id
-					$user->set('field_empl_id', $empl_id);
+				if(empty($user->field_campus_id->value)){
+					// update this user's campus_id
+					$user->set('field_campus_id', $campus_id);
 					$user->save();
 
 					return $user;
 				}else{
-					\Drupal::logger('profile_sync')->error('User "'.$username.'" (empl_id "'.$empl_id.'") found User record by username but that User has empl_id "'.$user->field_empl_id.'"');
+					\Drupal::logger('profile_sync')->error('User "'.$username.'" (campus_id "'.$campus_id.'") found User record by username but that User has campus_id "'.$user->field_campus_id.'"');
 				}
 			}
 		}
@@ -195,7 +192,6 @@ class SyncService {
 		$user = User::create([
 			'name' => $row['username'],
 			'mail' => $row['email'],
-			'field_empl_id' => $row['camps_empl_id'],
 			'field_campus_id' => $row['campus_id'],
 			'field_first_name' => $row['first_name'],
 			'field_last_name' => $row['last_name'],
@@ -207,7 +203,7 @@ class SyncService {
 		try{
 			$user->save();
 		}catch(\Exception $e){
-			\Drupal::logger('profile_sync')->error('Could not import user with EmplID: "'.$row['camps_empl_id'].'" Username: "'.$row['username'].'" because '.$e->getMessage());
+			\Drupal::logger('profile_sync')->error('Could not import user with CampusID: "'.$row['campus_id'].'" Username: "'.$row['username'].'" because '.$e->getMessage());
 		}
 
 		return $user;
@@ -218,13 +214,11 @@ class SyncService {
 		try{
 			$user->set('name', $row['username']);
 			$user->set('mail', $row['email']);
-			// TODO delete this after users in prod db have campus_id
-			$user->set('field_campus_id', $row['campus_id']);
 			$user->set('field_first_name', $row['first_name']);
 			$user->set('field_last_name', $row['last_name']);
 			$user->save();
 		}catch(\Exception $e){
-			\Drupal::logger('profile_sync')->error('Could not update user with EmplID: "'.$row['camps_empl_id'].'" Username: "'.$row['username'].'" because '.$e->getMessage());
+			\Drupal::logger('profile_sync')->error('Could not update user with CampusID: "'.$row['campus_id'].'" Username: "'.$row['username'].'" because '.$e->getMessage());
 		}
 	}
 

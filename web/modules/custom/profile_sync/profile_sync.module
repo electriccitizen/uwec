@@ -5,10 +5,7 @@ use Drupal\Core\Access\AccessResult;
 // if there is a new file
 function profile_sync_cron() {
 	$sync = \Drupal::service('profile_sync.sync');
-	if($sync->hasNewFile()){
-		$sync->run();
-		$sync->deleteOldFiles();
-	}
+	$sync->run();
 }
 
 
@@ -29,7 +26,6 @@ function profile_sync_form_node_bios_edit_form_alter(&$form, $form_state, $form_
 			'field_position',
 		];
 		$hide_fields = [
-			'field_empl_id',
 			'field_campus_id',
 		];
 		if (isset($form['field_position']['widget']['add_more'])) {
@@ -64,10 +60,10 @@ function profile_sync_form_user_form_alter(&$form, $form_state, $form_id) {
 	// don't disable any fields for administrators
 	if(in_array('administrator', $user->getRoles())) return;
 
-	// if the empl_id field is set, disable feed fields
-	if(isset($form['field_empl_id'])){
-		$empl_id = $form['field_empl_id']['widget'][0]['value']['#default_value'];
-		if(!empty($empl_id)){
+	// if the campus_id field is set, disable feed fields
+	if(isset($form['field_campus_id'])){
+		$campus_id = $form['field_campus_id']['widget'][0]['value']['#default_value'];
+		if(!empty($campus_id)){
 			$form['account']['mail']['#disabled'] = TRUE;
 			$form['account']['name']['#disabled'] = TRUE;
 
@@ -103,11 +99,11 @@ function profile_sync_node_access(\Drupal\Core\Entity\EntityInterface $entity, $
 		}
 
 		// non-site-admins can only update their own profile
-		// so let's make sure the profile's empl_id matches the account's empl_id
-		$bio_empl_id = $entity->field_empl_id->getString();
+		// so let's make sure the profile's campus_id matches the account's campus_id
+		$bio_campus_id = $entity->field_campus_id->getString();
 		$user = \Drupal\user\Entity\User::load($account->id());
-		$user_empl_id = $user->field_empl_id->getString();
-		if($bio_empl_id === $user_empl_id){
+		$user_campus_id = $user->field_campus_id->getString();
+		if($bio_campus_id === $user_campus_id){
 			return AccessResult::allowed()->cachePerUser();
 		}else{
 			return AccessResult::forbidden()->cachePerUser();
