@@ -11,8 +11,8 @@ id: node.bios.field_faculty_staff
 field_name: field_faculty_staff
 entity_type: node
 bundle: bios
-label: Faculty/Staff
-description: 'To select multiple designations, hold down the ctrl (PC) or command (mac) key and select all desired fields.'
+label: 'Employee Type(s)'
+description: ''
 required: false
 translatable: false
 default_value: {  }
