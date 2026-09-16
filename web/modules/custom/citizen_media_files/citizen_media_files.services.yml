@@ -1,0 +1,17 @@
+services:
+  logger.channel.citizen_media_files:
+    parent: logger.channel_base
+    arguments: ['citizen_media_files']
+
+  citizen_media_files.host_detector:
+    class: Drupal\citizen_media_files\HostDetector
+    arguments: ['@settings']
+
+  citizen_media_files.edge_purger:
+    class: Drupal\citizen_media_files\EdgePurger
+    arguments:
+      - '@citizen_media_files.host_detector'
+      - '@logger.channel.citizen_media_files'
+      - '@file_url_generator'
+      - '@entity_type.manager'
+      - '@settings'
