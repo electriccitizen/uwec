@@ -172,6 +172,3 @@ For other platforms and documentation see:
 
 [DDEV DOCS](https://ddev.readthedocs.io/en/stable/users/debugging-profiling/step-debugging/)
 
-# Backstop Testing
-
-Refer to [EC-BACKSTOP.md](/tests/backstop/EC-BACKSTOP.md) for complete instructions for Visual Regression Testing using Backstop JS.

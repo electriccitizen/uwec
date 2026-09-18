@@ -13,13 +13,11 @@ no_patching: false
 storage: folder
 folder: ../config/local
 module:
-  dblog: 0
   devel: 0
   devel_generate: 0
   masquerade: 0
   stage_file_proxy: 0
   update: 0
-  backstop_generator: 0
 theme: {  }
 complete_list: {  }
 partial_list:
