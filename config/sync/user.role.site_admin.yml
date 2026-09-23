@@ -75,6 +75,7 @@ dependencies:
     - system
     - taxonomy
     - trash
+    - uwec_reports
     - view_unpublished
     - workbench_access
 id: site_admin
@@ -456,6 +457,7 @@ permissions:
   - 'view hours revisions'
   - 'view job revisions'
   - 'view latest version'
+  - 'view manual profiles report'
   - 'view news revisions'
   - 'view own unpublished content'
   - 'view page revisions'
