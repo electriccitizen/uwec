@@ -1,8 +1,7 @@
 <?php
 use Drupal\Core\Access\AccessResult;
 
-// syncs profiles when cron runs,
-// if there is a new file
+// syncs profiles when cron runs
 function profile_sync_cron() {
 	$sync = \Drupal::service('profile_sync.sync');
 	$sync->run();

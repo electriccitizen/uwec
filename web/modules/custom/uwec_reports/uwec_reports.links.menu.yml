@@ -1,0 +1,12 @@
+uwec_reports.index:
+  title: 'UWEC Reports'
+  description: 'View the list of UWEC reports'
+  route_name: 'uwec_reports.index'
+  parent: 'system.admin_reports'
+  weight: 10
+
+uwec_reports.manual_profiles:
+  title: 'Manual Profiles'
+  description: 'View profiles that are not automated by the data feed'
+  route_name: 'uwec_reports.manual_profiles'
+  parent: 'uwec_reports.index'

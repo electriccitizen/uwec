@@ -1,0 +1,5 @@
+name: UWEC Reports
+type: module
+description: Provides some reports for UWEC folks.
+package: Custom
+core_version_requirement: ^10 || ^11
