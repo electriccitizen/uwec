@@ -1,0 +1,5 @@
+<?php
+
+function uwec_reports_preprocess_menu__toolbar(&$variables) {
+	$variables['#attached']['library'][] = 'uwec_reports/icons';
+}

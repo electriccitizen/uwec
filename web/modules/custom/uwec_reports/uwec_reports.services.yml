@@ -1,0 +1,5 @@
+services:
+  uwec_reports.index_policy:
+    class: Drupal\uwec_reports\Access\IndexPolicy
+    tags:
+      - { name: access_policy }

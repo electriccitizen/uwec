@@ -2,7 +2,7 @@ uwec_reports.index:
   title: 'UWEC Reports'
   description: 'View the list of UWEC reports'
   route_name: 'uwec_reports.index'
-  parent: 'system.admin_reports'
+  parent: 'system.admin'
   weight: 10
 
 uwec_reports.manual_profiles:
