@@ -213,6 +213,7 @@ permissions:
   - 'delete any department content'
   - 'delete any document media'
   - 'delete any fact content'
+  - 'delete any file'
   - 'delete any formatted_promo block content'
   - 'delete any formatted_promo block content revisions'
   - 'delete any hours content'
