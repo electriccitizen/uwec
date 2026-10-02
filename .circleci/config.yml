@@ -1,4 +1,4 @@
-version: 2
+version: 2.1
 defaults: &defaults
   docker:
     - image: quay.io/pantheon-public/build-tools-ci:8.x-php8.1
@@ -89,7 +89,6 @@ jobs:
           no_output_timeout: 20m
 
 workflows:
-  version: 2
   build_deploy_and_test:
     jobs:
       - configure_env_vars
