@@ -27,6 +27,32 @@ fi
 # un-migrated database. That happened on the 11.3.14 -> 11.4.5 deploy.
 #
 # Poll the precondition we actually care about rather than guessing a duration.
+#
+# The bootstrap check alone is not enough. While the sync is still running the
+# environment bootstraps fine on the *old* code, so the check passes at once,
+# and Pantheon then swaps the code out from under whichever drush command is
+# running. That killed updatedb or config-import (exit 137, or a class missing
+# from a half-swapped vendor/) on four of the five September 2026 deploys, and
+# left Dev without the config those deploys carried. So wait for the sync
+# workflow itself to finish first.
+echo "Waiting for code sync on $TERMINUS_SITE.$TERMINUS_ENV to finish..."
+sync_done=""
+for attempt in $(seq 1 60); do
+  if workflows="$(terminus -n workflow:list "$TERMINUS_SITE" --format=csv --fields=env,workflow,status 2>/dev/null)" \
+      && [ -n "$workflows" ] \
+      && ! grep -qE "^$TERMINUS_ENV,.*Sync code.*,running" <<< "$workflows"; then
+    echo "Code sync finished after ~$(((attempt - 1) * 10))s."
+    sync_done=1
+    break
+  fi
+  sleep 10
+done
+if [ -z "$sync_done" ]; then
+  echo "ERROR: code sync on $TERMINUS_SITE.$TERMINUS_ENV still running after 600s." >&2
+  echo "Code may be deployed without database updates -- check before promoting." >&2
+  exit 1
+fi
+
 echo "Waiting for $TERMINUS_SITE.$TERMINUS_ENV to become bootstrappable..."
 bootstrap_ready=""
 for attempt in $(seq 1 60); do
