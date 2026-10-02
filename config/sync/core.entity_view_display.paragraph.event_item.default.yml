@@ -1,0 +1,69 @@
+uuid: cbde2ecf-ca61-43c8-bcaa-7acf88bcd853
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.event_item.field_end
+    - field.field.paragraph.event_item.field_event_title
+    - field.field.paragraph.event_item.field_links
+    - field.field.paragraph.event_item.field_long_text
+    - field.field.paragraph.event_item.field_start
+    - paragraphs.paragraphs_type.event_item
+  module:
+    - datetime
+    - linkit
+    - text
+id: paragraph.event_item.default
+targetEntityType: paragraph
+bundle: event_item
+mode: default
+content:
+  field_end:
+    type: datetime_default
+    label: hidden
+    settings:
+      timezone_override: ''
+      format_type: medium
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_event_title:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+      link_rel: canonical
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_links:
+    type: linkit
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: '0'
+      target: '0'
+      linkit_profile: wysiwyg
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_long_text:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_start:
+    type: datetime_default
+    label: hidden
+    settings:
+      timezone_override: ''
+      format_type: medium
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  search_api_excerpt: true

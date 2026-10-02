@@ -1,0 +1,24 @@
+uuid: 42a3da05-7545-4785-b0e9-f0dd818fb0d2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_intro_text
+    - filter.format.limited_html
+    - paragraphs.paragraphs_type.event_schedule
+  module:
+    - text
+id: paragraph.event_schedule.field_intro_text
+field_name: field_intro_text
+entity_type: paragraph
+bundle: event_schedule
+label: 'Intro Text'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - limited_html
+field_type: text_long

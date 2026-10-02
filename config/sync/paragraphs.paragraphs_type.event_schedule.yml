@@ -1,0 +1,10 @@
+uuid: f9862943-2ef8-40e2-b55e-662abaf258d9
+langcode: en
+status: true
+dependencies: {  }
+id: event_schedule
+label: 'Event Schedule'
+icon_uuid: null
+icon_default: null
+description: 'Display one or more events.'
+behavior_plugins: {  }

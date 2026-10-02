@@ -1,0 +1,19 @@
+uuid: 175de071-8866-4fce-917c-c47f8e5b56f9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_widget_title
+    - paragraphs.paragraphs_type.event_schedule
+id: paragraph.event_schedule.field_widget_title
+field_name: field_widget_title
+entity_type: paragraph
+bundle: event_schedule
+label: Title
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

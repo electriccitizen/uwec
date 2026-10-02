@@ -1,0 +1,21 @@
+uuid: 64363a34-df40-4fc2-b999-e786075a6172
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_start
+    - paragraphs.paragraphs_type.event_item
+  module:
+    - datetime
+id: paragraph.event_item.field_start
+field_name: field_start
+entity_type: paragraph
+bundle: event_item
+label: Start
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

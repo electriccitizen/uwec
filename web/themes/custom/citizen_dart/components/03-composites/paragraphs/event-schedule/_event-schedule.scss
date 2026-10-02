@@ -1,0 +1,43 @@
+@use '../../../00-base/base' as *;
+@use '../../../01-parts/buttons/button-mixins' as *;
+
+.paragraph--type--event-schedule{
+	background:$ice;
+	padding:4rem;
+	border-radius:4px;
+
+	.widget-title{
+		text-align:left;
+		max-width:inherit;
+	}
+
+	.field-event-title{
+		font-size:120%;
+		font-weight:bold;
+		color:$royal;
+	}
+
+	.field-links{
+		margin:2rem 0;
+
+		&>div{
+			display:inline-block;
+			margin-right:2rem;
+
+			a{
+				@include button;
+				margin:0;
+				padding:12px 24px;
+				text-transform:none;
+				font-size:14px;
+				font-weight:600;
+			}
+		}
+	}
+
+	.paragraph--type--event-item{
+		margin:6rem 0 !important;
+		border-left:2px solid $gold;
+		padding-left:2rem;
+	}
+}

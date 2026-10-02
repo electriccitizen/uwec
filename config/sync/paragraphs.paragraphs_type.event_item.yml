@@ -1,0 +1,10 @@
+uuid: fc76974d-8668-42aa-81cc-cd968d924256
+langcode: en
+status: true
+dependencies: {  }
+id: event_item
+label: 'Event Item'
+icon_uuid: null
+icon_default: null
+description: 'A single event in an Event Schedule paragraph.'
+behavior_plugins: {  }

@@ -11,6 +11,7 @@ dependencies:
     - paragraphs.paragraphs_type.contact_placer
     - paragraphs.paragraphs_type.ctas
     - paragraphs.paragraphs_type.custom_embed
+    - paragraphs.paragraphs_type.event_schedule
     - paragraphs.paragraphs_type.events_list
     - paragraphs.paragraphs_type.facts_list
     - paragraphs.paragraphs_type.fauxfile
@@ -60,10 +61,11 @@ settings:
       links_files: links_files
       block_placer: block_placer
       button: button
+      events_list: events_list
       contact_placer: contact_placer
       ctas: ctas
       custom_embed: custom_embed
-      events_list: events_list
+      event_schedule: event_schedule
       fauxfile: fauxfile
       facts_list: facts_list
       gallery: gallery
@@ -90,141 +92,147 @@ settings:
     negate: 0
     target_bundles_drag_drop:
       accordion_item:
-        weight: -91
+        weight: -95
         enabled: false
       accordions:
-        weight: -92
+        weight: -96
         enabled: true
       block_placer:
-        weight: -89
-        enabled: true
-      button:
-        weight: -88
-        enabled: true
-      contact_placer:
-        weight: -87
-        enabled: true
-      content_carousel:
-        weight: -86
-        enabled: false
-      cta_item:
-        weight: -55
-        enabled: false
-      ctas:
-        weight: -85
-        enabled: true
-      custom_embed:
-        weight: -84
-        enabled: true
-      events_list:
-        weight: -83
-        enabled: true
-      external_articles:
-        weight: -82
-        enabled: false
-      external_articles_item:
-        weight: -50
-        enabled: false
-      facts_list:
-        weight: -80
-        enabled: true
-      fauxfile:
-        weight: -81
-        enabled: true
-      fauxfile_item:
-        weight: -54
-        enabled: false
-      gallery:
-        weight: -79
-        enabled: true
-      gallery_item:
-        weight: -57
-        enabled: false
-      hallmark:
-        weight: -78
-        enabled: false
-      hero:
-        weight: -53
-        enabled: false
-      highlight_box:
-        weight: -77
-        enabled: true
-      hours_placer:
-        weight: -76
-        enabled: true
-      hours_set:
-        weight: -56
-        enabled: false
-      image:
-        weight: -75
-        enabled: true
-      layout_section:
         weight: -93
         enabled: true
-      links_files:
+      button:
+        weight: -92
+        enabled: true
+      contact_placer:
         weight: -90
         enabled: true
+      content_carousel:
+        weight: -89
+        enabled: false
+      cta_item:
+        weight: -58
+        enabled: false
+      ctas:
+        weight: -88
+        enabled: true
+      custom_embed:
+        weight: -87
+        enabled: true
+      event_item:
+        weight: -50
+        enabled: false
+      event_schedule:
+        weight: -85
+        enabled: true
+      events_list:
+        weight: -91
+        enabled: true
+      external_articles:
+        weight: -86
+        enabled: false
+      external_articles_item:
+        weight: -53
+        enabled: false
+      facts_list:
+        weight: -83
+        enabled: true
+      fauxfile:
+        weight: -84
+        enabled: true
+      fauxfile_item:
+        weight: -57
+        enabled: false
+      gallery:
+        weight: -82
+        enabled: true
+      gallery_item:
+        weight: -60
+        enabled: false
+      hallmark:
+        weight: -81
+        enabled: false
+      hero:
+        weight: -56
+        enabled: false
+      highlight_box:
+        weight: -80
+        enabled: true
+      hours_placer:
+        weight: -79
+        enabled: true
+      hours_set:
+        weight: -59
+        enabled: false
+      image:
+        weight: -78
+        enabled: true
+      layout_section:
+        weight: -97
+        enabled: true
+      links_files:
+        weight: -94
+        enabled: true
       profiles_list:
-        weight: -74
+        weight: -77
         enabled: true
       program_search:
-        weight: -72
+        weight: -75
         enabled: true
       programs_list:
-        weight: -73
+        weight: -76
         enabled: true
       quick_links:
-        weight: -71
+        weight: -74
         enabled: true
       quick_links_item:
-        weight: -49
-        enabled: false
-      quote:
-        weight: -70
-        enabled: true
-      select_item:
         weight: -52
         enabled: false
+      quote:
+        weight: -73
+        enabled: true
+      select_item:
+        weight: -55
+        enabled: false
       select_type:
-        weight: -69
+        weight: -72
         enabled: true
       slate_form:
-        weight: -68
+        weight: -71
         enabled: true
       snapshot_list:
-        weight: -67
+        weight: -70
         enabled: true
       social_media_links:
-        weight: -66
+        weight: -69
         enabled: true
       stats_bar:
-        weight: -65
+        weight: -68
         enabled: true
       stats_bar_item:
-        weight: -48
-        enabled: false
-      step_item:
         weight: -51
         enabled: false
+      step_item:
+        weight: -54
+        enabled: false
       steps:
-        weight: -64
+        weight: -67
         enabled: true
       stories_video_list:
-        weight: -63
+        weight: -66
         enabled: true
       testimonial_placer:
-        weight: -61
+        weight: -64
         enabled: true
       text:
-        weight: -62
+        weight: -65
         enabled: true
       video:
-        weight: -60
+        weight: -63
         enabled: true
       view_placer:
-        weight: -59
+        weight: -62
         enabled: true
       wayfinding:
-        weight: -58
+        weight: -61
         enabled: true
 field_type: entity_reference_revisions

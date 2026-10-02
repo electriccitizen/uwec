@@ -1,0 +1,21 @@
+uuid: 0a885944-a4af-4397-8d98-6177eb581c3c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_end
+    - paragraphs.paragraphs_type.event_item
+  module:
+    - datetime
+id: paragraph.event_item.field_end
+field_name: field_end
+entity_type: paragraph
+bundle: event_item
+label: End
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

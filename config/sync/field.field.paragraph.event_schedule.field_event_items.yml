@@ -1,0 +1,172 @@
+uuid: 9d04e292-363c-4899-bec0-895704f01a89
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_event_items
+    - paragraphs.paragraphs_type.event_item
+    - paragraphs.paragraphs_type.event_schedule
+  module:
+    - entity_reference_revisions
+id: paragraph.event_schedule.field_event_items
+field_name: field_event_items
+entity_type: paragraph
+bundle: event_schedule
+label: 'Event Items'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      event_item: event_item
+    negate: 0
+    target_bundles_drag_drop:
+      accordion_item:
+        weight: 49
+        enabled: false
+      accordions:
+        weight: 50
+        enabled: false
+      block_placer:
+        weight: 51
+        enabled: false
+      button:
+        weight: 52
+        enabled: false
+      contact_placer:
+        weight: 53
+        enabled: false
+      content_carousel:
+        weight: 54
+        enabled: false
+      cta_item:
+        weight: 55
+        enabled: false
+      ctas:
+        weight: 56
+        enabled: false
+      custom_embed:
+        weight: 57
+        enabled: false
+      event_item:
+        weight: 58
+        enabled: true
+      event_schedule:
+        weight: 59
+        enabled: false
+      events_list:
+        weight: 60
+        enabled: false
+      external_articles:
+        weight: 61
+        enabled: false
+      external_articles_item:
+        weight: 62
+        enabled: false
+      facts_list:
+        weight: 63
+        enabled: false
+      fauxfile:
+        weight: 64
+        enabled: false
+      fauxfile_item:
+        weight: 65
+        enabled: false
+      gallery:
+        weight: 66
+        enabled: false
+      gallery_item:
+        weight: 67
+        enabled: false
+      hallmark:
+        weight: 68
+        enabled: false
+      hero:
+        weight: 69
+        enabled: false
+      highlight_box:
+        weight: 70
+        enabled: false
+      hours_placer:
+        weight: 71
+        enabled: false
+      hours_set:
+        weight: 72
+        enabled: false
+      image:
+        weight: 73
+        enabled: false
+      layout_section:
+        weight: 74
+        enabled: false
+      links_files:
+        weight: 75
+        enabled: false
+      profiles_list:
+        weight: 76
+        enabled: false
+      program_search:
+        weight: 77
+        enabled: false
+      programs_list:
+        weight: 78
+        enabled: false
+      quick_links:
+        weight: 79
+        enabled: false
+      quick_links_item:
+        weight: 80
+        enabled: false
+      quote:
+        weight: 81
+        enabled: false
+      select_item:
+        weight: 82
+        enabled: false
+      select_type:
+        weight: 83
+        enabled: false
+      slate_form:
+        weight: 84
+        enabled: false
+      snapshot_list:
+        weight: 85
+        enabled: false
+      social_media_links:
+        weight: 86
+        enabled: false
+      stats_bar:
+        weight: 87
+        enabled: false
+      stats_bar_item:
+        weight: 88
+        enabled: false
+      step_item:
+        weight: 89
+        enabled: false
+      steps:
+        weight: 90
+        enabled: false
+      stories_video_list:
+        weight: 91
+        enabled: false
+      testimonial_placer:
+        weight: 92
+        enabled: false
+      text:
+        weight: 93
+        enabled: false
+      video:
+        weight: 94
+        enabled: false
+      view_placer:
+        weight: 95
+        enabled: false
+      wayfinding:
+        weight: 96
+        enabled: false
+field_type: entity_reference_revisions
