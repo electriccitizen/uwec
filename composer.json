@@ -142,6 +142,9 @@
       "drupal/focal_point": {
         "Require jquery_ui_draggable": "https://www.drupal.org/files/issues/2023-04-03/3351521-2.patch"
       },
+      "drupal/gin": {
+        "Media Library previews become excessively tall because Claro's min-height adds to Gin's square-thumbnail padding (Drupal 11.4.8+), https://www.drupal.org/project/gin/issues/3598621": "https://git.drupalcode.org/project/gin/-/merge_requests/818.diff"
+      },
       "drupal/linkit": {
         "Link to file encoding issue": "https://www.drupal.org/files/issues/2024-04-11/3436733-5-linkit-link-field-with-php81-deprecation.patch",
         "UWEC-382 / EC-284: Clear stale data-entity-* attributes when a link URL is changed manually (Linkit 7.0.13+ regression of #3111578)": "patches/linkit-clear-stale-entity-attributes-on-url-edit-3111578.patch"
