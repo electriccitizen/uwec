@@ -1,0 +1,13 @@
+diff --git a/src/Plugin/Field/FieldWidget/LinkitWidget.php b/src/Plugin/Field/FieldWidget/LinkitWidget.php
+--- a/src/Plugin/Field/FieldWidget/LinkitWidget.php
++++ b/src/Plugin/Field/FieldWidget/LinkitWidget.php
+@@ -242,7 +242,8 @@
+     foreach ($values as &$value) {
+       $parsed_url = parse_url($value['uri']);
+ 
+-      $value['uri'] = LinkitHelper::uriFromUserInput($value['uri']);
++      $uri = LinkitHelper::uriFromUserInput($value['uri']);
++      $value['uri'] = !empty($uri) ? urldecode($uri) : NULL;
+       $attributes = $value['attributes'];
+ 
+       if (!empty($parsed_url['query'])) {
