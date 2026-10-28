@@ -1,0 +1,19 @@
+uuid: 9a60746f-0c7e-4fee-a738-ad0e88dc38f1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.media.field_audio_description_url
+    - media.type.remote_video
+id: media.remote_video.field_audio_description_url
+field_name: field_audio_description_url
+entity_type: media
+bundle: remote_video
+label: 'Audio Description URL'
+description: 'A Youtube URL to a version of this video that contains audio descriptions'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

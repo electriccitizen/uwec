@@ -41,7 +41,17 @@
 
 {% block widgetContent %}
   {{ attach_library('citizen_dart/video') }}
-  {{ parent() }}
+
+  {% set video = content.field_video.0['#media'] %}
+  {% set secondary_url = video.field_audio_description_url.value %}
+  {% if secondary_url %}
+    {% set primary_url = video.field_media_oembed_video.value %}
+    <div class="remote-video-audio-description" data-primary-src="{{ primary_url }}" data-secondary-src="{{ secondary_url }}">
+      <label><input type="checkbox"> Watch video with audio descriptions</label>
+    </div>
+  {% endif %}
+
+  <div class="remote-video-wrapper">
+    {{ parent() }}
+  </div>
 {% endblock %}
-
-
