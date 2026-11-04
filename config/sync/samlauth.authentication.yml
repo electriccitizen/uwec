@@ -10,6 +10,7 @@ error_redirect_url: ''
 error_throw: false
 login_error_keep_session: false
 local_login_saml_error: true
+logout_drupal_idp: false
 logout_different_user: false
 drupal_login_roles: {  }
 sp_entity_id: 'https://www.uwec.edu/drupal'
@@ -32,14 +33,13 @@ map_users_name: false
 map_users_mail: true
 map_users_roles:
   administrator: administrator
-  editor: editor
   site_admin: site_admin
-  section_manager: section_manager
-  marketing_editor: marketing_editor
-  personnel: personnel
-  jobs_and_editor: jobs_and_editor
+  editor: editor
+  library_content_viewer: library_content_viewer
   stories: stories
   story_publisher: story_publisher
+  jobs_and_editor: jobs_and_editor
+  personnel: personnel
 create_users: false
 sync_name: true
 sync_mail: false
