@@ -30,6 +30,8 @@ permissions:
   - 'view paragraph content cta_item'
   - 'view paragraph content ctas'
   - 'view paragraph content custom_embed'
+  - 'view paragraph content event_item'
+  - 'view paragraph content event_schedule'
   - 'view paragraph content events_list'
   - 'view paragraph content external_articles'
   - 'view paragraph content external_articles_item'
