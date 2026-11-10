@@ -18,8 +18,8 @@ third_party_settings:
     unpublish_enable: false
     unpublish_required: false
     unpublish_revision: false
-name: 'Slate Form Types'
+name: 'Slate Embed Codes'
 vid: slate_script_tag_types
-description: 'Select either simple or dynamic Slate script tag'
+description: 'The list of Slate embed codes that we use on this site.'
 weight: 0
 new_revision: false
