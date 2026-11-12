@@ -11,6 +11,7 @@ dependencies:
     - paragraphs.paragraphs_type.contact_placer
     - paragraphs.paragraphs_type.ctas
     - paragraphs.paragraphs_type.custom_embed
+    - paragraphs.paragraphs_type.event_schedule
     - paragraphs.paragraphs_type.events_list
     - paragraphs.paragraphs_type.facts_list
     - paragraphs.paragraphs_type.fauxfile
@@ -62,6 +63,7 @@ settings:
       ctas: ctas
       custom_embed: custom_embed
       events_list: events_list
+      event_schedule: event_schedule
       facts_list: facts_list
       fauxfile: fauxfile
       gallery: gallery
@@ -88,123 +90,147 @@ settings:
     negate: 0
     target_bundles_drag_drop:
       accordion_item:
-        weight: -81
+        weight: -97
         enabled: false
       accordions:
-        weight: -80
+        weight: -96
         enabled: true
       block_placer:
-        weight: -78
+        weight: -94
         enabled: true
       button:
-        weight: -77
+        weight: -93
         enabled: true
       contact_placer:
-        weight: -76
+        weight: -92
         enabled: true
       content_carousel:
-        weight: -48
+        weight: -63
         enabled: false
       cta_item:
-        weight: -47
+        weight: -62
         enabled: false
       ctas:
-        weight: -75
+        weight: -91
         enabled: true
       custom_embed:
-        weight: -74
+        weight: -90
+        enabled: true
+      event_item:
+        weight: -56
+        enabled: false
+      event_schedule:
+        weight: -88
         enabled: true
       events_list:
-        weight: -73
+        weight: -89
         enabled: true
+      external_articles:
+        weight: -55
+        enabled: false
+      external_articles_item:
+        weight: -54
+        enabled: false
       facts_list:
-        weight: -72
+        weight: -87
         enabled: true
       fauxfile:
-        weight: -71
+        weight: -86
         enabled: true
       fauxfile_item:
-        weight: -46
+        weight: -61
         enabled: false
       gallery:
-        weight: -70
+        weight: -85
         enabled: true
       gallery_item:
-        weight: -49
+        weight: -64
         enabled: false
       hallmark:
-        weight: -69
+        weight: -84
         enabled: true
       hero:
-        weight: -45
+        weight: -60
         enabled: false
       highlight_box:
-        weight: -68
+        weight: -83
         enabled: true
       hours_placer:
-        weight: -67
+        weight: -82
         enabled: true
       hours_set:
-        weight: -44
+        weight: -59
         enabled: false
       image:
-        weight: -66
+        weight: -81
         enabled: true
       layout_section:
-        weight: -65
+        weight: -80
         enabled: true
       links_files:
-        weight: -79
+        weight: -95
         enabled: true
       profiles_list:
-        weight: -64
+        weight: -79
         enabled: true
       program_search:
-        weight: -62
+        weight: -77
         enabled: true
       programs_list:
-        weight: -63
+        weight: -78
         enabled: true
+      quick_links:
+        weight: -53
+        enabled: false
+      quick_links_item:
+        weight: -52
+        enabled: false
       quote:
-        weight: -61
+        weight: -76
         enabled: true
       select_item:
-        weight: -43
+        weight: -58
         enabled: false
       select_type:
-        weight: -60
+        weight: -75
         enabled: true
       slate_form:
-        weight: -57
+        weight: -72
         enabled: true
       snapshot_list:
-        weight: -59
+        weight: -74
         enabled: true
       social_media_links:
-        weight: -58
+        weight: -73
         enabled: true
+      stats_bar:
+        weight: -51
+        enabled: false
+      stats_bar_item:
+        weight: -50
+        enabled: false
       step_item:
-        weight: -42
+        weight: -57
         enabled: false
       steps:
-        weight: -56
+        weight: -71
         enabled: true
       stories_video_list:
-        weight: -55
+        weight: -70
         enabled: true
       testimonial_placer:
-        weight: -54
+        weight: -69
         enabled: true
       text:
-        weight: -53
+        weight: -68
         enabled: true
       video:
-        weight: -52
+        weight: -67
         enabled: true
       view_placer:
-        weight: -51
+        weight: -66
         enabled: true
       wayfinding:
-        weight: -50
+        weight: -65
         enabled: true
 field_type: entity_reference_revisions
