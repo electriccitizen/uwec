@@ -1,3 +1,5 @@
 view manual profiles report:
   title: "View Manual Profiles report"
-  description: "Allows users to view the Manual Profiles report"
+
+view inaccessible videos report:
+  title: "View Inaccessible Videos report"

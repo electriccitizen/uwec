@@ -4,9 +4,8 @@
 
 @use '../../../00-base/base' as *;
 
-
 .paragraph--type--video{
-	max-width: 874px;
+  max-width: 874px;
   @include auto;
   &.video-visible{
     article{
@@ -17,12 +16,24 @@
       }
     }
   }
+
   .widget-title {
     @include desk {
       margin-bottom: $spaceMdLg;
     }
   }
-	article{
-		opacity: 0;
-	}
-}//end video widget
+
+  label{
+    background:$gold;
+    padding:4px;
+    border-top-left-radius:4px;
+    border-top-right-radius:4px;
+    &:hover{
+      opacity:0.8;
+    }
+  }
+
+  article{
+    opacity: 0;
+  }
+}

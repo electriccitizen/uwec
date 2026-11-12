@@ -13,3 +13,11 @@ uwec_reports.manual_profiles:
     _title: 'Manual Profiles Report'
   requirements:
     _permission: 'view manual profiles report'
+
+uwec_reports.inaccessible_videos:
+  path: '/admin/reports/uwec/inaccessible_videos'
+  defaults:
+    _controller: '\Drupal\uwec_reports\Controller\InaccessibleVideos::index'
+    _title: 'Inaccessible Videos Report'
+  requirements:
+    _permission: 'view inaccessible videos report'

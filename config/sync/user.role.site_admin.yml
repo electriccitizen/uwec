@@ -466,6 +466,7 @@ permissions:
   - 'view department revisions'
   - 'view fact revisions'
   - 'view hours revisions'
+  - 'view inaccessible videos report'
   - 'view job revisions'
   - 'view latest version'
   - 'view manual profiles report'

@@ -10,3 +10,9 @@ uwec_reports.manual_profiles:
   description: 'View profiles that are not automated by the data feed'
   route_name: 'uwec_reports.manual_profiles'
   parent: 'uwec_reports.index'
+
+uwec_reports.inaccessible_videos:
+  title: 'Inaccessible Videos'
+  description: 'View Remote Videos that do not have an audio description variant'
+  route_name: 'uwec_reports.inaccessible_videos'
+  parent: 'uwec_reports.index'
