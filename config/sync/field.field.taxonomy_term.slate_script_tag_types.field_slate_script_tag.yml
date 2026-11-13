@@ -13,7 +13,7 @@ field_name: field_slate_script_tag
 entity_type: taxonomy_term
 bundle: slate_script_tag_types
 label: 'Slate script tag'
-description: ''
+description: 'The "simple" version of the HTML embed code that we get from Slate.'
 required: false
 translatable: false
 default_value: {  }
