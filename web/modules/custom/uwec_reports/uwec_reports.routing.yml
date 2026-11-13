@@ -21,3 +21,11 @@ uwec_reports.inaccessible_videos:
     _title: 'Inaccessible Videos Report'
   requirements:
     _permission: 'view inaccessible videos report'
+
+uwec_reports.slate_programs:
+  path: '/admin/reports/uwec/slate_programs'
+  defaults:
+    _controller: '\Drupal\uwec_reports\Controller\SlatePrograms::index'
+    _title: 'Slate Programs Report'
+  requirements:
+    _permission: 'view slate programs report'

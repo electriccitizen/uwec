@@ -16,3 +16,9 @@ uwec_reports.inaccessible_videos:
   description: 'View Remote Videos that do not have an audio description variant'
   route_name: 'uwec_reports.inaccessible_videos'
   parent: 'uwec_reports.index'
+
+uwec_reports.slate_programs:
+  title: 'Slate Programs'
+  description: 'View all Academic Programs and how they relate to Slate'
+  route_name: 'uwec_reports.slate_programs'
+  parent: 'uwec_reports.index'

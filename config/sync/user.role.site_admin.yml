@@ -474,6 +474,7 @@ permissions:
   - 'view own unpublished content'
   - 'view page revisions'
   - 'view scheduled content'
+  - 'view slate programs report'
   - 'view snapshot revisions'
   - 'view support_book revisions'
   - 'view term revisions in slate_script_tag_types'

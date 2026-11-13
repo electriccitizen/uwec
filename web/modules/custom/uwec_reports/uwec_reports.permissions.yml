@@ -3,3 +3,6 @@ view manual profiles report:
 
 view inaccessible videos report:
   title: "View Inaccessible Videos report"
+
+view slate programs report:
+  title: "View Slate Programs report"
