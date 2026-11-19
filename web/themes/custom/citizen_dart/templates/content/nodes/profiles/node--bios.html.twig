@@ -71,17 +71,175 @@
  */
 #}
 
-{% extends 'node.html.twig' %}
 
-{% block layoutSectionContent %}
-  <section id="node-section-{{ loop.index }}" class="node-section">
-  	{% if loop.index == 2 %}
-      <div class="contact-wrapper">
-        <h2 class="contact-title">Contact Information</h2>
-        {{- layoutSection -}}
+{# gather titles or title overrides #}
+{%- set titles = [] -%}
+{%- if node.field_position_override.isEmpty() -%}
+  {%- for title in node.field_position -%}
+    {%- set titles = titles | merge([title.value]) -%}
+  {%- endfor -%}
+{%- else -%}
+  {%- for title in node.field_position_override -%}
+    {%- set titles = titles|merge([title.value]) -%}
+  {%- endfor -%}
+{%- endif -%}
+
+
+{# gather departments/offices/colleges as links #}
+{%- set deplinks = [] -%}
+{%- for college in node.field_colleges -%}
+  {%- set deplinks = deplinks|merge({(college.entity.title.0.value): path('entity.node.canonical', {'node': college.target_id})}) %}
+{%- endfor -%}
+{%- for department in node.field_departments -%}
+  {%- set deplinks = deplinks|merge({(department.entity.title.0.value): path('entity.node.canonical', {'node': department.target_id})}) -%}
+{%- endfor -%}
+{%- for office in node.field_offices -%}
+  {%- set office_general_page_nid = office.entity.field_general_page.target_id -%}
+  {%- set office_url = '' -%}
+  {%- if office_general_page_nid -%}
+    {%- set office_url = path('entity.node.canonical', {'node': office_general_page_nid}) -%}
+  {%- endif -%}
+  {%- set deplinks = deplinks|merge({(office.entity.name.0.value): office_url}) -%}
+{%- endfor -%}
+
+
+<article class="node-bios">
+  <section class="blue-header">
+    <div class="cols">
+      <div class="headshot-col">
+        <div class="headshot">
+          {%- if node.field_image.isEmpty() -%}
+            <div class="media-item image">
+              {% set imagePath = '/themes/custom/citizen_dart/images/logos-badges/profile-favicon' %}
+              <picture>
+                <source srcset="{{ imagePath }}/profile-favicon-426-508.jpg 1x, {{ imagePath }}//profile-favicon-426-508-2.jpg 2x, {{ imagePath }}/profile-favicon-426-508-1-5.jpg 1.5x" media="(min-width:496px)" type="image/jpg" width="426" height="508">
+                <source srcset="{{ imagePath }}/profile-favicon-360-360.jpg 1x, {{ imagePath }}/profile-favicon-360-360-2.jpg 2x, {{ imagePath }}/profile-favicon-360-360-1-5.jpg 1.5x" type="image/jpg" width="360" height="360">
+                <img loading="eager" src="{{ imagePath }}/profile-favicon-426-508.jpg" alt="UWEC wordlogo stacked as a placeholder image">
+              </picture>
+            </div>
+          {%- else -%}
+            {{ drupal_entity('media', node.field_image.target_id, '426x508') }}
+          {%- endif -%}
+
+          {%- if node.field_emeriti_status.0 and node.field_emeriti_status.0.value != 'not_emeritus' -%}
+            <div class="emeriti-wrapper">
+              <div class="icon-wrapper">
+                <svg width="15" height="16" viewbox="0 0 15 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <g clip-path="url(#clip0_3887_16172)">
+                    <path d="M1.01999 8.82086C1.64999 11.6209 3.23999 14.6909 7.09999 15.3409H7.12999C14.57 14.1009 13.56 3.87086 13.56 3.87086C13.56 3.87086 10.81 4.09086 7.12999 0.630859H7.09999C3.41999 4.09086 0.669993 3.87086 0.669993 3.87086C0.669993 3.87086 0.579993 4.78086 0.649993 6.09086" stroke="white" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_3887_16172">
+                      <rect width="14.24" height="15.96" fill="white"/>
+                    </clipPath>
+                  </defs>
+                </svg>
+              </div>
+              <div class="field field-emeriti-status list-string">Emeritus</div>
+            </div>
+          {%- endif -%}
+
+          {%- if node.field_is_alumni.0.value -%}
+            <div class="alumni-wrapper">
+              <div class="icon-wrapper">
+                <svg width="15" height="16" viewbox="0 0 15 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <g clip-path="url(#clip0_3887_16174)">
+                    <path d="M0.619995 0.619141H14.14" stroke="white" stroke-width="1.25" stroke-miterlimit="10" stroke-linecap="round"/>
+                    <path d="M2.87 3.96914V0.619141" stroke="white" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M11.89 0.619141V7.92914V15.2391L7.38 11.2891L2.87 15.2391V7.92914V6.72914" stroke="white" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_3887_16174">
+                      <rect width="14.76" height="15.86" fill="white"/>
+                    </clipPath>
+                  </defs>
+                </svg>
+              </div>
+              <div class="field field-is-alumni list-string">Alum</div>
+            </div>
+          {% endif %}
+        </div>
       </div>
-    {% else %}
-      {{- layoutSection -}}
-    {% endif %}
+      <div>
+        <h1>
+          {{ node.field_prefixes.value }}
+          {{ node.field_first_override.value ? node.field_first_override.value : node.field_first_name.value }}
+          {{ node.field_middle_name.value }}
+          {{ node.field_last_override.value ? node.field_last_override.value : node.field_last_name.value }}
+          {{ node.field_suffixes.value }}
+        </h1>
+
+        <div class="pronouns">{{ node.field_pronouns.value }}</div>
+
+        {% if titles %}
+          <ul class="titles">
+            {% for title in titles %}
+              <li>{{ title }}</li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+
+        {% if deplinks is not empty %}
+          <ul class="deplinks">
+            {%- for dep_name, dep_url in deplinks -%}
+              <li>
+                {%- if dep_url is not empty -%}
+                  <a href="{{ dep_url }}">{{ dep_name }}</a>
+                {%- else -%}
+                  {{ dep_name }}
+                {%- endif -%}
+              </li>
+            {%- endfor -%}
+          </ul>
+        {% endif %}
+      </div>
+    </div>
   </section>
-{% endblock %}
+
+  {# determine if there is any contact info #}
+  {%- set any_contact_info = false -%}
+  {%- for field in ['field_office', 'field_phone', 'field_email', 'field_office_hours', 'field_cv', 'field_links', 'field_platforms'] -%}
+    {%- if attribute(node, field) is not empty -%}
+      {% set any_contact_info = true %}
+    {%- endif -%}
+  {%- endfor -%}
+
+  {%- if any_contact_info -%}
+    <section class="contact">
+      {{ node.field_office.value }}
+      {%- if node.field_show_phone.value -%}
+        {{ node.field_phone.value }}
+      {%- endif -%}
+      {%- if node.field_show_email.value -%}
+        {{ node.field_email.value }}
+      {%- endif -%}
+      {{ node.field_office_hours.value }}
+      {# TODO cv, links, platform #}
+    </section>
+  {%- endif -%}
+
+  {%- if not node.body.isEmpty() -%}
+    <h2>Biography</h2>
+    {{ node.body.processed | raw }}
+  {%- endif -%}
+
+  {%- if not node.field_education.isEmpty() -%}
+    <h2>Education</h2>
+    {{ node.field_education.processed | raw }}
+  {%- endif -%}
+
+  {%- if not node.field_interests.isEmpty() -%}
+    <h2>Teaching and Research Interests</h2>
+    {{ node.field_interests.processed | raw }}
+  {%- endif -%}
+
+  {%- if not node.field_publications.isEmpty() -%}
+    <h2>Published Research</h2>
+    {{ node.field_publications.processed | raw }}
+  {%- endif -%}
+
+  {%- if not node.field_honors.isEmpty() -%}
+    <h2>Honors And Recognition</h2>
+    {{ node.field_honors.processed | raw }}
+  {%- endif -%}
+</article>

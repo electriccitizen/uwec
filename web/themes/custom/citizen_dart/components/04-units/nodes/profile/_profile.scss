@@ -6,12 +6,12 @@
 @use '../node-mixins' as *;
 @use 'sass:color';
 
-//bio node
 .node-bios{
-  #node-section-1{
+  section.blue-header{
     @include headerInvasion;
     background: radial-gradient(50.13% 157.8% at 6.18% 33.85%, #0F2C46 0%, #232C99 100%);
     overflow: hidden;
+
     @include desk{
       position: relative;
       padding-top: 162px;
@@ -31,7 +31,21 @@
         mix-blend-mode: overlay;
       }
     }
+  }
 
+  .cols{
+    max-width: $contentStopMargin;
+    margin:0 auto;
+    margin-top:80px;
+
+    display:flex;
+    &>div{
+      flex:1;
+      padding:30px;
+    }
+  }
+
+    /*
     & > .layout--twocol-even {
       max-width: $contentStopMargin;
       position: relative;
@@ -65,23 +79,20 @@
         }
       }//end layout region
     }//end layout two column even
+    */
 
-    //image - but need to use uid (authored by) field because of logic needed when no image
-    .block-field.block-uid {
+    .headshot{
       padding-left: 32px;
       @include smallTab{
         padding-left: 0;
         max-width: 426px;
         margin: 0 auto $spaceMd;
       }
-      .field-uid{
-        @include desk{
-          @include safeFlex(row,wrap,end,start);
-        }
-      }
-      .image-wrapper {
+
+      .media-item.image{
         position: relative;
         margin-bottom: 2.5rem;
+        z-index:0;
         
         html.animations-paused & {
           opacity: 1;
@@ -98,13 +109,10 @@
           left: -30px;
           background-repeat: no-repeat;
           background-size: 100% 100%;
-        }//end before
-        .field-media-image,.favicon-image {
-          position: relative;
-          z-index: 15;
+          z-index:-1;
         }
-      }//end field uid (image)
-    }//end uid block (image block)
+      }
+    }
 
     .emeriti-wrapper {
       color: $white;
@@ -123,11 +131,16 @@
         svg path {
           fill: none;
         }
-      }//end icon wrapper
-    }//end emeriti
+      }
+    }
 
     .alumni-wrapper {
       @extend .emeriti-wrapper;
+    }
+
+    h1{
+      color:$gold;
+      font-size:9.375rem;
     }
 
     .block-title {
@@ -199,14 +212,13 @@
         }
       }//end field departments
     }//end departments block
-  }//end node section one
 
-	#node-section-2{
-		@include contactHolder;
+  section.contact{
+    @include contactHolder;
     max-width: 904px;
-		position: relative;
-		z-index: 10;
-		margin-bottom: $spaceMd;
+    position: relative;
+    z-index: 10;
+    margin-bottom: $spaceMd;
     
     .contact-wrapper{
       @include edgeToEdge;
@@ -216,15 +228,15 @@
     }
     .contact-title{
       @include contactTitle;
-			margin-bottom: 3.5rem;
+      margin-bottom: 3.5rem;
     }
-		.block-field {
-			margin-bottom: 1.5rem;
-		}
+    .block-field {
+      margin-bottom: 1.5rem;
+    }
     .field {
       .icon-wrapper {
         width: 16px;
-			  margin-right: 12px;
+        margin-right: 12px;
         svg,path {
           stroke: $royal;
         }
@@ -233,7 +245,7 @@
         }
       }
     }
-		.nid,.field-phone,.field-email {
+    .nid,.field-phone,.field-email {
       a {
         display: block;
         width: fit-content;
@@ -245,23 +257,23 @@
           color: $navy;
         }
       }
-		}
+    }
     .nid a{
       margin-bottom: 1.5rem;
     }
-		#hours-icon {
-			fill: none !important;
-		}
-		#phone-icon {
-			fill: none !important;
-		}
-		#cv-icon {
-			fill: none !important;
-		}
+    #hours-icon {
+      fill: none !important;
+    }
+    #phone-icon {
+      fill: none !important;
+    }
+    #cv-icon {
+      fill: none !important;
+    }
     .field-address {
       svg {
         max-height: 17px;
-			  margin-top: 6px;
+        margin-top: 6px;
       }
     }
     .field-email {
@@ -281,7 +293,7 @@
         margin-top: 2px;
       }
     }
-		.field-platforms{
+    .field-platforms{
       margin-left: -4px;
       .platform-links{
         li{
@@ -322,31 +334,31 @@
         }
       }
     }
-	}//end node section two
+  }//end node section two
 
-	#node-section-3{
-		max-width: $textMax;
-		@include auto;
-		padding-top: 3rem;
+  #node-section-3{
+    max-width: $textMax;
+    @include auto;
+    padding-top: 3rem;
     @include desk{
       padding-top: 70px;
     }
-		h2.block-title {
-			text-align: left;
+    h2.block-title {
+      text-align: left;
       font-size: 3rem;
       line-height: 1.45;
       margin-bottom: $spaceXs;
       @include desk{
         font-size: 30px;
       }
-		}
-	}//end node section three
-}//end bios
+    }
+  }//end node section three
+}
 
 /* PROFILE TEASER
 --------------------- */
 .node-teaser-bios{
-	@include profileTeaser;
+  @include profileTeaser;
   .teaser-title{
     margin-bottom: 1.5rem;
   }

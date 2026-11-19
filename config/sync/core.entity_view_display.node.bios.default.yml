@@ -46,364 +46,20 @@ dependencies:
     - field.field.node.bios.layout_builder__layout
     - node.type.bios
   module:
-    - file
     - layout_builder
     - layout_builder_restrictions
-    - layout_discovery
-    - link
-    - options
-    - text
     - user
-  theme:
-    - citizen_dart
 third_party_settings:
   layout_builder:
-    enabled: true
+    enabled: false
     allow_custom: false
-    sections:
-      -
-        layout_id: two_column_even
-        layout_settings:
-          label: ''
-          context_mapping: {  }
-        components:
-          309fb6a3-f256-4d0e-8b0a-c3eb31997687:
-            uuid: 309fb6a3-f256-4d0e-8b0a-c3eb31997687
-            region: content
-            configuration:
-              id: 'field_block:node:bios:title'
-              label: Title
-              label_display: '0'
-              provider: layout_builder
-              context_mapping:
-                entity: layout_builder.entity
-                view_mode: view_mode
-              formatter:
-                type: string
-                label: hidden
-                settings:
-                  link_to_entity: false
-                third_party_settings: {  }
-            weight: 1
-            additional: {  }
-          bcf5d1f1-5aa6-4f5d-88f0-b44131d24d6b:
-            uuid: bcf5d1f1-5aa6-4f5d-88f0-b44131d24d6b
-            region: content
-            configuration:
-              id: 'field_block:node:bios:field_pronouns'
-              label: Pronouns
-              label_display: '0'
-              provider: layout_builder
-              context_mapping:
-                entity: layout_builder.entity
-                view_mode: view_mode
-              formatter:
-                type: string
-                label: hidden
-                settings:
-                  link_to_entity: false
-                third_party_settings: {  }
-            weight: 2
-            additional: {  }
-          0dc33970-4b1b-40ad-bdaf-cc21041c88bc:
-            uuid: 0dc33970-4b1b-40ad-bdaf-cc21041c88bc
-            region: content
-            configuration:
-              id: 'field_block:node:bios:created'
-              label: 'Placeholder for titles'
-              label_display: '0'
-              provider: layout_builder
-              context_mapping:
-                entity: layout_builder.entity
-                view_mode: view_mode
-              formatter:
-                type: timestamp
-                label: hidden
-                settings:
-                  date_format: medium
-                  custom_date_format: ''
-                  timezone: ''
-                  tooltip:
-                    date_format: long
-                    custom_date_format: ''
-                  time_diff:
-                    enabled: false
-                    future_format: '@interval hence'
-                    past_format: '@interval ago'
-                    granularity: 2
-                    refresh: 60
-                    description: ''
-                third_party_settings: {  }
-            weight: 3
-            additional: {  }
-          bed31bca-ed7d-48a5-aee0-9005e0dd89f3:
-            uuid: bed31bca-ed7d-48a5-aee0-9005e0dd89f3
-            region: first
-            configuration:
-              id: 'field_block:node:bios:uid'
-              label: 'Authored by'
-              label_display: '0'
-              provider: layout_builder
-              context_mapping:
-                entity: layout_builder.entity
-                view_mode: view_mode
-              formatter:
-                type: entity_reference_label
-                label: hidden
-                settings:
-                  link: false
-                third_party_settings: {  }
-            weight: 1
-            additional: {  }
-          050ea0b2-cef0-40d8-8d72-7411845e492d:
-            uuid: 050ea0b2-cef0-40d8-8d72-7411845e492d
-            region: content
-            configuration:
-              id: 'field_block:node:bios:type'
-              label: 'Content type'
-              label_display: '0'
-              provider: layout_builder
-              context_mapping:
-                entity: layout_builder.entity
-                view_mode: view_mode
-              formatter:
-                type: entity_reference_label
-                label: hidden
-                settings:
-                  link: false
-                third_party_settings: {  }
-            weight: 5
-            additional: {  }
-        third_party_settings: {  }
-      -
-        layout_id: two_column_even
-        layout_settings:
-          label: ''
-          context_mapping: {  }
-        components:
-          8f694e3b-caca-4e32-9ba3-3dc4476f9b25:
-            uuid: 8f694e3b-caca-4e32-9ba3-3dc4476f9b25
-            region: first
-            configuration:
-              id: 'field_block:node:bios:field_office'
-              label: Office
-              label_display: '0'
-              provider: layout_builder
-              context_mapping:
-                entity: layout_builder.entity
-                view_mode: view_mode
-              formatter:
-                type: basic_string
-                label: hidden
-                settings: {  }
-                third_party_settings: {  }
-            weight: 0
-            additional: {  }
-          fb3202c4-36eb-49e3-8179-3a93348ab6a9:
-            uuid: fb3202c4-36eb-49e3-8179-3a93348ab6a9
-            region: first
-            configuration:
-              id: 'field_block:node:bios:field_phone'
-              label: Phone
-              label_display: '0'
-              provider: layout_builder
-              context_mapping:
-                entity: layout_builder.entity
-                view_mode: view_mode
-              formatter:
-                type: telephone_link
-                label: hidden
-                settings:
-                  title: ''
-                third_party_settings: {  }
-            weight: 2
-            additional: {  }
-          035a3c57-f3ea-4d25-b8ad-0d44a91b480f:
-            uuid: 035a3c57-f3ea-4d25-b8ad-0d44a91b480f
-            region: content
-            configuration:
-              id: 'field_block:node:bios:field_office_hours'
-              label: Hours
-              label_display: '0'
-              provider: layout_builder
-              context_mapping:
-                entity: layout_builder.entity
-                view_mode: view_mode
-              formatter:
-                type: basic_string
-                label: hidden
-                settings: {  }
-                third_party_settings: {  }
-            weight: 0
-            additional: {  }
-          96b798b4-02ea-424c-975c-eacfedc89041:
-            uuid: 96b798b4-02ea-424c-975c-eacfedc89041
-            region: first
-            configuration:
-              id: 'field_block:node:bios:field_email'
-              label: Email
-              label_display: '0'
-              provider: layout_builder
-              context_mapping:
-                entity: layout_builder.entity
-                view_mode: view_mode
-              formatter:
-                type: email_mailto
-                label: hidden
-                settings: {  }
-                third_party_settings: {  }
-            weight: 3
-            additional: {  }
-          1a44a0ff-430a-4b12-85ce-df3e21fae96c:
-            uuid: 1a44a0ff-430a-4b12-85ce-df3e21fae96c
-            region: content
-            configuration:
-              id: 'field_block:node:bios:field_platforms'
-              label: Platforms
-              label_display: '0'
-              provider: layout_builder
-              context_mapping:
-                entity: layout_builder.entity
-                view_mode: view_mode
-              formatter:
-                type: link
-                label: hidden
-                settings:
-                  trim_length: null
-                  url_only: true
-                  url_plain: true
-                  rel: '0'
-                  target: '0'
-                third_party_settings: {  }
-            weight: 5
-            additional: {  }
-          486ec615-7a16-4d24-b167-ea897ccfa801:
-            uuid: 486ec615-7a16-4d24-b167-ea897ccfa801
-            region: content
-            configuration:
-              id: 'field_block:node:bios:nid'
-              label: ID
-              label_display: '0'
-              provider: layout_builder
-              context_mapping:
-                entity: layout_builder.entity
-                view_mode: view_mode
-              formatter:
-                type: number_integer
-                label: hidden
-                settings:
-                  thousand_separator: ''
-                  prefix_suffix: false
-                third_party_settings: {  }
-            weight: 4
-            additional: {  }
-        third_party_settings: {  }
-      -
-        layout_id: layout_onecol
-        layout_settings:
-          label: ''
-        components:
-          4e47f8de-f9d7-4efa-9c69-e114cf0db247:
-            uuid: 4e47f8de-f9d7-4efa-9c69-e114cf0db247
-            region: content
-            configuration:
-              id: 'field_block:node:bios:field_interests'
-              label: 'Teaching and Research Interests'
-              label_display: visible
-              provider: layout_builder
-              context_mapping:
-                entity: layout_builder.entity
-                view_mode: view_mode
-              formatter:
-                type: text_default
-                label: hidden
-                settings: {  }
-                third_party_settings: {  }
-            weight: 19
-            additional: {  }
-          51f84dc7-a6fd-48ec-a3cb-552afed214a4:
-            uuid: 51f84dc7-a6fd-48ec-a3cb-552afed214a4
-            region: content
-            configuration:
-              id: 'field_block:node:bios:field_honors'
-              label: 'Honors And Recognition'
-              label_display: visible
-              provider: layout_builder
-              context_mapping:
-                entity: layout_builder.entity
-                view_mode: view_mode
-              formatter:
-                type: text_default
-                label: hidden
-                settings: {  }
-                third_party_settings: {  }
-            weight: 21
-            additional: {  }
-          b8f1809e-7a20-4e59-a3c8-33097218a597:
-            uuid: b8f1809e-7a20-4e59-a3c8-33097218a597
-            region: content
-            configuration:
-              id: 'field_block:node:bios:body'
-              label: Biography
-              label_display: visible
-              provider: layout_builder
-              context_mapping:
-                entity: layout_builder.entity
-                view_mode: view_mode
-              formatter:
-                type: text_default
-                label: hidden
-                settings: {  }
-                third_party_settings: {  }
-            weight: 17
-            additional: {  }
-          64882d8f-24f6-481c-970d-810333afd00b:
-            uuid: 64882d8f-24f6-481c-970d-810333afd00b
-            region: content
-            configuration:
-              id: 'field_block:node:bios:field_education'
-              label: Education
-              label_display: visible
-              provider: layout_builder
-              context_mapping:
-                entity: layout_builder.entity
-                view_mode: view_mode
-              formatter:
-                type: text_default
-                label: hidden
-                settings: {  }
-                third_party_settings: {  }
-            weight: 18
-            additional: {  }
-          e106a923-1488-425d-8b6d-fdedb4529b8e:
-            uuid: e106a923-1488-425d-8b6d-fdedb4529b8e
-            region: content
-            configuration:
-              id: 'field_block:node:bios:field_publications'
-              label: 'Published Research'
-              label_display: visible
-              provider: layout_builder
-              context_mapping:
-                entity: layout_builder.entity
-                view_mode: view_mode
-              formatter:
-                type: text_default
-                label: hidden
-                settings: {  }
-                third_party_settings: {  }
-            weight: 20
-            additional: {  }
-        third_party_settings: {  }
   layout_builder_restrictions:
     allowed_block_categories: {  }
     entity_view_mode_restriction:
-      allowed_layouts:
-        - layout_onecol
-        - two_column_even
+      allowed_layouts: {  }
       denylisted_blocks: {  }
       allowlisted_blocks:
-        System:
-          - system_breadcrumb_block
+        System: {  }
       restricted_categories:
         - '@entity'
         - 'Chaos Tools'
@@ -416,7 +72,6 @@ third_party_settings:
         - 'Lists (Views)'
         - Menus
         - 'Responsive Preview'
-        - Superfish
         - User
         - core
       blacklisted_blocks: {  }
@@ -430,327 +85,60 @@ targetEntityType: node
 bundle: bios
 mode: default
 content:
-  body:
-    type: text_default
-    label: hidden
-    settings: {  }
-    third_party_settings: {  }
-    weight: 101
-    region: content
   content_moderation_control:
     settings: {  }
     third_party_settings: {  }
     weight: -20
     region: content
-  field_active:
-    type: boolean
-    label: above
+  field_image:
+    type: entity_reference_entity_view
+    label: hidden
     settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
-    third_party_settings: {  }
-    weight: 134
-    region: first
-  field_campus:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 118
-    region: content
-  field_campus_id:
-    type: string
-    label: above
-    settings:
-      link_to_entity: false
-      link_rel: canonical
-    third_party_settings: {  }
-    weight: 140
-    region: first
-  field_colleges:
-    type: entity_reference_label
-    label: inline
-    settings:
+      view_mode: headshot
       link: false
     third_party_settings: {  }
-    weight: 135
-    region: first
-  field_cv:
-    type: file_default
-    label: above
-    settings:
-      use_description_as_link_text: true
-    third_party_settings: {  }
-    weight: 123
-    region: content
-  field_departments:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 119
-    region: content
-  field_education:
-    type: text_default
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    weight: 127
-    region: content
-  field_email:
-    type: basic_string
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    weight: 102
-    region: content
-  field_emeriti_status:
-    type: list_default
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    weight: 117
-    region: content
-  field_faculty_staff:
-    type: list_default
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    weight: 134
-    region: first
-  field_first_name:
-    type: string
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    weight: 103
-    region: content
-  field_first_override:
-    type: string
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    weight: 108
-    region: content
-  field_honors:
-    type: text_default
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    weight: 128
-    region: content
-  field_image:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 107
-    region: content
-  field_interests:
-    type: text_default
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    weight: 125
-    region: content
-  field_is_alumni:
-    type: boolean
-    label: above
-    settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
-    third_party_settings: {  }
-    weight: 116
-    region: content
-  field_last_name:
-    type: string
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    weight: 104
-    region: content
-  field_last_override:
-    type: string
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    weight: 109
-    region: content
-  field_links:
-    type: link
-    label: above
-    settings:
-      trim_length: 80
-      url_only: false
-      url_plain: false
-      rel: ''
-      target: ''
-    third_party_settings: {  }
-    weight: 124
-    region: content
-  field_middle_name:
-    type: string
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    weight: 131
-    region: first
-  field_office:
-    type: basic_string
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    weight: 121
-    region: content
-  field_office_hours:
-    type: basic_string
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    weight: 122
-    region: content
-  field_offices:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 136
-    region: first
-  field_page_families:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 108
-    region: content
-  field_phone:
-    type: basic_string
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    weight: 105
-    region: content
-  field_platforms:
-    type: link
-    label: above
-    settings:
-      trim_length: 80
-      url_only: false
-      url_plain: false
-      rel: ''
-      target: ''
-    third_party_settings: {  }
-    weight: 133
-    region: first
-  field_position:
-    type: string
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    weight: 106
-    region: content
-  field_position_override:
-    type: string
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    weight: 115
-    region: content
-  field_prefixes:
-    type: string
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    weight: 110
-    region: content
-  field_programs:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 120
-    region: content
-  field_pronouns:
-    type: string
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    weight: 114
-    region: content
-  field_publications:
-    type: text_default
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    weight: 129
-    region: content
-  field_short_bio:
-    type: text_default
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    weight: 130
-    region: first
-  field_show_email:
-    type: boolean
-    label: above
-    settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
-    third_party_settings: {  }
-    weight: 138
-    region: first
-  field_show_phone:
-    type: boolean
-    label: above
-    settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
-    third_party_settings: {  }
-    weight: 137
-    region: first
-  field_suffixes:
-    type: string
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    weight: 111
-    region: content
-  field_username:
-    type: string
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    weight: 112
-    region: content
-  links:
-    settings: {  }
-    third_party_settings: {  }
-    weight: 100
+    weight: 0
     region: content
 hidden:
+  body: true
+  field_active: true
+  field_campus: true
+  field_campus_id: true
+  field_colleges: true
+  field_cv: true
+  field_departments: true
+  field_education: true
+  field_email: true
+  field_emeriti_status: true
+  field_faculty_staff: true
+  field_first_name: true
+  field_first_override: true
+  field_honors: true
+  field_interests: true
+  field_is_alumni: true
+  field_last_name: true
+  field_last_override: true
+  field_links: true
   field_list_widget: true
   field_metatags: true
+  field_middle_name: true
+  field_office: true
+  field_office_hours: true
+  field_offices: true
+  field_page_families: true
+  field_phone: true
+  field_platforms: true
+  field_position: true
+  field_position_override: true
+  field_prefixes: true
+  field_programs: true
+  field_pronouns: true
+  field_publications: true
+  field_short_bio: true
+  field_show_email: true
+  field_show_phone: true
+  field_suffixes: true
+  field_username: true
   layout_builder__layout: true
+  links: true
   search_api_excerpt: true
