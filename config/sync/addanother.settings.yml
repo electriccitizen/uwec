@@ -6,13 +6,8 @@ default_tab: false
 default_tab_edit: false
 button:
   page: false
-  event: false
   news: false
-  profiles: false
-  webforms: false
   support_book: false
-  landing_page: false
-  gather_content_node: false
   bios: false
   academic_program: false
   announcement: false
@@ -20,21 +15,14 @@ button:
   contact: false
   department: false
   fact: false
-  snapshot_library: false
   snapshot: false
   testimonial: false
   video_card: false
   hours: false
-  job: false
 message:
   page: false
-  event: false
   news: false
-  profiles: false
-  webforms: true
   support_book: false
-  landing_page: false
-  gather_content_node: true
   bios: false
   academic_program: false
   announcement: false
@@ -42,21 +30,14 @@ message:
   contact: false
   department: false
   fact: false
-  snapshot_library: false
   snapshot: false
   testimonial: false
   video_card: false
   hours: false
-  job: true
 tab:
   page: true
-  event: true
   news: true
-  profiles: true
-  webforms: false
   support_book: true
-  landing_page: true
-  gather_content_node: false
   bios: true
   academic_program: true
   announcement: true
@@ -64,21 +45,14 @@ tab:
   contact: true
   department: true
   fact: true
-  snapshot_library: true
   snapshot: true
   testimonial: true
   video_card: true
   hours: true
-  job: false
 tab_edit:
   page: false
-  event: false
   news: false
-  profiles: false
-  webforms: false
   support_book: false
-  landing_page: false
-  gather_content_node: false
   bios: false
   academic_program: false
   announcement: false
@@ -86,9 +60,7 @@ tab_edit:
   contact: false
   department: false
   fact: false
-  snapshot_library: false
   snapshot: false
   testimonial: false
   video_card: false
   hours: false
-  job: false
