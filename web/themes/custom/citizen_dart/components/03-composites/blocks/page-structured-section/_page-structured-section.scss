@@ -169,15 +169,20 @@
   .field-button {
     padding: 0 $siteMarginMobile;
     max-width: 650px;
+    margin-bottom:$spaceXl;
     @include auto;
     @include desk {  
       text-align: center;
     }
     a {
       @include button;
-      @include onlyMobile {
-        margin-bottom: $spaceXl;
-      }
+      margin-bottom:0;
+    }
+
+    /* multiple buttons */
+    &>div{
+      display:inline-block;
+      margin:1rem;
     }
   }
 
