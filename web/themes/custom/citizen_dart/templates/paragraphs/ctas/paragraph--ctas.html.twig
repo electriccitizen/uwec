@@ -74,7 +74,9 @@
 									{% endif %}
 								</div>
 								<div class="cta-button">
-									<a href="{{ cta['#paragraph'].field_link.0.url }}">{{ cta['#paragraph'].field_link.0.title }}</a> 
+									{%- for link in cta['#paragraph'].field_link -%}
+										<a href="{{ link.url }}">{{ link.title }}</a> 
+									{%- endfor -%}
 								</div>
 							</div>
 						</div>
@@ -85,26 +87,27 @@
 	{% else %}
     <div class="cta-bar">
       <div class="cta-river">
-        <img src="/themes/custom/citizen_dart/images/elements/river-cta-bar.svg" alt="a wavy river shaped light blue decorative element behind the call to action content" width="1508px" height="371px" />
+        <img src="/themes/custom/citizen_dart/images/elements/river-cta-bar.svg" alt="a wavy river shaped light blue decorative element behind the call to action content" width="1508px" height="371px">
       </div>
-        <div class="cta-item">
-          <div class="cta-item-inner">
-            <div class="cta-image">
-            {% if content.field_cta_bar.0['#paragraph'].field_image.0 %}
-              {{ drupal_entity('media', content.field_cta_bar.0['#paragraph'].field_image.0.target_id, '1920x1445') }}
-            {% endif %}
+      <div class="cta-item">
+        <div class="cta-item-inner">
+          <div class="cta-image">
+          {% if content.field_cta_bar.0['#paragraph'].field_image.0 %}
+            {{ drupal_entity('media', content.field_cta_bar.0['#paragraph'].field_image.0.target_id, '1920x1445') }}
+          {% endif %}
+        </div>
+        <div class="cta-text-wrapper">
+          <div class="cta-headline">
+            {{- content.field_cta_bar.0['#paragraph'].field_headline.0.value -}}
           </div>
-          <div class="cta-text-wrapper">
-            <div class="cta-headline">
-              {{- content.field_cta_bar.0['#paragraph'].field_headline.0.value -}}
+          {% if content.field_cta_bar.0['#paragraph'].field_additional_text.0.value %}
+            <div class="cta-text">
+              {{- content.field_cta_bar.0['#paragraph'].field_additional_text.0.value -}}
             </div>
-            {% if content.field_cta_bar.0['#paragraph'].field_additional_text.0.value %}
-              <div class="cta-text">
-                {{- content.field_cta_bar.0['#paragraph'].field_additional_text.0.value -}}
-              </div>
-            {% endif %}
-            <a href="{{ content.field_cta_bar.0['#paragraph'].field_link.0.url }}">{{ content.field_cta_bar.0['#paragraph'].field_link.0.title }}</a> 
-          </div>
+          {% endif %}
+          {%- for link in content.field_cta_bar.0['#paragraph'].field_link -%}
+            <a class="non-trio-button" href="{{ link.url }}">{{ link.title }}</a> 
+          {%- endfor -%}
         </div>
       </div>
     </div>

@@ -35,20 +35,20 @@
       }
     }
   }
-	.dialog-off-canvas-main-canvas .node-support-book &{
-		*{
-			transform-style: unset;
-		}
-	}
-	.cta-trio{
-		max-width: 1045px;
-		@include auto;
-		.ctas-wrapper{
-			@include safeFlex(row,wrap,start,stretch);
-			@include bleed(padding,24px);
-		}
-		.cta-item{
-			width: 100%;
+  .dialog-off-canvas-main-canvas .node-support-book &{
+    *{
+      transform-style: unset;
+    }
+  }
+  .cta-trio{
+    max-width: 1045px;
+    @include auto;
+    .ctas-wrapper{
+      @include safeFlex(row,wrap,start,stretch);
+      @include bleed(padding,24px);
+    }
+    .cta-item{
+      width: 100%;
       &:not(:last-child){
         margin-bottom: $spaceSm;
         .widget-section > .layout--onecol &,
@@ -68,16 +68,19 @@
           width: 33.33%;
         }
       }
-			.cta-item-inner{
-				height: 100%;
-				background: $navy;
-				padding: 28px;
+      .cta-item-inner{
+        height: 100%;
+        background: $navy;
+        padding: 28px;
+        display:flex;
+        flex-direction:column;
+
         .widget-section > .layout--onecol &,
         .widget-section > .layout--twocol-section--75-25 > .layout__region--first &,
         .widget-section > .layout--twocol-section--25-75 > .layout__region--second &,
         .node-support-book &{
           @include tab{
-            padding: 30px 30px 80px;
+            padding: 30px 30px 30px;
             position: relative;
           }
         }
@@ -115,36 +118,17 @@
           .widget-section > .layout--twocol-section--25-75 > .layout__region--second &,
           .node-support-book &{
             @include tab{
-              margin-bottom: 5rem;
+              margin-bottom:1rem;
             }
           }
         }//end cta text
-        .cta-button{
-          .widget-section > .layout--onecol &,
-          .widget-section > .layout--twocol-section--75-25 > .layout__region--first &,
-          .widget-section > .layout--twocol-section--25-75 > .layout__region--second &,
-          .node-support-book &{
-            @include tab{
-              position: absolute;
-              bottom: 30px;
-              left: 30px;
-              width: calc(100% - 60px);
-            }
-          }
-          a{
-            @include tab {
-              @include auto;
-              width: calc(100% - 4rem);
-            }
-          }
-        }//end cta button
-			}//end cta item inner
-		}//end CTA item
-	}//end is trio
+      }//end cta item inner
+    }//end CTA item
+  }//end is trio
 
-	.cta-bar{
-		max-width: 1094px;
-		@include auto;
+  .cta-bar{
+    max-width: 1094px;
+    @include auto;
     position: relative;
     @include tab {
       margin-bottom: 100px;
@@ -197,42 +181,42 @@
         }
       }
     }
-		.cta-item-inner{
-			position: relative;
+    .cta-item-inner{
+      position: relative;
       z-index: 1;
-			overflow: hidden;
-			width: 100%;
-			padding: 86px 20px 40px;
+      overflow: hidden;
+      width: 100%;
+      padding: 86px 20px 40px;
       background: #283ae3;
       @include tab {
         padding-bottom: 82px;
       }
-			article{
-				position: absolute;
-				top: 0;
-				left: 0;
-				width: 100%;
-				height: 100%;
-				z-index: -1;
-				mix-blend-mode: multiply;
-				.field-media-image{
-					width: 100%;
-					height: 100%;
-					position: relative;
-					overflow: hidden;
-					z-index: -2;
-					img{
-						width: 100%;
-				    height: 100%;
-				    filter: grayscale(100%);
-						position: relative;
-						z-index: -3;
-						object-fit: cover;
+      article{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        mix-blend-mode: multiply;
+        .field-media-image{
+          width: 100%;
+          height: 100%;
+          position: relative;
+          overflow: hidden;
+          z-index: -2;
+          img{
+            width: 100%;
+            height: 100%;
+            filter: grayscale(100%);
+            position: relative;
+            z-index: -3;
+            object-fit: cover;
             opacity: 0;
-					}
-				}//end field media image
-			}//end article
-			.cta-text-wrapper{
+          }
+        }//end field media image
+      }//end article
+      .cta-text-wrapper{
         width: 80%;
         .widget-section > .layout--onecol &,
         .widget-section > .layout--twocol-section--75-25 > .layout__region--first &,
@@ -267,20 +251,21 @@
             margin-bottom: 0;
           }
         }
-			}//end cta text wrapper
-		}//end cita item inner
-	}//end is bar
+      }//end cta text wrapper
+    }//end cita item inner
+  }//end is bar
 
-	.cta-item{
-		color: $white;
-		.cta-headline{
+  .cta-item{
+    color: $white;
+
+    .cta-headline{
       & {
-			  color: $white;
+        color: $white;
       }
       &:not(:only-child){
         margin-bottom: $spaceXs;
       }
-		}
+    }
     .cta-text{
       margin-bottom: $spaceMd;
       font-size: 1.75rem;
@@ -290,10 +275,13 @@
         line-height: 1.625;
       }
     }
-		.cta-button,.cta-text-right{
+    .cta-button{
+      margin-top:auto;
+    }
+    .cta-button,.cta-text-right{
       text-align: center;
-			a {
-				@include outlineButton($white);
+      a {
+        @include outlineButton($white);
         & {
           margin-bottom: 0 !important;
           width: 100%;
@@ -303,7 +291,11 @@
           background: $white;
           border-color: $white;
         }
-			}
-		}
-	}//end cta item
+      }
+    }
+  }//end cta item
+
+  .non-trio-button{
+    margin-right:1rem;
+  }
 }//end ctas widget
