@@ -184,6 +184,10 @@ class Courses extends BlockBase{
 			return [];
 		}
 
+		// sometimes the courses xml has bad html entities.
+		// without doing this, those warnings get spit out onto the page when calling loadHTML below.
+		libxml_use_internal_errors(true);
+
 		// gather all courses in an array, indexed by lowercase course number
 		$allCourses = [];
 		for($i = 0; $i < $xml->course->count(); $i++){

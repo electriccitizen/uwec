@@ -10,8 +10,8 @@ id: paragraph.slate_form.field_script_tag_type
 field_name: field_script_tag_type
 entity_type: paragraph
 bundle: slate_form
-label: 'Script tag type'
-description: 'Select either the simple or dynamic script, or enter a custom script.  <strong>NOTE:</strong> There are no visual differences between the simple and dynamic forms—they both have the same fields, they are just treated differently on the back end.'
+label: 'Slate Embed Code'
+description: ''
 required: true
 translatable: false
 default_value: {  }

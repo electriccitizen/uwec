@@ -8,6 +8,7 @@ dependencies:
     - field.field.paragraph.slate_form.field_formatted_headline
     - field.field.paragraph.slate_form.field_script_tag_type
     - field.field.paragraph.slate_form.field_slate_script_tag
+    - field.field.paragraph.slate_form.field_slate_slug
     - paragraphs.paragraphs_type.slate_form
   module:
     - layout_builder
@@ -39,4 +40,5 @@ content:
 hidden:
   field_additional_text: true
   field_slate_script_tag: true
+  field_slate_slug: true
   search_api_excerpt: true
